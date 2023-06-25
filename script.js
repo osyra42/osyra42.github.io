@@ -14,10 +14,10 @@ var color;
 for (i = 0; i < x.length; i++) {
   y = x[i].innerText;
   
-  y == "project" ?
+  y == "Project" ?
     c = "#DDDDDD":
     
-  y == "Vanity [bot]" ?
+  y == "Vanity" ?
     c = "#DD7034":
     
   y == "Discord" ?
