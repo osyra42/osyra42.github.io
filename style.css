@@ -12,7 +12,7 @@ a {
 details {
   color: #99aab5;
   background-color: #2c2f33;
-  border: 2px solid #7289da;
+  border: 2px solid #888888;
   border-radius: 10px;
   margin-top: 10px;
   width: 366px;
@@ -25,7 +25,7 @@ details[open] summary {
 summary {
   height: 42px;
   width: 350px;
-  background-color: #7289da;
+  background-color: #888888;
   color: #2c2f33;
   font-size: 16px;
   display: block;
