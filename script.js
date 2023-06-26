@@ -1,3 +1,8 @@
+Project = "#DDDDDD";
+Vanity  = "#DD7034";
+Discord = "#7289DA";
+Logbook = "#888888";
+
 function recolor(y, i, c) {
   console.log("coloring " + y + " " + c);
   var z = document.querySelectorAll("details");
@@ -6,29 +11,24 @@ function recolor(y, i, c) {
 
 }
 
-
-let x = document.querySelectorAll("details > summary > span:nth-child(5)");
-
-var i;
-var color;
-for (i = 0; i < x.length; i++) {
-  y = x[i].innerText;
+function loop() {
+  let x = document.querySelectorAll("details > summary > span:nth-child(5)");
   
-  y == "Project" ?
-    c = "#DDDDDD":
+  var i;
+  var color;
+  for (i = 0; i < x.length; i++) {
+    y = x[i].innerText;
     
-  y == "Vanity" ?
-    c = "#DD7034":
-    
-  y == "Discord" ?
-    c = "#7289DA":
-
-    
-    c = "#888888";
-  recolor(y, i, c);
+    y == "Project" ? c = Project:
+    y == "Vanity"  ? c = Vanity:
+    y == "Discord" ? c = Discord:
+    y == "Logbook" ? c = Logbook:
+                     c = "#000000";
+    recolor(y, i, c);
+  }
 }
 
-
+loop();
 
 `
 <details>
