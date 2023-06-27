@@ -1,0 +1,109 @@
+<html>
+   <head>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+       body {
+         background-color: #000000;
+         color: #ffffff;
+         font-weight: bold;
+         font-size: 14px;
+       }
+       input, textarea, select, button {
+         background-color: #222222;
+         color: #dddddd;
+         width: 250px;
+         height: 32px;
+         margin: 3px;
+       }
+       #description {
+         width: 350px;
+         height: 330px;
+       }
+       #result {
+         width: 350px;
+         height: 570px;
+       }
+     </style>
+   </head>
+
+  <body>
+  <pre>
+index     <input type="number" id="index"/>
+timestamp <input id="timestamp"/>
+category  <select id="category">
+  <option></option>
+  <option>Javascript</option>
+  <option>Python</option>
+  <option>Hardware</option>
+  <option>Media</option>
+</select>
+project   <select id="project">
+  <option></option>
+  <option>Logbook</option>
+  <option>Vanity</option>
+  <option>Discord</option>
+  <option>Star Drive</option>
+  <option>PC FIxIT</option>
+  <option>Quicklinks</option>
+  <option>Youtube</option>
+  <option>Book</option>
+
+</select>
+
+description
+<textarea id="description"></textarea>
+</pre>
+    
+    <button id="submit" onclick="submit();">write code for me</button>
+    <br><br>
+
+    
+<textarea id="result"></textarea>
+
+
+
+    <script>
+function submit() {
+index = document.getElementById("index")
+  .value;
+
+timestamp = document.getElementById("timestamp")
+  .value;
+
+category = document.getElementById("category")
+  .options[document
+    .getElementById("category")
+  .selectedIndex]
+  .text;
+
+project = document.getElementById("project")
+  .options[document
+    .getElementById("project")
+  .selectedIndex]
+  .text;
+
+description = document.getElementById("description")
+  .value;
+
+
+
+  
+result = document.getElementById("result");
+result.value = 
+  `
+<details>
+  <summary>
+    <span>#${index}</span>
+    <span>${timestamp}</span> |
+    <span>${category}</span>
+    <br><span>${project}</span>
+  </summary>
+  <pre>
+${description}
+  </pre>
+</details>
+`
+}
+    </script>
+  </body>
+</html>

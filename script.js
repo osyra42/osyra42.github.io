@@ -1,9 +1,14 @@
-PROJECT = "#DDDDDD";
-VANITY = "#DD7034";
-DISCORD = "#7289DA";
-LOGBOOK = "#888888";
-STARDRIVE = "#E5B723";
-PCFIXIT = "#9A698C";
+const colours = {
+  "Project": "#DDDDDD",
+  "Vanity": "#DD7034",
+  "Discord": "#7289DA",
+  "Logbook": "#888888",
+  "Star Drive": "#E5B723",
+  "PC FIxIT": "#9A698C",
+  "Quicklinks": "",
+  "Youtube": "",
+  "Book": ""
+};
 
 function recolor(y, i, c) {
   console.log("coloring " + y + " " + c);
@@ -17,33 +22,14 @@ function loop() {
   let x = document.querySelectorAll("details > summary > span:nth-child(5)");
 
   var i;
-  var color;
   for (i = 0; i < x.length; i++) {
     y = x[i].innerText;
+    c = colours[y] ?? "#111111";
 
-    y == "Project" ? c = PROJECT :
-      y == "Vanity" ? c = VANITY :
-        y == "Discord" ? c = DISCORD :
-          y == "Logbook" ? c = LOGBOOK :
-            y == "Star Drive" ? c = STARDRIVE :
-              y == "PC FIxIT" ? c = PCFIXIT:
-                c = "#111111";
     recolor(y, i, c);
   }
 }
 
 loop();
 
-`
-<details>
-  <summary>
-    <span>{index}</span>
-    <span>{timestamp}</span> |
-    <span>{category}</span>
-    <br><span>{project}</span>
-  </summary>
-  <pre>
-{details}
-  </pre>
-</details>
-`
+
