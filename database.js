@@ -1,13 +1,13 @@
 var database =
   [
-    
-{
-    "index": 22,
-    "timestamp": 1688574137454,
-    "category": "Media",
-    "project": "Book",
-    "details": `writing a book in code is pretty hard so i will be writing the book on Microsoft Word and exporting it to PDF from now on`
-},
+
+    {
+      "index": 22,
+      "timestamp": 1688574137454,
+      "category": "Media",
+      "project": "Book",
+      "details": `writing a book in code is pretty hard so i will be writing the book on Microsoft Word and exporting it to PDF from now on`
+    },
     {
       "index": 21,
       "timestamp": 1688574092993,

@@ -10,51 +10,51 @@
 </head>
 
 
-  <style>
-    body {
-      background-color: #000000;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 14px;
-    }
+<style>
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+  }
 
-    input,
-    textarea,
-    select,
-    button {
-      background-color: #222222;
-      color: #dddddd;
-      width: 250px;
-      height: 32px;
-      margin: 3px;
-    }
+  input,
+  textarea,
+  select,
+  button {
+    background-color: #222222;
+    color: #dddddd;
+    width: 250px;
+    height: 32px;
+    margin: 3px;
+  }
 
-    #details {
-      width: 350px;
-      height: 330px;
-    }
+  #details {
+    width: 350px;
+    height: 330px;
+  }
 
-    #result {
-      width: 350px;
-      height: 570px;
-    }
-  </style>
+  #result {
+    width: 350px;
+    height: 570px;
+  }
+</style>
 
-  <script>
-    $(function() {
-      $("#timestamp").val($.now())
-      $("#index").val(database[0]. index+1)
-    })
-    function submit() {
-      index = $("#index").val();
-      timestamp = $("#timestamp").val();
-      details = $("#details").val();
-      category = $("#category option:selected").val();
-      project = $("#project option:selected").html();
-      details = details.replace(/(?:\r\n|\r|\n)/g, '\\n');
-console.log(details)
-      
-      result = `
+<script>
+  $(function () {
+    $("#timestamp").val($.now())
+    $("#index").val(database[0].index + 1)
+  })
+  function submit() {
+    index = $("#index").val();
+    timestamp = $("#timestamp").val();
+    details = $("#details").val();
+    category = $("#category option:selected").val();
+    project = $("#project option:selected").html();
+    details = details.replace(/(?:\r\n|\r|\n)/g, '\\n');
+    console.log(details)
+
+    result = `
 {
     "index": ${index},
     "timestamp": ${timestamp},
@@ -62,9 +62,9 @@ console.log(details)
     "project": "${project}",
     "details": \`${details}\`
 },`
-      $("#result").val(result)
-    };
-  </script>
+    $("#result").val(result)
+  };
+</script>
 </head>
 
 <body>
