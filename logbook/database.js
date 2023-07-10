@@ -2,6 +2,20 @@ var database =
   [
 
     {
+      "index": 24,
+      "timestamp": 1689006926228,
+      "category": "Media",
+      "project": "Book",
+      "details": `I have decided to continue writting my book into code. I will be using Word as an editor and copying it into code. `
+    },
+    {
+      "index": 23,
+      "timestamp": 1689006793993,
+      "category": "Javascript",
+      "project": "Logbook",
+      "details": `starting the process of adding my shop beside my logbook. soon everything will be on a single dashboard`
+    },
+    {
       "index": 22,
       "timestamp": 1688574137454,
       "category": "Media",
