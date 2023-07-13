@@ -2,6 +2,13 @@ var database =
   [
 
     {
+      "index": 25,
+      "timestamp": 1689260657070,
+      "category": "Javascript",
+      "project": "Logbook",
+      "details": `Logbook has beed expaneded to include 5 other projects so you can find all my projects in one easy place. Hopefully the next few updates will smooth out this transition.`
+    },
+    {
       "index": 24,
       "timestamp": 1689006926228,
       "category": "Media",
