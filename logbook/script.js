@@ -5,8 +5,9 @@ const colours = {
   "vanity_js": "#DD7034",
   "Discord": "#7289DA",
   "Logbook": "#888888",
+  "Dashboard": "#F47FFF",
   "Star Drive": "#FFE417",
-  "PC Repair": "#9A698C",
+  "PC Repair": "#888888",
   "Quicklinks": "#7A958E",
   "Youtube": "#E31937",
   "Book": "#D6BB87"

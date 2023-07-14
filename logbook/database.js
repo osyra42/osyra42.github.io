@@ -1,6 +1,12 @@
 var database =
   [
-
+    {
+      "index": 26,
+      "timestamp": 1689320555384,
+      "category": "Community",
+      "project": "Dashboard",
+      "details": `the official domain name for this site has changed to <a href="https://osyra42.xyz/">https://osyra42.xyz/</a>`
+    },
     {
       "index": 25,
       "timestamp": 1689260657070,
