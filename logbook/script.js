@@ -1,11 +1,10 @@
 const colours = {
   "Project": "#DDDDDD",
-  "Vanity": "#DD7034",
-  "vanity_py": "#DD7034",
-  "vanity_js": "#DD7034",
+  "vanity_py": "#EC7D3C",
+  "vanity_js": "#EC7D3C",
   "Discord": "#7289DA",
   "Logbook": "#888888",
-  "Dashboard": "#F47FFF",
+  "Dashboard": "#B67A4F",
   "Star Drive": "#FFE417",
   "PC Repair": "#888888",
   "Quicklinks": "#7A958E",
@@ -36,7 +35,7 @@ $.each(database, function(i) {
   details = database[i].details;
 
 
-  color = colours[project];
+  let color = colours[project];
   index = quad(index);
   timestamp = new Date(timestamp).toDateString();
   let count = Object.keys(database).length;

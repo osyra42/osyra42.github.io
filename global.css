@@ -5,6 +5,7 @@ body {
 
 a {
   color: #ff8833;
+  text-decoration: none;
 }
 
 pre {
@@ -12,4 +13,29 @@ pre {
   white-space: pre-wrap;
 }
 
-.center {}
+div.tile {
+  display: inline-block;
+  margin: 1px;
+  border: 2px solid black;
+  vertical-align: top;
+  text-align: center;
+}
+
+div.oneXone {
+  width: 114px;
+  height: 114px;
+}
+
+div.oneXtwo {
+  width: 238px;
+  height: 114px;
+}
+
+div.oneXthree {
+  width: 362px;
+  height: 114px;
+}
+
+div span.fa {
+  font-size: 64px;
+}

@@ -1,5 +1,27 @@
 var database =
   [
+
+    {
+      "index": 29,
+      "timestamp": 1689686806555,
+      "category": "Media",
+      "project": "Youtube",
+      "details": `For all those asking if I will still do Youtube the answer is yes, I am currently working with an artist to make a new VTuber model, I also should like to have some resemblance of this website completed. I hope be started by next year or even sooner if possible. I'm flattered that I have such a wonderful group of people supporting me.`
+    },
+    {
+      "index": 28,
+      "timestamp": 1689686378191,
+      "category": "Javascript",
+      "project": "Dashboard",
+      "details": `I added font awesome and started working on the landing page, I hope you enjoy watching it develop.`
+    },
+    {
+      "index": 27,
+      "timestamp": 1689685976904,
+      "category": "Media",
+      "project": "Book",
+      "details": `I started posting updates from my old books, you can see one <a href="../books/index.html">here</a>.`
+    },
     {
       "index": 26,
       "timestamp": 1689320555384,
