@@ -19,6 +19,7 @@ div.tile {
   border: 2px solid black;
   vertical-align: top;
   text-align: center;
+  padding-top: 12px;
 }
 
 div.oneXone {
