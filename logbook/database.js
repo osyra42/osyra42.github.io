@@ -2,6 +2,13 @@ var database =
   [
 
     {
+      "index": 30,
+      "timestamp": 1690221057948,
+      "category": "Javascript",
+      "project": "Dashboard",
+      "details": `added dynamic nav bar at the top\ntons of background code edits\nmodular pages`
+    },
+    {
       "index": 29,
       "timestamp": 1689686806555,
       "category": "Media",

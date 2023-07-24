@@ -8,9 +8,22 @@ a {
   text-decoration: none;
 }
 
+nav {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 pre {
   font-size: 16px;
   white-space: pre-wrap;
+}
+
+div.content {
+  margin-top: 50px;
 }
 
 div.tile {
