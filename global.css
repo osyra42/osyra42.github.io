@@ -22,6 +22,13 @@ pre {
   white-space: pre-wrap;
 }
 
+code {
+  background-color: rgba(0,0,0,0.3);
+  padding: 2px;
+  margin: 4px;
+  font-family: "Courier New",monospace;
+}
+
 div.content {
   margin-top: 50px;
 }
@@ -53,3 +60,5 @@ div.oneXthree {
 div span.fa {
   font-size: 64px;
 }
+
+.green{background-color:#004000}
