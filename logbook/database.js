@@ -2,6 +2,13 @@ var database =
   [
 
     {
+        "index": 31,
+        "timestamp": 1690592221147,
+        "category": "Hardware",
+        "project": "Dashboard",
+        "details": `this entire website has been moved to private hosting, if you too would like a website hosted let me know`
+    },
+    {
       "index": 30,
       "timestamp": 1690221057948,
       "category": "Javascript",
