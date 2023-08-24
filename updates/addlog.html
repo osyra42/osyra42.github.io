@@ -4,9 +4,7 @@
 <head>
   <title>osyra42's logbook</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-  <script src="database.js"></script>
 </head>
 
 
@@ -41,9 +39,19 @@
 </style>
 
 <script>
+
   $(function () {
     $("#timestamp").val($.now())
-    $("#index").val(database[0].index + 1)
+    $(function () {
+      $.get("index.php", function (data) {
+        const tempDiv = document.createElement("div");
+        tempDiv.innerHTML = data;
+        const indexValue = tempDiv.querySelector(".index").textContent;
+        const newIndex = parseInt(indexValue) + 1;
+        $("#index").val(newIndex);
+        console.log(indexValue, newIndex)
+      });
+    });
   })
   function submit() {
     index = $("#index").val();
@@ -51,17 +59,18 @@
     details = $("#details").val();
     category = $("#category option:selected").val();
     project = $("#project option:selected").html();
-    details = details.replace(/(?:\r\n|\r|\n)/g, '\\n');
+    details = details.replace(/\n/g, "<br>\n");
     console.log(details)
 
     result = `
-{
-    "index": ${index},
-    "timestamp": ${timestamp},
-    "category": "${category}",
-    "project": "${project}",
-    "details": \`${details}\`
-},`
+<!-- 000${index} -->
+Post <span class="index">000${index}</span>
+for <span class="project">${project}</span>
+at <span class="timestamp">${timestamp}</span>
+<blockquote>
+${details}
+</blockquote>
+`
     $("#result").val(result)
   };
 </script>
@@ -71,23 +80,16 @@
   <pre>
 index     <input type="number" id="index">
 timestamp <input id="timestamp">
-category  <select id="category">
-  <option>---</option>
-  <option>Javascript</option>
-  <option>Python</option>
-  <option>Hardware</option>
-  <option>Media</option>
-</select>
 project   <select id="project">
   <option>---</option>
-  <option>Dashboard</option>
+  <option>This Site</option>
   <option>Vanity</option>
   <option>Discord</option>
   <option>Star Drive</option>
   <option>PC FIxIT</option>
   <option>Quicklinks</option>
   <option>Youtube</option>
-  <option>Book</option>
+  <option>Books</option>
 
 </select>
 

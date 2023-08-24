@@ -5,7 +5,7 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h2>osyra42's Site</h2>
+							<h2>osyra42's site</h2>
 							<p>Welcome, this is my shop where I share my skills for money.<br>
 						I also take custom orders, <a href="../contact">contact me</a> for details.</p>
 						</header>
@@ -59,41 +59,5 @@
 					</div>
 					<a href="#five" class="goto-next scrolly">Next</a>
 				</section>
-				
-			<!-- Five -->
-			<section id="five" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="../images/new_service.jpg" alt="" /></span>
-					<div class="content">
-						<header>
-							<h2>Upcoming Services</h2>
-							<p>I am always learning and looking for more skills to offer members.</p>
-						</header>
-							<ul>
-								<li>Photo Editing <code>(40% learned)</code></li>
-								<li>Video Editing <code>(20% learned)</code></li>
-								<li>3D Modeling <code>(08% learned)</code></li>
-							</ul>
-						<ul class="actions">
-							<li><a href="../soon" class="button">Learn More</a></li>
-						</ul>
-					</div>
-					<a href="#six" class="goto-next scrolly">Next</a>
-				</section>
 
-			<!-- Six
-				<section id="six" class="wrapper style2 special fade">
-					<div class="container">
-						<header>
-							<h2>Get emailed when a new product or service is available.</h2>
-							<p>This will be about 1-2 emails per month.</p>
-						</header>
-						<form method="post" action="#" class="cta">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
-							</div>
-						</form>
-					</div>
-				</section>
--->
 <?php include "../footer.php";?>

@@ -5,7 +5,7 @@
 <div id="main" class="wrapper style1">
     <div class="container">
         <header class="major">
-            <h2>Vtuber Models</h2>
+            <h2>Game Dev</h2>
         </header>
 
         <!-- Content -->

@@ -6,7 +6,7 @@
             <li><a target="_blank" href="mailto:osyra42@proton.me" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
         </ul>
         <ul class="copyright">
-            <li>&copy;2020 - 2023 Heart Dab Studio</li>
+            <li title="lano-project.org -> apixelofhope.com -> heartdabstudio.com -> osyra42.xyz">&copy;2023 osyra42's site</li>
             <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
             <li><a href="../legal">Legal</a></li>
         </ul>
