@@ -12,6 +12,20 @@
         </header>
 
 
+<!-- 00035 -->
+Post <span class="index">00035</span>
+for <span class="project">This Site</span>
+at <span class="timestamp">1694682815946</span>
+<blockquote>
+- added image examples for vtuber models<br>
+- removed premade shop as it don't really make sense to advertise all services to users that may only want one service, and the examples would be to similar to each service individually<br>
+- change the website to zippocat.com so it is easier to remember<br>
+- changed the business email to osyra42@zippocat.com<br>
+- reorganized the nav bar to be a little cleaner, everything is under the commissions as that is the primary menu
+</blockquote>
+
+
+
 <!-- 00034 -->
 Post <span class="index">00034</span>
 for <span class="project">This Site</span>

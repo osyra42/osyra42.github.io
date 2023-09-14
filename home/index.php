@@ -5,7 +5,7 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h2>osyra42's site</h2>
+							<h2>Zippocat Tech</h2>
 							<p>Welcome, this is my shop where I share my skills for money.<br>
 						I also take custom orders, <a href="../contact">contact me</a> for details.</p>
 						</header>
@@ -17,7 +17,7 @@
 			
 			<!-- Two -->
 				<section id="one" class="spotlight style2 right">
-					<span class="image fit main"><img src="../images/3d_prints.jpg" alt="" /></span>
+					<span class="image fit main"><img src="../images/panel_3dprint.jpg" alt="" /></span>
 					<div class="content">
 						<header>
 							<h2>3D Prints</h2>
@@ -27,12 +27,12 @@
 							<li><a href="../3dprint" class="button">Learn More</a></li>
 						</ul>
 					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
+					<a href="#two" class="goto-next scrolly">Next</a>
 				</section>
 
 			<!-- Three -->
-				<section id="three" class="spotlight style3 left">
-					<span class="image fit main bottom"><img src="../images/vtuber_model.jpg" alt="" /></span>
+				<section id="two" class="spotlight style3 left">
+					<span class="image fit main bottom"><img src="../images/panel_vtuber.jpg" alt="" /></span>
 					<div class="content">
 						<header>
 							<h2>Vtuber Models</h2>
@@ -42,12 +42,12 @@
 							<li><a href="../vtuber" class="button">Learn More</a></li>
 						</ul>
 					</div>
-					<a href="#four" class="goto-next scrolly">Next</a>
+					<a href="#three" class="goto-next scrolly">Next</a>
 				</section>
 
 			<!-- Four -->
-				<section id="four" class="spotlight style2 right">
-					<span class="image fit main"><img src="../images/computer_repair.jpg" alt="" /></span>
+				<section id="three" class="spotlight style2 right">
+					<span class="image fit main"><img src="../images/panel_pcfix.jpg" alt="" /></span>
 					<div class="content">
 						<header>
 							<h2>Computer Repair</h2>
@@ -57,7 +57,7 @@
 							<li><a href="../pcfix" class="button">Learn More</a></li>
 						</ul>
 					</div>
-					<a href="#five" class="goto-next scrolly">Next</a>
+					<a href="#four" class="goto-next scrolly">Next</a>
 				</section>
 
 <?php include "../footer.php";?>

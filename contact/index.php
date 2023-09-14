@@ -16,7 +16,7 @@
 
                 <h3>How to contact me?</h3>
                 <ul>
-                    <li>business email: <code>osyra42@proton.me</code></li>
+                    <li>business email: <code>osyra42@zippocat.com</code></li>
                     <li>chat on discord: <code>@osyra42</code></li>
                 </ul>
             </section>
