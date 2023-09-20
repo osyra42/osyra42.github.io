@@ -2,15 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Letz meh halp</title>
+    <title>Your Website Title</title>
 </head>
 <body>
     <h1>Welcome to Your Website</h1>
     <p>This is the starter page for your website.</p>
 
+    <!-- Share button -->
+    <button id="shareButton">Share</button>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">X</span>
+            <img src="scancode.png" alt="Scan Code Image">
+
+            <!-- Text to copy -->
+            <p>https://osyra42.github.io/</p>
+
+            <!-- Copy button -->
+            <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+        </div>
+    </div>
+
+    <!-- Include the external JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
