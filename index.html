@@ -3,18 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
-    <title>Your Website Title</title>
+    <title>let me do it for you</title>
 </head>
 <body>
-  <div class="slider">
+  <nav>
+        <!-- Share button -->
+        <button id="shareButton"><i class="fas fa-share"></i></button>
+
+        <!-- Slider -->
         <input type="range" min="1" max="16" value="3" class="slider-input" id="colorSlider">
-  </div>
+        
+        <!-- Settings button -->
+        <button id="settingsButton"><i class="fas fa-cog"></i></button>
+  </nav>
+  
     <h1>Welcome to Your Website</h1>
     <p>This is the starter page for your website.</p>
 
     <!-- Share button -->
-    <button id="shareButton">Share</button>
+    
 
     <!-- Popup -->
     <div id="popup" class="popup">

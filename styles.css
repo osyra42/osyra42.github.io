@@ -6,6 +6,23 @@ body {
     color: white; /* Default text color */
 }
 
+nav {
+    position: sticky;
+    top: 0;
+    background-color: #333333;
+    border: 1px solid #FFF;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
 .slider {
     text-align: center;
     padding: 20px;
@@ -54,6 +71,7 @@ body {
 
 .popup-content {
   background-color: white;
+  color: #000;
   border: 1px solid #ccc;
   position: absolute;
   top: 50%;
