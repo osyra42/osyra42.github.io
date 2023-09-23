@@ -30,3 +30,27 @@ window.addEventListener("click", (event) => {
         closePopup();
     }
 });
+
+
+
+// script.js
+const colorSlider = document.getElementById("colorSlider");
+const colorOutput = document.getElementById("colorOutput");
+
+colorSlider.addEventListener("input", () => {
+    // Get the selected color position
+    const colorPosition = colorSlider.value;
+
+    // Set background color based on the position
+    const backgroundColors = [
+        "#000000", "#111111", "#222222", "#333333",
+        "#444444", "#555555", "#666666", "#777777",
+        "#888888", "#999999", "#aaaaaa", "#bbbbbb",
+        "#cccccc", "#dddddd", "#eeeeee", "#ffffff"
+    ];
+
+    document.body.style.backgroundColor = backgroundColors[colorPosition - 1];
+
+    // Set font color based on the background color position
+    document.body.style.color = colorPosition > 10 ? "#000000" : "#ffffff";
+});
