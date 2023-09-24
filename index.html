@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
     <link rel="stylesheet" href="styles.css">
-    <title>let me do it for you</title>
+    <title>Your Website Title</title>
 </head>
 <body>
-  <nav>
+    <nav>
         <!-- Share button -->
         <button id="shareButton"><i class="fas fa-share"></i></button>
 
@@ -18,14 +16,9 @@
         
         <!-- Settings button -->
         <button id="settingsButton"><i class="fas fa-cog"></i></button>
-  </nav>
-  
-    <h1>Welcome to Your Website</h1>
-    <p>This is the starter page for your website.</p>
+    </nav>
 
-    <!-- Share button -->
     
-
     <!-- Popup -->
     <div id="popup" class="popup">
         <div class="popup-content">
@@ -39,6 +32,52 @@
             <button id="copyButton" onclick="copyToClipboard()">Copy</button>
         </div>
     </div>
+
+
+  <div id="content"></div>
+
+    <script>
+        // Get a reference to the "content" div
+        var contentDiv = document.getElementById('content');
+
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+
+        // Define the URL of the external HTML file
+        var url = 'walmart.html';
+
+        // Set up a callback function to handle the AJAX response
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // The request is complete and successful
+                // Get the HTML content from the response
+                var htmlContent = xhr.responseText;
+
+                // Insert the HTML content into the "content" div
+                contentDiv.innerHTML = htmlContent;
+            }
+        };
+
+        // Open a GET request to the specified URL
+        xhr.open('GET', url, true);
+
+        // Send the request
+        xhr.send();
+    </script>
+
+  <h1>Welcome to Your Website</h1>
+    <p>This is the starter page for your website.</p>
+
+    <!-- Random text paragraphs -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat tristique eros, eget bibendum velit gravida vel. Vestibulum id arcu nec urna blandit auctor ac sit amet nulla. Suspendisse potenti. Nunc vel metus nec turpis cursus venenatis a eu justo. Phasellus vel laoreet odio.</p>
+
+    <p>Vivamus euismod, tortor eget vehicula luctus, odio arcu posuere nunc, nec vestibulum libero velit ut ex. Fusce bibendum neque non arcu auctor, vel malesuada libero fringilla. In hac habitasse platea dictumst. Sed ut neque in neque consequat iaculis.</p>
+
+    <p>Curabitur et justo et erat vehicula finibus. Nulla facilisi. Phasellus vel dolor sed nulla tempus tincidunt. Sed feugiat mi ut risus ultricies, a pellentesque libero rhoncus. Fusce nec ex quis quam feugiat venenatis.</p>
+
+    <p>Praesent nec odio vel nunc tempor convallis. Ut tincidunt a nisl eget venenatis. Morbi sagittis arcu sed quam tincidunt, vel placerat libero congue. Duis euismod ex sed orci facilisis, nec venenatis est rhoncus.</p>
+
+    <p>Quisque nec efficitur odio. Cras euismod bibendum ligula, ac posuere tellus. Nam euismod orci vel metus facilisis, a vulputate lorem scelerisque. Integer auctor, dui in bibendum cursus, eros ante cursus justo, sit amet fringilla urna odio id lorem.</p>
 
     <!-- Include the external JavaScript file -->
     <script src="script.js"></script>
