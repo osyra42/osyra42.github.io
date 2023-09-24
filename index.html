@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" >
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  
     <link rel="stylesheet" href="styles.css">
     <title>Your Website Title</title>
 </head>
@@ -37,32 +41,16 @@
   <div id="content"></div>
 
     <script>
-        // Get a reference to the "content" div
-        var contentDiv = document.getElementById('content');
+      // Use jQuery to load the external HTML file and insert it into the "content" div
+        $(document).ready(function () {
+            var url = 'walmart.html';
 
-        // Create a new XMLHttpRequest object
-        var xhr = new XMLHttpRequest();
-
-        // Define the URL of the external HTML file
-        var url = 'walmart.html';
-
-        // Set up a callback function to handle the AJAX response
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // The request is complete and successful
-                // Get the HTML content from the response
-                var htmlContent = xhr.responseText;
-
+            $.get(url, function (htmlContent) {
                 // Insert the HTML content into the "content" div
-                contentDiv.innerHTML = htmlContent;
-            }
-        };
-
-        // Open a GET request to the specified URL
-        xhr.open('GET', url, true);
-
-        // Send the request
-        xhr.send();
+                $('#content').html(htmlContent);
+            });
+        });
+        
     </script>
 
   <h1>Welcome to Your Website</h1>
