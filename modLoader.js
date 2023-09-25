@@ -1,39 +1,36 @@
-// Define an array of filenames
-var fileArray = [
-  "wm-blue.html"
-  // Add more filenames as needed
+var dirArray = [
+  "wm-blue",
+  "counter",
+  // Add more directory names as needed
 ];
 
 var fileList = $('#fileList');
-        var contentDiv = $('#content');
+var contentDiv = $('#content');
 
-        // Loop through the list of files and create buttons
-        $.each(fileArray, function(index, file) {
-            // Extract the file name without extension
-            var fileNameWithoutExtension = file.split('.').slice(0, -1).join('.');
+// Loop through the list of directories and create buttons
+$.each(dirArray, function(index, dir) {
+    // Create a button element for each directory
+    var dirButton = $('<button>', {
+        text: dir,
+    });
 
-            // Create a button element for each file
-            var fileButton = $('<button>', {
-                text: fileNameWithoutExtension, // Use the name without extension
-            });
-
-            // Attach a click event handler to the button
-            fileButton.click(function() {
-                // Make an AJAX request to load the file content
-                $.ajax({
-                    url: 'mods/' + file, // Set the correct path to the file
-                    dataType: 'text', // Assuming it's plain text, adjust if needed
-                    success: function(fileContent) {
-                        // Display the file content in the contentDiv
-                        contentDiv.text(fileContent);
-                    },
-                    error: function() {
-                        // Handle errors, e.g., file not found
-                        contentDiv.text('Error: File not found');
-                    }
-                });
-            });
-
-            // Append the button to the file list
-            fileList.append(fileButton);
+    // Attach a click event handler to the button
+    dirButton.click(function() {
+        // Make an AJAX request to load the 'index.html' content from the directory
+        $.ajax({
+            url: 'mods/' + dir + '/index.html', // Set the correct path to the 'index.html' file
+            dataType: 'text', // Assuming it's plain text, adjust if needed
+            success: function(fileContent) {
+                // Display the file content in the contentDiv
+                contentDiv.html(fileContent);
+            },
+            error: function() {
+                // Handle errors, e.g., file not found
+                contentDiv.text('Error: File not found');
+            }
         });
+    });
+
+    // Append the button to the file list
+    fileList.append(dirButton);
+});
