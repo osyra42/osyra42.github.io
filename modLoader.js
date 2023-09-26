@@ -1,6 +1,7 @@
 var dirArray = [
   "wm-blue",
   "counter",
+  "b-room",
   // Add more directory names as needed
 ];
 
