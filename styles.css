@@ -1,95 +1,35 @@
-/* styles.css */
-/* styles.css */
+/* Define the custom font using @font-face */
+@font-face {
+  font-family: 'CustomFont';
+  /* Give your font a name */
+  src: url('RadioNewsman.ttf') format('truetype');
+  /* Specify the font file and format */
+  font-weight: normal;
+  /* Font weight (e.g., normal, bold) */
+  font-style: normal;
+  /* Font style (e.g., normal, italic) */
+}
+
+/* Apply the custom font to the body */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #333333; /* Default background color */
-    color: white; /* Default text color */
+  font-family: 'CustomFont', sans-serif;
+  /* Use the font name defined above and provide fallback fonts */
+  background-color: #1A1C1A;
+  color: #F5F2E8;
+  background: url(background.jpg);
 }
 
 nav {
-    position: sticky;
-    top: 0;
-    background-color: #333333;
-    border: 1px solid #FFF;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  margin: 3px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+nav a img {
+  margin: 5px;
+  margin-top: 10px;
+  height: 32px;
+  width: 32px;
 }
 
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.slider {
-    text-align: center;
-    padding: 20px;
-}
-
-.slider-input {
-    width: 100%;
-}
-
-.slider-output {
-    margin-top: 10px;
-}
-
-/* Define color options for each position */
-.slider-input::-webkit-slider-runnable-track {
-    background: linear-gradient(to right, 
-        #000000, #111111, #222222, #333333, 
-        #444444, #555555, #666666, #777777, 
-        #888888, #999999, #AAAAAA, #BBBBBB, 
-        #CCCCCC, #DDDDDD, #EEEEEE, #FFFFFF);
-}
-
-
-
-/* Add your CSS styles here */
-.popup {
+#toolsDiv {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-}
-
-.popup img {
-  max-width: 90%;
-  /* Maximum width of the image within the container */
-  height: auto;
-  /* Maintain the aspect ratio */
-  display: block;
-  margin: 0 auto;
-  /* Center the image horizontally */
-}
-
-.popup-content {
-  background-color: white;
-  color: #000;
-  border: 1px solid #ccc;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  width: 300px;
-  margin: 0 auto;
-}
-
-.close-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-pre {
-  white-space: pre-wrap;
 }

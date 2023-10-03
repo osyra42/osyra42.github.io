@@ -1,52 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="modLoader.js"></script>
-
   <link rel="stylesheet" href="styles.css">
-  <title>Foggy Notes</title>
+  <script src="osyras_pre_lib.js"></script>
 </head>
-
 <body>
   <nav>
-    <!-- Share button -->
-    <button id="shareButton"><i class="fas fa-share"></i></button>
-
-    <!-- Slider -->
-    <input type="range" min="1" max="16" value="3" class="slider-input" id="colorSlider">
-
-    <!-- Settings button -->
-    <button id="settingsButton"><i class="fas fa-cog"></i></button>
-  </nav>
-
-
-  <!-- Popup -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <span class="close-button" onclick="closePopup()">X</span>
-      <img src="scancode.png" alt="Scan Code Image">
-
-      <!-- Text to copy -->
-      <p>https://osyra42.github.io/</p>
-
-      <!-- Copy button -->
-      <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+   Osyra's News
+    <span style="float:right" id="toolBtn">View Tools</span>
+    <div id="toolsDiv">
+      <a href="#"><img/></a>
     </div>
-  </div>
-  <div id="fileList"></div>
-  <br>
-  <div id="content"></div>
-
-
-  <!-- Include the external JavaScript file -->
-  <script src="modLoader.js"></script>
+  </nav>
+  
   <script src="script.js"></script>
 </body>
-
 </html>

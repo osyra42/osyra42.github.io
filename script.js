@@ -1,53 +1,22 @@
+// Get references to the button and the "tools" div
+    const toolBtn = document.getElementById('toolBtn');
+    const toolsDiv = document.getElementById('toolsDiv');
 
-$(document).ready(function() {
-  const shareButton = $("#shareButton");
-  const popup = $("#popup");
-  const copyButton = $("#copyButton");
-  const textToCopy = "https://osyra42.github.io/";
+    // Initialize a variable to track the state
+    let isToolsVisible = false;
 
-  shareButton.on("click", function() {
-    popup.css("display", "block");
-  });
+    // Add a click event listener to the button
+    toolBtn.addEventListener('click', function () {
+      if (isToolsVisible) {
+        // If tools are visible, hide them and change button text
+        toolsDiv.style.display = 'none';
+        toolBtn.textContent = 'Show Tools';
+      } else {
+        // If tools are hidden, show them and change button text
+        toolsDiv.style.display = 'block';
+        toolBtn.textContent = 'Hide Tools';
+      }
 
-  function closePopup() {
-    popup.css("display", "none");
-  }
-
-  function copyToClipboard() {
-    const textArea = $("<textarea>");
-    textArea.val(textToCopy);
-    $("body").append(textArea);
-    textArea.select();
-    document.execCommand("copy");
-    textArea.remove();
-    alert("Copied to clipboard: " + textToCopy);
-  }
-
-  // Close the popup when clicking outside of it
-  $(window).on("click", function(event) {
-    if (event.target === popup[0]) {
-      closePopup();
-    }
-  });
-
-  const colorSlider = $("#colorSlider");
-  const colorOutput = $("#colorOutput");
-
-  colorSlider.on("input", function() {
-    // Get the selected color position
-    const colorPosition = colorSlider.val();
-
-    // Set background color based on the position
-    const backgroundColors = [
-      "#000000", "#111111", "#222222", "#333333",
-      "#444444", "#555555", "#666666", "#777777",
-      "#888888", "#999999", "#aaaaaa", "#bbbbbb",
-      "#cccccc", "#dddddd", "#eeeeee", "#ffffff"
-    ];
-
-    $("body").css("background-color", backgroundColors[colorPosition - 1]);
-
-    // Set font color based on the background color position
-    $("body").css("color", colorPosition > 10 ? "#000000" : "#ffffff");
-  });
-});
+      // Toggle the state
+      isToolsVisible = !isToolsVisible;
+    });
