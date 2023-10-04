@@ -1,14 +1,18 @@
 /* Define the custom font using @font-face */
 @font-face {
   font-family: 'CustomFont';
-  /* Give your font a name */
   src: url('RadioNewsman.ttf') format('truetype');
-  /* Specify the font file and format */
   font-weight: normal;
-  /* Font weight (e.g., normal, bold) */
   font-style: normal;
-  /* Font style (e.g., normal, italic) */
 }
+
+@font-face {
+  font-family: 'HeaderFont';
+  src: url('Headline Font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 /* Apply the custom font to the body */
 body {
@@ -19,10 +23,32 @@ body {
   background: url(background.jpg);
 }
 
-nav {
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.4);
+a {
+  color: #ff712e;
+  text-decoration: none;
 }
+
+h3 {
+  font-family: 'HeaderFont';
+  font-size: 24px;
+  padding: 0px;
+  margin: 0px;
+  padding-top: 36px;
+}
+
+p {
+  font-family: 'CustomFont';
+  font-size: 16px;
+  padding: 0px;
+  margin: 0px;
+}
+
+nav {
+  color: #1A1C1A;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 nav a img {
   margin: 5px;
   margin-top: 10px;
@@ -30,6 +56,6 @@ nav a img {
   width: 32px;
 }
 
-#toolsDiv {
+#archiveDiv {
   display: none;
 }
