@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
   <nav>
-    Osyra's News
-    <span style="float:right" id="archiveBtn">View Archives</span>
-    <div id="archiveDiv">
-      <ul id="archiveLinks"></ul>
+    <div class="menu-container">
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="wm-blue">wm-blue</div>
     </div>
   </nav>
-  <div id="content">
-    <h3 id="fileTitle"></h3>
-  </div>
+
+  <main>
+    <p class="greet">${greeting}, ${user.name}!</p>
+    <p class="date">Today is ${timestamp}. ${week}</p>
+    <section>
+      Current Status <br>
+      ${user.status}
+    </section>
+    
+  </main>
   <script src="script.js"></script>
 </body>
+
 </html>
