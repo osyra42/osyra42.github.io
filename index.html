@@ -1,25 +1,58 @@
-<!DOCTYPE  html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial=scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-      <h1>Wolf Gear Mags</h1>
-      I'm purchasing a design studio program for $135 (tax included) to create a magazine. Since I've used their software before and find it reliable, I'd like to split the payment with my friends as a holiday gift. Do you have anything you can contribute to support this cause?
-      <br>
-<a href="https://affinity.serif.com/en-us/store/upgrade-offer/">Look at Affinity Suite?</a><br>
-      
-<br><br>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holiday Gift</title>
+  <style>
+    body {
+      background-color: #262626;
+      color: #cccccc;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 12px;
+    }
 
-      <p>This is the progress so far: </p>
-      <progress id="progress"></progress>
-      <p id="string"></p>
+    a {
+      color: #ff8800;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-      <a href="https://paypal.me/osyra42">Click Here to Contribute</a>
-    <script src="script.js" ></script>
-  </body>
+    progress {
+      width: 100%;
+      height: 16px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      background-color: #262626;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wolf Gear Mags</h1>
+  I'm purchasing a design studio program for $135 (tax included) to create a magazine. Since I've used their software before and find it reliable, I'd like to split the payment with my friends as a holiday gift. Do you have anything you can contribute to support this cause?
+  <br>
+  <a href="https://affinity.serif.com/en-us/store/upgrade-offer/">Look at Affinity Suite?</a><br>
+  <br><br>
 
+  <p>This is the progress so far: </p>
+  <progress id="progress"></progress>
+  <p id="string"></p>
+
+  <a href="https://paypal.me/osyra42">Click Here to Contribute</a>
+  <script>
+    const collected = 61;
+
+    var x = document.getElementById('progress');
+    var string = document.getElementById('string');
+
+    x.max = 135;
+    x.value = collected;
+    let percent = Math.floor(x.value / x.max * 100);
+
+    string.innerHTML = `I have collected $${x.value}.<br>
+    That's ${percent}% of the original $${x.max}.<br>
+    Thank you all. <3`;
+  </script>
+</body>
 </html>
