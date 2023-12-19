@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,9 +24,9 @@
       border-radius: 8px;
       border-color: #555555;
       box-shadow: 8px 8px 8px 0 #111111;
-      
+
     }
-    
+
     a {
       color: #ff8800;
       text-decoration: none;
@@ -41,38 +42,68 @@
     }
   </style>
 </head>
+
 <body>
   <div>
-  <h1>Osyra's Xmas Gift</h1>
-  <p>I'm purchasing a design studio program for $135 (tax included) to create a magazine. Since I've used their software before and find it reliable, I'd like to split the payment with my friends as a holiday gift. Do you have anything you can contribute to support this cause?</p>
-  <br>
-  <a href="https://affinity.serif.com/en-us/store/upgrade-offer/">Look at Affinity Suite?</a><br>
-  <br><br>
+    <h1>Osyra's Xmas Gift</h1>
+    <p>I'm purchasing a design studio program for $135 (tax included) to create a magazine. Since I've used their
+      software before and find it reliable, I'd like to split the payment with my friends as a holiday gift. Do you have
+      anything you can contribute to support this cause?</p>
+    <br>
+    <a href="https://affinity.serif.com/en-us/store/upgrade-offer/">Look at Affinity Suite?</a><br>
+    <br><br>
 
-  <p>This is the progress so far: </p>
-  <progress id="progress"></progress>
-  <p id="string"></p>
+    <p>This is the progress so far: </p>
+    <progress id="progress"></progress>
+    <p id="string"></p>
 
-  <a href="https://paypal.me/osyra42">Click Here to Contribute</a><br>
+    <a href="https://paypal.me/osyra42">Click Here to Contribute</a><br>
     <p id="time"></p>
   </div>
   <script>
-const collected = 61;
+    //35, 25, 77
+    const collected = 61;
+    //let timestamp = 1703433600;
 
-var x = document.getElementById('progress');
-var string = document.getElementById('string');
-var time = document.getElementById('time');
+    var x = document.getElementById('progress');
+    var string = document.getElementById('string');
+    var time = document.getElementById('time');
 
-let timestamp = 1703433600;
-x.max = 135;
-x.value = collected;
-var percent = Math.floor(x.value / x.max * 100);
 
-string.innerHTML = `I have collected $${x.value}.<br>
-    That's ${percent}% of the original $${x.max}.<br>
+    function getFormattedDate(timestamp) {
+      var date = new Date(timestamp * 1000)
+
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var hour = date.getHours();
+      var min = date.getMinutes();
+      var sec = date.getSeconds();
+
+      month = (month < 10 ? "0" : "") + month;
+      day = (day < 10 ? "0" : "") + day;
+      hour = (hour < 10 ? "0" : "") + hour;
+      min = (min < 10 ? "0" : "") + min;
+      sec = (sec < 10 ? "0" : "") + sec;
+
+      var str = date.getFullYear() + "-" + month + "-" + day + "_" + hour + ":" + min + ":" + sec;
+
+      /*alert(str);*/
+
+      return str;
+    }
+
+    max = 135;
+    value = collected;
+    x.max = max;
+    x.value = value;
+    var percent = Math.floor(value / max * 100);
+
+    string.innerHTML = `I have collected $${value}.<br>
+    That's ${percent}% of the original $${max}.<br>
     Thank you all. <3`;
 
-time.innerHTML = `Intended purchase time is<br>${new Date(timestamp * 1000)}`;
+    time.innerHTML = `Intended purchase time is<br>${getFormattedDate(1703433600)}`;
   </script>
 </body>
+
 </html>
