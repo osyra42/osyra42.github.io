@@ -53,21 +53,26 @@
   <progress id="progress"></progress>
   <p id="string"></p>
 
-  <a href="https://paypal.me/osyra42">Click Here to Contribute</a>
+  <a href="https://paypal.me/osyra42">Click Here to Contribute</a><br>
+    <p id="time"></p>
   </div>
   <script>
-    const collected = 61;
+const collected = 61;
 
-    var x = document.getElementById('progress');
-    var string = document.getElementById('string');
+var x = document.getElementById('progress');
+var string = document.getElementById('string');
+var time = document.getElementById('time');
 
-    x.max = 135;
-    x.value = collected;
-    let percent = Math.floor(x.value / x.max * 100);
+let timestamp = 1703433600;
+x.max = 135;
+x.value = collected;
+var percent = Math.floor(x.value / x.max * 100);
 
-    string.innerHTML = `I have collected $${x.value}.<br>
+string.innerHTML = `I have collected $${x.value}.<br>
     That's ${percent}% of the original $${x.max}.<br>
     Thank you all. <3`;
+
+time.innerHTML = `Intended purchase time is<br>${new Date(timestamp * 1000)}`;
   </script>
 </body>
 </html>
