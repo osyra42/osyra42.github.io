@@ -1,0 +1,14 @@
+body {
+  width: 100%;
+  background-color: #555;
+}
+
+#container {
+  width: 360px;
+  background-color: #ccc;
+}
+
+a {
+  color: #ff8000;
+  background-color: #262626;
+}
