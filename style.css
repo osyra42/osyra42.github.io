@@ -1,14 +1,31 @@
 body {
+  font-family: Minecraftia;
   width: 100%;
   background-color: #555;
 }
 
 #container {
+  font-family: inherit;
+  font-size: 12px;
   width: 360px;
   background-color: #ccc;
 }
 
 a {
+  text-decoration: none;
+}
+
+pre {
+  font-family: inherit;
+  white-space: pre-wrap;
+}
+
+.link {
   color: #ff8000;
+  background-color: #262626
+}
+
+.contact {
+  color: #00ffff;
   background-color: #262626;
 }
