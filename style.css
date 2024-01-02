@@ -1,14 +1,33 @@
+:root {
+  --black: #000000;
+  --dark_blue: #0000AA;
+  --dark_green: #00AA00;
+  --dark_aqua: #00AAAA;
+  --dark_red: #AA0000;
+  --dark_purple: #AA00AA;
+  --gold: #FFAA00;
+  --gray: #AAAAAA;
+  --dark_gray: #555555;
+  --blue: #5555FF;
+  --green: #55FF55;
+  --aqua: #55FFFF;
+  --red: #FF5555;
+  --light_purple: #FF55FF;
+  --yellow: #FFFF55;
+  --white: #FFFFFF;
+}
+
 body {
   font-family: Minecraftia;
   width: 100%;
-  background-color: #555;
+  background-color: var(--dark_gray);
 }
 
 #container {
   font-family: inherit;
   font-size: 12px;
   width: 360px;
-  background-color: #ccc;
+  background-color: var(--gray);
 }
 
 a {
@@ -21,11 +40,11 @@ pre {
 }
 
 .link {
-  color: #ff8000;
-  background-color: #262626
+  color: var(--gold);
+  background-color: var(--black);
 }
 
 .contact {
-  color: #00ffff;
-  background-color: #262626;
+  color: var(--aqua);
+  background-color: var(--black);
 }
