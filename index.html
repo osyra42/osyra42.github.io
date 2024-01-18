@@ -1,75 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: url('background-image.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('background-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      /* Prevent body scrolling */
+    }
 
-        .profile-section {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            overflow: hidden;
-          background-image: url('background-image.jpg');
-        }
+    .profile-section {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.6);
+      text-align: left;
+    }
 
-        .profile-picture {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            margin-top: 20px;
-            margin-right: 20px;
-        }
+    .profile-picture {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      margin-top: 20px;
+      margin-right: 20px;
+    }
 
-        .text-section {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 60%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            box-sizing: border-box;
-        }
+    .profile-section p {
+      text-align: center;
+      padding-right: 28px;
+      /* Center the text within the paragraph */
+    }
 
-        @media (max-width: 768px) {
-            .profile-section {
-                flex-direction: column;
-                align-items: center;
-            }
+    .text-section h1 {
+      border-bottom: 3px solid #ffffff;
+      /* Replace #ffffff with the desired border color */
+      padding-bottom: 10px;
+      /* Adjust the padding as needed */
+    }
 
-            .text-section {
-                position: static;
-                width: 100%;
-                margin-top: 20px;
-            }
-        }
-    </style>
+    .text-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 70%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .questions {
+      max-height: 100%;
+      overflow-y: auto;
+      /* Enable vertical scrolling */
+    }
+
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text-section {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  </style>
+
 </head>
+
 <body>
-    <div class="profile-section">
-        <img src="profile_picture.png" alt="Profile Picture" class="profile-picture">
-        <div class="text-section">
-            <h1>About Me</h1>
-            <p>Your text goes here...</p>
-        </div>
+  <div class="profile-section">
+    <img src="profile_picture.png" alt="Profile Picture" class="profile-picture">
+    <p>
+      Age: < 28 years<br>
+        Gender: Either<br>
+        Location: NE USA </p>
+    <div class="text-section">
+      <h1>About Me</h1>
+      <div class="questions">
+        <p>1. What is your favorite book, and why?</p>
+        <p>2. How do you define success?</p>
+        <p>3. What is your go-to comfort food?</p>
+        <p>4. Share your thoughts on climate change.</p>
+        <p>5. Describe your dream vacation destination.</p>
+        <p>6. What hobby or activity brings you joy?</p>
+        <p>7. What's your opinion on social media's impact on society?</p>
+        <p>8. How do you handle stress?</p>
+        <p>9. Share your views on artificial intelligence.</p>
+        <p>10. What's the most influential movie you've watched?</p>
+        <p>11. Discuss your favorite music genre and why you love it.</p>
+        <p>12. How important is education to you?</p>
+        <p>13. Share your thoughts on the role of technology in daily life.</p>
+        <p>14. What's a skill you've always wanted to learn?</p>
+        <p>15. Discuss your favorite historical period.</p>
+        <p>16. How do you approach decision-making?</p>
+        <p>17. What's your take on the importance of mental health?</p>
+        <p>18. Share your views on space exploration.</p>
+        <p>19. Discuss a memorable childhood experience.</p>
+        <p>20. What does friendship mean to you?</p>
+        <p>21. Share your thoughts on the future of renewable energy.</p>
+        <p>22. What's your favorite form of entertainment (movies, books, games)?</p>
+        <p>23. Discuss a current social or political issue you're passionate about.</p>
+        <p>24. How do you define happiness?</p>
+        <p>25. Share your opinion on the role of humor in life.</p>
+        <p>26. What's your favorite type of cuisine?</p>
+        <p>27. Discuss a favorite movie that changed your perspective.</p>
+        <p>28. How do you stay motivated to achieve your goals?</p>
+        <p>29. Share your views on cultural diversity.</p>
+        <p>30. What's your favorite season, and why?</p>
+        <p>31. Discuss a role model who inspires you.</p>
+        <p>32. How do you cope with failure?</p>
+        <p>33. Share your thoughts on the impact of music on emotions.</p>
+        <p>34. What's your favorite childhood memory?</p>
+        <p>35. Discuss a personal achievement you're proud of.</p>
+        <p>36. How do you balance work and personal life?</p>
+        <p>37. Share your views on the importance of art in society.</p>
+        <p>38. What's your opinion on the future of virtual reality?</p>
+        <p>39. How do you handle disagreements in relationships?</p>
+        <p>40. Discuss your favorite form of exercise.</p>
+        <p>41. Share your thoughts on the importance of empathy.</p>
+        <p>42. What's your favorite quote and why?</p>
+        <p>43. Discuss a book or movie that changed your perspective.</p>
+        <p>44. How do you define beauty?</p>
+        <p>45. Share your views on the impact of social media on mental health.</p>
+        <p>46. What's a cause or charity you're passionate about?</p>
+        <p>47. Discuss a memorable travel experience.</p>
+        <p>48. How do you stay positive during challenging times?</p>
+        <p>49. Share your opinion on the role of government in society.</p>
+        <p>50. What's your favorite type of technology gadget?</p>
+        <p>51. Discuss your favorite animal and why you love it.</p>
+        <p>52. How do you approach self-improvement?</p>
+        <p>53. Share your thoughts on the importance of family.</p>
+        <p>54. What's your favorite type of art (painting, sculpture, photography)?</p>
+        <p>55. Discuss a skill you're proud to have mastered.</p>
+        <p>56. How do you contribute to your community?</p>
+        <p>57. Share your views on the future of education.</p>
+        <p>58. What's your favorite childhood game or activity?</p>
+        <p>59. How do you define courage?</p>
+        <p>60. Discuss a cultural tradition you cherish.</p>
+        <p>61. What's your opinion on the impact of video games on behavior?</p>
+        <p>62. Share your thoughts on the importance of privacy.</p>
+        <p>63. What's your favorite type of weather?</p>
+        <p>64. How do you approach time management?</p>
+        <p>65. Discuss a technology innovation that fascinates you.</p>
+        <p>66. Share your views on the importance of travel.</p>
+        <p>67. What's your favorite type of dessert?</p>
+        <p>68. How do you handle uncertainty in life?</p>
+        <p>69. Discuss a favorite holiday tradition.</p>
+        <p>70. Share your thoughts on the role of humor in challenging situations.</p>
+        <p>71. What's your opinion on the role of sports in society?</p>
+        <p>72. How do you define integrity?</p>
+        <p>73. Discuss a favorite childhood TV show or cartoon.</p>
+        <p>74. What's your favorite form of creative expression?</p>
+        <p>75. Share your views on the impact of social media on relationships.</p>
+        <p>76. How do you approach goal-setting?</p>
+        <p>77. What's your favorite type of cuisine to cook at home?</p>
+        <p>78. Discuss a favorite quote from a book or movie.</p>
+        <p>79. Share your thoughts on the importance of sustainability.</p>
+        <p>80. What's your opinion on the role of government in the economy?</p>
+        <p>81. How do you define kindness?</p>
+        <p>82. Discuss a favorite memory with friends.</p>
+        <p>83. What's your favorite type of outdoor activity?</p>
+        <p>84. Share your views on the future of virtual communication.</p>
+        <p>85. How do you handle criticism?</p>
+        <p>86. What's your favorite childhood toy?</p>
+        <p>87. Discuss a memorable achievement in your career.</p>
+        <p>88. How do you approach learning new things?</p>
+        <p>89. Share your thoughts on the impact of technology on relationships.</p>
+        <p>90. What's your opinion on the role of art in education?</p>
+        <p>91. Discuss a favorite memory with family.</p>
+        <p>92. What's your favorite type of architecture?</p>
+        <p>93. How do you define success in relationships?</p>
+        <p>94. Share your views on the importance of free speech.</p>
+        <p>95. What's your opinion on the future of space exploration?</p>
+        <p>96. How do you approach problem-solving?</p>
+        <p>97. Discuss a favorite memory from school.</p>
+        <p>98. What's your favorite type of transportation (car, bike, public transit)?</p>
+        <p>99. Share your thoughts on the impact of social media on self-esteem.</p>
+        <p>100. How do you stay true to yourself in a changing world?</p>
+      </div>
     </div>
+  </div>
 </body>
+
 </html>
