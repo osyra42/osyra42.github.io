@@ -34,9 +34,20 @@ a {
   bottom: -20px;
   left: 110px;
   font-size: 30px;
+  background-color: rgba(0,0,0,0.4);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .socials a {
   padding: 5px;
   font-weight: bold;
+  font-family: Arial;
+  font-size: 18px;
+  color: #dddddd;
+  background-color: #222222;
+  border-radius: 5px;
 }
+ .socials a i {
+   padding: 3px;
+ }
