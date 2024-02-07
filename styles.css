@@ -61,6 +61,6 @@ a {
   margin-top: 15px;
 }
 
-.bio p {
-  text-indent: 10px;
+.bio pre {
+  white-space: pre-wrap;
 }
