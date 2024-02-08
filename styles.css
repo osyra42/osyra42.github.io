@@ -5,7 +5,12 @@ body {
 
 a {
   text-decoration: none;
-  color: #00ff00;
+  color: #FD6D72;
+}
+
+p {
+  padding: 0px;
+  margin: 0px;
 }
 
 .banner {
@@ -35,7 +40,7 @@ a {
   bottom: -20px;
   left: 110px;
   font-size: 30px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -49,18 +54,80 @@ a {
   background-color: #222222;
   border-radius: 5px;
 }
- .socials a i {
-   padding: 3px;
- }
+
+.socials a i {
+  padding: 3px;
+}
 
 .bio {
   font-family: Arial;
   background-color: #222222;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   margin-top: 15px;
 }
 
-.bio pre {
-  white-space: pre-wrap;
+
+
+section {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.take-number {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  background-color: #000000;
+  color: #fff;
+  text-decoration: none;
+  display: none;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.box:hover .take-number {
+  display: block;
+}
+
+.box {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  margin: 10px;
+  background-color: #262626;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  border-radius: 30px;
+}
+
+.box h3 {
+  position: absolute;
+  top: 3px;
+}
+
+.box img {
+  top: 20px;
+  height: 200px;
+  width: 290px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: block;
 }
