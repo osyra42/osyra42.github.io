@@ -35,7 +35,7 @@ p {
 .banner {
   position: relative;
   background-color: var(--slate_gray);
-  background-image: url("images/banner.jpg");
+  background-image: url("images/banner.png");
   height: 30vh;
   width: 100%;
   border-radius: 10px;
@@ -76,6 +76,7 @@ p {
   color: var(--white);
   background-color: var(--black);
   border-radius: 5px;
+  white-space: nowrap;
 }
 
 .socials a i {
@@ -131,7 +132,7 @@ section {
 
 .box {
   position: relative;
-  width: 300px;
+  width: 320px;
   height: 450px;
   margin: 10px;
   background-color: var(--black);
@@ -147,15 +148,26 @@ section {
 .box h3 {
   position: absolute;
   top: 3px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .box img {
-  top: 20px;
+  margin: 10px;
+  position: absolute;
+  top: 40px;
   height: 200px;
-  width: 290px;
-  border: 1px solid #ddd;
+  width: 300px;
+  border: 1px solid var(--white);
   border-radius: 8px;
   display: block;
+}
+
+.box p {
+  padding: 10px;
+  font-size: 20px;
+  position: absolute;
+  top: 250px;
 }
 
 @media {}
