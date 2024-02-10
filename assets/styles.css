@@ -11,10 +11,16 @@
 }
 
 @font-face {
-  font-family: 'Shalbie';
-  src: url('fonts/Shalbie Free.otf') format('opentype'),
-    url('fonts/Shalbie Free.ttf') format('truetype');
+  font-family: 'Quikhand';
+  src: url('fonts/Quikhand.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Shalbie';
+  src: url('fonts/Shalbie Free Trial.otf') format('opentype'),
+    url('fonts/Shalbie Free Trial.ttf') format('truetype');
+}
+
 
 
 body {
@@ -150,6 +156,7 @@ section {
   top: 3px;
   margin: 0px;
   padding: 0px;
+  font-family: Quikhand;
 }
 
 .box img {
@@ -165,9 +172,11 @@ section {
 
 .box p {
   padding: 10px;
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: bold;
   position: absolute;
   top: 250px;
+
 }
 
 @media {}
