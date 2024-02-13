@@ -120,24 +120,17 @@ section {
 
 
 
-.take-number {
-  font-family: Cartoon;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  background-color: var(--sky_blue);
-  color: var(--black);
-  font-weight: bold;
-  text-decoration: none;
-  display: none;
-  font-size: 18px;
-  border-radius: 8px;
-}
-
-.take-number a {
-  color: var(--black);
+.ticket {
+  display: block;
+  font-family: Shalbie;
+  background-color: var(--black);
+  text-align: center;
+  padding: 10px;
+  border: 3px solid var(--red);
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 32px;
+  color: var(--red);
 }
 
 .box:hover .take-number {
