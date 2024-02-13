@@ -21,6 +21,9 @@
     url('fonts/Shalbie Free Trial.ttf') format('truetype');
 }
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 body {
@@ -178,6 +181,47 @@ section {
   position: absolute;
   top: 240px;
   font-family: Arial;
+}
+
+form {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-family: Arial;
+  border: 3px solid var(--metalic_silver);
+}
+
+form input,
+form textarea {
+  width: 300px;
+  height: 30px;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Arial;
+  border: 3px solid var(--white);
+}
+
+
+form p {
+  color: var(--slate_gray)
+}
+
+form button {
+  width: 120px;
+  height: 40px;
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 @media only screen and (min-width: 1024px) {
