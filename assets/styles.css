@@ -6,6 +6,7 @@
   --pink_lemonade: #F18685;
   --metalic_silver: #8D959D;
   --red: #C1003C;
+  --blue: #0078FD;
   --white: #f8f8f8;
   --metalic_gold: #A48E58;
 }
@@ -22,6 +23,12 @@
 }
 
 
+
+/* Style Start */
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: var(--dark_matter_gray);
@@ -118,26 +125,17 @@ section {
   align-items: center;
 }
 
-
-
-.take-number {
-  font-family: Cartoon;
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  background-color: var(--sky_blue);
-  color: var(--black);
-  font-weight: bold;
-  text-decoration: none;
-  display: none;
-  font-size: 18px;
-  border-radius: 8px;
-}
-
-.take-number a {
-  color: var(--black);
+.ticket {
+  display: block;
+  font-family: Shalbie;
+  background-color: var(--black);
+  text-align: center;
+  padding: 10px;
+  border: 3px solid var(--red);
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 32px;
+  color: var(--red);
 }
 
 .box:hover .take-number {
@@ -185,6 +183,89 @@ section {
   position: absolute;
   top: 240px;
   font-family: Arial;
+}
+
+
+
+
+/* Form Style */
+
+form {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 10px;
+  margin-top: 12px;
+  font-size: 16px;
+  font-family: Arial;
+  border: 3px solid var(--metalic_silver);
+}
+
+form fieldset {
+  border-color: var(--metalic_silver);
+  color: var(--metalic_silver);
+  width: 300px;
+}
+
+form fieldset input,
+form fieldset textarea,
+form fieldset select {
+  width: 300px;
+  height: 40px;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Arial;
+  border: 3px solid var(--white);
+  line-height: 30px;
+  display: block;
+}
+
+form fieldset label {
+  color: var(--white);
+}
+
+form fieldset textarea {
+  height: 100px;
+  line-height: 20px;
+}
+
+form fieldset select {
+  height: 45px;
+  width: 332px;
+}
+
+form p {
+  color: var(--slate_gray)
+}
+
+form textarea {
+  height: 70px;
+}
+
+form button {
+  width: 160px;
+  height: 40px;
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+#rawtext {
+  margin: 20px;
+  width: 320px;
+  min-height: 30px;
+  font: consolas;
+  font-size: 10px;
+  background-color: #111111;
+  color: #dddddd;
 }
 
 @media only screen and (min-width: 1024px) {
