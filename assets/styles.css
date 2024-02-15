@@ -1,28 +1,26 @@
 :root {
   --black: #252937;
-  --dark_matter_gray: #4F4C52;
-  --slate_gray: #576A71;
-  --sky_blue: #BBECFD;
-  --pink_lemonade: #F18685;
-  --metalic_silver: #8D959D;
-  --red: #C1003C;
-  --blue: #0078FD;
+  --dark_matter_gray: #4f4c52;
+  --slate_gray: #576a71;
+  --sky_blue: #bbecfd;
+  --pink_lemonade: #f18685;
+  --metalic_silver: #8d959d;
+  --red: #c1003c;
+  --blue: #0078fd;
   --white: #f8f8f8;
-  --metalic_gold: #A48E58;
+  --metalic_gold: #a48e58;
 }
 
 @font-face {
-  font-family: 'Cartoon';
-  src: url('fonts/SFCartoonistHand.ttf') format('truetype');
+  font-family: "Cartoon";
+  src: url("fonts/SFCartoonistHand.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Shalbie';
-  src: url('fonts/Shalbie Free Trial.otf') format('opentype'),
-    url('fonts/Shalbie Free Trial.ttf') format('truetype');
+  font-family: "Shalbie";
+  src: url("fonts/Shalbie Free Trial.otf") format("opentype"),
+    url("fonts/Shalbie Free Trial.ttf") format("truetype");
 }
-
-
 
 /* Style Start */
 
@@ -80,6 +78,20 @@ p {
   color: var(--metalic_silver);
 }
 
+#oshimark {
+  font-family: "Segoe UI Emoji";
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  padding: 8px;
+  font-size: 20px;
+  width: 50px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  outline: none;
+}
+
 .socials a {
   display: inline-block;
   margin-bottom: 5px;
@@ -107,8 +119,6 @@ p {
   font-size: 16px;
   color: var(--sky_blue);
 }
-
-
 
 section {
   height: 100%;
@@ -185,9 +195,6 @@ section {
   font-family: Arial;
 }
 
-
-
-
 /* Form Style */
 
 form {
@@ -210,11 +217,11 @@ form fieldset {
 form fieldset input,
 form fieldset textarea,
 form fieldset select {
-  width: 300px;
+  width: 280px;
   height: 40px;
   background-color: var(--black);
   color: var(--white);
-  padding: 0 16px;
+  padding: 0 4px;
   border-radius: 10px;
   font-size: 16px;
   font-family: Arial;
@@ -234,11 +241,11 @@ form fieldset textarea {
 
 form fieldset select {
   height: 45px;
-  width: 332px;
+  width: 294px;
 }
 
 form p {
-  color: var(--slate_gray)
+  color: var(--slate_gray);
 }
 
 form textarea {
@@ -246,26 +253,27 @@ form textarea {
 }
 
 form button {
-  width: 160px;
+  width: 158px;
   height: 40px;
   background-color: var(--red);
   color: var(--white);
   border: none;
   border-radius: 5px;
+  border: 1px solid var(--white);
   font-size: 20px;
   font-weight: bold;
-  margin-top: 10px;
-  margin-right: 20px;
+  margin-top: 4px;
 }
 
 #rawtext {
   margin: 20px;
-  width: 320px;
+  width: 300px;
   min-height: 30px;
   font: consolas;
   font-size: 10px;
   background-color: #111111;
   color: #dddddd;
+  padding: 8px;
 }
 
 @media only screen and (min-width: 1024px) {

@@ -1,79 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Osyra's Services and More</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Osyra's Services and More</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="assets/styles.css">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-</head>
-
-
-<body>
-  <a class="ticket" href="index.html">Nevermind</a>
-  <form>
-
-    <h1>Osyra's Order Form</h1>
-    <hr>
-    <form id="orderForm">
-
-
+  <body style="width: 360px">
+    <a class="ticket" href="index.html">Nevermind</a>
+    <form onchange="raw()" id="orderForm">
+      <h1>Osyra's Order Form</h1>
+      <hr />
 
       <fieldset>
         <legend>Required</legend>
-      <label for="services">Service:</label><br>
-      <select onchange="raw()" id="services" for="name">
-        <option></option>
-      </select><br>
-        <label for="description">Description:</label><br>
-        <textarea onchange="raw()" id="description" name="description"></textarea>
+        <label for="username">Username:</label><br />
+        <input
+          type="username"
+          id="username"
+          name="username"
+          autocomplete="true"
+          required
+        /><br />
+        <label for="services">Service:</label><br />
+        <select id="services" for="name" required>
+          <option></option></select
+        ><br />
+        <label for="description">Description:</label><br />
+        <textarea id="description" name="description" required></textarea>
       </fieldset>
-        <br>
+      <br />
 
+      <fieldset>
+        <legend>Choose at Least One</legend>
+        <label for="discord">Discord:</label><br />
+        <input
+          type="text"
+          id="discord"
+          name="discord"
+          autocomplete="true"
+        /><br />
+        <br />
 
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" autocomplete="true" /><br />
+        <br />
 
-      
-<fieldset>
-  <legend>Choose at Least One</legend>
-      <label for="discord">Discord:</label><br>
-      <input onchange="raw()" type="text" id="discord" name="discord" required><br>
-      <br>
+        <label for="phone">Phone:</label><br />
+        <input type="tel" id="phone" name="phone" autocomplete="true" /><br />
+      </fieldset>
+      <br />
 
-      <label for="email">Email:</label><br>
-      <input onchange="raw()" type="email" id="email" name="email"><br>
-      <br>
-
-      <label for="phone">Phone:</label><br>
-      <input type="tel" id="phone" name="phone"><br>
-
-</fieldset>
-      <br>
-
-
-      
       <fieldset>
         <legend>Physical Orders Only</legend>
-      <label for="name">Real Name:</label><br>
-      <input type="text" id="name" name="name"><br>
-      <br>
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" autocomplete="true" /><br />
 
-      <label for="street-address">Address:</label><br>
-      <textarea id="street-address" name="street-address"></textarea><br>
+        <label for="street">Street:</label><br />
+        <input
+          type="text"
+          id="street"
+          name="street"
+          autocomplete="true"
+        /><br />
+
+        <label for="city">City:</label><br />
+        <input type="text" id="city" name="city" autocomplete="true" /><br />
+
+        <label for="state">State:</label><br />
+        <input type="text" id="state" name="state" autocomplete="true" /><br />
+
+        <label for="postal-code">Postal Code:</label><br />
+        <input
+          type="text"
+          id="postal-code"
+          name="postal-code"
+          autocomplete="true"
+        /><br /><br />
       </fieldset>
-      <br>
-
+      <br />
 
       <!-- Add more input fields for other information -->
-      <button type="submit">Download</button>
-      <button type="">Copy</button><br>
-      <div id="rawtext">
-      </div>
+      <button name="download" onclick="dlraw()" type="submit">Download</button>
+      <button name="copyraw" onclick="copyRaw()">Copy</button><br />
     </form>
+    <div id="rawtext"></div>
 
     <script src="assets/data.js"></script>
-    <script src="assets/ticket.js"></script>
-</body>
+    <script>
+      // Get the select element
+      var select = document.getElementById("services");
 
+      // Append options to the select element
+      jsonData.forEach(function (service) {
+        var option = document.createElement("option");
+        option.value = service.title;
+        option.textContent = service.title;
+        select.appendChild(option);
+      });
+
+      function raw() {
+        // Get values from form fields
+        var service = document.getElementById("username").value;
+        var service = document.getElementById("services").value;
+        var description = document.getElementById("description").value;
+        var discord = document.getElementById("discord").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var name = document.getElementById("name").value;
+        var street = document.getElementById("street").value;
+        var city = document.getElementById("city").value;
+        var state = document.getElementById("state").value;
+        var postalCode = document.getElementById("postal-code").value;
+
+        // Construct key-value pairs with line breaks
+        var rawData = `
+Username: ${username}<br>
+Service: ${service}<br>
+Description: ${description}<br>
+-----------------------------------<br>
+Discord: ${discord}<br>
+Email: ${email}<br>
+Phone: ${phone}<br>
+-----------------------------------<br>
+Name: ${name}<br>
+Address: ${street}<br>
+~${city}, ${state} ${postalCode}<br>
+    `;
+        // Set the formatted data into the rawtext textarea
+        document.getElementById("rawtext").innerHTML = rawData;
+      }
+
+      function copyRaw() {
+        var rawText = document.getElementById("rawtext").textContent; // Get the text content of the rawtext div
+        var tempTextArea = document.createElement("textarea");
+        tempTextArea.value = rawText;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+        alert("Raw text copied to clipboard!");
+      }
+
+      function dlraw() {
+        // Get the text content from the div
+
+        var text = document.getElementById("rawtext").textContent;
+
+        // Get the username
+        var username = document.getElementById("username").value;
+        // Check if the username is empty
+        if (username.trim() === "") {
+          alert("Please enter a username before downloading.");
+          return; // Stop further execution of the function
+        }
+        // Create a Blob containing the text
+        var blob = new Blob([text], { type: "text/plain" });
+
+        // Create a temporary anchor element
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+
+        // Set the file name
+        a.download = `ticket_of_${username}.txt`;
+
+        // Append the anchor to the body and trigger the click event
+        document.body.appendChild(a);
+        a.click();
+
+        // Remove the anchor from the body
+        document.body.removeChild(a);
+      }
+    </script>
+  </body>
 </html>
