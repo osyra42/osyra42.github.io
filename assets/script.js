@@ -1,29 +1,28 @@
-document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("orderForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+// Assuming jsonData is the array of JSON objects you provided
 
-    // Get form data
-    var formData = new FormData(this);
+// 1. Get reference to the parent element
+var container = document.querySelector('.container');
 
-    // Format form data as text
-    var textContent = "";
-    formData.forEach(function(value, key) {
-      textContent += key + ": " + value + "\n";
-    });
+// 2. Loop through each JSON object
+data.forEach(function(item) {
+    // 3. Create HTML elements
+    var div = document.createElement('div');
+    div.classList.add('box');
 
-    // Create a Blob containing the text
-    var blob = new Blob([textContent], { type: "text/plain" });
+    var h3 = document.createElement('h3');
+    h3.textContent = item.title;
 
-    // Create a download link
-    var link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "order.txt";
+    var img = document.createElement('img');
+    img.src = item.image;
+    img.alt = "";
 
-    // Append link to the document and trigger click event
-    document.body.appendChild(link);
-    link.click();
+    var p = document.createElement('p');
+    p.textContent = item.description;
 
-    // Clean up
-    document.body.removeChild(link);
-  });
+    // 4. Append elements to the parent element
+    div.appendChild(h3);
+    div.appendChild(img);
+    div.appendChild(p);
+
+    container.appendChild(div);
 });
