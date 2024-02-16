@@ -107,7 +107,7 @@
 
       function raw() {
         // Get values from form fields
-        var service = document.getElementById("username").value;
+        var username = document.getElementById("username").value; // Corrected variable name
         var service = document.getElementById("services").value;
         var description = document.getElementById("description").value;
         var discord = document.getElementById("discord").value;
@@ -121,17 +121,17 @@
 
         // Construct key-value pairs with line breaks
         var rawData = `
-Username: ${username}<br>
-Service: ${service}<br>
-Description: ${description}<br>
------------------------------------<br>
-Discord: ${discord}<br>
-Email: ${email}<br>
-Phone: ${phone}<br>
------------------------------------<br>
-Name: ${name}<br>
-Address: ${street}<br>
-~${city}, ${state} ${postalCode}<br>
+    Username: ${username}<br>
+    Service: ${service}<br>
+    Description: ${description}<br>
+    -----------------------------------<br>
+    Discord: ${discord}<br>
+    Email: ${email}<br>
+    Phone: ${phone}<br>
+    -----------------------------------<br>
+    Name: ${name}<br>
+    Address: ${street}<br>
+    ~${city}, ${state} ${postalCode}<br>
     `;
         // Set the formatted data into the rawtext textarea
         document.getElementById("rawtext").innerHTML = rawData;
