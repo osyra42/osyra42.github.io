@@ -38,6 +38,18 @@ a {
   color: var(--pink_lemonade);
 }
 
+#update {
+  background-color: #22DD44;
+  border: 2px solid #118822;
+  color: #118822;
+  padding: 8px;
+  width: 10ppx;
+  margin: 10px;
+  position: absolute;
+  border-radius: 20px;
+  font: bold 24px 'Cartoon', sans-serif;
+}
+
 p {
   padding: 0px;
   margin: 0px;
