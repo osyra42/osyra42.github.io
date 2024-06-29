@@ -65,7 +65,7 @@
           <!-- Content -->
           <section id="content">
             <a href="#" class="image fit"
-              ><img src="images/pic07.jpg" alt=""
+              ><img src="images/vanity_poster.png" alt=""
             /></a>
             <h3>Main Features</h3>
             <p>
@@ -81,26 +81,100 @@
               significantly.
             </p>
 
-            <h3>Minecraft Features</h3>
+            <h3>Minecraft History</h3>
             <p>
               In historical versions, Vanity had the capability to connect to
-              any vanilla Minecraft server and interact with players using
-              commands sent to her in discord. Plans were in place to advance
-              its functionality to procedurally understand player actions and
-              offer assistance. However, the Minecraft 1.13 update rendered the
-              bot incompatible, leading to its functionality breaking down. With
-              the popularity of the new update among players who were testing
-              the bot, I redirected development efforts towards implementing
-              different features. Unfortunately, this update, with its promising
-              advancements, became a lost chapter in Vanity's development
-              history.
+              any vanilla Minecraft server using
+              <a
+                href="https://github.com/PrismarineJS/mineflayer"
+                target="_blank"
+                >mineflayer.js</a
+              >
+              and interact with players using commands sent to her in discord.
+              Plans were in place to advance its functionality to procedurally
+              understand player actions and offer assistance. However, the
+              Minecraft 1.13
+              <a
+                href="https://minecraft.fandom.com/wiki/Java_Edition_1.13/Flattening"
+                target="_blank"
+                >Flattening</a
+              >
+              update rendered the bot incompatible, leading to its functionality
+              breaking down. With the popularity of the new update among players
+              who were testing the bot, I redirected development efforts towards
+              implementing different features. Unfortunately, this update, with
+              its promising advancements, became a lost chapter in Vanity's
+              development history.
+            </p>
+            <p>
+              Until the recent surge in AI development brought new potential to
+              this part of the project, there was little progress. However, a
+              new tool,
+              <a href="https://github.com/kolbytn/mindcraft" target="_blank"
+                >mindcraft.js</a
+              >, offers a fresh approach to using Mineflayer. Although I have
+              explored this application, it currently does not meet the
+              community's needs. Specifically, the bot cannot utilize the
+              Minecraft Forge Protocol for connections, which is a critical
+              requirement for our purposes. Additionally, the bot would rely on
+              <a href="https://chatgpt.com" target="_blank">ChatGPT+</a> but I
+              wanted the project to remain local, avoiding reliance on external
+              services to maintain control and privacy. Consequently, this
+              update still does not bring Vanity back into the game.
             </p>
             <h3>Chat Features</h3>
             <p>
-              I have always tried to add some sort of text recognition so in the
-              far past I would have vanity recognize various forms of cussing
-              and then overreact to the user by calling them names, remember
-              this is in good fun.
+              In Vanity's earlier versions, I incorporated text recognition
+              using regular expressions (regex) to detect cussing. When Vanity
+              identified inappropriate language, she would humorously overreact
+              by calling the user names, all in good fun. This playful, sassy
+              personality significantly increased user engagement, making
+              interactions with Vanity more entertaining and memorable. These
+              humorous responses and interactions were instrumental in setting
+              up a personality for later AI development, highlighting the
+              potential of AI to create dynamic and engaging user experiences.
+            </p>
+            <p>
+              I tried various hype models, including
+              <a
+                href="https://huggingface.co/meta-llama/Meta-Llama-3-8B"
+                target="_blank"
+                >Llama3 8B</a
+              >
+              and
+              <a
+                href="https://huggingface.co/solidrust/Llama-3-8B-Lexi-Uncensored-AWQ"
+                target="_blank"
+                >Lexi Llama3</a
+              >
+              (uncensored version), but they either didn't work, were
+              incompatible with my library, or were excessively censored. After
+              several unsuccessful attempts with these models, I decided to
+              revisit Nous Hermes. Given the passage of time, I discovered a new
+              model:
+              <a
+                href="https://huggingface.co/NousResearch/Nous-Hermes-2-SOLAR-10.7B"
+                target="_blank"
+                >Nous Hermes 2 Solar</a
+              >. This model offered a fresh opportunity to enhance Vanity's
+              capabilities while preserving her unique, engaging personality.
+            </p>
+            <h3>Speech Synthesis</h3>
+            <p>
+              While not the cleanest implementation, I integrated speech
+              capability into Vanity using OpenVoice, a versatile voice cloning
+              tool. This addition, despite lacking a detailed history, involved
+              experimenting with approximately a dozen different voices. Despite
+              its relatively brief implementation period, I believe it's
+              significant enough to warrant discussion. This enhancement allowed
+              Vanity to audibly communicate responses, adding a new dimension to
+              user interactions. While the journey with
+              <a href="https://github.com/myshell-ai/OpenVoice" target="_blank"
+                >OpenVoice</a
+              >
+              is still unfolding, its impact on Vanity's functionality and user
+              experience is noteworthy, demonstrating the ongoing evolution of
+              AI-driven interactions.
             </p>
           </section>
         </div>
