@@ -1,0 +1,21 @@
+body {
+  background-color: #111;
+  color: #ddd;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 30px;
+  font-size: 16px;
+}
+
+pre span {
+  font-family: "Brush Script MT", cursive;
+  font-size: 24px;
+}
+
+pre button {
+  color: #ffdd33;
+  background-color: #333;
+}
