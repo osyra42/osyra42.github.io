@@ -50,7 +50,21 @@
           </header>
 
           <!-- Content -->
-          <section id="content"><a href="books/ever_diamond.html">Ever Diamond</a> (2007)</section>
+          <section id="content">
+            <a href="books/ever_diamond.html">Ever Diamond</a> (2007)
+            <progress id="progressBar" max="59" value="10"></progress>
+              <span id="percentValue"></span> done
+              <script>
+                const progressBar = document.getElementById('progressBar');
+                const percentValue = document.getElementById('percentValue');
+
+                const value = parseInt(progressBar.value);
+                const max = parseInt(progressBar.max);
+                const percent = Math.round((value / max) * 100);
+                percentValue.textContent = `${percent}%`;
+              </script>
+            </progress>
+          </section>
         </div>
       </div>
 
