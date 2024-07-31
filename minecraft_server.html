@@ -18,17 +18,26 @@
   <body class="is-preload landing">
     <div id="page-wrapper">
       <!-- Header -->
-      <div id="header-placeholder"></div>
-
-      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          fetch("partials/nav.html")
-            .then((response) => response.text())
-            .then((data) => {
-              document.getElementById("header-placeholder").innerHTML = data;
-            });
-        });
-      </script>
+      <header id="header">
+        <h1 id="logo"><a href="index.html">Burger Byte Studio</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="whats_new.html">What's New</a></li>
+            <li>
+              <a href="#">Big Projects</a>
+              <ul>
+                <li><a href="vanity_bot.html">Vanity Bot</a></li>
+                <li><a href="my_books.html">My Books</a></li>
+                <li><a href="minecraft_server.html">Minecraft Server</a></li>
+              </ul>
+            </li>
+            <li><a href="commissions.html">Commissions</a></li>
+            <li>
+              <a href="https://www.paypal.com/paypalme/osyra42" class="button primary" target="_blank">Donate</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
       <!-- Main -->
       <div id="main" class="wrapper style1">
@@ -40,6 +49,7 @@
 
           <!-- Content -->
           <section id="content">
+            <a href="#" class="image fit"><img src="images/vanity_poster.png" alt="" /></a>
             <h3>Staff List</h3>
             <p>
               Admin - osyra42<br />
