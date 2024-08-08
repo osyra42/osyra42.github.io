@@ -15,7 +15,10 @@ pre span {
   font-size: 24px;
 }
 
+/* Button styles */
 pre button {
-  color: #ffdd33;
-  background-color: #333;
+  background-color: #343434;
+  color: #ff2200;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
 }
