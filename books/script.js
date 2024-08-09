@@ -65,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   // Create the slider container
   const sliderContainer = document.createElement("div");
@@ -112,7 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
       z-index: 1000;
       display: flex;
       align-items: center;
-      transition: background-color 0.5s;
+      transition: background-color 0.5s, border-color 0.5s;
+      border: 2px solid; /* Border width and default color */
+      border-radius: 15px; /* Rounded corners */
     }
     body {
       margin-top: 50px; /* To avoid content overlapping the slider */
@@ -153,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.backgroundColor = color;
     document.body.style.color = textColor;
     sliderContainer.style.backgroundColor = color; // Update container background
+    sliderContainer.style.borderColor = textColor; // Update container border color
 
     // Update the slider track and thumb colors
     slider.style.backgroundColor = textColor;
