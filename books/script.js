@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   // Create the slider container
   const sliderContainer = document.createElement("div");

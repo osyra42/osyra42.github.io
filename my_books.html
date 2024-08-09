@@ -54,36 +54,33 @@
           <!-- Content -->
           <section id="content">
             <h3>Book Titles</h3>
-            <a href="books/osyras_tale.html">Osyra's Tale</a> (2024)
-
+            <a href="books/osyras_tale.html" target="_blank">Osyra's Tale</a> (2024)
             <progress id="OT-progressBar" max="100" value="1"></progress>
             <span id="OT-percentValue"></span> done<br />
             added some concepts
-            <script>
-              const otProgressBar = document.getElementById("OT-progressBar");
-              const otPercentValue = document.getElementById("OT-percentValue");
-
-              const otValue = parseInt(otProgressBar.value);
-              const otMax = parseInt(otProgressBar.max);
-              const otPercent = Math.round((otValue / otMax) * 100);
-              otPercentValue.textContent = `${otPercent}%`;
-            </script>
 
             <hr />
 
-            <a href="books/ever_diamond.html">Ever Diamond</a> (2007)
-
-            <progress id="ED-progressBar" max="59" value="20"></progress>
+            <a href="books/ever_diamond.html" target="_blank">Ever Diamond</a> (2007)
+            <progress id="ED-progressBar" max="59" value="24"></progress>
             <span id="ED-percentValue"></span> done<br />
-            written up to section 12
-            <script>
-              const edProgressBar = document.getElementById("ED-progressBar");
-              const edPercentValue = document.getElementById("ED-percentValue");
+            written up to section 14
 
-              const edValue = parseInt(edProgressBar.value);
-              const edMax = parseInt(edProgressBar.max);
-              const edPercent = Math.round((edValue / edMax) * 100);
-              edPercentValue.textContent = `${edPercent}%`;
+            <script>
+              // Function to update the progress bar
+              function updateProgressBar(progressBarId, percentValueId) {
+                const progressBar = document.getElementById(progressBarId);
+                const percentValue = document.getElementById(percentValueId);
+
+                const value = parseInt(progressBar.value);
+                const max = parseInt(progressBar.max);
+                const percent = Math.round((value / max) * 100);
+                percentValue.textContent = `${percent}%`;
+              }
+
+              // Update the progress bars
+              updateProgressBar("OT-progressBar", "OT-percentValue");
+              updateProgressBar("ED-progressBar", "ED-percentValue");
             </script>
           </section>
         </div>
