@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+  <head>
+    <title>Burger Byte Studio</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="is-preload landing">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="index.html">Burger Byte Studio</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="whats_new.html">What's New</a></li>
+            <li>
+              <a href="#">Big Projects</a>
+              <ul>
+                <li><a href="vanity_bot.html">Vanity Bot</a></li>
+                <li><a href="my_books.html">My Books</a></li>
+                <li><a href="minecraft_server.html">Minecraft Server</a></li>
+                <li><a href="loot_game.html">Loot Game</a></li>
+              </ul>
+            </li>
+            <li><a href="commissions.html">Commissions</a></li>
+            <li>
+              <a href="https://www.paypal.com/paypalme/osyra42" class="button primary" target="_blank">Donate</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <div id="main" class="wrapper style1">
+        <div class="container">
+          <header class="major">
+            <h2>About 3D Prints</h2>
+            <p>Here are some examples of 3D Prints I have done in the past.</p>
+          </header>
+
+          <!-- Content -->
+          <section id="content">
+            <progress id="progressBar" max="15" value="1"></progress>
+            <span id="percentValue"></span> done<br />
+
+            <script>
+              // Function to update the progress bar
+              function updateProgressBar(progressBarId, percentValueId) {
+                const progressBar = document.getElementById(progressBarId);
+                const percentValue = document.getElementById(percentValueId);
+
+                const value = parseInt(progressBar.value);
+                const max = parseInt(progressBar.max);
+                const percent = Math.round((value / max) * 100);
+                percentValue.textContent = `${percent}%`;
+              }
+
+              // Update the progress bars
+              updateProgressBar("progressBar", "percentValue");
+            </script>
+          </section>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li>
+            <a
+              style="color: #5865f2"
+              href="https://discord.gg/mUYTdwXB7v"
+              class="icon brands alt fa-discord fa-fw"
+              target="_blank"
+              ><span class="label">Discord</span></a
+            >
+          </li>
+          <li>
+            <a
+              style="color: #ff0000"
+              href="https://youtube.com/@osyra42"
+              class="icon brands alt fa-youtube fa-fw"
+              target="_blank"
+              ><span class="label">Youtube</span></a
+            >
+          </li>
+          <li>
+            <a
+              style="color: #476779"
+              href="https://github.com/osyra42"
+              class="icon brands alt fa-github fa-fw"
+              target="_blank"
+              ><span class="label">Github</span></a
+            >
+          </li>
+          <li>
+            <a style="color: #9146ff" href="https://twitch.tv/osyra42" class="icon brands alt fa-twitch fa-fw"
+              ><span class="label">Twitch</span></a
+            >
+          </li>
+          <li>
+            <a style="color: #8a90c7" href="mailto:BurgerByteStudio@proton.me" class="icon solid alt fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2024, Burger Byte Studio. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
