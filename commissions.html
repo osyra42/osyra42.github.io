@@ -45,11 +45,13 @@
         <div class="container">
           <header class="major">
             <h2>Commissions</h2>
+            <p>
+              <a href="about_3d_vtuber.html">About 3D VTubers</a> | <a href="about_3d_prints.html">About 3D Prints</a>
+            </p>
             <p>are not open at this time, please wait...</p>
             Updating...
-            <progress id="progressBar" max="12" value="0"></progress>
+            <progress id="progressBar" max="12" value="2"></progress>
             <span id="percentValue"></span> done<br />
-            Service Descriptions | Service Prices<br />
 
             <script>
               // Function to update the progress bar
@@ -195,6 +197,7 @@
               <ul class="actions">
                 <li><a href="#" onclick="dlraw()" class="button primary">Download</a></li>
                 <li><a href="#" onclick="copyRaw()" class="button">Copy</a></li>
+                <li><a href="#" onclick="sendEmail()" class="button">Email</a></li>
               </ul>
               <br />
               <div id="rawtext"></div>
@@ -218,7 +221,7 @@
 
         function raw() {
           // Get values from form fields
-          var username = document.getElementById("username").value; // Corrected variable name
+          var username = document.getElementById("username").value;
           var service = document.getElementById("services").value;
           var description = document.getElementById("description").value;
           var discord = document.getElementById("discord").value;
@@ -233,18 +236,18 @@
 
           // Construct key-value pairs with line breaks
           var rawData = `
-      Username: ${username}<br>
-      Service: ${service}<br>
-      Description: ${description}<br>
-      -----------------------------------<br>
-      Discord: ${discord}<br>
-      Email: ${email}<br>
-      Phone: ${phone}<br>
-      -----------------------------------<br>
-      Name: ${fname} ${lname}<br>
-      Address: ${street}<br>
-      ~${city}, ${state} ${postalCode}<br>
-      `;
+        Username: ${username}<br>
+        Service: ${service}<br>
+        Description: ${description}<br>
+        -----------------------------------<br>
+        Discord: ${discord}<br>
+        Email: ${email}<br>
+        Phone: ${phone}<br>
+        -----------------------------------<br>
+        Name: ${fname} ${lname}<br>
+        Address: ${street}<br>
+        ~${city}, ${state} ${postalCode}<br>
+        `;
           // Set the formatted data into the rawtext textarea
           document.getElementById("rawtext").innerHTML = rawData;
         }
@@ -263,7 +266,6 @@
 
         function dlraw() {
           // Get the text content from the div
-
           var text = document.getElementById("rawtext").textContent;
 
           // Get the username
@@ -289,6 +291,24 @@
 
           // Remove the anchor from the body
           document.body.removeChild(a);
+        }
+
+        function sendEmail() {
+          raw(); // Ensure the raw data is generated
+
+          var username = document.getElementById("username").value;
+          var rawData = document.getElementById("rawtext").innerHTML; // Get the raw data
+
+          if (username.trim() === "") {
+            alert("Please enter a username before sending the email.");
+            return;
+          }
+
+          var subject = encodeURIComponent(username);
+          var body = encodeURIComponent(rawData.replace(/<br>/g, "\n")); // Convert <br> to newlines for the email body
+          var email = "burgerbytestudio@proton.me";
+
+          window.location.href = `mailto:${email}?subject=ticket_of_${subject}&body=${body}`;
         }
       </script>
 
