@@ -1,0 +1,34 @@
+Privacy Policy
+1. Introduction
+Vanity is an AI chat bot developed by Burger Byte Studio, available on Discord. This Privacy Policy explains how Vanity collects, uses, and protects your information.
+
+2. Data Collection
+
+Collected Data: Vanity collects your user ID, username, and reads all messages but does not store any of them.
+Opt-in Data: User preferences are opt-in only and are stored at the bot's operation location. The stored data includes only the Discord snowflake ID and user preferences.
+3. Data Usage
+
+Collected data is used to store preferences and respond to messages.
+Vanity does not share any data with third parties.
+4. Data Retention
+
+Data is retained until members request its removal.
+5. User Rights
+
+Users may request to see or delete their stored data by emailing burgerbytestudio@proton.me. Requests may take up to 24 hours to be fulfilled.
+6. Data Security
+
+Sensitive information is not collected, and all data is securely localized on a private computer.
+7. User Consent
+
+Users must opt-in to store their preferences via a specific command.
+8. Cookies and Tracking
+
+Vanity does not use cookies or any other tracking mechanisms.
+9. Governing Law
+
+Vanity adheres to local laws in the United States.
+10. Changes to This Policy
+
+Any changes to this Privacy Policy will be reflected on burgerbytestudio.com.
+Effective Date: August 25, 2024
