@@ -44,28 +44,10 @@
       <div id="main" class="wrapper style1">
         <div class="container">
           <header class="major">
-            <h2>Closed Commissions</h2>
+            <h2>Commissions</h2>
             <p>
               <a href="about_3d_vtuber.html">About 3D VTubers</a> | <a href="about_3d_prints.html">About 3D Prints</a>
             </p>
-            Updating <progress id="progressBar" max="12" value="2"></progress>
-            <span id="percentValue"></span> done<br />
-
-            <script>
-              // Function to update the progress bar
-              function updateProgressBar(progressBarId, percentValueId) {
-                const progressBar = document.getElementById(progressBarId);
-                const percentValue = document.getElementById(percentValueId);
-
-                const value = parseInt(progressBar.value);
-                const max = parseInt(progressBar.max);
-                const percent = Math.round((value / max) * 100);
-                percentValue.textContent = `${percent}%`;
-              }
-
-              // Update the progress bars
-              updateProgressBar("progressBar", "percentValue");
-            </script>
           </header>
 
           <!-- Content -->
@@ -89,13 +71,6 @@
                     <option value="">Category</option>
                     <option value="3D Prints">3D Prints</option>
                     <option value="Vtuber Models">Vtuber Models</option>
-                    <option value="Tutor for Programming">Tutor for Programming</option>
-                    <option value="Small Photoshop">Image Creation / Photoshop</option>
-                    <option value="">-----------------------------------</option>
-                    <option value="AI Images">AI Images [Expiring]</option>
-                    <option value="Basic Website">Basic Website [Expiring]</option>
-                    <option value="Tutor for MS Excel">Tutor for MS Excel [Expiring]</option>
-                    <option value="Tutor for MS Word">Tutor for MS Word [Expiring]</option>
                   </select>
                 </div>
                 <div class="col-12">
