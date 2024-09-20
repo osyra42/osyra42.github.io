@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      #timeline_container {
+        overflow-y: hidden;
+        overflow-x: scroll;
+      }
+      #timeline {
+        width: 5000px;
+        height: 300px;
+        border: 1px dashed #888;
+        position: relative;
+      }
+      #timeline::before {
+        content: "";
+        position: absolute;
+        top: 150px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #333;
+      }
+      .event {
+        position: absolute;
+        font-size: 14px;
+      }
+      .event-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #333;
+        border-radius: 50%;
+        position: absolute;
+        top: 146px;
+      }
+      .event-line {
+        position: absolute;
+        width: 2px;
+        background-color: #333;
+      }
+
+      /* Scrollbar styles */
+      #timeline_container::-webkit-scrollbar {
+        height: 12px;
+      }
+      #timeline_container::-webkit-scrollbar-track {
+        background: #222;
+      }
+      #timeline_container::-webkit-scrollbar-thumb {
+        background-color: #555;
+        border-radius: 6px;
+      }
+      #timeline_container::-webkit-scrollbar-thumb:hover {
+        background-color: #777;
+      }
+      #timeline_container {
+        scrollbar-width: thin;
+        scrollbar-color: #555 #222;
+      }
+    </style>
+    <script>
+      const timelineEvents = [
+        { name: "Born", x: 10, y: 50, url: "#" },
+        { name: "" },
+        { name: "Started School", x: 100, y: 180, url: "#started_school" },
+        { name: "Middle School", x: 300, y: 30, url: "#" },
+        { name: "High School", x: 500, y: 30, url: "#" },
+        { name: "First Job", x: 700, y: 200, url: "#first_job" },
+        { name: "Got Married", x: 1000, y: 40, url: "#marriage" },
+        { name: "Present Day", x: 4900, y: 130, url: "#" },
+        // Add more events as needed
+      ];
+    </script>
+  </head>
+
+  <body>
+    <br /><br />
+    <div id="timeline_container">
+      <div id="timeline"></div>
+    </div>
+
+    <pre>
+      <p id="pre_military">What did you do before the Military?</p>
+
+
+      <p id="first_job">What do you consider you first job?</p>
+      The place I always call my first job was Whataburger in Texas (between Dallas and Fort Worth) I looked for a couple of weeks to find this job, all the offered was part time and I decided it was better than nothing. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </pre>
+    <script>
+      function createTimelineEvent(event) {
+        const timeline = document.getElementById("timeline");
+
+        // Create event text as a link
+        const eventText = document.createElement("div");
+        eventText.className = "event";
+        const link = document.createElement("a");
+        link.href = event.url;
+        link.textContent = event.name;
+        eventText.appendChild(link);
+        eventText.style.left = `${event.x}px`;
+        eventText.style.top = `${event.y}px`;
+
+        // Create event dot
+        const eventDot = document.createElement("div");
+        eventDot.className = "event-dot";
+        eventDot.style.left = `${event.x}px`;
+
+        // Create connecting line
+        const eventLine = document.createElement("div");
+        eventLine.className = "event-line";
+        eventLine.style.left = `${event.x + 5}px`; // Center on the dot
+
+        // Calculate line position and height
+        if (event.y < 150) {
+          // Event is above the timeline
+          eventLine.style.top = `${event.y + 20}px`; // 20px below text
+          eventLine.style.height = `${130 - event.y}px`; // From below text to timeline
+        } else {
+          // Event is below the timeline
+          eventLine.style.top = "150px"; // Start from timeline
+          eventLine.style.height = `${event.y - 150}px`; // From timeline to text
+        }
+
+        timeline.appendChild(eventText);
+        timeline.appendChild(eventDot);
+        timeline.appendChild(eventLine);
+      }
+
+      timelineEvents.forEach(createTimelineEvent);
+    </script>
+    <script src="bookie.js"></script>
+  </body>
+</html>

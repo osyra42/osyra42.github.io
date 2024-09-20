@@ -1,6 +1,7 @@
 body {
   background-color: #111;
   color: #ddd;
+  font-family: "Courier New", Courier, monospace;
 }
 
 pre {
@@ -21,4 +22,11 @@ pre button {
   color: #ff2200;
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
+}
+
+a:link {
+  color: #0080ff;
+}
+a:visited {
+  color: #ff8000;
 }
