@@ -1,6 +1,18 @@
 {
   "articles": [
     {
+      "timestamp": 1728562642580,
+      "title": "What's New Update",
+      "content": "Hey everyone! I've been working on my website lately, focusing on the news section. I fixed some display issues to make the articles look better. Then, I created a cool tool that helps me add new articles easily. It's got a nice dark design that's easy on the eyes. I just type in the article details, and it creates the code I need to update my site. This makes it super simple for me to keep my news fresh without getting into complicated tech stuff. Pretty neat, right?",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "What's New",
+          "url": "https://burgerbytestudio.com/whats_new.html"
+        }
+      ]
+    },
+    {
       "timestamp": 1726214400000,
       "title": "Major Vanity Update",
       "content": "Vanity has been upgraded to its next major version, Garlic, continuing the playful tradition of naming major rewrites after vegetables. This update introduces a new model called DarkIdol, powered by Ollama, which offers a faster backend for enhanced processing capabilities.",
