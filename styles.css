@@ -9,3 +9,15 @@
 .timestamp {
   color: #777777;
 }
+
+blockquote {
+  text-align: left;
+}
+
+.article {
+  text-align: left;
+}
+
+.data-title {
+  text-align: left;
+}

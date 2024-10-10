@@ -207,12 +207,12 @@ a {
   -ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
   transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
   border-bottom: dotted 1px;
-  color: #b01030;
+  color: #e44c65;
   text-decoration: none;
 }
 
 a:hover {
-  color: #d01541 !important;
+  color: #e44c65 !important;
   border-bottom-color: transparent;
 }
 
@@ -2279,7 +2279,7 @@ header.major {
 }
 
 header.major:after {
-  background: #d01541;
+  background: #e44c65;
   content: "";
   display: inline-block;
   height: 0.2em;
@@ -2348,7 +2348,7 @@ input[type="password"]:focus,
 input[type="email"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #b01030;
+  border-color: #e44c65;
 }
 
 select {
@@ -2451,7 +2451,7 @@ input[type="radio"]:checked + label:before {
 
 input[type="checkbox"]:focus + label:before,
 input[type="radio"]:focus + label:before {
-  border-color: #b01030;
+  border-color: #e44c65;
 }
 
 input[type="checkbox"] + label:before {
@@ -2949,16 +2949,15 @@ input[type="button"]:hover,
 input[type="button"]:active,
 .button:hover,
 .button:active {
-  box-shadow: inset 0 0 0 1px #b01030;
-  color: #b01030 !important;
+  box-shadow: inset 0 0 0 1px #e44c65;
+  color: #e44c65 !important;
 }
 
 input[type="submit"]:active,
 input[type="reset"]:active,
 input[type="button"]:active,
 .button:active {
-  background-color: #b01030;
-  opacity: 0.15;
+  background-color: rgba(228, 76, 101, 0.15);
 }
 
 input[type="submit"].icon:before,
@@ -2993,7 +2992,7 @@ input[type="submit"].primary,
 input[type="reset"].primary,
 input[type="button"].primary,
 .button.primary {
-  background-color: #b01030;
+  background-color: #e44c65;
   box-shadow: none;
   color: #ffffff !important;
 }
@@ -3002,14 +3001,14 @@ input[type="submit"].primary:hover,
 input[type="reset"].primary:hover,
 input[type="button"].primary:hover,
 .button.primary:hover {
-  background-color: #d01541;
+  background-color: #e76278;
 }
 
 input[type="submit"].primary:active,
 input[type="reset"].primary:active,
 input[type="button"].primary:active,
 .button.primary:active {
-  background-color: #d01541;
+  background-color: #e13652;
 }
 
 input[type="submit"].disabled,
@@ -3335,7 +3334,7 @@ body.is-touch .spotlight {
 .wrapper.style2 input[type="button"].primary,
 .wrapper.style2 .button.primary {
   background-color: #ffffff;
-  color: #b01030 !important;
+  color: #e44c65 !important;
 }
 
 .wrapper.style2 input[type="submit"].primary:hover,
@@ -3442,7 +3441,7 @@ body.is-touch .spotlight {
 
 .dropotron > li.active > a,
 .dropotron > li.active > span {
-  color: #b01030;
+  color: #e44c65;
 }
 
 .dropotron.level-0 {
@@ -3536,7 +3535,7 @@ body.landing .dropotron.level-0 {
 
 #header nav ul li.active > a,
 #header nav ul li.active > span {
-  color: #b01030;
+  color: #e44c65;
 }
 
 #header nav ul li > ul {
@@ -4046,7 +4045,7 @@ body.is-touch #banner {
   }
 
   #titleBar .toggle:before {
-    background: #b01030;
+    background: #e44c65;
     color: rgba(255, 255, 255, 0.5);
     content: "\f0c9";
     display: block;
