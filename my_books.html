@@ -67,6 +67,13 @@
           <!-- Content -->
           <section id="content">
             <h3>Book Titles</h3>
+
+            <a href="books/let_me_talk.html" target="_blank">Let Me Talk</a> (2025)<br />
+            Typing <progress id="LT-progressBar" max="100" value="1"></progress>
+            <span id="LT-percentValue"></span> done<br />
+
+            <hr />
+
             <a href="books/osyras_tale.html" target="_blank">Osyra's Tale</a> (2024)<br />
             Typing <progress id="OT-progressBar" max="100" value="1"></progress>
             <span id="OT-percentValue"></span> done<br />
@@ -115,6 +122,7 @@
               // Update the progress bars
               updateProgressBar("OT-progressBar", "OT-percentValue");
               updateProgressBar("ID-progressBar", "ID-percentValue");
+              updateProgressBar("LT-progressBar", "LT-percentValue");
             </script>
           </section>
         </div>

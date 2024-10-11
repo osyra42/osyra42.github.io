@@ -61,6 +61,7 @@
             <p>See what I have been up to.</p>
           </header>
           <div id="articles-container"></div>
+          <script src="article_loader.js"></script>
         </div>
       </div>
 
@@ -121,74 +122,5 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <script>
-      function formatDate(timestamp) {
-        const date = new Date(timestamp);
-        const options = { weekday: "short", year: "numeric", month: "short", day: "numeric" };
-        return date.toLocaleDateString("en-US", options);
-      }
-
-      function loadArticles() {
-        fetch("articles.json")
-          .then((response) => response.json())
-          .then((data) => {
-            const container = document.getElementById("articles-container");
-            if (!container) {
-              console.error("Container not found");
-              return;
-            }
-
-            // Sort articles by timestamp in descending order
-            data.articles.sort((a, b) => b.timestamp - a.timestamp);
-
-            data.articles.forEach((article, index) => {
-              const articleElement = document.createElement("section");
-              articleElement.className = "article";
-
-              const dateTitle = document.createElement("p");
-              dateTitle.className = "data-title";
-              dateTitle.innerHTML = `
-                        <span class="timestamp">[${formatDate(article.timestamp)}]</span><br>
-                        <span class="project">${article.title}</span>
-                    `;
-
-              const blockquote = document.createElement("blockquote");
-              blockquote.innerHTML = `
-    ${article.content}
-    <br><span style="float: right">- ${article.author}</span>
-`;
-
-              articleElement.appendChild(dateTitle);
-              articleElement.appendChild(blockquote);
-
-              if (article.links && article.links.length > 0) {
-                const linksContainer = document.createElement("div");
-                linksContainer.className = "links-container";
-
-                article.links.forEach((linkData) => {
-                  const link = document.createElement("a");
-                  link.href = linkData.url;
-                  link.className = "button";
-                  link.innerHTML = `${linkData.text} <i class="fa-solid fa-link"></i>`;
-                  linksContainer.appendChild(link);
-                });
-
-                articleElement.appendChild(linksContainer);
-              }
-
-              container.appendChild(articleElement);
-
-              if (index < data.articles.length - 1) {
-                const hr = document.createElement("hr");
-                container.appendChild(hr);
-              }
-            });
-          })
-          .catch((error) => console.error("Error:", error));
-      }
-
-      document.addEventListener("DOMContentLoaded", loadArticles);
-    </script>
   </body>
 </html>
