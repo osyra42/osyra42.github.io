@@ -2,8 +2,6 @@
   // CSS styles
   const styles = `
     body {
-      background-color: #111;
-      color: #ddd;
       font-family: "Courier New", Courier, monospace;
     }
 
@@ -37,11 +35,6 @@
     }
     a:visited {
       color: #ff8000;
-    }
-
-    .highlight {
-      color: #111111;
-      background-color: #888800;
     }
 
     #color-slider-container {
@@ -105,18 +98,39 @@
     const updateBackgroundColor = (value) => {
       const hexValue = "0123456789abcdef"[value];
       const color = `#${hexValue.repeat(6)}`;
-      const textColor = value < 8 ? "#ffffff" : "#000000";
+      const textColor = value < 8 ? "#ffffff" : "#000000"; // Adjusted for 0-7 white, 8-f black
+
       document.body.style.backgroundColor = color;
       document.body.style.color = textColor;
       sliderContainer.style.backgroundColor = color;
       sliderContainer.style.borderColor = textColor;
       document.getElementById("color-slider").style.backgroundColor = textColor;
+
+      // Update the slider thumb color
       document.head.appendChild(
         Object.assign(document.createElement("style"), {
           textContent: `#color-slider::-webkit-slider-thumb,#color-slider::-moz-range-thumb{background:${textColor};}`,
         })
       );
+
+      // Calculate the opposite color for the highlight
+      const oppositeColor = invertColor(textColor);
+      document.head.appendChild(
+        Object.assign(document.createElement("style"), {
+          textContent: `.highlight { background-color: ${textColor}80;
+          color: ${oppositeColor}}`,
+        })
+      );
     };
+
+    // Function to invert the color
+    function invertColor(hex) {
+      if (hex == "#000000") {
+        return "#ffffff";
+      } else {
+        return "#000000";
+      }
+    }
 
     document
       .getElementById("color-slider")
