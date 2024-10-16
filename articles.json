@@ -1,6 +1,22 @@
 {
   "articles": [
     {
+      "timestamp": 1729071088910,
+      "title": "Classroom Changes and Vanity Honeynut",
+      "content": "I have transferred all Classroom files from Discord to GitHub for global access. \n\nRebuildable versions of Vanity have been archived for historical purposes. These repositories are currently private and may be missing some versions. Refer to Vanity's documentation for detailed version information.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "TODO.mod",
+          "url": "https://github.com/osyra42/TODO.mod/"
+        },
+        {
+          "text": "Vanity Bot",
+          "url": "vanity_bot.html"
+        }
+      ]
+    },
+    {
       "timestamp": 1728562642580,
       "title": "What's New Update",
       "content": "Hey everyone! I've been working on my website lately, focusing on the news section. I fixed some display issues to make the articles look better. Then, I created a cool tool that helps me add new articles easily. It's got a nice dark design that's easy on the eyes. I just type in the article details, and it creates the code I need to update my site. This makes it super simple for me to keep my news fresh without getting into complicated tech stuff. Pretty neat, right?",
