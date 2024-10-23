@@ -1,0 +1,1 @@
+# Finnish Typing Infinite Deviation 
