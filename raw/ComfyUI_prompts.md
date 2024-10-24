@@ -1,11 +1,3 @@
-# Faradune
-
-SCORE_9, SCORE_8_UP, best quality, 4k, masterpiece, digital art, sfw,
-
-solo, furry, lion man, warrior, adult, strong, fur body, hammer weapon, buff, very strong,
-
-loin cloth, bird wings, in a forest,
-
 # Osyra
 
 SCORE_9, SCORE_8_UP, best quality, 4k, masterpiece, digital art, sfw,
@@ -43,3 +35,11 @@ solo, 1girl, gamer girl, black skin, african, melanin, very dark skin, long blac
 black hoodie, purple accents,
 
 playing a video game, using a computer, controller in hand, excited expression
+
+# Faradune
+
+SCORE_9, SCORE_8_UP, best quality, 4k, masterpiece, digital art, sfw,
+
+solo, furry, lion man, warrior, adult, strong, fur body, hammer weapon, buff, very strong,
+
+loin cloth, bird wings, in a forest,
