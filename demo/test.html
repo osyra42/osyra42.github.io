@@ -64,9 +64,10 @@
             height: 100%;
             padding: 40px;
             box-sizing: border-box;
-            background: rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.5) 100%);
             z-index: 1;
             animation: slideInLeft 1s ease-in-out;
+            overflow-y: auto;
         }
 
         .content h1 {
@@ -74,6 +75,9 @@
             margin-bottom: 30px;
             text-shadow: 2px 2px 4px #000;
             font-weight: 700;
+            opacity: 0;
+            animation: fadeInContent 1s ease-in-out forwards;
+            animation-delay: 0.5s;
         }
 
         .content p {
@@ -81,11 +85,17 @@
             margin-bottom: 40px;
             text-shadow: 1px 1px 2px #000;
             line-height: 1.6;
+            opacity: 0;
+            animation: fadeInContent 1s ease-in-out forwards;
+            animation-delay: 1s;
         }
 
         .content ul {
             list-style: none;
             padding: 0;
+            opacity: 0;
+            animation: fadeInContent 1s ease-in-out forwards;
+            animation-delay: 1.5s;
         }
 
         .content ul li {
@@ -128,25 +138,15 @@
             width: 80%;
             height: auto;
             position: relative;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            opacity: 0;
+            animation: fadeInCharacter 1s ease-in-out forwards;
+            animation-delay: 2s;
         }
 
         .character:hover {
             transform: scale(1.05);
-        }
-
-        .shadow {
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150%;
-            height: 50px;
-            background-image: url('https://placebeard.it/1920x1080');
-            background-size: cover;
-            background-position: center;
-            filter: blur(10px);
-            opacity: 0.7;
+            filter: drop-shadow(0 0 10px rgba(255, 204, 0, 0.7));
         }
 
         .parallax {
@@ -166,6 +166,16 @@
         @keyframes slideInRight {
             from { transform: translateX(100%); }
             to { transform: translateX(0); }
+        }
+
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInCharacter {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -188,7 +198,6 @@
     <div class="character-container">
         <div class="character parallax">
             <img src="https://placebeard.it/1920x1080" alt="Character" class="character">
-            <div class="shadow"></div>
         </div>
     </div>
 
