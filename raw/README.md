@@ -4,19 +4,19 @@ Welcome to the official TODO list repository for Burger Byte Studio. This reposi
 
 ## Contents
 
-[3d_prints](3d_prints.md)
-[ComfyUI](ComfyUI.md)
-[database](database.md)
-[finish_typing](finish_typing.md)
-[loot_game](loot_game.md)
-[minecraft_skin](minecraft_skin.md)
-[music_tool](music_tool.md)
-[osyras_tale](osyras_tale.md)
-[quicklinks_7](quicklinks_7.md)
-[self_stories](self_stories.md)
-[vanity_honeynut](vanity_honeynut.md)
-[website](website.md)
-[WMblue](WMblue.md)
+- [3d_prints](3d_prints.md)
+- [ComfyUI](ComfyUI.md)
+- [database](database.md)
+- [finish_typing](finish_typing.md)
+- [loot_game](loot_game.md)
+- [minecraft_skin](minecraft_skin.md)
+- [music_tool](music_tool.md)
+- [osyras_tale](osyras_tale.md)
+- [quicklinks_7](quicklinks_7.md)
+- [self_stories](self_stories.md)
+- [vanity_honeynut](vanity_honeynut.md)
+- [website](website.md)
+- [WMblue](WMblue.md)
 
 ## Contributing
 
