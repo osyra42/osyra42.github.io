@@ -5,7 +5,7 @@ Welcome to the official TODO list repository for Burger Byte Studio. This reposi
 ## Contents
 
 - [3d_prints](3d_prints.md)
-- [ComfyUI](ComfyUI.md)
+- [ComfyUI_prompts](ComfyUI_prompts.md)
 - [database](database.md)
 - [finish_typing](finish_typing.md)
 - [loot_game](loot_game.md)
