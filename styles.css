@@ -1,9 +1,12 @@
 body {
-  background-color: #222222;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  background-color: #333333;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative; /* Required for the overlay to be positioned correctly */
 }
 
 a {
@@ -15,9 +18,27 @@ a {
   text-align: center;
   color: #f8ff8f;
   background-color: #333333;
-  padding: 10px;
+  padding: 2px;
+  margin: 0px;
   display: fixed;
   top: 0px;
+}
+
+#left {
+  float: left;
+}
+
+#right {
+  float: right;
+}
+
+#center {
+  max-width: 720px;
+  margin: auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: #fff solid 1px;
+  border-radius: 12px;
 }
 
 .icons {
