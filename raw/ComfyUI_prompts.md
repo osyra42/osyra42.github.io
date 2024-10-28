@@ -1,10 +1,18 @@
+# Negative
+
+SCORE_7, SCORE_6, SCORE_5, (score_4, score_3, score_2, score_1),
+fused mouth, blurry mouth, ugly mouth, fused cheek, blurry cheek, ugly cheek, too many fingers, bad feet, deformed, bad body, malformed limbs, extra limb, extra arms, extra legs, acnes, long body, ugly, bad hands,
+lowres, bad anatomy, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, (3d:1.3),
+broken limb, incorrect limb, fusion finger, lost finger, multiple fingers, multiple digits, fusion hand, lost leg, fused leg, multiple legs,
+jpeg, forehead marks, forehead jewels
+
 # Osyra
 
 SCORE_9, SCORE_8_UP, best quality, 4k, masterpiece, digital art, sfw,
 
-solo, brown skin, dark skin, black hair, long hair, wolf ears, wolf tail, red eyes, adult woman, middle age, detailed eyes, round glasses,
+solo, brown skin, dark skin, black hair, long hair, wolf ears, wolf tail, red eyes, adult woman, middle age, round glasses,
 
-black jacket unzipped with red accents, white shirt, and tan pants
+black jacket unzipped with red accents, white shirt, and tan pants,
 
 # Layla
 
