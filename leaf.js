@@ -1,4 +1,9 @@
-const leafImages = ["images/leaf1.png", "images/leaf2.png", "images/leaf3.png", "images/leaf4.png"];
+const leafImages = [
+  "images/clutter/leaf1.png",
+  "images/clutter/leaf2.png",
+  "images/clutter/leaf3.png",
+  "images/clutter/leaf4.png",
+];
 const leafCount = 20;
 const fadeOutDuration = 3000; // 3 seconds
 

@@ -151,9 +151,9 @@ h3 {
 /* Main Content */
 .main-content {
   background-color: var(--main-content-bg);
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 32px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 40px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -197,7 +197,9 @@ h3 {
   font-size: 1.25rem;
   color: var(--accent2);
   margin-bottom: 4px;
-  display: inline-block; /* Ensure the title stays inline */
+  display: flex; /* Ensure the title stays inline */
+  justify-content: space-between; /* Align title and button to opposite ends */
+  align-items: center; /* Vertically center the items */
 }
 
 .main-content .post-card h3 i {
@@ -205,7 +207,7 @@ h3 {
 }
 
 .main-content .post-card p {
-  color: var(--text-tertiary);
+  color: var(--text-primary);
 }
 
 .main-content .post-card a {
@@ -233,10 +235,18 @@ h3 {
   cursor: pointer;
   transition: color 0.2s;
   font-size: 18px;
+  margin-left: 8px;
+  right: 0px;
 }
 
 .main-content .post-card div button:hover {
   color: var(--hover);
+}
+
+.post-card .post-time {
+  color: var(--text-tertiary);
+  margin-left: auto; /* Move the date to the right */
+  display: inline-block; /* Ensure it stays inline */
 }
 
 /* Right Sidebar */
