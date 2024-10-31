@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Burger Byte Studio</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript>
 
-    <!-- Add Font Awesome for additional icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="osyra42's website, click here to see what's going on" />
+    <meta name="keywords" content="osyra42, Burger Byte Studio, AI, books, game development, Minecraft, commissions" />
+    <meta name="author" content="osyra42" />
+    <meta property="og:title" content="Burger Byte Studio" />
+    <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+    <meta property="og:image" content="https://burgerbytestudio.com/images/profile_picture.jpg" />
+    <meta property="og:url" content="https://burgerbytestudio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Burger Byte Studio" />
+    <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+    <meta name="twitter:image" content="https://burgerbytestudio.com/images/profile_picture.jpg" />
   </head>
   <body>
     <div class="site-container">
       <!-- Left Sidebar -->
       <div class="sidebar">
         <div class="text-center">
+          <h1>Burger Byte Studio</h1>
           <div class="avatar-container">
-            <img src="images/profile_picture.png" alt="Osyra Renaya" />
+            <img src="images/profile_picture.jpg" alt="Osyra Renaya" />
           </div>
           <h2>Osyra Renaya</h2>
           <p>@osyra42</p>
         </div>
-        <hr />
         <div class="skills">
           <h3>Skills</h3>
           <div class="skill-icons">
@@ -40,6 +58,7 @@
 
       <!-- Main Content -->
       <div class="main-content">
+        <div id="announcement">This website is still under development. Please check back later for updates.</div>
         <nav>
           <ul>
             <li>
@@ -55,11 +74,14 @@
         <div class="all-posts">
           <div class="post-card" id="post-template" style="display: none">
             <div class="post-header">
-              <h3><span class="post-title"></span></h3>
-              <span class="post-time"></span>
+              <h3>
+                <span class="post-title"></span>
+                <button title="share"><i class="fas fa-heart"></i></button>
+              </h3>
             </div>
             <p class="post-content"></p>
             <a href="#" class="nav-link">Read more...</a>
+            <span class="post-time"></span>
           </div>
         </div>
       </div>
@@ -69,7 +91,7 @@
         <div>
           <div class="relative">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search" />
+            <input type="text" id="search" placeholder="Search" autocomplete="off" />
           </div>
         </div>
 
