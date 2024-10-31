@@ -16,7 +16,7 @@
       <div class="sidebar">
         <div class="text-center">
           <div class="avatar-container">
-            <img src="/api/placeholder/200/200" alt="Osyra Renaya" />
+            <img src="images/profile_picture.png" alt="Osyra Renaya" />
           </div>
           <h2>Osyra Renaya</h2>
           <p>@osyra42</p>
@@ -51,20 +51,16 @@
           </ul>
         </nav>
 
-        <div class="post-card">
-          <div>
-            <h3><i class="fas fa-robot"></i>Vanity Bot - 21h ago</h3>
-            <button>
-              <i class="fas fa-share-alt"></i>
-            </button>
+        <!-- Section for All Posts -->
+        <div class="all-posts">
+          <div class="post-card" id="post-template" style="display: none">
+            <div class="post-header">
+              <h3><span class="post-title"></span></h3>
+              <span class="post-time"></span>
+            </div>
+            <p class="post-content"></p>
+            <a href="#" class="nav-link">Read more...</a>
           </div>
-          <p>
-            Vanity's current version utilizes an advanced, uncensored language model (LLM) to generate responses,
-            ensuring a nuanced and accurate communication style. Integrated with a sophisticated voice model, this
-            iteration goes beyond textual interaction by audibly delivering responses. This enhancement not only
-            improves user engagement but also adds a dynamic layer to the platform's functionality.
-          </p>
-          <a href="#" class="nav-link">Read more...</a>
         </div>
       </div>
 
@@ -123,6 +119,7 @@
     </div>
 
     <!-- Custom JS -->
+    <script src="posts_iterator.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>
