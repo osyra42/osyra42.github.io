@@ -2,6 +2,7 @@
   --bg-color: #2c2c2c;
   --sidebar-bg: #3a3a3a;
   --main-content-bg: #2c2c2c;
+  --hover: #2ecc71;
   --accent1: #ff6f61;
   --accent2: #ffcc5c;
   --text-primary: #f5f5f5;
@@ -12,6 +13,16 @@
   --input-border: #5a5a5a;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: color 0.2s;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
 /* General Styles */
 body {
   background-color: var(--bg-color);
@@ -20,10 +31,50 @@ body {
   margin: 0px;
 }
 
-.all-posts {
+h1 {
+  text-align: center;
+  color: #3498db;
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: var(--accent2);
   margin-top: 20px;
+}
+
+#announcement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 4px;
+  background-color: #3498db;
+  color: #ecf0f1;
+  font-size: 16px;
+  z-index: 100;
+  box-sizing: border-box;
+}
+
+.all-posts {
+  flex: 1;
+  margin-top: 0px;
   overflow-y: scroll;
-  height: calc(100vh - 120px);
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent1) var(--bg-color);
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent1) var(--bg-color);
+  scrollbar-gutter: stable;
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Layout */
@@ -58,7 +109,7 @@ body {
 .sidebar h2 {
   font-size: 1.25rem;
   color: var(--accent2);
-  margin-top: 16px;
+  margin-top: 4px;
 }
 
 .sidebar p {
@@ -66,8 +117,8 @@ body {
 }
 
 .sidebar .skill-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   margin: 5px;
   padding: 5px;
   background-color: var(--border-color);
@@ -76,7 +127,7 @@ body {
 }
 
 .sidebar .skill-icons i {
-  font-size: 36px;
+  font-size: 30px;
   text-align: center;
   color: var(--text-tertiary);
 }
@@ -90,7 +141,7 @@ body {
 }
 
 .sidebar .nav-link:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 .sidebar .nav-link i {
@@ -100,10 +151,18 @@ body {
 /* Main Content */
 .main-content {
   background-color: var(--main-content-bg);
-  padding: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 32px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .main-content nav ul {
+  position: relative;
+  width: 100%;
   display: flex;
   gap: 24px;
 }
@@ -119,7 +178,7 @@ body {
 }
 
 .main-content nav ul li a:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 .main-content nav ul li a i {
@@ -137,7 +196,7 @@ body {
 .main-content .post-card h3 {
   font-size: 1.25rem;
   color: var(--accent2);
-  margin-bottom: 16px;
+  margin-bottom: 4px;
   display: inline-block; /* Ensure the title stays inline */
 }
 
@@ -158,7 +217,7 @@ body {
 }
 
 .main-content .post-card a:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 .main-content .post-card div {
@@ -177,7 +236,7 @@ body {
 }
 
 .main-content .post-card div button:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 /* Right Sidebar */
@@ -199,7 +258,7 @@ body {
 }
 
 .project-links input[type="text"] {
-  width: 150px; /* Adjust the width as needed */
+  width: 200px; /* Adjust the width as needed */
   background-color: var(--input-bg);
   color: var(--text-tertiary);
   padding: 8px 12px 8px 40px;
@@ -210,7 +269,7 @@ body {
 .project-links h3 {
   font-size: 1.25rem;
   color: var(--accent2);
-  margin-bottom: 16px;
+  margin-bottom: 4px;
 }
 
 .project-links ul {
@@ -230,17 +289,13 @@ body {
 }
 
 .project-links ul li a:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 .project-links ul li a i {
   margin-right: 8px;
   width: 16px;
   display: inline-block;
-}
-
-.project-links .mt-8 {
-  margin-top: 32px;
 }
 
 .project-links .flex {
@@ -255,7 +310,7 @@ body {
 }
 
 .project-links .flex a:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 .project-links .flex a i {
@@ -263,8 +318,9 @@ body {
 }
 
 .pth {
+  position: absolute;
+  bottom: 0px;
   margin-top: 16px;
-  font-size: 14px;
   text-align: center;
   color: var(--input-border);
 }
@@ -273,10 +329,11 @@ body {
   color: var(--accent2);
   text-decoration: none;
   transition: color 0.2s;
+  font-size: 14px;
 }
 
 .pth-link:hover {
-  color: var(--text-primary);
+  color: var(--hover);
 }
 
 hr {
