@@ -17,6 +17,13 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: Arial, sans-serif;
+  margin: 0px;
+}
+
+.all-posts {
+  margin-top: 20px;
+  overflow-y: scroll;
+  height: calc(100vh - 120px);
 }
 
 /* Layout */
