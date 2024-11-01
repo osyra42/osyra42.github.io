@@ -89,12 +89,12 @@
             <div class="mb-8">
                 <div class="relative">
                     <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                    <input type="text" placeholder="Search" class="w-full bg-gray-800 text-gray-300 p-2 pl-10 rounded">
+                    <input type="text" id="search" placeholder="Search" class="w-full bg-gray-800 text-gray-300 p-2 pl-10 rounded">
                 </div>
             </div>
 
             <h3 class="text-xl text-blue-400 mb-4">Project Links</h3>
-            <ul class="space-y-2">
+            <ul class="space-y-2" id="project-links">
                 <li><a href="about_3d_prints.html" class="nav-link"><i class="fas fa-cube file-icon"></i>about_3d_prints.html</a></li>
                 <li><a href="about_3d_vtuber.html" class="nav-link"><i class="fas fa-user-circle file-icon"></i>about_3d_vtuber.html</a></li>
                 <li><a href="commissions.html" class="nav-link"><i class="fas fa-shopping-cart file-icon"></i>commissions.html</a></li>
@@ -119,5 +119,19 @@
 
     <!-- Custom JS -->
     <script src="scripts.js"></script>
+    <script>
+        document.getElementById('search').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const links = document.querySelectorAll('#project-links li');
+            links.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
