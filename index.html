@@ -21,12 +21,12 @@
     <meta name="author" content="osyra42" />
     <meta property="og:title" content="Burger Byte Studio" />
     <meta property="og:description" content="osyra42's website, click here to see what's going on" />
-    <meta property="og:image" content="https://burgerbytestudio.com/images/profile_picture.jpg" />
+    <meta property="og:image" content="https://burgerbytestudio.com/images/favicon.png" />
     <meta property="og:url" content="https://burgerbytestudio.com" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Burger Byte Studio" />
     <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
-    <meta name="twitter:image" content="https://burgerbytestudio.com/images/profile_picture.jpg" />
+    <meta name="twitter:image" content="https://burgerbytestudio.com/images/favicon.png" />
   </head>
   <body>
     <div class="site-container">
@@ -96,7 +96,7 @@
         </div>
 
         <h3>Project Links</h3>
-        <ul>
+        <ul id="project-links">
           <li>
             <a href="books/index.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
           </li>
@@ -114,6 +114,9 @@
           </li>
           <li>
             <a href="minecraft_server.html" class="nav-link"><i class="fas fa-server"></i>minecraft_server.html</a>
+          </li>
+          <li>
+            <a href="my_books.html" class="nav-link"><i class="fas fa-book"></i>my_books.html</a>
           </li>
           <li>
             <a href="vanity_bot.html" class="nav-link"><i class="fas fa-robot"></i>vanity_bot.html</a>
@@ -141,5 +144,29 @@
     <script src="posts_iterator.js"></script>
     <script src="scripts.js"></script>
     <script src="leaf.js"></script>
+    <script>
+      document.getElementById("search").addEventListener("input", function () {
+        const query = this.value.toLowerCase();
+        const postCards = document.querySelectorAll(".post-card");
+
+        postCards.forEach((postCard) => {
+          const title = postCard.querySelector(".post-title").textContent.toLowerCase();
+          const content = postCard.querySelector(".post-content").textContent.toLowerCase();
+
+          if (query === "") {
+            // If the search input is empty, show all post cards
+            postCard.style.display = "block";
+            document.getElementById("post-template").style.display = "none";
+          } else {
+            // Otherwise, check if the title or content matches the query
+            if (title.includes(query) || content.includes(query)) {
+              postCard.style.display = "block";
+            } else {
+              postCard.style.display = "none";
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
