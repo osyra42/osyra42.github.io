@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+  <head>
+    <title>Burger Byte Studio</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="osyra42's website, click here to see what's going on" />
+    <meta name="keywords" content="osyra42, Burger Byte Studio, AI, books, game development, Minecraft, commissions" />
+    <meta name="author" content="osyra42" />
+    <meta property="og:title" content="Burger Byte Studio" />
+    <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+    <meta property="og:image" content="https://burgerbytestudio.com/images/profile.png" />
+    <meta property="og:url" content="https://burgerbytestudio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Burger Byte Studio" />
+    <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+    <meta name="twitter:image" content="https://burgerbytestudio.com/images/profile.png" />
+  </head>
+  <body class="is-preload landing">
+    <div id="page-wrapper">
+      <!-- Header -->
+      <header id="header">
+        <h1 id="logo"><a href="index.html">Burger Byte Studio</a></h1>
+        <nav id="nav">
+          <ul>
+            <li><a href="whats_new.html">What's New</a></li>
+            <li>
+              <a href="#">Big Projects</a>
+              <ul>
+                <li><a href="vanity_bot.html">Vanity Bot</a></li>
+                <li><a href="my_books.html">My Books</a></li>
+                <li><a href="minecraft_server.html">Minecraft Server</a></li>
+                <li><a href="loot_game.html">Loot Game</a></li>
+              </ul>
+            </li>
+            <li><a href="commissions.html">Commissions</a></li>
+            <li>
+              <a href="https://www.paypal.com/paypalme/osyra42" class="button primary" target="_blank">Donate</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Main -->
+      <div id="main" class="wrapper style1">
+        <div class="container">
+          <header class="major">
+            <h2>About My Books</h2>
+            <p>
+              I am very slowly working on a few books, some old, some new.<br />
+              Click bookmark to copy your progress to the clipboard.
+            </p>
+          </header>
+
+          <!-- Content -->
+          <section id="content">
+            <h3>Book Titles</h3>
+
+            <a href="books/let_me_talk.html" target="_blank">Let Me Talk</a> (2025)<br />
+            Typing <progress id="LT-progressBar" max="100" value="1"></progress>
+            <span id="LT-percentValue"></span> done<br />
+
+            <hr />
+
+            <a href="books/osyras_tale.html" target="_blank">Osyra's Tale</a> (2024)<br />
+            Typing <progress id="OT-progressBar" max="100" value="1"></progress>
+            <span id="OT-percentValue"></span> done<br />
+
+            <hr />
+
+            <a href="books/glitched.html" target="_blank">Glitched</a> (2013)
+            <blockquote>
+              "Glitched" introduces Nala and her sister Lela, a former soldier. The story explores their daily lives and
+              the lingering effects of Lela's military past. Lela must make a critical decision about her injured friend
+              Pony, hinting at a potential return to military service. The narrative delves into themes of family,
+              personal growth, and the aftermath of war.
+            </blockquote>
+
+            <hr />
+
+            <a href="books/Infinite_devastation.html" target="_blank">Infinite Devastation</a> (2011)<br />
+            Typing <progress id="ID-progressBar" max="56" value="22"></progress>
+            <span id="ID-percentValue"></span> done<br />
+
+            <hr />
+
+            <a href="books/ever_diamond.html" target="_blank">Ever Diamond</a> (2007)
+            <blockquote>
+              In "Ever Diamond," Tom's life takes a dramatic turn when he discovers a mysterious ring with almost
+              unlimited powers. As he and his friends delve deeper into the ring's secrets, they encounter a series of
+              challenges and revelations. The story unfolds with intricate plotlines involving magic, war, and the quest
+              for the Holy Time Charm. Characters like Tom, Pony, and Lela navigate through a world where ancient
+              weapons, enchanted items, and the Ever Diamond play pivotal roles. The narrative explores themes of
+              loyalty, sacrifice, and the consequences of wielding immense power, all while blending elements of fantasy
+              and adventure. The story reaches a climax with a battle against a dragon, where the true nature of the
+              Ever Diamond and the characters' destinies are revealed.
+            </blockquote>
+            <script>
+              // Function to update the progress bar
+              function updateProgressBar(progressBarId, percentValueId) {
+                const progressBar = document.getElementById(progressBarId);
+                const percentValue = document.getElementById(percentValueId);
+
+                const value = parseInt(progressBar.value);
+                const max = parseInt(progressBar.max);
+                const percent = Math.round((value / max) * 100);
+                percentValue.textContent = `${percent}%`;
+              }
+
+              // Update the progress bars
+              updateProgressBar("OT-progressBar", "OT-percentValue");
+              updateProgressBar("ID-progressBar", "ID-percentValue");
+              updateProgressBar("LT-progressBar", "LT-percentValue");
+            </script>
+          </section>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons">
+          <li>
+            <a
+              style="color: #5865f2"
+              href="https://discord.gg/mUYTdwXB7v"
+              class="icon brands alt fa-discord fa-fw"
+              target="_blank"
+              ><span class="label">Discord</span></a
+            >
+          </li>
+          <li>
+            <a
+              style="color: #ff0000"
+              href="https://youtube.com/@osyra42"
+              class="icon brands alt fa-youtube fa-fw"
+              target="_blank"
+              ><span class="label">Youtube</span></a
+            >
+          </li>
+          <li>
+            <a
+              style="color: #476779"
+              href="https://github.com/osyra42"
+              class="icon brands alt fa-github fa-fw"
+              target="_blank"
+              ><span class="label">Github</span></a
+            >
+          </li>
+          <li>
+            <a style="color: #9146ff" href="https://twitch.tv/osyra42" class="icon brands alt fa-twitch fa-fw"
+              ><span class="label">Twitch</span></a
+            >
+          </li>
+          <li>
+            <a style="color: #8a90c7" href="mailto:BurgerByteStudio@proton.me" class="icon solid alt fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+        <ul class="copyright">
+          <li>&copy; 2024, Burger Byte Studio. All rights reserved.</li>
+          <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
