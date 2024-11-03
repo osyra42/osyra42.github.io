@@ -1,0 +1,12 @@
+body {
+  background-color: #111111;
+  color: #dddddd;
+  font-family: monospace;
+}
+
+a {
+  color: #ff8800;
+}
+pre {
+  white-space: pre-wrap;
+}

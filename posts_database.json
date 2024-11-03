@@ -1,6 +1,19 @@
 {
   "articles": [
     {
+      "timestamp": 1729071088911,
+      "title": "Exciting News: A Fresh New Look and Mobile Enhancements Coming Soon!",
+      "content": "We are thrilled to announce that Burger Byte Studio is getting a brand-new look! As the founder, Osyra, I’ve been hard at work behind the scenes, not only refreshing the design but also addressing some long-standing mobile issues to ensure a seamless experience for all of you, no matter what device you’re using.\n\nAs we continue to make these improvements, we encourage you to keep an eye out for any issues that may arise during this transition. Your feedback is invaluable to us, and we want to make sure we catch any bugs or glitches before they become a problem.\n\nTo make it easier for you to report any issues you encounter, we’ve added an **Issue Tracker** right on the sidebar. This is the perfect place to let us know about any problems you see, whether it’s a broken link, a layout issue, or anything else that doesn’t seem quite right.\n\nThank you for your patience and support as we work to bring you a better, more user-friendly experience. We can’t wait for you to see the new and improved Burger Byte Studio!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Issue Tracker",
+          "url": "raw/issue_tracker.html"
+        }
+      ],
+      "pinned": true
+    },
+    {
       "timestamp": 1729071088910,
       "title": "Classroom Changes and Vanity Honeynut",
       "content": "I have transferred all Classroom files from Discord to GitHub for global access. \n\nRebuildable versions of Vanity have been archived for historical purposes. These repositories are currently private and may be missing some versions. Refer to Vanity's documentation for detailed version information.",
@@ -41,7 +54,7 @@
           "url": "vanity_bot.html"
         }
       ],
-      "pinned": true
+      "pinned": false
     },
     {
       "timestamp": 1725609600000,
