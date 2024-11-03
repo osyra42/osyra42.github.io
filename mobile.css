@@ -1,0 +1,96 @@
+/* Base Styles */
+.data-title {
+  font-weight: bolder;
+  text-align: left;
+}
+
+.project {
+  color: #ffffff;
+}
+
+.timestamp {
+  color: #777777;
+}
+
+blockquote {
+  text-align: left;
+}
+
+.article {
+  text-align: left;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Adjust sidebar and main content layout for mobile */
+  .site-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar,
+  .main-content,
+  .project-links {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .sidebar {
+    text-align: center;
+  }
+
+  .avatar-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .main-content {
+    margin-top: 20px;
+  }
+
+  .post-card {
+    margin-bottom: 20px;
+  }
+
+  .project-links {
+    margin-top: 20px;
+  }
+
+  .project-links ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .project-links li {
+    margin-bottom: 10px;
+  }
+
+  .project-links a {
+    display: block;
+    padding: 10px;
+    background-color: #f4f4f4;
+    text-align: center;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .project-links a:hover {
+    background-color: #ddd;
+  }
+
+  .pth {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .pth a {
+    margin: 0 10px;
+  }
+}

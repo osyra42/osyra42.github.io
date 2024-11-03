@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Template Generator</title>
+    <style>
+      body {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        width: 720px;
+        background-color: #34495e;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #7f8c8d;
+        border-radius: 4px;
+        background-color: #ecf0f1;
+        color: #2c3e50;
+      }
+      .form-group textarea {
+        height: 100px;
+        resize: vertical;
+      }
+      .form-group button {
+        padding: 10px 20px;
+        background-color: #2980b9;
+        border: none;
+        border-radius: 4px;
+        color: #ecf0f1;
+        cursor: pointer;
+      }
+      .form-group button:hover {
+        background-color: #3498db;
+      }
+      .output {
+        margin-top: 20px;
+        border-top: 1px solid #7f8c8d;
+        padding-top: 20px;
+      }
+      .output textarea {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        border: 1px solid #7f8c8d;
+        border-radius: 4px;
+        background-color: #ecf0f1;
+        color: #2c3e50;
+        resize: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JSON Template Generator</h1>
+      <form id="jsonForm">
+        <div class="form-group">
+          <label for="timestamp">Timestamp:</label>
+          <input type="text" id="timestamp" name="timestamp" placeholder="1729071088910" />
+        </div>
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Exciting News: A Fresh New Look and Mobile Enhancements Coming Soon at Burger Byte Studio!"
+          />
+        </div>
+        <div class="form-group">
+          <label for="content">Content:</label>
+          <textarea
+            id="content"
+            name="content"
+            placeholder="We are thrilled to announce that Burger Byte Studio is getting a brand-new look! As the founder, Osyra, I’ve been hard at work behind the scenes, not only refreshing the design but also addressing some long-standing mobile issues to ensure a seamless experience for all of you, no matter what device you’re using..."
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="author">Author:</label>
+          <input type="text" id="author" name="author" placeholder="Osyra from Burger Byte Studio" />
+        </div>
+        <div class="form-group">
+          <label for="linkText">Link Text:</label>
+          <input type="text" id="linkText" name="linkText" placeholder="Issue Tracker" />
+        </div>
+        <div class="form-group">
+          <label for="linkUrl">Link URL:</label>
+          <input type="text" id="linkUrl" name="linkUrl" placeholder="sidebar_issue_tracker_link" />
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="generateJSON()">Generate JSON</button>
+        </div>
+      </form>
+      <div class="output">
+        <h2>Generated JSON:</h2>
+        <textarea id="jsonOutput" readonly></textarea>
+      </div>
+    </div>
+
+    <script>
+      function generateJSON() {
+        const timestamp = document.getElementById("timestamp").value;
+        const title = document.getElementById("title").value;
+        const content = document.getElementById("content").value;
+        const author = document.getElementById("author").value;
+        const linkText = document.getElementById("linkText").value;
+        const linkUrl = document.getElementById("linkUrl").value;
+
+        const jsonTemplate = {
+          timestamp: timestamp,
+          title: title,
+          content: content,
+          author: author,
+          links: [
+            {
+              text: linkText,
+              url: linkUrl,
+            },
+          ],
+          pinned: false,
+        };
+
+        document.getElementById("jsonOutput").value = JSON.stringify(jsonTemplate, null, 2);
+      }
+    </script>
+  </body>
+</html>
