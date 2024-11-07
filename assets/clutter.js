@@ -12,6 +12,8 @@ function getSeasonSymbol(season) {
       return "snowflake"; // Snowflake for Christmas
     case "4thOfJuly":
       return "fireworks"; // Fireworks for 4th of July
+    case "Thanksgiving":
+      return "turkey"; // Turkey for Thanksgiving
     default:
       return "Unknown";
   }
@@ -27,6 +29,8 @@ function getSeason() {
     return "Christmas";
   } else if (month === 7 && day === 4) {
     return "4thOfJuly";
+  } else if (month === 11 && day === 24) {
+    return "Thanksgiving";
   }
 
   // Determine the season based on the month and day
@@ -45,7 +49,7 @@ function getSeason() {
 var season = getSeason();
 
 // Allow manual override for testing purposes
-season = "Winter";
+// season = "Thanksgiving";
 
 let clutterTheme = getSeasonSymbol(season); // Default theme
 
@@ -91,6 +95,15 @@ const clutterThemes = {
     "assets/clutter/fireworks2.png",
     "assets/clutter/fireworks3.png",
     "assets/clutter/fireworks4.png",
+  ],
+  turkey: [
+    "assets/clutter/turkey1.png",
+    "assets/clutter/turkey2.png",
+    "assets/clutter/turkey3.png",
+    "assets/clutter/turkey4.png",
+    "assets/clutter/turkey5.png",
+    "assets/clutter/turkey6.png",
+    "assets/clutter/turkey7.png",
   ],
 };
 
