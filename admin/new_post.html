@@ -6,21 +6,20 @@
     <title>JSON Template Generator</title>
     <style>
       body {
-        background-color: #2c3e50;
-        color: #ecf0f1;
+        background-color: #1e272e;
+        color: #d2dae2;
         font-family: Arial, sans-serif;
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
         margin: 0;
       }
       .container {
         width: 720px;
-        background-color: #34495e;
+        background-color: #2f3640;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin-top: 50px;
       }
       .form-group {
         margin-bottom: 15px;
@@ -34,10 +33,10 @@
       .form-group textarea {
         width: 100%;
         padding: 10px;
-        border: 1px solid #7f8c8d;
+        border: 1px solid #485460;
         border-radius: 4px;
-        background-color: #ecf0f1;
-        color: #2c3e50;
+        background-color: #485460;
+        color: #d2dae2;
       }
       .form-group textarea {
         height: 100px;
@@ -45,28 +44,28 @@
       }
       .form-group button {
         padding: 10px 20px;
-        background-color: #2980b9;
+        background-color: #0fbcf9;
         border: none;
         border-radius: 4px;
-        color: #ecf0f1;
+        color: #1e272e;
         cursor: pointer;
       }
       .form-group button:hover {
-        background-color: #3498db;
+        background-color: #34e7e4;
       }
       .output {
         margin-top: 20px;
-        border-top: 1px solid #7f8c8d;
+        border-top: 1px solid #485460;
         padding-top: 20px;
       }
       .output textarea {
         width: 100%;
         height: 200px;
         padding: 10px;
-        border: 1px solid #7f8c8d;
+        border: 1px solid #485460;
         border-radius: 4px;
-        background-color: #ecf0f1;
-        color: #2c3e50;
+        background-color: #485460;
+        color: #d2dae2;
         resize: none;
       }
     </style>
@@ -77,7 +76,7 @@
       <form id="jsonForm">
         <div class="form-group">
           <label for="timestamp">Timestamp:</label>
-          <input type="text" id="timestamp" name="timestamp" placeholder="1729071088910" />
+          <input type="text" id="timestamp" name="timestamp" placeholder="1729071088910" readonly />
         </div>
         <div class="form-group">
           <label for="title">Title:</label>
@@ -119,6 +118,12 @@
     </div>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const timestampInput = document.getElementById("timestamp");
+        const currentTimestamp = Date.now();
+        timestampInput.value = currentTimestamp;
+      });
+
       function generateJSON() {
         const timestamp = document.getElementById("timestamp").value;
         const title = document.getElementById("title").value;

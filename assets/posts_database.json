@@ -1,0 +1,219 @@
+{
+  "articles": [
+    {
+      "timestamp": "1730989378460",
+      "title": "Even More Updates!!!",
+      "content": "I have converted a few pages to the new look and I have to say it is pretty. I have also deleted a lot of pages so if you get dead links let me know I will show you where the data is. (No data was lost) The leaves that are falling are going to become their own library called Clutter and will get a few error fixes and patches before being publicly available on github and here. The back end has been cleaned up significantly. I will add a link to the backrooms, it will never get an update, but things may be moved from the backrooms to the main site making them clean.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Backrooms",
+          "url": "backrooms/index.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": "1730977326748",
+      "title": "There have been a lot of bug fixes.",
+      "content": "I have started to work on tons of bug fixes on the website some visible and tons invisible. To get started I have simplified the sidebar with links, added a divider and attached each link to a page, a couple pages still point to the old layout, I will be fixing that in the next couple weeks, I have been struggling to decide on what is the best way to process data to the page. That would be one of the invisible updates. Let's talk about a few viable things, I have been trying to implement relative time to each post so you can see how long ago the post was made instead of seeing exact date time. The Bug tracker is legitimately posted to the side panel now. It does still take you to the backrooms but that will be fixed eventually. And finally the last thing I will report here is that the Loot Game has gotten traction, you can see the notes below.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Loot Game",
+          "url": "raw/loot_game.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1730520000000,
+      "title": "Exciting News: A Fresh New Look and Mobile Enhancements Coming Soon!",
+      "content": "We are thrilled to announce that Burger Byte Studio is getting a brand-new look! As the founder, Osyra, I’ve been hard at work behind the scenes, not only refreshing the design but also addressing some long-standing mobile issues to ensure a seamless experience for all of you, no matter what device you’re using.\n\nAs we continue to make these improvements, we encourage you to keep an eye out for any issues that may arise during this transition. Your feedback is invaluable to us, and we want to make sure we catch any bugs or glitches before they become a problem.\n\nTo make it easier for you to report any issues you encounter, we’ve added an **Bug Tracker** right on the sidebar. This is the perfect place to let us know about any problems you see, whether it’s a broken link, a layout issue, or anything else that doesn’t seem quite right.\n\nThank you for your patience and support as we work to bring you a better, more user-friendly experience. We can’t wait for you to see the new and improved Burger Byte Studio!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Bug Tracker",
+          "url": "raw/bug_tracker.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1729071088910,
+      "title": "Classroom Changes and Vanity Honeynut",
+      "content": "I have transferred all Classroom files from Discord to GitHub for global access. \n\nRebuildable versions of Vanity have been archived for historical purposes. These repositories are currently private and may be missing some versions. Refer to Vanity's documentation for detailed version information.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "TODO.mod",
+          "url": "https://github.com/osyra42/TODO.mod/"
+        },
+        {
+          "text": "Vanity Bot",
+          "url": "vanity_bot.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1728562642580,
+      "title": "What's New Update",
+      "content": "Hey everyone! I've been working on my website lately, focusing on the news section. I fixed some display issues to make the articles look better. Then, I created a cool tool that helps me add new articles easily. It's got a nice dark design that's easy on the eyes. I just type in the article details, and it creates the code I need to update my site. This makes it super simple for me to keep my news fresh without getting into complicated tech stuff. Pretty neat, right?",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "What's New",
+          "url": "https://burgerbytestudio.com/whats_new.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1726214400000,
+      "title": "Major Vanity Update",
+      "content": "Vanity has been upgraded to its next major version, Garlic, continuing the playful tradition of naming major rewrites after vegetables. This update introduces a new model called DarkIdol, powered by Ollama, which offers a faster backend for enhanced processing capabilities.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Vanity Bot",
+          "url": "vanity_bot.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1725609600000,
+      "title": "Many Updates",
+      "content": "Vanity has just received a stability update along with its official verification by Discord itself! I'm also excited to announce that the book Glitched has been added to \"My Books\" on the website—feel free to check it out. Lastly, my Loot game is officially in development! Expect small updates every now and then as I work to bring this project to life.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "My Books",
+          "url": "my_books.html"
+        },
+        {
+          "text": "Loot Game",
+          "url": "loot_game.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1724745600000,
+      "title": "Update to My Books",
+      "content": "Ever Diamond is now available to read! Dive into the world I've created, and I hope you enjoy the journey. I'm also thrilled to share that Vanity is now officially verified by Discord and proudly owned by Burger Byte Studio. Thank you for your continued support—exciting things are on the horizon! Additionally, my model has been ported to VRChat! You can now recognize me in the virtual world, and I look forward to connecting with you there. And for the gamers out there, our Minecraft server is up and running with the ATM8 modpack! Hop on and join the fun!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "My Books",
+          "url": "my_books.html"
+        },
+        {
+          "text": "Minecraft Server",
+          "url": "minecraft_server.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1723190400000,
+      "title": "Update to My Books",
+      "content": "I'm excited to share some new updates to the website! I've added a reading dimmer slider to all the books, so you can adjust the brightness to your liking. Along with this feature, I've added a lot of new content and started working on all the other books. In addition, I fixed a security issue on the Commissions page related to autocomplete, ensuring a safer browsing experience. Thanks for your continued support, and I hope you enjoy these updates! Stay creative, and good luck out there!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "My Books",
+          "url": "my_books.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1722585600000,
+      "title": "Update to Commissions",
+      "content": "Hi everyone, I've updated the Commissions page to match the style of the rest of the website, making navigation between pages much easier. I hope you find this update helpful and enjoyable! Feel free to explore, and as always, thank you for your support! Stay creative, and good luck out there!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Commissions",
+          "url": "commissions.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1722499200000,
+      "title": "Update to My Books",
+      "content": "Hi everyone, I wanted to share some exciting updates on my book projects. I'm adding more content to Ever Diamond and developing new concepts for Osyra's Tale. These additions will enrich the stories and bring even more depth to the characters and plots. Stay tuned for more updates, and thank you for your continued support! I also fixed the BOOKMARK buttons. Sorry about any inconvenience they may have caused. Stay creative, and good luck out there!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "My Books",
+          "url": "my_books.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1722412800000,
+      "title": "Minecraft Server Details",
+      "content": "Hi everyone, I'm excited to share that I've just added the Minecraft server details to this website! You can find them below. Our server is the perfect place for players to relax and unwind after a long work week. Hop on and join the fun! Stay creative, and good luck out there!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Minecraft Details",
+          "url": "minecraft_server.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1721548800000,
+      "title": "Update to Website",
+      "content": "Exciting news! I'm thrilled to announce that I'm finally taking the plunge and digitally uploading the books I wrote in high school. This has been a long time coming, and while it may take some time to complete, I am committed to sharing these stories with you. Each book will be available under the 'Big Projects' section of the website, specifically in the 'My Books' category. I'm eager for you to dive into the worlds I created during my high school years and hope you enjoy reading them as much as I enjoyed writing them. Stay tuned for updates and new chapters as they become available. Thank you for your patience and support, and good luck out there!",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "See My Books",
+          "url": "my_books.html"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1718956800000,
+      "title": "Update to Website",
+      "content": "I am excited to announce a major overhaul of my business website, now hosted entirely on GitHub Pages. This change is cost-effective (being free), and I've also added a custom domain name from Porkbun (optional, but at $10/year). This method is accessible to anyone interested in creating a website. This website is the result of creating a website this way. It's important to note that this setup has limitations, such as no backend code available in the free mode. If you're interested, I will detail the procedure I used to achieve this.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [],
+      "pinned": false
+    },
+    {
+      "timestamp": 1718870400000,
+      "title": "Update to Vanity",
+      "content": "We are pleased to announce a significant update to our Discord AI-assisted bot, marking a stable transition from using nous-hermes-llama2-13b.Q4_0.gguf to nous-hermes-2-solar-10.7b.Q5_K_M.gguf. This update represents a substantial advancement, with the bot's intelligence average improving from 55 to 75. These enhancements promise more efficient and effective interactions for our users, leveraging the latest in AI technology. We're excited about the possibilities this upgrade brings and look forward to continuing to enhance our bot's capabilities to better serve our community.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "Burger Byte Studio Discord",
+          "url": "https://discord.gg/mUYTdwXB7v"
+        }
+      ],
+      "pinned": false
+    },
+    {
+      "timestamp": 1718870400000,
+      "title": "Update to VR Chat Models",
+      "content": "For the first time ever, I've created my own VRChat model—a technical process that I'm excited to share. However, as VRChat is less popular than I had hoped, I may not continue development without a personal acquaintance to help test its features. I eagerly await an enthusiastic user to collaborate with and explore the full potential of this model. If you're interested in VRChat and willing to engage in testing and development, please reach out—I'd love to hear from you.",
+      "author": "Osyra from Burger Byte Studio",
+      "links": [
+        {
+          "text": "My VRChat model",
+          "url": "https://vrchat.com/home/user/usr_9b479888-e665-4b33-9044-01302711595f"
+        }
+      ],
+      "pinned": false
+    }
+  ]
+}

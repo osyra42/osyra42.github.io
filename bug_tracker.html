@@ -11,10 +11,10 @@
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
-    <noscript><link rel="stylesheet" href="assets/styles.css" /></noscript>
+    <noscript><link rel="stylesheet" href="styles.css" /></noscript>
 
-    <link rel="stylesheet" href="assets/styles.css" />
-    <link rel="stylesheet" href="assets/mobile.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="mobile.css" />
 
     <!-- Meta Tags -->
     <meta name="description" content="osyra42's website, click here to see what's going on" />
@@ -28,6 +28,26 @@
     <meta name="twitter:title" content="Burger Byte Studio" />
     <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
     <meta name="twitter:image" content="https://burgerbytestudio.com/favicon.png" />
+
+    <style>
+      table {
+        border: 2px solid #bbbbbb;
+        overflow-y: scroll;
+      }
+      thead {
+        background-color: #bbbbbb;
+        color: #000000;
+        text-align: center;
+      }
+
+      td {
+        padding: 3px;
+        min-width: 60px;
+        border: 1px solid #888888;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    </style>
   </head>
   <body>
     <div class="site-container">
@@ -36,9 +56,9 @@
         <div class="text-center">
           <h1>Burger Byte Studio</h1>
           <div class="avatar-container">
-            <img src="images/profile_picture.jpg" alt="Osyra Renaya" />
+            <img src="images/bug_tracker.jpg" alt="Bug Tracker" />
           </div>
-          <h2>Osyra Renaya</h2>
+          <h2>Bug Tracker</h2>
         </div>
         <div class="skills">
           <h3>Skills</h3>
@@ -70,17 +90,67 @@
 
         <!-- Section for All Posts -->
         <div class="all-posts">
-          <div class="post-card" id="post-template" style="display: none">
-            <div class="post-header">
-              <h3>
-                <span class="post-title"></span>
-                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
-              </h3>
-            </div>
-            <p class="post-content"></p>
-            <span><a href="#" class="nav-link read-more">Read more...</a></span>
-            <span class="post-time"></span>
-          </div>
+          <h2>Reporting Bugs</h2>
+          <pre>
+If you encounter any bugs, issues, or problems with the website
+or any files on the site, please reach out to me with a detailed
+description of the issue.
+
+- You can message me on Discord (@osyra42) or
+- Email me at burgerbytestudio@proton.me
+</pre
+          >
+          <table id="issueTable">
+            <thead>
+              <tr>
+                <th>INDEX</th>
+                <th>SERVICE</th>
+                <th>STATUS</th>
+                <th>DESCRIPTION</th>
+                <th>REPORTER</th>
+                <th>ADDED</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rows will be dynamically added here -->
+              <script>
+                async function fetchCSV(url) {
+                  const response = await fetch(url);
+                  const text = await response.text();
+                  return text;
+                }
+
+                function parseCSV(csvText) {
+                  const rows = csvText.split("\n").map((row) => row.split(","));
+                  return rows;
+                }
+
+                function generateTable(csvRows) {
+                  const tableBody = document.querySelector("#issueTable tbody");
+                  tableBody.innerHTML = ""; // Clear existing rows
+
+                  csvRows.forEach((row) => {
+                    const tr = document.createElement("tr");
+                    row.forEach((cell) => {
+                      const td = document.createElement("td");
+                      td.textContent = cell;
+                      tr.appendChild(td);
+                    });
+                    tableBody.appendChild(tr);
+                  });
+                }
+
+                async function loadTableFromCSV(csvUrl) {
+                  const csvText = await fetchCSV(csvUrl);
+                  const csvRows = parseCSV(csvText);
+                  generateTable(csvRows);
+                }
+
+                // Replace 'bug_tracker.csv' with the actual path to your CSV file
+                loadTableFromCSV("bug_tracker.csv");
+              </script>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -96,7 +166,7 @@
         <h3>Project Links</h3>
         <div class="project-links">
           <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
-          <a href="my_books.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
+          <a href="books/index.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
           <a href="old/commissions.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Commissions</a>
           <a href="old/minecraft_server.html" class="nav-link"><i class="fas fa-server"></i>Minecraft Server</a>
           <a href="old/vanity_bot.html" class="nav-link"><i class="fas fa-robot"></i>Vanity Bot</a>
@@ -118,9 +188,8 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="assets/posts_iterator.js"></script>
-    <script src="assets/scripts.js"></script>
-    <script src="assets/clutter.js"></script>
+    <script src="scripts.js"></script>
+    <script src="leaf.js"></script>
     <script></script>
   </body>
 </html>
