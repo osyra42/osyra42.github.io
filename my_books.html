@@ -1,128 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Books - Burger Byte Studio</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <!-- Add Lucide Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
-    <!-- Add Font Awesome for additional icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <title>Burger Byte Studio</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="assets/styles.css" /></noscript>
+
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/mobile.css" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="osyra42's website, click here to see what's going on" />
+    <meta name="keywords" content="osyra42, Burger Byte Studio, AI, books, game development, Minecraft, commissions" />
+    <meta name="author" content="osyra42" />
+    <meta property="og:title" content="Burger Byte Studio" />
+    <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+    <meta property="og:image" content="https://burgerbytestudio.com/favicon.png" />
+    <meta property="og:url" content="https://burgerbytestudio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Burger Byte Studio" />
+    <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+    <meta name="twitter:image" content="https://burgerbytestudio.com/favicon.png" />
+  </head>
+  <body>
     <div class="site-container">
-        <!-- Left Sidebar -->
-        <div class="sidebar p-6">
-            <div class="text-center">
-                <h1 class="text-3xl font-bold text-blue-400 mb-2">Burger Byte Studio</h1>
-                <div class="avatar-container">
-                    <img src="/api/placeholder/200/200" alt="Osyra Renaya" class="w-full h-full object-cover" />
-                </div>
-                <h2 class="text-xl text-blue-300 mt-4">Osyra Renaya</h2>
-                <p class="text-gray-400">@osyra42</p>
-            </div>
+      <!-- Left Sidebar -->
+      <div class="sidebar">
+        <div class="text-center">
+          <a href="index.html"><h1>Burger Byte Studio</h1></a>
+          <div class="avatar-container">
+            <img src="images/my_books.jpg" alt="My Books" />
+          </div>
+          <h2>My Books</h2>
+        </div>
+        <div class="skills">
+          <h3>Skills</h3>
+          <div class="skill-icons">
+            <i class="fab fa-html5 skill-icon" title="HTML5"></i>
+            <i class="fab fa-js-square skill-icon" title="JavaScript"></i>
+            <i class="fab fa-css3-alt skill-icon" title="CSS3"></i>
+            <i class="fab fa-python skill-icon" title="Python"></i>
+            <i class="fa-solid fa-robot skill-icon" title="AI Prompting"></i>
+          </div>
+        </div>
+      </div>
 
-            <div class="mt-8">
-                <h3 class="text-xl text-blue-400 mb-4">Skills</h3>
-                <div class="flex flex-wrap justify-center">
-                    <i class="fab fa-html5 skill-icon text-orange-500"></i>
-                    <i class="fab fa-js-square skill-icon text-yellow-400"></i>
-                    <i class="fab fa-css3-alt skill-icon text-blue-500"></i>
-                    <i class="fab fa-python skill-icon text-blue-400"></i>
-                </div>
-            </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <div id="announcement">
+          This website is under construction. Last update was <span style="color: black">07 Nov 2024 @ 04:00h</span>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#" class="nav-link"><i class="far fa-newspaper"></i>Posts</a>
+            </li>
+            <li>
+              <a href="#" class="nav-link"><i class="fas fa-robot"></i>AI Art</a>
+            </li>
+          </ul>
+        </nav>
 
-            <div class="mt-8">
-                <h3 class="text-xl text-blue-400 mb-4">Contact</h3>
-                <a href="https://github.com/osyra42" class="nav-link block mb-2">
-                    <i class="fab fa-github mr-2"></i>GitHub Profile
-                </a>
+        <!-- Section for All Posts -->
+        <div class="all-posts">
+          <!-- Let Me Talk -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Let Me Talk (2025)</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
             </div>
+            <p class="post-content">
+              Typing <progress id="LT-progressBar" max="100" value="1"></progress>
+              <span id="LT-percentValue"></span> done<br />
+            </p>
+            <span><a href="books/let_me_talk.html" target="_blank">Read more...</a></span>
+            <span class="post-time"></span>
+          </div>
+
+          <!-- Osyra's Tale -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Osyra's Tale (2024)</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <p class="post-content">
+              Typing <progress id="OT-progressBar" max="100" value="2"></progress>
+              <span id="OT-percentValue"></span> done<br />
+            </p>
+            <span><a href="books/osyras_tale.html" target="_blank">Read more...</a></span>
+            <span class="post-time"></span>
+          </div>
+
+          <!-- Glitched -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Glitched (2013)</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <p class="post-content">
+              "Glitched" introduces Nala and her sister Lela, a former soldier. The story explores their daily lives and
+              the lingering effects of Lela's military past. Lela must make a critical decision about her injured friend
+              Pony, hinting at a potential return to military service. The narrative delves into themes of family,
+              personal growth, and the aftermath of war.
+            </p>
+            <span><a href="books/glitched.html" target="_blank">Read more...</a></span>
+            <span class="post-time"></span>
+          </div>
+
+          <!-- Infinite Devestation -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Infinite Devestation (2024)</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <p class="post-content">
+              Typing <progress id="ID-progressBar" max="56" value="22"></progress>
+              <span id="ID-percentValue"></span> done<br />
+            </p>
+            <span><a href="books/infinite_devastation.html" target="_blank">Read more...</a></span>
+            <span class="post-time"></span>
+          </div>
+
+          <!-- Ever Diamond -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Ever Diamond (2024)</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <p class="post-content">
+              In "Ever Diamond," Tom's life takes a dramatic turn when he discovers a mysterious ring with almost
+              unlimited powers. As he and his friends delve deeper into the ring's secrets, they encounter a series of
+              challenges and revelations. The story unfolds with intricate plotlines involving magic, war, and the quest
+              for the Holy Time Charm. Characters like Tom, Pony, and Lela navigate through a world where ancient
+              weapons, enchanted items, and the Ever Diamond play pivotal roles. The narrative explores themes of
+              loyalty, sacrifice, and the consequences of wielding immense power, all while blending elements of fantasy
+              and adventure. The story reaches a climax with a battle against a dragon, where the true nature of the
+              Ever Diamond and the characters' destinies are revealed.
+            </p>
+            <span><a href="books/ever_diamond.html" target="_blank">Read more...</a></span>
+            <span class="post-time"></span>
+          </div>
+
+          <script>
+            // Function to update the progress bar
+            function updateProgressBar(progressBarId, percentValueId) {
+              const progressBar = document.getElementById(progressBarId);
+              const percentValue = document.getElementById(percentValueId);
+
+              const value = parseInt(progressBar.value);
+              const max = parseInt(progressBar.max);
+              const percent = Math.round((value / max) * 100);
+              percentValue.textContent = `${percent}%`;
+            }
+
+            // Update the progress bars
+            updateProgressBar("OT-progressBar", "OT-percentValue");
+            updateProgressBar("ID-progressBar", "ID-percentValue");
+            updateProgressBar("LT-progressBar", "LT-percentValue");
+          </script>
+        </div>
+      </div>
+
+      <!-- Right Sidebar -->
+      <div class="project-links">
+        <div>
+          <div class="relative">
+            <i class="fas fa-search"></i>
+            <input type="text" id="search" placeholder="Search" autocomplete="off" />
+          </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content p-8">
-            <nav class="mb-8">
-                <ul class="flex space-x-6">
-                    <li><a href="#" class="nav-link"><i class="far fa-newspaper mr-2"></i>Posts</a></li>
-                    <li><a href="#" class="nav-link"><i class="fas fa-robot mr-2"></i>AI Art</a></li>
-                </ul>
-            </nav>
-
-            <div class="post-card">
-                <h3 class="text-xl text-blue-300 mb-4">My Books</h3>
-                <p class="text-gray-300">
-                    At Burger Byte Studio, we also delve into the world of literature. Here are some of the books we've authored or contributed to. Each book is a unique journey into different realms of knowledge and imagination.
-                </p>
-                <div class="mt-4">
-                    <h4 class="text-lg text-blue-300">Featured Books</h4>
-                    <ul class="list-disc list-inside text-gray-300">
-                        <li>The Digital Frontier</li>
-                        <li>AI and the Future</li>
-                        <li>3D Printing Revolution</li>
-                        <li>Virtual Worlds: A New Reality</li>
-                    </ul>
-                </div>
-                <div class="mt-4">
-                    <h4 class="text-lg text-blue-300">Contact Us</h4>
-                    <p class="text-gray-300">
-                        For more information or to purchase our books, please contact us at <a href="mailto:info@burgerbytestudio.com" class="nav-link">info@burgerbytestudio.com</a>.
-                    </p>
-                </div>
-            </div>
+        <h3>Project Links</h3>
+        <div class="project-links">
+          <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
+          <a href="my_books.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
+          <a href="old/commissions.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Commissions</a>
+          <a href="old/minecraft_server.html" class="nav-link"><i class="fas fa-server"></i>Minecraft Server</a>
+          <a href="old/vanity_bot.html" class="nav-link"><i class="fas fa-robot"></i>Vanity Bot</a>
+          <a href="contact.html" class="nav-link"><i class="fas fa-robot"></i>Contact</a>
+          <hr />
+          <a href="backrooms/index.html" class="nav-link"><i class="fas fa-door-open"></i>Backrooms</a>
+          <a href="bug_tracker.html" class="nav-link"><i class="fas fa-bug"></i>Bug Tracker</a>
         </div>
 
-        <!-- Right Sidebar -->
-        <div class="project-links p-6">
-            <div class="mb-8">
-                <div class="relative">
-                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-                    <input type="text" id="search" placeholder="Search" class="w-full bg-gray-800 text-gray-300 p-2 pl-10 rounded">
-                </div>
-            </div>
-
-            <h3 class="text-xl text-blue-400 mb-4">Project Links</h3>
-            <ul class="space-y-2" id="project-links">
-                <li><a href="about_3d_prints.html" class="nav-link"><i class="fas fa-cube file-icon"></i>about_3d_prints.html</a></li>
-                <li><a href="about_3d_vtuber.html" class="nav-link"><i class="fas fa-user-circle file-icon"></i>about_3d_vtuber.html</a></li>
-                <li><a href="commissions.html" class="nav-link"><i class="fas fa-shopping-cart file-icon"></i>commissions.html</a></li>
-                <li><a href="index.html" class="nav-link"><i class="fas fa-home file-icon"></i>index.html</a></li>
-                <li><a href="loot_game.html" class="nav-link"><i class="fas fa-gamepad file-icon"></i>loot_game.html</a></li>
-                <li><a href="minecraft_server.html" class="nav-link"><i class="fas fa-server file-icon"></i>minecraft_server.html</a></li>
-                <li><a href="my_books.html" class="nav-link"><i class="fas fa-book file-icon"></i>my_books.html</a></li>
-                <li><a href="vanity_bot.html" class="nav-link"><i class="fas fa-robot file-icon"></i>vanity_bot.html</a></li>
-                <li><a href="vanitys_future.html" class="nav-link"><i class="fas fa-clock file-icon"></i>vanitys_future.html</a></li>
-                <li><a href="whats_new.html" class="nav-link"><i class="fas fa-newspaper file-icon"></i>whats_new.html</a></li>
-            </ul>
-
-            <div class="mt-8">
-                <div class="flex space-x-4">
-                    <a href="privacy.html" class="nav-link"><i class="fas fa-shield-alt mr-1"></i>Privacy</a>
-                    <a href="terms.html" class="nav-link"><i class="fas fa-gavel mr-1"></i>Terms</a>
-                    <a href="help.html" class="nav-link"><i class="fas fa-question-circle mr-1"></i>Help</a>
-                </div>
-            </div>
+        <div class="pth">
+          <div>
+            <hr />
+            <a href="privacy.html" class="nav-link pth-link"><i class="fas fa-shield-alt"></i> Privacy</a> |
+            <a href="terms.html" class="nav-link pth-link"><i class="fas fa-gavel"></i> Terms</a> |
+            <a href="help.html" class="nav-link pth-link"><i class="fas fa-question-circle"></i> Help</a>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Custom JS -->
-    <script src="scripts.js"></script>
-    <script>
-        document.getElementById('search').addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            const links = document.querySelectorAll('#project-links li');
-            links.forEach(link => {
-                const text = link.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    link.style.display = 'block';
-                } else {
-                    link.style.display = 'none';
-                }
-            });
-        });
-    </script>
-</body>
+    <script src="assets/scripts.js"></script>
+    <script src="assets/clutter.js"></script>
+    <script></script>
+  </body>
 </html>
