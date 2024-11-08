@@ -49,7 +49,7 @@ function getSeason() {
 var season = getSeason();
 
 // Allow manual override for testing purposes
-// season = "Thanksgiving";
+// season = "Winter";
 
 let clutterTheme = getSeasonSymbol(season); // Default theme
 
