@@ -31,11 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const postTime = postCard.querySelector(".post-time");
         const relativeTime = formatRelativeTime(article.timestamp);
         postTime.textContent = relativeTime;
-        postTime.style.float = "right";
 
         const shareButton = postCard.querySelector("button");
-        shareButton.style.float = "right";
-        shareButton.style.marginRight = "8px";
 
         return postCard;
       }

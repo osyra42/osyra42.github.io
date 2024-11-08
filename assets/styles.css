@@ -1,3 +1,4 @@
+/* Global Styles */
 :root {
   --bg-color: #2c2c2c;
   --sidebar-bg: #3a3a3a;
@@ -23,16 +24,14 @@
   font-size: 16px;
 }
 
-/* General Styles */
 body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: Arial, sans-serif;
-  margin: 0px;
+  margin: 0;
 }
 
 a {
-  display: inline;
   text-decoration: none;
 }
 
@@ -64,39 +63,34 @@ h3 {
 
 .all-posts {
   flex: 1;
-  margin-top: 0px;
+  margin-top: 0;
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   scrollbar-width: thin;
   scrollbar-color: var(--accent1) var(--bg-color);
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: var(--accent1) var(--bg-color);
-  scrollbar-gutter: stable;
   -ms-overflow-style: none;
   overflow-x: hidden;
-  overflow-y: scroll;
   overscroll-behavior-y: none;
   overscroll-behavior-x: none;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Layout */
 .site-container {
   display: grid;
   grid-template-columns: 300px 1fr 250px;
   min-height: 100vh;
 }
 
-/* Sidebar */
-.sidebar {
+/* Left Sidebar */
+#left-sidebar {
   background-color: var(--sidebar-bg);
   border-right: 1px solid var(--border-color);
   padding: 20px;
+  height: 100vh;
 }
 
-.sidebar .avatar-container {
+#left-sidebar .avatar-container {
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -105,13 +99,13 @@ h3 {
   border: 2px solid var(--accent1);
 }
 
-.sidebar .avatar-container img {
+#left-sidebar .avatar-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.sidebar h2 {
+#left-sidebar h2 {
   font-size: 1.25rem;
   color: var(--hover);
   margin-top: -10px;
@@ -120,11 +114,11 @@ h3 {
   text-align: center;
 }
 
-.sidebar p {
+#left-sidebar p {
   color: var(--text-secondary);
 }
 
-.sidebar .skill-icon {
+#left-sidebar .skill-icon {
   width: 50px;
   height: 50px;
   margin: 5px;
@@ -134,35 +128,29 @@ h3 {
   display: inline-block;
 }
 
-.sidebar .skill-icons i {
+#left-sidebar .skill-icons i {
   font-size: 32px;
   text-align: center;
   color: var(--text-tertiary);
   padding-top: 10px;
 }
 
-.sidebar .nav-link {
+#left-sidebar .nav-link {
   color: var(--accent1);
   text-decoration: none;
   transition: color 0.2s;
-  display: block;
+  display: inline-block;
   margin-bottom: 8px;
 }
 
-.sidebar .nav-link:hover {
+#left-sidebar .nav-link:hover {
   color: var(--hover);
-}
-
-.sidebar .nav-link i {
-  margin-right: 8px;
 }
 
 /* Main Content */
 .main-content {
   background-color: var(--main-content-bg);
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 40px;
+  padding: 40px 8px 8px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -170,8 +158,6 @@ h3 {
 }
 
 .main-content nav ul {
-  position: relative;
-  width: 100%;
   display: flex;
   gap: 24px;
 }
@@ -184,6 +170,7 @@ h3 {
   color: var(--accent1);
   text-decoration: none;
   transition: color 0.2s;
+  display: inline-block;
 }
 
 .main-content nav ul li a:hover {
@@ -206,13 +193,13 @@ h3 {
   font-size: 1.25rem;
   color: var(--accent2);
   margin-bottom: 4px;
-  display: flex; /* Ensure the title stays inline */
-  justify-content: space-between; /* Align title and button to opposite ends */
-  align-items: center; /* Vertically center the items */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main-content .post-card h3 i {
-  margin-right: 8px;
+  margin-right: 0px;
 }
 
 .main-content .post-card p {
@@ -223,7 +210,7 @@ h3 {
   color: var(--accent1);
   text-decoration: none;
   transition: color 0.2s;
-  display: block;
+  display: inline-block;
   margin-top: 16px;
 }
 
@@ -233,8 +220,8 @@ h3 {
 
 .main-content .post-card div {
   display: flex;
-  justify-content: space-between; /* Align title and button to opposite ends */
-  align-items: center; /* Vertically center the items */
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main-content .post-card div button {
@@ -245,7 +232,6 @@ h3 {
   transition: color 0.2s;
   font-size: 18px;
   margin-left: 8px;
-  right: 0px;
 }
 
 .main-content .post-card div button:hover {
@@ -254,8 +240,10 @@ h3 {
 
 .post-card .post-time {
   color: var(--text-tertiary);
-  margin-left: auto; /* Move the date to the right */
-  display: inline-block; /* Ensure it stays inline */
+  display: inline;
+  position: relative;
+  float: right;
+  margin-top: 18px;
 }
 
 .post-card .read-more {
@@ -263,24 +251,25 @@ h3 {
 }
 
 /* Right Sidebar */
-.project-links {
+#right-sidebar {
   background-color: var(--sidebar-bg);
-  padding: 24px;
+  padding: 12px;
+  height: 100vh;
 }
 
-.project-links .relative {
+#right-sidebar .relative {
   position: relative;
 }
 
-.project-links .relative i {
+#right-sidebar .relative i {
   position: absolute;
   left: 12px;
   top: 12px;
   color: var(--text-secondary);
 }
 
-.project-links input[type="text"] {
-  width: 200px; /* Adjust the width as needed */
+#right-sidebar input[type="text"] {
+  width: 224px;
   background-color: var(--input-bg);
   color: var(--text-tertiary);
   padding: 8px 12px 8px 40px;
@@ -288,19 +277,19 @@ h3 {
   border: 1px solid var(--input-border);
 }
 
-.project-links h3 {
+#right-sidebar h3 {
   font-size: 1.25rem;
   color: var(--accent2);
   margin-bottom: 4px;
 }
 
-.project-links div {
+#right-sidebar div {
   padding: 0;
   margin: 0;
   margin-bottom: 8px;
 }
 
-.project-links div a {
+#right-sidebar div a {
   color: var(--accent1);
   text-decoration: none;
   transition: color 0.2s;
@@ -309,31 +298,31 @@ h3 {
   font-size: 16px;
 }
 
-.project-links div a:hover {
+#right-sidebar div a:hover {
   color: var(--hover);
 }
 
-.project-links div a i {
+#right-sidebar .project-links a i {
   margin-right: 8px;
   width: 16px;
 }
 
-.project-links .flex {
+#right-sidebar .flex {
   display: flex;
   gap: 16px;
 }
 
-.project-links .flex a {
+#right-sidebar .flex a {
   color: var(--accent1);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.project-links .flex a:hover {
+#right-sidebar .flex a:hover {
   color: var(--hover);
 }
 
-.project-links .flex a i {
+#right-sidebar .flex a i {
   margin-right: 4px;
 }
 
@@ -347,7 +336,8 @@ h3 {
 }
 
 .pth div a i {
-  margin-right: 0px;
+  margin-right: 0;
+
   color: var(--accent2);
 }
 
@@ -365,7 +355,27 @@ h3 {
 }
 
 hr {
-  border: 0px;
+  border: 0;
   height: 2px;
   background-color: var(--input-border);
+}
+
+table {
+  border: 2px solid #bbbbbb;
+  overflow-y: scroll;
+  min-width: 100%;
+}
+
+thead {
+  background-color: #bbbbbb;
+  color: #000000;
+  text-align: center;
+}
+
+td {
+  padding: 3px;
+  min-width: 60px;
+  border: 1px solid #888888;
+  padding-left: 4px;
+  padding-right: 4px;
 }

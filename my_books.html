@@ -32,41 +32,17 @@
   <body>
     <div class="site-container">
       <!-- Left Sidebar -->
-      <div class="sidebar">
-        <div class="text-center">
-          <a href="index.html"><h1>Burger Byte Studio</h1></a>
-          <div class="avatar-container">
-            <img src="images/my_books.jpg" alt="My Books" />
-          </div>
-          <h2>My Books</h2>
-        </div>
-        <div class="skills">
-          <h3>Skills</h3>
-          <div class="skill-icons">
-            <i class="fab fa-html5 skill-icon" title="HTML5"></i>
-            <i class="fab fa-js-square skill-icon" title="JavaScript"></i>
-            <i class="fab fa-css3-alt skill-icon" title="CSS3"></i>
-            <i class="fab fa-python skill-icon" title="Python"></i>
-            <i class="fa-solid fa-robot skill-icon" title="AI Prompting"></i>
-          </div>
-        </div>
-      </div>
+      <div id="left-sidebar"></div>
+      <script>
+        // Declare variables in the global scope
+        var image = "my_books.jpg";
+        var title = "My Books";
+      </script>
+      <script src="_left-sidebar.js"></script>
 
       <!-- Main Content -->
       <div class="main-content">
-        <div id="announcement">
-          This website is under construction. Last update was <span style="color: black">07 Nov 2024 @ 04:00h</span>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <a href="#" class="nav-link"><i class="far fa-newspaper"></i>Posts</a>
-            </li>
-            <li>
-              <a href="#" class="nav-link"><i class="fas fa-robot"></i>AI Art</a>
-            </li>
-          </ul>
-        </nav>
+        <div id="announcement"></div>
 
         <!-- Section for All Posts -->
         <div class="all-posts">
@@ -74,7 +50,7 @@
           <div class="post-card">
             <div class="post-header">
               <h3>
-                <span class="post-title">Let Me Talk (2025)</span>
+                <span class="post-title">Let Me Talk</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
@@ -82,8 +58,8 @@
               Typing <progress id="LT-progressBar" max="100" value="1"></progress>
               <span id="LT-percentValue"></span> done<br />
             </p>
-            <span><a href="books/let_me_talk.html" target="_blank">Read more...</a></span>
-            <span class="post-time"></span>
+            <span><a href="books/let_me_talk.html" target="_blank">Read this book --></a></span>
+            <span class="post-time">Mid 2025</span>
           </div>
 
           <!-- Osyra's Tale -->
@@ -98,15 +74,15 @@
               Typing <progress id="OT-progressBar" max="100" value="2"></progress>
               <span id="OT-percentValue"></span> done<br />
             </p>
-            <span><a href="books/osyras_tale.html" target="_blank">Read more...</a></span>
-            <span class="post-time"></span>
+            <span><a href="books/osyras_tale.html" target="_blank">Read this book --></a></span>
+            <span class="post-time">Late 2024</span>
           </div>
 
           <!-- Glitched -->
           <div class="post-card">
             <div class="post-header">
               <h3>
-                <span class="post-title">Glitched (2013)</span>
+                <span class="post-title">Glitched</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
@@ -116,15 +92,15 @@
               Pony, hinting at a potential return to military service. The narrative delves into themes of family,
               personal growth, and the aftermath of war.
             </p>
-            <span><a href="books/glitched.html" target="_blank">Read more...</a></span>
-            <span class="post-time"></span>
+            <span><a href="books/glitched.html" target="_blank">Read this book --></a></span>
+            <span class="post-time">Mid 2013</span>
           </div>
 
           <!-- Infinite Devestation -->
           <div class="post-card">
             <div class="post-header">
               <h3>
-                <span class="post-title">Infinite Devestation (2024)</span>
+                <span class="post-title">Infinite Devestation</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
@@ -132,15 +108,15 @@
               Typing <progress id="ID-progressBar" max="56" value="22"></progress>
               <span id="ID-percentValue"></span> done<br />
             </p>
-            <span><a href="books/infinite_devastation.html" target="_blank">Read more...</a></span>
-            <span class="post-time"></span>
+            <span><a href="books/infinite_devastation.html" target="_blank">Read this book --></a></span>
+            <span class="post-time">Early 2011</span>
           </div>
 
           <!-- Ever Diamond -->
           <div class="post-card">
             <div class="post-header">
               <h3>
-                <span class="post-title">Ever Diamond (2024)</span>
+                <span class="post-title">Ever Diamond</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
@@ -154,8 +130,8 @@
               and adventure. The story reaches a climax with a battle against a dragon, where the true nature of the
               Ever Diamond and the characters' destinies are revealed.
             </p>
-            <span><a href="books/ever_diamond.html" target="_blank">Read more...</a></span>
-            <span class="post-time"></span>
+            <span><a href="books/ever_diamond.html" target="_blank">Read this book --></a></span>
+            <span class="post-time">Late 2007</span>
           </div>
 
           <script>
@@ -179,41 +155,13 @@
       </div>
 
       <!-- Right Sidebar -->
-      <div class="project-links">
-        <div>
-          <div class="relative">
-            <i class="fas fa-search"></i>
-            <input type="text" id="search" placeholder="Search" autocomplete="off" />
-          </div>
-        </div>
-
-        <h3>Project Links</h3>
-        <div class="project-links">
-          <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
-          <a href="my_books.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
-          <a href="old/commissions.html" class="nav-link"><i class="fas fa-shopping-cart"></i>Commissions</a>
-          <a href="old/minecraft_server.html" class="nav-link"><i class="fas fa-server"></i>Minecraft Server</a>
-          <a href="old/vanity_bot.html" class="nav-link"><i class="fas fa-robot"></i>Vanity Bot</a>
-          <a href="contact.html" class="nav-link"><i class="fas fa-robot"></i>Contact</a>
-          <hr />
-          <a href="backrooms/index.html" class="nav-link"><i class="fas fa-door-open"></i>Backrooms</a>
-          <a href="bug_tracker.html" class="nav-link"><i class="fas fa-bug"></i>Bug Tracker</a>
-        </div>
-
-        <div class="pth">
-          <div>
-            <hr />
-            <a href="privacy.html" class="nav-link pth-link"><i class="fas fa-shield-alt"></i> Privacy</a> |
-            <a href="terms.html" class="nav-link pth-link"><i class="fas fa-gavel"></i> Terms</a> |
-            <a href="help.html" class="nav-link pth-link"><i class="fas fa-question-circle"></i> Help</a>
-          </div>
-        </div>
-      </div>
+      <div id="right-sidebar"></div>
+      <script src="_right-sidebar.js"></script>
     </div>
 
     <!-- Custom JS -->
     <script src="assets/scripts.js"></script>
     <script src="assets/clutter.js"></script>
-    <script></script>
+    <script src="_announcement.js"></script>
   </body>
 </html>
