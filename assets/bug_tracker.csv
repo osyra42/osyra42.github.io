@@ -1,16 +1,17 @@
-#00016 ,Website ,Fixed     ,title is not always a link     ,kastiendev            ,07Nov2024
-#00015 ,Website ,Fixed     ,images missing                 ,kastiendev            ,07Nov2024
-#00014 ,Website ,Fixed     ,Contact me link 404            ,kastiendev            ,07Nov2024
-#00013 ,Website ,Fixed     ,incorrect icon on links        ,kastiendev            ,07Nov2024
-#00012 ,Website ,Attempt 0 ,pth section link don't work    ,kastiendev            ,07Nov2024
-#00011 ,Website ,Attempt 0 ,clutter is missing some assets ,osyra42               ,07Nov2024
-#00010 ,Website ,Attempt 0 ,post link are not displaying   ,osyra42               ,07Nov2024
-#00009 ,Website ,Attempt 0 ,the content is not truncated   ,osyra42               ,07Nov2024
-#00008 ,Website ,Fixed     ,date time is on the wrong line ,osyra42               ,07Nov2024
-#00007 ,Website ,Fixed     ,admin tools don't work         ,osyra42               ,04Nov2024
-#00006 ,Website ,Attempt 0 ,skills are not clickable       ,amiralimalekaninezhad ,04Nov2024
-#00005 ,Website ,Attempt 2 ,mobile design is missing       ,Trinkbell             ,03Nov2024
-#00004 ,Website ,Attempt 0 ,search bar is to fast          ,osyra42               ,01Nov2024
-#00003 ,Website ,Attempt 3 ,share icon locations are wrong ,osyra42               ,01Nov2024
-#00002 ,Website ,Attempt 3 ,share icon is not working      ,osyra42               ,01Nov2024
-#00001 ,Website ,Attempt 2 ,some links refer to old pages  ,osyra42               ,01Nov2024
+#00017 ,Website ,Fixed     ,'nouncing not working on About me ,osyra42               ,08Nov2024
+#00016 ,Website ,Fixed     ,title is not always a link        ,kastiendev            ,07Nov2024
+#00015 ,Website ,Fixed     ,images missing                    ,kastiendev            ,07Nov2024
+#00014 ,Website ,Fixed     ,Contact me link 404               ,kastiendev            ,07Nov2024
+#00013 ,Website ,Fixed     ,incorrect icon on links           ,kastiendev            ,07Nov2024
+#00012 ,Website ,Attempt 0 ,pth section link don't work       ,kastiendev            ,07Nov2024
+#00011 ,Website ,Attempt 0 ,clutter is missing some assets    ,osyra42               ,07Nov2024
+#00010 ,Website ,Attempt 0 ,post link are not displaying      ,osyra42               ,07Nov2024
+#00009 ,Website ,Attempt 0 ,the content is not truncated      ,osyra42               ,07Nov2024
+#00008 ,Website ,Fixed     ,date time is on the wrong line    ,osyra42               ,07Nov2024
+#00007 ,Website ,Fixed     ,admin tools don't work            ,osyra42               ,04Nov2024
+#00006 ,Website ,Attempt 0 ,skills are not clickable          ,amiralimalekaninezhad ,04Nov2024
+#00005 ,Website ,Attempt 2 ,mobile design is missing          ,Trinkbell             ,03Nov2024
+#00004 ,Website ,Attempt 0 ,search bar is to fast             ,osyra42               ,01Nov2024
+#00003 ,Website ,Attempt 3 ,share icon locations are wrong    ,osyra42               ,01Nov2024
+#00002 ,Website ,Attempt 3 ,share icon is not working         ,osyra42               ,01Nov2024
+#00001 ,Website ,Attempt 2 ,some links refer to old pages     ,osyra42               ,01Nov2024

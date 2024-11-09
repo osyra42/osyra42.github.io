@@ -206,7 +206,7 @@ h3 {
   margin-right: 0px;
 }
 
-.main-content .post-card p {
+.main-content .post-card div {
   color: var(--text-primary);
 }
 
@@ -215,14 +215,13 @@ h3 {
   text-decoration: none;
   transition: color 0.2s;
   display: inline-block;
-  margin-top: 16px;
 }
 
 .main-content .post-card a:hover {
   color: var(--hover);
 }
 
-.main-content .post-card div {
+.main-content .post-card .post-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -247,11 +246,6 @@ h3 {
   display: inline;
   position: relative;
   float: right;
-  margin-top: 18px;
-}
-
-.post-card .read-more {
-  display: inline-block;
 }
 
 /* Right Sidebar */
@@ -382,4 +376,9 @@ td {
   border: 1px solid #888888;
   padding-left: 4px;
   padding-right: 4px;
+}
+
+ol,
+ul {
+  margin-left: 16px;
 }
