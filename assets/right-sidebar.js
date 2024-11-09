@@ -11,7 +11,7 @@ document.getElementById("right-sidebar").innerHTML = `
   <a href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
   <a href="my_books.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
   <a href="old/commissions.html" class="nav-link">X <i class="fas fa-shopping-cart"></i>Commissions</a>
-  <a href="old/minecraft_server.html" class="nav-link">X <i class="fas fa-server"></i>Minecraft Server</a>
+  <a href="old/minecraft_server.html" class="nav-link"><i class="fas fa-server"></i>Minecraft Server</a>
   <a href="old/vanity_bot.html" class="nav-link">X <i class="fas fa-robot"></i>Vanity Bot</a>
   <a href="contact_me.html" class="nav-link"><i class="fa-solid fa-address-card"></i>Contact Me</a>
   <hr />

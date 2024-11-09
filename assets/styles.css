@@ -35,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+pre {
+  white-space: pre-wrap;
+}
+
 h1 {
   text-align: center;
   color: #3498db;
