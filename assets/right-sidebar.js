@@ -12,7 +12,7 @@ document.getElementById("right-sidebar").innerHTML = `
   <a title="Click to the page with my books" href="my_books.html" class="nav-link"><i class="fas fa-book"></i>My Books</a>
   <a title="Click to submit a commission request" href="old/commissions.html" class="nav-link">X <i class="fas fa-shopping-cart"></i>Commissions</a>
   <a title="Click to view information about the Minecraft server" href="minecraft.html" class="nav-link"><i class="fas fa-server"></i>Minecraft Server</a>
-  <a title="Click to view information about the Vanity" href="old/vanity_bot.html" class="nav-link">X <i class="fas fa-robot"></i>Vanity Bot</a>
+  <a title="Click to view information about the Vanity" href="vanity.html" class="nav-link"><i class="fas fa-robot"></i>Vanity Bot</a>
   <a title="Click to contact me or view basic information about me" href="about_me.html" class="nav-link"><i class="fa-solid fa-address-card"></i>About Me</a>
 
   <a title="Click to view bugs or submit a bug report" href="bug_tracker.html" class="nav-link"><i class="fas fa-bug"></i>Bug Tracker</a>
