@@ -1,17 +1,18 @@
 /* Global Styles */
 :root {
-  --bg-color: #2c2c2c;
-  --sidebar-bg: #3a3a3a;
-  --main-content-bg: #2c2c2c;
-  --hover: #2ecc71;
-  --accent1: #ff6f61;
-  --accent2: #ffcc5c;
-  --text-primary: #f5f5f5;
-  --text-secondary: #d3d3d3;
-  --text-tertiary: #b3b3b3;
-  --border-color: #4a4a4a;
-  --input-bg: #424242;
-  --input-border: #5a5a5a;
+  --text-primary: #ffffff; /* White text on dark background */
+  --text-secondary: #e0e0e0; /* Light gray text on dark background */
+  --text-tertiary: #c0c0c0; /* Medium gray text on dark background */
+  --bg-color: #2c2c2c; /* Dark background */
+  --sidebar-bg: #3a3a3a; /* Slightly lighter background */
+  --main-content-bg: #2c2c2c; /* Dark background */
+  --hover: #2ecc71; /* Green hover color */
+  --accent1: #ff6f61; /* Red accent color */
+  --accent2: #ffcc5c; /* Yellow accent color */
+  --border-color: #4a4a4a; /* Dark border color */
+  --input-bg: #424242; /* Dark input background */
+  --input-border: #5a5a5a; /* Dark input border */
+  --major-color: #3498db;
 }
 
 * {
@@ -22,6 +23,23 @@
   transition: color 0.2s;
   line-height: 1.5;
   font-size: 16px;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  cursor: pointer; /* Visible cursor for interactive elements */
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--hover); /* High contrast focus indicator */
+  outline-offset: 2px;
 }
 
 body {
@@ -41,7 +59,7 @@ pre {
 
 h1 {
   text-align: center;
-  color: #3498db;
+  color: var(--major-color);
   font-size: 28px;
 }
 
@@ -58,7 +76,7 @@ h3 {
   width: 100%;
   text-align: center;
   padding: 4px;
-  background-color: #3498db;
+  background-color: var(--major-color);
   color: #ecf0f1;
   font-size: 16px;
   z-index: 100;
@@ -380,4 +398,46 @@ td {
 ol,
 ul {
   margin-left: 16px;
+}
+
+form {
+  width: 100%;
+}
+
+form input,
+form select,
+form textarea {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  margin: 4px;
+}
+
+form input,
+form select {
+  min-width: 48%;
+}
+
+form textarea {
+  width: 100%;
+}
+
+form .button {
+  display: inline-block;
+  padding: 8px;
+  margin: 4px;
+  width: 120px;
+  height: 32px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+  color: var(--bg-color);
+  background-color: var(--accent2);
+}
+
+form .primary {
+  background-color: var(--accent1);
 }
