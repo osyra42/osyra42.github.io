@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Burger Byte Studio</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="assets/styles.css" /></noscript>
+
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/mobile.css" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="osyra42's website, click here to see what's going on" />
+    <meta name="keywords" content="osyra42, Burger Byte Studio, AI, books, game development, Minecraft, commissions" />
+    <meta name="author" content="osyra42" />
+    <meta property="og:title" content="Burger Byte Studio" />
+    <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+    <meta property="og:image" content="https://burgerbytestudio.com/favicon.png" />
+    <meta property="og:url" content="https://burgerbytestudio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Burger Byte Studio" />
+    <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+    <meta name="twitter:image" content="https://burgerbytestudio.com/favicon.png" />
+  </head>
+  <body>
+    <div class="site-container">
+      <!-- Left Sidebar -->
+      <div id="left-sidebar"></div>
+      <script>
+        // Declare variables in the global scope
+        var image = "commissions.jpg";
+        var title = "Commissions";
+      </script>
+      <script src="assets/left-sidebar.js"></script>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div id="announcement"></div>
+        <script src="assets/announcement.js"></script>
+        <!-- Section for All Posts -->
+        <div class="all-posts">
+          <!-- Let Me Talk -->
+          <form method="post" action="#" onchange="raw()" id="orderForm">
+            <h3>Required</h3>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              value=""
+              placeholder="Username"
+              autocomplete="off"
+              required
+            />
+            <select name="services" id="services" required>
+              <option value="">Category</option>
+              <option value="3D Prints">3D Prints</option>
+              <option value="Vtuber Models">Vtuber Models</option>
+            </select>
+            <br />
+            <textarea name="description" id="description" placeholder="Enter your description" rows="6"></textarea>
+            <br />
+
+            <h3>Select at Least One</h3>
+            <input type="text" name="discord" id="discord" value="" placeholder="Discord" autocomplete="off" /><br />
+            <input type="text" name="tel" id="tel" value="" placeholder="Phone" autocomplete="off" /><br />
+            <input type="text" name="email" id="email" value="" placeholder="Email" autocomplete="off" /><br />
+            <br />
+
+            <h3>Physical Orders Only</h3>
+
+            <input type="text" name="given-name" id="given-name" value="" placeholder="First Name" autocomplete="off" />
+
+            <input
+              type="text"
+              name="family-name"
+              id="family-name"
+              value=""
+              placeholder="Last Name"
+              autocomplete="off"
+            />
+
+            <br />
+
+            <input
+              type="text"
+              name="address-line1"
+              id="address-line1"
+              value=""
+              placeholder="Street"
+              autocomplete="off"
+            />
+
+            <input
+              type="text"
+              name="address-level2"
+              id="address-level2"
+              value=""
+              placeholder="City"
+              autocomplete="off"
+            />
+            <br />
+            <input
+              type="text"
+              name="address-level1"
+              id="address-level1"
+              value=""
+              placeholder="State"
+              autocomplete="off"
+            />
+
+            <input type="text" name="postal-code" id="postal-code" value="" placeholder="ZIP Code" autocomplete="off" />
+
+            <br />
+
+            <!-- Add more input fields for other information -->
+
+            <div class="actions">
+              <a href="#" aria-label="click here to send the email" onclick="sendEmail()" class="button primary"
+                >Email</a
+              >
+              <a href="#" aria-label="click here to download the raw data" onclick="dlraw()" class="button">Download</a>
+              <a href="#" aria-label="click here to copy the raw data" onclick="copyRaw()" class="button">Copy</a>
+            </div>
+            <br />
+            <div id="rawtext"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Sidebar -->
+      <div id="right-sidebar"></div>
+      <script src="assets/right-sidebar.js"></script>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="assets/scripts.js"></script>
+    <script src="assets/clutter.js"></script>
+    <script src="announcement.js"></script>
+    <script>
+      // Get the select element
+      var select = document.getElementById("services");
+
+      // Append options to the select element
+      jsonData.forEach(function (service) {
+        var option = document.createElement("option");
+        option.value = service.title;
+        option.textContent = service.title;
+        select.appendChild(option);
+      });
+
+      function raw() {
+        // Get values from form fields
+        var username = document.getElementById("username").value;
+        var service = document.getElementById("services").value;
+        var description = document.getElementById("description").value;
+        var discord = document.getElementById("discord").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("tel").value;
+        var fname = document.getElementById("given-name").value;
+        var lname = document.getElementById("family-name").value;
+        var street = document.getElementById("address-line1").value;
+        var city = document.getElementById("address-level2").value;
+        var state = document.getElementById("address-level1").value;
+        var postalCode = document.getElementById("postal-code").value;
+
+        // Construct key-value pairs with line breaks
+        var rawData = `
+        Username: ${username}<br>
+        Service: ${service}<br>
+        Description: ${description}<br>
+        -----------------------------------<br>
+        Discord: ${discord}<br>
+        Email: ${email}<br>
+        Phone: ${phone}<br>
+        -----------------------------------<br>
+        Name: ${fname} ${lname}<br>
+        Address: ${street}<br>
+        ~${city}, ${state} ${postalCode}<br>
+        `;
+        // Set the formatted data into the rawtext textarea
+        document.getElementById("rawtext").innerHTML = rawData;
+      }
+
+      function copyRaw() {
+        var rawText = document.getElementById("rawtext").textContent; // Get the text content of the rawtext div
+        var tempTextArea = document.createElement("textarea");
+        tempTextArea.value = rawText;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+        alert("Raw text copied to clipboard!");
+      }
+
+      function dlraw() {
+        // Get the text content from the div
+        var text = document.getElementById("rawtext").textContent;
+
+        // Get the username
+        var username = document.getElementById("username").value;
+        // Check if the username is empty
+        if (username.trim() === "") {
+          alert("Please enter a username before downloading.");
+          return; // Stop further execution of the function
+        }
+        // Create a Blob containing the text
+        var blob = new Blob([text], { type: "text/plain" });
+
+        // Create a temporary anchor element
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+
+        // Set the file name
+        a.download = `ticket_of_${username}.txt`;
+
+        // Append the anchor to the body and trigger the click event
+        document.body.appendChild(a);
+        a.click();
+
+        // Remove the anchor from the body
+        document.body.removeChild(a);
+      }
+
+      function sendEmail() {
+        raw(); // Ensure the raw data is generated
+
+        var username = document.getElementById("username").value;
+        var rawData = document.getElementById("rawtext").innerHTML; // Get the raw data
+
+        if (username.trim() === "") {
+          alert("Please enter a username before sending the email.");
+          return;
+        }
+
+        var subject = encodeURIComponent(username);
+        var body = encodeURIComponent(rawData.replace(/<br>/g, "\n")); // Convert <br> to newlines for the email body
+        var email = "burgerbytestudio@proton.me";
+
+        window.location.href = `mailto:${email}?subject=ticket_of_${subject}&body=${body}`;
+      }
+    </script>
+  </body>
+</html>

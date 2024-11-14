@@ -35,3 +35,14 @@ h3 {
   font-size: 10 px;
   border: 1px solid #bbbbbb;
 }
+
+table {
+  font-family: "Courier New", Courier, monospace;
+  border: 2px solid #bbbbbb;
+}
+
+table thead {
+  background-color: #bbbbbb;
+  color: #000000;
+  text-align: center;
+}
