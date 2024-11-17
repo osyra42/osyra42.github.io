@@ -96,10 +96,6 @@
           ></textarea>
         </div>
         <div class="form-group">
-          <label for="author">Author:</label>
-          <input type="text" id="author" name="author" placeholder="Osyra from Burger Byte Studio" />
-        </div>
-        <div class="form-group">
           <label for="linkText">Link Text:</label>
           <input type="text" id="linkText" name="linkText" placeholder="Issue Tracker" />
         </div>
@@ -128,7 +124,6 @@
         const timestamp = document.getElementById("timestamp").value;
         const title = document.getElementById("title").value;
         const content = document.getElementById("content").value;
-        const author = document.getElementById("author").value;
         const linkText = document.getElementById("linkText").value;
         const linkUrl = document.getElementById("linkUrl").value;
 
@@ -136,14 +131,10 @@
           timestamp: timestamp,
           title: title,
           content: content,
-          author: author,
-          links: [
-            {
-              text: linkText,
-              url: linkUrl,
-            },
-          ],
-          pinned: false,
+          link: {
+            text: linkText,
+            url: linkUrl,
+          },
         };
 
         document.getElementById("jsonOutput").value = JSON.stringify(jsonTemplate, null, 2);
