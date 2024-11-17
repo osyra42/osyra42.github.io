@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "timestamp": "1731810270816",
+      "title": "Announcing the Launch of Our New Website: Help Us Squash Those Bugs!",
+      "content": "We’re thrilled to announce that our website is nearly complete! While we’re putting the finishing touches on it, we’re eager to hear from you. If you spot any bugs or issues, please let us know—your feedback is invaluable, and we’ll be sure to give credit where it’s due. Additionally, we’re currently working on the official mobile design, so stay tuned for that update. In the meantime, we’ve posted the first half of Infinite Devastation and will be finishing the book soon. Plus, Vanity has a brand new model ready for testing! Head over to our Discord server to check it out and let us know what you think. Thanks for your support!",
+      "link": {
+        "text": "",
+        "url": ""
+      }
+    },
+    {
       "timestamp": 1730989378460,
       "title": "Even More Updates!!!",
       "content": "I have converted a few pages to the new look and I have to say it is pretty. I have also deleted a lot of pages so if you get dead links let me know I will show you where the data is. (No data was lost) The leaves that are falling are going to become their own library called Clutter and will get a few error fixes and patches before being publicly available on github and here. The back end has been cleaned up significantly. I will add a link to the backrooms, it will never get an update, but things may be moved from the backrooms to the main site making them clean.",
