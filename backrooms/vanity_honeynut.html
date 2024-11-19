@@ -8,71 +8,47 @@
   </head>
   <body>
     <a href="../index.html"><<< Exit</a> | <a href="index.html">< Back</a>
-    <p class="updated">Updated --> Nov07th2024@03:20h</p>
+    <p class="updated">Updated --> 2024Nov19</p>
 
     <pre>
 ._________________________.
 | Vanity (Honeynut)       |
 '▔▔▔▔▔▔▔▔▔▔▔▔▔▔'
+# Summary of Integrating Discord Bot with Minecraft Bot with AI Module and VTuber Model
 
-rvc
+## Features
 
+### Discord Bot with `disnake` (Python)
+- **Command Handling**: Responds to commands prefixed with `~` in Discord channels.
+- **AI Integration**: Uses the `Smegma` AI module with 380 tokens for generating responses.
+- **Message Sending**: Sends messages to Discord channels, including AI-generated responses.
+- **Inter-Bot Communication**: Can trigger actions in the Minecraft bot and share memory.
+- **Game Knowledge**: Answers questions about the game and provides information based on its memory.
+- **Online Research**: Can look up information online if needed to provide accurate responses.
+- **Self-Awareness**: Comments on its actions, intentions, and success in both platforms.
+- **VTuber Model**: Represents the bot playing the game with a visual avatar.
+- **Voice Integration**: Uses a voice model similar to RVC to provide spoken responses.
 
+### Minecraft Bot with `mineflayer` (Node.js)
+- **Command Handling**: Responds to commands prefixed with `~` in the Minecraft chat.
+- **AI Integration**: Uses the `Smegma` AI module with 40 tokens for generating responses.
+- **Message Sending**: Sends messages to the Minecraft chat, including AI-generated responses.
+- **Inter-Bot Communication**: Can trigger actions in the Discord bot and share memory.
+- **Game Knowledge**: Answers questions about the game and provides information based on its memory.
+- **Online Research**: Can look up information online if needed to provide accurate responses.
+- **Self-Awareness**: Comments on its actions, intentions, and success in both platforms.
+- **VTuber Model**: Represents the bot playing the game with a visual avatar.
+- **Voice Integration**: Uses a voice model similar to RVC to provide spoken responses.
 
-
-# Vanity (Honeynut Update) - AI VTuber Discord Integration Features with Advanced Game Assistance
-
-## Introduction
-Vanity (Honeynut Update) is an AI VTuber integrated with Discord, designed to offer a unique and immersive experience for gamers by providing real-time assistance and collaboration. By leveraging computer vision and OCR (Optical Character Recognition) technologies, Vanity can watch the player's screen, understand in-game actions, remember dialogue, quests, and other key elements, and provide helpful guidance. Additionally, Vanity maintains a global memory for each user across different sessions, ensuring a seamless and personalized experience. Below are the key features of Vanity:
-
-## 1. **Real-Time Screen Monitoring**
-- **Computer Vision:** Vanity uses computer vision to monitor the player's screen in real-time, capturing visual information about the game environment.
-- **OCR Technology:** Optical Character Recognition is used to read and understand text displayed on the screen, such as dialogue boxes, quest logs, and item descriptions.
-
-## 2. **In-Game Action Recognition**
-- **Action Tracking:** Vanity can recognize and track in-game actions, such as combat moves, item usage, and quest progression.
-- **Dialogue Memory:** Vanity remembers dialogue and conversations, allowing it to provide context-aware responses and reminders.
-- **Quest Management:** Vanity keeps track of active quests, objectives, and progress, offering guidance on what to do next.
-
-## 3. **Memory Per Game (Owner-Specific)**
-- **Game-Specific Memory:** Vanity maintains a separate memory for each game, allowing it to remember details specific to that game, such as character stats, inventory, and quest history. This memory is specific to the bot owner.
-- **Session Continuity:** Vanity can continue from where the player left off in a previous session, providing a seamless experience across multiple play sessions.
-
-## 4. **Global User Memory (Discord-Specific)**
-- **Per User Memory:** Vanity maintains a global memory for each user across all games and interactions within the Discord server, ensuring a personalized experience.
-- **Personalized Assistance:** Vanity uses this global memory to provide tailored advice, reminders, and recommendations based on the user's play style and preferences.
-
-## 5. **Interactive Discord Commands**
-- **Custom Commands:** Users can interact with Vanity using custom Discord commands to request information, guidance, or assistance.
-- **Memory Queries:** Users can ask Vanity to recall specific details from their memory, such as past quests, dialogue, or actions taken.
-- **Session Management:** Users can start, pause, and resume sessions with Vanity, ensuring that their progress is saved and accessible.
-
-## 6. **Real-Time Assistance**
-- **In-Game Tips:** Vanity provides real-time tips and hints based on the player's current actions and game state.
-- **Quest Guidance:** Vanity offers step-by-step guidance for completing quests, including location hints and objective reminders.
-- **Dialogue Summaries:** Vanity can summarize past dialogues and conversations, helping the player remember important plot points and character interactions.
-
-## 7. **Integration with External Services**
-- **Game Database:** Vanity can integrate with external game databases to provide additional information, such as item stats, enemy weaknesses, and quest walkthroughs.
-- **Community Forums:** Vanity can access and summarize community forums and guides, offering the latest tips and strategies.
-
-## 8. **Customization and Personalization**
-- **User Preferences:** Users can set preferences for how Vanity interacts with them, such as communication style, assistance level, and memory retention.
-
-## 9. **Analytics and Reporting**
-- **Play Session Analytics:** Vanity can provide detailed analytics on play sessions, including time spent, quest completion rates, and common actions taken.
-- **Memory Reports:** Vanity can generate reports on the user's memory, highlighting key events, quests, and interactions.
-- **Feedback Collection:** Vanity can collect and analyze user feedback to improve its assistance and guidance.
-
-## 10. **Game Session Management**
-- **Process Detection:** Vanity looks for a process in the computer to determine what game is being played.
-- **Game Recognition:** Vanity recognizes the game being played and switches to the appropriate game-specific memory.
-
-## 11. **Voice Commands (Owner-Specific)**
-- **Voice Interaction:** Vanity only accepts voice commands from the bot owner, providing a more immersive and hands-free experience.
-
-## Conclusion
-Vanity (Honeynut Update) is an AI VTuber integrated with Discord, equipped with advanced game assistance features, offering a powerful tool for gamers. By monitoring the player's screen, understanding in-game actions, and maintaining detailed memories, Vanity can provide real-time assistance, personalized guidance, and a seamless gaming experience. Whether you're looking to enhance your gaming sessions or simply enjoy a more immersive experience, Vanity is an invaluable companion.
+### Integration
+- **Bidirectional Communication**: Allows commands and messages to be sent between Discord and Minecraft.
+- **Shared Memory**: The bot's memory is shared between both platforms, allowing it to reference past events and conversations.
+- **Seamless Interaction**: Enables a unified experience where users can interact with the bot from either platform, with the bot being aware of its actions and context.
+- **Cross-Platform Commands**: Commands issued in one platform can trigger responses in the other, creating a cohesive user experience.
+- **AI-Driven Responses**: Utilizes the `Smegma` AI module to generate context-aware responses, with the bot being able to comment on its actions and intentions.
+- **Online Information Retrieval**: The bot can look up information online to provide accurate and up-to-date responses when needed.
+- **VTuber Representation**: The bot is visually represented by a VTuber model that interacts with the game and users.
+- **Voice Interaction**: The bot provides spoken responses using a voice model similar to RVC, enhancing the interactive experience.
 
 </pre
     >
