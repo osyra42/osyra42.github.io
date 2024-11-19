@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <title>BurgerByteStudio's Backrooms</title>
     <meta charset="UTF-8" />
@@ -8,7 +9,7 @@
   </head>
   <body>
     <a href="../index.html"><<< Exit</a> | <a href="index.html">< Back</a>
-    <p class="updated">Updated --> Nov14th2024@05:12h</p>
+    <p class="updated">Updated --> 2024Nov19</p>
     <p class="ai">This document is AI free.</p>
     <pre>
 If you encounter any bugs, issues, or problems with the website or any files on the site,
@@ -17,45 +18,61 @@ please reach out to me with a detailed description of the issue.<br />
 BurgerByteStudio@proton.me
     </pre>
     <table id="issueTable">
+      <thead>
+        <!-- Header row will be dynamically added here -->
+      </thead>
       <tbody>
-        <!-- Rows will be dynamically added here -->
-        <script>
-          async function fetchCSV(url) {
-            const response = await fetch(url);
-            const text = await response.text();
-            return text;
-          }
-
-          function parseCSV(csvText) {
-            const rows = csvText.split("\n").map((row) => row.split(","));
-            return rows;
-          }
-
-          function generateTable(csvRows) {
-            const tableBody = document.querySelector("#issueTable tbody");
-            tableBody.innerHTML = ""; // Clear existing rows
-
-            csvRows.forEach((row) => {
-              const tr = document.createElement("tr");
-              row.forEach((cell) => {
-                const td = document.createElement("td");
-                td.textContent = cell;
-                tr.appendChild(td);
-              });
-              tableBody.appendChild(tr);
-            });
-          }
-
-          async function loadTableFromCSV(csvUrl) {
-            const csvText = await fetchCSV(csvUrl);
-            const csvRows = parseCSV(csvText);
-            generateTable(csvRows);
-          }
-
-          // Replace 'bug_tracker.csv' with the actual path to your CSV file
-          loadTableFromCSV("../assets/bug_tracker.csv");
-        </script>
+        <!-- Data rows will be dynamically added here -->
       </tbody>
     </table>
+    <script>
+      async function fetchCSV(url) {
+        const response = await fetch(url);
+        const text = await response.text();
+        return text;
+      }
+
+      function parseCSV(csvText) {
+        const rows = csvText.split("\n").map((row) => row.split(","));
+        return rows;
+      }
+
+      function generateTable(csvRows) {
+        const tableHeader = document.querySelector("#issueTable thead");
+        const tableBody = document.querySelector("#issueTable tbody");
+        tableHeader.innerHTML = ""; // Clear existing header
+        tableBody.innerHTML = ""; // Clear existing rows
+
+        // Add the header row
+        const headerRow = csvRows[0];
+        const trHeader = document.createElement("tr");
+        headerRow.forEach((cell) => {
+          const th = document.createElement("th");
+          th.textContent = cell;
+          trHeader.appendChild(th);
+        });
+        tableHeader.appendChild(trHeader);
+
+        // Add the data rows
+        csvRows.slice(1).forEach((row) => {
+          const tr = document.createElement("tr");
+          row.forEach((cell) => {
+            const td = document.createElement("td");
+            td.textContent = cell;
+            tr.appendChild(td);
+          });
+          tableBody.appendChild(tr);
+        });
+      }
+
+      async function loadTableFromCSV(csvUrl) {
+        const csvText = await fetchCSV(csvUrl);
+        const csvRows = parseCSV(csvText);
+        generateTable(csvRows);
+      }
+
+      // Replace 'bug_tracker.csv' with the actual path to your CSV file
+      loadTableFromCSV("../assets/bug_tracker.csv");
+    </script>
   </body>
 </html>
