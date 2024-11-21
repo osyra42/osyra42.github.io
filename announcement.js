@@ -1,3 +1,6 @@
 document.getElementById("announcement").innerHTML = `
-This website is under construction. Last update was <span style="color: black">2024 Nov 16 @ 21:00h</span>
+This website is under construction.
+ <span style="color: lime">Desktop: 93% </span> ~ 
+   <span style="color: red">Mobile: 12% </span> ~ 
+<span style="color: black">Updated: 2024Nov20</span>
 `;
