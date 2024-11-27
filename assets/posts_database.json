@@ -33,7 +33,7 @@
       "content": "I have started to work on tons of bug fixes on the website some visible and tons invisible. To get started I have simplified the sidebar with links, added a divider and attached each link to a page, a couple pages still point to the old layout, I will be fixing that in the next couple weeks, I have been struggling to decide on what is the best way to process data to the page. That would be one of the invisible updates. Let's talk about a few viable things, I have been trying to implement relative time to each post so you can see how long ago the post was made instead of seeing exact date time. The Bug tracker is legitimately posted to the side panel now. It does still take you to the backrooms but that will be fixed eventually. And finally the last thing I will report here is that the Loot Game has gotten traction, you can see the notes below.",
       "link": {
         "text": "Loot Game",
-        "url": "raw/loot_game.html"
+        "url": "backrooms/loot_game.html"
       }
     },
     {
@@ -42,7 +42,7 @@
       "content": "We are thrilled to announce that Burger Byte Studio is getting a brand-new look! As the founder, Osyra, I’ve been hard at work behind the scenes, not only refreshing the design but also addressing some long-standing mobile issues to ensure a seamless experience for all of you, no matter what device you’re using.\n\nAs we continue to make these improvements, we encourage you to keep an eye out for any issues that may arise during this transition. Your feedback is invaluable to us, and we want to make sure we catch any bugs or glitches before they become a problem.\n\nTo make it easier for you to report any issues you encounter, we’ve added an **Bug Tracker** right on the sidebar. This is the perfect place to let us know about any problems you see, whether it’s a broken link, a layout issue, or anything else that doesn’t seem quite right.\n\nThank you for your patience and support as we work to bring you a better, more user-friendly experience. We can’t wait for you to see the new and improved Burger Byte Studio!",
       "link": {
         "text": "Bug Tracker",
-        "url": "raw/bug_tracker.html"
+        "url": "backrooms/bug_tracker.html"
       }
     },
     {
