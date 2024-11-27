@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "timestamp": "1732628979550",
+      "title": "Announcing the Release of \"Infinite Devastation\" (2011)",
+      "content": "We are thrilled to announce the highly anticipated release of \"Infinite Devastation,\" a captivating and immersive novel that will transport you to a world of mystery, magic, and adventure. Written by an extraordinary talent, this book promises to be a thrilling journey that will keep you on the edge of your seat from the very first page.",
+      "link": {
+        "text": "Infinite Devastation",
+        "url": "books/infinite_devastation.html"
+      }
+    },
+    {
       "timestamp": "1731810270816",
       "title": "Announcing the Launch of Our New Website: Help Us Squash Those Bugs!",
       "content": "We’re thrilled to announce that our website is nearly complete! While we’re putting the finishing touches on it, we’re eager to hear from you. If you spot any bugs or issues, please let us know—your feedback is invaluable, and we’ll be sure to give credit where it’s due. Additionally, we’re currently working on the official mobile design, so stay tuned for that update. In the meantime, we’ve posted the first half of Infinite Devastation and will be finishing the book soon. Plus, Vanity has a brand new model ready for testing! Head over to our Discord server to check it out and let us know what you think. Thanks for your support!",
