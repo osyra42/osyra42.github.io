@@ -26,7 +26,7 @@
     pre button {
       background-color: #343434;
       color: #ff2200;
-      font-family: "Times New Roman", Times, serif;
+      font-family: "Courier New", Courier, monospace;
       font-size: 16px;
     }
 
