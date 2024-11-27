@@ -2,12 +2,12 @@
   // CSS styles
   const styles = `
     body {
-      font-family: "Courier New", Courier, monospace;
+      font-family: ""Courier New", Courier, monospace;"
     }
 
     pre {
       white-space: pre-wrap;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Times New Roman", Times, serif;
       margin: 30px;
       font-size: 16px;
     }
