@@ -29,7 +29,7 @@ function getSeason() {
     return "Christmas";
   } else if (month === 7 && day === 4) {
     return "4thOfJuly";
-  } else if (month === 11 && day === 24) {
+  } else if (month === 11 && day === 28) {
     return "Thanksgiving";
   }
 
