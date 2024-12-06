@@ -35,29 +35,66 @@
       <div id="left-sidebar"></div>
       <script>
         // Declare variables in the global scope
-        var image = "profile_picture.jpg";
-        var title = "Osyra Renaya";
+        var image = "dev_tools.jpg";
+        var title = "Dev Tools";
       </script>
       <script src="assets/left-sidebar.js"></script>
 
       <!-- Main Content -->
       <div class="main-content">
-        <div id="announcement">
-          This website is under construction. Last update was <span style="color: black">07 Nov 2024 @ 04:00h</span>
-        </div>
+        <div id="announcement"></div>
 
         <!-- Section for All Posts -->
         <div class="all-posts">
-          <div class="post-card" id="post-template" style="display: none">
+          <!-- Bacon Ipsum -->
+          <div class="post-card">
             <div class="post-header">
               <h3>
-                <span class="post-title"></span>
+                <span class="post-title">Filler Text</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
-            <div class="post-content"><pre></pre></div>
-            <span><a href="#" aria-label="" class="nav-link post-link"> </a></span>
-            <span class="post-time"></span>
+            <div class="post-content">
+              <pre>
+Do you want filler text for you development environment? Check this out.
+Free <a href="https://baconipsum.com">Bacon Ipsum <i class="fa-solid fa-link"></i></a>
+                </pre>
+            </div>
+          </div>
+
+          <!-- Online AI Tools -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Online AI Tools</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <div class="post-content">
+              <pre>
+Would you like to try out AI tools online? Check this out.
+Free <a href="https://deepseek.com" aria-label="Click here to view Bacon Ipsum" target="_blank"
+>DeepSeek <i class="fa-solid fa-link"></i
+></a>
+                </pre>
+            </div>
+          </div>
+
+          <!-- Image Editor -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Image Editor</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <div class="post-content">
+              <pre>
+Would you like to edit images? Check this out.
+Free <a href="https://gimp.org">GIMP <i class="fa-solid fa-link"></i></a>
+$165 <a href="https://affinity.serif.com/en-us/">Affinity Suit <i class="fa-solid fa-link"></i></a>
+                </pre>
+            </div>
           </div>
         </div>
       </div>
@@ -68,7 +105,6 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="assets/posts_iterator.js"></script>
     <script src="assets/scripts.js"></script>
     <script src="assets/clutter.js"></script>
     <script src="announcement.js"></script>

@@ -19,6 +19,9 @@ document.getElementById("right-sidebar").innerHTML = `
   <a title="Click to view information about the Minecraft server" href="minecraft.html" class="nav-link"
     ><i class="fas fa-server"></i>Minecraft Server</a>
 
+  <a title="Click to view information about the Dev Tools" href="dev_tools.html" class="nav-link"
+    ><i class="fas fa-wrench"></i>Dev Tools</a>
+
   <a title="Click to submit a commission request" href="commissions.html" class="nav-link"
     ><i class="fas fa-shopping-cart"></i>Commissions</a>
 

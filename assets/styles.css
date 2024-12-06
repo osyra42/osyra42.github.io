@@ -338,6 +338,19 @@ h3 {
   color: var(--hover);
 }
 
+.project-links {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent1) var(--bg-color);
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 #right-sidebar .project-links a i {
   margin-right: 8px;
   width: 16px;

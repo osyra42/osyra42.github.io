@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "timestamp": "1733398475380",
+      "title": "New links to the side bar!",
+      "content": "I added a few new links to the sidebar that I think are important. The links are mostly from the backrooms and I now have enough content to update them. First off there is Dev Tools, here I will add new tools that are cool useful and usually Free (or one time payment).",
+      "link": {
+        "text": "Dev Tools",
+        "url": "dev_tools.html"
+      }
+    },
+    {
       "timestamp": "1732628979550",
       "title": "Announcing the Release of \"Infinite Devastation\" (2011)",
       "content": "We are thrilled to announce the highly anticipated release of \"Infinite Devastation,\" a captivating and immersive novel that will transport you to a world of mystery, magic, and adventure. Written by an extraordinary talent, this book promises to be a thrilling journey that will keep you on the edge of your seat from the very first page.",
