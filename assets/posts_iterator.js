@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         postTitle.textContent = article.title;
 
         // Get the post content element and set its text content
-        postCard.querySelector(".post-content").textContent = article.content;
+        postCard.querySelector(".post-content pre").textContent = article.content;
 
         // Get the post time element and set its text content to the relative time
         const postTime = postCard.querySelector(".post-time");
