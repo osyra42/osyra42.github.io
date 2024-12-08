@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Burger Byte Studio</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="assets/styles.css" /></noscript>
+
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/mobile.css" />
+
+    <!-- Meta Tags -->
+    <meta name="description" content="osyra42's website, click here to see what's going on" />
+    <meta name="keywords" content="osyra42, Burger Byte Studio, AI, books, game development, Minecraft, commissions" />
+    <meta name="author" content="osyra42" />
+    <meta property="og:title" content="Burger Byte Studio" />
+    <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+    <meta property="og:image" content="https://burgerbytestudio.com/favicon.png" />
+    <meta property="og:url" content="https://burgerbytestudio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Burger Byte Studio" />
+    <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+    <meta name="twitter:image" content="https://burgerbytestudio.com/favicon.png" />
+  </head>
+  <body>
+    <div class="site-container">
+      <!-- Left Sidebar -->
+      <div id="left-sidebar"></div>
+      <script>
+        // Declare variables in the global scope
+        var image = "media_mimic.jpg";
+        var title = "Media Mimic";
+      </script>
+      <script src="assets/left-sidebar.js"></script>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div id="announcement"></div>
+
+        <!-- Section for All Posts -->
+        <div class="all-posts">
+          <!-- Bacon Ipsum -->
+          <div class="post-card">
+            <div class="post-header">
+              <h3>
+                <span class="post-title">Build v2024.11.22 Alpha</span>
+                <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
+              </h3>
+            </div>
+            <div class="post-content">
+              <pre>
+This is the first ever release of Media Mimic. This project has undergone several iterations and transformations, and I’m thrilled to share that it’s finally reached a state that I’m truly satisfied with.
+Free <a href="https://github.com/osyra42/media_mimic">See on Github <i class="fa-solid fa-link"></i></a>
+                </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sidebar -->
+      <div id="right-sidebar"></div>
+      <script src="assets/right-sidebar.js"></script>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="assets/scripts.js"></script>
+    <script src="assets/clutter.js"></script>
+    <script src="announcement.js"></script>
+  </body>
+</html>

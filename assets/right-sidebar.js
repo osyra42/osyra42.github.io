@@ -16,6 +16,9 @@ document.getElementById("right-sidebar").innerHTML = `
   <a title="Click to view information about the Vanity" href="vanity.html" class="nav-link"
     ><i class="fas fa-robot"></i>Vanity Bot</a>
 
+  <a title="Click to view information about the Media Mimic" href="media_mimic.html" class="nav-link"
+    ><i class="fa-solid fa-compact-disc"></i>Media Mimic</a>
+
   <a title="Click to view information about the Minecraft server" href="minecraft.html" class="nav-link"
     ><i class="fas fa-server"></i>Minecraft Server</a>
 
