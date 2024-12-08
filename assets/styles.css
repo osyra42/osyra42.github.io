@@ -474,3 +474,19 @@ form .button {
 form .primary {
   background-color: var(--accent1);
 }
+
+#disable-clutter {
+  position: absolute;
+  margin: 10px;
+  width: 240px;
+  height: 30px;
+  padding: 3px;
+  background-color: var(--border-color);
+  color: var(--sidebar-bg);
+  border: none;
+  cursor: pointer;
+}
+
+.disable-clutter .clutter {
+  display: none;
+}

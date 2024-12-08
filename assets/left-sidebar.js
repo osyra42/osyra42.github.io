@@ -9,5 +9,5 @@ document.getElementById("left-sidebar").innerHTML = `
     <h2>${title}</h2>
 </div>
 
-
+<button id="disable-clutter" title=":rolling eyes: Disable Clutter"><i class="fa-solid fa-face-rolling-eyes"></i> Disable Clutter</button>
 `;

@@ -20,3 +20,7 @@ document.getElementById("search").addEventListener("input", function () {
     }
   });
 });
+
+document.getElementById("disable-clutter").addEventListener("click", function () {
+  document.body.classList.add("disable-clutter");
+});
