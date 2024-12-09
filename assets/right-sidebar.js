@@ -31,6 +31,9 @@ document.getElementById("right-sidebar").innerHTML = `
   <a title="Click to contact me or view basic information about me" href="about_me.html" class="nav-link"
     ><i class="fa-solid fa-address-card"></i>About Me</a>
 
+  <a title="Click to contact me or view recommendations form me" href="recommendations.html" class="nav-link"
+    ><i class="fa-solid fa-star"></i>Recommendations</a>
+
   <hr />
 
   <a title="Click to view notes on new project ideas" href="backrooms/index.html" class="nav-link"
