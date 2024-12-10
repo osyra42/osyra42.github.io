@@ -17,8 +17,8 @@ BUG    ,SERVICE ,ATTEMPT # ,DESCRIPTION                             ,REPORTER   
 #00016 ,Website ,Fixed     ,title is not always a link              ,kastiendev            ,07Nov2024
 #00017 ,Website ,Fixed     ,'nouncing not working on About me       ,osyra42               ,08Nov2024
 #00018 ,Website ,Attempt 0 ,Vanity Eggplant and Fennel not accurate ,osyra42               ,14Nov2024
-#00019 ,Website ,Attempt 0 ,About me is incomplete                  ,osyra42               ,14Nov2024
-#00020 ,Website ,Attempt 0 ,privacy policy is in the backrooms      ,osyra42               ,14Nov2024
+#00019 ,Website ,Fixed     ,About me is incomplete                  ,osyra42               ,14Nov2024
+#00020 ,Website ,Fixed     ,privacy policy is in the backrooms      ,osyra42               ,14Nov2024
 #00021 ,Website ,Attempt 0 ,terms of service is in the backrooms    ,osyra42               ,14Nov2024
 #00022 ,Website ,Fixed     ,bug tracker is in the backrooms         ,osyra42               ,14Nov2024
 #00023 ,Website ,Attempt 0 ,commissions needs more work             ,osyra42               ,14Nov2024
