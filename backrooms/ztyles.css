@@ -51,3 +51,7 @@ table td {
   border: #000000 1px solid;
   padding-right: 18px;
 }
+
+img {
+  width: 100px;
+}
