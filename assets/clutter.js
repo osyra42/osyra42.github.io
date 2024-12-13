@@ -47,7 +47,6 @@ function getSeason() {
 
 // Get the current season or holiday
 var season = getSeason();
-
 // Allow manual override for testing purposes
 // season = "Winter";
 
