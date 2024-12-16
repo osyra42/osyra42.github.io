@@ -28,6 +28,21 @@
     <meta name="twitter:title" content="Burger Byte Studio" />
     <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
     <meta name="twitter:image" content="https://burgerbytestudio.com/favicon.png" />
+    <style>
+      .selected {
+        border: 1px solid #13c245ba;
+        background-color: #136c2952;
+        border-radius: 4px;
+        padding: 4px;
+        display: inline;
+        margin-left: -4px;
+      }
+      .selected::after {
+        content: "  <-- current";
+        font-size: 0.8em;
+        font-style: italic;
+      }
+    </style>
   </head>
   <body>
     <div class="site-container">
@@ -50,14 +65,20 @@
           <div class="post-card" style="background-color: #111111">
             <div class="post-header">
               <h3>
-                <span class="post-title">Minecraft server status</span>
+                <span class="post-title">Minecraft Sever Season</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
             <div class="post-content">
-              <p>Minecraft Server</p>
-              <p>Season: 6 (ATM9Sky)</p>
-              <p>Intended Status: <span style="color: lime">Online</span></p>
+              <p>Season 1: Spigot</p>
+              <p>Season 2: Sky_Factory</p>
+              <p>Season 3: ATM9</p>
+              <p>Season 4: ATM9_Sky2</p>
+              <p>Season 5: ATM8</p>
+              <p class="selected">Season 6: ATM9Sky</p>
+              <p>Season 7: <a href="https://strawpoll.com/poy9kGpN2gJ">Voting</a></p>
+              <br />
+              <p>Intended Status: <span style="color: lime">Probably Online</span></p>
             </div>
             <span class="post-time"></span>
           </div>
@@ -66,7 +87,7 @@
           <div class="post-card">
             <div class="post-header">
               <h3>
-                <span class="post-title">Server Rules</span>
+                <span class="post-title">Global Server Rules</span>
                 <button title="share"><i class="fa-solid fa-share-nodes"></i></button>
               </h3>
             </div>
@@ -126,14 +147,20 @@
               </h3>
             </div>
             <div class="post-content">
-              It is highly recommended to use Curse Forge to connect to the server. The following files are required to
-              connect to the server:
-              <a
-                target="_blank"
-                aria-label="Click here to download the required files"
-                href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky/files/all?page=1&pageSize=1"
-                >All the Mods 9 - To the Sky (1.1.3)</a
-              >
+              <p>
+                It is highly recommended to use Curse Forge to connect to the server. The following files are required
+                to connect to the server for Season 6:
+              </p>
+              <br />
+              <p>
+                Season 6 -
+                <a
+                  target="_blank"
+                  aria-label="Click here to download the required files"
+                  href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky/files/all?page=1&pageSize=1"
+                  >All the Mods 9 - To the Sky (1.1.3)</a
+                >
+              </p>
             </div>
             <span class="post-time"></span>
           </div>

@@ -1,6 +1,15 @@
 {
   "articles": [
     {
+      "timestamp": "1734364841745",
+      "title": "It's time to vote for the Season 7 modpack!",
+      "content": "We’re excited to announce that planning for Season 7 of our Minecraft Server is officially underway! While we don’t have a set start date just yet, we want to hear from YOU—our amazing community—about what you’d like to see in the next season.\n\nWhat’s Next?\nWe’re opening up voting for the theme, gameplay style, and even the modpack for Season 7. Your input will directly influence the direction of the new season, so don’t miss your chance to have a say!\n\nHow to Participate:\nClick on the link below to see the voting options.\n\nLet’s make Season 7 the best one yet—together! ",
+      "link": {
+        "text": "Vote for Modpack",
+        "url": "https://strawpoll.com/poy9kGpN2gJ"
+      }
+    },
+    {
       "timestamp": "1733662638621",
       "title": "Introducing Media Mimic Alpha Release",
       "content": "Today marks an exciting milestone as I unveil the alpha version of Media Mimic! This project has undergone several iterations and transformations, and I’m thrilled to share that it’s finally reached a state that I’m truly satisfied with.\n\nMedia Mimic is designed to streamline the organization and management of your media files. The app requires Python to run, making it accessible to a wide range of users. Here’s how it works:\n\n1) Directory Scanning: The app looks into a specified directory where your media files are stored.\n\n2) Category Organization: Within this directory, Media Mimic identifies subdirectories that represent different categories.\n\n3) Media Naming: Each category directory contains further subdirectories, each named after a specific media item.\n\nThis initial release lays the groundwork for a more robust and feature-rich application. As we continue to develop and refine Media Mimic, more details and updates will be added to enhance your experience.\n\nStay tuned for further developments, and feel free to share your feedback as we continue to shape Media Mimic into the ultimate media management tool!",
