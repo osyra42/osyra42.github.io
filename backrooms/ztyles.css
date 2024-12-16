@@ -55,3 +55,25 @@ table td {
 img {
   width: 100px;
 }
+
+.box {
+  border: 3px solid #55555588;
+  background-color: #55555533;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.green {
+  border-color: #49c26588;
+  background-color: #49c26533;
+}
+
+.yellow {
+  border-color: #b8c24988;
+  background-color: #b8c24933;
+}
+
+.red {
+  border-color: #c2494988;
+  background-color: #c2494933;
+}
