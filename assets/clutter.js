@@ -9,7 +9,7 @@ function getSeasonSymbol(season) {
     case "Winter":
       return "snow"; // Snow
     case "Christmas":
-      return "snowflake"; // Snowflake for Christmas
+      return "gift"; // Snowflake for Christmas
     case "4thOfJuly":
       return "fireworks"; // Fireworks for 4th of July
     case "Thanksgiving":
@@ -83,11 +83,11 @@ const clutterThemes = {
     "assets/clutter/snow8.png",
     "assets/clutter/snow9.png",
   ],
-  snowflake: [
-    "assets/clutter/snowflake1.png",
-    "assets/clutter/snowflake2.png",
-    "assets/clutter/snowflake3.png",
-    "assets/clutter/snowflake4.png",
+  gift: [
+    "assets/clutter/gift1.png",
+    "assets/clutter/gift2.png",
+    "assets/clutter/gift3.png",
+    "assets/clutter/gift4.png",
   ],
   fireworks: [
     "assets/clutter/fireworks1.png",
