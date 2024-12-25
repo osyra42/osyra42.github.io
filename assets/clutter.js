@@ -26,7 +26,7 @@ function getSeason() {
 
   // Check for holidays
   if (month === 12 && day === 25) {
-    return "Christmas";
+    return "Christmas"; //Christmas Day
   } else if (month === 7 && day === 4) {
     return "4thOfJuly";
   } else if (month === 11 && day === 28) {
