@@ -13,14 +13,10 @@ const SEASONS = [
 ];
 
 const CLUTTER_COUNT = 20;
-const FADE_OUT_DURATION = 3000; // 3 seconds
-const ANIMATION_DURATION = { min: 5000, max: 15000 }; // 5-15 seconds
-const CLUTTER_SPEED = { min: 1, max: 3 }; // Random speed between 1 and 3
-const BOUNCE_FORCE = 0.5; // Force multiplier for bounce
-const COLLISION_RADIUS = 50; // Collision detection radius
+const CLUTTER_SPEED = { min: 1, max: 3 };
+const BOUNCE_FORCE = 0.5;
+const COLLISION_RADIUS = 50;
 
-let successfulLoads = [];
-let loadCount = 0;
 let clutterElements = [];
 let availableImages = [];
 let mouseX = 0;
@@ -31,20 +27,17 @@ let lastMouseX = 0;
 let lastMouseY = 0;
 let lastMouseTime = Date.now();
 
-// Functions
 function getSeason() {
   const now = new Date();
   const month = now.getMonth() + 1;
   const day = now.getDate();
 
-  // Check for holidays
   for (const holiday of HOLIDAYS) {
     if (month === holiday.month && day === holiday.day) {
       return holiday.name;
     }
   }
 
-  // Determine the season based on the month and day
   for (const season of SEASONS) {
     const { start, end, name } = season;
     const isWithinSeason =
@@ -90,28 +83,26 @@ function preloadImages(clutterTheme, callback) {
       img.onload = () => resolve(image);
       img.onerror = () => {
         console.warn(`Failed to load image: assets/clutter/${image}`);
-        resolve(null); // Resolve with null for failed images
+        resolve(null);
       };
     });
   });
 
   Promise.all(promises).then((results) => {
-    // Filter out null values (failed images)
     availableImages = results.filter((image) => image !== null);
-    console.log(`Available images: ${availableImages.length}`);
     callback();
   });
 }
 
-function createClutter(clutterTheme, y = null) {
-  if (loadCount >= CLUTTER_COUNT || availableImages.length === 0) {
-    return;
-  }
+function createClutter(clutterTheme) {
+  if (availableImages.length === 0) return;
 
   const clutter = document.createElement("div");
   clutter.className = "clutter";
+
+  // Random spawn position at top
   clutter.style.left = `${Math.random() * window.innerWidth}px`;
-  clutter.style.top = y !== null ? `${y}px` : `${Math.random() * window.innerHeight}px`;
+  clutter.style.top = "0px";
 
   const randomIndex = Math.floor(Math.random() * availableImages.length);
   const imageUrl = `assets/clutter/${availableImages[randomIndex]}`;
@@ -120,57 +111,10 @@ function createClutter(clutterTheme, y = null) {
   clutter.style.transform = `rotate(${Math.random() * 360}deg)`;
   document.body.appendChild(clutter);
 
-  // Add velocity properties to the clutter object
   clutter.velocityX = 0;
   clutter.velocityY = CLUTTER_SPEED.min + Math.random() * (CLUTTER_SPEED.max - CLUTTER_SPEED.min);
 
   clutterElements.push(clutter);
-
-  const duration = ANIMATION_DURATION.min + Math.random() * (ANIMATION_DURATION.max - ANIMATION_DURATION.min);
-  const startTime = Date.now();
-
-  function animate() {
-    const elapsedTime = Date.now() - startTime;
-    const progress = elapsedTime / duration;
-
-    if (progress < 1) {
-      // Update position based on velocity
-      clutter.style.left = `${clutter.offsetLeft + clutter.velocityX}px`;
-      clutter.style.top = `${clutter.offsetTop + clutter.velocityY}px`;
-
-      // Wrap around the screen
-      if (clutter.offsetTop > window.innerHeight) {
-        clutter.style.top = `0px`;
-        clutter.style.left = `${Math.random() * window.innerWidth}px`;
-      }
-
-      requestAnimationFrame(animate);
-    } else {
-      fadeOutClutter(clutter);
-    }
-  }
-
-  requestAnimationFrame(animate);
-}
-
-function fadeOutClutter(clutter) {
-  const startOpacity = parseFloat(getComputedStyle(clutter).opacity);
-  const startTime = Date.now();
-
-  function fade() {
-    const elapsedTime = Date.now() - startTime;
-    const progress = elapsedTime / FADE_OUT_DURATION;
-
-    if (progress < 1) {
-      clutter.style.opacity = startOpacity * (1 - progress);
-      requestAnimationFrame(fade);
-    } else {
-      clutter.remove();
-      createClutter(clutterTheme);
-    }
-  }
-
-  requestAnimationFrame(fade);
 }
 
 function applyBouncePhysics() {
@@ -190,8 +134,8 @@ function applyBouncePhysics() {
     lastMouseTime = now;
   });
 
-  function checkCollisions() {
-    clutterElements.forEach((clutter) => {
+  function update() {
+    clutterElements.forEach((clutter, index) => {
       const clutterRect = clutter.getBoundingClientRect();
       const clutterCenterX = clutterRect.left + clutterRect.width / 2;
       const clutterCenterY = clutterRect.top + clutterRect.height / 2;
@@ -201,38 +145,71 @@ function applyBouncePhysics() {
       const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
       if (distance < COLLISION_RADIUS) {
-        // Collision detected
-        const angle = Math.atan2(distanceY, distanceX); // Angle between mouse and clutter
-        const bounceAngle = angle + Math.PI; // Opposite direction for bounce
+        const dirX = distanceX / distance;
+        const dirY = distanceY / distance;
 
-        // Calculate bounce force based on mouse speed
-        const forceMagnitude = Math.sqrt(mouseSpeedX * mouseSpeedX + mouseSpeedY * mouseSpeedY) * BOUNCE_FORCE;
-        const forceX = Math.cos(bounceAngle) * forceMagnitude;
-        const forceY = Math.sin(bounceAngle) * forceMagnitude;
+        const relativeVelocityX = mouseSpeedX - clutter.velocityX;
+        const relativeVelocityY = mouseSpeedY - clutter.velocityY;
 
-        // Update clutter velocity
-        clutter.velocityX = forceX;
-        clutter.velocityY = forceY;
+        const velocityAlongNormal = relativeVelocityX * dirX + relativeVelocityY * dirY;
+
+        if (velocityAlongNormal < 0) {
+          const restitution = 1.2;
+          const impulseStrength = -(1 + restitution) * velocityAlongNormal;
+
+          clutter.velocityX -= impulseStrength * dirX * BOUNCE_FORCE;
+          clutter.velocityY -= impulseStrength * dirY * BOUNCE_FORCE;
+
+          clutter.velocityX += (Math.random() - 0.5) * BOUNCE_FORCE;
+          clutter.velocityY += (Math.random() - 0.5) * BOUNCE_FORCE;
+
+          const damping = 0.98;
+          clutter.velocityX *= damping;
+          clutter.velocityY *= damping;
+        }
+      }
+
+      const maxVelocity = 10;
+      const velocityMagnitude = Math.sqrt(
+        clutter.velocityX * clutter.velocityX + clutter.velocityY * clutter.velocityY
+      );
+      if (velocityMagnitude > maxVelocity) {
+        const scale = maxVelocity / velocityMagnitude;
+        clutter.velocityX *= scale;
+        clutter.velocityY *= scale;
+      }
+
+      clutter.style.left = `${clutter.offsetLeft + clutter.velocityX}px`;
+      clutter.style.top = `${clutter.offsetTop + clutter.velocityY}px`;
+
+      // Check if clutter is out of bounds
+      if (
+        clutter.offsetLeft < -clutterRect.width ||
+        clutter.offsetLeft > window.innerWidth ||
+        clutter.offsetTop > window.innerHeight ||
+        clutter.offsetTop < -clutterRect.height
+      ) {
+        clutter.remove();
+        clutterElements.splice(index, 1);
+        createClutter(clutterTheme);
       }
     });
 
-    requestAnimationFrame(checkCollisions);
+    requestAnimationFrame(update);
   }
 
-  checkCollisions();
+  requestAnimationFrame(update);
 }
 
 // Main Execution
 const season = getSeason();
-const clutterTheme = season.toLowerCase(); // Directly use the season name as the image file prefix
+const clutterTheme = season.toLowerCase();
 createStyle();
 initializeAvailableImages(clutterTheme);
 
-// Preload images and start the animation only after validation
 preloadImages(clutterTheme, () => {
   for (let i = 0; i < CLUTTER_COUNT; i++) {
     createClutter(clutterTheme);
   }
-
   applyBouncePhysics();
 });
