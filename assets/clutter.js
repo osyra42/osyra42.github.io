@@ -26,6 +26,7 @@ let mouseSpeedY = 0;
 let lastMouseX = 0;
 let lastMouseY = 0;
 let lastMouseTime = Date.now();
+let initialLoadComplete = false;
 
 function getSeason() {
   const now = new Date();
@@ -100,9 +101,14 @@ function createClutter(clutterTheme) {
   const clutter = document.createElement("div");
   clutter.className = "clutter";
 
-  // Random spawn position at top
   clutter.style.left = `${Math.random() * window.innerWidth}px`;
-  clutter.style.top = "0px";
+
+  // Random Y position only during initial load
+  if (!initialLoadComplete) {
+    clutter.style.top = `${Math.random() * window.innerHeight}px`;
+  } else {
+    clutter.style.top = "0px";
+  }
 
   const randomIndex = Math.floor(Math.random() * availableImages.length);
   const imageUrl = `assets/clutter/${availableImages[randomIndex]}`;
@@ -211,5 +217,6 @@ preloadImages(clutterTheme, () => {
   for (let i = 0; i < CLUTTER_COUNT; i++) {
     createClutter(clutterTheme);
   }
+  initialLoadComplete = true;
   applyBouncePhysics();
 });
