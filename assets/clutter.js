@@ -123,6 +123,9 @@ function createClutter(clutterTheme) {
   clutterElements.push(clutter);
 }
 
+const MOUSE_RADIUS = 30; // Radius of the mouse "ball"
+const CLUTTER_MASS = 1; // Mass of clutter elements (can be adjusted per element if needed)
+
 function applyBouncePhysics() {
   document.addEventListener("mousemove", (event) => {
     const now = Date.now();
@@ -146,35 +149,47 @@ function applyBouncePhysics() {
       const clutterCenterX = clutterRect.left + clutterRect.width / 2;
       const clutterCenterY = clutterRect.top + clutterRect.height / 2;
 
+      // Distance between mouse and clutter center
       const distanceX = mouseX - clutterCenterX;
       const distanceY = mouseY - clutterCenterY;
       const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
 
-      if (distance < COLLISION_RADIUS) {
+      // Combined radius of mouse and clutter
+      const combinedRadius = MOUSE_RADIUS + clutterRect.width / 2;
+
+      // Check for collision
+      if (distance < combinedRadius) {
         const dirX = distanceX / distance;
         const dirY = distanceY / distance;
 
+        // Relative velocity between mouse and clutter
         const relativeVelocityX = mouseSpeedX - clutter.velocityX;
         const relativeVelocityY = mouseSpeedY - clutter.velocityY;
 
+        // Velocity along the normal (collision direction)
         const velocityAlongNormal = relativeVelocityX * dirX + relativeVelocityY * dirY;
 
+        // Only resolve collision if objects are moving towards each other
         if (velocityAlongNormal < 0) {
-          const restitution = 1.2;
-          const impulseStrength = -(1 + restitution) * velocityAlongNormal;
+          const restitution = 0.8; // Coefficient of restitution (bounciness)
+          const impulse = -(1 + restitution) * velocityAlongNormal;
 
-          clutter.velocityX -= impulseStrength * dirX * BOUNCE_FORCE;
-          clutter.velocityY -= impulseStrength * dirY * BOUNCE_FORCE;
+          // Apply impulse to clutter
+          clutter.velocityX -= (impulse * dirX) / CLUTTER_MASS;
+          clutter.velocityY -= (impulse * dirY) / CLUTTER_MASS;
 
+          // Add some randomness for realism
           clutter.velocityX += (Math.random() - 0.5) * BOUNCE_FORCE;
           clutter.velocityY += (Math.random() - 0.5) * BOUNCE_FORCE;
 
+          // Apply damping to simulate energy loss
           const damping = 0.98;
           clutter.velocityX *= damping;
           clutter.velocityY *= damping;
         }
       }
 
+      // Limit maximum velocity to prevent unrealistic behavior
       const maxVelocity = 10;
       const velocityMagnitude = Math.sqrt(
         clutter.velocityX * clutter.velocityX + clutter.velocityY * clutter.velocityY
@@ -185,6 +200,7 @@ function applyBouncePhysics() {
         clutter.velocityY *= scale;
       }
 
+      // Update clutter position
       clutter.style.left = `${clutter.offsetLeft + clutter.velocityX}px`;
       clutter.style.top = `${clutter.offsetTop + clutter.velocityY}px`;
 
