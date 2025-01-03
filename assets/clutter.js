@@ -1,3 +1,9 @@
+console.log("BUG TESTERS");
+console.log("you_ker");
+
+console.log(" ");
+console.log(" ");
+
 // Constants
 const HOLIDAYS = [
   { month: 12, day: 25, name: "Christmas" },
