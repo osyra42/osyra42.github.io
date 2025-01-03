@@ -10,17 +10,17 @@ document.getElementById("right-sidebar").innerHTML = `
 <div class="project-links">
   <a title="Click to return to the home page" href="index.html" class="nav-link"><i class="fas fa-home"></i>Home</a>
 
-  <a title="Click to the page with my books" href="my_books.html" class="nav-link"
-    ><i class="fas fa-book"></i>My Books</a>
-
   <a title="Click to view information about the Vanity" href="vanity.html" class="nav-link"
     ><i class="fas fa-robot"></i>Vanity Bot</a>
 
-  <a title="Click to view information about the Media Mimic" href="media_mimic.html" class="nav-link"
-    ><i class="fa-solid fa-compact-disc"></i>Media Mimic</a>
-
   <a title="Click to view information about the Minecraft server" href="minecraft.html" class="nav-link"
     ><i class="fas fa-server"></i>Minecraft Server</a>
+
+  <a title="Click to the page with my books" href="my_books.html" class="nav-link"
+    ><i class="fas fa-book"></i>My Books</a>
+
+  <a title="Click to view information about the Media Mimic" href="media_mimic.html" class="nav-link"
+    ><i class="fa-solid fa-compact-disc"></i>Media Mimic</a>
 
   <a title="Click to view information about the Dev Tools" href="dev_tools.html" class="nav-link"
     ><i class="fas fa-wrench"></i>Dev Tools</a>
@@ -33,6 +33,9 @@ document.getElementById("right-sidebar").innerHTML = `
 
   <a title="Click to contact me or view recommendations form me" href="recommendations.html" class="nav-link"
     ><i class="fa-solid fa-star"></i>Recommendations</a>
+
+  <a title="Donate to me" href="https://paypal.me/osyra42" class="nav-link"
+    ><i class="fa-solid fa-hand-holding-dollar"></i>Donate</a>
 
   <hr />
 
