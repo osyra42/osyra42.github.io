@@ -121,14 +121,22 @@
       });
 
       function generateJSON() {
-        const timestamp = document.getElementById("timestamp").value;
+        // Get input values
+        const timestamp = parseInt(document.getElementById("timestamp").value, 10); // Convert to integer
         const title = document.getElementById("title").value;
         const content = document.getElementById("content").value;
         const linkText = document.getElementById("linkText").value;
         const linkUrl = document.getElementById("linkUrl").value;
 
+        // Validate timestamp (ensure it's a valid number)
+        if (isNaN(timestamp)) {
+          alert("Please enter a valid timestamp (in milliseconds).");
+          return;
+        }
+
+        // Create JSON object
         const jsonTemplate = {
-          timestamp: timestamp,
+          timestamp: timestamp, // Now an integer
           title: title,
           content: content,
           link: {
@@ -137,6 +145,7 @@
           },
         };
 
+        // Display the JSON in the output textarea
         document.getElementById("jsonOutput").value = JSON.stringify(jsonTemplate, null, 2);
       }
     </script>
