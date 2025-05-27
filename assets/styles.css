@@ -1,150 +1,124 @@
-/* General Styles */
+:root {
+  --dark-bg: #2d3436;
+  --dark-text: #1d1e21;
+  --accent: #6c5ce7;
+  --pastel-blue: #a5b1c2;
+  --pastel-green: #55efc4;
+  --pastel-purple: #b2bec3;
+  --pastel-pink: #fd79a8;
+}
+
 body {
-  background-color: #2e1e0f; /* Dark brown, reminiscent of tree bark */
-  color: #fff8e7; /* Soft off-white for text */
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
   margin: 0;
   padding: 0;
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+  padding-top: 40px;
+  font-weight: bold;
 }
 
-h1 {
-  font-size: 1.8em;
-  color: #d4a373; /* Warm brown for headings */
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--pastel-purple);
+  z-index: 100;
 }
 
-h2 {
-  font-size: 1.3em;
-  color: #d4a373; /* Warm brown for subheadings */
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--pastel-green);
+  transition: width 0.3s ease;
 }
 
 .container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-/* Left Section: Scrollable Images */
-.image-section {
-  margin-top: 20px;
-  flex: 1;
-  overflow-y: auto;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #3e2d1f; /* Slightly lighter brown for contrast */
-  border-left: 4px solid #d4a373; /* Add a warm brown border to separate from the sidebar */
-  height: 100%;
 }
 
-.gallery h2 {
+h1 {
+  color: var(--pastel-green);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.gallery-grid {
+.checklist-section {
+  background-color: #3d4547;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: var(--pastel-blue);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 5px;
+  margin-top: 0;
+}
+
+.checklist {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  border: 2px solid #d4a373; /* Warm brown border for images */
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.05);
-}
-
-.art-categories {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.art-categories h2 {
-  margin-bottom: 20px;
-}
-
-.category-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 10px;
+  margin-top: 15px;
 }
 
-.category-buttons button {
-  background-color: #a86a3d; /* Warm, earthy brown for buttons */
-  color: #fff8e7; /* Soft off-white text */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #4a5255;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.checklist-item:hover {
+  background-color: #5a6265;
+}
+
+.checklist-item input {
+  margin-right: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.category-buttons button:hover {
-  background-color: #8b5a2b; /* Darker brown for button hover */
+.checklist-item label {
+  cursor: pointer;
 }
 
-/* Right Section: Fixed Sidebar */
-.sidebar {
-  width: 300px;
-  background-color: #4a3a2b; /* A distinct, slightly darker brown for the sidebar */
-  height: 100vh;
-  padding: 20px;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-  border-right: 4px solid #d4a373; /* Add a warm brown border to separate from the gallery */
+.checklist-item.completed {
+  text-decoration: line-through;
+  opacity: 0.7;
+  background-color: #3a4a3d;
 }
 
-.profile {
-  text-align: center;
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #d4a373; /* Warm brown border for profile picture */
-}
-
-.bio {
-  font-size: 0.8em;
-  color: #fff8e7; /* Soft off-white for bio text */
-  margin: 20px 0;
-  text-align: left;
-  white-space: pre-wrap;
-  font-family: "Arial", sans-serif;
-}
-
-.contact-info h2 {
-  margin-bottom: 10px;
-}
-
-.contact-buttons {
+.progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px; /* Increased height to accommodate text */
+  background-color: var(--pastel-purple);
+  z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-.contact-buttons a {
-  text-decoration: none;
+.progress-bar {
+  height: 10px;
+  width: 0%;
+  background-color: var(--pastel-green);
+  transition: width 0.3s ease;
 }
 
-.contact-buttons button {
-  background-color: #a86a3d; /* Warm, earthy brown for buttons */
-  color: #fff8e7; /* Soft off-white text */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-}
-
-.contact-buttons button:hover {
-  background-color: #8b5a2b; /* Darker brown for button hover */
+.progress-text {
+  color: var(--dark-text);
+  font-size: 12px;
+  padding: 2px 10px;
+  text-align: center;
 }
