@@ -3,71 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NanaCat - Artist Portfolio</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
-    <!-- CSS Files -->
+    <title>Store Maintenance Checklist</title>
     <link rel="stylesheet" href="assets/styles.css" />
-    <link rel="stylesheet" href="assets/mobile.css" media="screen and (max-width: 768px)" />
   </head>
   <body>
-    <div class="container">
-      <!-- Right Section: Fixed Sidebar -->
-      <div class="sidebar">
-        <div class="profile">
-          <img src="assets/profile.jpg" alt="Profile Picture" class="profile-pic" />
-          <h1>NanaCat</h1>
-          <pre class="bio">
-    Hello! I'm Nana, I draw OCs of any shape and size ~ Cats, DnD, FF14, Furry, and Pokemon are my most popular.
-    My style is slightly cartoony and great for Character Sheets, Stickers, and Standees!
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+      <div id="progressText" class="progress-text"></div>
+    </div>
 
-I have experiance drawing:
-  - Icons
-  - Character Sheets
-  - DnD Tokens
-  - Emotes
-  - Stickers/Standees
-  - Wallpapers
-  - Twitch/Youtube Art</pre
-          >
-          <div class="contact-info">
-            <h2>Ways to Contact Me</h2>
-            <div class="contact-buttons">
-              <a href="https://discordapp.com/users/205119320454332417" target="_blank">
-                <button>Discord: Nanacat#5847</button>
-              </a>
-              <a href="mailto:Catnamedjack@gmail.com" target="_blank">
-                <button>Catnamedjack@gmail.com</button>
-              </a>
-            </div>
-          </div>
-        </div>
+    <div class="container">
+      <h1>Store Maintenance Checklist</h1>
+
+      <div class="checklist-section">
+        <h2>SWEEP FRONT</h2>
+        <div class="checklist" id="sweepFront"></div>
       </div>
 
-      <!-- Left Section: Scrollable Images -->
-      <div class="image-section">
-        <div class="gallery">
-          <h2>Art Gallery</h2>
-          <div class="gallery-grid">
-            <img src="images/art-01.png" alt="Art 1" />
-            <img src="images/art-02.png" alt="Art 2" />
-            <img src="images/art-03.png" alt="Art 3" />
-            <img src="images/art-04.png" alt="Art 4" />
-            <img src="images/art-05.png" alt="Art 4" />
-            <img src="images/art-06.png" alt="Art 4" />
-            <img src="images/art-07.png" alt="Art 4" />
-            <img src="images/art-08.png" alt="Art 4" />
-            <img src="images/art-09.png" alt="Art 4" />
-            <img src="images/art-10.png" alt="Art 4" />
-            <img src="images/art-11.png" alt="Art 4" />
-            <img src="images/art-12.png" alt="Art 4" />
-            <!-- Add more images as needed -->
-          </div>
-        </div>
+      <div class="checklist-section">
+        <h2>VACUUM</h2>
+        <div class="checklist" id="vacuum"></div>
+      </div>
+
+      <div class="checklist-section">
+        <h2>TRASH</h2>
+        <div class="checklist" id="trash"></div>
+      </div>
+
+      <div class="checklist-section">
+        <h2>BATHROOM</h2>
+        <div class="checklist" id="bathroom"></div>
       </div>
     </div>
 
-    <!-- JavaScript -->
     <script src="assets/script.js"></script>
   </body>
 </html>
