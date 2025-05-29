@@ -1,27 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Checklist data
-  const checklistData = {
-    sweepFront: ["GM Side", "Grocery Side", "Under Produce", "Between Regisers"],
-    vacuum: ["GM Ice", "Grocery Ice", "Produce Near", "Produce Far"],
-    trash: [
-      "GM Side",
-      "Female Restroom",
-      "Male Restroom",
-      "Customer Service",
-      "Bank",
-      "Grocery Side",
-      "Dressing Room",
-      "Back Restroom",
-    ],
-    bathroom: ["paper towel", "toilet paper", "feminine hygiene", "Mirror", "Chrome", "Sink"],
-  };
+  // Get container element
+  const container = document.getElementById("checklistContainer");
 
-  // Create checklists
-  for (const [sectionId, items] of Object.entries(checklistData)) {
-    const sectionElement = document.getElementById(sectionId);
+  // Create main title
+  const titleElement = document.createElement("h1");
+  titleElement.textContent = appConfig.title;
+  container.appendChild(titleElement);
 
-    items.forEach((item) => {
-      const itemId = `${sectionId}-${item.replace(/\s+/g, "-").toLowerCase()}`;
+  // Create all sections
+  appConfig.sections.forEach((section) => {
+    // Create section container
+    const sectionElement = document.createElement("div");
+    sectionElement.className = "checklist-section";
+
+    // Create section title
+    const titleElement = document.createElement("h2");
+    titleElement.textContent = section.title;
+    sectionElement.appendChild(titleElement);
+
+    // Create checklist container
+    const checklistElement = document.createElement("div");
+    checklistElement.className = "checklist";
+    checklistElement.id = section.id;
+    sectionElement.appendChild(checklistElement);
+
+    // Add section to main container
+    container.appendChild(sectionElement);
+
+    // Create checklist items
+    section.items.forEach((item) => {
+      const itemId = `${section.id}-${item.replace(/\s+/g, "-").toLowerCase()}`;
 
       const itemElement = document.createElement("div");
       itemElement.className = "checklist-item";
@@ -46,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
       itemElement.appendChild(checkbox);
       itemElement.appendChild(label);
 
-      sectionElement.appendChild(itemElement);
+      checklistElement.appendChild(itemElement);
     });
-  }
+  });
 
   // Progress bar functionality
   function updateProgress() {
