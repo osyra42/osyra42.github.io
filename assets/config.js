@@ -10,12 +10,13 @@ const appConfig = {
     {
       id: "vacuum",
       title: "VACUUM",
-      items: ["GM Ice", "Grocery Ice", "Produce Near", "Produce Far", "TLC"],
+      items: ["GM Ice", "Grocery Ice", "Produce Near", "Produce Far", "TLC", "Back Water"],
     },
     {
       id: "trash",
       title: "TRASH",
       items: [
+        "TLC",
         "GM Side",
         "Female Restroom",
         "Male Restroom",
@@ -26,13 +27,25 @@ const appConfig = {
         "Break Room",
         "Offices",
         "Back Restroom",
-        "TLC",
       ],
     },
     {
       id: "bathroom",
       title: "BATHROOM",
       items: ["sweep", "paper towel", "toilet paper", "feminine hygiene", "Chrome", "Sink", "Mirror", "mop"],
+    },
+    {
+      id: "breakroom"
+      title: "BREAKROOM",
+      items: [
+        "paper towels",
+        "soap",
+        "sink table",
+        "food table",
+        "phone table",
+        "sweep",
+        "mop",
+        ],
     },
   ],
 };
