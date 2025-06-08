@@ -1,21 +1,21 @@
 // Complete JSON configuration for the entire app
 const appConfig = {
-  title: "Store Maintenance Checklist",
-  sections: [
+  "title": "Store Maintenance Checklist",
+  "sections": [
     {
-      id: "sweepFront",
-      title: "SWEEP FRONT",
-      items: ["GM Side", "Grocery Side", "Under Produce", "Between Regisers"],
+      "id": "sweepFront",
+      "title": "SWEEP FRONT",
+      "items": ["GM Side", "Grocery Side", "Under Produce", "Between Registers"]
     },
     {
-      id: "vacuum",
-      title: "VACUUM",
-      items: ["GM Ice", "Grocery Ice", "Produce Near", "Produce Far", "TLC", "Back Water"],
+      "id": "vacuum",
+      "title": "VACUUM",
+      "items": ["GM Ice", "Grocery Ice", "Produce Near", "Produce Far", "TLC", "Back Water"]
     },
     {
-      id: "trash",
-      title: "TRASH",
-      items: [
+      "id": "trash",
+      "title": "TRASH",
+      "items": [
         "TLC",
         "GM Side",
         "Female Restroom",
@@ -26,26 +26,26 @@ const appConfig = {
         "Dressing Room",
         "Break Room",
         "Offices",
-        "Back Restroom",
-      ],
+        "Back Restroom"
+      ]
     },
     {
-      id: "bathroom",
-      title: "BATHROOM",
-      items: ["sweep", "paper towel", "toilet paper", "feminine hygiene", "Chrome", "Sink", "Mirror", "mop"],
+      "id": "bathroom",
+      "title": "BATHROOM",
+      "items": ["Sweep", "Paper Towel", "Toilet Paper", "Feminine Hygiene", "Chrome", "Sink", "Mirror", "Mop"]
     },
     {
-      id: "breakroom"
-      title: "BREAKROOM",
-      items: [
-        "paper towels",
-        "soap",
-        "sink table",
-        "food table",
-        "phone table",
-        "sweep",
-        "mop",
-      ],
-    },
-  ],
+      "id": "breakroom",
+      "title": "BREAKROOM",
+      "items": [
+        "Paper Towels",
+        "Soap",
+        "Sink Table",
+        "Food Table",
+        "Phone Table",
+        "Sweep",
+        "Mop"
+      ]
+    }
+  ]
 };
