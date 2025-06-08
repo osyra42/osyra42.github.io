@@ -45,7 +45,7 @@ const appConfig = {
         "phone table",
         "sweep",
         "mop",
-        ],
+      ],
     },
   ],
 };
