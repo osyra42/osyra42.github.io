@@ -1,8 +1,8 @@
 :root {
-  --coffee-light: #a89f8a; /* Darker background */
+  --coffee-light: #401e0a; /* Darker background */
   --coffee-dark: #281513; /* Softened deeper dark brown */
-  --coffee-medium: #5a2b0a; /* Softened darker saddle brown */
-  --coffee-accent: #9c4512; /* Softened darker chocolate */
+  --coffee-medium: #a89f8a; /* Softened darker saddle brown */
+  --coffee-accent: #b3704a; /* Softened darker chocolate */
   --coffee-completed: #70351c; /* Softened darker sienna */
 }
 
