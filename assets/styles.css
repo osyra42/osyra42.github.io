@@ -1,17 +1,15 @@
 :root {
-  --dark-bg: #2d3436;
-  --dark-text: #1d1e21;
-  --accent: #6c5ce7;
-  --pastel-blue: #a5b1c2;
-  --pastel-green: #55efc4;
-  --pastel-purple: #b2bec3;
-  --pastel-pink: #fd79a8;
+  --coffee-light: #a89f8a; /* Darker background */
+  --coffee-dark: #281513; /* Softened deeper dark brown */
+  --coffee-medium: #5a2b0a; /* Softened darker saddle brown */
+  --coffee-accent: #9c4512; /* Softened darker chocolate */
+  --coffee-completed: #70351c; /* Softened darker sienna */
 }
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--dark-bg);
-  color: var(--dark-text);
+  background-color: var(--coffee-light); /* Use the slightly darker light color */
+  color: var(--coffee-dark);
   margin: 0;
   padding: 0;
   padding-top: 40px;
@@ -23,16 +21,26 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 10px;
-  background-color: var(--pastel-purple);
+  height: 30px;
+  background-color: var(--coffee-medium);
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .progress-bar {
-  height: 100%;
+  height: 10px;
   width: 0%;
-  background-color: var(--pastel-green);
+  background-color: var(--coffee-accent);
   transition: width 0.3s ease;
+}
+
+.progress-text {
+  color: var(--coffee-light);
+  font-size: 12px;
+  padding: 2px 10px;
+  text-align: center;
 }
 
 .container {
@@ -42,22 +50,23 @@ body {
 }
 
 h1 {
-  color: var(--pastel-green);
+  color: var(--coffee-accent);
   text-align: center;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .checklist-section {
-  background-color: #3d4547;
-  border-radius: 8px;
+  background-color: var(--coffee-medium);
+  border-radius: 8px; /* Reverted border-radius */
   padding: 15px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Removed Neumorphic shadow */
 }
 
 h2 {
-  color: var(--pastel-blue);
-  border-bottom: 2px solid var(--accent);
+  color: var(--coffee-light);
+  border-bottom: 2px solid var(--coffee-accent);
   padding-bottom: 5px;
   margin-top: 0;
 }
@@ -72,53 +81,81 @@ h2 {
 .checklist-item {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
-  background-color: #4a5255;
-  border-radius: 4px;
+  padding: 10px 15px; /* Increased padding */
+  background-color: var(--coffee-medium); /* Use medium for base item */
+  border-radius: 6px; /* Slightly increased border-radius for a softer look */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
   transition: all 0.2s ease;
+  cursor: pointer; /* Add cursor pointer to indicate clickable */
+  /* Subtle inner shadow for depth */
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1),
+              inset -1px -1px 3px rgba(255, 255, 255, 0.1);
 }
 
 .checklist-item:hover {
-  background-color: #5a6265;
+  background-color: var(--coffee-accent);
+  transform: translateY(-3px); /* Slightly more pronounced lift effect on hover */
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3); /* Slightly more pronounced shadow on hover */
 }
 
-.checklist-item input {
+.checklist-item input[type="checkbox"] {
   margin-right: 10px;
   cursor: pointer;
 }
 
 .checklist-item label {
   cursor: pointer;
+  flex-grow: 1; /* Allow label to take up remaining space */
 }
 
 .checklist-item.completed {
   text-decoration: line-through;
-  opacity: 0.7;
-  background-color: #3a4a3d;
+  opacity: 0.9; /* Slightly less opaque when completed */
+  background-color: var(--coffee-dark); /* Darker background for completed */
+  color: var(--coffee-light);
+  border-color: var(--coffee-dark); /* Darker border for completed */
+  /* Subtle inner shadow for completed items */
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2),
+              inset -1px -1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.progress-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 30px; /* Increased height to accommodate text */
-  background-color: var(--pastel-purple);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
+p {
+  text-align: center; /* Center the paragraph content */
+  margin-top: 40px; /* Add some space above the paragraph to push it down */
+  padding-bottom: 20px; /* Add some padding at the bottom */
 }
 
-.progress-bar {
-  height: 10px;
-  width: 0%;
-  background-color: var(--pastel-green);
-  transition: width 0.3s ease;
+p a {
+  color: var(--coffee-accent) !important; /* Ensure link color matches theme */
 }
 
-.progress-text {
-  color: var(--dark-text);
-  font-size: 12px;
-  padding: 2px 10px;
-  text-align: center;
+/* Styles for collapsable sections */
+.collapsible-content {
+  max-height: 1000px; /* Initial max height (large enough to show content) */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  opacity: 1;
+}
+
+.collapsible-content.collapsed {
+  max-height: 0; /* Collapse by setting max height to 0 */
+  opacity: 0;
+}
+
+.collapsible-header {
+  position: relative; /* Needed for absolute positioning of the indicator */
+  padding-right: 20px; /* Make space for the indicator */
+}
+
+.collapsible-header::after {
+  content: '▼'; /* Down arrow indicator */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.collapsible-header.collapsible-header::after { /* Target specifically when content is collapsed */
+  content: '►'; /* Right arrow indicator when collapsed */
 }
