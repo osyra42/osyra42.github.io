@@ -16,16 +16,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // Create section title
     const titleElement = document.createElement("h2");
     titleElement.textContent = section.title;
-    sectionElement.appendChild(titleElement);
+    titleElement.classList.add('collapsible-header'); // Add class for styling and targeting
+    titleElement.style.cursor = 'pointer'; // Indicate clickable
+    titleElement.style.userSelect = 'none'; // Prevent text selection on click
+
+    // Create checklist content container
+    const checklistContent = document.createElement("div");
+    checklistContent.classList.add('collapsible-content'); // Add class for styling and toggling
 
     // Create checklist container
     const checklistElement = document.createElement("div");
     checklistElement.className = "checklist";
     checklistElement.id = section.id;
-    sectionElement.appendChild(checklistElement);
+    checklistContent.appendChild(checklistElement); // Append checklist to content container
+
+    sectionElement.appendChild(titleElement); // Append title to section
+    sectionElement.appendChild(checklistContent); // Append content container to section
 
     // Add section to main container
     container.appendChild(sectionElement);
+
+    // Add click event listener to the header
+    titleElement.addEventListener('click', function() {
+      checklistContent.classList.toggle('collapsed');
+      // Optional: Update indicator text (can be replaced with CSS arrow)
+      // if (checklistContent.classList.contains('collapsed')) {
+      //   titleElement.textContent = section.title + ' [+]';
+      // } else {
+      //   titleElement.textContent = section.title + ' [-]';
+      // }
+    });
+
 
     // Create checklist items
     section.items.forEach((item) => {
@@ -38,9 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
       checkbox.type = "checkbox";
       checkbox.id = itemId;
 
-      checkbox.addEventListener("change", function () {
+      itemElement.addEventListener("click", function () {
+        checkbox.checked = !checkbox.checked;
         updateProgress();
-        if (this.checked) {
+        if (checkbox.checked) {
           itemElement.classList.add("completed");
         } else {
           itemElement.classList.remove("completed");
