@@ -1,6 +1,6 @@
 // Complete JSON configuration for the entire app
 const appConfig = {
-  "title": "Store Maintenance Checklist",
+  "title": "Walmart Maintenance",
   "sections": [
     {
       "id": "sweepFront",
