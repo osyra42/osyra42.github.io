@@ -1,0 +1,135 @@
+body {
+  font-family: "Oswald", sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #0a0a0a;
+  background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
+  color: #d1d1d1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h1 {
+  color: #e6b800;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 3rem;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+}
+
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #e6b800, transparent);
+  margin: 0 auto;
+  width: 70%;
+}
+
+.subtitle {
+  color: #a8a8a8;
+  font-style: italic;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.exercise {
+  background: rgba(20, 20, 20, 0.8);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-left: 4px solid #e6b800;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.exercise:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.exercise::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #333, transparent);
+}
+
+.exercise h2 {
+  margin-top: 0;
+  color: #e6b800;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.exercise-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.target {
+  color: #a8a8a8;
+  font-style: italic;
+}
+
+.difficulty {
+  color: #e6b800;
+}
+
+.show-me {
+  display: inline-block;
+  background: #1a1a1a;
+  color: #e6b800;
+  padding: 8px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  border: 1px solid #e6b800;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.show-me:hover {
+  background: #e6b800;
+  color: #1a1a1a;
+  box-shadow: 0 0 10px rgba(230, 184, 0, 0.5);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  color: #555;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Add some subtle gym equipment in the background */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+}
