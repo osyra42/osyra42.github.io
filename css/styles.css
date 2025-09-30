@@ -24,6 +24,7 @@ body {
     border-radius: 4px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     overflow: hidden;
+    cursor: crosshair;
 }
 
 #game-canvas {
@@ -75,10 +76,7 @@ body {
 }
 
 #instructions {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    width: 100%;
+    margin-top: 10px;
     text-align: center;
     font-size: 14px;
     color: #a0a0c0;
