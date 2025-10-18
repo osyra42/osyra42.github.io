@@ -1,0 +1,400 @@
+:root {
+  --text-primary: #f8e5c8; /* Light cream for text */
+  --text-secondary: #d2b48c; /* Latte beige for secondary text */
+  --text-tertiary: #b68d40; /* Hazelnut gold for tertiary text */
+  --bg-color: #3c2a1e; /* Dark coffee background */
+  --sidebar-bg: #4b3621; /* Espresso dark brown for sidebar */
+  --main-content-bg: #3c2a1e; /* Dark coffee background */
+  --hover: #d2691e; /* Caramel for hover states */
+  --accent1: #8b4513; /* Mocha brown for accent 1 */
+  --accent2: #f5f5dc; /* Cream for accent 2 */
+  --border-color: #6f4e37; /* Coffee brown for borders */
+  --input-bg: #5d4037; /* Mocha brown for input backgrounds */
+  --input-border: #8b7355; /* Dark latte beige for input borders */
+  --major-color: #d2691e; /* Caramel for major elements */
+}
+
+/* Form Styles */
+form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Ensure all form elements use Arial */
+form * {
+  font-family: Arial, sans-serif !important;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Form Grid Layout */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+/* Input Styles */
+form input,
+form select,
+form textarea {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 2px solid var(--input-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 4px 0;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--accent1);
+  box-shadow: 0 0 0 2px rgba(var(--accent1-rgb), 0.2);
+}
+
+/* Specific Input Types */
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="date"],
+form input[type="number"],
+form input[type="radio"],
+form select:not([multiple]) {
+  height: 44px;
+}
+
+form select[multiple] {
+  min-height: 100px;
+  padding: 8px;
+}
+
+form select[multiple] option {
+  padding: 6px;
+  margin-bottom: 2px;
+  border-radius: 4px;
+}
+
+form select[multiple] option:checked {
+  background-color: var(--accent1);
+  color: var(--text-primary);
+}
+
+form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Service Selection Styles */
+.service-selection {
+  margin: 20px 0;
+  padding: 15px;
+  border: 2px solid var(--accent1);
+  border-radius: 8px;
+  background-color: rgba(139, 69, 19, 0.05);
+}
+
+.service-selection-note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Select Dropdown Styling */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: "▼";
+  font-size: 12px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-primary);
+  pointer-events: none;
+}
+
+.service-selection select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border: 2px solid var(--input-border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.service-selection select:hover {
+  border-color: var(--accent1);
+}
+
+.service-selection select:focus {
+  outline: none;
+  border-color: var(--accent1);
+  box-shadow: 0 0 0 2px rgba(139, 69, 19, 0.2);
+}
+
+.service-selection select option {
+  padding: 10px;
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+}
+
+.service-selection select option:first-child {
+  font-style: italic;
+}
+
+/* Add a required indicator */
+.required {
+  color: #d2691e;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.radio-option,
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+/* Custom radio button styling */
+.radio-option {
+  position: relative;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 2px solid var(--input-border);
+  transition: all 0.2s ease;
+  background-color: var(--input-bg);
+}
+
+.radio-option:hover {
+  border-color: var(--accent1);
+  background-color: rgba(139, 69, 19, 0.1); /* Mocha brown with opacity */
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.radio-option label {
+  position: relative;
+  cursor: pointer;
+  font-weight: bold;
+  padding-left: 28px;
+  display: block;
+  width: 100%;
+}
+
+.radio-option label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--input-border);
+  border-radius: 50%;
+  background-color: var(--input-bg);
+}
+
+.radio-option input[type="radio"]:checked + label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent1);
+}
+
+.radio-option input[type="radio"]:checked + label:before {
+  border-color: var(--accent1);
+}
+
+.radio-option input[type="radio"]:checked {
+  background-color: var(--accent1);
+}
+
+.radio-option input[type="radio"]:checked ~ label {
+  color: var(--text-primary);
+}
+
+.radio-option input[type="radio"]:checked ~ .radio-option,
+.radio-option.selected {
+  border-color: var(--accent1);
+  background-color: rgba(139, 69, 19, 0.1);
+}
+
+/* Selected service option */
+.radio-option.selected {
+  border-color: var(--accent1);
+  background-color: rgba(139, 69, 19, 0.2);
+  box-shadow: 0 0 8px rgba(139, 69, 19, 0.3);
+}
+
+.checkbox-option input[type="checkbox"] {
+  margin-right: 8px;
+  width: auto;
+  height: auto;
+}
+
+.checkbox-option label {
+  display: inline;
+  font-weight: normal;
+}
+
+/* Small helper text */
+small {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Form Preview */
+.form-preview {
+  margin: 30px 0 20px;
+}
+
+.form-preview h3 {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+/* Button Styles */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+form .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  margin: 4px 0;
+  width: auto;
+  min-width: 180px;
+  height: 44px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  color: var(--bg-color);
+  background-color: var(--accent2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.button-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+form .button.primary {
+  background-color: var(--accent1);
+}
+
+form .button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  form .button {
+    width: 100%;
+  }
+}
+
+/* Validation Styles */
+form input:invalid,
+form select:invalid,
+form textarea:invalid {
+  border-color: var(--error-color);
+}
+
+form .error-message {
+  color: var(--error-color);
+  font-size: 14px;
+  margin-top: -4px;
+  margin-bottom: 8px;
+}
+
+/* Raw Text Display */
+#rawtext {
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  width: 100%;
+  box-sizing: border-box;
+  tab-size: 4;
+}

@@ -1,0 +1,191 @@
+<h3>Code Help Request Form</h3>
+
+<h3>Project Details</h3>
+<div class="form-group">
+  <label for="programming-language">Programming Language/Framework:</label>
+  <input type="text" id="programming-language" name="programming-language" placeholder="Python, JavaScript, React, etc.">
+</div>
+
+<div class="form-group">
+  <label for="project-type">Project Type:</label>
+  <select id="project-type" name="project-type">
+    <option value="">Select project type</option>
+    <option value="web-app">Web Application</option>
+    <option value="mobile-app">Mobile Application</option>
+    <option value="desktop-app">Desktop Application</option>
+    <option value="script">Script/Automation</option>
+    <option value="game">Game</option>
+    <option value="api">API/Backend</option>
+    <option value="data-analysis">Data Analysis</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="repository-link">GitHub/Code Repository Link (if available):</label>
+  <input type="url" id="repository-link" name="repository-link" placeholder="https://github.com/yourusername/repository">
+</div>
+
+<h3>Technical Environment</h3>
+<div class="form-group">
+  <label for="operating-system">Operating System:</label>
+  <select id="operating-system" name="operating-system">
+    <option value="">Select OS</option>
+    <option value="windows">Windows</option>
+    <option value="macos">macOS</option>
+    <option value="linux">Linux</option>
+    <option value="android">Android</option>
+    <option value="ios">iOS</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="version-numbers">Version Numbers:</label>
+  <input type="text" id="version-numbers" name="version-numbers" placeholder="Language, Framework, Tools versions">
+</div>
+
+<div class="form-group">
+  <label for="dependencies">Dependencies:</label>
+  <textarea id="dependencies" name="dependencies" placeholder="List major packages/libraries used"></textarea>
+</div>
+
+<h3>Help Needed</h3>
+<div class="form-group">
+  <label for="specific-problem">Specific Problem:</label>
+  <textarea id="specific-problem" name="specific-problem" placeholder="Describe your problem in detail"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="error-messages">Error Messages:</label>
+  <textarea id="error-messages" name="error-messages" placeholder="Copy/paste exact errors"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="attempted-solutions">What You've Tried:</label>
+  <textarea id="attempted-solutions" name="attempted-solutions" placeholder="List solutions you've already attempted"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="expected-behavior">Expected vs. Actual Behavior:</label>
+  <textarea id="expected-behavior" name="expected-behavior" placeholder="Describe what you expected to happen and what actually happened"></textarea>
+</div>
+
+<h3>Preferences</h3>
+<div class="form-group checkbox-group">
+  <div class="checkbox-option">
+    <input type="checkbox" id="debugging" name="debugging">
+    <label for="debugging">Need debugging help</label>
+  </div>
+
+  <div class="checkbox-option">
+    <input type="checkbox" id="optimization" name="optimization">
+    <label for="optimization">Need code optimization</label>
+  </div>
+
+  <div class="checkbox-option">
+    <input type="checkbox" id="feature-implementation" name="feature-implementation">
+    <label for="feature-implementation">Need feature implementation</label>
+  </div>
+
+  <div class="checkbox-option">
+    <input type="checkbox" id="code-review" name="code-review">
+    <label for="code-review">Need full code review</label>
+  </div>
+
+  <div class="checkbox-option">
+    <input type="checkbox" id="explanation" name="explanation">
+    <label for="explanation">Need explanation of concepts</label>
+  </div>
+</div>
+
+<h3>Availability & Timeline</h3>
+<div class="form-group">
+  <label for="availability">Availability Hours:</label>
+  <input type="text" id="availability" name="availability" placeholder="Your available hours for communication">
+</div>
+
+<div class="form-group">
+  <label for="urgency">Urgency:</label>
+  <select id="urgency" name="urgency">
+    <option value="">Select urgency level</option>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="communication-style">Preferred Communication Style:</label>
+  <select id="communication-style" name="communication-style" multiple>
+    <option value="async">Async messages</option>
+    <option value="screenshare">Live screenshare</option>
+    <option value="voice-call">Voice call</option>
+    <option value="video-call">Video call</option>
+    <option value="email">Email</option>
+  </select>
+  <small>Hold Ctrl/Cmd to select multiple options</small>
+</div>
+
+<div class="form-group">
+  <label for="budget">Budget Range (if applicable):</label>
+  <input type="text" id="budget" name="budget" placeholder="e.g., $50-100">
+</div>
+
+<div class="disclaimer-container">
+  <h3 class="disclaimer-header" onclick="toggleCodeHelpDisclaimer()">⚠️ Code Help Disclaimer <span class="toggle-icon">▼</span></h3>
+
+  <div id="code-help-disclaimer-content" class="form-group checkbox-group">
+    <div class="checkbox-option">
+      <input type="checkbox" id="disclaimer-property" name="disclaimer-property" required>
+      <label for="disclaimer-property">I understand that all code remains my property - you provide help/guidance only.</label>
+    </div>
+
+    <div class="checkbox-option">
+      <input type="checkbox" id="disclaimer-academic" name="disclaimer-academic" required>
+      <label for="disclaimer-academic">I agree to maintain academic honesty - you won't complete assignments that violate my school's honor code.</label>
+    </div>
+
+    <div class="checkbox-option">
+      <input type="checkbox" id="disclaimer-solutions" name="disclaimer-solutions" required>
+      <label for="disclaimer-solutions">I understand there are no guaranteed solutions - some problems may require more extensive work.</label>
+    </div>
+
+    <div class="checkbox-option">
+      <input type="checkbox" id="disclaimer-liability" name="disclaimer-liability" required>
+      <label for="disclaimer-liability">I accept that there is no liability for any consequences of implemented solutions.</label>
+    </div>
+
+    <div class="checkbox-option">
+      <input type="checkbox" id="disclaimer-commercial" name="disclaimer-commercial" required>
+      <label for="disclaimer-commercial">I understand that commercial projects may require different terms.</label>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <small>Response Time: Typically 1-3 business days for initial review</small>
+</div>
+
+<script>
+function toggleCodeHelpDisclaimer() {
+  const content = document.getElementById('code-help-disclaimer-content');
+  const icon = document.querySelector('.disclaimer-container .toggle-icon');
+
+  if (content.style.display === 'none') {
+    content.style.display = 'block';
+    icon.textContent = '▼';
+  } else {
+    content.style.display = 'none';
+    icon.textContent = '▶';
+  }
+}
+
+// Initialize the disclaimer as expanded
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.getElementById('code-help-disclaimer-content');
+  if (content) {
+    content.style.display = 'block';
+  }
+});
+</script>

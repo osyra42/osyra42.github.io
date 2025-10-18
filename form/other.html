@@ -1,0 +1,92 @@
+<h3>Service Request Details</h3>
+
+<div class="form-group">
+  <label for="service-type">Type of Service Needed:</label>
+  <input type="text" id="service-type" name="service-type" placeholder="e.g., Consulting, Custom Project, etc." required>
+</div>
+
+<div class="form-group">
+  <label for="description">Detailed Description:</label>
+  <textarea 
+    id="description" 
+    name="description" 
+    rows="6" 
+    placeholder="Please describe your request in detail..."
+    required
+  ></textarea>
+</div>
+
+
+
+<div class="form-group">
+  <label for="budget-range">Budget Range:</label>
+  <select id="budget-range" name="budget-range">
+    <option value="">Select budget range</option>
+    <option value="under-100">Under $100</option>
+    <option value="100-500">$100 - $500</option>
+    <option value="500-1000">$500 - $1,000</option>
+    <option value="1000-5000">$1,000 - $5,000</option>
+    <option value="5000-plus">$5,000+</option>
+    <option value="discuss">Need to discuss</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="timeline">Desired Timeline:</label>
+  <select id="timeline" name="timeline">
+    <option value="">Select timeline</option>
+    <option value="asap">ASAP</option>
+    <option value="1-week">Within 1 week</option>
+    <option value="2-weeks">1-2 weeks</option>
+    <option value="1-month">2-4 weeks</option>
+    <option value="flexible">Flexible timeline</option>
+  </select>
+</div>
+
+<h3>Additional Information</h3>
+
+<div class="form-group">
+  <label for="reference-links">Reference Links (if any):</label>
+  <textarea 
+    id="reference-links" 
+    name="reference-links" 
+    rows="3" 
+    placeholder="Paste any relevant links (inspiration, examples, etc.)"
+  ></textarea>
+</div>
+
+<div class="form-group">
+  <label for="additional-notes">Expected Deliverable/Objective Goal:</label>
+  <textarea 
+    id="additional-notes" 
+    name="additional-notes" 
+    rows="4" 
+    placeholder="Please describe the expected outcome or goal of this request..."
+  ></textarea>
+</div>
+
+
+
+<script>
+// Show/hide custom service type field
+const serviceType = document.getElementById('service-type');
+const customServiceDiv = document.getElementById('custom-service-type');
+
+serviceType.addEventListener('change', function() {
+  if (this.value === 'other') {
+    customServiceDiv.style.display = 'block';
+    document.getElementById('custom-service').setAttribute('required', 'required');
+  } else {
+    customServiceDiv.style.display = 'none';
+    document.getElementById('custom-service').removeAttribute('required');
+  }
+  // Ensure form updates
+  if (typeof raw === 'function') raw();
+});
+
+// Initialize form validation
+if (serviceType.value === 'other') {
+  customServiceDiv.style.display = 'block';
+  document.getElementById('custom-service').setAttribute('required', 'required');
+}
+</script>

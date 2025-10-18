@@ -1,135 +1,420 @@
-body {
-  font-family: "Oswald", sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #0a0a0a;
-  background-image: url("https://www.transparenttextures.com/patterns/black-paper.png");
-  color: #d1d1d1;
+/* styles.css */
+.mobile-banner {
+  display: none;
 }
 
-.header {
+@font-face {
+  font-family: 'Peppermint Pen';
+  src: url('./font/Peppermint Pen.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Coffee Base Colors */
+  --espresso: #1e1610; /* Darkest background */
+  --dark-mocha: #2a1e14; /* Secondary background */
+  --coffee-bean: #453024; /* Borders and accents */
+
+  /* Cream & Milk Colors */
+  --steamed-milk: #f5f5dc; /* Primary text */
+  --light-cream: #f8e5c8; /* Secondary text */
+  --half-and-half: #d2b48c; /* Tertiary text */
+
+  /* Syrup & Flavor Colors */
+  --caramel: #d2691e; /* Headings and highlights */
+  --pumpkin-spice: #b68d40; /* Accents and hover states */
+  --mocha: #8b4513; /* Links and interactive elements */
+
+  /* Darker Syrups */
+  --dark-caramel: #38271e; /* Card backgrounds */
+  --toasted-almond: #5c4937; /* Secondary borders */
+  --dark-chocolate: #120d08; /* Sidebar background */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: color 0.2s;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6,
+nav, .btn, .button,
+header, footer, .header, .footer {
+  font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--pumpkin-spice);
+  outline-offset: 2px;
+}
+
+body {
+  background-color: var(--dark-chocolate);
+  color: var(--steamed-milk);
+  margin: 0;
+  overflow-y: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+#copyright {
+  font-size: 8px;
+  color: var(--pumpkin-spice);
   text-align: center;
-  margin-bottom: 30px;
-  position: relative;
+  margin-top: 20px;
 }
 
 h1 {
-  color: #e6b800;
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 3rem;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px;
+  color: var(--caramel);
+  font-size: 28px;
 }
 
-.divider {
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #e6b800, transparent);
-  margin: 0 auto;
-  width: 70%;
+h3 {
+  font-size: 1.25rem;
+  color: var(--light-cream);
+  margin-top: 20px;
 }
 
-.subtitle {
-  color: #a8a8a8;
-  font-style: italic;
-  letter-spacing: 1px;
-  margin-top: 10px;
-}
-
-.exercise {
-  background: rgba(20, 20, 20, 0.8);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border-left: 4px solid #e6b800;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.exercise:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-.exercise::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #333, transparent);
-}
-
-.exercise h2 {
+main {
+  flex: 1;
   margin-top: 0;
-  color: #e6b800;
-  font-family: "Bebas Neue", sans-serif;
-  letter-spacing: 1px;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pumpkin-spice) var(--dark-chocolate);
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-.exercise-info {
+.site-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+}
+
+main {
+  background-color: var(--espresso);
+  padding: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+main img {
+  flex: 1;
+  max-width: 30%;
+  margin: 0 5px;
+}
+
+main .post-card {
+  background-color: var(--dark-mocha);
+  border: 1px solid var(--coffee-bean);
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+}
+
+main .post-card:nth-child(1) {
+  margin: 0px;
+}
+
+main .post-card h3 {
+  font-size: 1.25rem;
+  color: var(--steamed-milk);
+  margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
-  font-size: 0.9rem;
+  align-items: center;
 }
 
-.target {
-  color: #a8a8a8;
-  font-style: italic;
+main .post-card h3 i {
+  margin-right: 0px;
 }
 
-.difficulty {
-  color: #e6b800;
+main .post-card div {
+  color: var(--light-cream);
 }
 
-.show-me {
+main .post-card a {
+  color: var(--half-and-half);
+  text-decoration: dotted underline;
+  transition: color 0.2s;
   display: inline-block;
-  background: #1a1a1a;
-  color: #e6b800;
-  padding: 8px 15px;
+}
+
+main .post-card a:hover {
+  color: var(--pumpkin-spice);
+}
+
+main .post-card .post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main .post-card div button {
+  background-color: transparent;
+  border: none;
+  color: var(--light-cream);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+main .post-card div button:hover {
+  color: var(--pumpkin-spice);
+}
+
+main .post-card .post-time {
+  color: var(--mocha);
+  display: inline;
+  position: relative;
+  float: right;
+}
+
+sidebar {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
+  background-color: var(--dark-caramel);
+  border-right: 2px solid var(--toasted-almond);
+  padding: 12px;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pumpkin-spice) var(--dark-chocolate);
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+sidebar h1 {
+  margin-left: 15px;
+}
+
+sidebar h3 {
+  font-size: 1.25rem;
+  color: var(--caramel);
+  margin-bottom: 0px;
+  flex-shrink: 0;
+  margin-top: 0px;;
+}
+
+sidebar p {
+  color: var(--half-and-half);
+}
+
+sidebar nav {
+  color: var(--mocha);
+}
+
+sidebar nav a {
+  color: var(--light-cream);
   text-decoration: none;
-  border-radius: 4px;
-  margin-top: 10px;
-  border: 1px solid #e6b800;
-  font-weight: bold;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  font-size: 0.8rem;
+  transition: color 0.2s;
+  display: inline-block;
+  margin: 4px 0;
+  font-weight: 500;
 }
 
-.show-me:hover {
-  background: #e6b800;
-  color: #1a1a1a;
-  box-shadow: 0 0 10px rgba(230, 184, 0, 0.5);
+sidebar nav a:hover {
+  color: var(--pumpkin-spice);
 }
 
-.footer {
+sidebar .nav-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 8px;
+    display: inline-block;
+    filter: invert(100%) brightness(200%);
+}
+
+sidebar div {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+  flex: 1;
+}
+
+sidebar div a {
+  color: var(--half-and-half);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: inline-block;
+  margin-bottom: 4px;
+  font-size: 16px;
+}
+
+sidebar div a:hover {
+  color: var(--pumpkin-spice);
+}
+
+sidebar > div:first-child {
+  flex-shrink: 0;
+}
+
+sidebar .avatar-container {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 20px auto;
+  border: 4px solid var(--half-and-half);
+}
+
+sidebar .avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+sidebar h2 {
+  font-size: 1.25rem;
+  color: var(--half-and-half);
+  background-color: var(--dark-mocha);
+  border-radius: 8px;
   text-align: center;
-  margin-top: 40px;
-  color: #555;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  vertical-align: middle;
+  height: 40px;
+  border: var(--half-and-half) 2px solid;
 }
 
-/* Add some subtle gym equipment in the background */
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: -1;
+sidebar .flex {
+  display: flex;
+  gap: 16px;
+}
+
+sidebar .flex a {
+  color: var(--mocha);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+sidebar .flex a:hover {
+  color: var(--pumpkin-spice);
+}
+
+sidebar .flex a i {
+  margin-right: 4px;
+}
+
+table {
+  border: 2px solid var(--mocha);
+  overflow-y: scroll;
+  min-width: 100%;
+}
+
+thead {
+  background-color: var(--coffee-bean);
+  color: var(--steamed-milk);
+  text-align: center;
+}
+
+td {
+  padding: 3px;
+  min-width: 60px;
+  border: 1px solid var(--toasted-almond);
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.contact-table {
+  overflow-x: auto;
+}
+
+main .contact-table tr td a img {
+  height: 18px;
+  width: 18px;
+  margin-bottom: -4px;
+  filter: invert(100%) brightness(200%);
+}
+
+ol, ul {
+  margin-left: 16px;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: var(--coffee-bean);
+}
+
+.new {
+  position: relative;
+  display: inline-block;
+  font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
+}
+
+.new::after {
+  content: "NEW";
+  position: absolute;
+  top: -0.5em;
+  right: -1.5em;
+  font-size: 0.6em;
+  color: var(--pumpkin-spice);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  padding: 0 0.2em;
+  border-radius: 2px;
+  transform: rotate(15deg);
+  transform-origin: bottom left;
+}
+
+.server-status,
+.server-status p,
+.server-status span {
+  font-family: monospace;
+}
+.server-status .server-id {
+  color: var(--dark-chocolate);
+  background-color: var(--half-and-half);
+}
+
+.required {
+  color: var(--pumpkin-spice);
+}
+
+.price {
+  color: var(--caramel);
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 24px;
+  border-bottom: var(--coffee-bean) 2px solid;
+}
+
+#changelog span {
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 0.9;
+  display: inline-block;
 }
