@@ -1,0 +1,95 @@
+<!-- request_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="osyra42's website, click here to see what's going on" />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, AI, books, game development, Minecraft, commissions" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Coffee Byte Dev" />
+  <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Coffee Byte Dev" />
+  <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <script src="assets/sidebar.js" defer></script>
+  <script src="assets/mobile.js" defer></script>
+  <script src="assets/scripts.js" defer></script>
+  <script src="assets/clutter-main/clutter.js" defer></script>
+
+  <script>
+    image = "request_form.jpg";
+    title = "Request Form";
+  </script>
+  
+</head>
+<body>
+
+<div class="site-container">
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Section for All Posts -->
+    <div class="all-posts">
+    <article class="post-card">
+        <div class="post-content">
+Wanna read about the services first? <a href="shop.html">Click Here</a>
+        </div>
+    </article>
+    <div id="formContainer"></div>
+
+    </div>
+</main>
+
+</div>
+
+<script>
+async function loadForm() {
+  try {
+    const response = await fetch('form/form.html');
+    const html = await response.text();
+    
+    document.getElementById('formContainer').innerHTML = html;
+    
+    // Execute scripts after a brief delay to ensure DOM is ready
+    setTimeout(() => {
+      const scripts = document.getElementById('formContainer').getElementsByTagName('script');
+      for (let script of scripts) {
+        if (script.src) {
+          // Load external scripts
+          const newScript = document.createElement('script');
+          newScript.src = script.src;
+          document.head.appendChild(newScript);
+        } else {
+          // Execute inline scripts
+          try {
+            new Function(script.innerHTML)();
+          } catch (e) {
+            console.error('Error executing script:', e);
+          }
+        }
+      }
+    }, 100);
+  } catch (error) {
+    console.error('Error loading form:', error);
+    document.getElementById('formContainer').innerHTML = '<p>Error loading form. Please refresh the page.</p>';
+  }
+}
+
+loadForm();
+</script>
+
+</body>
+</html>

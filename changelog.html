@@ -1,0 +1,95 @@
+<!-- changelog.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="osyra42's website, click here to see what's going on" />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, AI, books, game development, Minecraft, commissions" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Coffee Byte Dev" />
+  <meta property="og:description" content="osyra42's website, click here to see what's going on" />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Coffee Byte Dev" />
+  <meta name="twitter:description" content="osyra42's website, click here to see what's going on" />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <script src="assets/sidebar.js" defer></script>
+  <script src="assets/mobile.js" defer></script>
+  <script src="assets/scripts.js" defer></script>
+  <script src="assets/clutter-main/clutter.js" defer></script>
+
+  <script>
+    image = "changelog.jpg";
+    title = "Changelog";
+  </script>
+</head>
+<body>
+
+
+<div class="site-container">
+  <sidebar id="sidebar">
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+  <!-- Main Content -->
+  <main>
+
+    <!-- Section for All Posts -->
+      <article class="post-card" id="post-template">
+        <div class="post-header">
+          <h3>
+            <span class="post-title">Changelog</span>
+          </h3>
+        </div>
+        <div class="post-content">
+          <pre id="changelog"></pre>
+        </div>
+      </article>
+    
+  </main>
+
+</div>
+
+<script>
+   // Load changelog content from external file
+fetch('assets/changelog.txt')
+    .then(response => response.text())
+    .then(data => {
+        const changelog = document.getElementById('changelog');
+        if (changelog) {
+            const chalk = {
+                black: "444444", red: "FF6663", orange: "FEB144", yellow: "FDFD97",
+                green: "9EE09E", blue: "9EC1CF", purple: "CC99C9", white: "FFFFFF"
+            };
+            
+            let coloredContent = '';
+            data.split('\n').forEach(line => {
+                let color;
+                switch (true) {
+                    case line.startsWith('# '): color = chalk.yellow; break;
+                    case line.startsWith('- '): color = chalk.red; break;
+                    case line.startsWith('+ '): color = chalk.green; break;
+                    case line.startsWith('@ '): color = chalk.purple; break;
+                    case line.startsWith('$ '): color = chalk.orange; break;
+                    case line.startsWith('> '): color = chalk.blue; break;
+                    case line.startsWith('  '): color = chalk.white; break;
+                    case line.startsWith('. '): color = chalk.black; break;
+                }
+                coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
+            });
+            
+            changelog.innerHTML = coloredContent;
+            console.log('Changelog content loaded successfully!');
+        }
+    });
+</script>
+
+</body>
+</html>

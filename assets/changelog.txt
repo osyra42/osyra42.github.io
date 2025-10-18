@@ -1,0 +1,67 @@
+. ............................
+LEGEND OF COLORS
+. decoration text
+# yellow: timestamps
+@ purple: project
+- red: removed
++ green: added
+> blue: description
+$ bugs: known/fixed
+  normal text
+
+. ............................
+# 2025 OCT 18
+@ website
+- head.js
++ repaired form
++ utf-8 encoding to fix emoji
+> simplified files for faster loading
+
+. ............................
+# 2025 OCT 16
+@ website
+- head.html
+- discord links
++ head.js
++ sidebar "NEW" tag is automatic
++ lang="en"
+> fixed flash on load and meta data missing
+$ wrong encoding
+
+. ............................
+# 2025 OCT 07
+@ website
+@ book
+@ clutter
++ added back clutter
++ added clutter toggle
++ transferred all chapters to @website
+> moved about 40 chapters to be readable
+$ wrong encoding
+$ meta data missing
+
+. ............................
+# 2025 OCT 03
+@ website
+- jQuery
+- mobile.css
+- mobile.html
++ mobile.js (as library)
++ sidebar.js (as library)
++ changelog.html
+> this website now uses vanilla JS and has a changelog (here) for all users to view
+> mobile view is now functional, the page title has been restored
+$ website still flashes white on fast reload
+$ icons in the about me page are white
+$ emojis are broken
+
+. ............................
+# 2025 SEP 26
+@ website
+- burgerbytestudio.com
+- php
++ coffeebyte.dev
++ html (with jQuery)
+> website url was changed to rebrand and to mark a server downgrade
+$ website flashes white on fast reload
+$ page title is missing
