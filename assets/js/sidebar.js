@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Projects
         { href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
-        { href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20250401 },
+        { href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
         { href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
         { href: 'my_research.html', text: 'My Research', icon: 'file.png', alt: 'Research', title: 'Click to view a list of all documents I have created', updateDate: 20250401 },
         { href: 'my_projects.html', text: 'My Projects', icon: 'floppy-disk.png', alt: 'Projects', title: 'Click to view information about all my projects', updateDate: 20250401 },
