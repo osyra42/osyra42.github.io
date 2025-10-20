@@ -63,6 +63,9 @@ body {
   color: var(--steamed-milk);
   margin: 0;
   overflow-y: hidden;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
 }
 
 a {
@@ -92,6 +95,12 @@ h3 {
 }
 
 main {
+  background-color: var(--espresso);
+  padding: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   flex: 1;
   margin-top: 0;
   overflow-y: scroll;
@@ -106,28 +115,13 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
-.site-container {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  min-height: 100vh;
-}
-
-main {
-  background-color: var(--espresso);
-  padding: 8px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
 main img {
   flex: 1;
   max-width: 30%;
   margin: 0 5px;
 }
 
-main .post-card {
+main article {
   background-color: var(--dark-mocha);
   border: 1px solid var(--coffee-bean);
   border-radius: 8px;
@@ -135,11 +129,11 @@ main .post-card {
   padding: 15px;
 }
 
-main .post-card:nth-child(1) {
+main article:nth-child(1) {
   margin: 0px;
 }
 
-main .post-card h3 {
+main article h3 {
   font-size: 1.25rem;
   color: var(--steamed-milk);
   margin-bottom: 4px;
@@ -148,32 +142,32 @@ main .post-card h3 {
   align-items: center;
 }
 
-main .post-card h3 i {
+main article h3 i {
   margin-right: 0px;
 }
 
-main .post-card div {
+main article div {
   color: var(--light-cream);
 }
 
-main .post-card a {
+main article a {
   color: var(--half-and-half);
   text-decoration: dotted underline;
   transition: color 0.2s;
   display: inline-block;
 }
 
-main .post-card a:hover {
+main article a:hover {
   color: var(--pumpkin-spice);
 }
 
-main .post-card .post-header {
+main article header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-main .post-card div button {
+main article div button {
   background-color: transparent;
   border: none;
   color: var(--light-cream);
@@ -183,15 +177,14 @@ main .post-card div button {
   margin-left: 8px;
 }
 
-main .post-card div button:hover {
+main article div button:hover {
   color: var(--pumpkin-spice);
 }
 
-main .post-card .post-time {
+main article footer {
   color: var(--mocha);
   display: inline;
   position: relative;
-  float: right;
 }
 
 sidebar {
@@ -324,6 +317,7 @@ sidebar .flex a:hover {
 sidebar .flex a i {
   margin-right: 4px;
 }
+
 
 table {
   border: 2px solid var(--mocha);

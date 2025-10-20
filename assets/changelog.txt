@@ -10,12 +10,22 @@ $ bugs: known/fixed
   normal text
 
 . ............................
+# 2025 OCT 19
+@ website
+- most class tags were redundant
++ minimized the html
++ fixed mobile view (scroll fix and menu fix)
+> this update is best for maintaining the website
+$ wrong encoding on osyra's tale files
+
+. ............................
 # 2025 OCT 18
 @ website
 - head.js
 + repaired form
 + utf-8 encoding to fix emoji
 > simplified files for faster loading
+$ mobile view is broken, requires scroll fix and menu fix
 
 . ............................
 # 2025 OCT 16

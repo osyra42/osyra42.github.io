@@ -22,9 +22,9 @@
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "changelog.jpg";
@@ -33,29 +33,23 @@
 </head>
 <body>
 
-
-<div class="site-container">
-  <sidebar id="sidebar">
+  <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
   <main>
 
     <!-- Section for All Posts -->
-      <article class="post-card" id="post-template">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Changelog</span>
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Changelog</h3>
+        </header>
+        <section>
           <pre id="changelog"></pre>
-        </div>
+        </section>
       </article>
     
   </main>
-
-</div>
 
 <script>
    // Load changelog content from external file

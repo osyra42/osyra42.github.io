@@ -22,9 +22,9 @@
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "vanity_legal.jpg";
@@ -36,23 +36,24 @@
 
 <body>
 
-<div class="site-container">
-  <sidebar id="sidebar">
+  <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
   <main>
 
     <!-- Section for All Posts -->
-    <div class="all-posts">
-      <article class="post-card" id="post-template">
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Vanity's Legal Stuff</h3>
+          </header>
+          <section>
           <script src="assets/js/md2html.js" data-md2html="assets/legal/vanitys_privacy_policy.md"></script>
           <hr>
           <script src="assets/js/md2html.js" data-md2html="assets/legal/vanitys_terms_of_service.md"></script>
-        </div>
+</section>
       </article>
-    </div>
+
   </main>
 
 </div>

@@ -22,9 +22,9 @@
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "my_books.jpg";
@@ -34,77 +34,64 @@
 </head>
 <body>
 
-<div class="site-container">
-  <sidebar id="sidebar">
+
+  <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
 
   <!-- Main Content -->
   <main>
-
-    <!-- Section for All Posts -->
-    <div class="all-posts">
-      <!-- Let Me Talk -->
-
       <!-- Osyra's Tale -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Osyra's Tale (2024)</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Osyra's Tale (2024)</h3>
+        </header>
+        <section>
           <pre>
 This is a work of fiction in it's entirety.
 This is the very first draft, so it's NOT finished yet.
-
+</pre>
+<pre>
+    Part 1 - <progress max="100" value="100"></progress> 100%
+    Part 2 - <progress max="100" value="12"></progress> 12%
+    Part 3 - <progress max="100" value="0"></progress> 0%
+    Part 4 - <progress max="100" value="0"></progress> 0%
 </pre>
 
-<div id="task-progress"></div>
-<div class="progress-container">
-    Chapter 1 - Rough Draft 
-    <progress id="chapter1-rough-draft-bar" max="100" value="100"></progress>
-    <span id="chapter1-rough-draft-bar-percent">100%</span>
-</div>
-<div class="progress-container">
-    Chapter 2 - Rough Draft 
-    <progress id="chapter2-rough-draft-bar" max="100" value="12"></progress>
-    <span id="chapter2-rough-draft-bar-percent">12%</span>
-</div>
-
-        </div>
-        <span><a target="" rel="noopener" href="osyras_tale.html" aria-label="click here to read Osyra's Tale">Click here to read the full story <i class="fa-solid fa-link"></i></a></span>
-        <span class="post-time">Late 2024</span>
+        </section>
+        <footer>
+          <p>
+            <span><a target="" rel="noopener" href="osyras_tale.html" aria-label="click here to read Osyra's Tale">Click here to read the full story</a></span>
+            <span style="float: right;">Late 2024</span>
+          </p>
+        </footer>
       </article>
 
       <!-- Glitched -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Glitched</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Glitched</h3>
+        </header>
+        <section>
           "Glitched" introduces Nala and her sister Lela, a former soldier. The story explores their daily lives and
           the lingering effects of Lela's military past. Lela must make a critical decision about her injured friend
           Pony, hinting at a potential return to military service. The narrative delves into themes of family,
           personal growth, and the aftermath of war.
-        </div>
-        <span><a target="_blank" rel="noopener" href="assets/documents/books/[osyra42]_glitched.pdf" aria-label="click here to read Glitched">Read this book as PDF--></a></span>
-        <span class="post-time">Mid 2013</span>
+        </section>
+        <footer>
+          <p>
+            <span><a target="_blank" rel="noopener" href="assets/documents/books/[osyra42]_glitched.pdf" aria-label="click here to read Glitched">Read this book as PDF--></a></span>
+            <span style="float: right;">Mid 2013</span>
+          </p>
+        </footer>
       </article>
 
-      <!-- Infinite Devestation -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Infinite Devestation</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <!-- Infinite Devastation -->
+      <article>
+        <header>
+          <h3>Infinite Devastation</h3>
+        </header>
+        <section>
           In "Infinite Devastation" (2011), Taylor, a high school student, is drawn into a surreal and dangerous
           world after encountering a mysterious girl named Lela, who claims they are bound by blood. Lela reveals
           that she is cursed to live in this world and that Taylor can now move between worlds due to their
@@ -113,23 +100,24 @@ This is the very first draft, so it's NOT finished yet.
           the real world. Along the way, they face various challenges, including hostile creatures and the remnants
           of a shattered paradise, as they learn to harness their newfound abilities and uncover the secrets of
           their intertwined fates.
-        </div>
-        <span><a target="_blank" rel="noopener"
-            href="assets/documents/books/[osyra42]_infinite_devastation.pdf"
-            aria-label="click here to read Infinite Devastation"
-            >Read this book as PDF--></a></span>
-        <span class="post-time">Early 2011</span>
+        </section>
+        <footer>
+          <p>
+            <span><a target="_blank" rel="noopener"
+                href="assets/documents/books/[osyra42]_infinite_devastation.pdf"
+                aria-label="click here to read Infinite Devastation"
+                >Read this book as PDF--></a></span>
+            <span style="float: right;">Early 2011</span>
+          </p>
+        </footer>
       </article>
 
       <!-- Ever Diamond -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Ever Diamond</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Ever Diamond</h3>
+        </header>
+        <section>
           In "Ever Diamond," Tom's life takes a dramatic turn when he discovers a mysterious ring with almost
           unlimited powers. As he and his friends delve deeper into the ring's secrets, they encounter a series of
           challenges and revelations. The story unfolds with intricate plotlines involving magic, war, and the quest
@@ -138,14 +126,15 @@ This is the very first draft, so it's NOT finished yet.
           loyalty, sacrifice, and the consequences of wielding immense power, all while blending elements of fantasy
           and adventure. The story reaches a climax with a battle against a dragon, where the true nature of the
           Ever Diamond and the characters' destinies are revealed.
-        </div>
-        <span><a target="_blank" rel="noopener" href="assets/documents/books/[osyra42]_ever_diamond.pdf" aria-label="click here to read Ever Diamond">Read this book as PDF --></a></span>
-        <span class="post-time">Late 2007</span>
+        </section>
+        <footer>
+          <p>
+            <span><a target="_blank" rel="noopener" href="assets/documents/books/[osyra42]_ever_diamond.pdf" aria-label="click here to read Ever Diamond">Read this book as PDF --></a></span>
+            <span style="float: right;">Late 2007</span>
+          </p>
+        </footer>
       </article>
-    </div>
   </main>
-
-</div>
 
 </body>
 </html>

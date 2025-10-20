@@ -22,9 +22,9 @@
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "website_legal.jpg";
@@ -33,27 +33,21 @@
   
 </head>
 <body>
-
-<div class="site-container">
-  <sidebar id="sidebar">
+  <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
   <main>
-
-    <!-- Section for All Posts -->
-    <div class="all-posts">
-      <article class="post-card" id="post-template">
-        <div class="post-content">
-          <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_privacy_policy.md"></script>
-          <hr>
-          <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_terms_of_service.md"></script>
-        </div>
-      </article>
-    </div>
+    <article>
+      <header>
+        <h3>Website Legal</h3>
+      </header>
+      <section>
+        <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_privacy_policy.md"></script>
+        <hr>
+        <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_terms_of_service.md"></script>
+      </section>
+    </article>
   </main>
-
-</div>
-
 </body>
 </html>
