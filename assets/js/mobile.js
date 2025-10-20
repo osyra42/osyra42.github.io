@@ -1,10 +1,6 @@
 //mobile.js
 // Create and inject mobile banner HTML
 function createMobileBanner() {
-    // Check if mobile banner already exists
-    if (document.querySelector('.mobile-banner')) {
-        return;
-    }
     
     const mobileBanner = document.createElement('div');
     mobileBanner.className = 'mobile-banner';
@@ -45,6 +41,12 @@ function injectMobileStyles() {
     style.textContent = `
     /* Mobile Styles - Forced Display */
     @media (max-width: 768px) {
+      body {
+        overflow-y: auto !important;
+        grid-template-columns: 1fr !important;
+        margin-top: 60px !important;
+      }
+
       .mobile-banner {
         display: flex !important;
         justify-content: space-between;
@@ -105,11 +107,6 @@ function injectMobileStyles() {
 
       body.sidebar-open {
         overflow: hidden !important;
-      }
-
-      .site-container {
-        grid-template-columns: 1fr !important;
-        margin-top: 60px !important;
       }
 
       main {
@@ -298,6 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
     if (shouldInitializeMobile()) {
         console.log('DOM already ready, initializing mobile features');
-        setTimeout(initializeMobile, 0);
+        setTimeout(initializeMobile, 500);
     }
 }

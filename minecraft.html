@@ -22,9 +22,9 @@
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "minecraft.jpg";
@@ -34,8 +34,7 @@
 </head>
 <body>
 
-<div class="site-container">
-  <sidebar id="sidebar">
+  <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
@@ -43,7 +42,7 @@
 
 
       <!-- Server Status -->
-<article class="post-card" style="background-color: #111111">
+<article style="background-color: #111111">
 <pre class="server-status">
  Public <span class="server-id"> ATM10 </span> <span id="server1-status">Checking...</span>
 Private <span class="server-id"> PKMNC </span> <span id="server2-status">Checking...</span>
@@ -51,14 +50,11 @@ Private <span class="server-id"> PKMNC </span> <span id="server2-status">Checkin
 </pre>
 </article>
 
-<article class="post-card">
-  <div class="post-header">
-    <h3>
-      <span class="post-title">Between Seasons - Preparing for Season 8!</span>
-      
-    </h3>
-  </div>
-  <div class="post-content">
+<article>
+  <header>
+    <h3>Between Seasons - Preparing for Season 8!</h3>
+  </header>
+  <section>
     <pre>
 <u>play.burgerblock.xyz</u>
 
@@ -78,18 +74,15 @@ Moderator Applications Open!
 
 If you want to contact me just DM me <a href="discord:discordapp.com/users/163839418623459330">@osyra42</a>
 </pre>
-  </div>
+  </section>
 </article>
 
       <!-- Server Rules -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Global Server Rules</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+          <header>
+            <h3>Global Server Rules</h3>
+          </header>
+        <section>
           These rules apply to all server versions.
           <ol>
             <li><u>Self Care</u> - Always prioritize your real-life responsibilities over the game.</li>
@@ -104,19 +97,15 @@ If you want to contact me just DM me <a href="discord:discordapp.com/users/16383
             <li><u>Vote Ban</u> - The community can vote to ban a player if needed.</li>
             <li><u>Changes</u> - Majority approval is required for changes to the server or the rules.</li>
           </ol>
-        </div>
-        <span class="post-time"></span>
+        </section>
       </article>
 
       <!-- Reporting Issues -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Reporting Issues</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Reporting Issues</h3>
+        </header>
+        <section>
           <p>Report all issues to the Staff</p>
           <p>
             <span style="color: #f43434">Owner: <u>osyra42</u></span> |
@@ -132,19 +121,15 @@ If you want to contact me just DM me <a href="discord:discordapp.com/users/16383
             <u>Player Issue</u>: If you have a problem with another player, clearly explain the issue, including any
             relevant off-server interactions if applicable.
           </p>
-        </div>
-        <span class="post-time"></span>
+        </section>
       </article>
 
       <!--Server Files-->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">How to Connect</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>How to Connect</h3>
+        </header>
+        <section>
           <h2><u>Required Files</u></h2>
           <p>
             It is highly recommended to use Curse Forge to download the required files.<br />
@@ -161,19 +146,15 @@ If you want to contact me just DM me <a href="discord:discordapp.com/users/16383
         Server Name | <b>Burgerblock</b>
 IP Address and Port | <u>play.burgerblock.xyz</u>
               </pre>
-        </div>
-        <span class="post-time"></span>
+        </section>
       </article>
 
       <!-- hardware -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Server Hardware Information</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Server Hardware Information</h3>
+        </header>
+        <section>
           <p>CPU - 6700K (4.0 GHz)</p>
           <p>GPU - 1060 (6GB)</p>
           <p>RAM - 32GB</p>
@@ -181,19 +162,15 @@ IP Address and Port | <u>play.burgerblock.xyz</u>
           <p>SSD - 512GB</p>
           <p>NET - 150Mb</p>
           <p>I promise you that this is good enough.</p>
-        </div>
-        <span class="post-time"></span>
+        </section>
       </article>
 
       <!-- history -->
-      <article class="post-card">
-        <div class="post-header">
-          <h3>
-            <span class="post-title">Historical Seasons</span>
-            
-          </h3>
-        </div>
-        <div class="post-content">
+      <article>
+        <header>
+          <h3>Historical Seasons</h3>
+        </header>
+        <section>
           <p>All server downloads are hosted on MEGA and all clients are hosted on CurseForge.</p>
           <table>
             <thead>
@@ -258,12 +235,9 @@ IP Address and Port | <u>play.burgerblock.xyz</u>
                 <td><a>Files No Longer Hosted</a></td>
             </tbody>
           </table>
-        </div>
-        <span class="post-time"></span>
+        </section>
       </article>
   </main>
-
-</div>
 
  <script>
 document.addEventListener('DOMContentLoaded', function() {
