@@ -115,6 +115,10 @@ main {
   -webkit-overflow-scrolling: touch;
 }
 
+main p {
+  margin-bottom: 12px;
+}
+
 main img {
   flex: 1;
   max-width: 30%;
@@ -234,6 +238,7 @@ sidebar nav a {
   display: inline-block;
   margin: 4px 0;
   font-weight: 500;
+  font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
 }
 
 sidebar nav a:hover {

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Links data - easy to maintain and update
     const linksData = [
         // Navigation
-        { href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251001 },
+        { href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251021 },
         { href: 'about_me.html', text: 'About Me', icon: 'address-card.png', alt: 'About Me', title: 'Click to contact me or view basic information about me', updateDate: 20251017 },
         { href: 'request_form.html', text: 'Request Form', icon: 'cart.png', alt: 'Request', title: 'Click to submit a commission request', updateDate: 20251018 },
         { href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251017 },
