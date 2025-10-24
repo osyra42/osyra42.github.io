@@ -10,6 +10,16 @@ $ bugs: known/fixed
   normal text
 
 . ............................
+# 2025 OCT 24
+@ website
+- removed the redundant pages my_research.html and my_projects.html
+- removed request_form.html
++ added my_creations.html
++ added commissions.html
+  adjusted the about me bio
+> this update is for simplifying projects, fixed encoding
+
+. ............................
 # 2025 OCT 19
 @ website
 - most class tags were redundant

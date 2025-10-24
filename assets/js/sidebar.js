@@ -11,16 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const linksData = [
         // Navigation
         { href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251021 },
-        { href: 'about_me.html', text: 'About Me', icon: 'address-card.png', alt: 'About Me', title: 'Click to contact me or view basic information about me', updateDate: 20251017 },
-        { href: 'request_form.html', text: 'Request Form', icon: 'cart.png', alt: 'Request', title: 'Click to submit a commission request', updateDate: 20251018 },
+        { href: 'about_me.html', text: 'About Me', icon: 'address-card.png', alt: 'About Me', title: 'Click to contact me or view basic information about me', updateDate: 20251024 },
+        { href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251024 },
         { href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251017 },
         
         // Projects
         { href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
         { href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
         { href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
-        { href: 'my_research.html', text: 'My Research', icon: 'file.png', alt: 'Research', title: 'Click to view a list of all documents I have created', updateDate: 20250401 },
-        { href: 'my_projects.html', text: 'My Projects', icon: 'floppy-disk.png', alt: 'Projects', title: 'Click to view information about all my projects', updateDate: 20250401 },
+        { href: 'my_creations.html', text: 'My Creations', icon: 'floppy-disk.png', alt: 'Creations', title: 'Click to view information about all my creations', updateDate: 20251024 },
         
         // Legal Links
         { href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251012 },
@@ -83,11 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <nav>
 <span id="clutter-toggle" style="font-size: 8px;float: right; background-color: var(--toasted-almond); color: var(--half-and-half); border: 2px solid var(--espresso); border-radius: 5px; padding: 3px; cursor: pointer;"> with clutter.js?</span>
     ${generateSectionHTML('Navigation', link => 
-        ['index.html', 'about_me.html', 'request_form.html', 'changelog.html'].includes(link.href)
+        ['index.html', 'about_me.html', 'commissions.html', 'request_form.html', 'changelog.html'].includes(link.href)
     )}
     <hr>
     ${generateSectionHTML('Projects', link =>
-        ['minecraft.html', 'vanity.html', 'my_books.html', 'my_research.html', 'my_projects.html'].includes(link.href)
+        ['minecraft.html', 'vanity.html', 'my_books.html', 'my_creations.html'].includes(link.href)
     )}
     <hr>
     ${generateSectionHTML('Legal Links', link =>
