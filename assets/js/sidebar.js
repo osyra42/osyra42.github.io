@@ -94,7 +94,12 @@ document.addEventListener('DOMContentLoaded', function() {
     )}
 </nav>
 <hr/>
-<p id="copyright">Coffee Byte Dev &copy; 2019 - 2025; All rights reserved.</p>`;
+<p id="copyright">Coffee Byte Dev &copy; 2019 - 2025; All rights reserved.
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+        </p>`;
+
     }
     
     sidebar.innerHTML = generateNavHTML();
