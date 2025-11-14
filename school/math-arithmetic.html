@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Math Worksheets</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --warm-cream: #faf8f3;
+      --soft-beige: #f0ebe3;
+      --warm-brown: #8b7355;
+      --deep-brown: #5d4e37;
+      --accent-coral: #e8997a;
+      --accent-sage: #a8b5a0;
+      --text-dark: #3d3d3d;
+      --border-light: #d4c9ba;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--warm-cream) 0%, var(--soft-beige) 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--deep-brown);
+    }
+
+    .controls-panel {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--warm-brown);
+    }
+
+    select, input[type="text"], input[type="number"] {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      background: var(--warm-cream);
+      color: var(--text-dark);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    select:focus, input[type="text"]:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: var(--accent-coral);
+      background: var(--white);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    button.primary {
+      background: var(--accent-coral);
+      color: var(--white);
+    }
+
+    button.primary:hover {
+      background: #d5865f;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(232, 153, 122, 0.3);
+    }
+
+    button.secondary {
+      background: var(--accent-sage);
+      color: var(--white);
+    }
+
+    button.secondary:hover {
+      background: #96a388;
+      transform: translateY(-1px);
+    }
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: var(--accent-coral);
+    }
+
+    .worksheet {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+    }
+
+    .worksheet-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border-light);
+    }
+
+    .worksheet-header h2 {
+      font-size: 24px;
+      color: var(--deep-brown);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .worksheet-header .info {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      color: var(--warm-brown);
+    }
+
+    .problem-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+      justify-content: space-between;
+    }
+
+    .problem {
+      text-align: right;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 8px 6px;
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      flex: 0 1 calc(16.666% - 10px);
+      min-width: 70px;
+      max-width: 100px;
+      background: var(--warm-cream);
+      transition: all 0.2s ease;
+    }
+
+    .problem:hover {
+      border-color: var(--accent-sage);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(93, 78, 55, 0.1);
+    }
+
+    .problem-number {
+      font-size: 9px;
+      color: var(--warm-brown);
+      margin-bottom: 3px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .problem pre {
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      white-space: pre;
+      overflow: visible;
+      color: var(--text-dark);
+    }
+
+    .answer-line {
+      border-top: 2px solid var(--deep-brown);
+      margin-top: 3px;
+      min-height: 0;
+    }
+
+    .answer-text {
+      margin: 2px 0 0 0;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      text-align: right;
+      white-space: pre;
+      color: var(--accent-coral);
+      font-weight: 600;
+    }
+
+    .answer-space {
+      min-height: 18px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+
+      .app-header, .controls-panel, .no-print {
+        display: none !important;
+      }
+
+      .worksheet {
+        box-shadow: none;
+        padding: 20px;
+        max-width: 100%;
+      }
+
+      .problem {
+        border: 2px solid #333;
+        break-inside: avoid;
+        background: white;
+      }
+
+      .worksheet-header {
+        page-break-after: avoid;
+      }
+
+      @page {
+        margin: 0.5in;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .problem {
+        flex: 0 1 calc(33.333% - 10px);
+      }
+
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .controls label {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .problem {
+        flex: 0 1 calc(50% - 10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-header">
+      <h1 class="app-title">Osyra's Math Worksheets</h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="controls">
+        <label>
+          <span>Operation:</span>
+          <select id="operation">
+            <option value="subtraction">Subtraction</option>
+            <option value="addition">Addition</option>
+            <option value="multiplication">Multiplication</option>
+            <option value="division">Division</option>
+          </select>
+        </label>
+        
+        <label>
+          <span>Max Number:</span>
+          <select id="maxNumber">
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="100" selected>100</option>
+            <option value="500">500</option>
+            <option value="1000">1,000</option>
+            <option value="10000">10,000</option>
+          </select>
+        </label>
+        
+        <label>
+          <span>Number of Questions:</span>
+          <select id="numQuestions">
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25" selected>25</option>
+            <option value="30">30</option>
+            <option value="35">35</option>
+            <option value="40">40</option>
+            <option value="45">45</option>
+            <option value="50">50</option>
+            <option value="55">55</option>
+            <option value="60">60</option>
+            <option value="65">65</option>
+            <option value="70">70</option>
+            <option value="75">75</option>
+            <option value="80">80</option>
+            <option value="85">85</option>
+            <option value="90">90</option>
+            <option value="95">95</option>
+            <option value="100">100</option>
+          </select>
+        </label>
+        
+        <label style="flex-direction: row; align-items: center; gap: 8px;">
+          <input type="checkbox" id="allowNegatives">
+          <span>Allow Negative Results</span>
+        </label>
+        
+        <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
+        <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
+        <button class="secondary" onclick="window.print()">Print Worksheet</button>
+      </div>
+    </div>
+
+    <div class="worksheet">
+      <div class="worksheet-header">
+        <h2>Math Worksheet</h2>
+        <div class="info">
+          <span>Name: _______________________</span>
+          <span>Date: _______________________</span>
+          <span>Score: _______ / 25</span>
+        </div>
+      </div>
+      <div id="problemsContainer"></div>
+    </div>
+  </div>
+
+  <script>
+    // Global state
+    let currentProblems = [];
+    let showingAnswers = false;
+
+    function formatNumber(num, width = 6) {
+      return String(num).padStart(width, ' ');
+    }
+
+    function createSubtractionProblem(maxNum, allowNegatives, index) {
+      let num1, num2;
+      
+      if (allowNegatives) {
+        num1 = Math.floor(Math.random() * maxNum);
+        num2 = Math.floor(Math.random() * maxNum);
+      } else {
+        num1 = Math.floor(Math.random() * maxNum);
+        num2 = Math.floor(Math.random() * (num1 + 1));
+      }
+      
+      let result = num1 - num2;
+      let num1Str = String(num1).padStart(4, ' ');
+      let num2Str = String(num2).padStart(3, ' ');
+      
+      return {
+        display: `${num1Str}\n-${num2Str}`,
+        answer: result
+      };
+    }
+
+    function createAdditionProblem(maxNum, allowNegatives, index) {
+      let num1 = Math.floor(Math.random() * maxNum);
+      let num2 = Math.floor(Math.random() * maxNum);
+      
+      let result = num1 + num2;
+      let num1Str = String(num1).padStart(4, ' ');
+      let num2Str = String(num2).padStart(3, ' ');
+      
+      return {
+        display: `${num1Str}\n+${num2Str}`,
+        answer: result
+      };
+    }
+
+    function createMultiplicationProblem(maxNum, allowNegatives, index) {
+      let num1, num2;
+      
+      if (maxNum <= 12) {
+        num1 = Math.floor(Math.random() * maxNum) + 1;
+        num2 = Math.floor(Math.random() * maxNum) + 1;
+      } else {
+        num1 = Math.floor(Math.random() * maxNum) + 1;
+        num2 = Math.floor(Math.random() * maxNum) + 1;
+      }
+      
+      let result = num1 * num2;
+      let num1Str = String(num1).padStart(4, ' ');
+      let num2Str = String(num2).padStart(3, ' ');
+      
+      return {
+        display: `${num1Str}\n×${num2Str}`,
+        answer: result
+      };
+    }
+
+    function createDivisionProblem(maxNum, allowNegatives, index) {
+      let divisor, dividend;
+      let maxDivisor = Math.min(maxNum, 144);
+      divisor = Math.floor(Math.random() * maxDivisor) + 1;
+      
+      let maxDividend = maxNum * 12;
+      let multiples = [];
+      
+      for (let i = 1; i * divisor <= maxDividend; i++) {
+        multiples.push(i * divisor);
+      }
+      
+      dividend = multiples[Math.floor(Math.random() * multiples.length)];
+      let quotient = dividend / divisor;
+      
+      let num1Str = String(dividend).padStart(4, ' ');
+      let num2Str = String(divisor).padStart(3, ' ');
+      
+      return {
+        display: `${num1Str}\n÷${num2Str}`,
+        answer: quotient
+      };
+    }
+
+    function generateWorksheet() {
+      const operation = document.getElementById('operation').value;
+      const allowNegatives = document.getElementById('allowNegatives').checked;
+      const maxNum = parseInt(document.getElementById('maxNumber').value);
+      const numQuestions = parseInt(document.getElementById('numQuestions').value);
+      const container = document.getElementById('problemsContainer');
+      
+      let operationName = operation.charAt(0).toUpperCase() + operation.slice(1);
+      
+      // Update worksheet header with safety checks
+      const headerTitle = document.querySelector('.worksheet-header h2');
+      if (headerTitle) {
+        headerTitle.textContent = `${operationName} Worksheet`;
+      }
+      
+      // Update score field
+      const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
+      if (scoreSpan) {
+        scoreSpan.textContent = `Score: _______ / ${numQuestions}`;
+      }
+      
+      let createProblem;
+      switch(operation) {
+        case 'addition':
+          createProblem = createAdditionProblem;
+          break;
+        case 'multiplication':
+          createProblem = createMultiplicationProblem;
+          break;
+        case 'division':
+          createProblem = createDivisionProblem;
+          break;
+        default:
+          createProblem = createSubtractionProblem;
+      }
+      
+      currentProblems = [];
+      for (let i = 0; i < numQuestions; i++) {
+        currentProblems.push(createProblem(maxNum, allowNegatives, i));
+      }
+      
+      showingAnswers = false;
+      renderProblems();
+    }
+
+    function renderProblems() {
+      const container = document.getElementById('problemsContainer');
+      let html = '<div class="problem-grid">';
+      
+      for (let i = 0; i < currentProblems.length; i++) {
+        const problem = currentProblems[i];
+        html += `
+          <div class="problem">
+            <div class="problem-number">${i + 1}.</div>
+            <pre>${problem.display}</pre>
+            <div class="answer-line"></div>
+            ${showingAnswers ? `<pre class="answer-text">${String(problem.answer).padStart(4, ' ')}</pre>` : '<div class="answer-space"></div>'}
+          </div>
+        `;
+      }
+      html += '</div>';
+      
+      container.innerHTML = html;
+    }
+
+    function toggleAnswers() {
+      showingAnswers = !showingAnswers;
+      const button = event.target;
+      button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
+      renderProblems();
+    }
+
+    // Generate initial worksheet
+    generateWorksheet();
+  </script>
+</body>
+</html>

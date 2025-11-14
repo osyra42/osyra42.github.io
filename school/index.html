@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="osyra42's website, click here to see what's going on" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Osyra's Worksheets" />
+  <meta property="og:description" content="osyra42's worksheets, click here to get worksheets" />
+  <meta property="og:image" content="https://coffeebyte.dev/school/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/school" />
+ 
+  <style>
+    :root {
+      --warm-cream: #faf8f3;
+      --soft-beige: #f0ebe3;
+      --warm-brown: #8b7355;
+      --deep-brown: #5d4e37;
+      --accent-coral: #e8997a;
+      --accent-sage: #a8b5a0;
+      --text-dark: #3d3d3d;
+      --border-light: #d4c9ba;
+      --white: #ffffff;
+      
+      --bg-color: var(--warm-cream);
+      --text-color: var(--text-dark);
+      --card-bg: var(--white);
+      --shadow: 0 4px 6px rgba(93, 78, 55, 0.1);
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--warm-cream) 0%, var(--soft-beige) 100%);
+      color: var(--text-color);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.65;
+      min-height: 100vh;
+      font-size: 16px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      letter-spacing: -0.011em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    article {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    h1, h2, h3, h4 {
+      margin-top: 0;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+
+    header h3 {
+      color: var(--deep-brown);
+      border-bottom: 2px solid var(--accent-coral);
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: -0.025em;
+    }
+
+    section p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      opacity: 0.95;
+    }
+
+    a {
+      color: var(--warm-brown);
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 450;
+      letter-spacing: -0.01em;
+    }
+
+    a:hover {
+      color: var(--accent-coral);
+      text-decoration: underline;
+    }
+
+    hr {
+      border: 0;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--border-light), transparent);
+      margin: 40px 0;
+    }
+
+    nav {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .toc-container {
+      background-color: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .toc-header {
+      text-align: center;
+      margin-bottom: 32px;
+      color: var(--deep-brown);
+      border-bottom: 2px solid var(--border-light);
+      padding-bottom: 16px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .toc-header h2 {
+      font-size: 1.875rem;
+      margin: 0;
+    }
+
+    .toc-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc-item {
+      margin-bottom: 15px;
+      padding: 15px 20px;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      border-left: 4px solid;
+      background-color: var(--warm-cream);
+    }
+
+    .toc-item:hover {
+      background-color: var(--soft-beige);
+      transform: translateX(5px);
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+    }
+
+    .toc-item h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.125rem;
+      color: var(--deep-brown);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .toc-item ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .toc-item li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .toc-item li:last-child {
+      margin-bottom: 0;
+    }
+
+    .disabled-link {
+      color: var(--warm-brown);
+      opacity: 0.45;
+      cursor: not-allowed;
+      font-weight: 400;
+    }
+
+    /* Subject-specific colors - vibrant yet soft */
+    .math { border-left-color: #ff9a7f; }
+    .science { border-left-color: #ffb380; }
+    .reading { border-left-color: #f5c77e; }
+    .writing { border-left-color: #e6bd8a; }
+    .social-studies { border-left-color: #a8d5ba; }
+    .art { border-left-color: #c9a7d4; }
+    .music { border-left-color: #9fb8d9; }
+    .pe { border-left-color: #7dc4c7; }
+    .computers { border-left-color: #8a9fd6; }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      article {
+        padding: 20px;
+      }
+      
+      .toc-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <article>
+      <header>
+        <h3>Welcome to My Worksheets</h3>
+      </header>
+      <section>
+        <p>
+          Here you will find some procedural worksheets for various subjects. These are meant to be used as a reference for self-study, but are not meant to be used as a substitute for a textbook. Please use your own judgment when using these worksheets.
+        </p>
+      </section>
+      <footer>
+      </footer>
+    </article>
+  </main>
+  
+  <hr>
+
+  <nav>
+    <div class="toc-container">
+      <div class="toc-header">
+        <h2>Table of Contents</h2>
+      </div>
+      <ul class="toc-list">
+        <li class="toc-item math">
+          <h3>Math</h3>
+          <ul>
+            <li><a href="math-arithmetic.html">Arithmetic Worksheet</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item science">
+          <h3>Science</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item reading">
+          <h3>Reading</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item writing">
+          <h3>Writing</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item social-studies">
+          <h3>Social Studies</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item art">
+          <h3>Art</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item music">
+          <h3>Music</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item pe">
+          <h3>P.E.</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+        
+        <li class="toc-item computers">
+          <h3>Computers</h3>
+          <ul>
+            <li><a class="disabled-link">Missing Worksheets</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>
