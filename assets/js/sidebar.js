@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251017 },
         
         // Projects
+        { href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251116 },
         { href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
         { href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
         { href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
@@ -86,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     )}
     <hr>
     ${generateSectionHTML('Projects', link =>
-        ['minecraft.html', 'vanity.html', 'my_books.html', 'my_creations.html'].includes(link.href)
+        ['school/index.html', 'minecraft.html', 'vanity.html', 'my_books.html', 'my_creations.html'].includes(link.href)
     )}
     <hr>
     ${generateSectionHTML('Legal Links', link =>
