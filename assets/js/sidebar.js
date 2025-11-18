@@ -95,10 +95,13 @@ document.addEventListener('DOMContentLoaded', function() {
     )}
 </nav>
 <hr/>
-<p style="font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
+<p style="position: relative; font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
     Contact Email - <a href="mailto:coffeebytedev@proton.me" style="color: var(--caramel); font-size: 10px;">CoffeeByteDev@proton.me</a>
     <br>
     Coffee Byte Dev &copy; 2019 - 2025; All rights reserved.
+    <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="position: absolute; bottom: 0; right: 0; width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
 </p>`;
 
     }
