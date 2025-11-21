@@ -36,6 +36,15 @@ $ bugs: known/fixed
 + added changelogData to changelog.js
 + updated commissions.html to include free policies
 - removed changelog.txt
+- removed form folder (replaced by new commissions system)
+- removed form/form.html
+- removed form/form.css
+- removed form/3d_prints.html
+- removed form/discord_bot.html
+- removed form/vtuber_models.html
+- removed form/code_help.html
+- removed form/other.html
+> old form system replaced by JSON-based commissions.html
 > adjusted wording on many pages
 > click on the red eye to see the tracking data
 
