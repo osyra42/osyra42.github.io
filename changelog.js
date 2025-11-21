@@ -33,7 +33,10 @@ $ bugs: known/fixed
 + merged about me with index page
 + enhanced skills section with professional terminology
 + added a way for changelog to work with CORS
-
++ added changelogData to changelog.js
++ updated commissions.html to include free policies
+- removed changelog.txt
+> adjusted wording on many pages
 > click on the red eye to see the tracking data
 
 . ............................

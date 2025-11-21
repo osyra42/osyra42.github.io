@@ -10,22 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Links data - easy to maintain and update
     const linksData = [
         // Navigation
-        { href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251121 },
-        { href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20251121 },
-        { href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251024 },
-        { href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251121 },
-        
+        { section: 'Navigation', href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251121 },
+        { section: 'Navigation', href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20251121 },
+        { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251024 },
+        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251121 },
+
         // Projects
-        { href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251116 },
-        { href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
-        { href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
-        { href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
-        { href: 'my_creations.html', text: 'My Creations', icon: 'floppy-disk.png', alt: 'Creations', title: 'Click to view information about all my creations', updateDate: 20251024 },
-        
+        { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251116 },
+        { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
+        { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
+        { section: 'Projects', href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
+        { section: 'Projects', href: 'my_creations.html', text: 'My Creations', icon: 'floppy-disk.png', alt: 'Creations', title: 'Click to view information about all my creations', updateDate: 20251024 },
+
         // Legal Links
-        { href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251012 },
-        { href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to get help or view frequently asked questions', updateDate: 20251008 },
-        { href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 }
+        { section: 'Legal Links', href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251012 },
+        { section: 'Legal Links', href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to get help or view frequently asked questions', updateDate: 20251008 },
+        { section: 'Legal Links', href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 }
     ];
     
     // Function to check if link should have "new" class
@@ -82,17 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <nav>
 <span id="clutter-toggle" style="font-size: 8px;float: right; background-color: var(--toasted-almond); color: var(--half-and-half); border: 2px solid var(--espresso); border-radius: 5px; padding: 3px; cursor: pointer;"> with clutter.js?</span>
-    ${generateSectionHTML('Navigation', link =>
-        ['index.html', 'recommendations.html', 'commissions.html', 'request_form.html', 'changelog.html'].includes(link.href)
-    )}
+    ${generateSectionHTML('Navigation', link => link.section === 'Navigation')}
     <hr>
-    ${generateSectionHTML('Projects', link =>
-        ['school/index.html', 'minecraft.html', 'vanity.html', 'my_books.html', 'my_creations.html'].includes(link.href)
-    )}
+    ${generateSectionHTML('Projects', link => link.section === 'Projects')}
     <hr>
-    ${generateSectionHTML('Legal Links', link =>
-        ['website_legal.html', 'vanity_legal.html', 'donate.html'].includes(link.href)
-    )}
+    ${generateSectionHTML('Legal Links', link => link.section === 'Legal Links')}
 </nav>
 <hr/>
 <p style="position: relative; font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
