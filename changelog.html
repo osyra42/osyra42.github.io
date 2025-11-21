@@ -25,6 +25,7 @@
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
+  <script src="changelog.js"></script>
 
   <script>
     image = "changelog.jpg";
@@ -52,37 +53,35 @@
   </main>
 
 <script>
-   // Load changelog content from external file
-fetch('assets/changelog.txt')
-    .then(response => response.text())
-    .then(data => {
-        const changelog = document.getElementById('changelog');
-        if (changelog) {
-            const chalk = {
-                black: "444444", red: "FF6663", orange: "FEB144", yellow: "FDFD97",
-                green: "9EE09E", blue: "9EC1CF", purple: "CC99C9", white: "FFFFFF"
-            };
-            
-            let coloredContent = '';
-            data.split('\n').forEach(line => {
-                let color;
-                switch (true) {
-                    case line.startsWith('# '): color = chalk.yellow; break;
-                    case line.startsWith('- '): color = chalk.red; break;
-                    case line.startsWith('+ '): color = chalk.green; break;
-                    case line.startsWith('@ '): color = chalk.purple; break;
-                    case line.startsWith('$ '): color = chalk.orange; break;
-                    case line.startsWith('> '): color = chalk.blue; break;
-                    case line.startsWith('  '): color = chalk.white; break;
-                    case line.startsWith('. '): color = chalk.black; break;
-                }
-                coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
-            });
-            
-            changelog.innerHTML = coloredContent;
-            console.log('Changelog content loaded successfully!');
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    // Load changelog content from changelog.js
+    const changelog = document.getElementById('changelog');
+    if (changelog && window.changelogData) {
+        const chalk = {
+            black: "444444", red: "FF6663", orange: "FEB144", yellow: "FDFD97",
+            green: "9EE09E", blue: "9EC1CF", purple: "CC99C9", white: "FFFFFF"
+        };
+
+        let coloredContent = '';
+        window.changelogData.split('\n').forEach(line => {
+            let color;
+            switch (true) {
+                case line.startsWith('# '): color = chalk.yellow; break;
+                case line.startsWith('- '): color = chalk.red; break;
+                case line.startsWith('+ '): color = chalk.green; break;
+                case line.startsWith('@ '): color = chalk.purple; break;
+                case line.startsWith('$ '): color = chalk.orange; break;
+                case line.startsWith('> '): color = chalk.blue; break;
+                case line.startsWith('  '): color = chalk.white; break;
+                case line.startsWith('. '): color = chalk.black; break;
+            }
+            coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
+        });
+
+        changelog.innerHTML = coloredContent;
+        console.log('Changelog content loaded successfully!');
+    }
+});
 </script>
 
 </body>

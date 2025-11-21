@@ -194,6 +194,46 @@
       font-weight: 400;
     }
 
+    .app-header {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+      text-align: center;
+      position: relative;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--deep-brown);
+      margin: 0;
+    }
+
+    .logout-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--accent-coral);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .logout-link:hover {
+      background: #d5865f;
+      transform: translateY(-50%) translateY(-1px);
+      text-decoration: none;
+    }
+
     /* Subject-specific colors - vibrant yet soft */
     .math { border-left-color: #ff9a7f; }
     .science { border-left-color: #ffb380; }
@@ -223,12 +263,18 @@
 </head>
 
 <body>
+  <div class="app-header">
+    <a class="logout-link" href="../index.html">LOGOUT</a>
+    <h1 class="app-title">Osyra's Worksheets
+      <a href="https://librecounter.org/referer/show" target="_blank">
+        <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+      </a>
+    </h1>
+  </div>
+
   <main>
     <article>
       <header>
-        <a href="https://librecounter.org/referer/show" target="_blank">
-    <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
-</a>
         <h3>Welcome to My Worksheets</h3>
       </header>
       <section>
@@ -252,7 +298,12 @@
         <li class="toc-item math">
           <h3>Math</h3>
           <ul>
-            <li><a href="math-arithmetic.html">Arithmetic Worksheet</a></li>
+            <li><a href="math-arithmetic.html">Arithmetic Worksheet</a> (Depreciated)</li>
+            <li><a href="math-arithmetic2.html">Arithmetic Worksheet</a> (Experimental)</li>
+            <li><a href="math-measurements.html">Measurement Worksheet</a> (Experimental)</li>
+            <li><a href="math-currency.html">Currency Worksheet</a> (Experimental)</li>
+            <li><a href="math-fractions.html">Fractions Worksheet</a> (Experimental)</li>
+            <li><a href="math-dec2frac.html">Decimal to Fraction Worksheet</a> (Experimental)</li>
           </ul>
         </li>
         
@@ -301,7 +352,7 @@
         <li class="toc-item pe">
           <h3>P.E.</h3>
           <ul>
-            <li><a class="disabled-link">Missing Worksheets</a></li>
+            <li><a href="pe_exercise_for_kids.html">Exercise for Kids</a> (Experimental)</li>
           </ul>
         </li>
         

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Osyra's Math Worksheets</title>
+  <title>Osyra's Worksheets</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -225,6 +225,24 @@
       min-height: 18px;
     }
 
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--accent-sage);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: #96a388;
+      transform: translateY(-1px);
+    }
+
     @media print {
       body {
         background: white;
@@ -282,7 +300,8 @@
 
   <div class="app-container">
     <div class="app-header">
-      <h1 class="app-title">Osyra's Math Worksheets
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Osyra's Worksheets
         <a href="https://librecounter.org/referer/show" target="_blank">
           <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
         </a>

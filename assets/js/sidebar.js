@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Links data - easy to maintain and update
     const linksData = [
         // Navigation
-        { href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251021 },
-        { href: 'about_me.html', text: 'About Me', icon: 'address-card.png', alt: 'About Me', title: 'Click to contact me or view basic information about me', updateDate: 20251024 },
+        { href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251121 },
+        { href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20251121 },
         { href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251024 },
-        { href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251017 },
+        { href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251121 },
         
         // Projects
         { href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251116 },
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Legal Links
         { href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251012 },
         { href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to get help or view frequently asked questions', updateDate: 20251008 },
-        { href: 'https://paypal.me/osyra42', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Donate to me', updateDate: 20250101, external: true }
+        { href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 }
     ];
     
     // Function to check if link should have "new" class
@@ -82,8 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <nav>
 <span id="clutter-toggle" style="font-size: 8px;float: right; background-color: var(--toasted-almond); color: var(--half-and-half); border: 2px solid var(--espresso); border-radius: 5px; padding: 3px; cursor: pointer;"> with clutter.js?</span>
-    ${generateSectionHTML('Navigation', link => 
-        ['index.html', 'about_me.html', 'commissions.html', 'request_form.html', 'changelog.html'].includes(link.href)
+    ${generateSectionHTML('Navigation', link =>
+        ['index.html', 'recommendations.html', 'commissions.html', 'request_form.html', 'changelog.html'].includes(link.href)
     )}
     <hr>
     ${generateSectionHTML('Projects', link =>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     )}
     <hr>
     ${generateSectionHTML('Legal Links', link =>
-        ['website_legal.html', 'vanity_legal.html', 'https://paypal.me/osyra42'].includes(link.href)
+        ['website_legal.html', 'vanity_legal.html', 'donate.html'].includes(link.href)
     )}
 </nav>
 <hr/>
