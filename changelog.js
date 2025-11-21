@@ -1,3 +1,7 @@
+// changelog.js
+// Changelog data for Coffee Byte Dev website
+
+window.changelogData = `
 . ............................
 LEGEND OF COLORS
 . decoration text
@@ -8,6 +12,29 @@ LEGEND OF COLORS
 > blue: description
 $ bugs: known/fixed
   normal text
+
+. ............................
+# 2025 NOV 21
+> I forgot to update the changelog
+@ website
++ changed how changelog is handled
++ added Home School
++ added arithmetic worksheets
++ added measurement worksheets
++ added currency worksheets
++ added fractions worksheets
++ added decimal to fraction worksheets
++ added anonymous tracking to improve website
++ added back and logout buttons to homeschool pages
++ experimented with jsCanvas to draw the worksheets
++ added image to My Creations
++ added recommendations page
++ added donate page
++ merged about me with index page
++ enhanced skills section with professional terminology
++ added a way for changelog to work with CORS
+
+> click on the red eye to see the tracking data
 
 . ............................
 # 2025 OCT 24
@@ -85,3 +112,4 @@ $ emojis are broken
 > website url was changed to rebrand and to mark a server downgrade
 $ website flashes white on fast reload
 $ page title is missing
+`;

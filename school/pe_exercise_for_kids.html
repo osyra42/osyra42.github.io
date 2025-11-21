@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets - Exercise for Kids</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --warm-cream: #faf8f3;
+      --soft-beige: #f0ebe3;
+      --warm-brown: #8b7355;
+      --deep-brown: #5d4e37;
+      --accent-coral: #e8997a;
+      --accent-sage: #a8b5a0;
+      --text-dark: #3d3d3d;
+      --border-light: #d4c9ba;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--warm-cream) 0%, var(--soft-beige) 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--deep-brown);
+    }
+
+    .controls-panel {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(93, 78, 55, 0.15);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .btn-primary {
+      background: var(--accent-coral);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: #d68666;
+    }
+
+    .worksheet {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+    }
+
+    .worksheet-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--border-light);
+    }
+
+    .worksheet-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--deep-brown);
+    }
+
+    .info {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      color: var(--warm-brown);
+    }
+
+    .canvas-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #mainCanvas {
+      border: 2px solid var(--border-light);
+      border-radius: 8px;
+      background: var(--warm-cream);
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .print-page {
+      display: none;
+    }
+
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--accent-sage);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: #96a388;
+      transform: translateY(-1px);
+    }
+
+    .loading-message {
+      text-align: center;
+      padding: 40px;
+      color: var(--warm-brown);
+      font-size: 16px;
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .app-header, .controls-panel, .no-print {
+        display: none !important;
+      }
+
+      .worksheet {
+        display: none !important;
+      }
+
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .print-page:last-child {
+        page-break-after: auto;
+      }
+
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+      }
+
+      @page {
+        margin: 0.5in;
+        size: A4 portrait;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .worksheet-header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .info {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="app-header">
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Osyra's Worksheets
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+      </h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="controls">
+        <button class="btn-primary" onclick="window.print()">Print Worksheet</button>
+      </div>
+    </div>
+
+    <div class="worksheet">
+      <div class="worksheet-header">
+        <h2 class="worksheet-title">Exercise for Kids</h2>
+        <div class="info">
+          <span>Name: _______________________</span>
+          <span>Date: _______________________</span>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="mainCanvas"></canvas>
+        <div id="loadingMessage" class="loading-message">Loading infographic...</div>
+      </div>
+    </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
+  </div>
+
+  <script>
+    // Global state
+    let mainCanvas;
+    let mainCtx;
+    let infographicImage;
+    let imageLoaded = false;
+
+    function initCanvas() {
+      mainCanvas = document.getElementById('mainCanvas');
+      mainCtx = mainCanvas.getContext('2d');
+    }
+
+    function loadInfographic() {
+      infographicImage = new Image();
+
+      infographicImage.onload = function() {
+        imageLoaded = true;
+        document.getElementById('loadingMessage').style.display = 'none';
+        drawInfographic();
+        createPrintPage();
+      };
+
+      infographicImage.onerror = function() {
+        document.getElementById('loadingMessage').textContent = 'Error loading infographic. Please check the image path.';
+        document.getElementById('loadingMessage').style.color = '#e8997a';
+      };
+
+      // Load the infographic image
+      infographicImage.src = 'infographics/exercise_for_kids.png';
+    }
+
+    function drawInfographic() {
+      if (!imageLoaded) return;
+
+      const A4_WIDTH = 794;
+      const A4_HEIGHT = 1123; // Standard A4 height in pixels at 96 DPI
+
+      // Set canvas size to A4 proportions
+      mainCanvas.width = A4_WIDTH;
+      mainCanvas.height = A4_HEIGHT;
+
+      // Clear canvas
+      mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+
+      // Fill background
+      mainCtx.fillStyle = '#ffffff';
+      mainCtx.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
+
+      // Calculate scaling to fit image on canvas while maintaining aspect ratio
+      const imgAspect = infographicImage.width / infographicImage.height;
+      const canvasAspect = A4_WIDTH / A4_HEIGHT;
+
+      let drawWidth, drawHeight, offsetX, offsetY;
+
+      if (imgAspect > canvasAspect) {
+        // Image is wider - fit to width
+        drawWidth = A4_WIDTH;
+        drawHeight = A4_WIDTH / imgAspect;
+        offsetX = 0;
+        offsetY = (A4_HEIGHT - drawHeight) / 2;
+      } else {
+        // Image is taller - fit to height
+        drawHeight = A4_HEIGHT;
+        drawWidth = A4_HEIGHT * imgAspect;
+        offsetX = (A4_WIDTH - drawWidth) / 2;
+        offsetY = 0;
+      }
+
+      // Draw the image centered on canvas
+      mainCtx.drawImage(
+        infographicImage,
+        offsetX,
+        offsetY,
+        drawWidth,
+        drawHeight
+      );
+
+      // Update display size to fit container
+      const containerWidth = mainCanvas.parentElement.clientWidth;
+      const scale = containerWidth / A4_WIDTH;
+      const displayHeight = A4_HEIGHT * scale;
+
+      mainCanvas.style.width = containerWidth + 'px';
+      mainCanvas.style.height = displayHeight + 'px';
+    }
+
+    function createPrintPage() {
+      if (!imageLoaded) return;
+
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageDiv = document.createElement('div');
+      pageDiv.className = 'print-page';
+
+      const pageCanvas = document.createElement('canvas');
+      pageCanvas.width = 794;
+      pageCanvas.height = 900;
+
+      const ctx = pageCanvas.getContext('2d');
+
+      // Draw header
+      const headerHeight = 60;
+
+      // Draw header background
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, 794, headerHeight);
+
+      // Draw header border
+      ctx.strokeStyle = '#333333';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, headerHeight);
+      ctx.lineTo(794, headerHeight);
+      ctx.stroke();
+
+      // Draw header text
+      ctx.fillStyle = '#5d4e37';
+      ctx.font = 'bold 18px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Exercise for Kids', 397, 25);
+
+      ctx.font = '12px Arial';
+      ctx.textBaseline = 'middle';
+      ctx.textAlign = 'left';
+      ctx.fillText('Name: _______________________', 30, 50);
+
+      ctx.textAlign = 'center';
+      ctx.fillText('Date: _______________________', 397, 50);
+
+      // Draw the infographic content below header
+      const contentHeight = 900 - headerHeight;
+
+      // Calculate scaling for print page
+      const imgAspect = infographicImage.width / infographicImage.height;
+      const printAspect = 794 / contentHeight;
+
+      let drawWidth, drawHeight, offsetX, offsetY;
+
+      if (imgAspect > printAspect) {
+        // Image is wider - fit to width
+        drawWidth = 794;
+        drawHeight = 794 / imgAspect;
+        offsetX = 0;
+        offsetY = headerHeight + (contentHeight - drawHeight) / 2;
+      } else {
+        // Image is taller - fit to height
+        drawHeight = contentHeight;
+        drawWidth = contentHeight * imgAspect;
+        offsetX = (794 - drawWidth) / 2;
+        offsetY = headerHeight;
+      }
+
+      // Draw the infographic
+      ctx.drawImage(
+        infographicImage,
+        offsetX,
+        offsetY,
+        drawWidth,
+        drawHeight
+      );
+
+      pageDiv.appendChild(pageCanvas);
+      printContainer.appendChild(pageDiv);
+    }
+
+    // Initialize
+    window.onload = function() {
+      initCanvas();
+      loadInfographic();
+    };
+
+    // Handle window resize
+    window.onresize = function() {
+      if (imageLoaded) {
+        drawInfographic();
+      }
+    };
+  </script>
+</body>
+</html>
