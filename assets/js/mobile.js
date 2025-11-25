@@ -71,14 +71,18 @@ function injectMobileStyles() {
       sidebar {
         position: fixed !important;
         top: 0 !important;
-        height: 100vh !important;
+        height: 100% !important;
+        height: 100dvh !important;
         width: calc(100% - 100px) !important;
         z-index: 1002 !important;
         transition: transform 0.3s ease-in-out !important;
-        overflow-y: auto !important;
+        overflow-y: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-y: contain !important;
         left: calc(-100% + 100px) !important;
         border-right: 2px solid #5c4937 !important;
         background-color: #38271e !important;
+        padding-bottom: 80px !important;
       }
 
       sidebar h1 {
