@@ -14,6 +14,12 @@ $ bugs: known/fixed
   normal text
 
 . ............................
+# 2025 NOV 25
+@ website
++ added vocabulary definitions matching worksheet
+> uses dictionary API to fetch definitions
+
+. ............................
 # 2025 NOV 21
 > I forgot to update the changelog
 @ website
