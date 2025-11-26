@@ -17,6 +17,7 @@ $ bugs: known/fixed
 # 2025 NOV 25
 @ website
 + added vocabulary definitions matching worksheet
++ added word scramble worksheet
 + updated Vanity legal documents
 + fixed mobile sidebar scrolling issue
 > uses dictionary API to fetch definitions

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Osyra's Worksheets - Writing Definitions</title>
+  <title>Osyra's Worksheets - Word Scramble</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -161,94 +161,56 @@
       color: var(--warm-brown);
     }
 
-    .word-bank {
-      background: var(--soft-beige);
-      border: 2px solid var(--border-light);
-      border-radius: 8px;
-      padding: 15px 20px;
-      margin-bottom: 25px;
-    }
-
-    .word-bank h3 {
-      font-size: 16px;
-      color: var(--deep-brown);
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--accent-coral);
-    }
-
-    .word-bank-words {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-    }
-
-    .word-bank-item {
-      font-weight: 500;
-      color: var(--text-dark);
-      padding: 4px 10px;
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-    }
-
-    .definitions-list {
+    .scramble-list {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
 
-    .definition-item {
+    .scramble-item {
       padding: 15px;
       border: 2px solid var(--border-light);
       border-radius: 8px;
       background: var(--warm-cream);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .definition-number {
+    .scramble-number {
       font-weight: 600;
       color: var(--accent-coral);
-      margin-right: 8px;
+      min-width: 30px;
+    }
+
+    .scrambled-word {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--deep-brown);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Courier New', monospace;
+      background: var(--white);
+      padding: 8px 15px;
+      border-radius: 6px;
+      border: 2px dashed var(--accent-sage);
     }
 
     .answer-line {
       display: inline-block;
       min-width: 150px;
       border-bottom: 2px solid var(--deep-brown);
-      margin-right: 10px;
       padding: 2px 5px;
       font-weight: 600;
       color: var(--accent-coral);
+      text-transform: capitalize;
     }
 
-    .definition-text {
-      font-size: 14px;
-      line-height: 1.6;
-      display: block;
-      margin-top: 8px;
-      color: var(--text-dark);
-    }
-
-    .status-message {
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .status-message.loading {
-      background: #fff3cd;
-      color: #856404;
-    }
-
-    .status-message.error {
-      background: #f8d7da;
-      color: #721c24;
-    }
-
-    .status-message.success {
-      background: #d4edda;
-      color: #155724;
+    .hint-text {
+      font-size: 13px;
+      color: var(--warm-brown);
+      font-style: italic;
     }
 
     .back-link {
@@ -302,20 +264,15 @@
         max-width: 100%;
       }
 
-      .definition-item {
+      .scramble-item {
         border: 2px solid #333;
         break-inside: avoid;
         background: white;
       }
 
-      .word-bank {
+      .scrambled-word {
         background: #f5f5f5;
-        border: 2px solid #333;
-      }
-
-      .word-bank-item {
-        background: white;
-        border: 1px solid #666;
+        border: 2px dashed #666;
       }
 
       .worksheet-header {
@@ -337,12 +294,13 @@
         width: 100%;
       }
 
-      .word-bank-words {
-        gap: 8px 12px;
+      .scramble-item {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .answer-line {
-        min-width: 120px;
+        min-width: 100%;
       }
     }
   </style>
@@ -380,7 +338,7 @@ elephant</textarea>
 
     <div class="worksheet">
       <div class="worksheet-header">
-        <h2>Vocabulary Matching Worksheet</h2>
+        <h2>Word Scramble Worksheet</h2>
         <div class="info">
           <span>Name: _______________________</span>
           <span>Date: _______________________</span>
@@ -389,10 +347,9 @@ elephant</textarea>
       </div>
 
       <div class="instructions">
-        Match each word with its correct definition. Write the letter in the blank.
+        Unscramble each word and write the correct spelling on the line.
       </div>
 
-      <div id="statusMessage"></div>
       <div id="worksheetContent">
         <p style="text-align: center; color: var(--warm-brown); padding: 40px;">
           Enter words above and click "Generate Worksheet" to begin.
@@ -403,125 +360,67 @@ elephant</textarea>
 
   <script>
     let currentWords = [];
-    let currentDefinitions = [];
+    let scrambledWords = [];
     let showingAnswers = false;
 
-    async function fetchDefinition(word) {
-      try {
-        const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-        if (!response.ok) {
-          throw new Error(`Word not found: ${word}`);
-        }
-        const data = await response.json();
-
-        // Get the first definition from the first meaning
-        if (data[0] && data[0].meanings && data[0].meanings[0] &&
-            data[0].meanings[0].definitions && data[0].meanings[0].definitions[0]) {
-          return data[0].meanings[0].definitions[0].definition;
-        }
-        throw new Error(`No definition found for: ${word}`);
-      } catch (error) {
-        throw error;
-      }
-    }
-
-    function showStatus(message, type) {
-      const statusEl = document.getElementById('statusMessage');
-      statusEl.className = `status-message ${type}`;
-      statusEl.textContent = message;
-      statusEl.style.display = 'block';
-    }
-
-    function hideStatus() {
-      document.getElementById('statusMessage').style.display = 'none';
-    }
-
-    function shuffleArray(array) {
-      const shuffled = [...array];
-      for (let i = shuffled.length - 1; i > 0; i--) {
+    function scrambleWord(word) {
+      const chars = word.split('');
+      // Fisher-Yates shuffle
+      for (let i = chars.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        [chars[i], chars[j]] = [chars[j], chars[i]];
       }
-      return shuffled;
+      const scrambled = chars.join('');
+      // If it's the same as original (can happen with short words), try again
+      if (scrambled === word && word.length > 1) {
+        return scrambleWord(word);
+      }
+      return scrambled;
     }
 
-    async function generateWorksheet() {
+    function generateWorksheet() {
       const input = document.getElementById('wordsInput').value.trim();
       const words = input.split('\n')
         .map(w => w.trim().toLowerCase())
         .filter(w => w.length > 0);
 
       if (words.length === 0) {
-        showStatus('Please enter at least one word.', 'error');
+        alert('Please enter at least one word.');
         return;
       }
 
-      const generateBtn = document.getElementById('generateBtn');
-      generateBtn.disabled = true;
-      generateBtn.textContent = 'Loading...';
+      currentWords = words;
+      scrambledWords = words.map(word => ({
+        original: word,
+        scrambled: scrambleWord(word),
+        hint: `${word.length} letters`
+      }));
 
-      showStatus(`Fetching definitions for ${words.length} word(s)...`, 'loading');
-
-      currentWords = [];
-      currentDefinitions = [];
-      const errors = [];
-
-      for (const word of words) {
-        try {
-          const definition = await fetchDefinition(word);
-          currentWords.push(word);
-          currentDefinitions.push({ word, definition });
-        } catch (error) {
-          errors.push(word);
-        }
+      // Shuffle the order of words
+      for (let i = scrambledWords.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [scrambledWords[i], scrambledWords[j]] = [scrambledWords[j], scrambledWords[i]];
       }
-
-      generateBtn.disabled = false;
-      generateBtn.textContent = 'Generate Worksheet';
-
-      if (currentWords.length === 0) {
-        showStatus('Could not find definitions for any words. Please check spelling.', 'error');
-        return;
-      }
-
-      if (errors.length > 0) {
-        showStatus(`Generated worksheet! (Could not find: ${errors.join(', ')})`, 'success');
-      } else {
-        hideStatus();
-      }
-
-      // Shuffle the definitions
-      lastShuffledDefinitions = shuffleArray(currentDefinitions);
 
       // Update score field
       document.getElementById('scoreField').textContent = `Score: _______ / ${currentWords.length}`;
 
       showingAnswers = false;
-      renderWorksheet(lastShuffledDefinitions);
+      renderWorksheet();
     }
 
-    function renderWorksheet(shuffledDefinitions) {
+    function renderWorksheet() {
       const container = document.getElementById('worksheetContent');
 
-      // Word bank at top (alphabetically sorted for display)
-      const sortedWords = [...currentWords].sort();
-      let html = '<div class="word-bank">';
-      html += '<h3>Word Bank</h3>';
-      html += '<div class="word-bank-words">';
-      sortedWords.forEach(word => {
-        html += `<span class="word-bank-item">${word.charAt(0).toUpperCase() + word.slice(1)}</span>`;
-      });
-      html += '</div></div>';
-
-      // Definitions with answer lines
-      html += '<div class="definitions-list">';
-      shuffledDefinitions.forEach((item, index) => {
-        const answer = showingAnswers ? item.word.charAt(0).toUpperCase() + item.word.slice(1) : '';
+      let html = '<div class="scramble-list">';
+      scrambledWords.forEach((item, index) => {
+        const answer = showingAnswers ? item.original.charAt(0).toUpperCase() + item.original.slice(1) : '';
         html += `
-          <div class="definition-item">
-            <span class="definition-number">${index + 1}.</span>
+          <div class="scramble-item">
+            <span class="scramble-number">${index + 1}.</span>
+            <span class="scrambled-word">${item.scrambled.toUpperCase()}</span>
             <span class="answer-line">${answer}</span>
-            <span class="definition-text">${item.definition}</span>
+            <span class="hint-text">(${item.hint})</span>
           </div>
         `;
       });
@@ -530,11 +429,9 @@ elephant</textarea>
       container.innerHTML = html;
     }
 
-    let lastShuffledDefinitions = [];
-
     function toggleAnswers() {
       if (currentWords.length === 0) {
-        showStatus('Please generate a worksheet first.', 'error');
+        alert('Please generate a worksheet first.');
         return;
       }
 
@@ -542,7 +439,7 @@ elephant</textarea>
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
 
-      renderWorksheet(lastShuffledDefinitions);
+      renderWorksheet();
     }
   </script>
 </body>

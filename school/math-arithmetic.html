@@ -160,69 +160,38 @@
       color: var(--warm-brown);
     }
 
-    .problem-grid {
+    .canvas-container {
+      width: 100%;
+      position: relative;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-      justify-content: space-between;
+      justify-content: center;
     }
 
-    .problem {
-      text-align: right;
-      font-size: 14px;
-      line-height: 1.5;
-      padding: 8px 6px;
+    #questionsCanvas {
       border: 2px solid var(--border-light);
       border-radius: 8px;
-      flex: 0 1 calc(16.666% - 10px);
-      min-width: 70px;
-      max-width: 100px;
       background: var(--warm-cream);
-      transition: all 0.2s ease;
+      display: block;
     }
 
-    .problem:hover {
-      border-color: var(--accent-sage);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(93, 78, 55, 0.1);
+    #answersCanvas {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: transparent;
+      display: none;
     }
 
-    .problem-number {
-      font-size: 9px;
-      color: var(--warm-brown);
-      margin-bottom: 3px;
-      text-align: left;
-      font-weight: 600;
+    #answersCanvas.show {
+      display: block;
     }
 
-    .problem pre {
-      margin: 0;
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      white-space: pre;
-      overflow: visible;
-      color: var(--text-dark);
-    }
-
-    .answer-line {
-      border-top: 2px solid var(--deep-brown);
-      margin-top: 3px;
-      min-height: 0;
-    }
-
-    .answer-text {
-      margin: 2px 0 0 0;
-      font-family: 'Courier New', monospace;
-      font-size: 14px;
-      text-align: right;
-      white-space: pre;
-      color: var(--accent-coral);
-      font-weight: 600;
-    }
-
-    .answer-space {
-      min-height: 18px;
+    .print-page {
+      display: none;
     }
 
     .back-link {
@@ -247,6 +216,7 @@
       body {
         background: white;
         padding: 0;
+        margin: 0;
       }
 
       .app-header, .controls-panel, .no-print {
@@ -254,31 +224,38 @@
       }
 
       .worksheet {
-        box-shadow: none;
-        padding: 20px;
-        max-width: 100%;
+        display: none !important;
       }
 
-      .problem {
-        border: 2px solid #333;
-        break-inside: avoid;
-        background: white;
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
       }
 
-      .worksheet-header {
-        page-break-after: avoid;
+      .print-page:last-child {
+        page-break-after: auto;
+      }
+
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
       }
 
       @page {
         margin: 0.5in;
+        size: A4 portrait;
       }
     }
 
     @media (max-width: 768px) {
-      .problem {
-        flex: 0 1 calc(33.333% - 10px);
-      }
-
       .controls {
         flex-direction: column;
         align-items: stretch;
@@ -286,12 +263,6 @@
 
       .controls label {
         width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .problem {
-        flex: 0 1 calc(50% - 10px);
       }
     }
   </style>
@@ -319,7 +290,7 @@
             <option value="division">Division</option>
           </select>
         </label>
-        
+
         <label>
           <span>Max Number:</span>
           <select id="maxNumber">
@@ -331,7 +302,7 @@
             <option value="10000">10,000</option>
           </select>
         </label>
-        
+
         <label>
           <span>Number of Questions:</span>
           <select id="numQuestions">
@@ -356,12 +327,12 @@
             <option value="100">100</option>
           </select>
         </label>
-        
+
         <label style="flex-direction: row; align-items: center; gap: 8px;">
           <input type="checkbox" id="allowNegatives">
           <span>Allow Negative Results</span>
         </label>
-        
+
         <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
         <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
         <button class="secondary" onclick="window.print()">Print Worksheet</button>
@@ -377,22 +348,33 @@
           <span>Score: _______ / 25</span>
         </div>
       </div>
-      <div id="problemsContainer"></div>
+      <div class="canvas-container">
+        <canvas id="questionsCanvas"></canvas>
+        <canvas id="answersCanvas"></canvas>
+      </div>
     </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
   </div>
 
   <script>
     // Global state
     let currentProblems = [];
     let showingAnswers = false;
+    let questionsCanvas, answersCanvas;
+    let questionsCtx, answersCtx;
 
-    function formatNumber(num, width = 6) {
-      return String(num).padStart(width, ' ');
+    function initCanvases() {
+      questionsCanvas = document.getElementById('questionsCanvas');
+      answersCanvas = document.getElementById('answersCanvas');
+      questionsCtx = questionsCanvas.getContext('2d');
+      answersCtx = answersCanvas.getContext('2d');
     }
 
     function createSubtractionProblem(maxNum, allowNegatives, index) {
       let num1, num2;
-      
+
       if (allowNegatives) {
         num1 = Math.floor(Math.random() * maxNum);
         num2 = Math.floor(Math.random() * maxNum);
@@ -400,13 +382,13 @@
         num1 = Math.floor(Math.random() * maxNum);
         num2 = Math.floor(Math.random() * (num1 + 1));
       }
-      
+
       let result = num1 - num2;
-      let num1Str = String(num1).padStart(4, ' ');
-      let num2Str = String(num2).padStart(3, ' ');
-      
+
       return {
-        display: `${num1Str}\n-${num2Str}`,
+        num1: num1,
+        num2: num2,
+        operator: '-',
         answer: result
       };
     }
@@ -414,34 +396,27 @@
     function createAdditionProblem(maxNum, allowNegatives, index) {
       let num1 = Math.floor(Math.random() * maxNum);
       let num2 = Math.floor(Math.random() * maxNum);
-      
+
       let result = num1 + num2;
-      let num1Str = String(num1).padStart(4, ' ');
-      let num2Str = String(num2).padStart(3, ' ');
-      
+
       return {
-        display: `${num1Str}\n+${num2Str}`,
+        num1: num1,
+        num2: num2,
+        operator: '+',
         answer: result
       };
     }
 
     function createMultiplicationProblem(maxNum, allowNegatives, index) {
-      let num1, num2;
-      
-      if (maxNum <= 12) {
-        num1 = Math.floor(Math.random() * maxNum) + 1;
-        num2 = Math.floor(Math.random() * maxNum) + 1;
-      } else {
-        num1 = Math.floor(Math.random() * maxNum) + 1;
-        num2 = Math.floor(Math.random() * maxNum) + 1;
-      }
-      
+      let num1 = Math.floor(Math.random() * maxNum) + 1;
+      let num2 = Math.floor(Math.random() * maxNum) + 1;
+
       let result = num1 * num2;
-      let num1Str = String(num1).padStart(4, ' ');
-      let num2Str = String(num2).padStart(3, ' ');
-      
+
       return {
-        display: `${num1Str}\n×${num2Str}`,
+        num1: num1,
+        num2: num2,
+        operator: '×',
         answer: result
       };
     }
@@ -450,24 +425,247 @@
       let divisor, dividend;
       let maxDivisor = Math.min(maxNum, 144);
       divisor = Math.floor(Math.random() * maxDivisor) + 1;
-      
+
       let maxDividend = maxNum * 12;
       let multiples = [];
-      
+
       for (let i = 1; i * divisor <= maxDividend; i++) {
         multiples.push(i * divisor);
       }
-      
+
       dividend = multiples[Math.floor(Math.random() * multiples.length)];
       let quotient = dividend / divisor;
-      
-      let num1Str = String(dividend).padStart(4, ' ');
-      let num2Str = String(divisor).padStart(3, ' ');
-      
+
       return {
-        display: `${num1Str}\n÷${num2Str}`,
+        num1: dividend,
+        num2: divisor,
+        operator: '÷',
         answer: quotient
       };
+    }
+
+    function drawProblemBox(ctx, x, y, width, height, problemNum, problem, showAnswer = false) {
+      // Draw box border
+      ctx.strokeStyle = '#d4c9ba';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(x, y, width, height);
+
+      // Fill background
+      ctx.fillStyle = '#faf8f3';
+      ctx.fillRect(x + 2, y + 2, width - 4, height - 4);
+
+      // Draw problem number
+      ctx.fillStyle = '#8b7355';
+      ctx.font = '10px Arial';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText(problemNum + '.', x + 8, y + 15);
+
+      // Draw problem
+      ctx.fillStyle = '#3d3d3d';
+      ctx.font = '16px Courier New, monospace';
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'alphabetic';
+
+      const centerX = x + width - 15;
+      const startY = y + 35;
+
+      // First number
+      ctx.fillText(problem.num1.toString(), centerX, startY);
+
+      // Operator and second number
+      ctx.fillText(problem.operator + problem.num2.toString(), centerX, startY + 20);
+
+      // Answer line
+      ctx.strokeStyle = '#5d4e37';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(x + 10, startY + 25);
+      ctx.lineTo(centerX + 5, startY + 25);
+      ctx.stroke();
+
+      // Draw answer if showing
+      if (showAnswer) {
+        ctx.fillStyle = '#e8997a';
+        ctx.font = 'bold 16px Courier New, monospace';
+        ctx.textBaseline = 'alphabetic';
+        ctx.fillText(problem.answer.toString(), centerX, startY + 42);
+      }
+    }
+
+    function drawWorksheet() {
+      const numProblems = currentProblems.length;
+      const cols = 6;
+      const margin = 20;
+      const spacing = 12;
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+
+      // Calculate box dimensions
+      const availableWidth = A4_WIDTH - (2 * margin);
+      const boxWidth = Math.min(110, (availableWidth - (cols - 1) * spacing) / cols);
+      const boxHeight = 90;
+
+      // Calculate how many rows fit on one page
+      const rowHeight = boxHeight + spacing;
+      const availableHeightPerPage = pageHeight - (2 * margin);
+      const maxRowsPerPage = Math.floor(availableHeightPerPage / rowHeight);
+      const maxProblemsPerPage = maxRowsPerPage * cols;
+
+      // Calculate total pages needed
+      const numPages = Math.ceil(numProblems / maxProblemsPerPage);
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvases to fit all pages
+      questionsCanvas.width = A4_WIDTH;
+      questionsCanvas.height = totalHeight;
+      answersCanvas.width = A4_WIDTH;
+      answersCanvas.height = totalHeight;
+
+      // Update display size
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = containerWidth / A4_WIDTH;
+      const displayHeight = totalHeight * scale;
+
+      questionsCanvas.style.width = containerWidth + 'px';
+      questionsCanvas.style.height = displayHeight + 'px';
+      answersCanvas.style.width = containerWidth + 'px';
+      answersCanvas.style.height = displayHeight + 'px';
+
+      // Clear both canvases
+      questionsCtx.clearRect(0, 0, questionsCanvas.width, questionsCanvas.height);
+      answersCtx.clearRect(0, 0, answersCanvas.width, answersCanvas.height);
+
+      // Draw page separators (for visual reference)
+      questionsCtx.strokeStyle = '#cccccc';
+      questionsCtx.lineWidth = 1;
+      questionsCtx.setLineDash([5, 5]);
+      for (let page = 1; page < numPages; page++) {
+        const pageY = page * pageHeight;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(0, pageY);
+        questionsCtx.lineTo(A4_WIDTH, pageY);
+        questionsCtx.stroke();
+      }
+      questionsCtx.setLineDash([]);
+
+      // Draw questions on layer 1 (questionsCanvas)
+      currentProblems.forEach((problem, index) => {
+        const col = index % cols;
+        const globalRow = Math.floor(index / cols);
+
+        // Calculate which page this problem is on
+        const currentPage = Math.floor(index / maxProblemsPerPage);
+        const rowOnPage = globalRow % maxRowsPerPage;
+
+        const x = margin + col * (boxWidth + spacing);
+        const y = currentPage * pageHeight + margin + rowOnPage * rowHeight;
+
+        drawProblemBox(questionsCtx, x, y, boxWidth, boxHeight, index + 1, problem, false);
+      });
+
+      // Draw answers on layer 2 (answersCanvas) if showing
+      if (showingAnswers) {
+        answersCtx.textBaseline = 'alphabetic';
+        answersCtx.textAlign = 'right';
+
+        currentProblems.forEach((problem, index) => {
+          const col = index % cols;
+          const globalRow = Math.floor(index / cols);
+
+          const currentPage = Math.floor(index / maxProblemsPerPage);
+          const rowOnPage = globalRow % maxRowsPerPage;
+
+          const x = margin + col * (boxWidth + spacing);
+          const y = currentPage * pageHeight + margin + rowOnPage * rowHeight;
+
+          // Only draw the answer part
+          answersCtx.fillStyle = '#e8997a';
+          answersCtx.font = 'bold 16px Courier New, monospace';
+          const centerX = x + boxWidth - 15;
+          const startYPos = y + 35;
+          answersCtx.fillText(problem.answer.toString(), centerX, startYPos + 42);
+        });
+      }
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const numPages = Math.ceil(questionsCanvas.height / pageHeight);
+      const numQuestions = currentProblems.length;
+
+      for (let page = 0; page < numPages; page++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'print-page';
+
+        const pageCanvas = document.createElement('canvas');
+        pageCanvas.width = 794;
+        pageCanvas.height = 900;
+
+        const ctx = pageCanvas.getContext('2d');
+
+        // Draw header on each page
+        const headerHeight = 60;
+
+        // Draw header background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, 794, headerHeight);
+
+        // Draw header border
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, headerHeight);
+        ctx.lineTo(794, headerHeight);
+        ctx.stroke();
+
+        // Draw header text
+        const operation = document.getElementById('operation').value;
+        const operationName = operation.charAt(0).toUpperCase() + operation.slice(1);
+
+        ctx.fillStyle = '#5d4e37';
+        ctx.font = 'bold 18px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(`${operationName} Worksheet`, 397, 25);
+
+        ctx.font = '12px Arial';
+        ctx.textBaseline = 'middle';
+        ctx.textAlign = 'left';
+        ctx.fillText('Name: _______________________', 30, 50);
+
+        ctx.textAlign = 'center';
+        ctx.fillText('Date: _______________________', 397, 50);
+
+        ctx.textAlign = 'right';
+        ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
+
+        // Copy the portion of the main canvas for this page
+        ctx.drawImage(
+          questionsCanvas,
+          0, page * pageHeight,  // source x, y
+          794, 900 - headerHeight,  // source width, height
+          0, headerHeight,       // dest x, y (offset by header)
+          794, 900 - headerHeight   // dest width, height
+        );
+
+        // Copy answers canvas if showing answers
+        if (showingAnswers) {
+          ctx.drawImage(
+            answersCanvas,
+            0, page * pageHeight,
+            794, 900 - headerHeight,
+            0, headerHeight,
+            794, 900 - headerHeight
+          );
+        }
+
+        pageDiv.appendChild(pageCanvas);
+        printContainer.appendChild(pageDiv);
+      }
     }
 
     function generateWorksheet() {
@@ -475,22 +673,21 @@
       const allowNegatives = document.getElementById('allowNegatives').checked;
       const maxNum = parseInt(document.getElementById('maxNumber').value);
       const numQuestions = parseInt(document.getElementById('numQuestions').value);
-      const container = document.getElementById('problemsContainer');
-      
+
       let operationName = operation.charAt(0).toUpperCase() + operation.slice(1);
-      
-      // Update worksheet header with safety checks
+
+      // Update worksheet header
       const headerTitle = document.querySelector('.worksheet-header h2');
       if (headerTitle) {
         headerTitle.textContent = `${operationName} Worksheet`;
       }
-      
+
       // Update score field
       const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
       if (scoreSpan) {
         scoreSpan.textContent = `Score: _______ / ${numQuestions}`;
       }
-      
+
       let createProblem;
       switch(operation) {
         case 'addition':
@@ -505,45 +702,58 @@
         default:
           createProblem = createSubtractionProblem;
       }
-      
+
       currentProblems = [];
       for (let i = 0; i < numQuestions; i++) {
         currentProblems.push(createProblem(maxNum, allowNegatives, i));
       }
-      
-      showingAnswers = false;
-      renderProblems();
-    }
 
-    function renderProblems() {
-      const container = document.getElementById('problemsContainer');
-      let html = '<div class="problem-grid">';
-      
-      for (let i = 0; i < currentProblems.length; i++) {
-        const problem = currentProblems[i];
-        html += `
-          <div class="problem">
-            <div class="problem-number">${i + 1}.</div>
-            <pre>${problem.display}</pre>
-            <div class="answer-line"></div>
-            ${showingAnswers ? `<pre class="answer-text">${String(problem.answer).padStart(4, ' ')}</pre>` : '<div class="answer-space"></div>'}
-          </div>
-        `;
-      }
-      html += '</div>';
-      
-      container.innerHTML = html;
+      showingAnswers = false;
+      drawWorksheet();
+
+      // Generate print pages after drawing
+      setTimeout(() => createPrintPages(), 100);
     }
 
     function toggleAnswers() {
       showingAnswers = !showingAnswers;
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
-      renderProblems();
+
+      // Toggle visibility of answers canvas
+      if (showingAnswers) {
+        answersCanvas.classList.add('show');
+      } else {
+        answersCanvas.classList.remove('show');
+      }
+
+      drawWorksheet();
+
+      // Regenerate print pages to include/exclude answers
+      setTimeout(() => createPrintPages(), 100);
     }
 
-    // Generate initial worksheet
-    generateWorksheet();
+    // Initialize and generate initial worksheet
+    window.onload = function() {
+      initCanvases();
+      generateWorksheet();
+    };
+
+    // Handle window resize
+    window.onresize = function() {
+      const A4_WIDTH = 794;
+      const A4_HEIGHT = 900;
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = containerWidth / A4_WIDTH;
+      const displayHeight = A4_HEIGHT * scale;
+
+      questionsCanvas.style.width = containerWidth + 'px';
+      questionsCanvas.style.height = displayHeight + 'px';
+      answersCanvas.style.width = containerWidth + 'px';
+      answersCanvas.style.height = displayHeight + 'px';
+
+      drawWorksheet();
+    };
   </script>
 </body>
 </html>
