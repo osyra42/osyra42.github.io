@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Projects
         { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
+        { section: 'Projects', href: 'fishing_mini_game/index.html', text: 'Fishing Mini Game', icon: 'fish.png', alt: 'Fishing Game', title: 'Click to play the fishing mini game', updateDate: 20251127 },
         { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
         { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
         { section: 'Projects', href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },

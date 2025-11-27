@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fishing Game</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="wrapper">
+    <div id="customizePanel">
+      <h3>Character</h3>
+      <canvas id="previewCanvas" width="60" height="70"></canvas>
+      <div class="customize-group">
+        <label>Name</label>
+        <input type="text" id="playerName" value="Player" maxlength="12">
+      </div>
+      <div class="customize-group">
+        <label>Body Color</label>
+        <input type="color" id="bodyColor" value="#ff7043">
+      </div>
+      <div class="customize-group">
+        <label>Shape</label>
+        <select id="bodyShape">
+          <option value="circle">Circle</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+        </select>
+      </div>
+      <div class="customize-group">
+        <label>Accessory</label>
+        <select id="accessory">
+          <option value="hat">Hat</option>
+          <option value="bow">Bow</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      <div class="customize-group" id="accessoryColorGroup">
+        <label>Accessory Color</label>
+        <input type="color" id="accessoryColor" value="#5d4037">
+      </div>
+      <div class="customize-group">
+        <label>Eye Color</label>
+        <input type="color" id="eyeColor" value="#333333">
+      </div>
+    </div>
+    <div id="gameContainer">
+      <canvas id="game"></canvas>
+      <canvas id="minimap"></canvas>
+      <div id="controls">WASD + Space or Mouse | Catch and sell fish</div>
+    </div>
+    <div id="statsPanel">
+      <h3>Stats</h3>
+      <div class="stat-row">
+        <span class="stat-label">Fish</span>
+        <span class="stat-value" id="fishCount">0</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Cast Range</span>
+        <span class="stat-value" id="rodRangeDisplay">2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Scripts (order matters!) -->
+  <script src="js/config.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/pathfinding.js"></script>
+  <script src="js/terrain.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/fishing.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/customize.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

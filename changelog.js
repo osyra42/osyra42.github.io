@@ -14,6 +14,14 @@ $ bugs: known/fixed
   normal text
 
 . ............................
+# 2025 NOV 27
+@ website
++ added Fishing Mini Game to Projects
++ added Clutter Chrome Extension to My Creations
+> fishing mini game with procedural terrain, merchant trading, minimap, and character customization
+> seasonal decorations extension with interactive physics
+
+. ............................
 # 2025 NOV 25
 @ website
 + added vocabulary definitions matching worksheet
