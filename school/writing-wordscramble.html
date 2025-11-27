@@ -162,53 +162,55 @@
     }
 
     .scramble-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
 
     .scramble-item {
-      padding: 15px;
-      border: 2px solid var(--border-light);
-      border-radius: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
       background: var(--warm-cream);
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
     .scramble-number {
       font-weight: 600;
       color: var(--accent-coral);
-      min-width: 30px;
+      min-width: 20px;
+      font-size: 13px;
     }
 
     .scrambled-word {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--deep-brown);
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-family: 'Courier New', monospace;
       background: var(--white);
-      padding: 8px 15px;
-      border-radius: 6px;
-      border: 2px dashed var(--accent-sage);
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px dashed var(--accent-sage);
     }
 
     .answer-line {
       display: inline-block;
-      min-width: 150px;
-      border-bottom: 2px solid var(--deep-brown);
-      padding: 2px 5px;
+      min-width: 100px;
+      border-bottom: 1px solid var(--deep-brown);
+      padding: 2px 4px;
       font-weight: 600;
       color: var(--accent-coral);
       text-transform: capitalize;
+      font-size: 13px;
     }
 
     .hint-text {
-      font-size: 13px;
+      font-size: 11px;
       color: var(--warm-brown);
       font-style: italic;
     }
@@ -260,19 +262,50 @@
 
       .worksheet {
         box-shadow: none;
-        padding: 20px;
+        padding: 15px;
         max-width: 100%;
       }
 
+      .worksheet-header {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+      }
+
+      .worksheet-header h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .instructions {
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+
+      .scramble-list {
+        gap: 5px;
+      }
+
       .scramble-item {
-        border: 2px solid #333;
+        border: 1px solid #333;
         break-inside: avoid;
         background: white;
+        padding: 5px 8px;
       }
 
       .scrambled-word {
         background: #f5f5f5;
-        border: 2px dashed #666;
+        border: 1px dashed #666;
+        font-size: 12px;
+        padding: 3px 6px;
+      }
+
+      .answer-line {
+        min-width: 80px;
+      }
+
+      .hint-text {
+        font-size: 10px;
       }
 
       .worksheet-header {
@@ -280,7 +313,7 @@
       }
 
       @page {
-        margin: 0.5in;
+        margin: 0.4in;
       }
     }
 
