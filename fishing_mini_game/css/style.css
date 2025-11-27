@@ -1,0 +1,156 @@
+/* Fishing Game Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #1a1a2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+}
+
+#wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+#gameContainer {
+  position: relative;
+}
+
+canvas#game {
+  border: 4px solid #4a4a6a;
+  border-radius: 8px;
+  cursor: crosshair;
+  display: block;
+}
+
+#controls {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+#minimap {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: 2px solid #4a4a6a;
+  border-radius: 4px;
+  background: #1a1a2e;
+}
+
+/* Stats Panel */
+#statsPanel {
+  background: #2a2a4a;
+  padding: 15px;
+  border-radius: 8px;
+  color: #eee;
+  width: 140px;
+  font-size: 13px;
+}
+
+#statsPanel h3 {
+  margin: 0 0 12px 0;
+  text-align: center;
+  color: #9fa8da;
+  font-size: 14px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  background: #1a1a2e;
+  border-radius: 4px;
+}
+
+.stat-label {
+  color: #aaa;
+}
+
+.stat-value {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Customization Panel */
+#customizePanel {
+  background: #2a2a4a;
+  padding: 15px;
+  border-radius: 8px;
+  color: #eee;
+  width: 180px;
+  font-size: 13px;
+}
+
+#customizePanel h3 {
+  margin: 0 0 12px 0;
+  text-align: center;
+  color: #9fa8da;
+  font-size: 14px;
+}
+
+.customize-group {
+  margin-bottom: 12px;
+}
+
+.customize-group label {
+  display: block;
+  margin-bottom: 4px;
+  color: #aaa;
+  font-size: 11px;
+}
+
+.customize-group input[type="text"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  background: #1a1a2e;
+  color: #eee;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.customize-group input[type="color"] {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #1a1a2e;
+  padding: 2px;
+}
+
+.customize-group select {
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  background: #1a1a2e;
+  color: #eee;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+#previewCanvas {
+  display: block;
+  margin: 10px auto;
+  background: #3d6b37;
+  border-radius: 4px;
+}
