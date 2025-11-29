@@ -5,8 +5,30 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* Coffee Base Colors */
+  --espresso: #1e1610;
+  --dark-mocha: #2a1e14;
+  --coffee-bean: #453024;
+
+  /* Cream & Milk Colors */
+  --steamed-milk: #f5f5dc;
+  --light-cream: #f8e5c8;
+  --half-and-half: #d2b48c;
+
+  /* Syrup & Flavor Colors */
+  --caramel: #d2691e;
+  --pumpkin-spice: #b68d40;
+  --mocha: #8b4513;
+
+  /* Darker Syrups */
+  --dark-caramel: #38271e;
+  --toasted-almond: #5c4937;
+  --dark-chocolate: #120d08;
+}
+
 body {
-  background: #1a1a2e;
+  background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +48,7 @@ body {
 }
 
 canvas#game {
-  border: 4px solid #4a4a6a;
+  border: 4px solid var(--coffee-bean);
   border-radius: 8px;
   cursor: crosshair;
   display: block;
@@ -36,36 +58,39 @@ canvas#game {
   position: absolute;
   bottom: 12px;
   left: 12px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.6);
+  color: var(--steamed-milk);
+  background: rgba(30, 22, 16, 0.8);
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 11px;
+  border: 1px solid var(--coffee-bean);
 }
 
 #minimap {
   position: absolute;
   top: 12px;
   right: 12px;
-  border: 2px solid #4a4a6a;
+  border: 2px solid var(--coffee-bean);
   border-radius: 4px;
-  background: #1a1a2e;
+  background: var(--espresso);
 }
 
 /* Stats Panel */
 #statsPanel {
-  background: #2a2a4a;
+  background: var(--dark-mocha);
+  border: 1px solid var(--coffee-bean);
   padding: 15px;
   border-radius: 8px;
-  color: #eee;
+  color: var(--steamed-milk);
   width: 140px;
   font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 #statsPanel h3 {
   margin: 0 0 12px 0;
   text-align: center;
-  color: #9fa8da;
+  color: var(--caramel);
   font-size: 14px;
 }
 
@@ -74,33 +99,36 @@ canvas#game {
   justify-content: space-between;
   margin-bottom: 8px;
   padding: 6px 8px;
-  background: #1a1a2e;
+  background: var(--dark-caramel);
   border-radius: 4px;
+  border: 1px solid var(--coffee-bean);
 }
 
 .stat-label {
-  color: #aaa;
+  color: var(--half-and-half);
 }
 
 .stat-value {
-  color: #ffd700;
+  color: var(--pumpkin-spice);
   font-weight: bold;
 }
 
 /* Customization Panel */
 #customizePanel {
-  background: #2a2a4a;
+  background: var(--dark-mocha);
+  border: 1px solid var(--coffee-bean);
   padding: 15px;
   border-radius: 8px;
-  color: #eee;
+  color: var(--steamed-milk);
   width: 180px;
   font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 #customizePanel h3 {
   margin: 0 0 12px 0;
   text-align: center;
-  color: #9fa8da;
+  color: var(--caramel);
   font-size: 14px;
 }
 
@@ -111,41 +139,59 @@ canvas#game {
 .customize-group label {
   display: block;
   margin-bottom: 4px;
-  color: #aaa;
+  color: var(--half-and-half);
   font-size: 11px;
 }
 
 .customize-group input[type="text"] {
   width: 100%;
   padding: 6px 8px;
-  border: none;
+  border: 2px solid var(--coffee-bean);
   border-radius: 4px;
-  background: #1a1a2e;
-  color: #eee;
+  background: var(--dark-caramel);
+  color: var(--steamed-milk);
   font-family: inherit;
   font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.customize-group input[type="text"]:focus {
+  outline: none;
+  border-color: var(--pumpkin-spice);
+  background: var(--espresso);
 }
 
 .customize-group input[type="color"] {
   width: 100%;
   height: 30px;
-  border: none;
+  border: 2px solid var(--coffee-bean);
   border-radius: 4px;
   cursor: pointer;
-  background: #1a1a2e;
+  background: var(--dark-caramel);
   padding: 2px;
+}
+
+.customize-group input[type="color"]:focus {
+  border-color: var(--pumpkin-spice);
 }
 
 .customize-group select {
   width: 100%;
   padding: 6px 8px;
-  border: none;
+  border: 2px solid var(--coffee-bean);
   border-radius: 4px;
-  background: #1a1a2e;
-  color: #eee;
+  background: var(--dark-caramel);
+  color: var(--steamed-milk);
   font-family: inherit;
   font-size: 13px;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.customize-group select:focus {
+  outline: none;
+  border-color: var(--pumpkin-spice);
+  background: var(--espresso);
 }
 
 #previewCanvas {
@@ -153,4 +199,5 @@ canvas#game {
   margin: 10px auto;
   background: #3d6b37;
   border-radius: 4px;
+  border: 2px solid var(--coffee-bean);
 }
