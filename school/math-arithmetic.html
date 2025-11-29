@@ -12,21 +12,31 @@
     }
 
     :root {
-      --warm-cream: #faf8f3;
-      --soft-beige: #f0ebe3;
-      --warm-brown: #8b7355;
-      --deep-brown: #5d4e37;
-      --accent-coral: #e8997a;
-      --accent-sage: #a8b5a0;
-      --text-dark: #3d3d3d;
-      --border-light: #d4c9ba;
-      --white: #ffffff;
+      /* Coffee Base Colors */
+      --espresso: #1e1610;
+      --dark-mocha: #2a1e14;
+      --coffee-bean: #453024;
+
+      /* Cream & Milk Colors */
+      --steamed-milk: #f5f5dc;
+      --light-cream: #f8e5c8;
+      --half-and-half: #d2b48c;
+
+      /* Syrup & Flavor Colors */
+      --caramel: #d2691e;
+      --pumpkin-spice: #b68d40;
+      --mocha: #8b4513;
+
+      /* Darker Syrups */
+      --dark-caramel: #38271e;
+      --toasted-almond: #5c4937;
+      --dark-chocolate: #120d08;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(135deg, var(--warm-cream) 0%, var(--soft-beige) 100%);
-      color: var(--text-dark);
+      background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
+      color: var(--steamed-milk);
       min-height: 100vh;
       padding: 20px;
     }
@@ -37,26 +47,28 @@
     }
 
     .app-header {
-      background: var(--white);
+      background: var(--dark-caramel);
+      border: 1px solid var(--coffee-bean);
       border-radius: 12px;
       padding: 25px 30px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
       text-align: center;
     }
 
     .app-title {
       font-size: 32px;
       font-weight: 600;
-      color: var(--deep-brown);
+      color: var(--caramel);
     }
 
     .controls-panel {
-      background: var(--white);
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .controls {
@@ -72,24 +84,24 @@
       gap: 6px;
       font-size: 13px;
       font-weight: 500;
-      color: var(--warm-brown);
+      color: var(--half-and-half);
     }
 
     select, input[type="text"], input[type="number"] {
       padding: 10px 14px;
       font-size: 14px;
-      border: 2px solid var(--border-light);
+      border: 2px solid var(--coffee-bean);
       border-radius: 8px;
-      background: var(--warm-cream);
-      color: var(--text-dark);
+      background: var(--dark-caramel);
+      color: var(--steamed-milk);
       transition: all 0.2s ease;
       font-family: inherit;
     }
 
     select:focus, input[type="text"]:focus, input[type="number"]:focus {
       outline: none;
-      border-color: var(--accent-coral);
-      background: var(--white);
+      border-color: var(--pumpkin-spice);
+      background: var(--espresso);
     }
 
     button {
@@ -104,23 +116,23 @@
     }
 
     button.primary {
-      background: var(--accent-coral);
-      color: var(--white);
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
     }
 
     button.primary:hover {
-      background: #d5865f;
+      background: var(--caramel);
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(232, 153, 122, 0.3);
+      box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
     }
 
     button.secondary {
-      background: var(--accent-sage);
-      color: var(--white);
+      background: var(--mocha);
+      color: var(--steamed-milk);
     }
 
     button.secondary:hover {
-      background: #96a388;
+      background: var(--coffee-bean);
       transform: translateY(-1px);
     }
 
@@ -128,26 +140,27 @@
       width: 18px;
       height: 18px;
       cursor: pointer;
-      accent-color: var(--accent-coral);
+      accent-color: var(--pumpkin-spice);
     }
 
     .worksheet {
-      background: var(--white);
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(93, 78, 55, 0.08);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     .worksheet-header {
       text-align: center;
       margin-bottom: 25px;
       padding-bottom: 20px;
-      border-bottom: 2px solid var(--border-light);
+      border-bottom: 2px solid var(--coffee-bean);
     }
 
     .worksheet-header h2 {
       font-size: 24px;
-      color: var(--deep-brown);
+      color: var(--caramel);
       margin-bottom: 10px;
       font-weight: 600;
     }
@@ -157,7 +170,7 @@
       display: flex;
       justify-content: space-between;
       margin-top: 12px;
-      color: var(--warm-brown);
+      color: var(--half-and-half);
     }
 
     .canvas-container {
@@ -168,9 +181,9 @@
     }
 
     #questionsCanvas {
-      border: 2px solid var(--border-light);
+      border: 2px solid var(--coffee-bean);
       border-radius: 8px;
-      background: var(--warm-cream);
+      background: #faf8f3;
       display: block;
     }
 
@@ -197,8 +210,8 @@
     .back-link {
       display: block;
       padding: 8px 16px;
-      background: var(--accent-sage);
-      color: var(--white);
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
       text-decoration: none;
       border-radius: 8px;
       font-weight: 500;
@@ -208,7 +221,7 @@
     }
 
     .back-link:hover {
-      background: #96a388;
+      background: var(--caramel);
       transform: translateY(-1px);
     }
 
