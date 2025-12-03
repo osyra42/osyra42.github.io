@@ -19,10 +19,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - `clutter-main/clutter.js`: Visual clutter effect
 
 ### Key Subsections
-- **school/**: Educational worksheet generators
-  - Self-contained pages with inline CSS (not using main stylesheet)
-  - Canvas-based procedural worksheet generators (math, writing, PE)
-  - Each worksheet is a standalone HTML file with embedded JavaScript
+- **school/**: Educational worksheet generators (see Worksheet Architecture below)
 
 - **fishing_mini_game/**: Browser-based fishing game
   - Modular JS architecture: config.js -> state.js -> terrain.js -> player.js -> fishing.js -> input.js -> render.js -> main.js
@@ -30,6 +27,69 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - Uses HTML5 Canvas for rendering
 
 - **osyras_tale/**: Markdown story content organized by Parts and Characters
+
+## Worksheet Architecture (school/)
+
+Each worksheet is a self-contained HTML file with inline CSS and embedded JavaScript. They share a consistent design pattern:
+
+### Page Structure
+```
+.app-container
+  .app-header          (title bar with BACK link)
+  .controls-panel      (user options, hidden on print)
+  .worksheet           (main content area)
+    .worksheet-header  (title, Name/Date/Score fields)
+    .canvas-container  (for canvas-based worksheets)
+  #printContainer      (dynamically generated print pages)
+```
+
+### Two-Canvas Layering System
+Canvas-based worksheets (math-arithmetic, math-currency, etc.) use two overlaid canvases:
+- `#questionsCanvas`: Questions/problems layer (always visible)
+- `#answersCanvas`: Answers overlay (toggled via `.show` class)
+
+This separation allows showing/hiding answers without regenerating the worksheet.
+
+### Core JavaScript Pattern
+```javascript
+// Global state
+let currentProblems = [];
+let showingAnswers = false;
+let questionsCanvas, answersCanvas, questionsCtx, answersCtx;
+
+// Required functions
+initCanvases()       // Get canvas contexts
+generateWorksheet()  // Create problems, call drawWorksheet()
+drawWorksheet()      // Render to both canvases
+createPrintPages()   // Generate #printContainer for multi-page printing
+toggleAnswers()      // Toggle showingAnswers, update UI
+```
+
+### Print Support
+- Uses `@media print` to hide controls and show `#printContainer`
+- `createPrintPages()` generates separate canvas elements per page with headers
+- Page dimensions: 794x900px canvas, 7.5x10in print size, A4 portrait
+- Each page includes: header (title, Name/Date/Score), content from main canvas
+
+### DOM-Based Worksheets
+Some worksheets (writing-definitions) use DOM elements instead of canvas:
+- Still follow the same page structure
+- Use `renderWorksheet()` instead of `drawWorksheet()`
+- May fetch external data (e.g., dictionary API)
+
+### Coffee Theme Variables (duplicated in each file)
+```css
+--espresso: #1e1610;      --dark-mocha: #2a1e14;
+--coffee-bean: #453024;   --steamed-milk: #f5f5dc;
+--light-cream: #f8e5c8;   --half-and-half: #d2b48c;
+--caramel: #d2691e;       --pumpkin-spice: #b68d40;
+--mocha: #8b4513;         --dark-caramel: #38271e;
+--toasted-almond: #5c4937; --dark-chocolate: #120d08;
+```
+
+### Button Classes
+- `.primary`: Main action (Generate) - pumpkin-spice background
+- `.secondary`: Other actions (Show Answers, Print) - mocha background
 
 ## Design System
 
