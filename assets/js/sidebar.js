@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
         { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
         { section: 'Projects', href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
-        { section: 'Projects', href: 'my_creations.html', text: 'My Creations', icon: 'floppy-disk.png', alt: 'Creations', title: 'Click to view information about all my creations', updateDate: 20251024 },
+        { section: 'Projects', href: 'my_creations.html', text: 'My Creations', icon: 'floppy-disk.png', alt: 'Creations', title: 'Click to view information about all my creations', updateDate: 20251127 },
 
         // Legal Links
         { section: 'Legal Links', href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251012 },
