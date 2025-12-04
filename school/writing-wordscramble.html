@@ -174,58 +174,38 @@
       color: var(--half-and-half);
     }
 
-    .scramble-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-
-    .scramble-item {
-      padding: 8px 10px;
-      border: 1px solid var(--coffee-bean);
-      border-radius: 6px;
-      background: var(--dark-caramel);
+    .canvas-container {
+      width: 100%;
+      position: relative;
       display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .scramble-number {
-      font-weight: 600;
-      color: var(--pumpkin-spice);
-      min-width: 20px;
-      font-size: 13px;
+    #questionsCanvas {
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: #faf8f3;
+      display: block;
     }
 
-    .scrambled-word {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--steamed-milk);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-family: 'Courier New', monospace;
-      background: var(--espresso);
-      padding: 4px 8px;
-      border-radius: 4px;
-      border: 1px dashed var(--mocha);
+    #answersCanvas {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: transparent;
+      display: none;
     }
 
-    .answer-line {
-      display: inline-block;
-      min-width: 100px;
-      border-bottom: 1px solid var(--half-and-half);
-      padding: 2px 4px;
-      font-weight: 600;
-      color: var(--pumpkin-spice);
-      text-transform: capitalize;
-      font-size: 13px;
+    #answersCanvas.show {
+      display: block;
     }
 
-    .hint-text {
-      font-size: 11px;
-      color: var(--half-and-half);
-      font-style: italic;
+    .print-page {
+      display: none;
     }
 
     .back-link {
@@ -253,20 +233,11 @@
       align-self: flex-end;
     }
 
-    .instructions {
-      font-size: 14px;
-      color: var(--half-and-half);
-      margin-bottom: 20px;
-      padding: 15px;
-      background: var(--dark-caramel);
-      border-radius: 8px;
-      text-align: center;
-    }
-
     @media print {
       body {
         background: white;
         padding: 0;
+        margin: 0;
       }
 
       .app-header, .controls-panel, .no-print {
@@ -274,59 +245,39 @@
       }
 
       .worksheet {
-        box-shadow: none;
-        padding: 15px;
-        max-width: 100%;
+        display: none !important;
       }
 
-      .worksheet-header {
-        margin-bottom: 15px;
-        padding-bottom: 10px;
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
       }
 
-      .worksheet-header h2 {
-        font-size: 18px;
-        margin-bottom: 5px;
+      .print-page:last-child {
+        page-break-after: auto;
       }
 
-      .instructions {
-        padding: 8px;
-        margin-bottom: 10px;
-        font-size: 12px;
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        background: white !important;
       }
 
-      .scramble-list {
-        gap: 5px;
-      }
-
-      .scramble-item {
-        border: 1px solid #333;
-        break-inside: avoid;
-        background: white;
-        padding: 5px 8px;
-      }
-
-      .scrambled-word {
-        background: #f5f5f5;
-        border: 1px dashed #666;
-        font-size: 12px;
-        padding: 3px 6px;
-      }
-
-      .answer-line {
-        min-width: 80px;
-      }
-
-      .hint-text {
-        font-size: 10px;
-      }
-
-      .worksheet-header {
-        page-break-after: avoid;
+      #questionsCanvas, #answersCanvas {
+        background: white !important;
       }
 
       @page {
-        margin: 0.4in;
+        margin: 0.5in;
+        size: A4 portrait;
       }
     }
 
@@ -338,15 +289,6 @@
 
       textarea {
         width: 100%;
-      }
-
-      .scramble-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .answer-line {
-        min-width: 100%;
       }
     }
   </style>
@@ -391,23 +333,30 @@ elephant</textarea>
           <span id="scoreField">Score: _______ / 5</span>
         </div>
       </div>
-
-      <div class="instructions">
-        Unscramble each word and write the correct spelling on the line.
-      </div>
-
-      <div id="worksheetContent">
-        <p style="text-align: center; color: var(--warm-brown); padding: 40px;">
-          Enter words above and click "Generate Worksheet" to begin.
-        </p>
+      <div class="canvas-container">
+        <canvas id="questionsCanvas"></canvas>
+        <canvas id="answersCanvas"></canvas>
       </div>
     </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
   </div>
 
   <script>
+    // Global state
     let currentWords = [];
     let scrambledWords = [];
     let showingAnswers = false;
+    let questionsCanvas, answersCanvas;
+    let questionsCtx, answersCtx;
+
+    function initCanvases() {
+      questionsCanvas = document.getElementById('questionsCanvas');
+      answersCanvas = document.getElementById('answersCanvas');
+      questionsCtx = questionsCanvas.getContext('2d');
+      answersCtx = answersCanvas.getContext('2d');
+    }
 
     function scrambleWord(word) {
       const chars = word.split('');
@@ -422,6 +371,228 @@ elephant</textarea>
         return scrambleWord(word);
       }
       return scrambled;
+    }
+
+    function drawWorksheet() {
+      const numItems = scrambledWords.length;
+      const cols = 2;
+      const margin = 30;
+      const spacing = 15;
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+
+      // Calculate item dimensions
+      const availableWidth = A4_WIDTH - (2 * margin);
+      const itemWidth = (availableWidth - spacing) / cols;
+      const itemHeight = 70;
+
+      // Calculate how many rows fit on one page (accounting for instructions)
+      const instructionsHeight = 50;
+      const rowHeight = itemHeight + spacing;
+      const availableHeightPerPage = pageHeight - (2 * margin) - instructionsHeight;
+      const maxRowsPerPage = Math.floor(availableHeightPerPage / rowHeight);
+      const maxItemsPerPage = maxRowsPerPage * cols;
+
+      // Calculate total pages needed
+      const numPages = Math.max(1, Math.ceil(numItems / maxItemsPerPage));
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvases
+      questionsCanvas.width = A4_WIDTH;
+      questionsCanvas.height = totalHeight;
+      answersCanvas.width = A4_WIDTH;
+      answersCanvas.height = totalHeight;
+
+      // Update display size
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = containerWidth / A4_WIDTH;
+      const displayHeight = totalHeight * scale;
+
+      questionsCanvas.style.width = containerWidth + 'px';
+      questionsCanvas.style.height = displayHeight + 'px';
+      answersCanvas.style.width = containerWidth + 'px';
+      answersCanvas.style.height = displayHeight + 'px';
+
+      // Clear both canvases
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, questionsCanvas.width, questionsCanvas.height);
+      answersCtx.clearRect(0, 0, answersCanvas.width, answersCanvas.height);
+
+      // Draw page separators
+      questionsCtx.strokeStyle = '#cccccc';
+      questionsCtx.lineWidth = 1;
+      questionsCtx.setLineDash([5, 5]);
+      for (let page = 1; page < numPages; page++) {
+        const pageY = page * pageHeight;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(0, pageY);
+        questionsCtx.lineTo(A4_WIDTH, pageY);
+        questionsCtx.stroke();
+      }
+      questionsCtx.setLineDash([]);
+
+      // Draw instructions on each page
+      for (let page = 0; page < numPages; page++) {
+        const pageStartY = page * pageHeight;
+
+        // Instructions box
+        questionsCtx.fillStyle = '#f5f5f5';
+        questionsCtx.fillRect(margin, pageStartY + margin, availableWidth, 35);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.strokeRect(margin, pageStartY + margin, availableWidth, 35);
+
+        questionsCtx.fillStyle = '#5d4e37';
+        questionsCtx.font = '14px Arial';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText('Unscramble each word and write the correct spelling on the line.', A4_WIDTH / 2, pageStartY + margin + 17);
+      }
+
+      // Draw scrambled words
+      scrambledWords.forEach((item, index) => {
+        const col = index % cols;
+        const globalRow = Math.floor(index / cols);
+        const currentPage = Math.floor(index / maxItemsPerPage);
+        const rowOnPage = Math.floor((index % maxItemsPerPage) / cols);
+
+        const x = margin + col * (itemWidth + spacing);
+        const y = currentPage * pageHeight + margin + instructionsHeight + rowOnPage * rowHeight;
+
+        // Draw item box
+        questionsCtx.fillStyle = '#ffffff';
+        questionsCtx.fillRect(x, y, itemWidth, itemHeight);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 2;
+        questionsCtx.strokeRect(x, y, itemWidth, itemHeight);
+
+        // Draw number
+        questionsCtx.fillStyle = '#8b7355';
+        questionsCtx.font = 'bold 14px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText(`${index + 1}.`, x + 10, y + 25);
+
+        // Draw scrambled word in box
+        questionsCtx.fillStyle = '#f0f0f0';
+        questionsCtx.fillRect(x + 35, y + 10, 120, 30);
+        questionsCtx.strokeStyle = '#999999';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.setLineDash([3, 3]);
+        questionsCtx.strokeRect(x + 35, y + 10, 120, 30);
+        questionsCtx.setLineDash([]);
+
+        questionsCtx.fillStyle = '#3d3d3d';
+        questionsCtx.font = 'bold 16px Courier New, monospace';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.fillText(item.scrambled.toUpperCase(), x + 95, y + 27);
+
+        // Draw answer line
+        questionsCtx.strokeStyle = '#5d4e37';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(x + 170, y + 35);
+        questionsCtx.lineTo(x + itemWidth - 70, y + 35);
+        questionsCtx.stroke();
+
+        // Draw hint
+        questionsCtx.fillStyle = '#999999';
+        questionsCtx.font = 'italic 11px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.fillText(`(${item.hint})`, x + 10, y + 55);
+      });
+
+      // Draw answers on overlay canvas if showing
+      if (showingAnswers) {
+        scrambledWords.forEach((item, index) => {
+          const col = index % cols;
+          const globalRow = Math.floor(index / cols);
+          const currentPage = Math.floor(index / maxItemsPerPage);
+          const rowOnPage = Math.floor((index % maxItemsPerPage) / cols);
+
+          const x = margin + col * (itemWidth + spacing);
+          const y = currentPage * pageHeight + margin + instructionsHeight + rowOnPage * rowHeight;
+
+          answersCtx.fillStyle = '#c75000';
+          answersCtx.font = 'bold 14px Arial';
+          answersCtx.textAlign = 'left';
+          answersCtx.textBaseline = 'alphabetic';
+          const answer = item.original.charAt(0).toUpperCase() + item.original.slice(1);
+          answersCtx.fillText(answer, x + 175, y + 33);
+        });
+      }
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const numPages = Math.ceil(questionsCanvas.height / pageHeight);
+      const numQuestions = scrambledWords.length;
+
+      for (let page = 0; page < numPages; page++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'print-page';
+
+        const pageCanvas = document.createElement('canvas');
+        pageCanvas.width = 794;
+        pageCanvas.height = 900;
+
+        const ctx = pageCanvas.getContext('2d');
+
+        // Draw header
+        const headerHeight = 60;
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, 794, headerHeight);
+
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, headerHeight);
+        ctx.lineTo(794, headerHeight);
+        ctx.stroke();
+
+        ctx.fillStyle = '#5d4e37';
+        ctx.font = 'bold 18px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('Word Scramble Worksheet', 397, 25);
+
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText('Name: _______________________', 30, 50);
+
+        ctx.textAlign = 'center';
+        ctx.fillText('Date: _______________________', 397, 50);
+
+        ctx.textAlign = 'right';
+        ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
+
+        // Copy worksheet content
+        ctx.drawImage(
+          questionsCanvas,
+          0, page * pageHeight,
+          794, 900 - headerHeight,
+          0, headerHeight,
+          794, 900 - headerHeight
+        );
+
+        // Copy answers if showing
+        if (showingAnswers) {
+          ctx.drawImage(
+            answersCanvas,
+            0, page * pageHeight,
+            794, 900 - headerHeight,
+            0, headerHeight,
+            794, 900 - headerHeight
+          );
+        }
+
+        pageDiv.appendChild(pageCanvas);
+        printContainer.appendChild(pageDiv);
+      }
     }
 
     function generateWorksheet() {
@@ -442,7 +613,7 @@ elephant</textarea>
         hint: `${word.length} letters`
       }));
 
-      // Shuffle the order of words
+      // Shuffle the order
       for (let i = scrambledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [scrambledWords[i], scrambledWords[j]] = [scrambledWords[j], scrambledWords[i]];
@@ -452,27 +623,9 @@ elephant</textarea>
       document.getElementById('scoreField').textContent = `Score: _______ / ${currentWords.length}`;
 
       showingAnswers = false;
-      renderWorksheet();
-    }
-
-    function renderWorksheet() {
-      const container = document.getElementById('worksheetContent');
-
-      let html = '<div class="scramble-list">';
-      scrambledWords.forEach((item, index) => {
-        const answer = showingAnswers ? item.original.charAt(0).toUpperCase() + item.original.slice(1) : '';
-        html += `
-          <div class="scramble-item">
-            <span class="scramble-number">${index + 1}.</span>
-            <span class="scrambled-word">${item.scrambled.toUpperCase()}</span>
-            <span class="answer-line">${answer}</span>
-            <span class="hint-text">(${item.hint})</span>
-          </div>
-        `;
-      });
-      html += '</div>';
-
-      container.innerHTML = html;
+      answersCanvas.classList.remove('show');
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
     }
 
     function toggleAnswers() {
@@ -485,8 +638,27 @@ elephant</textarea>
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
 
-      renderWorksheet();
+      if (showingAnswers) {
+        answersCanvas.classList.add('show');
+      } else {
+        answersCanvas.classList.remove('show');
+      }
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
     }
+
+    // Initialize
+    window.onload = function() {
+      initCanvases();
+      generateWorksheet();
+    };
+
+    window.onresize = function() {
+      if (questionsCanvas && scrambledWords.length > 0) {
+        drawWorksheet();
+      }
+    };
   </script>
 </body>
 </html>
