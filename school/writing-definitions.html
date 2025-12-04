@@ -174,94 +174,38 @@
       color: var(--half-and-half);
     }
 
-    .word-bank {
-      background: var(--dark-caramel);
+    .canvas-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #questionsCanvas {
       border: 2px solid var(--coffee-bean);
       border-radius: 8px;
-      padding: 15px 20px;
-      margin-bottom: 25px;
-    }
-
-    .word-bank h3 {
-      font-size: 16px;
-      color: var(--caramel);
-      margin-bottom: 12px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--pumpkin-spice);
-    }
-
-    .word-bank-words {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px 20px;
-    }
-
-    .word-bank-item {
-      font-weight: 500;
-      color: var(--steamed-milk);
-      padding: 4px 10px;
-      background: var(--espresso);
-      border: 1px solid var(--coffee-bean);
-      border-radius: 4px;
-    }
-
-    .definitions-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .definition-item {
-      padding: 15px;
-      border: 2px solid var(--coffee-bean);
-      border-radius: 8px;
-      background: var(--dark-caramel);
-    }
-
-    .definition-number {
-      font-weight: 600;
-      color: var(--pumpkin-spice);
-      margin-right: 8px;
-    }
-
-    .answer-line {
-      display: inline-block;
-      min-width: 150px;
-      border-bottom: 2px solid var(--half-and-half);
-      margin-right: 10px;
-      padding: 2px 5px;
-      font-weight: 600;
-      color: var(--pumpkin-spice);
-    }
-
-    .definition-text {
-      font-size: 14px;
-      line-height: 1.6;
+      background: #faf8f3;
       display: block;
-      margin-top: 8px;
-      color: var(--light-cream);
     }
 
-    .status-message {
-      padding: 15px;
+    #answersCanvas {
+      border: 2px solid transparent;
       border-radius: 8px;
-      margin-bottom: 20px;
-      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: transparent;
+      display: none;
     }
 
-    .status-message.loading {
-      background: var(--toasted-almond);
-      color: var(--steamed-milk);
+    #answersCanvas.show {
+      display: block;
     }
 
-    .status-message.error {
-      background: #5c2323;
-      color: var(--light-cream);
-    }
-
-    .status-message.success {
-      background: #2d4a35;
-      color: var(--steamed-milk);
+    .print-page {
+      display: none;
     }
 
     .back-link {
@@ -289,20 +233,33 @@
       align-self: flex-end;
     }
 
-    .instructions {
-      font-size: 14px;
-      color: var(--half-and-half);
-      margin-bottom: 20px;
+    .status-message {
       padding: 15px;
-      background: var(--dark-caramel);
       border-radius: 8px;
+      margin-bottom: 20px;
       text-align: center;
+    }
+
+    .status-message.loading {
+      background: var(--toasted-almond);
+      color: var(--steamed-milk);
+    }
+
+    .status-message.error {
+      background: #5c2323;
+      color: var(--light-cream);
+    }
+
+    .status-message.success {
+      background: #2d4a35;
+      color: var(--steamed-milk);
     }
 
     @media print {
       body {
         background: white;
         padding: 0;
+        margin: 0;
       }
 
       .app-header, .controls-panel, .no-print {
@@ -310,33 +267,39 @@
       }
 
       .worksheet {
-        box-shadow: none;
-        padding: 20px;
-        max-width: 100%;
+        display: none !important;
       }
 
-      .definition-item {
-        border: 2px solid #333;
-        break-inside: avoid;
-        background: white;
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
       }
 
-      .word-bank {
-        background: #f5f5f5;
-        border: 2px solid #333;
+      .print-page:last-child {
+        page-break-after: auto;
       }
 
-      .word-bank-item {
-        background: white;
-        border: 1px solid #666;
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        background: white !important;
       }
 
-      .worksheet-header {
-        page-break-after: avoid;
+      #questionsCanvas, #answersCanvas {
+        background: white !important;
       }
 
       @page {
         margin: 0.5in;
+        size: A4 portrait;
       }
     }
 
@@ -348,14 +311,6 @@
 
       textarea {
         width: 100%;
-      }
-
-      .word-bank-words {
-        gap: 8px 12px;
-      }
-
-      .answer-line {
-        min-width: 120px;
       }
     }
   </style>
@@ -391,6 +346,8 @@ elephant</textarea>
       </div>
     </div>
 
+    <div id="statusMessage"></div>
+
     <div class="worksheet">
       <div class="worksheet-header">
         <h2>Vocabulary Matching Worksheet</h2>
@@ -400,24 +357,31 @@ elephant</textarea>
           <span id="scoreField">Score: _______ / 5</span>
         </div>
       </div>
-
-      <div class="instructions">
-        Match each word with its correct definition. Write the letter in the blank.
-      </div>
-
-      <div id="statusMessage"></div>
-      <div id="worksheetContent">
-        <p style="text-align: center; color: var(--warm-brown); padding: 40px;">
-          Enter words above and click "Generate Worksheet" to begin.
-        </p>
+      <div class="canvas-container">
+        <canvas id="questionsCanvas"></canvas>
+        <canvas id="answersCanvas"></canvas>
       </div>
     </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
   </div>
 
   <script>
+    // Global state
     let currentWords = [];
     let currentDefinitions = [];
+    let shuffledDefinitions = [];
     let showingAnswers = false;
+    let questionsCanvas, answersCanvas;
+    let questionsCtx, answersCtx;
+
+    function initCanvases() {
+      questionsCanvas = document.getElementById('questionsCanvas');
+      answersCanvas = document.getElementById('answersCanvas');
+      questionsCtx = questionsCanvas.getContext('2d');
+      answersCtx = answersCanvas.getContext('2d');
+    }
 
     async function fetchDefinition(word) {
       try {
@@ -427,7 +391,6 @@ elephant</textarea>
         }
         const data = await response.json();
 
-        // Get the first definition from the first meaning
         if (data[0] && data[0].meanings && data[0].meanings[0] &&
             data[0].meanings[0].definitions && data[0].meanings[0].definitions[0]) {
           return data[0].meanings[0].definitions[0].definition;
@@ -456,6 +419,288 @@ elephant</textarea>
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
       return shuffled;
+    }
+
+    function wrapText(ctx, text, maxWidth) {
+      const words = text.split(' ');
+      const lines = [];
+      let currentLine = '';
+
+      for (const word of words) {
+        const testLine = currentLine ? currentLine + ' ' + word : word;
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && currentLine) {
+          lines.push(currentLine);
+          currentLine = word;
+        } else {
+          currentLine = testLine;
+        }
+      }
+      if (currentLine) {
+        lines.push(currentLine);
+      }
+      return lines;
+    }
+
+    function drawWorksheet() {
+      const numItems = shuffledDefinitions.length;
+      const margin = 30;
+      const spacing = 12;
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+
+      const availableWidth = A4_WIDTH - (2 * margin);
+
+      // Calculate word bank height
+      const wordBankHeight = 60;
+      const instructionsHeight = 40;
+      const headerSpacing = wordBankHeight + instructionsHeight + 20;
+
+      // Calculate item heights dynamically
+      questionsCtx.font = '13px Arial';
+      const itemHeights = shuffledDefinitions.map(item => {
+        const lines = wrapText(questionsCtx, item.definition, availableWidth - 180);
+        return Math.max(60, 35 + lines.length * 18);
+      });
+
+      // Calculate pagination
+      let pages = [[]];
+      let currentPageHeight = headerSpacing + margin;
+      let currentPageIndex = 0;
+
+      shuffledDefinitions.forEach((item, index) => {
+        const itemHeight = itemHeights[index] + spacing;
+        if (currentPageHeight + itemHeight > pageHeight - margin && pages[currentPageIndex].length > 0) {
+          currentPageIndex++;
+          pages[currentPageIndex] = [];
+          currentPageHeight = headerSpacing + margin;
+        }
+        pages[currentPageIndex].push({ item, index, height: itemHeights[index] });
+        currentPageHeight += itemHeight;
+      });
+
+      const numPages = pages.length;
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvases
+      questionsCanvas.width = A4_WIDTH;
+      questionsCanvas.height = totalHeight;
+      answersCanvas.width = A4_WIDTH;
+      answersCanvas.height = totalHeight;
+
+      // Update display size
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = containerWidth / A4_WIDTH;
+      const displayHeight = totalHeight * scale;
+
+      questionsCanvas.style.width = containerWidth + 'px';
+      questionsCanvas.style.height = displayHeight + 'px';
+      answersCanvas.style.width = containerWidth + 'px';
+      answersCanvas.style.height = displayHeight + 'px';
+
+      // Clear canvases
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, questionsCanvas.width, questionsCanvas.height);
+      answersCtx.clearRect(0, 0, answersCanvas.width, answersCanvas.height);
+
+      // Draw page separators
+      questionsCtx.strokeStyle = '#cccccc';
+      questionsCtx.lineWidth = 1;
+      questionsCtx.setLineDash([5, 5]);
+      for (let page = 1; page < numPages; page++) {
+        const pageY = page * pageHeight;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(0, pageY);
+        questionsCtx.lineTo(A4_WIDTH, pageY);
+        questionsCtx.stroke();
+      }
+      questionsCtx.setLineDash([]);
+
+      // Draw content for each page
+      pages.forEach((pageItems, pageIndex) => {
+        const pageStartY = pageIndex * pageHeight;
+
+        // Draw word bank
+        questionsCtx.fillStyle = '#f5f5f5';
+        questionsCtx.fillRect(margin, pageStartY + margin, availableWidth, wordBankHeight);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 2;
+        questionsCtx.strokeRect(margin, pageStartY + margin, availableWidth, wordBankHeight);
+
+        questionsCtx.fillStyle = '#5d4e37';
+        questionsCtx.font = 'bold 14px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.textBaseline = 'top';
+        questionsCtx.fillText('Word Bank', margin + 10, pageStartY + margin + 8);
+
+        // Draw word bank items
+        const sortedWords = [...currentWords].sort();
+        let wordX = margin + 10;
+        let wordY = pageStartY + margin + 30;
+        questionsCtx.font = '13px Arial';
+        sortedWords.forEach(word => {
+          const displayWord = word.charAt(0).toUpperCase() + word.slice(1);
+          const wordWidth = questionsCtx.measureText(displayWord).width + 20;
+
+          if (wordX + wordWidth > margin + availableWidth - 10) {
+            wordX = margin + 10;
+            wordY += 22;
+          }
+
+          questionsCtx.fillStyle = '#ffffff';
+          questionsCtx.fillRect(wordX, wordY - 5, wordWidth - 5, 20);
+          questionsCtx.strokeStyle = '#999999';
+          questionsCtx.lineWidth = 1;
+          questionsCtx.strokeRect(wordX, wordY - 5, wordWidth - 5, 20);
+
+          questionsCtx.fillStyle = '#3d3d3d';
+          questionsCtx.textBaseline = 'middle';
+          questionsCtx.fillText(displayWord, wordX + 5, wordY + 5);
+
+          wordX += wordWidth;
+        });
+
+        // Draw instructions
+        const instructionsY = pageStartY + margin + wordBankHeight + 10;
+        questionsCtx.fillStyle = '#f9f9f9';
+        questionsCtx.fillRect(margin, instructionsY, availableWidth, 30);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.strokeRect(margin, instructionsY, availableWidth, 30);
+
+        questionsCtx.fillStyle = '#5d4e37';
+        questionsCtx.font = '13px Arial';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText('Match each word with its correct definition. Write the word in the blank.', A4_WIDTH / 2, instructionsY + 15);
+
+        // Draw definition items
+        let currentY = pageStartY + margin + headerSpacing;
+        pageItems.forEach(({ item, index, height }) => {
+          // Item box
+          questionsCtx.fillStyle = '#ffffff';
+          questionsCtx.fillRect(margin, currentY, availableWidth, height);
+          questionsCtx.strokeStyle = '#d4c9ba';
+          questionsCtx.lineWidth = 2;
+          questionsCtx.strokeRect(margin, currentY, availableWidth, height);
+
+          // Number
+          questionsCtx.fillStyle = '#8b7355';
+          questionsCtx.font = 'bold 14px Arial';
+          questionsCtx.textAlign = 'left';
+          questionsCtx.textBaseline = 'top';
+          questionsCtx.fillText(`${index + 1}.`, margin + 10, currentY + 12);
+
+          // Answer line
+          questionsCtx.strokeStyle = '#5d4e37';
+          questionsCtx.lineWidth = 1;
+          questionsCtx.beginPath();
+          questionsCtx.moveTo(margin + 35, currentY + 25);
+          questionsCtx.lineTo(margin + 160, currentY + 25);
+          questionsCtx.stroke();
+
+          // Definition text (wrapped)
+          questionsCtx.fillStyle = '#3d3d3d';
+          questionsCtx.font = '13px Arial';
+          const lines = wrapText(questionsCtx, item.definition, availableWidth - 180);
+          lines.forEach((line, lineIndex) => {
+            questionsCtx.fillText(line, margin + 175, currentY + 12 + lineIndex * 18);
+          });
+
+          currentY += height + spacing;
+        });
+      });
+
+      // Draw answers on overlay if showing
+      if (showingAnswers) {
+        pages.forEach((pageItems, pageIndex) => {
+          const pageStartY = pageIndex * pageHeight;
+          let currentY = pageStartY + margin + headerSpacing;
+
+          pageItems.forEach(({ item, index, height }) => {
+            answersCtx.fillStyle = '#c75000';
+            answersCtx.font = 'bold 13px Arial';
+            answersCtx.textAlign = 'left';
+            answersCtx.textBaseline = 'alphabetic';
+            const answer = item.word.charAt(0).toUpperCase() + item.word.slice(1);
+            answersCtx.fillText(answer, margin + 40, currentY + 23);
+
+            currentY += height + spacing;
+          });
+        });
+      }
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const numPages = Math.ceil(questionsCanvas.height / pageHeight);
+      const numQuestions = shuffledDefinitions.length;
+
+      for (let page = 0; page < numPages; page++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'print-page';
+
+        const pageCanvas = document.createElement('canvas');
+        pageCanvas.width = 794;
+        pageCanvas.height = 900;
+
+        const ctx = pageCanvas.getContext('2d');
+
+        // Draw header
+        const headerHeight = 60;
+
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, 794, headerHeight);
+
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(0, headerHeight);
+        ctx.lineTo(794, headerHeight);
+        ctx.stroke();
+
+        ctx.fillStyle = '#5d4e37';
+        ctx.font = 'bold 18px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('Vocabulary Matching Worksheet', 397, 25);
+
+        ctx.font = '12px Arial';
+        ctx.textAlign = 'left';
+        ctx.fillText('Name: _______________________', 30, 50);
+
+        ctx.textAlign = 'center';
+        ctx.fillText('Date: _______________________', 397, 50);
+
+        ctx.textAlign = 'right';
+        ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
+
+        // Copy worksheet content
+        ctx.drawImage(
+          questionsCanvas,
+          0, page * pageHeight,
+          794, 900 - headerHeight,
+          0, headerHeight,
+          794, 900 - headerHeight
+        );
+
+        // Copy answers if showing
+        if (showingAnswers) {
+          ctx.drawImage(
+            answersCanvas,
+            0, page * pageHeight,
+            794, 900 - headerHeight,
+            0, headerHeight,
+            794, 900 - headerHeight
+          );
+        }
+
+        pageDiv.appendChild(pageCanvas);
+        printContainer.appendChild(pageDiv);
+      }
     }
 
     async function generateWorksheet() {
@@ -504,46 +749,16 @@ elephant</textarea>
       }
 
       // Shuffle the definitions
-      lastShuffledDefinitions = shuffleArray(currentDefinitions);
+      shuffledDefinitions = shuffleArray(currentDefinitions);
 
       // Update score field
       document.getElementById('scoreField').textContent = `Score: _______ / ${currentWords.length}`;
 
       showingAnswers = false;
-      renderWorksheet(lastShuffledDefinitions);
+      answersCanvas.classList.remove('show');
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
     }
-
-    function renderWorksheet(shuffledDefinitions) {
-      const container = document.getElementById('worksheetContent');
-
-      // Word bank at top (alphabetically sorted for display)
-      const sortedWords = [...currentWords].sort();
-      let html = '<div class="word-bank">';
-      html += '<h3>Word Bank</h3>';
-      html += '<div class="word-bank-words">';
-      sortedWords.forEach(word => {
-        html += `<span class="word-bank-item">${word.charAt(0).toUpperCase() + word.slice(1)}</span>`;
-      });
-      html += '</div></div>';
-
-      // Definitions with answer lines
-      html += '<div class="definitions-list">';
-      shuffledDefinitions.forEach((item, index) => {
-        const answer = showingAnswers ? item.word.charAt(0).toUpperCase() + item.word.slice(1) : '';
-        html += `
-          <div class="definition-item">
-            <span class="definition-number">${index + 1}.</span>
-            <span class="answer-line">${answer}</span>
-            <span class="definition-text">${item.definition}</span>
-          </div>
-        `;
-      });
-      html += '</div>';
-
-      container.innerHTML = html;
-    }
-
-    let lastShuffledDefinitions = [];
 
     function toggleAnswers() {
       if (currentWords.length === 0) {
@@ -555,8 +770,27 @@ elephant</textarea>
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
 
-      renderWorksheet(lastShuffledDefinitions);
+      if (showingAnswers) {
+        answersCanvas.classList.add('show');
+      } else {
+        answersCanvas.classList.remove('show');
+      }
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
     }
+
+    // Initialize
+    window.onload = function() {
+      initCanvases();
+      generateWorksheet();
+    };
+
+    window.onresize = function() {
+      if (questionsCanvas && shuffledDefinitions.length > 0) {
+        drawWorksheet();
+      }
+    };
   </script>
 </body>
 </html>
