@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets - Cursive Handwriting</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Coffee Base Colors */
+      --espresso: #1e1610;
+      --dark-mocha: #2a1e14;
+      --coffee-bean: #453024;
+
+      /* Cream & Milk Colors */
+      --steamed-milk: #f5f5dc;
+      --light-cream: #f8e5c8;
+      --half-and-half: #d2b48c;
+
+      /* Syrup & Flavor Colors */
+      --caramel: #d2691e;
+      --pumpkin-spice: #b68d40;
+      --mocha: #8b4513;
+
+      /* Darker Syrups */
+      --dark-caramel: #38271e;
+      --toasted-almond: #5c4937;
+      --dark-chocolate: #120d08;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
+      color: var(--steamed-milk);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--dark-caramel);
+      border: 1px solid var(--coffee-bean);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--caramel);
+    }
+
+    .controls-panel {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--half-and-half);
+    }
+
+    input[type="text"] {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: var(--dark-caramel);
+      color: var(--steamed-milk);
+      transition: all 0.2s ease;
+      font-family: inherit;
+      width: 400px;
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--pumpkin-spice);
+      background: var(--espresso);
+    }
+
+    select {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: var(--dark-caramel);
+      color: var(--steamed-milk);
+      transition: all 0.2s ease;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--pumpkin-spice);
+      background: var(--espresso);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    button.primary {
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+    }
+
+    button.primary:hover:not(:disabled) {
+      background: var(--caramel);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
+    }
+
+    button.primary:disabled {
+      background: var(--coffee-bean);
+      cursor: not-allowed;
+    }
+
+    button.secondary {
+      background: var(--mocha);
+      color: var(--steamed-milk);
+    }
+
+    button.secondary:hover {
+      background: var(--coffee-bean);
+      transform: translateY(-1px);
+    }
+
+    .worksheet {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .worksheet-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--coffee-bean);
+    }
+
+    .worksheet-header h2 {
+      font-size: 24px;
+      color: var(--caramel);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .worksheet-header .info {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      color: var(--half-and-half);
+    }
+
+    .canvas-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #worksheetCanvas {
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: #faf8f3;
+      display: block;
+    }
+
+    .print-page {
+      display: none;
+    }
+
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-self: flex-end;
+    }
+
+    .preset-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .preset-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      background: var(--toasted-almond);
+      color: var(--steamed-milk);
+      border: 1px solid var(--coffee-bean);
+    }
+
+    .preset-btn:hover {
+      background: var(--mocha);
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .app-header, .controls-panel, .no-print {
+        display: none !important;
+      }
+
+      .worksheet {
+        display: none !important;
+      }
+
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .print-page:last-child {
+        page-break-after: auto;
+      }
+
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        background: white !important;
+      }
+
+      #worksheetCanvas {
+        background: white !important;
+      }
+
+      @page {
+        margin: 0.5in;
+        size: A4 portrait;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      input[type="text"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="app-header">
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Osyra's Worksheets
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+      </h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="controls">
+        <label>
+          <span>Practice Text:</span>
+          <input type="text" id="textInput" value="Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz" />
+          <div class="preset-buttons">
+            <button class="preset-btn" onclick="setPreset('alpha')">ABC Upper & Lower</button>
+            <button class="preset-btn" onclick="setPreset('upper')">Uppercase Only</button>
+            <button class="preset-btn" onclick="setPreset('lower')">Lowercase Only</button>
+            <button class="preset-btn" onclick="setPreset('numbers')">Numbers</button>
+            <button class="preset-btn" onclick="setPreset('pangram')">Pangram</button>
+          </div>
+        </label>
+
+        <label>
+          <span>Lines per Row:</span>
+          <select id="linesPerRow">
+            <option value="1">1 (Trace only)</option>
+            <option value="2" selected>2 (Trace + Practice)</option>
+            <option value="3">3 (Trace + 2 Practice)</option>
+          </select>
+        </label>
+
+        <div class="buttons-container">
+          <button class="primary" id="generateBtn" onclick="generateWorksheet()">Generate Worksheet</button>
+          <button class="secondary" onclick="window.print()">Print Worksheet</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="worksheet">
+      <div class="worksheet-header">
+        <h2>Cursive Handwriting Practice</h2>
+        <div class="info">
+          <span>Name: _______________________</span>
+          <span>Date: _______________________</span>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="worksheetCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
+  </div>
+
+  <script>
+    // Global state
+    let worksheetCanvas, ctx;
+    let currentText = '';
+
+    const PRESETS = {
+      alpha: 'Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz',
+      upper: 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z',
+      lower: 'a b c d e f g h i j k l m n o p q r s t u v w x y z',
+      numbers: '0 1 2 3 4 5 6 7 8 9',
+      pangram: 'The quick brown fox jumps over the lazy dog'
+    };
+
+    function setPreset(preset) {
+      document.getElementById('textInput').value = PRESETS[preset];
+      generateWorksheet();
+    }
+
+    function initCanvas() {
+      worksheetCanvas = document.getElementById('worksheetCanvas');
+      ctx = worksheetCanvas.getContext('2d');
+    }
+
+    function drawWritingLines(ctx, x, y, width, lineHeight) {
+      // Uppercase letters go from bottom to top (full height)
+      // Lowercase x-height is about 60% from the bottom
+      const topLine = y;
+      const midLine = y + lineHeight * 0.4;  // 40% from top = 60% height for lowercase
+      const bottomLine = y + lineHeight;
+
+      // Top line (solid, cyan) - uppercase reach here
+      ctx.strokeStyle = '#00FFFF';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(x, topLine);
+      ctx.lineTo(x + width, topLine);
+      ctx.stroke();
+
+      // Middle line (dashed, magenta) - lowercase tops reach here
+      ctx.strokeStyle = '#FF00FF';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(x, midLine);
+      ctx.lineTo(x + width, midLine);
+      ctx.stroke();
+
+      // Bottom line (solid, blue) - baseline
+      ctx.strokeStyle = '#0000FF';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([]);
+      ctx.beginPath();
+      ctx.moveTo(x, bottomLine);
+      ctx.lineTo(x + width, bottomLine);
+      ctx.stroke();
+
+      return { topLine, midLine, bottomLine };
+    }
+
+    function drawDashedText(ctx, text, x, y, fontSize, lineWidth) {
+      ctx.font = `${fontSize}px 'Dancing Script', cursive`;
+      ctx.textBaseline = 'alphabetic';
+      ctx.textAlign = 'center';
+
+      // Draw the text with faded gray color for tracing
+      ctx.fillStyle = '#cccccc';
+      ctx.fillText(text, x + lineWidth / 2, y);
+
+      ctx.textAlign = 'left';
+    }
+
+    function splitTextIntoSegments(text, maxWidth, ctx, fontSize) {
+      ctx.font = `${fontSize}px 'Dancing Script', cursive`;
+      const words = text.split(' ');
+      const segments = [];
+      let currentSegment = '';
+
+      words.forEach((word, index) => {
+        const testSegment = currentSegment ? currentSegment + ' ' + word : word;
+        const width = ctx.measureText(testSegment).width;
+
+        if (width > maxWidth && currentSegment) {
+          segments.push(currentSegment);
+          currentSegment = word;
+        } else {
+          currentSegment = testSegment;
+        }
+      });
+
+      if (currentSegment) {
+        segments.push(currentSegment);
+      }
+
+      return segments;
+    }
+
+    function drawWorksheet() {
+      const text = document.getElementById('textInput').value.trim();
+      const linesPerRow = parseInt(document.getElementById('linesPerRow').value);
+
+      if (!text) {
+        alert('Please enter some text to practice.');
+        return;
+      }
+
+      currentText = text;
+
+      const margin = 40;
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+      const lineHeight = 50;
+      const rowSpacing = 10;
+      const availableWidth = A4_WIDTH - (2 * margin);
+
+      // Calculate font size based on line height - sized so uppercase fills the full height
+      const fontSize = lineHeight * 1.4;
+
+      // Split text into segments that fit the width
+      const segments = splitTextIntoSegments(text, availableWidth - 20, ctx, fontSize);
+
+      // Calculate total rows needed (each segment needs linesPerRow lines)
+      const totalRows = segments.length * linesPerRow;
+      const rowHeight = lineHeight + rowSpacing;
+
+      // Calculate pages needed
+      const instructionsHeight = 50;
+      const availableHeightPerPage = pageHeight - (2 * margin) - instructionsHeight;
+      const maxRowsPerPage = Math.floor(availableHeightPerPage / rowHeight);
+      const numPages = Math.max(1, Math.ceil(totalRows / maxRowsPerPage));
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvas
+      worksheetCanvas.width = A4_WIDTH;
+      worksheetCanvas.height = totalHeight;
+
+      // Update display size
+      const containerWidth = worksheetCanvas.parentElement.clientWidth;
+      const scale = Math.min(1, containerWidth / A4_WIDTH);
+      const displayHeight = totalHeight * scale;
+
+      worksheetCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      worksheetCanvas.style.height = displayHeight + 'px';
+
+      // Clear canvas
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, worksheetCanvas.width, worksheetCanvas.height);
+
+      // Draw page separators
+      ctx.strokeStyle = '#cccccc';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([5, 5]);
+      for (let page = 1; page < numPages; page++) {
+        const pageY = page * pageHeight;
+        ctx.beginPath();
+        ctx.moveTo(0, pageY);
+        ctx.lineTo(A4_WIDTH, pageY);
+        ctx.stroke();
+      }
+      ctx.setLineDash([]);
+
+      // Track current row position
+      let currentRow = 0;
+
+      segments.forEach((segment, segmentIndex) => {
+        for (let lineNum = 0; lineNum < linesPerRow; lineNum++) {
+          const currentPage = Math.floor(currentRow / maxRowsPerPage);
+          const rowOnPage = currentRow % maxRowsPerPage;
+          const pageStartY = currentPage * pageHeight;
+
+          // Draw instructions on first row of each page
+          if (rowOnPage === 0) {
+            ctx.fillStyle = '#f5f5f5';
+            ctx.fillRect(margin, pageStartY + margin, availableWidth, 35);
+            ctx.strokeStyle = '#d4c9ba';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([]);
+            ctx.strokeRect(margin, pageStartY + margin, availableWidth, 35);
+
+            ctx.fillStyle = '#5d4e37';
+            ctx.font = '14px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('Trace the dashed letters, then practice writing on the blank lines below.', A4_WIDTH / 2, pageStartY + margin + 17);
+          }
+
+          const y = pageStartY + margin + instructionsHeight + (rowOnPage * rowHeight);
+
+          // Draw writing lines
+          const lines = drawWritingLines(ctx, margin, y, availableWidth, lineHeight);
+
+          // Draw text only on the first line of each segment (trace line)
+          if (lineNum === 0) {
+            drawDashedText(ctx, segment, margin, lines.bottomLine - 6, fontSize, availableWidth);
+          }
+
+          currentRow++;
+        }
+      });
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const numPages = Math.ceil(worksheetCanvas.height / pageHeight);
+
+      for (let page = 0; page < numPages; page++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'print-page';
+
+        const pageCanvas = document.createElement('canvas');
+        pageCanvas.width = 794;
+        pageCanvas.height = 900;
+
+        const pCtx = pageCanvas.getContext('2d');
+
+        // Draw header
+        const headerHeight = 60;
+
+        pCtx.fillStyle = '#ffffff';
+        pCtx.fillRect(0, 0, 794, headerHeight);
+
+        pCtx.strokeStyle = '#333333';
+        pCtx.lineWidth = 1;
+        pCtx.beginPath();
+        pCtx.moveTo(0, headerHeight);
+        pCtx.lineTo(794, headerHeight);
+        pCtx.stroke();
+
+        pCtx.fillStyle = '#5d4e37';
+        pCtx.font = 'bold 18px Arial';
+        pCtx.textAlign = 'center';
+        pCtx.textBaseline = 'middle';
+        pCtx.fillText('Cursive Handwriting Practice', 397, 25);
+
+        pCtx.font = '12px Arial';
+        pCtx.textAlign = 'left';
+        pCtx.fillText('Name: _______________________', 30, 50);
+
+        pCtx.textAlign = 'right';
+        pCtx.fillText('Date: _______________________', 764, 50);
+
+        // Copy worksheet content
+        pCtx.drawImage(
+          worksheetCanvas,
+          0, page * pageHeight,
+          794, 900 - headerHeight,
+          0, headerHeight,
+          794, 900 - headerHeight
+        );
+
+        pageDiv.appendChild(pageCanvas);
+        printContainer.appendChild(pageDiv);
+      }
+    }
+
+    function generateWorksheet() {
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    // Initialize
+    window.onload = function() {
+      initCanvas();
+      // Set up blank canvas
+      const A4_WIDTH = 794;
+      const pageHeight = 900;
+      worksheetCanvas.width = A4_WIDTH;
+      worksheetCanvas.height = pageHeight;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, A4_WIDTH, pageHeight);
+
+      // Draw placeholder text
+      ctx.fillStyle = '#999999';
+      ctx.font = '16px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('Click "Generate Worksheet" to create your handwriting practice sheet.', A4_WIDTH / 2, pageHeight / 2);
+    };
+
+    window.onresize = function() {
+      if (worksheetCanvas && currentText) {
+        drawWorksheet();
+      }
+    };
+  </script>
+</body>
+</html>

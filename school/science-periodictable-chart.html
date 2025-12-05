@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets - Periodic Table Chart</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --espresso: #1e1610;
+      --dark-mocha: #2a1e14;
+      --coffee-bean: #453024;
+      --steamed-milk: #f5f5dc;
+      --light-cream: #f8e5c8;
+      --half-and-half: #d2b48c;
+      --caramel: #d2691e;
+      --pumpkin-spice: #b68d40;
+      --mocha: #8b4513;
+      --dark-caramel: #38271e;
+      --toasted-almond: #5c4937;
+      --dark-chocolate: #120d08;
+
+      /* Element category colors */
+      --alkali-metal: #ff6b6b;
+      --alkaline-earth: #ffa94d;
+      --transition-metal: #ffd43b;
+      --post-transition: #69db7c;
+      --metalloid: #38d9a9;
+      --nonmetal: #4dabf7;
+      --halogen: #748ffc;
+      --noble-gas: #da77f2;
+      --lanthanide: #f783ac;
+      --actinide: #e599f7;
+      --unknown: #adb5bd;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
+      color: var(--steamed-milk);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--dark-caramel);
+      border: 1px solid var(--coffee-bean);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--caramel);
+    }
+
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+    }
+
+    .controls-panel {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--light-cream);
+    }
+
+    .legend-color {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      background: var(--mocha);
+      color: var(--steamed-milk);
+    }
+
+    button:hover {
+      background: var(--coffee-bean);
+      transform: translateY(-1px);
+    }
+
+    .periodic-table-container {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      overflow-x: auto;
+    }
+
+    .periodic-table {
+      display: grid;
+      grid-template-columns: repeat(18, minmax(50px, 1fr));
+      gap: 3px;
+      min-width: 950px;
+    }
+
+    .element {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      min-width: 50px;
+      padding: 2px;
+    }
+
+    .element:hover {
+      transform: scale(1.15);
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .element .number {
+      font-size: 8px;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      opacity: 0.8;
+    }
+
+    .element .symbol {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .element .name {
+      font-size: 6px;
+      text-align: center;
+      line-height: 1.1;
+      opacity: 0.9;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .element .mass {
+      font-size: 6px;
+      opacity: 0.7;
+    }
+
+    .spacer {
+      visibility: hidden;
+    }
+
+    .period-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--half-and-half);
+    }
+
+    .group-labels {
+      display: grid;
+      grid-template-columns: repeat(18, minmax(50px, 1fr));
+      gap: 3px;
+      margin-bottom: 5px;
+      min-width: 950px;
+    }
+
+    .group-label {
+      text-align: center;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--half-and-half);
+    }
+
+    .lanthanide-actinide-section {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(18, minmax(50px, 1fr));
+      gap: 3px;
+      min-width: 950px;
+    }
+
+    .section-label {
+      grid-column: span 3;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      font-size: 10px;
+      color: var(--half-and-half);
+    }
+
+    /* Element category colors */
+    .alkali-metal { background: var(--alkali-metal); color: #1a1a1a; }
+    .alkaline-earth { background: var(--alkaline-earth); color: #1a1a1a; }
+    .transition-metal { background: var(--transition-metal); color: #1a1a1a; }
+    .post-transition { background: var(--post-transition); color: #1a1a1a; }
+    .metalloid { background: var(--metalloid); color: #1a1a1a; }
+    .nonmetal { background: var(--nonmetal); color: #1a1a1a; }
+    .halogen { background: var(--halogen); color: #1a1a1a; }
+    .noble-gas { background: var(--noble-gas); color: #1a1a1a; }
+    .lanthanide { background: var(--lanthanide); color: #1a1a1a; }
+    .actinide { background: var(--actinide); color: #1a1a1a; }
+    .unknown { background: var(--unknown); color: #1a1a1a; }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: white;
+        padding: 10px;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .app-header, .controls-panel {
+        display: none !important;
+      }
+
+      .periodic-table-container {
+        background: white;
+        border: none;
+        box-shadow: none;
+        padding: 10px;
+      }
+
+      .element {
+        border: 1px solid #ccc;
+      }
+
+      @page {
+        margin: 0.25in;
+        size: landscape;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .periodic-table-container {
+        padding: 10px;
+      }
+
+      .element .symbol {
+        font-size: 14px;
+      }
+
+      .element .name {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="app-header">
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Periodic Table of Elements
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+      </h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="legend">
+        <div class="legend-item"><div class="legend-color" style="background: var(--alkali-metal)"></div>Alkali Metal</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--alkaline-earth)"></div>Alkaline Earth</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--transition-metal)"></div>Transition Metal</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--post-transition)"></div>Post-Transition</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--metalloid)"></div>Metalloid</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--nonmetal)"></div>Nonmetal</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--halogen)"></div>Halogen</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--noble-gas)"></div>Noble Gas</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--lanthanide)"></div>Lanthanide</div>
+        <div class="legend-item"><div class="legend-color" style="background: var(--actinide)"></div>Actinide</div>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <button onclick="window.print()">Print Chart</button>
+        <button onclick="printBoringChart()">Print Boring Chart</button>
+      </div>
+    </div>
+
+    <div class="periodic-table-container">
+      <div class="group-labels" id="groupLabels"></div>
+      <div class="periodic-table" id="periodicTable"></div>
+      <div class="lanthanide-actinide-section" id="lanthanideActinide"></div>
+    </div>
+  </div>
+
+  <script>
+    const elements = [
+      // Period 1
+      { number: 1, symbol: 'H', name: 'Hydrogen', mass: '1.008', category: 'nonmetal', group: 1, period: 1 },
+      { number: 2, symbol: 'He', name: 'Helium', mass: '4.003', category: 'noble-gas', group: 18, period: 1 },
+      // Period 2
+      { number: 3, symbol: 'Li', name: 'Lithium', mass: '6.941', category: 'alkali-metal', group: 1, period: 2 },
+      { number: 4, symbol: 'Be', name: 'Beryllium', mass: '9.012', category: 'alkaline-earth', group: 2, period: 2 },
+      { number: 5, symbol: 'B', name: 'Boron', mass: '10.81', category: 'metalloid', group: 13, period: 2 },
+      { number: 6, symbol: 'C', name: 'Carbon', mass: '12.01', category: 'nonmetal', group: 14, period: 2 },
+      { number: 7, symbol: 'N', name: 'Nitrogen', mass: '14.01', category: 'nonmetal', group: 15, period: 2 },
+      { number: 8, symbol: 'O', name: 'Oxygen', mass: '16.00', category: 'nonmetal', group: 16, period: 2 },
+      { number: 9, symbol: 'F', name: 'Fluorine', mass: '19.00', category: 'halogen', group: 17, period: 2 },
+      { number: 10, symbol: 'Ne', name: 'Neon', mass: '20.18', category: 'noble-gas', group: 18, period: 2 },
+      // Period 3
+      { number: 11, symbol: 'Na', name: 'Sodium', mass: '22.99', category: 'alkali-metal', group: 1, period: 3 },
+      { number: 12, symbol: 'Mg', name: 'Magnesium', mass: '24.31', category: 'alkaline-earth', group: 2, period: 3 },
+      { number: 13, symbol: 'Al', name: 'Aluminum', mass: '26.98', category: 'post-transition', group: 13, period: 3 },
+      { number: 14, symbol: 'Si', name: 'Silicon', mass: '28.09', category: 'metalloid', group: 14, period: 3 },
+      { number: 15, symbol: 'P', name: 'Phosphorus', mass: '30.97', category: 'nonmetal', group: 15, period: 3 },
+      { number: 16, symbol: 'S', name: 'Sulfur', mass: '32.07', category: 'nonmetal', group: 16, period: 3 },
+      { number: 17, symbol: 'Cl', name: 'Chlorine', mass: '35.45', category: 'halogen', group: 17, period: 3 },
+      { number: 18, symbol: 'Ar', name: 'Argon', mass: '39.95', category: 'noble-gas', group: 18, period: 3 },
+      // Period 4
+      { number: 19, symbol: 'K', name: 'Potassium', mass: '39.10', category: 'alkali-metal', group: 1, period: 4 },
+      { number: 20, symbol: 'Ca', name: 'Calcium', mass: '40.08', category: 'alkaline-earth', group: 2, period: 4 },
+      { number: 21, symbol: 'Sc', name: 'Scandium', mass: '44.96', category: 'transition-metal', group: 3, period: 4 },
+      { number: 22, symbol: 'Ti', name: 'Titanium', mass: '47.87', category: 'transition-metal', group: 4, period: 4 },
+      { number: 23, symbol: 'V', name: 'Vanadium', mass: '50.94', category: 'transition-metal', group: 5, period: 4 },
+      { number: 24, symbol: 'Cr', name: 'Chromium', mass: '52.00', category: 'transition-metal', group: 6, period: 4 },
+      { number: 25, symbol: 'Mn', name: 'Manganese', mass: '54.94', category: 'transition-metal', group: 7, period: 4 },
+      { number: 26, symbol: 'Fe', name: 'Iron', mass: '55.85', category: 'transition-metal', group: 8, period: 4 },
+      { number: 27, symbol: 'Co', name: 'Cobalt', mass: '58.93', category: 'transition-metal', group: 9, period: 4 },
+      { number: 28, symbol: 'Ni', name: 'Nickel', mass: '58.69', category: 'transition-metal', group: 10, period: 4 },
+      { number: 29, symbol: 'Cu', name: 'Copper', mass: '63.55', category: 'transition-metal', group: 11, period: 4 },
+      { number: 30, symbol: 'Zn', name: 'Zinc', mass: '65.38', category: 'transition-metal', group: 12, period: 4 },
+      { number: 31, symbol: 'Ga', name: 'Gallium', mass: '69.72', category: 'post-transition', group: 13, period: 4 },
+      { number: 32, symbol: 'Ge', name: 'Germanium', mass: '72.63', category: 'metalloid', group: 14, period: 4 },
+      { number: 33, symbol: 'As', name: 'Arsenic', mass: '74.92', category: 'metalloid', group: 15, period: 4 },
+      { number: 34, symbol: 'Se', name: 'Selenium', mass: '78.97', category: 'nonmetal', group: 16, period: 4 },
+      { number: 35, symbol: 'Br', name: 'Bromine', mass: '79.90', category: 'halogen', group: 17, period: 4 },
+      { number: 36, symbol: 'Kr', name: 'Krypton', mass: '83.80', category: 'noble-gas', group: 18, period: 4 },
+      // Period 5
+      { number: 37, symbol: 'Rb', name: 'Rubidium', mass: '85.47', category: 'alkali-metal', group: 1, period: 5 },
+      { number: 38, symbol: 'Sr', name: 'Strontium', mass: '87.62', category: 'alkaline-earth', group: 2, period: 5 },
+      { number: 39, symbol: 'Y', name: 'Yttrium', mass: '88.91', category: 'transition-metal', group: 3, period: 5 },
+      { number: 40, symbol: 'Zr', name: 'Zirconium', mass: '91.22', category: 'transition-metal', group: 4, period: 5 },
+      { number: 41, symbol: 'Nb', name: 'Niobium', mass: '92.91', category: 'transition-metal', group: 5, period: 5 },
+      { number: 42, symbol: 'Mo', name: 'Molybdenum', mass: '95.95', category: 'transition-metal', group: 6, period: 5 },
+      { number: 43, symbol: 'Tc', name: 'Technetium', mass: '[98]', category: 'transition-metal', group: 7, period: 5 },
+      { number: 44, symbol: 'Ru', name: 'Ruthenium', mass: '101.1', category: 'transition-metal', group: 8, period: 5 },
+      { number: 45, symbol: 'Rh', name: 'Rhodium', mass: '102.9', category: 'transition-metal', group: 9, period: 5 },
+      { number: 46, symbol: 'Pd', name: 'Palladium', mass: '106.4', category: 'transition-metal', group: 10, period: 5 },
+      { number: 47, symbol: 'Ag', name: 'Silver', mass: '107.9', category: 'transition-metal', group: 11, period: 5 },
+      { number: 48, symbol: 'Cd', name: 'Cadmium', mass: '112.4', category: 'transition-metal', group: 12, period: 5 },
+      { number: 49, symbol: 'In', name: 'Indium', mass: '114.8', category: 'post-transition', group: 13, period: 5 },
+      { number: 50, symbol: 'Sn', name: 'Tin', mass: '118.7', category: 'post-transition', group: 14, period: 5 },
+      { number: 51, symbol: 'Sb', name: 'Antimony', mass: '121.8', category: 'metalloid', group: 15, period: 5 },
+      { number: 52, symbol: 'Te', name: 'Tellurium', mass: '127.6', category: 'metalloid', group: 16, period: 5 },
+      { number: 53, symbol: 'I', name: 'Iodine', mass: '126.9', category: 'halogen', group: 17, period: 5 },
+      { number: 54, symbol: 'Xe', name: 'Xenon', mass: '131.3', category: 'noble-gas', group: 18, period: 5 },
+      // Period 6
+      { number: 55, symbol: 'Cs', name: 'Cesium', mass: '132.9', category: 'alkali-metal', group: 1, period: 6 },
+      { number: 56, symbol: 'Ba', name: 'Barium', mass: '137.3', category: 'alkaline-earth', group: 2, period: 6 },
+      // Lanthanides placeholder in main table
+      { number: 0, symbol: '*', name: '57-71', mass: '', category: 'lanthanide', group: 3, period: 6, isPlaceholder: true },
+      { number: 72, symbol: 'Hf', name: 'Hafnium', mass: '178.5', category: 'transition-metal', group: 4, period: 6 },
+      { number: 73, symbol: 'Ta', name: 'Tantalum', mass: '180.9', category: 'transition-metal', group: 5, period: 6 },
+      { number: 74, symbol: 'W', name: 'Tungsten', mass: '183.8', category: 'transition-metal', group: 6, period: 6 },
+      { number: 75, symbol: 'Re', name: 'Rhenium', mass: '186.2', category: 'transition-metal', group: 7, period: 6 },
+      { number: 76, symbol: 'Os', name: 'Osmium', mass: '190.2', category: 'transition-metal', group: 8, period: 6 },
+      { number: 77, symbol: 'Ir', name: 'Iridium', mass: '192.2', category: 'transition-metal', group: 9, period: 6 },
+      { number: 78, symbol: 'Pt', name: 'Platinum', mass: '195.1', category: 'transition-metal', group: 10, period: 6 },
+      { number: 79, symbol: 'Au', name: 'Gold', mass: '197.0', category: 'transition-metal', group: 11, period: 6 },
+      { number: 80, symbol: 'Hg', name: 'Mercury', mass: '200.6', category: 'transition-metal', group: 12, period: 6 },
+      { number: 81, symbol: 'Tl', name: 'Thallium', mass: '204.4', category: 'post-transition', group: 13, period: 6 },
+      { number: 82, symbol: 'Pb', name: 'Lead', mass: '207.2', category: 'post-transition', group: 14, period: 6 },
+      { number: 83, symbol: 'Bi', name: 'Bismuth', mass: '209.0', category: 'post-transition', group: 15, period: 6 },
+      { number: 84, symbol: 'Po', name: 'Polonium', mass: '[209]', category: 'metalloid', group: 16, period: 6 },
+      { number: 85, symbol: 'At', name: 'Astatine', mass: '[210]', category: 'halogen', group: 17, period: 6 },
+      { number: 86, symbol: 'Rn', name: 'Radon', mass: '[222]', category: 'noble-gas', group: 18, period: 6 },
+      // Period 7
+      { number: 87, symbol: 'Fr', name: 'Francium', mass: '[223]', category: 'alkali-metal', group: 1, period: 7 },
+      { number: 88, symbol: 'Ra', name: 'Radium', mass: '[226]', category: 'alkaline-earth', group: 2, period: 7 },
+      // Actinides placeholder in main table
+      { number: 0, symbol: '**', name: '89-103', mass: '', category: 'actinide', group: 3, period: 7, isPlaceholder: true },
+      { number: 104, symbol: 'Rf', name: 'Rutherfordium', mass: '[267]', category: 'transition-metal', group: 4, period: 7 },
+      { number: 105, symbol: 'Db', name: 'Dubnium', mass: '[268]', category: 'transition-metal', group: 5, period: 7 },
+      { number: 106, symbol: 'Sg', name: 'Seaborgium', mass: '[269]', category: 'transition-metal', group: 6, period: 7 },
+      { number: 107, symbol: 'Bh', name: 'Bohrium', mass: '[270]', category: 'transition-metal', group: 7, period: 7 },
+      { number: 108, symbol: 'Hs', name: 'Hassium', mass: '[277]', category: 'transition-metal', group: 8, period: 7 },
+      { number: 109, symbol: 'Mt', name: 'Meitnerium', mass: '[278]', category: 'unknown', group: 9, period: 7 },
+      { number: 110, symbol: 'Ds', name: 'Darmstadtium', mass: '[281]', category: 'unknown', group: 10, period: 7 },
+      { number: 111, symbol: 'Rg', name: 'Roentgenium', mass: '[282]', category: 'unknown', group: 11, period: 7 },
+      { number: 112, symbol: 'Cn', name: 'Copernicium', mass: '[285]', category: 'transition-metal', group: 12, period: 7 },
+      { number: 113, symbol: 'Nh', name: 'Nihonium', mass: '[286]', category: 'unknown', group: 13, period: 7 },
+      { number: 114, symbol: 'Fl', name: 'Flerovium', mass: '[289]', category: 'unknown', group: 14, period: 7 },
+      { number: 115, symbol: 'Mc', name: 'Moscovium', mass: '[290]', category: 'unknown', group: 15, period: 7 },
+      { number: 116, symbol: 'Lv', name: 'Livermorium', mass: '[293]', category: 'unknown', group: 16, period: 7 },
+      { number: 117, symbol: 'Ts', name: 'Tennessine', mass: '[294]', category: 'unknown', group: 17, period: 7 },
+      { number: 118, symbol: 'Og', name: 'Oganesson', mass: '[294]', category: 'unknown', group: 18, period: 7 }
+    ];
+
+    const lanthanides = [
+      { number: 57, symbol: 'La', name: 'Lanthanum', mass: '138.9', category: 'lanthanide' },
+      { number: 58, symbol: 'Ce', name: 'Cerium', mass: '140.1', category: 'lanthanide' },
+      { number: 59, symbol: 'Pr', name: 'Praseodymium', mass: '140.9', category: 'lanthanide' },
+      { number: 60, symbol: 'Nd', name: 'Neodymium', mass: '144.2', category: 'lanthanide' },
+      { number: 61, symbol: 'Pm', name: 'Promethium', mass: '[145]', category: 'lanthanide' },
+      { number: 62, symbol: 'Sm', name: 'Samarium', mass: '150.4', category: 'lanthanide' },
+      { number: 63, symbol: 'Eu', name: 'Europium', mass: '152.0', category: 'lanthanide' },
+      { number: 64, symbol: 'Gd', name: 'Gadolinium', mass: '157.3', category: 'lanthanide' },
+      { number: 65, symbol: 'Tb', name: 'Terbium', mass: '158.9', category: 'lanthanide' },
+      { number: 66, symbol: 'Dy', name: 'Dysprosium', mass: '162.5', category: 'lanthanide' },
+      { number: 67, symbol: 'Ho', name: 'Holmium', mass: '164.9', category: 'lanthanide' },
+      { number: 68, symbol: 'Er', name: 'Erbium', mass: '167.3', category: 'lanthanide' },
+      { number: 69, symbol: 'Tm', name: 'Thulium', mass: '168.9', category: 'lanthanide' },
+      { number: 70, symbol: 'Yb', name: 'Ytterbium', mass: '173.0', category: 'lanthanide' },
+      { number: 71, symbol: 'Lu', name: 'Lutetium', mass: '175.0', category: 'lanthanide' }
+    ];
+
+    const actinides = [
+      { number: 89, symbol: 'Ac', name: 'Actinium', mass: '[227]', category: 'actinide' },
+      { number: 90, symbol: 'Th', name: 'Thorium', mass: '232.0', category: 'actinide' },
+      { number: 91, symbol: 'Pa', name: 'Protactinium', mass: '231.0', category: 'actinide' },
+      { number: 92, symbol: 'U', name: 'Uranium', mass: '238.0', category: 'actinide' },
+      { number: 93, symbol: 'Np', name: 'Neptunium', mass: '[237]', category: 'actinide' },
+      { number: 94, symbol: 'Pu', name: 'Plutonium', mass: '[244]', category: 'actinide' },
+      { number: 95, symbol: 'Am', name: 'Americium', mass: '[243]', category: 'actinide' },
+      { number: 96, symbol: 'Cm', name: 'Curium', mass: '[247]', category: 'actinide' },
+      { number: 97, symbol: 'Bk', name: 'Berkelium', mass: '[247]', category: 'actinide' },
+      { number: 98, symbol: 'Cf', name: 'Californium', mass: '[251]', category: 'actinide' },
+      { number: 99, symbol: 'Es', name: 'Einsteinium', mass: '[252]', category: 'actinide' },
+      { number: 100, symbol: 'Fm', name: 'Fermium', mass: '[257]', category: 'actinide' },
+      { number: 101, symbol: 'Md', name: 'Mendelevium', mass: '[258]', category: 'actinide' },
+      { number: 102, symbol: 'No', name: 'Nobelium', mass: '[259]', category: 'actinide' },
+      { number: 103, symbol: 'Lr', name: 'Lawrencium', mass: '[266]', category: 'actinide' }
+    ];
+
+    function createElementDiv(element) {
+      const div = document.createElement('div');
+      div.className = `element ${element.category}`;
+
+      if (element.isPlaceholder) {
+        div.innerHTML = `
+          <span class="symbol">${element.symbol}</span>
+          <span class="name">${element.name}</span>
+        `;
+      } else {
+        div.innerHTML = `
+          <span class="number">${element.number}</span>
+          <span class="symbol">${element.symbol}</span>
+          <span class="name">${element.name}</span>
+          <span class="mass">${element.mass}</span>
+        `;
+      }
+
+      div.title = `${element.number}. ${element.name} (${element.symbol})\nAtomic Mass: ${element.mass}`;
+      return div;
+    }
+
+    function renderPeriodicTable() {
+      const table = document.getElementById('periodicTable');
+      const groupLabels = document.getElementById('groupLabels');
+      const lanthanideActinide = document.getElementById('lanthanideActinide');
+
+      // Create group labels
+      for (let g = 1; g <= 18; g++) {
+        const label = document.createElement('div');
+        label.className = 'group-label';
+        label.textContent = g;
+        groupLabels.appendChild(label);
+      }
+
+      // Create grid for main table (7 periods x 18 groups)
+      const grid = Array(7).fill(null).map(() => Array(18).fill(null));
+
+      // Place elements in grid
+      elements.forEach(element => {
+        if (element.period && element.group) {
+          grid[element.period - 1][element.group - 1] = element;
+        }
+      });
+
+      // Render grid
+      for (let period = 0; period < 7; period++) {
+        for (let group = 0; group < 18; group++) {
+          const element = grid[period][group];
+          if (element) {
+            table.appendChild(createElementDiv(element));
+          } else {
+            const spacer = document.createElement('div');
+            spacer.className = 'element spacer';
+            table.appendChild(spacer);
+          }
+        }
+      }
+
+      // Render lanthanides
+      const lanthanideLabel = document.createElement('div');
+      lanthanideLabel.className = 'section-label';
+      lanthanideLabel.textContent = '* Lanthanides';
+      lanthanideActinide.appendChild(lanthanideLabel);
+
+      lanthanides.forEach(element => {
+        lanthanideActinide.appendChild(createElementDiv(element));
+      });
+
+      // Render actinides
+      const actinideLabel = document.createElement('div');
+      actinideLabel.className = 'section-label';
+      actinideLabel.textContent = '** Actinides';
+      lanthanideActinide.appendChild(actinideLabel);
+
+      actinides.forEach(element => {
+        lanthanideActinide.appendChild(createElementDiv(element));
+      });
+    }
+
+    function printBoringChart() {
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Periodic Table</title>
+          <style>
+            body { margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+            img { max-width: 100%; height: auto; }
+            @media print {
+              body { padding: 0; }
+              img { max-width: 100%; max-height: 100vh; }
+              @page { margin: 0.25in; size: landscape; }
+            }
+          </style>
+        </head>
+        <body>
+          <img src="infographics/periodic_table.png" onload="window.print(); window.close();" />
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+
+    window.onload = renderPeriodicTable;
+  </script>
+</body>
+</html>

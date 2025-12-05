@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets - Temperature Conversion</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Coffee Base Colors */
+      --espresso: #1e1610;
+      --dark-mocha: #2a1e14;
+      --coffee-bean: #453024;
+
+      /* Cream & Milk Colors */
+      --steamed-milk: #f5f5dc;
+      --light-cream: #f8e5c8;
+      --half-and-half: #d2b48c;
+
+      /* Syrup & Flavor Colors */
+      --caramel: #d2691e;
+      --pumpkin-spice: #b68d40;
+      --mocha: #8b4513;
+
+      /* Darker Syrups */
+      --dark-caramel: #38271e;
+      --toasted-almond: #5c4937;
+      --dark-chocolate: #120d08;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
+      color: var(--steamed-milk);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--dark-caramel);
+      border: 1px solid var(--coffee-bean);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--caramel);
+    }
+
+    .controls-panel {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--half-and-half);
+    }
+
+    select, input[type="number"] {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: var(--dark-caramel);
+      color: var(--steamed-milk);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    select:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: var(--pumpkin-spice);
+      background: var(--espresso);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    button.primary {
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+    }
+
+    button.primary:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
+    }
+
+    button.secondary {
+      background: var(--mocha);
+      color: var(--steamed-milk);
+    }
+
+    button.secondary:hover {
+      background: var(--coffee-bean);
+      transform: translateY(-1px);
+    }
+
+    .worksheet {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .worksheet-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--coffee-bean);
+    }
+
+    .worksheet-header h2 {
+      font-size: 24px;
+      color: var(--caramel);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .worksheet-header .info {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      color: var(--half-and-half);
+    }
+
+    .canvas-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #questionsCanvas {
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: #faf8f3;
+      display: block;
+    }
+
+    #answersCanvas {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: transparent;
+      display: none;
+    }
+
+    #answersCanvas.show {
+      display: block;
+    }
+
+    .print-page {
+      display: none;
+    }
+
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .app-header, .controls-panel, .no-print {
+        display: none !important;
+      }
+
+      .worksheet {
+        display: none !important;
+      }
+
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .print-page:last-child {
+        page-break-after: auto;
+      }
+
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        background: white !important;
+      }
+
+      @page {
+        margin: 0.5in;
+        size: A4 portrait;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="app-header">
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Osyra's Worksheets
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+      </h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="controls">
+        <label>
+          <span>Number of Problems:</span>
+          <select id="numProblems">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Conversion Type:</span>
+          <select id="conversionType">
+            <option value="all" selected>All Conversions</option>
+            <option value="cf">Celsius ↔ Fahrenheit</option>
+            <option value="f2c" selected>Fahrenheit → Celsius</option>
+            <option value="c2f">Celsius → Fahrenheit</option>
+            <option value="ck">Celsius ↔ Kelvin</option>
+            <option value="c2k">Celsius → Kelvin</option>
+            <option value="k2c">Kelvin → Celsius</option>
+            <option value="fk">Fahrenheit ↔ Kelvin</option>
+            <option value="f2k">Fahrenheit → Kelvin</option>
+            <option value="k2f">Kelvin → Fahrenheit</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Temperature Range:</span>
+          <select id="tempRange">
+            <option value="easy">Easy (-20 to 40°C)</option>
+            <option value="medium" selected>Medium (-40 to 100°C)</option>
+            <option value="hard">Hard (-100 to 200°C)</option>
+          </select>
+        </label>
+
+        <button class="primary" onclick="generateWorksheet()">Generate Worksheet</button>
+        <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
+        <button class="secondary" onclick="window.print()">Print Worksheet</button>
+      </div>
+    </div>
+
+    <div class="worksheet">
+      <div class="worksheet-header">
+        <h2>Temperature Conversion</h2>
+        <div class="info">
+          <span>Name: _______________________</span>
+          <span>Date: _______________________</span>
+          <span id="scoreField">Score: _______ / 10</span>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="questionsCanvas"></canvas>
+        <canvas id="answersCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
+  </div>
+
+  <script>
+    // Global state
+    let currentProblems = [];
+    let showingAnswers = false;
+    let questionsCanvas, answersCanvas;
+    let questionsCtx, answersCtx;
+
+    function initCanvases() {
+      questionsCanvas = document.getElementById('questionsCanvas');
+      answersCanvas = document.getElementById('answersCanvas');
+      questionsCtx = questionsCanvas.getContext('2d');
+      answersCtx = answersCanvas.getContext('2d');
+    }
+
+    function getTemperatureRange(range) {
+      switch (range) {
+        case 'easy':
+          return { min: -20, max: 40 };
+        case 'medium':
+          return { min: -40, max: 100 };
+        case 'hard':
+          return { min: -100, max: 200 };
+        default:
+          return { min: -40, max: 100 };
+      }
+    }
+
+    function celsiusToFahrenheit(c) {
+      return (c * 9/5) + 32;
+    }
+
+    function fahrenheitToCelsius(f) {
+      return (f - 32) * 5/9;
+    }
+
+    function celsiusToKelvin(c) {
+      return c + 273.15;
+    }
+
+    function kelvinToCelsius(k) {
+      return k - 273.15;
+    }
+
+    function fahrenheitToKelvin(f) {
+      return (f - 32) * 5/9 + 273.15;
+    }
+
+    function kelvinToFahrenheit(k) {
+      return (k - 273.15) * 9/5 + 32;
+    }
+
+    function createProblem(conversionType, tempRange) {
+      const range = getTemperatureRange(tempRange);
+      let type;
+
+      // Handle grouped conversion types
+      if (conversionType === 'all') {
+        const types = ['c2f', 'f2c', 'c2k', 'k2c', 'f2k', 'k2f'];
+        type = types[Math.floor(Math.random() * types.length)];
+      } else if (conversionType === 'cf') {
+        type = Math.random() < 0.5 ? 'c2f' : 'f2c';
+      } else if (conversionType === 'ck') {
+        type = Math.random() < 0.5 ? 'c2k' : 'k2c';
+      } else if (conversionType === 'fk') {
+        type = Math.random() < 0.5 ? 'f2k' : 'k2f';
+      } else {
+        type = conversionType;
+      }
+
+      let givenTemp, answer, formula, question, answerUnit;
+
+      if (type === 'c2f') {
+        // Celsius to Fahrenheit
+        givenTemp = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+        answer = celsiusToFahrenheit(givenTemp);
+        formula = '°F = (°C × 9/5) + 32';
+        question = `${givenTemp}°C = ____°F`;
+        answerUnit = '°F';
+      } else if (type === 'f2c') {
+        // Fahrenheit to Celsius
+        const minF = Math.round(celsiusToFahrenheit(range.min));
+        const maxF = Math.round(celsiusToFahrenheit(range.max));
+        givenTemp = Math.floor(Math.random() * (maxF - minF + 1)) + minF;
+        answer = fahrenheitToCelsius(givenTemp);
+        formula = '°C = (°F - 32) × 5/9';
+        question = `${givenTemp}°F = ____°C`;
+        answerUnit = '°C';
+      } else if (type === 'c2k') {
+        // Celsius to Kelvin
+        givenTemp = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min;
+        answer = celsiusToKelvin(givenTemp);
+        formula = 'K = °C + 273.15';
+        question = `${givenTemp}°C = ____K`;
+        answerUnit = 'K';
+      } else if (type === 'k2c') {
+        // Kelvin to Celsius
+        const minK = Math.round(celsiusToKelvin(range.min));
+        const maxK = Math.round(celsiusToKelvin(range.max));
+        givenTemp = Math.floor(Math.random() * (maxK - minK + 1)) + minK;
+        answer = kelvinToCelsius(givenTemp);
+        formula = '°C = K - 273.15';
+        question = `${givenTemp}K = ____°C`;
+        answerUnit = '°C';
+      } else if (type === 'f2k') {
+        // Fahrenheit to Kelvin
+        const minF = Math.round(celsiusToFahrenheit(range.min));
+        const maxF = Math.round(celsiusToFahrenheit(range.max));
+        givenTemp = Math.floor(Math.random() * (maxF - minF + 1)) + minF;
+        answer = fahrenheitToKelvin(givenTemp);
+        formula = 'K = (°F - 32) × 5/9 + 273.15';
+        question = `${givenTemp}°F = ____K`;
+        answerUnit = 'K';
+      } else if (type === 'k2f') {
+        // Kelvin to Fahrenheit
+        const minK = Math.round(celsiusToKelvin(range.min));
+        const maxK = Math.round(celsiusToKelvin(range.max));
+        givenTemp = Math.floor(Math.random() * (maxK - minK + 1)) + minK;
+        answer = kelvinToFahrenheit(givenTemp);
+        formula = '°F = (K - 273.15) × 9/5 + 32';
+        question = `${givenTemp}K = ____°F`;
+        answerUnit = '°F';
+      }
+
+      // Round answer to nearest hundredth for Kelvin precision
+      answer = Math.round(answer * 100) / 100;
+
+      return {
+        type,
+        givenTemp,
+        answer,
+        formula,
+        question,
+        answerUnit
+      };
+    }
+
+    function drawWorksheet() {
+      const numProblems = currentProblems.length;
+      const margin = 30;
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+      const formulaBoxHeight = 100;
+      const problemHeight = 70;
+
+      // Calculate how many problems fit per page
+      const availableHeight = pageHeight - margin - formulaBoxHeight - 40;
+      const maxProblemsPerPage = Math.floor(availableHeight / problemHeight);
+      const numPages = Math.ceil(numProblems / maxProblemsPerPage);
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvases
+      questionsCanvas.width = A4_WIDTH;
+      questionsCanvas.height = totalHeight;
+      answersCanvas.width = A4_WIDTH;
+      answersCanvas.height = totalHeight;
+
+      // Update display size
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = Math.min(1, containerWidth / A4_WIDTH);
+
+      questionsCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      questionsCanvas.style.height = (totalHeight * scale) + 'px';
+      answersCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      answersCanvas.style.height = (totalHeight * scale) + 'px';
+
+      // Clear canvases
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, A4_WIDTH, totalHeight);
+      answersCtx.clearRect(0, 0, A4_WIDTH, totalHeight);
+
+      // Draw page separators
+      if (numPages > 1) {
+        questionsCtx.strokeStyle = '#cccccc';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.setLineDash([5, 5]);
+        for (let page = 1; page < numPages; page++) {
+          const pageY = page * pageHeight;
+          questionsCtx.beginPath();
+          questionsCtx.moveTo(0, pageY);
+          questionsCtx.lineTo(A4_WIDTH, pageY);
+          questionsCtx.stroke();
+        }
+        questionsCtx.setLineDash([]);
+      }
+
+      // Draw formula box on first page
+      const formulaBoxY = margin;
+      const availableWidth = A4_WIDTH - (2 * margin);
+
+      questionsCtx.fillStyle = '#e8f4e8';
+      questionsCtx.fillRect(margin, formulaBoxY, availableWidth, formulaBoxHeight);
+      questionsCtx.strokeStyle = '#4ade80';
+      questionsCtx.lineWidth = 2;
+      questionsCtx.strokeRect(margin, formulaBoxY, availableWidth, formulaBoxHeight);
+
+      // Formula box title
+      questionsCtx.fillStyle = '#166534';
+      questionsCtx.font = 'bold 16px Arial';
+      questionsCtx.textAlign = 'center';
+      questionsCtx.textBaseline = 'top';
+      questionsCtx.fillText('Temperature Conversion Formulas', A4_WIDTH / 2, formulaBoxY + 10);
+
+      // Draw formulas in two columns
+      questionsCtx.font = '14px "Courier New", monospace';
+      questionsCtx.fillStyle = '#1f2937';
+
+      // Left column - Celsius/Fahrenheit and Celsius/Kelvin
+      questionsCtx.textAlign = 'left';
+      questionsCtx.fillText('°F = (°C × 9/5) + 32', margin + 20, formulaBoxY + 38);
+      questionsCtx.fillText('°C = (°F - 32) × 5/9', margin + 20, formulaBoxY + 58);
+      questionsCtx.fillText('K = °C + 273.15', margin + 20, formulaBoxY + 78);
+
+      // Right column - Kelvin/Celsius and Fahrenheit/Kelvin
+      questionsCtx.textAlign = 'left';
+      questionsCtx.fillText('°C = K - 273.15', A4_WIDTH / 2 + 20, formulaBoxY + 38);
+      questionsCtx.fillText('K = (°F - 32) × 5/9 + 273.15', A4_WIDTH / 2 + 20, formulaBoxY + 58);
+      questionsCtx.fillText('°F = (K - 273.15) × 9/5 + 32', A4_WIDTH / 2 + 20, formulaBoxY + 78);
+
+      // Instructions
+      questionsCtx.font = 'italic 12px Arial';
+      questionsCtx.fillStyle = '#6b7280';
+      questionsCtx.textAlign = 'center';
+      questionsCtx.fillText('Round all answers to two decimal places', A4_WIDTH / 2, formulaBoxY + formulaBoxHeight - 12);
+
+      // Draw problems
+      const problemsStartY = margin + formulaBoxHeight + 30;
+
+      currentProblems.forEach((problem, index) => {
+        // Calculate which page this problem is on
+        const currentPage = Math.floor(index / maxProblemsPerPage);
+        const indexOnPage = index % maxProblemsPerPage;
+
+        let startY;
+        if (currentPage === 0) {
+          startY = problemsStartY + (indexOnPage * problemHeight);
+        } else {
+          startY = (currentPage * pageHeight) + margin + (indexOnPage * problemHeight);
+        }
+
+        // Draw problem number
+        questionsCtx.fillStyle = '#8b7355';
+        questionsCtx.font = 'bold 16px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText(`${index + 1}.`, margin + 10, startY + 25);
+
+        // Draw the question
+        questionsCtx.fillStyle = '#3d3d3d';
+        questionsCtx.font = '20px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.fillText(problem.question, margin + 50, startY + 25);
+
+        // Draw answer line
+        const lineStartX = margin + 200;
+        const lineEndX = margin + 350;
+        questionsCtx.strokeStyle = '#5d4e37';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(lineStartX, startY + 35);
+        questionsCtx.lineTo(lineEndX, startY + 35);
+        questionsCtx.stroke();
+
+        // Draw divider line
+        questionsCtx.strokeStyle = '#e0e0e0';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(margin, startY + problemHeight - 5);
+        questionsCtx.lineTo(A4_WIDTH - margin, startY + problemHeight - 5);
+        questionsCtx.stroke();
+
+        // Draw answer on overlay
+        if (showingAnswers) {
+          answersCtx.fillStyle = '#c75000';
+          answersCtx.font = 'bold 18px Arial';
+          answersCtx.textAlign = 'center';
+          answersCtx.textBaseline = 'middle';
+          answersCtx.fillText(problem.answer.toFixed(1) + problem.answerUnit, (lineStartX + lineEndX) / 2, startY + 25);
+        }
+      });
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+      const numPages = Math.ceil(questionsCanvas.height / pageHeight);
+
+      for (let page = 0; page < numPages; page++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'print-page';
+
+        const pageCanvas = document.createElement('canvas');
+        pageCanvas.width = A4_WIDTH;
+        pageCanvas.height = pageHeight;
+
+        const ctx = pageCanvas.getContext('2d');
+
+        // Fill white background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, A4_WIDTH, pageHeight);
+
+        // Draw header on first page only
+        if (page === 0) {
+          const headerHeight = 60;
+
+          ctx.strokeStyle = '#333333';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(0, headerHeight);
+          ctx.lineTo(A4_WIDTH, headerHeight);
+          ctx.stroke();
+
+          ctx.fillStyle = '#5d4e37';
+          ctx.font = 'bold 18px Arial';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('Temperature Conversion', 397, 25);
+
+          ctx.font = '12px Arial';
+          ctx.textAlign = 'left';
+          ctx.fillText('Name: _______________________', 30, 50);
+
+          ctx.textAlign = 'center';
+          ctx.fillText('Date: _______________________', 397, 50);
+
+          ctx.textAlign = 'right';
+          ctx.fillText(`Score: _______ / ${currentProblems.length}`, 764, 50);
+
+          // Copy worksheet content (offset for header)
+          ctx.drawImage(questionsCanvas, 0, 0, A4_WIDTH, pageHeight - headerHeight, 0, headerHeight, A4_WIDTH, pageHeight - headerHeight);
+
+          if (showingAnswers) {
+            ctx.drawImage(answersCanvas, 0, 0, A4_WIDTH, pageHeight - headerHeight, 0, headerHeight, A4_WIDTH, pageHeight - headerHeight);
+          }
+        } else {
+          // For subsequent pages, copy from the corresponding section of the main canvas
+          const sourceY = page * pageHeight;
+          ctx.drawImage(questionsCanvas, 0, sourceY, A4_WIDTH, pageHeight, 0, 0, A4_WIDTH, pageHeight);
+
+          if (showingAnswers) {
+            ctx.drawImage(answersCanvas, 0, sourceY, A4_WIDTH, pageHeight, 0, 0, A4_WIDTH, pageHeight);
+          }
+
+          // Add page number
+          ctx.fillStyle = '#8b7355';
+          ctx.font = '12px Arial';
+          ctx.textAlign = 'center';
+          ctx.fillText(`Page ${page + 1}`, A4_WIDTH / 2, pageHeight - 20);
+        }
+
+        pageDiv.appendChild(pageCanvas);
+        printContainer.appendChild(pageDiv);
+      }
+    }
+
+    function generateWorksheet() {
+      const numProblems = parseInt(document.getElementById('numProblems').value);
+      const conversionType = document.getElementById('conversionType').value;
+      const tempRange = document.getElementById('tempRange').value;
+
+      currentProblems = [];
+      for (let i = 0; i < numProblems; i++) {
+        currentProblems.push(createProblem(conversionType, tempRange));
+      }
+
+      // Update score field
+      document.getElementById('scoreField').textContent = `Score: _______ / ${numProblems}`;
+
+      showingAnswers = false;
+      answersCanvas.classList.remove('show');
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    function toggleAnswers() {
+      if (currentProblems.length === 0) {
+        alert('Please generate a worksheet first.');
+        return;
+      }
+
+      showingAnswers = !showingAnswers;
+      const button = event.target;
+      button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
+
+      if (showingAnswers) {
+        answersCanvas.classList.add('show');
+      } else {
+        answersCanvas.classList.remove('show');
+      }
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    // Initialize
+    window.onload = function() {
+      initCanvases();
+      generateWorksheet();
+    };
+
+    window.onresize = function() {
+      if (questionsCanvas && currentProblems.length > 0) {
+        drawWorksheet();
+      }
+    };
+  </script>
+</body>
+</html>

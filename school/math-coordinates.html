@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets - Plotting Coordinates</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Coffee Base Colors */
+      --espresso: #1e1610;
+      --dark-mocha: #2a1e14;
+      --coffee-bean: #453024;
+
+      /* Cream & Milk Colors */
+      --steamed-milk: #f5f5dc;
+      --light-cream: #f8e5c8;
+      --half-and-half: #d2b48c;
+
+      /* Syrup & Flavor Colors */
+      --caramel: #d2691e;
+      --pumpkin-spice: #b68d40;
+      --mocha: #8b4513;
+
+      /* Darker Syrups */
+      --dark-caramel: #38271e;
+      --toasted-almond: #5c4937;
+      --dark-chocolate: #120d08;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
+      color: var(--steamed-milk);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--dark-caramel);
+      border: 1px solid var(--coffee-bean);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--caramel);
+    }
+
+    .controls-panel {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--half-and-half);
+    }
+
+    select, input[type="number"] {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: var(--dark-caramel);
+      color: var(--steamed-milk);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    select:focus, input[type="number"]:focus {
+      outline: none;
+      border-color: var(--pumpkin-spice);
+      background: var(--espresso);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    button.primary {
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+    }
+
+    button.primary:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
+    }
+
+    button.secondary {
+      background: var(--mocha);
+      color: var(--steamed-milk);
+    }
+
+    button.secondary:hover {
+      background: var(--coffee-bean);
+      transform: translateY(-1px);
+    }
+
+    .worksheet {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .worksheet-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--coffee-bean);
+    }
+
+    .worksheet-header h2 {
+      font-size: 24px;
+      color: var(--caramel);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .worksheet-header .info {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      color: var(--half-and-half);
+    }
+
+    .canvas-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #questionsCanvas {
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: #faf8f3;
+      display: block;
+    }
+
+    #answersCanvas {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: transparent;
+      display: none;
+    }
+
+    #answersCanvas.show {
+      display: block;
+    }
+
+    .print-page {
+      display: none;
+    }
+
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .app-header, .controls-panel, .no-print {
+        display: none !important;
+      }
+
+      .worksheet {
+        display: none !important;
+      }
+
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .print-page:last-child {
+        page-break-after: auto;
+      }
+
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        background: white !important;
+      }
+
+      @page {
+        margin: 0.5in;
+        size: A4 portrait;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="app-header">
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Osyra's Worksheets
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+      </h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="controls">
+        <label>
+          <span>Number of Points:</span>
+          <select id="numPoints">
+            <option value="5">5</option>
+            <option value="8">8</option>
+            <option value="10" selected>10</option>
+            <option value="12">12</option>
+            <option value="15">15</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Quadrants:</span>
+          <select id="quadrants">
+            <option value="1">Quadrant I only (positive)</option>
+            <option value="4" selected>All 4 Quadrants</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Grid Size:</span>
+          <select id="gridSize">
+            <option value="5">5 × 5</option>
+            <option value="10" selected>10 × 10</option>
+            <option value="15">15 × 15</option>
+          </select>
+        </label>
+
+        <button class="primary" onclick="generateWorksheet()">Generate Worksheet</button>
+        <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
+        <button class="secondary" onclick="window.print()">Print Worksheet</button>
+      </div>
+    </div>
+
+    <div class="worksheet">
+      <div class="worksheet-header">
+        <h2>Plotting Coordinates</h2>
+        <div class="info">
+          <span>Name: _______________________</span>
+          <span>Date: _______________________</span>
+          <span id="scoreField">Score: _______ / 10</span>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="questionsCanvas"></canvas>
+        <canvas id="answersCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
+  </div>
+
+  <script>
+    // Global state
+    let currentPoints = [];
+    let showingAnswers = false;
+    let questionsCanvas, answersCanvas;
+    let questionsCtx, answersCtx;
+
+    function initCanvases() {
+      questionsCanvas = document.getElementById('questionsCanvas');
+      answersCanvas = document.getElementById('answersCanvas');
+      questionsCtx = questionsCanvas.getContext('2d');
+      answersCtx = answersCanvas.getContext('2d');
+    }
+
+    function generatePoints(numPoints, quadrants, gridSize) {
+      const points = [];
+      const usedPositions = new Set();
+
+      // Generate unique points
+      while (points.length < numPoints) {
+        let x, y;
+
+        if (quadrants === 1) {
+          // Only positive coordinates (Quadrant I)
+          x = Math.floor(Math.random() * gridSize) + 1;
+          y = Math.floor(Math.random() * gridSize) + 1;
+        } else {
+          // All 4 quadrants
+          x = Math.floor(Math.random() * (gridSize * 2 + 1)) - gridSize;
+          y = Math.floor(Math.random() * (gridSize * 2 + 1)) - gridSize;
+          // Avoid origin
+          if (x === 0 && y === 0) continue;
+        }
+
+        const posKey = `${x},${y}`;
+        if (!usedPositions.has(posKey)) {
+          usedPositions.add(posKey);
+          points.push({
+            x,
+            y,
+            label: String.fromCharCode(65 + points.length) // A, B, C, etc.
+          });
+        }
+      }
+
+      return points;
+    }
+
+    function drawGrid(ctx, centerX, centerY, gridSize, cellSize, quadrants) {
+      const gridWidth = quadrants === 1 ? gridSize * cellSize : gridSize * 2 * cellSize;
+      const gridHeight = quadrants === 1 ? gridSize * cellSize : gridSize * 2 * cellSize;
+
+      // Grid starting position - center the grid on the page for both modes
+      let startX, startY;
+      if (quadrants === 1) {
+        // Center the Quadrant I grid, with origin at bottom-left of the grid
+        startX = centerX - gridWidth / 2;
+        startY = centerY - gridHeight / 2;
+      } else {
+        startX = centerX - gridWidth / 2;
+        startY = centerY - gridHeight / 2;
+      }
+
+      // Draw grid lines
+      ctx.strokeStyle = '#d0d0d0';
+      ctx.lineWidth = 1;
+
+      // Vertical lines
+      const numVertLines = quadrants === 1 ? gridSize : gridSize * 2;
+      for (let i = 0; i <= numVertLines; i++) {
+        const x = startX + i * cellSize;
+        ctx.beginPath();
+        ctx.moveTo(x, startY);
+        ctx.lineTo(x, startY + gridHeight);
+        ctx.stroke();
+      }
+
+      // Horizontal lines
+      const numHorizLines = quadrants === 1 ? gridSize : gridSize * 2;
+      for (let i = 0; i <= numHorizLines; i++) {
+        const y = startY + i * cellSize;
+        ctx.beginPath();
+        ctx.moveTo(startX, y);
+        ctx.lineTo(startX + gridWidth, y);
+        ctx.stroke();
+      }
+
+      // Draw axes
+      ctx.strokeStyle = '#333333';
+      ctx.lineWidth = 2;
+
+      // X-axis
+      let axisY = quadrants === 1 ? startY + gridHeight : centerY;
+      ctx.beginPath();
+      ctx.moveTo(startX - 10, axisY);
+      ctx.lineTo(startX + gridWidth + 10, axisY);
+      ctx.stroke();
+
+      // Arrow on X-axis
+      ctx.beginPath();
+      ctx.moveTo(startX + gridWidth + 10, axisY);
+      ctx.lineTo(startX + gridWidth + 2, axisY - 5);
+      ctx.lineTo(startX + gridWidth + 2, axisY + 5);
+      ctx.closePath();
+      ctx.fillStyle = '#333333';
+      ctx.fill();
+
+      // Y-axis
+      let axisX = quadrants === 1 ? startX : centerX;
+      ctx.beginPath();
+      ctx.moveTo(axisX, startY + gridHeight + 10);
+      ctx.lineTo(axisX, startY - 10);
+      ctx.stroke();
+
+      // Arrow on Y-axis
+      ctx.beginPath();
+      ctx.moveTo(axisX, startY - 10);
+      ctx.lineTo(axisX - 5, startY - 2);
+      ctx.lineTo(axisX + 5, startY - 2);
+      ctx.closePath();
+      ctx.fill();
+
+      // Draw axis labels
+      ctx.fillStyle = '#333333';
+      ctx.font = 'bold 14px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('x', startX + gridWidth + 20, axisY);
+      ctx.fillText('y', axisX, startY - 20);
+
+      // Draw tick marks and numbers
+      ctx.font = '11px Arial';
+      ctx.fillStyle = '#666666';
+
+      if (quadrants === 1) {
+        // Quadrant I only
+        for (let i = 1; i <= gridSize; i++) {
+          // X-axis numbers
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'top';
+          ctx.fillText(i.toString(), startX + i * cellSize, axisY + 5);
+
+          // Y-axis numbers
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(i.toString(), axisX - 5, startY + gridHeight - i * cellSize);
+        }
+        // Origin
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'top';
+        ctx.fillText('0', axisX - 5, axisY + 5);
+      } else {
+        // All 4 quadrants
+        for (let i = -gridSize; i <= gridSize; i++) {
+          if (i === 0) continue;
+          // X-axis numbers
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'top';
+          ctx.fillText(i.toString(), centerX + i * cellSize, axisY + 5);
+
+          // Y-axis numbers
+          ctx.textAlign = 'right';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(i.toString(), axisX - 5, centerY - i * cellSize);
+        }
+        // Origin
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'top';
+        ctx.fillText('0', axisX - 5, axisY + 5);
+      }
+
+      return { startX, startY, axisX, axisY };
+    }
+
+    function drawWorksheet() {
+      const numPoints = currentPoints.length;
+      const quadrants = parseInt(document.getElementById('quadrants').value);
+      const gridSize = parseInt(document.getElementById('gridSize').value);
+
+      const margin = 30;
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+
+      // Calculate grid dimensions
+      const availableWidth = A4_WIDTH - (2 * margin);
+      const questionsHeight = 200; // Height for question list
+      const availableGridHeight = pageHeight - margin - questionsHeight - 60;
+
+      // Calculate cell size based on available space and grid size
+      const gridCells = quadrants === 1 ? gridSize : gridSize * 2;
+      const maxCellSize = Math.min(
+        (availableWidth - 60) / gridCells,
+        (availableGridHeight - 40) / gridCells
+      );
+      const cellSize = Math.floor(maxCellSize);
+
+      // Grid center position
+      const gridWidth = gridCells * cellSize;
+      const gridHeight = gridCells * cellSize;
+      const gridCenterX = A4_WIDTH / 2;
+      const gridCenterY = margin + 30 + gridHeight / 2;
+
+      // Resize canvases
+      questionsCanvas.width = A4_WIDTH;
+      questionsCanvas.height = pageHeight;
+      answersCanvas.width = A4_WIDTH;
+      answersCanvas.height = pageHeight;
+
+      // Update display size
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = Math.min(1, containerWidth / A4_WIDTH);
+
+      questionsCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      questionsCanvas.style.height = (pageHeight * scale) + 'px';
+      answersCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      answersCanvas.style.height = (pageHeight * scale) + 'px';
+
+      // Clear canvases
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, A4_WIDTH, pageHeight);
+      answersCtx.clearRect(0, 0, A4_WIDTH, pageHeight);
+
+      // Draw the grid
+      const gridInfo = drawGrid(questionsCtx, gridCenterX, gridCenterY, gridSize, cellSize, quadrants);
+
+      // Draw instructions
+      const instructionsY = gridCenterY + gridHeight / 2 + 40;
+      questionsCtx.fillStyle = '#5d4e37';
+      questionsCtx.font = 'bold 14px Arial';
+      questionsCtx.textAlign = 'center';
+      questionsCtx.textBaseline = 'top';
+      questionsCtx.fillText('Plot each point on the grid and label it with its letter.', A4_WIDTH / 2, instructionsY);
+
+      // Draw the list of points to plot
+      const pointsListY = instructionsY + 30;
+      const pointsPerRow = 5;
+      const pointBoxWidth = (availableWidth - 40) / pointsPerRow;
+      const pointBoxHeight = 35;
+
+      questionsCtx.font = '16px Arial';
+      questionsCtx.textAlign = 'center';
+      questionsCtx.textBaseline = 'middle';
+
+      currentPoints.forEach((point, index) => {
+        const row = Math.floor(index / pointsPerRow);
+        const col = index % pointsPerRow;
+
+        const boxX = margin + 20 + col * pointBoxWidth;
+        const boxY = pointsListY + row * pointBoxHeight;
+
+        // Draw point box
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.strokeRect(boxX, boxY, pointBoxWidth - 10, pointBoxHeight - 5);
+
+        // Draw point label and coordinates
+        questionsCtx.fillStyle = '#3d3d3d';
+        questionsCtx.fillText(`${point.label}: (${point.x}, ${point.y})`, boxX + (pointBoxWidth - 10) / 2, boxY + (pointBoxHeight - 5) / 2);
+      });
+
+      // Draw answers on overlay (plotted points)
+      if (showingAnswers) {
+        currentPoints.forEach((point) => {
+          let plotX, plotY;
+
+          if (quadrants === 1) {
+            plotX = gridInfo.startX + point.x * cellSize;
+            plotY = gridInfo.startY + gridHeight - point.y * cellSize;
+          } else {
+            plotX = gridCenterX + point.x * cellSize;
+            plotY = gridCenterY - point.y * cellSize;
+          }
+
+          // Draw point
+          answersCtx.beginPath();
+          answersCtx.arc(plotX, plotY, 6, 0, Math.PI * 2);
+          answersCtx.fillStyle = '#c75000';
+          answersCtx.fill();
+
+          // Draw label
+          answersCtx.fillStyle = '#c75000';
+          answersCtx.font = 'bold 12px Arial';
+          answersCtx.textAlign = 'left';
+          answersCtx.textBaseline = 'bottom';
+          answersCtx.fillText(point.label, plotX + 8, plotY - 2);
+        });
+      }
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+
+      const pageDiv = document.createElement('div');
+      pageDiv.className = 'print-page';
+
+      const pageCanvas = document.createElement('canvas');
+      pageCanvas.width = A4_WIDTH;
+      pageCanvas.height = pageHeight;
+
+      const ctx = pageCanvas.getContext('2d');
+
+      // Fill white background
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, A4_WIDTH, pageHeight);
+
+      // Draw header
+      const headerHeight = 60;
+
+      ctx.strokeStyle = '#333333';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, headerHeight);
+      ctx.lineTo(A4_WIDTH, headerHeight);
+      ctx.stroke();
+
+      ctx.fillStyle = '#5d4e37';
+      ctx.font = 'bold 18px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('Plotting Coordinates', 397, 25);
+
+      ctx.font = '12px Arial';
+      ctx.textAlign = 'left';
+      ctx.fillText('Name: _______________________', 30, 50);
+
+      ctx.textAlign = 'center';
+      ctx.fillText('Date: _______________________', 397, 50);
+
+      ctx.textAlign = 'right';
+      ctx.fillText(`Score: _______ / ${currentPoints.length}`, 764, 50);
+
+      // Copy worksheet content (offset for header)
+      ctx.drawImage(questionsCanvas, 0, 0, A4_WIDTH, pageHeight - headerHeight, 0, headerHeight, A4_WIDTH, pageHeight - headerHeight);
+
+      if (showingAnswers) {
+        ctx.drawImage(answersCanvas, 0, 0, A4_WIDTH, pageHeight - headerHeight, 0, headerHeight, A4_WIDTH, pageHeight - headerHeight);
+      }
+
+      pageDiv.appendChild(pageCanvas);
+      printContainer.appendChild(pageDiv);
+    }
+
+    function generateWorksheet() {
+      const numPoints = parseInt(document.getElementById('numPoints').value);
+      const quadrants = parseInt(document.getElementById('quadrants').value);
+      const gridSize = parseInt(document.getElementById('gridSize').value);
+
+      currentPoints = generatePoints(numPoints, quadrants, gridSize);
+
+      // Update score field
+      document.getElementById('scoreField').textContent = `Score: _______ / ${numPoints}`;
+
+      showingAnswers = false;
+      answersCanvas.classList.remove('show');
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    function toggleAnswers() {
+      if (currentPoints.length === 0) {
+        alert('Please generate a worksheet first.');
+        return;
+      }
+
+      showingAnswers = !showingAnswers;
+      const button = event.target;
+      button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
+
+      if (showingAnswers) {
+        answersCanvas.classList.add('show');
+      } else {
+        answersCanvas.classList.remove('show');
+      }
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    // Initialize
+    window.onload = function() {
+      initCanvases();
+      generateWorksheet();
+    };
+
+    window.onresize = function() {
+      if (questionsCanvas && currentPoints.length > 0) {
+        drawWorksheet();
+      }
+    };
+  </script>
+</body>
+</html>

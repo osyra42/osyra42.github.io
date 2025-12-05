@@ -302,6 +302,8 @@
         <label>
           <span>Operation:</span>
           <select id="operation">
+            <option value="mixed">Mixed (All Operations)</option>
+            <option value="special67">Special (All = 67)</option>
             <option value="subtraction">Subtraction</option>
             <option value="addition">Addition</option>
             <option value="multiplication">Multiplication</option>
@@ -459,6 +461,99 @@
         num2: divisor,
         operator: '÷',
         answer: quotient
+      };
+    }
+
+    // Track used problems for special67 to prevent duplicates
+    let usedSpecial67Problems = new Set();
+
+    function createSpecial67Problem(maxNum, allowNegatives, index) {
+      // Start with 67, pick a random operator, pick a random number, calculate the other number
+      const target = 67;
+      const maxAttempts = 50;
+
+      // Build available operators based on maxNum
+      // Addition: needs num2 up to 66, num1 up to 66 - always available
+      // Subtraction: num1 can get large (67 + num2), limit num2 based on maxNum
+      // Division: num1 = 67 * num2, can get large quickly
+      // Multiplication: 67 is prime, only 1×67 or 67×1, need maxNum >= 67
+
+      let operators = [];
+
+      // Addition always works (numbers 1-66)
+      operators.push(...['+', '+', '+', '+', '+', '+', '+', '+']); // 40%
+
+      // Subtraction: num1 = 67 + num2, so limit num2 to keep num1 <= maxNum
+      const maxSubtractNum2 = Math.max(1, maxNum - target);
+      if (maxSubtractNum2 >= 1) {
+        operators.push(...['-', '-', '-', '-', '-', '-', '-', '-']); // 40%
+      }
+
+      // Division: num1 = 67 * num2, so max num2 = floor(maxNum / 67)
+      const maxDivideNum2 = Math.floor(maxNum / target);
+      if (maxDivideNum2 >= 1) {
+        operators.push(...['÷', '÷', '÷']); // 15%
+      }
+
+      // Multiplication: need maxNum >= 67
+      if (maxNum >= 67) {
+        operators.push('×'); // 5%
+      }
+
+      for (let attempt = 0; attempt < maxAttempts; attempt++) {
+        const operator = operators[Math.floor(Math.random() * operators.length)];
+        let num1, num2;
+
+        // Start with 67, pick num2 randomly, then calculate num1
+        // For: num1 [operator] num2 = 67
+        switch(operator) {
+          case '+':
+            // num1 + num2 = 67, so num1 = 67 - num2
+            // Both num1 and num2 will be <= 66, always fits
+            num2 = Math.floor(Math.random() * 66) + 1; // 1 to 66
+            num1 = target - num2;
+            break;
+          case '-':
+            // num1 - num2 = 67, so num1 = 67 + num2
+            // Limit num2 so num1 doesn't exceed maxNum
+            num2 = Math.floor(Math.random() * maxSubtractNum2) + 1;
+            num1 = target + num2;
+            break;
+          case '×':
+            // num1 × num2 = 67, 67 is prime so only 1×67 or 67×1
+            num2 = Math.random() < 0.5 ? 1 : 67;
+            num1 = target / num2;
+            break;
+          case '÷':
+            // num1 ÷ num2 = 67, so num1 = 67 × num2
+            // Limit num2 so num1 doesn't exceed maxNum
+            num2 = Math.floor(Math.random() * maxDivideNum2) + 1;
+            num1 = target * num2;
+            break;
+        }
+
+        // Create a unique key for this problem
+        const problemKey = `${num1}${operator}${num2}`;
+
+        // Check if this problem already exists
+        if (!usedSpecial67Problems.has(problemKey)) {
+          usedSpecial67Problems.add(problemKey);
+          return {
+            num1: num1,
+            num2: num2,
+            operator: operator,
+            answer: target
+          };
+        }
+      }
+
+      // Fallback: if we can't find a unique problem, return one anyway
+      const num2 = Math.floor(Math.random() * 66) + 1;
+      return {
+        num1: target - num2,
+        num2: num2,
+        operator: '+',
+        answer: target
       };
     }
 
@@ -642,7 +737,7 @@
 
         // Draw header text
         const operation = document.getElementById('operation').value;
-        const operationName = operation.charAt(0).toUpperCase() + operation.slice(1);
+        const operationName = operation === 'special67' ? 'Mixed' : operation.charAt(0).toUpperCase() + operation.slice(1);
 
         ctx.fillStyle = '#5d4e37';
         ctx.font = 'bold 18px Arial';
@@ -692,7 +787,11 @@
       const maxNum = parseInt(document.getElementById('maxNumber').value);
       const numQuestions = parseInt(document.getElementById('numQuestions').value);
 
-      let operationName = operation.charAt(0).toUpperCase() + operation.slice(1);
+      // Clear the duplicate tracking set for special67
+      usedSpecial67Problems.clear();
+
+      // Map operation to display name (special67 shows as "Mixed")
+      let operationName = operation === 'special67' ? 'Mixed' : operation.charAt(0).toUpperCase() + operation.slice(1);
 
       // Update worksheet header
       const headerTitle = document.querySelector('.worksheet-header h2');
@@ -706,23 +805,28 @@
         scoreSpan.textContent = `Score: _______ / ${numQuestions}`;
       }
 
-      let createProblem;
-      switch(operation) {
-        case 'addition':
-          createProblem = createAdditionProblem;
-          break;
-        case 'multiplication':
-          createProblem = createMultiplicationProblem;
-          break;
-        case 'division':
-          createProblem = createDivisionProblem;
-          break;
-        default:
-          createProblem = createSubtractionProblem;
-      }
+      const problemFunctions = {
+        addition: createAdditionProblem,
+        subtraction: createSubtractionProblem,
+        multiplication: createMultiplicationProblem,
+        division: createDivisionProblem,
+        special67: createSpecial67Problem
+      };
 
       currentProblems = [];
       for (let i = 0; i < numQuestions; i++) {
+        let createProblem;
+        if (operation === 'mixed') {
+          // Randomly select an operation for each problem
+          const operations = ['addition', 'subtraction', 'multiplication', 'division'];
+          const randomOp = operations[Math.floor(Math.random() * operations.length)];
+          createProblem = problemFunctions[randomOp];
+        } else if (operation === 'special67') {
+          // All answers equal 67 with mixed operations
+          createProblem = createSpecial67Problem;
+        } else {
+          createProblem = problemFunctions[operation] || createSubtractionProblem;
+        }
         currentProblems.push(createProblem(maxNum, allowNegatives, i));
       }
 
