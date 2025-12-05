@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Osyra's Worksheets - Periodic Table</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Coffee Base Colors */
+      --espresso: #1e1610;
+      --dark-mocha: #2a1e14;
+      --coffee-bean: #453024;
+
+      /* Cream & Milk Colors */
+      --steamed-milk: #f5f5dc;
+      --light-cream: #f8e5c8;
+      --half-and-half: #d2b48c;
+
+      /* Syrup & Flavor Colors */
+      --caramel: #d2691e;
+      --pumpkin-spice: #b68d40;
+      --mocha: #8b4513;
+
+      /* Darker Syrups */
+      --dark-caramel: #38271e;
+      --toasted-almond: #5c4937;
+      --dark-chocolate: #120d08;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--dark-chocolate) 0%, var(--espresso) 100%);
+      color: var(--steamed-milk);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .app-header {
+      background: var(--dark-caramel);
+      border: 1px solid var(--coffee-bean);
+      border-radius: 12px;
+      padding: 25px 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .app-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--caramel);
+    }
+
+    .controls-panel {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--half-and-half);
+    }
+
+    select {
+      padding: 10px 14px;
+      font-size: 14px;
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: var(--dark-caramel);
+      color: var(--steamed-milk);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--pumpkin-spice);
+      background: var(--espresso);
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 14px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    button.primary {
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+    }
+
+    button.primary:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
+    }
+
+    button.secondary {
+      background: var(--mocha);
+      color: var(--steamed-milk);
+    }
+
+    button.secondary:hover {
+      background: var(--coffee-bean);
+      transform: translateY(-1px);
+    }
+
+    .worksheet {
+      background: var(--dark-mocha);
+      border: 1px solid var(--coffee-bean);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .worksheet-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--coffee-bean);
+    }
+
+    .worksheet-header h2 {
+      font-size: 24px;
+      color: var(--caramel);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .worksheet-header .info {
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      color: var(--half-and-half);
+    }
+
+    .canvas-container {
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    #questionsCanvas {
+      border: 2px solid var(--coffee-bean);
+      border-radius: 8px;
+      background: #faf8f3;
+      display: block;
+    }
+
+    #answersCanvas {
+      border: 2px solid transparent;
+      border-radius: 8px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      background: transparent;
+      display: none;
+    }
+
+    #answersCanvas.show {
+      display: block;
+    }
+
+    .print-page {
+      display: none;
+    }
+
+    .back-link {
+      display: block;
+      padding: 8px 16px;
+      background: var(--pumpkin-spice);
+      color: var(--espresso);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      float: left;
+    }
+
+    .back-link:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+    }
+
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+        margin: 0;
+      }
+
+      .app-header, .controls-panel, .no-print {
+        display: none !important;
+      }
+
+      .worksheet {
+        display: none !important;
+      }
+
+      .print-page {
+        display: block;
+        page-break-after: always;
+        width: 7.5in;
+        height: 10in;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .print-page:last-child {
+        page-break-after: auto;
+      }
+
+      .print-page canvas {
+        width: 7.5in !important;
+        height: 10in !important;
+        display: block;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        background: white !important;
+      }
+
+      @page {
+        margin: 0.5in;
+        size: A4 portrait;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .controls label {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <div class="app-header">
+      <a class="back-link" href="index.html">BACK</a>
+      <h1 class="app-title">Osyra's Worksheets
+        <a href="https://librecounter.org/referer/show" target="_blank">
+          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+        </a>
+      </h1>
+    </div>
+
+    <div class="controls-panel no-print">
+      <div class="controls">
+        <label>
+          <span>Quiz Type:</span>
+          <select id="quizType">
+            <option value="symbol">Element Symbol → Name</option>
+            <option value="name">Element Name → Symbol</option>
+            <option value="number">Atomic Number → Name</option>
+            <option value="mixed">Mixed Questions</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Elements:</span>
+          <select id="elementRange">
+            <option value="first20">First 20 Elements</option>
+            <option value="first40">First 40 Elements</option>
+            <option value="common">Common Elements (30)</option>
+            <option value="all">All 118 Elements</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Number of Questions:</span>
+          <select id="numQuestions">
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20" selected>20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+          </select>
+        </label>
+
+        <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
+        <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
+        <button class="secondary" onclick="window.print()">Print Worksheet</button>
+      </div>
+    </div>
+
+    <div class="worksheet">
+      <div class="worksheet-header">
+        <h2>Periodic Table Quiz</h2>
+        <div class="info">
+          <span>Name: _______________________</span>
+          <span>Date: _______________________</span>
+          <span>Score: _______ / 20</span>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="questionsCanvas"></canvas>
+        <canvas id="answersCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Print-only pages -->
+    <div id="printContainer"></div>
+  </div>
+
+  <script>
+    // All 118 elements of the periodic table
+    const elements = [
+      { number: 1, symbol: 'H', name: 'Hydrogen' },
+      { number: 2, symbol: 'He', name: 'Helium' },
+      { number: 3, symbol: 'Li', name: 'Lithium' },
+      { number: 4, symbol: 'Be', name: 'Beryllium' },
+      { number: 5, symbol: 'B', name: 'Boron' },
+      { number: 6, symbol: 'C', name: 'Carbon' },
+      { number: 7, symbol: 'N', name: 'Nitrogen' },
+      { number: 8, symbol: 'O', name: 'Oxygen' },
+      { number: 9, symbol: 'F', name: 'Fluorine' },
+      { number: 10, symbol: 'Ne', name: 'Neon' },
+      { number: 11, symbol: 'Na', name: 'Sodium' },
+      { number: 12, symbol: 'Mg', name: 'Magnesium' },
+      { number: 13, symbol: 'Al', name: 'Aluminum' },
+      { number: 14, symbol: 'Si', name: 'Silicon' },
+      { number: 15, symbol: 'P', name: 'Phosphorus' },
+      { number: 16, symbol: 'S', name: 'Sulfur' },
+      { number: 17, symbol: 'Cl', name: 'Chlorine' },
+      { number: 18, symbol: 'Ar', name: 'Argon' },
+      { number: 19, symbol: 'K', name: 'Potassium' },
+      { number: 20, symbol: 'Ca', name: 'Calcium' },
+      { number: 21, symbol: 'Sc', name: 'Scandium' },
+      { number: 22, symbol: 'Ti', name: 'Titanium' },
+      { number: 23, symbol: 'V', name: 'Vanadium' },
+      { number: 24, symbol: 'Cr', name: 'Chromium' },
+      { number: 25, symbol: 'Mn', name: 'Manganese' },
+      { number: 26, symbol: 'Fe', name: 'Iron' },
+      { number: 27, symbol: 'Co', name: 'Cobalt' },
+      { number: 28, symbol: 'Ni', name: 'Nickel' },
+      { number: 29, symbol: 'Cu', name: 'Copper' },
+      { number: 30, symbol: 'Zn', name: 'Zinc' },
+      { number: 31, symbol: 'Ga', name: 'Gallium' },
+      { number: 32, symbol: 'Ge', name: 'Germanium' },
+      { number: 33, symbol: 'As', name: 'Arsenic' },
+      { number: 34, symbol: 'Se', name: 'Selenium' },
+      { number: 35, symbol: 'Br', name: 'Bromine' },
+      { number: 36, symbol: 'Kr', name: 'Krypton' },
+      { number: 37, symbol: 'Rb', name: 'Rubidium' },
+      { number: 38, symbol: 'Sr', name: 'Strontium' },
+      { number: 39, symbol: 'Y', name: 'Yttrium' },
+      { number: 40, symbol: 'Zr', name: 'Zirconium' },
+      { number: 41, symbol: 'Nb', name: 'Niobium' },
+      { number: 42, symbol: 'Mo', name: 'Molybdenum' },
+      { number: 43, symbol: 'Tc', name: 'Technetium' },
+      { number: 44, symbol: 'Ru', name: 'Ruthenium' },
+      { number: 45, symbol: 'Rh', name: 'Rhodium' },
+      { number: 46, symbol: 'Pd', name: 'Palladium' },
+      { number: 47, symbol: 'Ag', name: 'Silver' },
+      { number: 48, symbol: 'Cd', name: 'Cadmium' },
+      { number: 49, symbol: 'In', name: 'Indium' },
+      { number: 50, symbol: 'Sn', name: 'Tin' },
+      { number: 51, symbol: 'Sb', name: 'Antimony' },
+      { number: 52, symbol: 'Te', name: 'Tellurium' },
+      { number: 53, symbol: 'I', name: 'Iodine' },
+      { number: 54, symbol: 'Xe', name: 'Xenon' },
+      { number: 55, symbol: 'Cs', name: 'Cesium' },
+      { number: 56, symbol: 'Ba', name: 'Barium' },
+      { number: 57, symbol: 'La', name: 'Lanthanum' },
+      { number: 58, symbol: 'Ce', name: 'Cerium' },
+      { number: 59, symbol: 'Pr', name: 'Praseodymium' },
+      { number: 60, symbol: 'Nd', name: 'Neodymium' },
+      { number: 61, symbol: 'Pm', name: 'Promethium' },
+      { number: 62, symbol: 'Sm', name: 'Samarium' },
+      { number: 63, symbol: 'Eu', name: 'Europium' },
+      { number: 64, symbol: 'Gd', name: 'Gadolinium' },
+      { number: 65, symbol: 'Tb', name: 'Terbium' },
+      { number: 66, symbol: 'Dy', name: 'Dysprosium' },
+      { number: 67, symbol: 'Ho', name: 'Holmium' },
+      { number: 68, symbol: 'Er', name: 'Erbium' },
+      { number: 69, symbol: 'Tm', name: 'Thulium' },
+      { number: 70, symbol: 'Yb', name: 'Ytterbium' },
+      { number: 71, symbol: 'Lu', name: 'Lutetium' },
+      { number: 72, symbol: 'Hf', name: 'Hafnium' },
+      { number: 73, symbol: 'Ta', name: 'Tantalum' },
+      { number: 74, symbol: 'W', name: 'Tungsten' },
+      { number: 75, symbol: 'Re', name: 'Rhenium' },
+      { number: 76, symbol: 'Os', name: 'Osmium' },
+      { number: 77, symbol: 'Ir', name: 'Iridium' },
+      { number: 78, symbol: 'Pt', name: 'Platinum' },
+      { number: 79, symbol: 'Au', name: 'Gold' },
+      { number: 80, symbol: 'Hg', name: 'Mercury' },
+      { number: 81, symbol: 'Tl', name: 'Thallium' },
+      { number: 82, symbol: 'Pb', name: 'Lead' },
+      { number: 83, symbol: 'Bi', name: 'Bismuth' },
+      { number: 84, symbol: 'Po', name: 'Polonium' },
+      { number: 85, symbol: 'At', name: 'Astatine' },
+      { number: 86, symbol: 'Rn', name: 'Radon' },
+      { number: 87, symbol: 'Fr', name: 'Francium' },
+      { number: 88, symbol: 'Ra', name: 'Radium' },
+      { number: 89, symbol: 'Ac', name: 'Actinium' },
+      { number: 90, symbol: 'Th', name: 'Thorium' },
+      { number: 91, symbol: 'Pa', name: 'Protactinium' },
+      { number: 92, symbol: 'U', name: 'Uranium' },
+      { number: 93, symbol: 'Np', name: 'Neptunium' },
+      { number: 94, symbol: 'Pu', name: 'Plutonium' },
+      { number: 95, symbol: 'Am', name: 'Americium' },
+      { number: 96, symbol: 'Cm', name: 'Curium' },
+      { number: 97, symbol: 'Bk', name: 'Berkelium' },
+      { number: 98, symbol: 'Cf', name: 'Californium' },
+      { number: 99, symbol: 'Es', name: 'Einsteinium' },
+      { number: 100, symbol: 'Fm', name: 'Fermium' },
+      { number: 101, symbol: 'Md', name: 'Mendelevium' },
+      { number: 102, symbol: 'No', name: 'Nobelium' },
+      { number: 103, symbol: 'Lr', name: 'Lawrencium' },
+      { number: 104, symbol: 'Rf', name: 'Rutherfordium' },
+      { number: 105, symbol: 'Db', name: 'Dubnium' },
+      { number: 106, symbol: 'Sg', name: 'Seaborgium' },
+      { number: 107, symbol: 'Bh', name: 'Bohrium' },
+      { number: 108, symbol: 'Hs', name: 'Hassium' },
+      { number: 109, symbol: 'Mt', name: 'Meitnerium' },
+      { number: 110, symbol: 'Ds', name: 'Darmstadtium' },
+      { number: 111, symbol: 'Rg', name: 'Roentgenium' },
+      { number: 112, symbol: 'Cn', name: 'Copernicium' },
+      { number: 113, symbol: 'Nh', name: 'Nihonium' },
+      { number: 114, symbol: 'Fl', name: 'Flerovium' },
+      { number: 115, symbol: 'Mc', name: 'Moscovium' },
+      { number: 116, symbol: 'Lv', name: 'Livermorium' },
+      { number: 117, symbol: 'Ts', name: 'Tennessine' },
+      { number: 118, symbol: 'Og', name: 'Oganesson' }
+    ];
+
+    // Common elements for easier quiz
+    const commonElementNumbers = [1, 2, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 26, 29, 30, 35, 47, 50, 53, 79, 80, 82, 78, 74, 92];
+
+    // Global state
+    let currentQuestions = [];
+    let showingAnswers = false;
+    let questionsCanvas, answersCanvas;
+    let questionsCtx, answersCtx;
+
+    function initCanvases() {
+      questionsCanvas = document.getElementById('questionsCanvas');
+      answersCanvas = document.getElementById('answersCanvas');
+      questionsCtx = questionsCanvas.getContext('2d');
+      answersCtx = answersCanvas.getContext('2d');
+    }
+
+    function getElementPool(range) {
+      switch(range) {
+        case 'first20':
+          return elements.slice(0, 20);
+        case 'first40':
+          return elements.slice(0, 40);
+        case 'common':
+          return elements.filter(e => commonElementNumbers.includes(e.number));
+        case 'all':
+        default:
+          return elements;
+      }
+    }
+
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    function createQuestion(element, quizType) {
+      const types = ['symbol', 'name', 'number'];
+      let type = quizType;
+
+      if (quizType === 'mixed') {
+        type = types[Math.floor(Math.random() * types.length)];
+      }
+
+      switch(type) {
+        case 'symbol':
+          return {
+            question: `What element has the symbol "${element.symbol}"?`,
+            answer: element.name,
+            hint: `(#${element.number})`
+          };
+        case 'name':
+          return {
+            question: `What is the symbol for ${element.name}?`,
+            answer: element.symbol,
+            hint: `(#${element.number})`
+          };
+        case 'number':
+          return {
+            question: `What element has atomic number ${element.number}?`,
+            answer: element.name,
+            hint: `(${element.symbol})`
+          };
+      }
+    }
+
+    function drawWorksheet() {
+      const numQuestions = currentQuestions.length;
+      const margin = 30;
+      const A4_WIDTH = 794;
+      const pageHeight = 900;
+
+      // Two columns layout
+      const cols = 2;
+      const questionHeight = 60;
+      const colWidth = (A4_WIDTH - 3 * margin) / cols;
+
+      // Calculate how many questions fit per page
+      const availableHeight = pageHeight - (2 * margin);
+      const questionsPerCol = Math.floor(availableHeight / questionHeight);
+      const questionsPerPage = questionsPerCol * cols;
+      const numPages = Math.ceil(numQuestions / questionsPerPage);
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvases
+      questionsCanvas.width = A4_WIDTH;
+      questionsCanvas.height = totalHeight;
+      answersCanvas.width = A4_WIDTH;
+      answersCanvas.height = totalHeight;
+
+      // Update display size
+      const containerWidth = questionsCanvas.parentElement.clientWidth;
+      const scale = Math.min(1, containerWidth / A4_WIDTH);
+
+      questionsCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      questionsCanvas.style.height = (totalHeight * scale) + 'px';
+      answersCanvas.style.width = (A4_WIDTH * scale) + 'px';
+      answersCanvas.style.height = (totalHeight * scale) + 'px';
+
+      // Clear canvases
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, A4_WIDTH, totalHeight);
+      answersCtx.clearRect(0, 0, A4_WIDTH, totalHeight);
+
+      // Draw page separators
+      if (numPages > 1) {
+        questionsCtx.strokeStyle = '#cccccc';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.setLineDash([5, 5]);
+        for (let page = 1; page < numPages; page++) {
+          const pageY = page * pageHeight;
+          questionsCtx.beginPath();
+          questionsCtx.moveTo(0, pageY);
+          questionsCtx.lineTo(A4_WIDTH, pageY);
+          questionsCtx.stroke();
+        }
+        questionsCtx.setLineDash([]);
+      }
+
+      // Draw questions
+      questionsCtx.textBaseline = 'top';
+
+      currentQuestions.forEach((q, index) => {
+        // Calculate which page this question is on
+        const currentPage = Math.floor(index / questionsPerPage);
+        const indexOnPage = index % questionsPerPage;
+
+        const col = indexOnPage % cols;
+        const row = Math.floor(indexOnPage / cols);
+
+        const x = margin + col * (colWidth + margin);
+        const y = (currentPage * pageHeight) + margin + (row * questionHeight);
+
+        // Question number
+        questionsCtx.fillStyle = '#5d4e37';
+        questionsCtx.font = 'bold 14px Arial';
+        questionsCtx.fillText(`${index + 1}.`, x, y);
+
+        // Question text
+        questionsCtx.fillStyle = '#3d3d3d';
+        questionsCtx.font = '14px Arial';
+        questionsCtx.fillText(q.question, x + 28, y);
+
+        // Answer line
+        questionsCtx.strokeStyle = '#8b7355';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(x + 28, y + 38);
+        questionsCtx.lineTo(x + colWidth - 10, y + 38);
+        questionsCtx.stroke();
+
+        // Draw answer if showing
+        if (showingAnswers) {
+          answersCtx.fillStyle = '#c75000';
+          answersCtx.font = 'bold 14px Arial';
+          answersCtx.textBaseline = 'top';
+          answersCtx.fillText(q.answer, x + 32, y + 20);
+        }
+      });
+    }
+
+    function createPrintPages() {
+      const printContainer = document.getElementById('printContainer');
+      printContainer.innerHTML = '';
+
+      const pageHeight = 900;
+      const A4_WIDTH = 794;
+      const numPages = Math.ceil(questionsCanvas.height / pageHeight);
+
+      const quizType = document.getElementById('quizType').value;
+      const quizTypeNames = {
+        'symbol': 'Symbol → Name',
+        'name': 'Name → Symbol',
+        'number': 'Atomic Number → Name',
+        'mixed': 'Mixed Questions'
+      };
+
+      for (let page = 0; page < numPages; page++) {
+        const pageDiv = document.createElement('div');
+        pageDiv.className = 'print-page';
+
+        const pageCanvas = document.createElement('canvas');
+        pageCanvas.width = A4_WIDTH;
+        pageCanvas.height = pageHeight;
+
+        const ctx = pageCanvas.getContext('2d');
+
+        // Fill white background
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, A4_WIDTH, pageHeight);
+
+        // Draw header on first page only
+        if (page === 0) {
+          const headerHeight = 60;
+
+          ctx.strokeStyle = '#333333';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(0, headerHeight);
+          ctx.lineTo(A4_WIDTH, headerHeight);
+          ctx.stroke();
+
+          ctx.fillStyle = '#5d4e37';
+          ctx.font = 'bold 18px Arial';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(`Periodic Table Quiz: ${quizTypeNames[quizType]}`, A4_WIDTH / 2, 25);
+
+          ctx.font = '12px Arial';
+          ctx.textAlign = 'left';
+          ctx.fillText('Name: _______________________', 30, 50);
+
+          ctx.textAlign = 'center';
+          ctx.fillText('Date: _______________________', A4_WIDTH / 2, 50);
+
+          ctx.textAlign = 'right';
+          ctx.fillText(`Score: _______ / ${currentQuestions.length}`, A4_WIDTH - 30, 50);
+
+          // Copy worksheet content (offset for header)
+          ctx.drawImage(questionsCanvas, 0, 0, A4_WIDTH, pageHeight - headerHeight, 0, headerHeight, A4_WIDTH, pageHeight - headerHeight);
+
+          if (showingAnswers) {
+            ctx.drawImage(answersCanvas, 0, 0, A4_WIDTH, pageHeight - headerHeight, 0, headerHeight, A4_WIDTH, pageHeight - headerHeight);
+          }
+        } else {
+          // For subsequent pages, copy from the corresponding section of the main canvas
+          const sourceY = page * pageHeight;
+          ctx.drawImage(questionsCanvas, 0, sourceY, A4_WIDTH, pageHeight, 0, 0, A4_WIDTH, pageHeight);
+
+          if (showingAnswers) {
+            ctx.drawImage(answersCanvas, 0, sourceY, A4_WIDTH, pageHeight, 0, 0, A4_WIDTH, pageHeight);
+          }
+
+          // Add page number
+          ctx.fillStyle = '#8b7355';
+          ctx.font = '12px Arial';
+          ctx.textAlign = 'center';
+          ctx.fillText(`Page ${page + 1}`, A4_WIDTH / 2, pageHeight - 20);
+        }
+
+        pageDiv.appendChild(pageCanvas);
+        printContainer.appendChild(pageDiv);
+      }
+    }
+
+    function generateWorksheet() {
+      const quizType = document.getElementById('quizType').value;
+      const elementRange = document.getElementById('elementRange').value;
+      const numQuestions = parseInt(document.getElementById('numQuestions').value);
+
+      // Get element pool and shuffle
+      const pool = getElementPool(elementRange);
+      const shuffled = shuffleArray(pool);
+
+      // Select elements for questions (avoid duplicates)
+      const selectedElements = shuffled.slice(0, Math.min(numQuestions, pool.length));
+
+      // Create questions
+      currentQuestions = selectedElements.map(element => createQuestion(element, quizType));
+
+      // Update score display
+      const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
+      if (scoreSpan) {
+        scoreSpan.textContent = `Score: _______ / ${currentQuestions.length}`;
+      }
+
+      showingAnswers = false;
+      answersCanvas.classList.remove('show');
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    function toggleAnswers() {
+      showingAnswers = !showingAnswers;
+      const button = event.target;
+      button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
+
+      if (showingAnswers) {
+        answersCanvas.classList.add('show');
+      } else {
+        answersCanvas.classList.remove('show');
+      }
+
+      drawWorksheet();
+      setTimeout(() => createPrintPages(), 100);
+    }
+
+    // Initialize
+    window.onload = function() {
+      initCanvases();
+      generateWorksheet();
+    };
+
+    window.onresize = function() {
+      if (questionsCanvas && currentQuestions.length > 0) {
+        drawWorksheet();
+      }
+    };
+  </script>
+</body>
+</html>
