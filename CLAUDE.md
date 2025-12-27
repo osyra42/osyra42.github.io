@@ -28,6 +28,8 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - Three-panel layout: customization | game | stats
 
 - **osyras_tale/**: Markdown story content organized by Parts and Characters
+  - `revision_00/`: Original 2024 version with Parts 0-3
+  - `resision_01/`: 2025 revision (in progress)
 
 ## Main Page Pattern
 
@@ -147,3 +149,9 @@ This is a GitHub Pages site:
 ## Important Dates (tracked in scripts.js)
 - 2026-01-04: Premium host expiration
 - 2026-09-19: Website domain renewal
+
+## File Locations
+- PDF files: `assets/jail/`
+- Profile images: `assets/images/profiles/`
+- Icons: `assets/images/icons/`
+- Legal documents: `assets/legal/`

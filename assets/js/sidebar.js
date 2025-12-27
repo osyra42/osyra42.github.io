@@ -7,26 +7,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const DAYS_TO_KEEP_NEW = 14;
     
-    // Links data - easy to maintain and update
+    // Links data - alphabetical by section, then by text (sorted by date when rendered)
     const linksData = [
+        // Legal Links
+        { section: 'Legal Links', href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 },
+        { section: 'Legal Links', href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to get help or view frequently asked questions', updateDate: 20251008 },
+        { section: 'Legal Links', href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251227 },
+
         // Navigation
+        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251227 },
+        { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251121 },
         { section: 'Navigation', href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251121 },
         { section: 'Navigation', href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20251121 },
-        { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251121 },
-        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251125 },
 
         // Projects
-        { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
+        { section: 'Projects', href: 'clutter.html', text: 'Clutter Extension', icon: 'puzzle-piece.png', alt: 'Clutter', title: 'Click to view information about the Clutter Chrome extension', updateDate: 20251226 },
+        { section: 'Projects', href: 'do_it_better_for_free.html', text: 'Do It Better for Free', icon: 'piggy-bank.png', alt: 'Free Software', title: 'Click to view the free software alternatives guide', updateDate: 20251226 },
         { section: 'Projects', href: 'fishing_mini_game/index.html', text: 'Fishing Mini Game', icon: 'fish.png', alt: 'Fishing Game', title: 'Click to play the fishing mini game', updateDate: 20251127 },
+        { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
+        { section: 'Projects', href: 'media_mimic.html', text: 'Media Mimic', icon: 'compact-disc.png', alt: 'Media Mimic', title: 'Click to view information about Media Mimic', updateDate: 20251226 },
         { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
+        { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20251224 },
+        { section: 'Projects', href: 'pdf_files.html', text: 'PDF Files', icon: 'file-pdf.png', alt: 'PDF Files', title: 'Click to view all PDF files', updateDate: 20251226 },
+        { section: 'Projects', href: 'urbex_safety.html', text: 'Urbex Safety', icon: 'road-barrier.png', alt: 'Urbex Safety', title: 'Click to view the urban exploration safety guide', updateDate: 20251226 },
         { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
-        { section: 'Projects', href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'Books', title: 'Click to the page with my books', updateDate: 20251010 },
-        { section: 'Projects', href: 'my_creations.html', text: 'My Creations', icon: 'floppy-disk.png', alt: 'Creations', title: 'Click to view information about all my creations', updateDate: 20251127 },
-
-        // Legal Links
-        { section: 'Legal Links', href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251012 },
-        { section: 'Legal Links', href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to get help or view frequently asked questions', updateDate: 20251008 },
-        { section: 'Legal Links', href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 }
+        { section: 'Projects', href: 'vtuber_guide.html', text: 'VTuber Guide', icon: 'masks-theater.png', alt: 'VTuber Guide', title: 'Click to view the VTuber creation guide', updateDate: 20251226 }
     ];
     
     // Function to check if link should have "new" class
@@ -48,10 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to generate HTML for a section of links
     function generateSectionHTML(sectionTitle, linkFilter) {
-        const sectionLinks = linksData.filter(linkFilter);
-        
+        const sectionLinks = linksData
+            .filter(linkFilter)
+            .sort((a, b) => (b.updateDate || 0) - (a.updateDate || 0)); // Sort by date, newest first
+
         if (sectionLinks.length === 0) return '';
-        
+
         let html = `<h3>${sectionTitle}</h3>`;
         sectionLinks.forEach(link => {
             const newClass = shouldBeNew(link.updateDate) ? ' new' : '';
@@ -82,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <h2>${title}</h2>
 </div>
 <nav>
-<span id="clutter-toggle" style="font-size: 8px;float: right; background-color: var(--toasted-almond); color: var(--half-and-half); border: 2px solid var(--espresso); border-radius: 5px; padding: 3px; cursor: pointer;"> with clutter.js?</span>
+<span id="clutter-toggle" style="font-size: 8px;float: right; background-color: var(--toasted-almond); color: var(--half-and-half); border: 2px solid var(--espresso); border-radius: 5px; padding: 3px; cursor: pointer;"> wanna try Clutter? </span>
     ${generateSectionHTML('Navigation', link => link.section === 'Navigation')}
     <hr>
     ${generateSectionHTML('Projects', link => link.section === 'Projects')}
