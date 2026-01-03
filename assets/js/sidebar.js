@@ -7,33 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration
     const DAYS_TO_KEEP_NEW = 14;
     
-    // Links data - alphabetical by section, then by text (sorted by date when rendered)
-    const linksData = [
-        // Legal Links
-        { section: 'Legal Links', href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 },
-        { section: 'Legal Links', href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to get help or view frequently asked questions', updateDate: 20251008 },
-        { section: 'Legal Links', href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view our privacy policy', updateDate: 20251227 },
-
-        // Navigation
-        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251227 },
-        { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251121 },
-        { section: 'Navigation', href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20251121 },
-        { section: 'Navigation', href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20251121 },
-
-        // Projects
-        { section: 'Projects', href: 'clutter.html', text: 'Clutter Extension', icon: 'puzzle-piece.png', alt: 'Clutter', title: 'Click to view information about the Clutter Chrome extension', updateDate: 20251226 },
-        { section: 'Projects', href: 'do_it_better_for_free.html', text: 'Do It Better for Free', icon: 'piggy-bank.png', alt: 'Free Software', title: 'Click to view the free software alternatives guide', updateDate: 20251226 },
-        { section: 'Projects', href: 'fishing_mini_game/index.html', text: 'Fishing Mini Game', icon: 'fish.png', alt: 'Fishing Game', title: 'Click to play the fishing mini game', updateDate: 20251127 },
-        { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
-        { section: 'Projects', href: 'media_mimic.html', text: 'Media Mimic', icon: 'compact-disc.png', alt: 'Media Mimic', title: 'Click to view information about Media Mimic', updateDate: 20251226 },
-        { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
-        { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20251224 },
-        { section: 'Projects', href: 'pdf_files.html', text: 'PDF Files', icon: 'file-pdf.png', alt: 'PDF Files', title: 'Click to view all PDF files', updateDate: 20251226 },
-        { section: 'Projects', href: 'urbex_safety.html', text: 'Urbex Safety', icon: 'road-barrier.png', alt: 'Urbex Safety', title: 'Click to view the urban exploration safety guide', updateDate: 20251226 },
-        { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
-        { section: 'Projects', href: 'vtuber_guide.html', text: 'VTuber Guide', icon: 'masks-theater.png', alt: 'VTuber Guide', title: 'Click to view the VTuber creation guide', updateDate: 20251226 }
-    ];
-    
     // Function to check if link should have "new" class
     function shouldBeNew(updateDate) {
         if (!updateDate) return false;
@@ -53,9 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to generate HTML for a section of links
     function generateSectionHTML(sectionTitle, linkFilter) {
-        const sectionLinks = linksData
-            .filter(linkFilter)
-            .sort((a, b) => (b.updateDate || 0) - (a.updateDate || 0)); // Sort by date, newest first
+        const sectionLinks = linksData.filter(linkFilter);
 
         if (sectionLinks.length === 0) return '';
 
@@ -72,6 +43,35 @@ document.addEventListener('DOMContentLoaded', function() {
         
         return html;
     }
+
+    // Links data - organized by section order (Navigation, Projects, Support, Legal), alphabetical within each
+    const linksData = [
+        // Navigation - Core site pages
+        { section: 'Navigation', href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20260103 },
+        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251227 },
+        { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251121 },
+        { section: 'Navigation', href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20260103 },
+
+        // Projects - My work and creations
+        { section: 'Projects', href: 'clutter.html', text: 'Clutter Extension', icon: 'puzzle-piece.png', alt: 'Clutter', title: 'Click to view information about the Clutter Chrome extension', updateDate: 20251226 },
+        { section: 'Projects', href: 'do_it_better_for_free.html', text: 'Do It Better for Free', icon: 'piggy-bank.png', alt: 'Free Software', title: 'Click to view the free software alternatives guide', updateDate: 20251226 },
+        { section: 'Projects', href: 'fishing_mini_game/index.html', text: 'Fishing Mini Game', icon: 'fish.png', alt: 'Fishing Game', title: 'Click to play the fishing mini game', updateDate: 20251127 },
+        { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
+        { section: 'Projects', href: 'media_mimic.html', text: 'Media Mimic', icon: 'compact-disc.png', alt: 'Media Mimic', title: 'Click to view information about Media Mimic', updateDate: 20251226 },
+        { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
+        { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20251224 },
+        { section: 'Projects', href: 'pdf_files.html', text: 'PDF Files', icon: 'file-pdf.png', alt: 'PDF Files', title: 'Click to view all PDF files', updateDate: 20251226 },
+        { section: 'Projects', href: 'urbex_safety.html', text: 'Urbex Safety', icon: 'road-barrier.png', alt: 'Urbex Safety', title: 'Click to view the urban exploration safety guide', updateDate: 20251226 },
+        { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
+        { section: 'Projects', href: 'vtuber_guide.html', text: 'VTuber Guide', icon: 'masks-theater.png', alt: 'VTuber Guide', title: 'Click to view the VTuber creation guide', updateDate: 20251226 },
+
+        // Support - Ways to support my work
+        { section: 'Support', href: 'donate.html', text: 'Donate', icon: 'hand-holding-dollar.png', alt: 'Donate', title: 'Support my work through donations and wishlists', updateDate: 20251121 },
+
+        // Legal - Terms and policies
+        { section: 'Legal', href: 'vanity_legal.html', text: 'Vanity Legal', icon: 'scroll.png', alt: 'Vanity Legal', title: 'Click to view Vanity bot terms and FAQ', updateDate: 20251008 },
+        { section: 'Legal', href: 'website_legal.html', text: 'Website Legal', icon: 'shield-halved.png', alt: 'Privacy', title: 'Click to view privacy policy and terms', updateDate: 20251227 }
+    ];
     
     // Generate complete sidebar HTML
     function generateNavHTML() {
@@ -94,7 +94,9 @@ document.addEventListener('DOMContentLoaded', function() {
     <hr>
     ${generateSectionHTML('Projects', link => link.section === 'Projects')}
     <hr>
-    ${generateSectionHTML('Legal Links', link => link.section === 'Legal Links')}
+    ${generateSectionHTML('Support', link => link.section === 'Support')}
+    <hr>
+    ${generateSectionHTML('Legal', link => link.section === 'Legal')}
 </nav>
 <hr/>
 <p style="position: relative; font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
