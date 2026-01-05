@@ -1,4 +1,4 @@
-<!-- my_projects.html -->
+<!-- osyras_tale.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,11 +25,46 @@
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/clutter-main/clutter.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
 
   <script>
     image = "osyras_tale.jpg";
     title = "Osyra's Tale";
   </script>
+
+  <style>
+    .chapter-link {
+      cursor: pointer;
+      color: var(--caramel);
+    }
+    .chapter-link:hover {
+      color: var(--pumpkin-spice);
+      text-decoration: underline;
+    }
+    .chapter-link.active {
+      color: var(--pumpkin-spice);
+      font-weight: bold;
+    }
+    #content-viewer {
+      background: var(--dark-mocha);
+      padding: 1rem;
+      border-radius: 8px;
+      min-height: 200px;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    #content-viewer p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+    #content-viewer h1, #content-viewer h2, #content-viewer h3 {
+      color: var(--pumpkin-spice);
+    }
+    .loading {
+      color: var(--half-and-half);
+      font-style: italic;
+    }
+  </style>
 
 </head>
 <body>
@@ -42,11 +77,23 @@
 
       <article>
         <header>
+          <h3 id="viewer-title">Content Viewer</h3>
+        </header>
+        <section>
+          <div id="content-viewer">
+            <p class="loading">Loading...</p>
+          </div>
+        </section>
+      </article>
+
+      <article>
+        <header>
           <h3>Osyra's Tale - Revision 01 (2025)</h3>
         </header>
         <section>
         <pre>
-[001] <a href="osyras_tale/revision_01/01_interview.txt">Chapter 01 - Interview</a>
+[000] <span class="chapter-link" data-file="osyras_tale/README.md">About Osyra's Tale</span>
+[001] <span class="chapter-link" data-file="osyras_tale/revision_01/01_interview.md">Chapter 01 - Interview</span>
 <s>[002] Chapter 02 - </s>
 <s>[003] Chapter 03 - </s>
         </pre>
@@ -59,104 +106,123 @@
         </header>
         <section>
         <pre>
-[000A] <a href="osyras_tale/revision_00/Part 0/001.md">Part 0 - Random Things</a>
-  [001A] <a href="osyras_tale/revision_00/Part 0/001.md">Chapter -1 - Back Alley</a>
-[100A] <a href="osyras_tale/revision_00/Part 1/100.md">Part 1 - Chimera Project</a>
-  [101A] <a href="osyras_tale/revision_00/Part 1/101.md">Chapter 01 - A Declaration of Self</a>
-  [102B] <a href="osyras_tale/revision_00/Part 1/102.md">Chapter 02 - The Gilded Cage</a> <span class="new">.</span>
-  [103A] <a href="osyras_tale/revision_00/Part 1/103.md">Chapter 03 - Burnt Toast and Solder</a>
-  [104A] <a href="osyras_tale/revision_00/Part 1/104.md">Chapter 04 - The Awakening</a>
-  [105A] <a href="osyras_tale/revision_00/Part 1/105.md">Chapter 05 - The Second Tragedy</a>
-  [106A] <a href="osyras_tale/revision_00/Part 1/106.md">Chapter 06 - A Promise</a>
-  [107B] <a href="osyras_tale/revision_00/Part 1/107.md">Chapter 07 - Who is impressed?</a> <span class="new">.</span>
-  [108A] <a href="osyras_tale/revision_00/Part 1/108.md">Chapter 08 - Somehow Good News</a>
-  [109A] <a href="osyras_tale/revision_00/Part 1/109.md">Chapter 09 - A Big Surprise</a>
-  [110A] <a href="osyras_tale/revision_00/Part 1/110.md">Chapter 10 - Child Happiness</a>
-  [111A] <a href="osyras_tale/revision_00/Part 1/111.md">Chapter 11 - First Handshake</a>
-  [112A] <a href="osyras_tale/revision_00/Part 1/112.md">Chapter 12 - It's Mitosis</a>
-  [113A] <a href="osyras_tale/revision_00/Part 1/113.md">Chapter 13 - Cool Sunglasses</a>
-  [114A] <a href="osyras_tale/revision_00/Part 1/114.md">Chapter 14 - A New Opportunity</a>
-  [115A] <a href="osyras_tale/revision_00/Part 1/115.md">Chapter 15 - The Warehouse</a>
-  [116A] <a href="osyras_tale/revision_00/Part 1/116.md">Chapter 16 - New Turbines</a>
-  [117A] <a href="osyras_tale/revision_00/Part 1/117.md">Chapter 17 - The Mighty Pen</a>
-  [118A] <a href="osyras_tale/revision_00/Part 1/118.md">Chapter 18 - Ship Shape</a>
-  [119A] <a href="osyras_tale/revision_00/Part 1/119.md">Chapter 19 - Happy Lab</a>
-  [120A] <a href="osyras_tale/revision_00/Part 1/120.md">Chapter 20 - Well Technically</a>
-  [121A] <a href="osyras_tale/revision_00/Part 1/121.md">Chapter 21 - Clinical Trials</a>
-  [122A] <a href="osyras_tale/revision_00/Part 1/122.md">Chapter 22 - The First Chimeran</a>
-  [123A] <a href="osyras_tale/revision_00/Part 1/123.md">Chapter 23 - Successful Mutation</a>
-  [124A] <a href="osyras_tale/revision_00/Part 1/124.md">Chapter 24 - Reassignment</a>
-  [125A] <a href="osyras_tale/revision_00/Part 1/125.md">Chapter 25 - Morbid Fixation</a>
-  [126A] <a href="osyras_tale/revision_00/Part 1/126.md">Chapter 26 - It Burns Anything</a>
-  [127A] <a href="osyras_tale/revision_00/Part 1/127.md">Chapter 27 - Pudding Brain</a>
-  [128A] <a href="osyras_tale/revision_00/Part 1/128.md">Chapter 28 - Mercenary</a>
-  [129A] <a href="osyras_tale/revision_00/Part 1/129.md">Chapter 29 - Boot Camp</a>
-  [130A] <a href="osyras_tale/revision_00/Part 1/130.md">Chapter 30 - Chimera One</a>
-  [131A] <a href="osyras_tale/revision_00/Part 1/131.md">Chapter 31 - The Unchained</a>
-  [132A] <a href="osyras_tale/revision_00/Part 1/132.md">Chapter 32 - </a>
-[200A] <a href="osyras_tale/revision_00/Part 2/200.md">Part 2 - A True Predator</a>
-  [233A] <a href="osyras_tale/revision_00/Part 2/233.md">Chapter 33 - </a>
-  [234A] <a href="osyras_tale/revision_00/Part 2/234.md">Chapter 34 - </a>
-  [235A] <a href="osyras_tale/revision_00/Part 2/235.md">Chapter 35 - </a>
-  [236A] <a href="osyras_tale/revision_00/Part 2/236.md">Chapter 36 - </a>
-  [237A] <a href="osyras_tale/revision_00/Part 2/237.md">Chapter 37 - </a>
-  [238A] <a href="osyras_tale/revision_00/Part 2/238.md">Chapter 38 - </a>
-  [239A] <a href="osyras_tale/revision_00/Part 2/239.md">Chapter 39 - </a>
-  [240A] <a href="osyras_tale/revision_00/Part 2/240.md">Chapter 40 - </a>
-[300A] <a href="osyras_tale/revision_00/Part 3/300.md">Part 3 - Search and Rescue</a>
+[000A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 0/001.md">Part 0 - Random Things</span>
+  [001A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 0/001.md">Chapter -1 - Back Alley</span>
+[100A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/100.md">Part 1 - Chimera Project</span>
+  [101A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/101.md">Chapter 01 - A Declaration of Self</span>
+  [102B] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/102.md">Chapter 02 - The Gilded Cage</span> <span class="new">.</span>
+  [103A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/103.md">Chapter 03 - Burnt Toast and Solder</span>
+  [104A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/104.md">Chapter 04 - The Awakening</span>
+  [105A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/105.md">Chapter 05 - The Second Tragedy</span>
+  [106A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/106.md">Chapter 06 - A Promise</span>
+  [107B] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/107.md">Chapter 07 - Who is impressed?</span> <span class="new">.</span>
+  [108A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/108.md">Chapter 08 - Somehow Good News</span>
+  [109A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/109.md">Chapter 09 - A Big Surprise</span>
+  [110A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/110.md">Chapter 10 - Child Happiness</span>
+  [111A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/111.md">Chapter 11 - First Handshake</span>
+  [112A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/112.md">Chapter 12 - It's Mitosis</span>
+  [113A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/113.md">Chapter 13 - Cool Sunglasses</span>
+  [114A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/114.md">Chapter 14 - A New Opportunity</span>
+  [115A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/115.md">Chapter 15 - The Warehouse</span>
+  [116A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/116.md">Chapter 16 - New Turbines</span>
+  [117A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/117.md">Chapter 17 - The Mighty Pen</span>
+  [118A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/118.md">Chapter 18 - Ship Shape</span>
+  [119A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/119.md">Chapter 19 - Happy Lab</span>
+  [120A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/120.md">Chapter 20 - Well Technically</span>
+  [121A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/121.md">Chapter 21 - Clinical Trials</span>
+  [122A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/122.md">Chapter 22 - The First Chimeran</span>
+  [123A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/123.md">Chapter 23 - Successful Mutation</span>
+  [124A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/124.md">Chapter 24 - Reassignment</span>
+  [125A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/125.md">Chapter 25 - Morbid Fixation</span>
+  [126A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/126.md">Chapter 26 - It Burns Anything</span>
+  [127A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/127.md">Chapter 27 - Pudding Brain</span>
+  [128A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/128.md">Chapter 28 - Mercenary</span>
+  [129A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/129.md">Chapter 29 - Boot Camp</span>
+  [130A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/130.md">Chapter 30 - Chimera One</span>
+  [131A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/131.md">Chapter 31 - The Unchained</span>
+  [132A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/132.md">Chapter 32 - </span>
+[200A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/200.md">Part 2 - A True Predator</span>
+  [233A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/233.md">Chapter 33 - </span>
+  [234A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/234.md">Chapter 34 - </span>
+  [235A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/235.md">Chapter 35 - </span>
+  [236A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/236.md">Chapter 36 - </span>
+  [237A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/237.md">Chapter 37 - </span>
+  [238A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/238.md">Chapter 38 - </span>
+  [239A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/239.md">Chapter 39 - </span>
+  [240A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/240.md">Chapter 40 - </span>
+[300A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 3/300.md">Part 3 - Search and Rescue</span>
 <s>[400A] Part 4 - </s>
-
-<!--
-[000A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 0/001.md"></script>
-[001A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 0/001.md"></script>
-[100A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/100.md"></script>
-[101A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/101.md"></script>
-[102B] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/102.md"></script>
-[103A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/103.md"></script>
-[104A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/104.md"></script>
-[105A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/105.md"></script>
-[106A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/106.md"></script>
-[107B] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/107.md"></script>
-[108A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/108.md"></script>
-[109A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/109.md"></script>
-[110A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/110.md"></script>
-[111A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/111.md"></script>
-[112A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/112.md"></script>
-[113A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/113.md"></script>
-[114A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/114.md"></script>
-[115A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/115.md"></script>
-[116A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/116.md"></script>
-[117A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/117.md"></script>
-[118A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/118.md"></script>
-[119A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/119.md"></script>
-[120A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/120.md"></script>
-[121A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/121.md"></script>
-[122A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/122.md"></script>
-[123A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/123.md"></script>
-[124A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/124.md"></script>
-[125A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/125.md"></script>
-[126A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/126.md"></script>
-[127A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/127.md"></script>
-[128A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/128.md"></script>
-[129A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/129.md"></script>
-[130A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/130.md"></script>
-[131A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/131.md"></script>
-[132A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 1/132.md"></script>
-[200A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/200.md"></script>
-[233A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/233.md"></script>
-[234A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/234.md"></script>
-[235A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/235.md"></script>
-[236A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/236.md"></script>
-[237A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/237.md"></script>
-[238A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/238.md"></script>
-[239A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/239.md"></script>
-[240A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 2/240.md"></script>
-[300A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 3/300.md"></script>
-[400A] <script src="assets/js/md2html.js" data-md2html="osyras_tale/Part 4/400.md"></script>
--->
           </pre>
         </section>
       </article>
   </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const viewer = document.getElementById('content-viewer');
+    const viewerTitle = document.getElementById('viewer-title');
+    const links = document.querySelectorAll('.chapter-link');
+
+    function loadContent(filePath) {
+        viewer.innerHTML = '<p class="loading">Loading...</p>';
+        viewerTitle.textContent = 'Loading...';
+
+        // Add cache-busting timestamp to force refresh
+        const cacheBuster = '?t=' + Date.now();
+
+        fetch(filePath + cacheBuster)
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load file');
+                return response.text();
+            })
+            .then(text => {
+                // Get the first non-empty line as the title and find where content starts
+                const lines = text.split('\n');
+                let firstLine = '';
+                let contentStartIndex = 0;
+
+                for (let i = 0; i < lines.length; i++) {
+                    const trimmed = lines[i].trim();
+                    if (trimmed) {
+                        // Remove markdown heading markers if present
+                        firstLine = trimmed.replace(/^#+\s*/, '');
+                        contentStartIndex = i + 1;
+                        break;
+                    }
+                }
+                viewerTitle.textContent = firstLine || 'Content Viewer';
+
+                // Remove the first line (title) from content
+                const contentText = lines.slice(contentStartIndex).join('\n').trim();
+
+                // Render markdown content
+                viewer.innerHTML = Md2Html.md2html(contentText);
+                viewer.scrollTop = 0;
+            })
+            .catch(error => {
+                viewerTitle.textContent = 'Error';
+                viewer.innerHTML = `<p style="color: var(--caramel);">Error loading content: ${error.message}</p>`;
+            });
+    }
+
+    // Add click handlers to all chapter links
+    links.forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove active class from all links
+            links.forEach(l => l.classList.remove('active'));
+            // Add active class to clicked link
+            this.classList.add('active');
+            // Load the content
+            loadContent(this.dataset.file);
+        });
+    });
+
+    // Load README by default
+    loadContent('osyras_tale/README.md');
+    // Mark the About link as active
+    document.querySelector('.chapter-link[data-file="osyras_tale/README.md"]').classList.add('active');
+});
+</script>
+
 </body>
 </html>

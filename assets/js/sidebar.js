@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const linksData = [
         // Navigation - Core site pages
         { section: 'Navigation', href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20260103 },
-        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20251227 },
+        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20260105 },
         { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251121 },
         { section: 'Navigation', href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20260103 },
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
         { section: 'Projects', href: 'media_mimic.html', text: 'Media Mimic', icon: 'compact-disc.png', alt: 'Media Mimic', title: 'Click to view information about Media Mimic', updateDate: 20251226 },
         { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
-        { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20251224 },
+        { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20260105 },
         { section: 'Projects', href: 'pdf_files.html', text: 'PDF Files', icon: 'file-pdf.png', alt: 'PDF Files', title: 'Click to view all PDF files', updateDate: 20251226 },
         { section: 'Projects', href: 'urbex_safety.html', text: 'Urbex Safety', icon: 'road-barrier.png', alt: 'Urbex Safety', title: 'Click to view the urban exploration safety guide', updateDate: 20251226 },
         { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <p style="position: relative; font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
     Contact Email - <a href="mailto:coffeebytedev@proton.me" style="color: var(--caramel); font-size: 10px;">CoffeeByteDev@proton.me</a>
     <br>
-    Coffee Byte Dev &copy; 2019 - 2025; All rights reserved.
+    Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
     <a href="https://librecounter.org/referer/show" target="_blank">
           <img style="position: absolute; bottom: 0; right: 0; width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
         </a>
