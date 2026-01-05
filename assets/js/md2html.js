@@ -37,8 +37,8 @@ const Md2Html = (function() {
         let inBlockquote = false;
 
         lines.forEach(line => {
-            let processedLine = escapeHtml(line);
-            
+            let processedLine = '';
+
             // Headers
             if (line.startsWith('# ')) {
                 processedLine = `<h1>${parseInlineFormatting(line.substring(2))}</h1>`;
@@ -75,21 +75,23 @@ const Md2Html = (function() {
             else if (line.match(/^[-*_]{3,}$/)) {
                 processedLine = '<hr>';
             }
-            // Regular paragraph
-            else if (line.trim() !== '') {
-                processedLine = `<p>${parseInlineFormatting(line)}</p>`;
-            } else {
-                // Empty line - close lists and blockquotes
+            // Empty line - create empty paragraph for spacing, close lists/blockquotes
+            else if (line.trim() === '') {
                 if (inList) {
                     processedLine = '</ul>';
                     inList = false;
-                }
-                if (inBlockquote) {
+                } else if (inBlockquote) {
                     processedLine = '</blockquote>';
                     inBlockquote = false;
+                } else {
+                    processedLine = '<p>&nbsp;</p>';
                 }
             }
-            
+            // Regular paragraph
+            else {
+                processedLine = `<p>${parseInlineFormatting(line)}</p>`;
+            }
+
             htmlContent += processedLine + '\n';
         });
 
