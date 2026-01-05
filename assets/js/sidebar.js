@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { section: 'Projects', href: 'fishing_mini_game/index.html', text: 'Fishing Mini Game', icon: 'fish.png', alt: 'Fishing Game', title: 'Click to play the fishing mini game', updateDate: 20251127 },
         { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
         { section: 'Projects', href: 'media_mimic.html', text: 'Media Mimic', icon: 'compact-disc.png', alt: 'Media Mimic', title: 'Click to view information about Media Mimic', updateDate: 20251226 },
-        { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20251015 },
+        { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20260105 },
         { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20260105 },
         { section: 'Projects', href: 'pdf_files.html', text: 'PDF Files', icon: 'file-pdf.png', alt: 'PDF Files', title: 'Click to view all PDF files', updateDate: 20251226 },
         { section: 'Projects', href: 'urbex_safety.html', text: 'Urbex Safety', icon: 'road-barrier.png', alt: 'Urbex Safety', title: 'Click to view the urban exploration safety guide', updateDate: 20251226 },
