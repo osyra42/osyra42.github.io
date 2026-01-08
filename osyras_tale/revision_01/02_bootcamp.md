@@ -184,11 +184,11 @@ Briggs, who had muscles on his muscles but stood a good eight inches shorter, st
 
 He snapped to, but the damage was done—he was already off-balance. I unslung the Mk 13 and passed it to him. The moment the full weight transferred, his body jerked. His eyes widened as his posture sank, his arms instinctively tightening to wrestle the unexpected heft and length.
 
-"Looks like a struggle, Briggs! You admiring the craftsmanship or fighting a bear? Renaya, weapon back. Now, you're weaponless. Demonstrate a hostile take-down. Non-lethal. Go."
+"Looks like a struggle, Briggs! You admiring the craftsmanship or fighting a bear? Renaya, you're weaponless! Demonstrate a hostile take-down. Non-lethal. Go."
 
 Unburdened by the thirteen-pound anchor, my body became pure potential energy. I was across the gap in one long stride before Briggs could reset. I used his rooted, unbalanced posture against him, my longer arms easily bypassing his guard, sweeping his legs and driving him to the mat with a controlled thud.
 
-The DI didn't praise. He narrated to the platoon, who were now carefully keeping their eyes anywhere but directly on me. "Observe. The hammer is heavy, so the arm that swings it is built to carry it. A tool for every task. Briggs, you're on firewatch. The rest of you, look alive—at your own damn jobs!"
+The DI didn’t praise. He simply narrated, his voice cutting through the damp air as the platoon stood rigid, eyes fixed on nothing. "Observe. The hammer is heavy. The arm is built to carry it. A tool for every task." He paused, letting the silence hang. "Briggs, firewatch. The rest of you, look alive—at your own damn jobs."
 
 It was a visceral, undeniable lesson. My "different" was a tactical specification, and noticing it was a punishable lapse. The recruits learned. The stares didn't stop, but they became covert, fleeting, followed by an immediate, paranoid snap back to whatever they were supposed to be doing. I was no longer a spectacle; I was a hazard. A distraction hazard. It was the most anonymity I’d had since I got here.
 
@@ -197,3 +197,132 @@ The only respite was food. The chow hall was a haven of shocking, greasy abundan
 I sat alone, as always, at the end of a table. But now, the space around me felt less like an exile and more like a cleared range. No one looked too long. No one sat too close. I could eat in peace, the monstrous rifle leaning against the table like a silent guardian. I was the one who carried the thirteen-pound answer, and I was built on a scale that made it look logical. And if you were smart, you kept your eyes on your own tray.
 
 I took a bite of gravy-soaked meatloaf. It was fuel. For now, that was enough. The rest was just physics, and I was finally starting to feel like I was built for the equation. The silence of their averted eyes was the closest thing to respect I was likely to get.
+
+The gas chamber was a small, concrete-block building that smelled, even from the outside, like dread and old chemicals. We lined up in our protective masks, the tight rubber seals feeling alien against my face, pressing my ears flat. The DI, Sergeant Hale, stood by the door, his own mask making him look like a giant, unfeeling insect.
+
+“This is CS gas. Tear gas. It will not kill you. It will make you wish you were dead. The point is to trust your gear, and to learn how to clear and seal your mask under stress. You will enter, form a line, and on my command, you will break the seal, remove your mask, state your name and rank, then reseal. Anyone who runs for the door before I say ‘go’ repeats. Anyone who doesn’t complete the exercise repeats. Understood?”
+
+“YES, SERGEANT!”
+
+One by one, we filed into the thick, hazy air inside. Even with the mask on, my eyes began to water. The air had a sharp, metallic taste that seeped through. Then came my turn.
+
+“RENAYA! BREAK SEAL AND REMOVE!”
+
+I pulled the mask from my face.
+
+The world dissolved into instant, agonizing fire. It was like inhaling crushed glass and hornets. My lungs seized, a raw, scraping cough tearing from my throat. My eyes flooded, vision blurring into a smear of grey walls and green uniforms. But it was the other places—the places my parents had modified—that screamed the loudest. The sensitive inner fur of my ears felt like it was being seared with a thousand needles. The skin at the base of my tail, always a nexus of heightened sensation, burned as if splashed with acid. It was a pain I hadn’t anticipated, a vulnerability they hadn’t cataloged.
+
+“NAME AND RANK!” Hale bellowed from somewhere in the burning fog.
+
+I tried to suck in air to speak, and got a mouthful of fire. “RENAYA—!” I choked out, my voice a strangled rasp before a coughing fit doubled me over. Snot poured from my nose, thick and uncontrollable. All around me, the sounds were the same: retching, gagging, the wet, desperate hacking of fifty people drowning in their own mucus. The mysterious respiratory plague that had haunted the bay was instantly, violently cured. No one was congested anymore; every passage was ruthlessly, painfully clear.
+
+“SEAL YOUR MASK!”
+
+I fumbled the rubber back over my face, my fingers slick with tears and snot, and sucked in the sweet, filtered air. The relief was instantaneous, though the burning in my ears and tail throbbed for another hour. We stumbled out into the clean, cold daylight, faces raw and shining, all of us united in a new, profound understanding of misery. For a few minutes, no one looked at me. They were too busy trying to remember how to breathe.
+
+***
+
+Night ops came a week later. We were issued night-vision goggles—heavy, bulky units that turned the world into a ghostly green landscape of vague shapes and halos. We practiced moving in squads, communicating in whispers, the gear hissing and whining in our ears.
+
+I tried to use them. I really did. But the amplified light was overwhelming, washing out details, and the limited field of view felt like looking through two foggy soda bottles. It was harder to see with them than without.
+
+During a navigation exercise, moving through a dense patch of woods, I finally lifted the goggles onto my forehead. The world didn't just brighten; it clarified. My improved night vision rendered the darkness not as an obstacle, but as a different palette. The deep shadows held texture and depth. I could distinguish the grey of a rock from the grey of a root, see the subtle path of crushed leaves, track the heat-shimmer of a recruit’s body ten yards away as a faint, rippling disturbance in the cool air. My pupils, wide and dark, gathered every stray photon. I could hear the lieutenant’s whispered commands from two squads over with perfect clarity. I navigated the terrain not by stumbling through a green electronic haze, but by reading the real night as if it were a cloudy twilight.
+
+“Renaya, why are your NODs stowed?” a voice hissed. It was Corporal Vance, one of the training cadre.
+
+“They degrade my natural sight, Corporal. My night vision is sufficient.”
+
+A long pause. I could feel his stare in the dark, but he couldn’t see my face clearly. “Noted. Keep up. And don’t make me regret this.”
+
+I didn’t make him regret it. By the end of the exercise, I was quietly directing my squad around obstacles I could see and they couldn’t, my whispers keeping them from blundering into ditches or low branches. No one thanked me. But when we reassembled, our squad was the only one without a sprained ankle or a face full of spiderwebs. The looks I got were no longer of fear or disgust, but of grim, practical acknowledgment.
+
+***
+
+The PT tests were where things began to shift, almost imperceptibly. The tests were straightforward: a two-mile run, maximum push-ups in two minutes, maximum sit-ups in two minutes, pull-ups. For me, they were laughably easy. My body, built for endurance and power, performed with a cold efficiency that even I found unsettling.
+
+But as I stood panting lightly after my run, watching others stagger across the finish line, faces purple with strain, something strange happened. I didn’t feel smug. I felt… impatient.
+
+“Come on, Miller! You’ve got fifty yards! Dig! It’s just pain, leave it on the road!” The words were out of my mouth before I thought about them. Miller, a wiry guy who was usually one of the mockers, shot me a look of pure shock, then grimaced and found a last, desperate sprint.
+
+On the pull-up bar, I watched Carter fail on his seventh rep, his arms shaking. “Don’t let your knees drift, Carter! Lock your core! You’ve got three more in you, I know you do!” He grunted, heaved, and got an eighth.
+
+It wasn’t kindness. It was a brutal sort of pragmatism. We were a cell in an organism. If the cell next to me was weak, it made the whole body weaker. My own performance was irrelevant if the platoon failed. The DIs had beaten that into us. And for the first time, I internalized it not as a threat, but as a mechanic of survival.
+
+Slowly, tentatively, I became able to lead. Not by appointment, but by default. During ruck marches, when someone’s pack strap was digging in, I’d bark the adjustment drill sergeant Hale had taught us. During the endless, mind-numbing parade drills, when the rank would lose its dressing, my height and voice from the flank would call the alignment back. “Dress right, DRESS! Hold your interval, Garcia!”
+
+The most profound comfort was the silence from the DIs. They never blamed me for being different. They only ever blamed the others for *noticing*. “YOU STARING AT HER FEET TO LEARN THE CADENCE, JENKINS? EYES FRONT!” That simple, consistent reinforcement was a balm I hadn’t known I needed. My existence was not the problem. Their lack of focus was.
+
+We did ruck marches that felt like they would never end, the weight of the Mk 13 an old, familiar enemy on my shoulder. We did hand-to-hand combat in the gritty pits, where my reach and speed became assets I learned to control, not just flail. We did parade drills until the movements were autonomic, my tail held in a tight, still curl against my leg. We did a form of camping they called “bivouacking,” which was mostly lying in a cold, damp hole in the ground trying not to shiver, listening to the forest with ears that heard every rustle and snap.
+
+I was not becoming one of them. That was never the goal. The red-tape seat on the bus still existed. But the space around me was no longer a vacuum of hostility. It was a space of… function. I was a unique tool in the kit, and the other tools were slowly, grudgingly, learning how to work alongside me. And I, to my own surprise, was starting to care if they could do their jobs.
+
+I was losing my self-conscious mindset. The constant, withering internal narration of *freak, monster, mistake* was being drowned out by the external, immediate demands of the task: *Move faster. Shoot straighter. Carry more. Help them.*
+
+The beast in my blood, the one that had driven me to a stranger on a rooftop, was being channeled. Given a direction. Given a pack, however dysfunctional.
+
+It was a different kind of cage. But for the first time in my life, the walls weren’t there just to contain me. They were there to shape me into something that could, perhaps, eventually break out.
+
+The gas chamber was a small, concrete-block building that smelled, even from the outside, like dread and old chemicals. We lined up in our protective masks, the tight rubber seals feeling alien against my face, pressing my ears flat. The DI, Sergeant Hale, stood by the door, his own mask making him look like a giant, unfeeling insect.
+
+“This is CS gas. Tear gas. It will not kill you. It will make you wish you were dead. The point is to trust your gear, and to learn how to clear and seal your mask under stress. You will enter, form a line, and on my command, you will break the seal, remove your mask, state your name and rank, then reseal. Anyone who runs for the door before I say ‘go’ repeats. Anyone who doesn’t complete the exercise repeats. Understood?”
+
+“YES, SERGEANT!”
+
+One by one, we filed into the thick, hazy air inside. Even with the mask on, my eyes began to water. The air had a sharp, metallic taste that seeped through. Then came my turn.
+
+“RENAYA! BREAK SEAL AND REMOVE!”
+
+I pulled the mask from my face.
+
+The world dissolved into instant, agonizing fire. It was like inhaling crushed glass and hornets. My lungs seized, a raw, scraping cough tearing from my throat. My eyes flooded, vision blurring into a smear of grey walls and green uniforms. But it was the other places—the places my parents had modified—that screamed the loudest. The sensitive inner fur of my ears felt like it was being seared with a thousand needles. The skin at the base of my tail, always a nexus of heightened sensation, burned as if splashed with acid. It was a pain I hadn’t anticipated, a vulnerability they hadn’t cataloged.
+
+“NAME AND RANK!” Hale bellowed from somewhere in the burning fog.
+
+I tried to suck in air to speak, and got a mouthful of fire. “RENAYA—!” I choked out, my voice a strangled rasp before a coughing fit doubled me over. Snot poured from my nose, thick and uncontrollable. All around me, the sounds were the same: retching, gagging, the wet, desperate hacking of fifty people drowning in their own mucus. The mysterious respiratory plague that had haunted the bay was instantly, violently cured. No one was congested anymore; every passage was ruthlessly, painfully clear.
+
+“SEAL YOUR MASK!”
+
+I fumbled the rubber back over my face, my fingers slick with tears and snot, and sucked in the sweet, filtered air. The relief was instantaneous, though the burning in my ears and tail throbbed for another hour. We stumbled out into the clean, cold daylight, faces raw and shining, all of us united in a new, profound understanding of misery. For a few minutes, no one looked at me. They were too busy trying to remember how to breathe.
+
+***
+
+Night ops came a week later. We were issued night-vision goggles—heavy, bulky units that turned the world into a ghostly green landscape of vague shapes and halos. We practiced moving in squads, communicating in whispers, the gear hissing and whining in our ears.
+
+I tried to use them. I really did. But the amplified light was overwhelming, washing out details, and the limited field of view felt like looking through two foggy soda bottles. It was harder to see with them than without.
+
+During a navigation exercise, moving through a dense patch of woods, I finally lifted the goggles onto my forehead. The world snapped into a clarity the gear could never match. The darkness wasn’t black; it was a tapestry of deep blues, greys, and silvers. I could see the texture of bark, the individual needles on the pines, the heat shimmer of a recruit’s body ten yards away as a faint, pulsing aura against the cool background. I could hear the lieutenant’s whispered commands from two squads over. I navigated the terrain as if it were dusk, not midnight.
+
+“Renaya, why are your NODs stowed?” a voice hissed. It was Corporal Vance, one of the training cadre.
+
+“They’re a detriment, Corporal. I have sufficient natural low-light vision.”
+
+A long pause. I could feel his stare in the dark, but he couldn’t see my face clearly. “Noted. Keep up. And for God’s sake, don’t trip.”
+
+I didn’t trip. By the end of the exercise, I was quietly directing my squad around obstacles I could see and they couldn’t, my whispers keeping them from blundering into ditches or low branches. No one thanked me. But no one argued, either.
+
+***
+
+The PT tests were where things began to shift, almost imperceptibly. The tests were straightforward: a two-mile run, maximum push-ups in two minutes, maximum sit-ups in two minutes, pull-ups. For me, they were laughably easy. My body, built for endurance and power, performed with a cold efficiency that even I found unsettling.
+
+But as I stood panting lightly after my run, watching others stagger across the finish line, faces purple with strain, something strange happened. I didn’t feel smug. I felt… impatient.
+
+“Come on, Miller! You’ve got fifty yards! Dig! It’s just pain, leave it on the road!” The words were out of my mouth before I thought about them. Miller, a wiry guy who was usually one of the mockers, shot me a look of pure shock, then grimaced and found a last, desperate sprint.
+
+On the pull-up bar, I watched Carter fail on his seventh rep, his arms shaking. “Don’t let your knees drift, Carter! Lock your core! You’ve got three more in you, I know you do!” He grunted, heaved, and got an eighth.
+
+It wasn’t kindness. It was a brutal sort of pragmatism. We were a cell in an organism. If the cell next to me was weak, it made the whole body weaker. My own performance was irrelevant if the platoon failed. The DIs had beaten that into us. And for the first time, I internalized it not as a threat, but as a mechanic of survival.
+
+Slowly, tentatively, I became able to lead. Not by appointment, but by default. During ruck marches, when someone’s pack strap was digging in, I’d bark the adjustment drill sergeant Hale had taught us. During the endless, mind-numbing parade drills, when the rank would lose its dressing, my height and voice from the flank would call the alignment back. “Dress right, DRESS! Hold your interval, Garcia!”
+
+The most profound comfort was the silence from the DIs. They never blamed me for being different. They only ever blamed the others for *noticing*. “YOU STARING AT HER FEET TO LEARN THE CADENCE, JENKINS? EYES FRONT!” That simple, consistent reinforcement was a balm I hadn’t known I needed. My existence was not the problem. Their lack of focus was.
+
+We did ruck marches that felt like they would never end, the weight of the Mk 13 an old, familiar enemy on my shoulder. We did hand-to-hand combat in the gritty pits, where my reach and speed became assets I learned to control, not just flail. We did parade drills until the movements were autonomic, my tail held in a tight, still curl against my leg. We did a form of camping they called “bivouacking,” which was mostly lying in a cold, damp hole in the ground trying not to shiver, listening to the forest with ears that heard every rustle and snap.
+
+I was not becoming one of them. That was never the goal. The red-tape seat on the bus still existed. But the space around me was no longer a vacuum of hostility. It was a space of… function. I was a unique tool in the kit, and the other tools were slowly, grudgingly, learning how to work alongside me. And I, to my own surprise, was starting to care if they could do their jobs.
+
+I was losing my self-conscious mindset. The constant, withering internal narration of *freak, monster, mistake* was being drowned out by the external, immediate demands of the task: *Move faster. Shoot straighter. Carry more. Help them.*
+
+The beast in my blood, the one that had driven me to a stranger on a rooftop, was being channeled. Given a direction. Given a pack, however dysfunctional.
+
+It was a different kind of cage. But for the first time in my life, the walls weren’t there just to contain me. They were there to shape me into something that could, perhaps, eventually break out.
+
