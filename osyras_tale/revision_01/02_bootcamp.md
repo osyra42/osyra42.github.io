@@ -1,4 +1,4 @@
-**Chapter 2 - Processing**
+# Chapter 2 - Processing
 
 Transport was a black SUV with tinted windows and a driver who didn’t speak. It felt less like a ride and more like an extradition. The coordinates led to a private airstrip where a twin-prop plane, unmarked and utilitarian, swallowed me and two other recruits—a wiry man who kept cracking his knuckles and a woman with a thousand-yard stare who looked at nothing at all. We flew in silence, the drone of the engines a physical pressure in my sensitive ears. I took another pill with a sip of tepid water from a canteen. The chemical calm settled over me like a layer of clear ice.
 
