@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const linksData = [
         // Navigation - Core site pages
         { section: 'Navigation', href: 'index.html', text: 'Home Page', icon: 'home.png', alt: 'Home', title: 'Click to return to the home page', updateDate: 20260103 },
-        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20260105 },
+        { section: 'Navigation', href: 'changelog.html', text: 'Changelog', icon: 'changelog.png', alt: 'Changelog', title: 'Click to see the changelog', updateDate: 20260121 },
         { section: 'Navigation', href: 'commissions.html', text: 'Commissions', icon: 'cart.png', alt: 'Commissions', title: 'Click to submit a commission request', updateDate: 20251121 },
         { section: 'Navigation', href: 'recommendations.html', text: 'Recommendations', icon: 'address-card.png', alt: 'Recommendations', title: 'Click to see my curated recommendations', updateDate: 20260103 },
 
@@ -59,10 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         { section: 'Projects', href: 'school/index.html', text: 'Home School', icon: 'school.png', alt: 'Home School', title: 'Click to view information about the school', updateDate: 20251125 },
         { section: 'Projects', href: 'media_mimic.html', text: 'Media Mimic', icon: 'compact-disc.png', alt: 'Media Mimic', title: 'Click to view information about Media Mimic', updateDate: 20251226 },
         { section: 'Projects', href: 'minecraft.html', text: 'Minecraft Server', icon: 'server.png', alt: 'Minecraft', title: 'Click to view information about the Minecraft server', updateDate: 20260105 },
+        { section: 'Projects', href: 'my_books.html', text: 'My Books', icon: 'book.png', alt: 'My Books', title: 'Click to view my fantasy novels and writing', updateDate: 20260121 },
         { section: 'Projects', href: 'osyras_tale.html', text: "Osyra's Tale", icon: 'book.png', alt: "Osyra's Tale", title: "Click to read Osyra's Tale", updateDate: 20260105 },
         { section: 'Projects', href: 'pdf_files.html', text: 'PDF Files', icon: 'file-pdf.png', alt: 'PDF Files', title: 'Click to view all PDF files', updateDate: 20251226 },
         { section: 'Projects', href: 'urbex_safety.html', text: 'Urbex Safety', icon: 'road-barrier.png', alt: 'Urbex Safety', title: 'Click to view the urban exploration safety guide', updateDate: 20251226 },
-        { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20251018 },
+        { section: 'Projects', href: 'vanity.html', text: 'Vanity Bot', icon: 'robot.png', alt: 'Vanity Bot', title: 'Click to view information about the Vanity', updateDate: 20260121 },
         { section: 'Projects', href: 'vtuber_guide.html', text: 'VTuber Guide', icon: 'masks-theater.png', alt: 'VTuber Guide', title: 'Click to view the VTuber creation guide', updateDate: 20251226 },
 
         // Support - Ways to support my work
