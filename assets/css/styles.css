@@ -31,6 +31,9 @@
   --dark-caramel: #38271e; /* Card backgrounds */
   --toasted-almond: #5c4937; /* Secondary borders */
   --dark-chocolate: #120d08; /* Sidebar background */
+
+  /* Accent Colors */
+  --raspberry: #d7516c; /* NEW badges, required field indicators */
 }
 
 * {
@@ -370,7 +373,7 @@ hr {
   top: -0.5em;
   right: -1.5em;
   font-size: 0.6em;
-  color: var(--pumpkin-spice);
+  color: var(--raspberry);
   font-weight: bold;
   font-family: Arial, sans-serif;
   background-color: transparent;

@@ -56,7 +56,7 @@ function getSeason() {
 function createStyle() {
   const style = document.createElement("style");
   style.textContent = `
-    .clutter {
+    .cbd-clutter {
       position: fixed;
       width: 30px;
       height: 30px;
@@ -99,7 +99,7 @@ function createClutter(clutterTheme) {
   if (availableImages.length === 0) return;
 
   const clutter = document.createElement("div");
-  clutter.className = "clutter";
+  clutter.className = "cbd-clutter";
 
   clutter.style.left = `${Math.random() * window.innerWidth}px`;
 
