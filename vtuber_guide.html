@@ -45,160 +45,199 @@
       </header>
       <section>
         <pre>
-This guide provides a structured approach to creating and animating a VTuber avatar, even on low-end devices. Whether you're a beginner or looking for optimized tools, this document will help you design, customize, and bring your virtual persona to life.
-        </pre>
-      </section>
-    </article>
+A structured guide to creating and animating a VTuber avatar.
 
-    <!-- Section 1: Default Method -->
-    <article>
-      <header>
-        <h3>Section 1: Default VTuber Creation Method</h3>
-      </header>
-    </article>
-
-    <article>
-      <header>
-        <h3>Step 1: Prepare a Reference Image</h3>
-      </header>
-      <section>
-        <pre>
-Before designing your avatar, gather visual references to ensure accuracy in colors, proportions, and style.
-
-Where to Find References:
-- <a href="https://www.pixiv.net/" target="_blank" rel="noopener">Pixiv</a> - A popular platform for anime-style artwork
-- <a href="https://www.deviantart.com/" target="_blank" rel="noopener">DeviantArt</a> - Features a wide variety of character designs
-- Game or anime screenshots - Useful for replicating existing characters
-
-Why Use a Reference?
-- Helps maintain consistency in design
-- Ensures proper color matching
-- Guides facial and clothing details
+TABLE OF CONTENTS
+├─ 1. Standard Method (3D Avatar)
+│     ├─ 1.1 Reference Images
+│     ├─ 1.2 VRoid Studio
+│     └─ 1.3 Animation Software
+├─ 2. Live2D Method (2D Rigged) ─── NOT TESTED
+│     ├─ 2.1 Live2D Cubism
+│     └─ 2.2 VTube Studio
+├─ 3. Low-End Alternative (2D Static)
+│     ├─ 3.1 Veadotube Mini
+│     └─ 3.2 Drawing Tools
+└─ 4. Quick Reference
         </pre>
       </section>
     </article>
 
     <article>
       <header>
-        <h3>Step 2: Create Your Avatar in VRoid Studio</h3>
+        <h3>1. Standard Method (3D Avatar)</h3>
       </header>
       <section>
         <pre>
-VRoid Studio is a free 3D character creator designed for VTuber models.
+1.1 REFERENCE IMAGES
+    Before designing, gather visual references for colors, proportions, and style.
 
-Download &amp; Installation:
-- Official Site: <a href="https://vroid.com/en/studio" target="_blank" rel="noopener">VRoid Studio</a>
-- Steam Version: Available on Steam for easy updates
+    Sources:
+    ├─ <a href="https://www.pixiv.net/" target="_blank" rel="noopener">Pixiv</a> ─────────── Anime-style artwork
+    ├─ <a href="https://www.deviantart.com/" target="_blank" rel="noopener">DeviantArt</a> ─────── Variety of character designs
+    └─ Screenshots ───── Game or anime characters
 
-Key Features:
-- Intuitive sliders for facial and body customization
-- Hair, clothing, and accessory editors
-- Supports importing additional assets
+    Benefits:
+    ├─ Maintains design consistency
+    ├─ Ensures proper color matching
+    └─ Guides facial and clothing details
 
-Additional Resources:
-- <a href="https://booth.pm/" target="_blank" rel="noopener">Booth.pm</a> - Marketplace for free and paid VRoid assets (hairstyles, outfits)
+─────────────────────────────────────────────────────────
 
-Exporting Your Model:
-1. Save as .vroid (editable project file)
-2. Export as .vrm (for use in motion capture software)
+1.2 VROID STUDIO
+    Free 3D character creator for VTuber models.
+
+    Download:
+    ├─ <a href="https://vroid.com/en/studio" target="_blank" rel="noopener">Official Site</a>
+    └─ Steam (for easy updates)
+
+    Features:
+    ├─ Facial and body customization sliders
+    ├─ Hair, clothing, and accessory editors
+    └─ Import additional assets from <a href="https://booth.pm/" target="_blank" rel="noopener">Booth.pm</a>
+
+    Export:
+    ├─ .vroid ─── Editable project file
+    └─ .vrm ───── For motion capture software
+
+─────────────────────────────────────────────────────────
+
+1.3 ANIMATION SOFTWARE
+
+    ★ VMagicMirror (RECOMMENDED)
+      <a href="https://malaybaku.github.io/VMagicMirror/en/" target="_blank" rel="noopener">Download VMagicMirror</a>
+
+      ├─ Actively maintained
+      ├─ Webcam optional (works without camera)
+      ├─ Custom gestures, expressions, poses
+      ├─ Lightweight and customizable
+      └─ Supports keyboard, mouse, gamepad
+
+    ✗ VSeeFace (NOT RECOMMENDED)
+      <a href="https://www.vseeface.icu/" target="_blank" rel="noopener">VSeeFace Website</a>
+
+      └─ No longer maintained - may have compatibility issues
         </pre>
       </section>
     </article>
 
     <article>
       <header>
-        <h3>Step 3: Animate Your Avatar with Motion Capture</h3>
+        <h3>2. Live2D Method (2D Rigged)</h3>
       </header>
       <section>
         <pre>
-Choose a motion-tracking tool based on your hardware and needs.
+⚠ NOTE: I have not personally used this method. Information provided
+        is based on research and community recommendations.
 
-Option 1: VSeeFace (Webcam Required)
-- Website: <a href="https://www.vseeface.icu/" target="_blank" rel="noopener">VSeeFace</a>
-- Best For: Real-time facial and body tracking
-- Pros:
-  - Smooth lip-sync and eye tracking
-  - Lightweight performance
+Live2D creates animated 2D avatars with layered artwork that moves
+naturally. Popular among professional VTubers for its expressive quality.
 
-Option 2: VMagicMirror (No Webcam Needed)
-- Website: <a href="https://malaybaku.github.io/VMagicMirror/en/" target="_blank" rel="noopener">VMagicMirror</a>
-- Best For: Keyboard/mouse-controlled animations
-- Pros:
-  - Custom gestures and expressions
-  - Works without a camera
+─────────────────────────────────────────────────────────
+
+2.1 LIVE2D CUBISM
+    Software for creating rigged 2D models from layered artwork.
+
+    <a href="https://www.live2d.com/en/cubism/" target="_blank" rel="noopener">Live2D Cubism Website</a>
+
+    Pricing:
+    ├─ FREE ──────── Limited features, watermark on export
+    ├─ PRO ───────── $45/month or $235/year
+    └─ Business ──── For commercial use
+
+    Requirements:
+    ├─ Layered PSD artwork (separated parts: eyes, mouth, hair, etc.)
+    ├─ Artistic skill or commissioned artwork
+    └─ Time investment to learn rigging
+
+    Workflow:
+    ├─ 1. Create layered artwork in drawing software
+    ├─ 2. Import PSD into Live2D Cubism
+    ├─ 3. Rig mesh deformations and parameters
+    └─ 4. Export model for use in tracking software
+
+─────────────────────────────────────────────────────────
+
+2.2 VTUBE STUDIO
+    Motion tracking software for Live2D models.
+
+    <a href="https://denchisoft.com/" target="_blank" rel="noopener">VTube Studio Website</a>
+    Also available on Steam (free with paid Pro upgrade)
+
+    Features:
+    ├─ Webcam or iPhone face tracking
+    ├─ Hand tracking support
+    ├─ Extensive expression and hotkey system
+    └─ Large community of free models to try
+
+    Pricing:
+    ├─ FREE ──────── Watermark on screen
+    └─ PRO ───────── $25 one-time (removes watermark)
         </pre>
       </section>
     </article>
 
-    <!-- Section 2: Low-End Devices -->
     <article>
       <header>
-        <h3>Section 2: VTuber Creation for Low-End Devices</h3>
+        <h3>3. Low-End Alternative (2D Static)</h3>
       </header>
       <section>
         <pre>
-If your computer struggles with 3D modeling or real-time tracking, these alternatives provide lightweight solutions.
+For computers that struggle with 3D modeling or real-time tracking.
+
+3.1 VEADOTUBE MINI
+    <a href="https://olmewe.itch.io/veadotube-mini" target="_blank" rel="noopener">Download Veadotube Mini</a>
+
+    ├─ 2D PNGTuber-style avatars
+    ├─ Minimal CPU/GPU usage
+    └─ Supports webcam face tracking
+
+─────────────────────────────────────────────────────────
+
+3.2 DRAWING TOOLS
+
+    Clip Studio Paint ─── $54 one-time
+    <a href="https://www.clipstudio.net/" target="_blank" rel="noopener">clipstudio.net</a>
+    └─ Professional illustrations and animations
+
+    Krita ─────────────── Free
+    <a href="https://krita.org/" target="_blank" rel="noopener">krita.org</a>
+    └─ Digital painting and textures
+
+    GIMP ──────────────── Free
+    <a href="https://www.gimp.org/" target="_blank" rel="noopener">gimp.org</a>
+    └─ Photo editing and asset adjustments
         </pre>
       </section>
     </article>
 
     <article>
       <header>
-        <h3>Animation Tool: Veadotube Mini</h3>
+        <h3>4. Quick Reference</h3>
       </header>
       <section>
         <pre>
-- Website: <a href="https://olmewe.itch.io/veadotube-mini" target="_blank" rel="noopener">Veadotube Mini</a>
-- Best For: 2D PNGTuber-style avatars
-- Features:
-  - Minimal CPU/GPU usage
-  - Supports face tracking via webcam
-        </pre>
-      </section>
-    </article>
+METHOD COMPARISON
+┌────────────────┬─────────────┬───────────┬─────────────┐
+│ Method         │ Cost        │ Skill     │ Quality     │
+├────────────────┼─────────────┼───────────┼─────────────┤
+│ 3D (VRoid)     │ Free        │ Beginner  │ Good        │
+│ Live2D         │ $25-235+    │ Advanced  │ Professional│
+│ PNGTuber       │ Free        │ Beginner  │ Basic       │
+└────────────────┴─────────────┴───────────┴─────────────┘
 
-    <article>
-      <header>
-        <h3>Drawing &amp; Asset Creation Tools</h3>
-      </header>
-      <section>
-        <pre>
-If you need to design or modify your avatar, these software options cater to different skill levels and budgets.
+MY RECOMMENDATION
+├─ Best for beginners ─── VRoid Studio + VMagicMirror
+├─ Best for low-end ───── Veadotube Mini
+└─ Best quality ───────── Live2D + VTube Studio (not tested)
 
-1. Clip Studio Paint (Paid, Professional)
-   - Price: $54.00 (one-time purchase)
-   - Website: <a href="https://www.clipstudio.net/" target="_blank" rel="noopener">Clip Studio Paint</a>
-   - Best For: Detailed illustrations and animations
-
-2. Krita (Free, Open-Source)
-   - Website: <a href="https://krita.org/" target="_blank" rel="noopener">Krita</a>
-   - Best For: Digital painting and texture work
-
-3. GIMP (Free, Open-Source)
-   - Website: <a href="https://www.gimp.org/" target="_blank" rel="noopener">GIMP</a>
-   - Best For: Photo editing and asset adjustments
-        </pre>
-      </section>
-    </article>
-
-    <!-- Conclusion -->
-    <article>
-      <header>
-        <h3>Conclusion &amp; Next Steps</h3>
-      </header>
-      <section>
-        <pre>
-1. Design Phase: Use VRoid Studio with reference images
-2. Animation Phase: Pick VSeeFace (webcam) or VMagicMirror (no webcam)
-3. Low-End Alternative: Use Veadotube Mini for 2D avatars
-4. Asset Creation: Utilize Clip Studio, Krita, or GIMP for custom edits
-
-For further learning, explore tutorials on YouTube or VTuber communities like the <a href="https://www.reddit.com/r/VirtualYoutubers/" target="_blank" rel="noopener">Virtual Youtubers Reddit</a>.
+COMMUNITY
+└─ <a href="https://www.reddit.com/r/VirtualYoutubers/" target="_blank" rel="noopener">r/VirtualYoutubers</a> ─── Tutorials and support
         </pre>
       </section>
       <footer>
-        <span><a target="_blank" rel="noopener" href="assets/documents/jail/[osyra42] - vtuber_guide.pdf">Download as PDF</a></span>
-        <span style="float: right">FEB 2025</span>
+        <span><a target="_blank" rel="noopener" href="assets/jail/[osyra42] - vtuber_guide.pdf">Download as PDF</a></span>
+        <span style="float: right">JAN 2026</span>
       </footer>
     </article>
   </main>

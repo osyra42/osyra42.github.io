@@ -143,6 +143,11 @@
       color: #d2b48c;
     }
 
+    .required {
+      color: #c75b7a;
+      font-weight: bold;
+    }
+
     .form-actions {
       display: flex;
       gap: 12px;
@@ -214,6 +219,31 @@
       display: none;
     }
 
+    .status-banner {
+      text-align: center;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .status-banner.open {
+      background: rgba(75, 139, 69, 0.2);
+      border: 2px solid #4b8b45;
+      color: #7cb576;
+    }
+
+    .status-banner.closed {
+      background: rgba(139, 69, 69, 0.2);
+      border: 2px solid #8b4545;
+      color: #c75b5b;
+    }
+
+    .status-banner span {
+      font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
+    }
+
     .policy-box {
       background: rgba(139, 69, 19, 0.1);
       border-left: 4px solid #d2691e;
@@ -259,22 +289,34 @@
 
   <!-- Main Content -->
   <main>
+    <!-- Change class to "closed" when not accepting commissions -->
+    <div class="status-banner open">
+      <span>Commissions are OPEN</span>
+    </div>
+
     <article>
       <header>
         <h3>Commission Policy</h3>
       </header>
       <section>
         <div class="policy-box">
+          <!-- Pricing & Timeline -->
           <p><strong>Pricing:</strong> All commissions are taken at my discretion for free</p>
-          <p><strong>Free Timeline:</strong> Free commissions take about 3 months on average</p>
-          <p><strong>Priority:</strong> $20 payment guarantees completion in less than a week</p>
-          <p><strong>Payment:</strong> Optional payments can be made through any method on the <a href="donate.html">donate page</a></p>
+          <p><strong>Free Timeline:</strong> ~3 months on average</p>
+          <p><strong>Priority:</strong> $20 guarantees completion in less than a week</p>
+          <p><strong>Payment:</strong> Optional payments via the <a href="donate.html">donate page</a></p>
+
+          <!-- Request Rules -->
+          <p><strong>Request Limit:</strong> One active request per person</p>
+          <p><strong>Acceptance:</strong> Based on interest, availability, and skill alignment</p>
+          <p><strong>Scope Changes:</strong> May reset your position in the queue</p>
+
+          <!-- Terms -->
+          <p><strong>Refunds:</strong> No refunds on priority payments once work begins</p>
+          <p><strong>Right to Decline:</strong> I may decline any request for any reason</p>
         </div>
         <p>
-          I accept commission requests based on my interest, availability, and the project's alignment with my skills. All projects are completed free of charge with an average 3 month timeline, though a $20 contribution will guarantee your project is completed in less than a week.
-        </p>
-        <p>
-          Various factors influence project acceptance including complexity, scope, technical requirements, and whether the project presents an interesting challenge or learning opportunity.
+          Factors that influence acceptance include complexity, scope, technical requirements, and whether the project presents an interesting challenge or learning opportunity for me. View <a href="examples.html">examples of my previous work</a> to get an idea of what I can create.
         </p>
       </section>
     </article>
@@ -295,12 +337,12 @@
       <section>
         <form id="commission-form">
           <div class="form-group">
-            <label for="contact-name">Your Name *</label>
+            <label for="contact-name">Your Name <span class="required">*</span></label>
             <input type="text" id="contact-name" name="contact-name" required placeholder="Enter your name">
           </div>
 
           <div class="form-group">
-            <label for="contact-method">Contact Method *</label>
+            <label for="contact-method">Contact Method <span class="required">*</span></label>
             <select id="contact-method" name="contact-method" required>
               <option value="">Select contact method</option>
               <option value="discord">Discord</option>
@@ -310,7 +352,7 @@
           </div>
 
           <div class="form-group">
-            <label for="contact-info">Contact Information *</label>
+            <label for="contact-info">Contact Information <span class="required">*</span></label>
             <input type="text" id="contact-info" name="contact-info" required placeholder="Discord username, email, etc.">
           </div>
 
