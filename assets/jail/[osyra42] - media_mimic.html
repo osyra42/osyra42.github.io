@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Mimic - osyra42 Archive</title>
+    <link rel="stylesheet" href="../css/archive.css">
+    <style>
+        /* Document-specific styles */
+        .subtitle {
+            font-style: italic;
+            color: var(--archive-muted);
+            margin-bottom: 2em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="download-bar">
+    <h1>osyra42 Archive</h1>
+    <button class="download-btn" onclick="window.print()">Save as PDF</button>
+</div>
+
+<h1>Media Mimic</h1>
+<p class="subtitle">Archived Project Documentation</p>
+
+<h2>Project Overview</h2>
+
+<div class="info-box">
+    <p><strong>Name:</strong> Media Mimic</p>
+    <p><strong>Type:</strong> Desktop Application</p>
+    <p><strong>Language:</strong> Python (95.7%), Batchfile (4.3%)</p>
+    <p><strong>Framework:</strong> PySide6 (Qt for Python)</p>
+    <p><strong>Version:</strong> Build v2024.11.22 Alpha</p>
+    <p><strong>License:</strong> Free & Open Source</p>
+    <p><strong>Created:</strong> November 2024</p>
+</div>
+
+<p>Media Mimic is a desktop media library interface built with PySide6 that provides a graphical way to browse and play video content organized by categories. The application scans a configured media directory and displays content in an organized, visual grid layout.</p>
+
+<h2>Features</h2>
+
+<h3>Library Organization</h3>
+<ul>
+    <li>Scans a configured media directory and displays content hierarchically</li>
+    <li>Categories (folders) contain series titles (subfolders)</li>
+    <li>Filters out blacklisted directories and files starting with specific characters</li>
+</ul>
+
+<h3>Visual Interface</h3>
+<ul>
+    <li>Creates category headers with grid layouts of buttons</li>
+    <li>Each button displays a poster image (180x270 pixels) and title text</li>
+    <li>Automatically adjusts grid columns based on window width</li>
+    <li>Uses a scroll area for browsing large libraries</li>
+    <li>Includes custom window icons</li>
+</ul>
+
+<h3>Video Playback Integration</h3>
+<ul>
+    <li>Opens video folders in an existing VLC instance</li>
+    <li>Uses subprocess commands with recursive playlist options</li>
+    <li>Displays warning messages if VLC isn't detected</li>
+    <li>Shows error dialogs if video folder opening fails</li>
+</ul>
+
+<h3>Dynamic Layout</h3>
+<ul>
+    <li>Responsively recalculates grid columns on window resize</li>
+    <li>Optimizes button arrangement for different screen widths</li>
+    <li>Missing poster images default to a configured placeholder</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<div class="info-box">
+    <p><strong>Operating System:</strong> Windows (uses batch launcher)</p>
+    <p><strong>Python:</strong> Python 3.x</p>
+    <p><strong>External Software:</strong> VLC Media Player</p>
+</div>
+
+<h3>Python Dependencies</h3>
+<ul>
+    <li><code>psutil</code> - version 6.1.0 (system utilities)</li>
+    <li><code>PySide6</code> - version 6.8.0.1 (Qt framework)</li>
+    <li><code>PySide6_Addons</code> - version 6.8.0.1</li>
+    <li><code>PySide6_Essentials</code> - version 6.8.0.1</li>
+    <li><code>shiboken6</code> - version 6.8.0.1 (C++ binding generator)</li>
+</ul>
+
+<h2>Configuration Options</h2>
+
+<p>Settings are defined in <code>settings.py</code> (copy from <code>settings.py.example</code>):</p>
+
+<ul>
+    <li><strong>window_title:</strong> Application window name (default: "Media Mimic")</li>
+    <li><strong>app_icon:</strong> Icon file (default: "icon.png")</li>
+    <li><strong>media_path:</strong> Root directory for media files</li>
+    <li><strong>poster_path:</strong> Folder containing poster images (default: "posters")</li>
+    <li><strong>default_poster:</strong> Fallback poster image (default: "default.jpg")</li>
+    <li><strong>blacklisted_directories:</strong> Folders to exclude from scanning</li>
+    <li><strong>blacklisted_starting_characters:</strong> Ignore files/folders starting with these characters</li>
+</ul>
+
+<h2>Repository Structure</h2>
+
+<ul>
+    <li><code>/posters</code> - Directory for media poster images</li>
+    <li><code>main.py</code> - Primary Python application script</li>
+    <li><code>requirements.txt</code> - Python dependency specifications</li>
+    <li><code>settings.py.example</code> - Configuration template</li>
+    <li><code>zlauncher.bat</code> - Windows batch launcher</li>
+    <li><code>default.jpg</code> - Default poster placeholder</li>
+    <li><code>icon.png</code> - Application icon</li>
+</ul>
+
+<h2>Links</h2>
+
+<div class="links-box">
+    <p><strong>GitHub Repository:</strong> <a href="https://github.com/osyra42/media_mimic">https://github.com/osyra42/media_mimic</a></p>
+</div>
+
+<hr>
+
+<p><strong>Archive Date:</strong> January 2026</p>
+<p><strong>Original Page:</strong> https://coffeebyte.dev/media_mimic.html</p>
+
+<div class="footer">
+    <p><strong>Archived By:</strong> Coffee Byte Dev (osyra42)</p>
+</div>
+
+</body>
+</html>
