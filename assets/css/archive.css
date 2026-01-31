@@ -1,0 +1,559 @@
+/* archive.css - Shared styles for osyra42 Archive pages */
+
+:root {
+    /* Dark coffee theme (screen) */
+    --archive-bg: #1e1610;
+    --archive-text: #f5f5dc;
+    --archive-primary: #d2691e;
+    --archive-secondary: #b68d40;
+    --archive-header-bg: #2a1e14;
+    --archive-border: #453024;
+    --archive-box-bg: #2a1e14;
+    --archive-muted: #d2b48c;
+    --archive-link: #d2691e;
+    --archive-link-hover: #f8e5c8;
+    /* Mint accent */
+    --archive-mint: #7a9e8c;
+    --archive-mint-bg: #1e2820;
+    --archive-mint-light: #a8c5b5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: var(--archive-bg);
+    color: var(--archive-text);
+    line-height: 1.8;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header bar */
+.download-bar {
+    background-color: var(--archive-header-bg);
+    color: var(--archive-text);
+    padding: 15px 20px;
+    margin: -20px -20px 30px -20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 2px solid var(--archive-border);
+}
+
+.download-bar h1 {
+    font-size: 1.5em;
+    font-weight: normal;
+    color: var(--archive-secondary);
+}
+
+.download-btn {
+    background-color: var(--archive-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: var(--archive-secondary);
+}
+
+/* Main header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid var(--archive-border);
+}
+
+header h1 {
+    color: var(--archive-primary);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    color: var(--archive-secondary);
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+header .year {
+    color: var(--archive-muted);
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+/* Headings */
+h1 {
+    color: var(--archive-primary);
+    font-size: 2.5em;
+    margin-bottom: 0.3em;
+    border-bottom: 4px solid var(--archive-primary);
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    color: var(--archive-primary);
+    font-size: 1.8em;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    border-bottom: 2px solid var(--archive-primary);
+    padding-bottom: 0.3em;
+}
+
+h3 {
+    color: var(--archive-secondary);
+    font-size: 1.4em;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h4 {
+    color: var(--archive-secondary);
+    font-size: 1.2em;
+    margin-top: 1.2em;
+    margin-bottom: 0.4em;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+p.indent {
+    text-indent: 2em;
+}
+
+p.no-indent {
+    text-indent: 0;
+}
+
+/* Links */
+a {
+    color: var(--archive-link);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--archive-link-hover);
+    text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1em 0 1em 2em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Table of Contents */
+.toc {
+    background-color: var(--archive-box-bg);
+    border: 2px solid var(--archive-border);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.toc h2 {
+    color: var(--archive-primary);
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: none;
+}
+
+.toc ul {
+    list-style: none;
+    margin-left: 0;
+    columns: 2;
+    column-gap: 30px;
+}
+
+.toc li {
+    margin-bottom: 8px;
+    break-inside: avoid;
+}
+
+.toc a {
+    color: var(--archive-link);
+}
+
+.toc a:hover {
+    color: var(--archive-link-hover);
+}
+
+/* Characters section */
+.characters {
+    background-color: var(--archive-box-bg);
+    border: 2px solid var(--archive-border);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.characters h2 {
+    color: var(--archive-primary);
+    margin-bottom: 15px;
+    margin-top: 0;
+    font-size: 1.4em;
+    border-bottom: none;
+}
+
+.characters ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 30px;
+    margin: 0;
+}
+
+.characters li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.characters li::before {
+    content: "\2726";
+    position: absolute;
+    left: 0;
+    color: var(--archive-primary);
+}
+
+/* Info boxes */
+.info-box {
+    background: var(--archive-box-bg);
+    border-left: 4px solid var(--archive-primary);
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+}
+
+.info-box p {
+    margin-bottom: 0.5em;
+    text-indent: 0;
+}
+
+.info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.info-box strong {
+    color: var(--archive-secondary);
+}
+
+/* Warning boxes */
+.warning-box {
+    background: #3d2020;
+    border-left: 4px solid #c0392b;
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+}
+
+.warning-box p {
+    margin-bottom: 0.5em;
+}
+
+.warning-box p:last-child {
+    margin-bottom: 0;
+}
+
+.warning-box strong {
+    color: #e74c3c;
+}
+
+/* Tip boxes (mint) */
+.tip-box {
+    background: var(--archive-mint-bg);
+    border-left: 4px solid var(--archive-mint);
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+}
+
+.tip-box p {
+    margin-bottom: 0.5em;
+}
+
+.tip-box p:last-child {
+    margin-bottom: 0;
+}
+
+.tip-box strong {
+    color: var(--archive-mint-light);
+}
+
+/* Executive summary */
+.executive-summary {
+    background: var(--archive-box-bg);
+    border: 2px solid var(--archive-border);
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 40px;
+}
+
+.executive-summary h3 {
+    margin-top: 0;
+    color: var(--archive-primary);
+}
+
+/* Journal entries */
+.journal-entry {
+    background: var(--archive-box-bg);
+    border-left: 4px solid var(--archive-primary);
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+    font-style: italic;
+}
+
+.journal-entry p {
+    text-indent: 0;
+}
+
+.journal-date {
+    font-weight: bold;
+    color: var(--archive-secondary);
+    font-style: normal;
+}
+
+/* Dialogue */
+.dialogue {
+    margin: 1em 0;
+    text-indent: 0;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.9em;
+}
+
+th, td {
+    border: 1px solid var(--archive-border);
+    padding: 0.75em;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background-color: var(--archive-header-bg);
+    color: var(--archive-secondary);
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(42, 30, 20, 0.5);
+}
+
+/* Code */
+code {
+    background: var(--archive-header-bg);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', Consolas, monospace;
+    font-size: 0.9em;
+    color: var(--archive-secondary);
+}
+
+pre {
+    background: var(--archive-header-bg);
+    padding: 1em;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 1em 0;
+}
+
+/* Blockquote */
+blockquote {
+    background: var(--archive-box-bg);
+    border-left: 4px solid var(--archive-primary);
+    padding: 1em 1.5em;
+    margin: 1.5em 0;
+    font-style: italic;
+}
+
+/* Horizontal rule */
+hr {
+    border: none;
+    border-top: 1px solid var(--archive-border);
+    margin: 2em 0;
+}
+
+/* Footer */
+footer, .footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 3px solid var(--archive-border);
+    text-align: center;
+    color: var(--archive-muted);
+    font-size: 0.9em;
+}
+
+footer p {
+    margin-bottom: 10px;
+    text-indent: 0;
+}
+
+/* Page break for stories */
+.page-break {
+    page-break-before: always;
+}
+
+/* Section divider */
+.section-divider {
+    text-align: center;
+    margin: 2em 0;
+    color: var(--archive-primary);
+}
+
+/* Note text */
+.note-text {
+    font-style: italic;
+    color: var(--archive-muted);
+    text-indent: 0;
+}
+
+/* Links box */
+.links-box {
+    background: var(--archive-box-bg);
+    border: 2px solid var(--archive-border);
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 1.5em 0;
+}
+
+/* Works cited */
+.works-cited {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 2px solid var(--archive-border);
+}
+
+.works-cited h2 {
+    font-size: 1.4em;
+}
+
+.works-cited li {
+    margin-bottom: 0.8em;
+    word-break: break-word;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .toc ul,
+    .characters ul {
+        columns: 1;
+    }
+
+    header h1,
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .download-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    body {
+        padding: 15px;
+    }
+
+    .download-bar {
+        margin: -15px -15px 20px -15px;
+    }
+}
+
+/* Print styles - Light theme for printing */
+@media print {
+    :root {
+        --archive-bg: #ffffff;
+        --archive-text: #333333;
+        --archive-primary: #8B4513;
+        --archive-secondary: #5c4937;
+        --archive-header-bg: #f8f5f0;
+        --archive-border: #d2b48c;
+        --archive-box-bg: #f8f5f0;
+        --archive-muted: #666666;
+        --archive-link: #8B4513;
+        --archive-link-hover: #d2691e;
+        /* Mint accent (print) */
+        --archive-mint: #5a7a6a;
+        --archive-mint-bg: #e8f0eb;
+        --archive-mint-light: #3d5a4c;
+    }
+
+    body {
+        background-color: white;
+        color: #333;
+        padding: 0;
+        max-width: none;
+    }
+
+    .download-bar {
+        display: none !important;
+    }
+
+    .info-box,
+    .warning-box,
+    .tip-box,
+    .toc,
+    .characters,
+    .executive-summary,
+    .journal-entry,
+    .links-box {
+        background-color: #f8f5f0;
+        border-color: #d2b48c;
+    }
+
+    .warning-box {
+        background-color: #fff5f5;
+        border-color: #c0392b;
+    }
+
+    .tip-box {
+        background-color: var(--archive-mint-bg);
+        border-color: var(--archive-mint);
+    }
+
+    .tip-box strong {
+        color: var(--archive-mint-light);
+    }
+
+    a {
+        color: #8B4513;
+    }
+
+    th {
+        background-color: #f8f5f0;
+    }
+
+    tr:nth-child(even) {
+        background-color: #faf8f5;
+    }
+
+    code, pre {
+        background-color: #f0e6d8;
+    }
+
+    .page-break {
+        page-break-before: always;
+    }
+}

@@ -181,10 +181,36 @@ main article div button:hover {
   color: var(--pumpkin-spice);
 }
 
+main article section {
+  color: var(--light-cream);
+  margin-bottom: 10px;
+}
+
 main article footer {
   color: var(--mocha);
   display: inline;
   position: relative;
+}
+
+main article footer a {
+  color: var(--caramel);
+}
+
+main article footer a:hover {
+  color: var(--pumpkin-spice);
+}
+
+.disclaimer {
+  background-color: var(--dark-mocha);
+  border-left: 4px solid var(--pumpkin-spice);
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  color: var(--half-and-half);
+}
+
+.disclaimer strong {
+  color: var(--pumpkin-spice);
 }
 
 sidebar {
