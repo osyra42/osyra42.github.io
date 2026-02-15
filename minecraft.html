@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Coffee Byte Dev</title>
+  <title>Minecraft Server - Coffee Byte Dev</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Minecraft Server - Coffee Byte Dev" />
   <meta property="og:description" content="Join Coffee Block - osyra42's Minecraft server with rules, connection info, and season history" />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev" />
+  <meta property="og:url" content="https://coffeebyte.dev/minecraft.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Minecraft Server - Coffee Byte Dev" />
   <meta name="twitter:description" content="Join Coffee Block - osyra42's Minecraft server with rules, connection info, and season history" />
@@ -23,6 +23,7 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
@@ -36,232 +37,145 @@
   <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
+
   <!-- Main Content -->
-  <main>
+  <main class="archive">
 
+    <div class="download-bar">
+      <h1>Minecraft Server</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
 
-      <!-- Server Status -->
-<article style="background-color: #111111">
-<pre class="server-status">
- Public <span class="server-id"> VAN21 </span> <span id="server1-status">Checking...</span>
+    <!-- Server Status (outside markdown - needs JS DOM access) -->
+    <pre class="server-status"> Public <span class="server-id"> VAN21 </span> <span id="server1-status">Checking...</span>
   Blank <span class="server-id"> _____ </span> <span id="server2-status">Checking...</span>
-  Blank <span class="server-id"> _____ </span> <span id="server3-status">Checking...</span>
-</pre>
-</article>
+  Blank <span class="server-id"> _____ </span> <span id="server3-status">Checking...</span></pre>
 
-<h1>GLOBAL</h1>
+    <div class="markdown">
+# GLOBAL
 
-      <!-- Server Rules -->
-      <article>
-          <header>
-            <h3>Global Server Rules</h3>
-          </header>
-        <section>
-          These rules apply to all server versions.
-          <ol>
-            <li><u>Self Care</u> - Always prioritize your real-life responsibilities over the game.</li>
-            <li><u>Server Damage</u> - Don't intentionally lag or break the server; this results in a ban.</li>
-            <li><u>No Disrespect</u> - Avoid excessive rudeness; players are here to relax.</li>
-            <li>
-              <u>Player Consent</u> - Obtain consent for actions like griefing, fighting, raiding, or sharing.
-            </li>
-            <li><u>Conversations</u> - Avoid topics similar topics like sex, violence, or hate speech.</li>
-            <li><u>Be Independent</u> - Build independent settlements; team activities require player consent.</li>
-            <li><u>About Hacks</u> - Hacks are allowed unless they cause server damage.</li>
-            <li><u>Vote Ban</u> - The community can vote to ban a player if needed.</li>
-            <li><u>Changes</u> - Majority approval is required for changes to the server or the rules.</li>
-          </ol>
-        </section>
-      </article>
+## Global Server Rules
 
-      <!-- Reporting Issues -->
-      <article>
-        <header>
-          <h3>Reporting Issues</h3>
-        </header>
-        <section>
-          <p>Report all issues to the Staff, either server Moderators or Head Admin</p>
-          <p>
-            <span style="color: #f43434">Head Admin: <a href="discord:discordapp.com/users/163839418623459330">@osyra42</a> on discord</span>
-          </p>
-          <pre>
-    <u>Server Issue</u>: If you encounter a server issue, please provide a detailed description and include screenshots if necessary. Avoid vague reports.
-    <u>Player Issue</u>: If you have a problem with another player, clearly explain the issue, including any relevant off-server interactions if applicable.
-          </pre>
-        </section>
-      </article>
+These rules apply to all server versions.
 
-      <!-- hardware -->
-      <article>
-        <header>
-          <h3>Server Hardware Information</h3>
-        </header>
-        <section>
-          <pre>
+**1. Self Care** - Always prioritize your real-life responsibilities over the game.
+**2. Server Damage** - Don't intentionally lag or break the server; this results in a ban.
+**3. No Disrespect** - Avoid excessive rudeness; players are here to relax.
+**4. Player Consent** - Obtain consent for actions like griefing, fighting, raiding, or sharing.
+**5. Conversations** - Avoid topics similar topics like sex, violence, or hate speech.
+**6. Be Independent** - Build independent settlements; team activities require player consent.
+**7. About Hacks** - Hacks are allowed unless they cause server damage.
+**8. Vote Ban** - The community can vote to ban a player if needed.
+**9. Changes** - Majority approval is required for changes to the server or the rules.
+
+---
+
+## Reporting Issues
+
+Report all issues to the Staff, either server Moderators or Head Admin
+
+**Head Admin:** [@osyra42](discord:discordapp.com/users/163839418623459330) on discord
+
+**Server Issue:** If you encounter a server issue, please provide a detailed description and include screenshots if necessary. Avoid vague reports.
+
+**Player Issue:** If you have a problem with another player, clearly explain the issue, including any relevant off-server interactions if applicable.
+
+---
+
+## Server Hardware Information
+
+```
 CPU - 6700K (4.0 GHz)
 GPU - 1060 (6GB)
 RAM - 32GB
 PSU - 500W
 SSD - 512GB
 NET - 150Mb
-          </pre>  
-          <p>I promise you that this is good enough.</p>
-        </section>
-      </article>
+```
 
-      
+I promise you that this is good enough.
 
-<h1>Server: VAN21</h1>
+---
 
-<article>
-  <header>
-    <h3>Season 8 - Vanilla Minecraft!</h3>
-  </header>
+# Server: VAN21
 
-  <section>
-    <p>
-      <span style="color: #eea826">Moderators: <u>enderwolf_22</u>, and one slot open</span>
-    </p>
-  </section>
+## Season 8 - Vanilla Minecraft!
 
-  <section>
-<pre>
-  Season 8 of Coffee Block is now live! Join the Minecraft Server to have fun.
+**Moderators:** enderwolf_22, and one slot open
 
-<b>How to Connect</b> with Required Files
-  This season is pure Vanilla. There is no need to download any mods or other files.
+Season 8 of Coffee Block is now live! Join the Minecraft Server to have fun.
 
-          Server Name | <b>Coffee Block</b>
-IP Address and Port | <u>play.coffeeblock.xyz</u>
-              </pre>
-  </section>
-  
-</article>
-<!-- Disclaimer -->
-      <article>
-        <header>
-          <h3>Disclaimer</h3>
-        </header>
-        <section>
-          <p>
-            <b>Vanity</b>, my Minecraft bot, will be training on this server as part of an AI development project.
-            Players are welcome to interact with Vanity if they wish, but interaction is entirely optional.
-            The bot is here to learn and will not interfere with normal gameplay.
-          </p>
-        </section>
-      </article>
+**How to Connect**
 
-<h1>Server: _____</h1>
+This season is pure Vanilla. There is no need to download any mods or other files.
 
-      <article>
-        <header>
-        </header>
-        <section>
-          <p>
-            <span style="color: #eea826">Moderators: None</span>
-          </p>
-        </section>
-      </article>
+```
+  Server Name | Coffee Block
+IP and Port   | play.coffeeblock.xyz
+```
 
-<h1>Server: _____</h1>
+> **Vanity**, my Minecraft bot, will be training on this server as part of an AI development project. Players are welcome to interact with Vanity if they wish, but interaction is entirely optional. The bot is here to learn and will not interfere with normal gameplay.
 
-      <article>
-        <header>
-        </header>
-        <section>
-          <p>
-            <span style="color: #eea826">Moderators: None</span>
-          </p>
-        </section>
-      </article>
+---
 
-      <h1>Historical Seasons</h1>
-      <article>
-        <section>
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Client</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Season 1</td>
-                <td><a href="https://www.minecraft.net/en-us">Vanilla 1.19.2</a></td>
-              </tr>
-              <tr>
-                <td>Season 2</td>
-                <td><a>Sky Factory 3</a></td>
-              </tr>
-              <tr>
-                <td>Season 3</td>
-                <td><a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9/files/5458414">All the Mods 9</a></td>
-              </tr>
-              <tr>
-                <td>Season 4</td>
-                <td>
-                  <a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky/files/5478208">All the Mods 9 to the Sky + 2</a>
-                  | <a href="https://www.curseforge.com/minecraft/mc-mods/mighty-mail"> 1</a>, <a href=""> 2</a> |
-                </td>
-              </tr>
-              <tr>
-                <td>Season 5</td>
-                <td><a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-8/files/4962718">All the Mods 8</a></td>
-              </tr>
-              <tr>
-                <td>Season 6</td>
-                <td><a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky/files/5952219">All the Mods 9 to the Sky</a></td>
-              </tr>
-              <tr>
-                <td>Season 7</td>
-                <td><a href="https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/6427275">All the Mods 10</a></td>
-              </tr>
-              <tr>
-                <td>Season 8</td>
-                <td><a href="https://www.minecraft.net/en-us">Vanilla 1.21.11</a></td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </article>
+# Server: _____
+
+**Moderators:** None
+
+---
+
+# Server: _____
+
+**Moderators:** None
+
+---
+
+# Historical Seasons
+
+| Season | Client |
+|--------|--------|
+| Season 1 | [Vanilla 1.19.2](https://www.minecraft.net/en-us) |
+| Season 2 | Sky Factory 3 |
+| Season 3 | [All the Mods 9](https://www.curseforge.com/minecraft/modpacks/all-the-mods-9/files/5458414) |
+| Season 4 | [All the Mods 9 to the Sky + 2](https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky/files/5478208) |
+| Season 5 | [All the Mods 8](https://www.curseforge.com/minecraft/modpacks/all-the-mods-8/files/4962718) |
+| Season 6 | [All the Mods 9 to the Sky](https://www.curseforge.com/minecraft/modpacks/all-the-mods-9-to-the-sky/files/5952219) |
+| Season 7 | [All the Mods 10](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/6427275) |
+| Season 8 | [Vanilla 1.21.11](https://www.minecraft.net/en-us) |
+    </div>
 
   </main>
 
- <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Server status checker
-    const servers = [
-        {id: 'server1-status', name: 'VAN21', host: 'play.coffeeblock.xyz', port: 25565},
-        {id: 'server2-status', name: '_____', host: 'coffeebyte.dev', port: 25566},
-        {id: 'server3-status', name: '_____', host: 'coffeebyte.dev', port: 25567}
-    ];
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const servers = [
+            {id: 'server1-status', host: 'play.coffeeblock.xyz', port: 25565},
+            {id: 'server2-status', host: 'coffeebyte.dev', port: 25566},
+            {id: 'server3-status', host: 'coffeebyte.dev', port: 25567}
+        ];
 
-    servers.forEach(server => {
-        checkServerStatus(server);
+        servers.forEach(server => checkServerStatus(server));
+
+        function checkServerStatus(server) {
+            const statusElement = document.getElementById(server.id);
+            if (!statusElement) return;
+
+            statusElement.textContent = 'Checking...';
+            statusElement.style.color = '#FFA500';
+
+            fetch(`https://api.mcsrvstat.us/2/${server.host}:${server.port}`)
+                .then(response => response.json())
+                .then(data => {
+                    statusElement.textContent = data.online ? 'Online' : 'Offline';
+                    statusElement.style.color = data.online ? '#33ff33' : '#ff3333';
+                })
+                .catch(() => {
+                    statusElement.textContent = 'Error';
+                    statusElement.style.color = '#ff3333';
+                });
+        }
     });
-
-    function checkServerStatus(server) {
-        const statusElement = document.getElementById(server.id);
-        if (!statusElement) return;
-
-        statusElement.textContent = 'Checking...';
-        statusElement.style.color = '#FFA500';
-
-        // Use public API instead
-        fetch(`https://api.mcsrvstat.us/2/${server.host}:${server.port}`)
-            .then(response => response.json())
-            .then(data => {
-                statusElement.textContent = data.online ? 'Online' : 'Offline';
-                statusElement.style.color = data.online ? '#33ff33' : '#ff3333';
-            })
-            .catch(() => {
-                statusElement.textContent = 'Error';
-                statusElement.style.color = '#ff3333';
-            });
-    }
-});
-</script>
+  </script>
 
 </body>
 </html>

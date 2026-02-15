@@ -34,16 +34,16 @@
   <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
-  <!-- Main Content -->
-  <main>
 
-    <!-- Section for All Posts -->
-      <article>
-        <header>
-          <h3>Changelog</h3>
-        </header>
-        <section>
-          <pre id="changelog">
+  <!-- Main Content -->
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Changelog</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <pre id="changelog">
 . ............................
 LEGEND OF COLORS
 . decoration text
@@ -295,10 +295,8 @@ $ emojis are broken
 > website url was changed to rebrand and to mark a server downgrade
 $ website flashes white on fast reload
 $ page title is missing
-          </pre>
-        </section>
-      </article>
-    
+    </pre>
+
   </main>
 
 <script>

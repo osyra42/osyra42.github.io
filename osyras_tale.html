@@ -72,39 +72,28 @@
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
-  <main>
+  <main class="archive">
 
-      <article>
-        <header>
-          <h3 id="viewer-title">Content Viewer</h3>
-        </header>
-        <section>
-          <div id="content-viewer">
-            <p class="loading">Loading...</p>
-          </div>
-        </section>
-      </article>
+    <div class="download-bar">
+      <h1>Osyra's Tale</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
 
-      <article>
-        <header>
-          <h3>Osyra's Tale - Revision 01 (2025)</h3>
-        </header>
-        <section>
-        <pre>
+    <h1 id="viewer-title">Content Viewer</h1>
+    <div id="content-viewer">
+      <p class="loading">Loading...</p>
+    </div>
+
+    <h1>Osyra's Tale - Revision 01 (2025)</h1>
+    <pre>
 00 - <span class="chapter-link" data-file="osyras_tale/README.md">About Osyra's Tale</span>
 01 - <span class="chapter-link" data-file="osyras_tale/revision_01/01_interview.md">Chapter 01 - Interview</span>
 02 - <span class="chapter-link" data-file="osyras_tale/revision_01/02_processing.md">Chapter 02 - Processing</span>
 <s>03 Chapter 03 - </s>
-        </pre>
-        </section>
-      </article>
+    </pre>
 
-      <article>
-        <header>
-          <h3>Osyra's Tale - Revision 00 (2024)</h3>
-        </header>
-        <section>
-        <pre>
+    <h1>Osyra's Tale - Revision 00 (2024)</h1>
+    <pre>
 [000A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 0/001.md">Part 0 - Random Things</span>
   [001A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 0/001.md">Chapter -1 - Back Alley</span>
 [100A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 1/100.md">Part 1 - Chimera Project</span>
@@ -151,9 +140,8 @@
   [240A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 2/240.md">Chapter 40 - </span>
 [300A] <span class="chapter-link" data-file="osyras_tale/revision_00/Part 3/300.md">Part 3 - Search and Rescue</span>
 <s>[400A] Part 4 - </s>
-          </pre>
-        </section>
-      </article>
+    </pre>
+
   </main>
 
 <script>

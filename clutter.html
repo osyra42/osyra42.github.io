@@ -1,4 +1,4 @@
-<!-- [archived] - clutter.html -->
+<!-- clutter.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Clutter - Coffee Byte Dev" />
   <meta property="og:description" content="Clutter - A Chrome extension for festive seasonal decorations on every webpage" />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev/[archived] - clutter.html" />
+  <meta property="og:url" content="https://coffeebyte.dev/clutter.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Clutter - Coffee Byte Dev" />
   <meta name="twitter:description" content="Clutter - A Chrome extension for festive seasonal decorations on every webpage" />
@@ -23,6 +23,7 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
@@ -37,8 +38,119 @@
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
-  <main>
-    <iframe src="assets/jail/[osyra42] - clutter.html" style="width: 100%; height: calc(100vh - 40px); border: none;"></iframe>
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Clutter</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+# Clutter
+*A Chrome Extension for Festive Seasonal Decorations*
+*December 2025*
+
+> **Overview**
+> Clutter is a Chrome extension that adds festive seasonal decorations falling on every webpage you visit. It automatically detects the current season and displays theme-appropriate decorations—from winter snowflakes to autumn leaves. The decorations feature interactive physics and bounce away from your mouse cursor.
+> The extension includes 54+ unique decoration images across 4 seasonal themes and 9 holiday events, with a coffee-themed popup interface for customization.
+
+## Features
+
+### Seasonal Themes
+- **Winter** - Snowflakes and winter decorations (Dec 21 - Mar 19)
+- **Spring** - Flowers and spring decorations (Mar 20 - Jun 20)
+- **Summer** - Summer-themed decorations (Jun 21 - Sep 21)
+- **Fall** - Autumn leaves and harvest decorations (Sep 22 - Dec 20)
+
+### Holiday Themes
+Special event themes override seasonal displays on their respective dates:
+- **New Year's** - January 1
+- **Valentine's Day** - February 14
+- **Leap Day** - February 29
+- **St. Patrick's Day** - March 17
+- **Easter** - Dynamic date (uses Anonymous Gregorian algorithm)
+- **Fourth of July** - July 4
+- **Halloween** - October 31
+- **Thanksgiving** - Fourth Thursday of November
+- **Christmas** - December 25
+
+### Interactive Physics
+The falling decorations respond to your mouse movements with realistic bounce physics:
+- Decorations bounce away when your cursor approaches
+- Physics-based collision detection with mouse cursor
+- Coefficient of restitution for realistic bouncing
+- Velocity damping to simulate energy loss
+- Random variation for natural movement
+
+## Technical Details
+
+### Constants
+- **CLUTTER_COUNT**: 20 decorations on screen at once
+- **CLUTTER_SPEED**: Falling speed range of 1-3 pixels per frame
+- **BOUNCE_FORCE**: 0.5 bounce intensity
+- **COLLISION_RADIUS**: 50 pixels detection range
+- **MOUSE_RADIUS**: 30 pixels cursor interaction zone
+
+### How It Works
+1. On page load, the extension detects the current date
+2. It checks for holidays first, then determines the current season
+3. Appropriate decoration images are preloaded
+4. 20 decoration elements are created at random positions
+5. An animation loop updates positions and handles physics
+6. When decorations leave the viewport, new ones spawn at the top
+
+## Installation
+
+> 📋 **Note:** This extension requires Developer Mode to be enabled in Chrome.
+
+1. Download or clone the repository from GitHub
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right corner
+4. Click "Load unpacked" and select the clutter folder
+5. The extension will now be active on all webpages
+
+## Popup Interface
+
+The extension includes a coffee-themed popup interface with:
+- **On/Off Toggle** - Enable or disable decorations
+- **Theme Selector** - Choose a specific theme or use auto-detection
+- **Auto Mode** - Automatically selects theme based on current date
+
+## File Structure
+
+```
+clutter/
+├── manifest.json       # Extension configuration
+├── background.js       # Background service worker
+├── content.js          # Content injection script
+├── clutter.js          # Main decoration logic
+├── themes.js           # Theme definitions and dates
+├── popup.html          # Popup interface
+├── popup.js            # Popup functionality
+├── LICENSE             # MIT License
+├── README.md           # Documentation
+└── images/             # Decoration images
+    ├── winter/         # Snowflakes, etc.
+    ├── spring/         # Flowers, etc.
+    ├── summer/         # Summer decorations
+    ├── fall/           # Autumn leaves, etc.
+    └── holidays/       # Holiday-specific images
+```
+
+## License
+
+Clutter is free and open source software, released under the MIT License.
+
+**GitHub Repository:** https://github.com/osyra42/clutter
+    </div>
+
+    <hr>
+
+    <div class="footer">
+      <p><strong>Archive Date:</strong> January 2026</p>
+      <p><strong>Archived By:</strong> Coffee Byte Dev (osyra42)</p>
+    </div>
+
   </main>
 
 </body>
