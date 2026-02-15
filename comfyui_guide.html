@@ -23,6 +23,7 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
@@ -37,119 +38,111 @@
   </sidebar>
 
   <!-- Main Content -->
-  <main>
-    <article>
-      <header>
-        <h3>What is ComfyUI?</h3>
-      </header>
-      <section>
-        <p>
-          <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener noreferrer">ComfyUI</a> is a powerful, node-based interface for Stable Diffusion and other generative AI models. Unlike traditional UIs with simple text boxes, ComfyUI lets you build complex image generation workflows by connecting nodes together visually - similar to Blender's shader nodes or Unreal's Blueprints.
-        </p>
-        <p><strong>Why use ComfyUI?</strong></p>
-        <ul>
-          <li><strong>Visual workflow</strong> - See exactly how your generation pipeline works</li>
-          <li><strong>Reusable workflows</strong> - Save and share complex setups as JSON files</li>
-          <li><strong>Fine control</strong> - Adjust every parameter in the generation process</li>
-          <li><strong>Efficient</strong> - Only re-runs changed parts of your workflow</li>
-          <li><strong>Extensible</strong> - Huge library of custom nodes from the community</li>
-        </ul>
-        <p>
-          For installation and getting started, see the <a href="https://docs.comfy.org/" target="_blank" rel="noopener noreferrer">official ComfyUI documentation</a>.
-        </p>
-      </section>
-    </article>
+  <main class="archive">
 
-    <article>
-      <header>
-        <h3>My Default Settings</h3>
-      </header>
-      <section>
-        <p>These are the settings I use for most of my generations. Adjust as needed for your hardware and preferences.</p>
-        <p><strong>Model & LoRAs:</strong></p>
-        <ul>
-          <li><strong>Checkpoint:</strong> ChalicePDXL_v0.4 or perfectPonyXL_v50</li>
-          <li><strong>LoRAs:</strong> HandFineTuning_XL, add-detail-xl</li>
-          <li><strong>CLIP Skip:</strong> -2</li>
-          <li><strong>VAE:</strong> sdxl_vae</li>
-        </ul>
-        <p><strong>Generation Settings:</strong></p>
-        <ul>
-          <li><strong>Width/Height:</strong> 1024 x 1024</li>
-          <li><strong>Steps:</strong> 24-30</li>
-          <li><strong>CFG Scale:</strong> 7.0</li>
-          <li><strong>Sampler:</strong> dpmpp_2m</li>
-          <li><strong>Scheduler:</strong> karras</li>
-        </ul>
-        <p><strong>Upscaling:</strong></p>
-        <ul>
-          <li><strong>Model:</strong> RealESRGAN_x4plus_anime</li>
-        </ul>
-        <p>
-          For more on samplers and schedulers, see the <a href="https://docs.comfy.org/built-in-nodes/overview" target="_blank" rel="noopener noreferrer">ComfyUI node documentation</a>.
-        </p>
-      </section>
-    </article>
+    <div class="download-bar">
+      <h1>ComfyUI Guide</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
 
-    <article>
-      <header>
-        <h3>Negative Prompt</h3>
-      </header>
-      <section>
-        <p>A good negative prompt helps avoid common generation artifacts. Here's the one I use:</p>
-        <pre style="white-space: pre-wrap; word-break: break-all; background: var(--dark-mocha); padding: 1em; border-radius: 5px; font-size: 0.85em;">fused mouth, blurry mouth, ugly mouth, fused cheek, blurry cheek, ugly cheek, too many fingers, bad feet, deformed, bad body, malformed limbs, extra limb, extra arms, extra legs, acnes, long body, ugly, bad hands, lowres, bad anatomy, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, (3d:1.3), broken limb, incorrect limb, fusion finger, lost finger, multiple fingers, multiple digits, fusion hand, lost leg, fused leg, multiple legs, jpeg, forehead marks, forehead jewels, censored</pre>
-        <p><strong>Key things this addresses:</strong></p>
-        <ul>
-          <li><strong>Hands/fingers</strong> - Common problem area for AI generation</li>
-          <li><strong>Body proportions</strong> - Prevents extra limbs and deformations</li>
-          <li><strong>Quality tags</strong> - Filters out low-quality outputs</li>
-          <li><strong>Artifacts</strong> - Removes watermarks, signatures, and compression artifacts</li>
-          <li><strong>Style control</strong> - (3d:1.3) reduces unwanted 3D render look</li>
-        </ul>
-      </section>
-    </article>
+    <div class="markdown">
+## What is ComfyUI?
 
-    <article>
-      <header>
-        <h3>Example: Osyra Character</h3>
-      </header>
-      <section>
-        <p>Here's an example prompt for generating my character Osyra:</p>
-        <pre style="white-space: pre-wrap; word-break: break-all; background: var(--dark-mocha); padding: 1em; border-radius: 5px; font-size: 0.85em;">score_9, score_8_up, score_7_up, best quality, 4k, masterpiece, digital art,
+[ComfyUI](https://github.com/comfyanonymous/ComfyUI) is a powerful, node-based interface for Stable Diffusion and other generative AI models. Unlike traditional UIs with simple text boxes, ComfyUI lets you build complex image generation workflows by connecting nodes together visually - similar to Blender's shader nodes or Unreal's Blueprints.
+
+**Why use ComfyUI?**
+
+- **Visual workflow** - See exactly how your generation pipeline works
+- **Reusable workflows** - Save and share complex setups as JSON files
+- **Fine control** - Adjust every parameter in the generation process
+- **Efficient** - Only re-runs changed parts of your workflow
+- **Extensible** - Huge library of custom nodes from the community
+
+For installation and getting started, see the [official ComfyUI documentation](https://docs.comfy.org/).
+
+---
+
+## My Default Settings
+
+These are the settings I use for most of my generations. Adjust as needed for your hardware and preferences.
+
+**Model & LoRAs:**
+
+- **Checkpoint:** ChalicePDXL_v0.4 or perfectPonyXL_v50
+- **LoRAs:** HandFineTuning_XL, add-detail-xl
+- **CLIP Skip:** -2
+- **VAE:** sdxl_vae
+
+**Generation Settings:**
+
+- **Width/Height:** 1024 x 1024
+- **Steps:** 24-30
+- **CFG Scale:** 7.0
+- **Sampler:** dpmpp_2m
+- **Scheduler:** karras
+
+**Upscaling:**
+
+- **Model:** RealESRGAN_x4plus_anime
+
+For more on samplers and schedulers, see the [ComfyUI node documentation](https://docs.comfy.org/built-in-nodes/overview).
+
+---
+
+## Negative Prompt
+
+A good negative prompt helps avoid common generation artifacts. Here's the one I use:
+
+```
+fused mouth, blurry mouth, ugly mouth, fused cheek, blurry cheek, ugly cheek, too many fingers, bad feet, deformed, bad body, malformed limbs, extra limb, extra arms, extra legs, acnes, long body, ugly, bad hands, lowres, bad anatomy, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, (3d:1.3), broken limb, incorrect limb, fusion finger, lost finger, multiple fingers, multiple digits, fusion hand, lost leg, fused leg, multiple legs, jpeg, forehead marks, forehead jewels, censored
+```
+
+**Key things this addresses:**
+
+- **Hands/fingers** - Common problem area for AI generation
+- **Body proportions** - Prevents extra limbs and deformations
+- **Quality tags** - Filters out low-quality outputs
+- **Artifacts** - Removes watermarks, signatures, and compression artifacts
+- **Style control** - (3d:1.3) reduces unwanted 3D render look
+
+---
+
+## Example: Osyra Character
+
+Here's an example prompt for generating my character Osyra:
+
+```
+score_9, score_8_up, score_7_up, best quality, 4k, masterpiece, digital art,
 
 1girl, solo, (brown skin:1.7), (black hair:1.8), long hair, wolf ears, wolf tail, red eyes, adult woman, round glasses, swept bangs,
 
-brown jacket unzipped, jacket with a hood, light yellow shirt, and blue pants,</pre>
-        <p><strong>Breaking down the prompt:</strong></p>
-        <ul>
-          <li><strong>Quality tags</strong> - score_9, score_8_up, score_7_up are used by Pony-based models to filter for high-quality outputs. Additional tags like "best quality, 4k, masterpiece" reinforce this.</li>
-          <li><strong>Character basics</strong> - 1girl, solo establishes a single female character. The weighted tags (brown skin:1.7) and (black hair:1.8) use higher emphasis to ensure these features appear consistently.</li>
-          <li><strong>Physical features</strong> - wolf ears, wolf tail, red eyes, round glasses, swept bangs define the character's distinct look.</li>
-          <li><strong>Outfit</strong> - Clothing is described last: brown hooded jacket (unzipped), light yellow shirt underneath, and blue pants.</li>
-        </ul>
-        <p><strong>Prompt structure tips:</strong></p>
-        <ul>
-          <li><strong>Weight syntax</strong> - Use (tag:1.5) to increase emphasis, higher = stronger</li>
-          <li><strong>Order matters</strong> - Put important features early in the prompt</li>
-          <li><strong>Commas</strong> - Separate distinct concepts with commas</li>
-          <li><strong>Line breaks</strong> - Group related concepts together for readability</li>
-        </ul>
-      </section>
-    </article>
+brown jacket unzipped, jacket with a hood, light yellow shirt, and blue pants,
+```
 
-    <article>
-      <header>
-        <h3>Resources</h3>
-      </header>
-      <section>
-        <ul>
-          <li><a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener noreferrer">ComfyUI GitHub</a> - Source code and releases</li>
-          <li><a href="https://docs.comfy.org/" target="_blank" rel="noopener noreferrer">ComfyUI Documentation</a> - Official guides and tutorials</li>
-          <li><a href="https://civitai.com/" target="_blank" rel="noopener noreferrer">CivitAI</a> - Models, LoRAs, and community workflows</li>
-          <li><a href="https://github.com/ltdrdata/ComfyUI-Manager" target="_blank" rel="noopener noreferrer">ComfyUI Manager</a> - Essential extension for managing custom nodes</li>
-        </ul>
-      </section>
-    </article>
+**Breaking down the prompt:**
+
+- **Quality tags** - score_9, score_8_up, score_7_up are used by Pony-based models to filter for high-quality outputs. Additional tags like "best quality, 4k, masterpiece" reinforce this.
+- **Character basics** - 1girl, solo establishes a single female character. The weighted tags (brown skin:1.7) and (black hair:1.8) use higher emphasis to ensure these features appear consistently.
+- **Physical features** - wolf ears, wolf tail, red eyes, round glasses, swept bangs define the character's distinct look.
+- **Outfit** - Clothing is described last: brown hooded jacket (unzipped), light yellow shirt underneath, and blue pants.
+
+**Prompt structure tips:**
+
+- **Weight syntax** - Use (tag:1.5) to increase emphasis, higher = stronger
+- **Order matters** - Put important features early in the prompt
+- **Commas** - Separate distinct concepts with commas
+- **Line breaks** - Group related concepts together for readability
+
+---
+
+## Resources
+
+- [ComfyUI GitHub](https://github.com/comfyanonymous/ComfyUI) - Source code and releases
+- [ComfyUI Documentation](https://docs.comfy.org/) - Official guides and tutorials
+- [CivitAI](https://civitai.com/) - Models, LoRAs, and community workflows
+- [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager) - Essential extension for managing custom nodes
+    </div>
+
   </main>
 </body>
 </html>

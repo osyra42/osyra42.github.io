@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Coffee Byte Dev</title>
+  <title>Vanity Legal - Coffee Byte Dev</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Vanity Legal - Coffee Byte Dev" />
   <meta property="og:description" content="Privacy policy and terms of service for Vanity Discord bot" />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev" />
+  <meta property="og:url" content="https://coffeebyte.dev/vanity_legal.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vanity Legal - Coffee Byte Dev" />
   <meta name="twitter:description" content="Privacy policy and terms of service for Vanity Discord bot" />
@@ -23,39 +23,34 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "vanity_legal.jpg";
     title = "Vanity Legal";
   </script>
-  
+
 </head>
-
-
 <body>
 
   <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
-  <!-- Main Content -->
-  <main>
 
-    <!-- Section for All Posts -->
-      <article>
-        <header>
-          <h3>Vanity's Legal Stuff</h3>
-          </header>
-          <section>
-          <script src="assets/js/md2html.js" data-md2html="assets/legal/vanitys_privacy_policy.md"></script>
-          <hr>
-          <script src="assets/js/md2html.js" data-md2html="assets/legal/vanitys_terms_of_service.md"></script>
-</section>
-      </article>
+  <!-- Main Content -->
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Vanity Legal</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <script data-md2html="assets/legal/vanitys_privacy_policy.md"></script>
+    <hr>
+    <script data-md2html="assets/legal/vanitys_terms_of_service.md"></script>
 
   </main>
-
-</div>
 
 </body>
 </html>

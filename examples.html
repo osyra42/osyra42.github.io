@@ -23,13 +23,14 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "examples.jpg";
     title = "Examples";
   </script>
-  
+
 </head>
 <body>
 
@@ -38,32 +39,33 @@
   </sidebar>
 
   <!-- Main Content -->
-  <main>
-    <article>
-      <header>
-        <h3>Portfolio Overview</h3>
-      </header>
-      <section>
-        <pre>
-Examples of previous work across different commission types.
-Interested in commissioning? Visit the <a href="commissions.html">commissions page</a>.
+  <main class="archive">
 
+    <div class="download-bar">
+      <h1>Examples</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+# Portfolio Overview
+
+Examples of previous work across different commission types.
+Interested in commissioning? Visit the [commissions page](commissions.html).
+
+```
 CATEGORIES
 ├─ 3D Prints ────── Functional parts, organizers, figurines
 ├─ VTuber Models ── Custom VRM avatars for streaming
 └─ Discord Bots ─── Server automation and custom features
-        </pre>
-      </section>
-    </article>
+```
 
-    <article>
-      <header>
-        <h3>3D Prints</h3>
-      </header>
-      <section>
-        <pre>
+---
+
+# 3D Prints
+
 Custom 3D-printed objects designed and printed in-house.
 
+```
 WHAT I CREATE
 ├─ Replacement parts ─── Fix broken or obsolete items
 ├─ Containers ─────────── Custom storage solutions
@@ -74,24 +76,22 @@ MATERIALS & PROCESS
 ├─ Standard material: White PLA (paintable)
 ├─ Basic painting available on request
 └─ Design collaboration from concept to print
-        </pre>
-        <img src="assets/images/shop/3d_prints/3dprint_badge.jpg" alt="3D Printed Badge"/>
-        <img src="assets/images/shop/3d_prints/3dprint_nametags.jpg" alt="3D Printed Nametag"/>
-        <img src="assets/images/shop/3d_prints/3dprint_engineer.jpg" alt="3D Printed Engineer"/>
-        <img src="assets/images/shop/3d_prints/3dprint_replacement.jpg" alt="3D Printed Replacement"/>
-        <img src="assets/images/shop/3d_prints/3dprint_meshbox.jpg" alt="3D Printed Mesh Box"/>
-        <img src="assets/images/shop/3d_prints/3dprint_statue.jpg" alt="3D Printed Statue"/>
-      </section>
-    </article>
+```
 
-    <article>
-      <header>
-        <h3>VTuber Models</h3>
-      </header>
-      <section>
-        <pre>
+![3D Printed Badge](assets/images/shop/3d_prints/3dprint_badge.jpg)
+![3D Printed Nametag](assets/images/shop/3d_prints/3dprint_nametags.jpg)
+![3D Printed Engineer](assets/images/shop/3d_prints/3dprint_engineer.jpg)
+![3D Printed Replacement](assets/images/shop/3d_prints/3dprint_replacement.jpg)
+![3D Printed Mesh Box](assets/images/shop/3d_prints/3dprint_meshbox.jpg)
+![3D Printed Statue](assets/images/shop/3d_prints/3dprint_statue.jpg)
+
+---
+
+# VTuber Models
+
 Custom VRM avatars for streaming and content creation.
 
+```
 WHAT'S INCLUDED
 ├─ Custom 3D design from concept
 ├─ Full skeletal rigging
@@ -104,27 +104,25 @@ COMPATIBLE WITH
 ├─ VSeeFace
 ├─ VirtualCast
 └─ Other VRM-compatible software
-        </pre>
-        <img src="assets/images/shop/vtubers/vtuber_4chan.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_bigred.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_bunny.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_catgirl.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_clover.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_custom.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_nopay.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_pnkpur.jpg" alt="VTuber Model"/>
-        <img src="assets/images/shop/vtubers/vtuber_sparkle.jpg" alt="VTuber Model"/>
-      </section>
-    </article>
+```
 
-    <article>
-      <header>
-        <h3>Discord Bots</h3>
-      </header>
-      <section>
-        <pre>
+![VTuber 4chan](assets/images/shop/vtubers/vtuber_4chan.jpg)
+![VTuber Big Red](assets/images/shop/vtubers/vtuber_bigred.jpg)
+![VTuber Bunny](assets/images/shop/vtubers/vtuber_bunny.jpg)
+![VTuber Catgirl](assets/images/shop/vtubers/vtuber_catgirl.jpg)
+![VTuber Clover](assets/images/shop/vtubers/vtuber_clover.jpg)
+![VTuber Custom](assets/images/shop/vtubers/vtuber_custom.jpg)
+![VTuber Nopay](assets/images/shop/vtubers/vtuber_nopay.jpg)
+![VTuber Pink Purple](assets/images/shop/vtubers/vtuber_pnkpur.jpg)
+![VTuber Sparkle](assets/images/shop/vtubers/vtuber_sparkle.jpg)
+
+---
+
+# Discord Bots
+
 Custom Discord bots for server automation and engagement.
 
+```
 CAPABILITIES
 ├─ Custom slash commands
 ├─ Moderation tools (spam, filters, roles)
@@ -132,12 +130,11 @@ CAPABILITIES
 ├─ Mini-games and interactive features
 ├─ Logging and member analytics
 └─ External API integrations
+```
 
-EXAMPLE: VANITY BOT
-└─ See <a href="vanity.html">Vanity Bot</a> for a full-featured example
-        </pre>
-      </section>
-    </article>
+See [Vanity Bot](vanity.html) for a full-featured example
+    </div>
+
   </main>
 </body>
 </html>

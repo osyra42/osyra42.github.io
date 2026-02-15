@@ -287,18 +287,20 @@
   </sidebar>
 
   <!-- Main Content -->
-  <main>
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Commissions</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
     <!-- Change class to "closed" when not accepting commissions -->
     <div class="status-banner open">
       <span>Commissions are OPEN</span>
     </div>
 
-    <article>
-      <header>
-        <h3>Commission Policy</h3>
-      </header>
-      <section>
-        <div class="policy-box">
+    <h1>Commission Policy</h1>
+    <div class="policy-box">
           <!-- Pricing & Timeline -->
           <p><strong>Pricing:</strong> All commissions are taken at my discretion for free</p>
           <p><strong>Free Timeline:</strong> ~3 months on average</p>
@@ -317,23 +319,12 @@
         <p>
           Factors that influence acceptance include complexity, scope, technical requirements, and whether the project presents an interesting challenge or learning opportunity for me. View <a href="examples.html">examples of my previous work</a> to get an idea of what I can create.
         </p>
-      </section>
-    </article>
 
-    <article>
-      <header>
-        <h3>Select a Service</h3>
-      </header>
-      <section>
-        <div class="service-grid" id="service-grid"></div>
-      </section>
-    </article>
+    <h1>Select a Service</h1>
+    <div class="service-grid" id="service-grid"></div>
 
-    <article id="form-container">
-      <header>
-        <h3>Request Details</h3>
-      </header>
-      <section>
+    <div id="form-container">
+      <h1>Request Details</h1>
         <form id="commission-form">
           <div class="form-group">
             <label for="contact-name">Your Name <span class="required">*</span></label>
@@ -376,9 +367,13 @@
             <button type="button" class="btn btn-secondary" onclick="downloadRequest()">Download Request</button>
             <button type="button" class="btn btn-secondary" onclick="copyRequest()">Copy to Clipboard</button>
           </div>
+
+          <p style="margin-top: 20px;">Send the completed request to osyra42 via
+            <a href="https://discordapp.com/users/163839418623459330">Discord</a> or
+            <a href="mailto:CoffeeByteDev@proton.me">Email</a>
+          </p>
         </form>
-      </section>
-    </article>
+    </div>
   </main>
 
   <script>

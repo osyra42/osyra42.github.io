@@ -1,8 +1,8 @@
-<!-- vanity_legal.html -->
+<!-- website_legal.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Coffee Byte Dev</title>
+  <title>Website Legal - Coffee Byte Dev</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,7 +15,7 @@
   <meta property="og:title" content="Website Legal - Coffee Byte Dev" />
   <meta property="og:description" content="Privacy policy, terms of service, and affiliate disclosure for Coffee Byte Dev" />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev" />
+  <meta property="og:url" content="https://coffeebyte.dev/website_legal.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Website Legal - Coffee Byte Dev" />
   <meta name="twitter:description" content="Privacy policy, terms of service, and affiliate disclosure for Coffee Byte Dev" />
@@ -23,32 +23,36 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
     image = "website_legal.jpg";
     title = "Website Legal";
   </script>
-  
+
 </head>
 <body>
+
   <sidebar>
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
+
   <!-- Main Content -->
-  <main>
-    <article>
-      <header>
-        <h3>Website Legal</h3>
-      </header>
-      <section>
-        <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_privacy_policy.md"></script>
-        <hr>
-        <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_terms_of_service.md"></script>
-        <hr>
-        <script src="assets/js/md2html.js" data-md2html="assets/legal/coffee_byte_dev_affiliate_disclosure.md"></script>
-      </section>
-    </article>
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Website Legal</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <script data-md2html="assets/legal/coffee_byte_dev_privacy_policy.md"></script>
+    <hr>
+    <script data-md2html="assets/legal/coffee_byte_dev_terms_of_service.md"></script>
+    <hr>
+    <script data-md2html="assets/legal/coffee_byte_dev_affiliate_disclosure.md"></script>
+
   </main>
+
 </body>
 </html>

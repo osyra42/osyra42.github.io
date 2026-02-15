@@ -1,4 +1,4 @@
-<!-- [archived] - vtuber_guide.html -->
+<!-- vtuber_guide.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +15,7 @@
   <meta property="og:title" content="VTuber Guide - Coffee Byte Dev" />
   <meta property="og:description" content="VTuber Creation Guide - A step-by-step tutorial for creating and animating a VTuber avatar" />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev/[archived] - vtuber_guide.html" />
+  <meta property="og:url" content="https://coffeebyte.dev/vtuber_guide.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="VTuber Guide - Coffee Byte Dev" />
   <meta name="twitter:description" content="VTuber Creation Guide - A step-by-step tutorial for creating and animating a VTuber avatar" />
@@ -23,6 +23,7 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
@@ -37,8 +38,161 @@
     <!-- Placeholder for dynamic sidebar content -->
   </sidebar>
   <!-- Main Content -->
-  <main>
-    <iframe src="assets/jail/[osyra42] - vtuber_guide.html" style="width: 100%; height: calc(100vh - 40px); border: none;"></iframe>
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>VTuber Guide</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+# VTuber Creation Guide
+*A Step-by-Step Tutorial for Creating and Animating Your Virtual Avatar*
+*Archived Tutorial Document*
+
+## Introduction
+
+This guide provides a structured approach to creating and animating a VTuber avatar, even on low-end devices. Whether you're a beginner or looking for optimized tools, this document will help you design, customize, and bring your virtual persona to life.
+
+> 📋 **What is a VTuber?**
+> A VTuber (Virtual YouTuber) is a content creator who uses a computer-generated avatar, typically anime-styled, that is animated using motion capture or tracking software. The avatar moves and reacts in real-time based on the creator's movements and voice.
+
+## Section 1: Default VTuber Creation Method
+
+### Step 1: Prepare a Reference Image
+
+Before designing your avatar, gather visual references to ensure accuracy in colors, proportions, and style.
+
+#### Where to Find References
+
+- [Pixiv](https://www.pixiv.net/) - A popular platform for anime-style artwork
+- [DeviantArt](https://www.deviantart.com/) - Features a wide variety of character designs
+- **Game or anime screenshots** - Useful for replicating existing characters
+
+#### Why Use a Reference?
+
+- Helps maintain consistency in design
+- Ensures proper color matching
+- Guides facial and clothing details
+
+### Step 2: Create Your Avatar in VRoid Studio
+
+VRoid Studio is a free 3D character creator designed for VTuber models.
+
+> 📋 **Download & Installation:**
+> **Official Site:** [VRoid Studio](https://vroid.com/en/studio)
+> **Steam Version:** Available on Steam for easy updates
+
+#### Key Features
+
+- Intuitive sliders for facial and body customization
+- Hair, clothing, and accessory editors
+- Supports importing additional assets
+
+#### Additional Resources
+
+[Booth.pm](https://booth.pm/) - Marketplace for free and paid VRoid assets (e.g., hairstyles, outfits)
+
+#### Exporting Your Model
+
+1. Save as `.vroid` (editable project file)
+2. Export as `.vrm` (for use in motion capture software)
+
+> 💡 **Tip:** Always keep a backup of your `.vroid` file so you can make edits later. The `.vrm` export is optimized for use in tracking software but cannot be easily edited.
+
+### Step 3: Animate Your Avatar with Motion Capture
+
+Choose a motion-tracking tool based on your hardware and needs.
+
+#### Option 1: VSeeFace (Webcam Required)
+
+| Attribute | Details |
+|---|---|
+| Website | [VSeeFace](https://www.vseeface.icu/) |
+| Best For | Real-time facial and body tracking |
+| Requirements | Webcam |
+| Pros | Smooth lip-sync and eye tracking, lightweight performance |
+
+#### Option 2: VMagicMirror (No Webcam Needed)
+
+| Attribute | Details |
+|---|---|
+| Website | [VMagicMirror](https://malaybaku.github.io/VMagicMirror/en/) |
+| Best For | Keyboard/mouse-controlled animations |
+| Requirements | None (no webcam needed) |
+| Pros | Custom gestures and expressions, works without a camera |
+
+## Section 2: VTuber Creation for Low-End Devices
+
+If your computer struggles with 3D modeling or real-time tracking, these alternatives provide lightweight solutions.
+
+### Animation Tool: Veadotube Mini
+
+For creators who want minimal resource usage or prefer a simpler 2D aesthetic, Veadotube Mini offers an excellent alternative to full 3D VTubing.
+
+| Attribute | Details |
+|---|---|
+| Website | [Veadotube Mini](https://veadotube.com/) |
+| Best For | 2D PNGTuber-style avatars |
+| Features | Minimal CPU/GPU usage, supports face tracking via webcam |
+
+> 📋 **What is a PNGTuber?**
+> A PNGTuber uses static or minimally animated 2D images that react to voice input, typically switching between "talking" and "idle" states. This approach requires far fewer system resources than full 3D avatar tracking.
+
+### Drawing & Asset Creation Tools
+
+If you need to design or modify your avatar, these software options cater to different skill levels and budgets.
+
+| Software | Price | Best For | Website |
+|---|---|---|---|
+| Clip Studio Paint | $54.00 (one-time) | Detailed illustrations and animations | [Clip Studio Paint](https://www.clipstudio.net/) |
+| Krita | Free (Open-Source) | Digital painting and texture work | [Krita](https://krita.org/) |
+| GIMP | Free (Open-Source) | Photo editing and asset adjustments | [GIMP](https://www.gimp.org/) |
+
+> 💡 **Recommendation:** If you're just starting out and don't want to spend money, Krita is an excellent choice for creating avatar artwork. It has powerful brushes and a user-friendly interface similar to professional paid software.
+
+## Section 3: Workflow Summary
+
+### Quick Reference: Creation Paths
+
+| Path | Avatar Type | Tools Needed | Hardware Requirements |
+|---|---|---|---|
+| Standard 3D | Full 3D VTuber | VRoid Studio + VSeeFace | Webcam, moderate PC specs |
+| 3D No-Webcam | Full 3D VTuber | VRoid Studio + VMagicMirror | No webcam needed, moderate PC specs |
+| Low-End 2D | PNGTuber | Krita/GIMP + Veadotube Mini | Minimal specs, webcam optional |
+
+### Step-by-Step Workflow
+
+1. **Design Phase:** Use VRoid Studio with reference images to create your 3D model, or create 2D artwork in Krita/GIMP for a PNGTuber
+2. **Export Phase:** Save your work in editable format (`.vroid` or `.psd/.kra`) and export for use (`.vrm` or `.png`)
+3. **Animation Phase:** Import your avatar into your chosen tracking software — VSeeFace for webcam-based 3D tracking, VMagicMirror for keyboard/mouse-controlled 3D animation, or Veadotube Mini for 2D PNGTuber animation
+4. **Streaming Setup:** Configure OBS or your streaming software to capture your avatar with a transparent background
+
+## Conclusion & Next Steps
+
+Creating a VTuber avatar is more accessible than ever, with free tools available for every skill level and hardware configuration. Here's a quick recap:
+
+> 📋 **Summary:**
+> **Design Phase:** Use VRoid Studio with reference images
+> **Animation Phase:** Pick VSeeFace (webcam) or VMagicMirror (no webcam)
+> **Low-End Alternative:** Use Veadotube Mini for 2D avatars
+> **Asset Creation:** Utilize Clip Studio, Krita, or GIMP for custom edits
+
+### Further Learning Resources
+
+- **YouTube Tutorials** - Search for "VRoid Studio tutorial" or "VSeeFace setup"
+- [r/VirtualYoutubers](https://www.reddit.com/r/VirtualYoutubers/) - Reddit community for VTuber discussion and help
+- [Booth.pm](https://booth.pm/) - Marketplace for additional avatar assets
+- [VRoid Hub](https://hub.vroid.com/) - Share and discover VRoid models
+    </div>
+
+    <hr>
+
+    <div class="footer">
+      <p><strong>Archive Date:</strong> January 2026</p>
+      <p><strong>Archived By:</strong> Coffee Byte Dev (osyra42)</p>
+    </div>
+
   </main>
 
 </body>

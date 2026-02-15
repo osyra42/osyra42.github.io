@@ -23,6 +23,7 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
 
   <script>
@@ -32,56 +33,50 @@
 </head>
 <body>
 
-<sidebar>
-  <!-- Placeholder for dynamic sidebar content -->
-</sidebar>
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
 
-<!-- Main Content -->
-<main>
-  <article>
-    <header><h3>About Me</h3></header>
-    <section>
-      <pre>
+  <!-- Main Content -->
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Welcome</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+# About Me
+
 I'm a multidisciplinary digital creator who bridges code, art, and storytelling into cohesive experiences. Over the past eight years, I've built everything from AI-powered Discord bots with VTuber avatars to interactive educational tools, custom 3D-printed designs, and published fantasy novels. My work spans web development, 3D character modeling and rigging, procedural worksheet generators, Minecraft server management, and AI integration—all designed, built, and maintained solo.
 
 What drives me is the challenge of making complex systems accessible and expressive. Whether I'm training an AI to respond with personality, architecting a Discord bot that's evolved through eight major iterations, designing canvas-based math worksheets for teachers, or creating fully-rigged VTuber models, I approach each project as an opportunity to solve real problems while exploring new technical frontiers. My portfolio reflects a commitment to craftsmanship, iterative improvement, and sharing knowledge with the community through guides, open services, and thoughtfully-documented tools.
-</pre>
-    </section>
-  </article>
 
-  <article>
-    <header><h3>What I Build</h3></header>
-    <section>
-      <p>
-        <b>Educational Tools</b><br>
-        I've developed interactive canvas-based worksheets for arithmetic, measurements, and currency counting. These tools generate randomized problems with multi-page print support, making them perfect for teachers and homeschooling parents.
-      </p>
-      <p>
-        <b>AI & Automation</b><br>
-        Vanity is my custom-built Discord bot featuring AI research capabilities, music integration, and real-time responses. I designed and maintain the entire system, from API integrations to command handling.
-      </p>
-      <p>
-        <b>Creative Writing</b><br>
-        As an author, I write sci-fi and fantasy stories including Infinite Devastation, Ever Diamond, and my ongoing series Osyra's Tale. My narratives explore complex worlds, ethical questions, and character-driven adventures.
-      </p>
-      <p>
-        <b>Developer Tools</b><br>
-        I create practical utilities like Media Mimic (a Python-based media organizer) and maintain a curated research repository with resources for developers looking to streamline their workflows.
-      </p>
-      <p>
-        <b>Gaming & Community</b><br>
-        I run a Minecraft server with custom configurations and modpacks like All The Mods 10. I handle everything from server management to sharing seasonal archives for the community.
-      </p>
-    </section>
-  </article>
+---
 
-  <article>
-    <header>
-      <h3>Technical Skills & Expertise</h3>
-    </header>
-    <section>
-      <pre>
-<b>Frontend Development</b>
+# What I Build
+
+**Educational Tools**
+I've developed interactive canvas-based worksheets for arithmetic, measurements, and currency counting. These tools generate randomized problems with multi-page print support, making them perfect for teachers and homeschooling parents.
+
+**AI & Automation**
+Vanity is my custom-built Discord bot featuring AI research capabilities, music integration, and real-time responses. I designed and maintain the entire system, from API integrations to command handling.
+
+**Creative Writing**
+As an author, I write sci-fi and fantasy stories including Infinite Devastation, Ever Diamond, and my ongoing series Osyra's Tale. My narratives explore complex worlds, ethical questions, and character-driven adventures.
+
+**Developer Tools**
+I create practical utilities like Media Mimic (a Python-based media organizer) and maintain a curated research repository with resources for developers looking to streamline their workflows.
+
+**Gaming & Community**
+I run a Minecraft server with custom configurations and modpacks like All The Mods 10. I handle everything from server management to sharing seasonal archives for the community.
+
+---
+
+# Technical Skills & Expertise
+
+```
+FRONTEND DEVELOPMENT
   - HTML5 & Semantic Markup
   - CSS3 & Responsive Design
   - JavaScript (ES6+)
@@ -89,21 +84,21 @@ What drives me is the challenge of making complex systems accessible and express
   - DOM Manipulation
   - Progressive Web Applications
 
-<b>Backend & Database</b>
+BACKEND & DATABASE
   - PHP
   - SQLite & Database Design
   - RESTful API Integration
   - Server Administration
   - Python Scripting & Automation
 
-<b>AI & Machine Learning</b>
+AI & MACHINE LEARNING
   - AI Prompt Engineering
   - Large Language Model Integration
   - Natural Language Processing
   - AI-Powered Bot Development
   - Model Training & Fine-Tuning
 
-<b>3D & Visual Design</b>
+3D & VISUAL DESIGN
   - 3D Modeling & Sculpting
   - Character Rigging & Animation
   - VRM/VTuber Avatar Creation
@@ -111,7 +106,7 @@ What drives me is the challenge of making complex systems accessible and express
   - 3D Printing & CAD Design
   - Graphic Design & UI/UX
 
-<b>Web Design & Architecture</b>
+WEB DESIGN & ARCHITECTURE
   - Responsive Web Design
   - Mobile-First Development
   - Cross-Browser Compatibility
@@ -119,202 +114,72 @@ What drives me is the challenge of making complex systems accessible and express
   - Performance Optimization
   - SEO Best Practices
 
-<b>Creative & Content</b>
+CREATIVE & CONTENT
   - Technical Writing & Documentation
   - Creative Fiction Writing
   - Content Management Systems
   - Digital Storytelling
   - Interactive Media Design
 
-<b>Game Development & Server Management</b>
+GAME DEVELOPMENT & SERVER MANAGEMENT
   - Minecraft Server Administration
   - Modpack Configuration
   - Game Mechanics Design
   - Community Management
   - DevOps & Deployment
 
-<b>Development Tools & Practices</b>
+DEVELOPMENT TOOLS & PRACTICES
   - Git Version Control
   - Procedural Generation Algorithms
   - Debugging & Testing
   - Code Documentation
   - Agile Methodology
   - Cross-Platform Development
-      </pre>
-    </section>
-  </article>
+```
 
-  <article>
-    <header><h3>My Approach</h3></header>
-    <section>
-      <p>
-        As a solo developer, I wear many hats—from designing user interfaces to writing backend logic, managing deployments, and creating content. I believe in building tools that solve real problems, writing clean maintainable code, and sharing knowledge with the community.
-      </p>
-      <p>
-        This site is built and maintained entirely by me. It serves as both a portfolio and a living archive of my work, updated regularly with new projects and experiments.
-      </p>
-    </section>
-  </article>
+---
 
-  <article>
-    <header><h3>Work With Me</h3></header>
-    <section>
-      <p>
-        <b>Commissions</b><br>
-        I'm available for custom development work—whether you need a Discord bot, web application, educational tool, or automation script. I handle projects end-to-end, from initial concept to final deployment.
-      </p>
-      <p>
-        <b>Support My Work</b><br>
-        If you find my projects useful or enjoy my writing, consider supporting me. Your contributions help me continue building open-source tools, creating content, and maintaining this portfolio. As an Amazon Affiliate, I earn from qualifying purchases made through product links on this site.
-      </p>
-      <p>
-        <b>Explore My Work</b><br>
-        Check out my projects to see detailed breakdowns of each project, code samples, and live demos. You'll find everything from web applications to creative writing samples.
-      </p>
-    </section>
-  </article>
+# My Approach
 
-  <article style="background-color: #111111">
-    <header>
-      <h3>Contact Me</h3>
-    </header>
-    <section>
-      <table class="contact-table">
-        <tr>
-          <td>LINK as URI</td>
-          <td>LINK as URL</td>
-        </tr>
+As a solo developer, I wear many hats—from designing user interfaces to writing backend logic, managing deployments, and creating content. I believe in building tools that solve real problems, writing clean maintainable code, and sharing knowledge with the community.
 
-        <!-- discord -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to talk to me on discord"
-              style="color: #7289da"
-              href="discord:discordapp.com/users/163839418623459330"
-              ><img src="assets/images/icons/discord.png" alt="discord icon" /> osyra42</a
-            >
-          </td>
-          <td>
-            <a href="https://discordapp.com/users/163839418623459330"
-              >https://discordapp.com/users/163839418623459330</a
-            >
-          </td>
-        </tr>
+This site is built and maintained entirely by me. It serves as both a portfolio and a living archive of my work, updated regularly with new projects and experiments.
 
-        <!-- youtube -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to watch me on youtube"
-              style="color: #ff0000"
-              href="https://www.youtube.com/@osyra42"
-              ><img src="assets/images/icons/youtube.png" alt="youtube icon" /> osyra42 <img src="assets/images/icons/bug.png" alt="bug icon" /></a>
-          </td>
-          <td>
-            <a href="https://www.youtube.com/@osyra42">https://www.youtube.com/@osyra42</a>
-          </td>
-        </tr>
+---
 
-        <!-- twitch -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to watch me on twitch"
-              style="color: #9146ff"
-              href="https://twitch.com/osyra42"
-            >
-              <img src="assets/images/icons/twitch.png" alt="twitch icon" /> osyra42</a
-            ><br />
-          </td>
-          <td>
-            <a href="https://twitch.com/osyra42">https://twitch.com/osyra42</a>
-          </td>
-        </tr>
+# Work With Me
 
-        <!-- spotify -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to listen to me on spotify"
-              style="color: #1db954"
-              href="spotify:user:31bpj74ptpoth4lyc2aki7ikrt7i"
-              ><img src="assets/images/icons/spotify.png" alt="spotify icon" /> osyra42<br /></a
-            ><br />
-          </td>
-          <td>
-            <a href="https://open.spotify.com/user/31bpj74ptpoth4lyc2aki7ikrt7i"
-              >https://open.spotify.com/user/31bpj74ptpoth4lyc2aki7ikrt7i</a
-            >
-          </td>
-        </tr>
+**Commissions**
+I'm available for custom development work—whether you need a Discord bot, web application, educational tool, or automation script. I handle projects end-to-end, from initial concept to final deployment.
 
-        <!-- email -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to send me an email"
-              style="color: #3165df"
-              href="mailto:CoffeeByteDev@proton.me"
-              ><img src="assets/images/icons/email.png" alt="email icon" /> email</a
-            ><br />
-          </td>
-          <td>
-            <a href="#">CoffeeByteDev@proton.me</a>
-          </td>
-        </tr>
+**Support My Work**
+If you find my projects useful or enjoy my writing, consider supporting me. Your contributions help me continue building open-source tools, creating content, and maintaining this portfolio. As an Amazon Affiliate, I earn from qualifying purchases made through product links on this site.
 
-        <!-- itch.io -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to see my itch.io profile"
-              style="color: #fa5c5c"
-              href="https://osyra42.itch.io"
-              ><img src="assets/images/icons/itch-io.png" alt="itch.io icon" /> itch.io</a
-            ><br />
-          </td>
-          <td>
-            <a href="https://osyra42.itch.io">https://osyra42.itch.io</a>
-          </td>
-        </tr>
+**Explore My Work**
+Check out my projects to see detailed breakdowns of each project, code samples, and live demos. You'll find everything from web applications to creative writing samples.
 
-        <!-- stack overflow -->
-        <tr>
-          <td>
-            <a
-              target="_blank" rel="noopener"
-              aria-label="click here to see my stack overflow profile"
-              style="color: #F48024"
-              href="https://stackoverflow.com/users/2237706/osyra42"
-              ><img src="assets/images/icons/stack-overflow.png" alt="stack overflow icon" /> stack overflow</a
-            ><br />
-          </td>
-          <td>
-            <a href="https://stackoverflow.com/users/2237706/osyra42">https://stackoverflow.com/users/2237706/osyra42</a>
-          </td>
-        </tr>
-      </table>
-    </section>
-  </article>
+---
 
-  <article>
-    <header>
-      <h3>Content Archive Notice</h3>
-    </header>
-    <section>
-      <p>
-        Unpopular or outdated content on this site is not deleted. Instead, it is converted to PDF format and archived in the <a href="pdf_files.html">PDF Files</a> section. This ensures that all my work remains accessible for those who may find it useful in the future.
-      </p>
-    </section>
-  </article>
-</main>
+# Content Archive Notice
+
+Unpopular or outdated content on this site is not deleted. Instead, it is converted to PDF format and archived in the Archives section of the sidebar. This ensures that all my work remains accessible for those who may find it useful in the future.
+
+---
+
+# Contact Me
+
+| LINK as URI | LINK as URL |
+|-------------|-------------|
+| [Discord](discord:discordapp.com/users/163839418623459330) | https://discordapp.com/users/163839418623459330 |
+| [YouTube](https://www.youtube.com/@osyra42) | https://www.youtube.com/@osyra42 |
+| [Twitch](https://twitch.com/osyra42) | https://twitch.com/osyra42 |
+| [Spotify](spotify:user:31bpj74ptpoth4lyc2aki7ikrt7i) | https://open.spotify.com/user/31bpj74ptpoth4lyc2aki7ikrt7i |
+| [Email](mailto:CoffeeByteDev@proton.me) | [CoffeeByteDev@proton.me](#) |
+| [itch.io](https://osyra42.itch.io) | https://osyra42.itch.io |
+| [Stack Overflow](https://stackoverflow.com/users/2237706/osyra42) | https://stackoverflow.com/users/2237706/osyra42 |
+    </div>
+
+  </main>
 
 </body>
 </html>
