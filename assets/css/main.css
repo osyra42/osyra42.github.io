@@ -1,0 +1,609 @@
+/* main.css */
+
+main {
+  background-color: var(--espresso);
+  padding: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex: 1;
+  margin-top: 0;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pumpkin-spice) var(--dark-chocolate);
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+main p {
+  margin-bottom: 12px;
+}
+
+main img {
+  flex: 1;
+  max-width: 30%;
+  margin: 0 5px;
+}
+
+main article {
+  background-color: var(--dark-mocha);
+  border: 1px solid var(--coffee-bean);
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+}
+
+main article:nth-child(1) {
+  margin: 0px;
+}
+
+main article h3 {
+  font-size: 1.25rem;
+  color: var(--steamed-milk);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main article h3 i {
+  margin-right: 0px;
+}
+
+main article div {
+  color: var(--light-cream);
+}
+
+main article a {
+  color: var(--half-and-half);
+  text-decoration: dotted underline;
+  transition: color 0.2s;
+  display: inline-block;
+}
+
+main article a:hover {
+  color: var(--pumpkin-spice);
+}
+
+main article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main article div button {
+  background-color: transparent;
+  border: none;
+  color: var(--light-cream);
+  cursor: pointer;
+  transition: color 0.2s;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+main article div button:hover {
+  color: var(--pumpkin-spice);
+}
+
+main article section {
+  color: var(--light-cream);
+  margin-bottom: 10px;
+}
+
+main article footer {
+  color: var(--mocha);
+  display: inline;
+  position: relative;
+}
+
+main article footer a {
+  color: var(--caramel);
+}
+
+main article footer a:hover {
+  color: var(--pumpkin-spice);
+}
+
+/* ============================================
+   Archive Page Styles (main.archive)
+   ============================================ */
+
+:root {
+  --archive-bg: #1e1610;
+  --archive-text: #f5f5dc;
+  --archive-primary: #d2691e;
+  --archive-secondary: #b68d40;
+  --archive-header-bg: #2a1e14;
+  --archive-border: #453024;
+  --archive-box-bg: #2a1e14;
+  --archive-muted: #d2b48c;
+  --archive-link: #d2691e;
+  --archive-link-hover: #f8e5c8;
+  --archive-mint: #7a9e8c;
+  --archive-mint-bg: #1e2820;
+  --archive-mint-light: #a8c5b5;
+}
+
+main.archive {
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: var(--archive-bg);
+  color: var(--archive-text);
+  line-height: 1.8;
+  width: 100%;
+  padding: 0;
+  /* Reset base main properties */
+  display: block;
+  flex: unset;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Constrain content but not the download bar */
+main.archive > *:not(.download-bar) {
+  max-width: 794px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Override the global * selector for archive content */
+main.archive,
+main.archive * {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.8;
+}
+
+main.archive code,
+main.archive pre,
+main.archive code *,
+main.archive pre * {
+  font-family: 'Courier New', Consolas, monospace;
+}
+
+/* Download bar */
+main.archive .download-bar {
+  background-color: var(--archive-header-bg);
+  color: var(--archive-text);
+  padding: 8px 20px;
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 2px solid var(--archive-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+main.archive .download-bar h1 {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: var(--archive-secondary);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+main.archive .download-btn {
+  background-color: var(--archive-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+main.archive .download-btn:hover {
+  background-color: var(--archive-secondary);
+}
+
+/* Headings */
+main.archive h1 {
+  color: var(--archive-primary);
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+  border-bottom: 4px solid var(--archive-primary);
+  padding-bottom: 0.3em;
+}
+
+main.archive h2 {
+  color: var(--archive-primary);
+  font-size: 1.8em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  border-bottom: 2px solid var(--archive-primary);
+  padding-bottom: 0.3em;
+}
+
+main.archive h3 {
+  color: var(--archive-secondary);
+  font-size: 1.4em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+main.archive h4 {
+  color: var(--archive-secondary);
+  font-size: 1.2em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+/* Text */
+main.archive p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+main.archive p.indent {
+  text-indent: 2em;
+}
+
+main.archive p.no-indent {
+  text-indent: 0;
+}
+
+main.archive a {
+  color: var(--archive-link);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+main.archive a:hover {
+  color: var(--archive-link-hover);
+  text-decoration: underline;
+}
+
+main.archive ul,
+main.archive ol {
+  margin: 1em 0 1em 2em;
+}
+
+main.archive li {
+  margin-bottom: 0.5em;
+}
+
+/* Table of Contents */
+main.archive .toc {
+  background-color: var(--archive-box-bg);
+  border: 2px solid var(--archive-border);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+main.archive .toc h2 {
+  color: var(--archive-primary);
+  margin-bottom: 15px;
+  margin-top: 0;
+  font-size: 1.4em;
+  border-bottom: none;
+}
+
+main.archive .toc ul {
+  list-style: none;
+  margin-left: 0;
+  columns: 2;
+  column-gap: 30px;
+}
+
+main.archive .toc li {
+  margin-bottom: 8px;
+  break-inside: avoid;
+}
+
+main.archive .toc a { color: var(--archive-link); }
+main.archive .toc a:hover { color: var(--archive-link-hover); }
+
+/* Characters section */
+main.archive .characters {
+  background-color: var(--archive-box-bg);
+  border: 2px solid var(--archive-border);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+main.archive .characters h2 {
+  color: var(--archive-primary);
+  margin-bottom: 15px;
+  margin-top: 0;
+  font-size: 1.4em;
+  border-bottom: none;
+}
+
+main.archive .characters ul {
+  list-style: none;
+  columns: 2;
+  column-gap: 30px;
+  margin: 0;
+}
+
+main.archive .characters li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+main.archive .characters li::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  color: var(--archive-primary);
+}
+
+/* Info boxes */
+main.archive .info-box {
+  background: var(--archive-box-bg);
+  border-left: 4px solid var(--archive-primary);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+main.archive .info-box p {
+  margin-bottom: 0.5em;
+  text-indent: 0;
+}
+
+main.archive .info-box p:last-child { margin-bottom: 0; }
+main.archive .info-box strong { color: var(--archive-secondary); }
+
+/* Warning boxes */
+main.archive .warning-box {
+  background: #3d2020;
+  border-left: 4px solid #c0392b;
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+main.archive .warning-box p { margin-bottom: 0.5em; }
+main.archive .warning-box p:last-child { margin-bottom: 0; }
+main.archive .warning-box strong { color: #e74c3c; }
+
+/* Tip boxes (mint) */
+main.archive .tip-box {
+  background: var(--archive-mint-bg);
+  border-left: 4px solid var(--archive-mint);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+main.archive .tip-box p { margin-bottom: 0.5em; }
+main.archive .tip-box p:last-child { margin-bottom: 0; }
+main.archive .tip-box strong { color: var(--archive-mint-light); }
+
+/* Executive summary */
+main.archive .executive-summary {
+  background: var(--archive-box-bg);
+  border: 2px solid var(--archive-border);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+main.archive .executive-summary h3 {
+  margin-top: 0;
+  color: var(--archive-primary);
+}
+
+/* Journal entries */
+main.archive .journal-entry {
+  background: var(--archive-box-bg);
+  border-left: 4px solid var(--archive-primary);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+main.archive .journal-entry p { text-indent: 0; }
+
+main.archive .journal-date {
+  font-weight: bold;
+  color: var(--archive-secondary);
+  font-style: normal;
+}
+
+main.archive .dialogue {
+  margin: 1em 0;
+  text-indent: 0;
+}
+
+/* Tables */
+main.archive table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.9em;
+}
+
+main.archive th,
+main.archive td {
+  border: 1px solid var(--archive-border);
+  padding: 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+
+main.archive th {
+  background-color: var(--archive-header-bg);
+  color: var(--archive-secondary);
+  font-weight: bold;
+}
+
+main.archive tr:nth-child(even) {
+  background-color: rgba(42, 30, 20, 0.5);
+}
+
+/* Code */
+main.archive code {
+  background: var(--archive-header-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--archive-secondary);
+}
+
+main.archive pre {
+  background: var(--archive-header-bg);
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 1em 0;
+}
+
+/* Blockquote */
+main.archive blockquote {
+  background: var(--archive-box-bg);
+  border-left: 4px solid var(--archive-primary);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+/* Horizontal rule */
+main.archive hr {
+  border: none;
+  border-top: 1px solid var(--archive-border);
+  margin: 2em 0;
+  height: auto;
+  background-color: transparent;
+}
+
+/* Footer */
+main.archive .footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 3px solid var(--archive-border);
+  text-align: center;
+  color: var(--archive-muted);
+  font-size: 0.9em;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+main.archive .footer p {
+  margin-bottom: 10px;
+  text-indent: 0;
+}
+
+/* Utility */
+main.archive .page-break { page-break-before: always; }
+
+main.archive .section-divider {
+  text-align: center;
+  margin: 2em 0;
+  color: var(--archive-primary);
+}
+
+main.archive .note-text {
+  font-style: italic;
+  color: var(--archive-muted);
+  text-indent: 0;
+}
+
+main.archive .links-box {
+  background: var(--archive-box-bg);
+  border: 2px solid var(--archive-border);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
+main.archive .works-cited {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 2px solid var(--archive-border);
+}
+
+main.archive .works-cited h2 { font-size: 1.4em; }
+
+main.archive .works-cited li {
+  margin-bottom: 0.8em;
+  word-break: break-word;
+}
+
+/* Archive mobile */
+@media (max-width: 600px) {
+  main.archive .toc ul,
+  main.archive .characters ul {
+    columns: 1;
+  }
+
+  main.archive h1 { font-size: 1.8em; }
+
+  main.archive .download-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main.archive > *:not(.download-bar) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Archive print */
+@media print {
+  body {
+    display: block;
+    background-color: white;
+    color: #333;
+  }
+
+  main.archive > *:not(.download-bar) {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  main.archive {
+    height: auto;
+    overflow: visible;
+    background-color: white;
+    color: #333;
+    --archive-bg: #ffffff;
+    --archive-text: #333333;
+    --archive-primary: #8B4513;
+    --archive-secondary: #5c4937;
+    --archive-header-bg: #f8f5f0;
+    --archive-border: #d2b48c;
+    --archive-box-bg: #f8f5f0;
+    --archive-muted: #666666;
+    --archive-link: #8B4513;
+    --archive-link-hover: #d2691e;
+    --archive-mint: #5a7a6a;
+    --archive-mint-bg: #e8f0eb;
+    --archive-mint-light: #3d5a4c;
+  }
+
+  main.archive .download-bar { display: none !important; }
+
+  main.archive .warning-box {
+    background-color: #fff5f5;
+    border-color: #c0392b;
+  }
+
+  main.archive a { color: #8B4513; }
+  main.archive th { background-color: #f8f5f0; }
+  main.archive tr:nth-child(even) { background-color: #faf8f5; }
+  main.archive code,
+  main.archive pre { background-color: #f0e6d8; }
+
+  main.archive pre code.hljs {
+    background: #f0e6d8 !important;
+    color: #333 !important;
+  }
+}
