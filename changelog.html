@@ -24,6 +24,7 @@
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
   <script>
     image = "changelog.jpg";
     title = "Changelog";
@@ -54,6 +55,45 @@ LEGEND OF COLORS
 > blue: description
 $ bugs: known/fixed
   normal text
+
+. ............................
+# 2026 FEB 16
+@ website
++ added "Back to Top" button to all pages (appears after scrolling)
++ added back-to-top.js shared script for scroll-based button visibility
++ split styles.css into three files for maintainability
++ added sidebar.css (all sidebar styles)
++ added main.css (all main content and archive styles)
++ styles.css now contains only global styles and imports sidebar.css and main.css
++ added inline chapter viewer to Osyra's Tale (content loads below each link)
++ chapters toggle open/close independently (multiple can be open at once)
++ added print-friendly styles for chapter content (white background, black text)
+- removed fixed content viewer from Osyra's Tale (replaced by inline expansion)
+> CSS architecture: styles.css imports sidebar.css and main.css via @import
+> no HTML link changes needed, all pages still reference styles.css
+> Back to Top button uses main element scroll (not window) to match site layout
+> Back to Top button hidden during print
+@ minecraft
++ added moderator tool to help with inventory
+
+. ............................
+# 2026 FEB 15
+@ website
++ converted all archive pages from static HTML to markdown-based rendering
++ pages now write content in markdown and md2html.js converts it to HTML on load
++ added highlight.js library for syntax-highlighted code blocks in archive pages
++ enhanced md2html.js with strikethrough, image, auto-linking, code blocks, and table support
++ added archive dropdown menu to sidebar for archived documents
++ added archive CSS styles (main.archive) with print-friendly layout
++ added All About AI page with syntax-highlighted code examples
++ moved archived HTML files out of assets/jail/ back to root as live pages
+- removed archived.html (replaced by sidebar archives dropdown)
+- removed static HTML copies from assets/jail/
+- removed sidebar nav icons (replaced with dash-prefixed text links)
+- removed underscore-based bold/italic from md2html.js (asterisk-only now)
+> all content pages now use md2html.js instead of hand-written HTML
+> md2html.js processes inline code before bold/italic to protect code content
+> sidebar links changed from icon-based to text-based for simplicity
 
 . ............................
 # 2026 JAN 31
@@ -297,6 +337,7 @@ $ website flashes white on fast reload
 $ page title is missing
     </pre>
 
+    <button id="back-to-top">Back to Top</button>
   </main>
 
 <script>
