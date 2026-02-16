@@ -44,20 +44,32 @@
       color: var(--pumpkin-spice);
       font-weight: bold;
     }
-    #content-viewer {
+    .chapter-content {
+      display: block;
+      white-space: normal;
+      font-family: Arial, sans-serif;
       background: var(--dark-mocha);
       padding: 1rem;
+      margin: 0.5rem 0;
       border-radius: 8px;
-      min-height: 200px;
-      max-height: 60vh;
-      overflow-y: auto;
+      border-left: 3px solid var(--pumpkin-spice);
     }
-    #content-viewer p {
+    .chapter-content p {
       margin: 0.5rem 0;
       line-height: 1.6;
     }
-    #content-viewer h1, #content-viewer h2, #content-viewer h3 {
+    .chapter-content h1, .chapter-content h2, .chapter-content h3 {
       color: var(--pumpkin-spice);
+    }
+    @media print {
+      .chapter-content {
+        background: white;
+        color: black;
+        border-left-color: #333;
+      }
+      .chapter-content h1, .chapter-content h2, .chapter-content h3 {
+        color: black;
+      }
     }
     .loading {
       color: var(--half-and-half);
@@ -77,11 +89,6 @@
     <div class="download-bar">
       <h1>Osyra's Tale</h1>
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
-    </div>
-
-    <h1 id="viewer-title">Content Viewer</h1>
-    <div id="content-viewer">
-      <p class="loading">Loading...</p>
     </div>
 
     <h1>Osyra's Tale - Revision 01 (2025)</h1>
@@ -146,68 +153,40 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const viewer = document.getElementById('content-viewer');
-    const viewerTitle = document.getElementById('viewer-title');
     const links = document.querySelectorAll('.chapter-link');
 
-    function loadContent(filePath) {
-        viewer.innerHTML = '<p class="loading">Loading...</p>';
-        viewerTitle.textContent = 'Loading...';
-
-        // Add cache-busting timestamp to force refresh
-        const cacheBuster = '?t=' + Date.now();
-
-        fetch(filePath + cacheBuster)
-            .then(response => {
-                if (!response.ok) throw new Error('Failed to load file');
-                return response.text();
-            })
-            .then(text => {
-                // Get the first non-empty line as the title and find where content starts
-                const lines = text.split('\n');
-                let firstLine = '';
-                let contentStartIndex = 0;
-
-                for (let i = 0; i < lines.length; i++) {
-                    const trimmed = lines[i].trim();
-                    if (trimmed) {
-                        // Remove markdown heading markers if present
-                        firstLine = trimmed.replace(/^#+\s*/, '');
-                        contentStartIndex = i + 1;
-                        break;
-                    }
-                }
-                viewerTitle.textContent = firstLine || 'Content Viewer';
-
-                // Remove the first line (title) from content
-                const contentText = lines.slice(contentStartIndex).join('\n').trim();
-
-                // Render markdown content
-                viewer.innerHTML = Md2Html.md2html(contentText);
-                viewer.scrollTop = 0;
-            })
-            .catch(error => {
-                viewerTitle.textContent = 'Error';
-                viewer.innerHTML = `<p style="color: var(--caramel);">Error loading content: ${error.message}</p>`;
-            });
-    }
-
-    // Add click handlers to all chapter links
     links.forEach(link => {
         link.addEventListener('click', function() {
-            // Remove active class from all links
-            links.forEach(l => l.classList.remove('active'));
-            // Add active class to clicked link
+            const existing = this.nextElementSibling;
+
+            // If already open, toggle it closed
+            if (existing && existing.classList.contains('chapter-content')) {
+                existing.remove();
+                this.classList.remove('active');
+                return;
+            }
+
+            // Create content div after the clicked link
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'chapter-content';
+            contentDiv.innerHTML = '<p class="loading">Loading...</p>';
+            this.insertAdjacentElement('afterend', contentDiv);
             this.classList.add('active');
-            // Load the content
-            loadContent(this.dataset.file);
+
+            const cacheBuster = '?t=' + Date.now();
+            fetch(this.dataset.file + cacheBuster)
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to load file');
+                    return response.text();
+                })
+                .then(text => {
+                    contentDiv.innerHTML = Md2Html.md2html(text);
+                })
+                .catch(error => {
+                    contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
+                });
         });
     });
-
-    // Load README by default
-    loadContent('osyras_tale/README.md');
-    // Mark the About link as active
-    document.querySelector('.chapter-link[data-file="osyras_tale/README.md"]').classList.add('active');
 });
 </script>
 
