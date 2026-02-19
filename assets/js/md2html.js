@@ -20,8 +20,8 @@ const Md2Html = (function() {
         // Inline code: `code` (process first to protect code content)
         text = text.replace(/`(.*?)`/g, '<code>$1</code>');
 
-        // Timestamp: $$DDMMYYYY$$ or $$DDMMYYYY@HHMM$$ → local time
-        text = text.replace(/\$\$(\d{2})(\d{2})(\d{4})(?:@(\d{2})(\d{2}))?\$\$/g, parseTimestamp);
+        // Timestamp: $$DD.MM.YYYY$$ or $$DD.MM.YYYY@HH.MM$$ → local time
+        text = text.replace(/\$\$(\d{2})\.(\d{2})\.(\d{4})(?:@(\d{2})\.(\d{2}))?\$\$/g, parseTimestamp);
 
         // Spoiler: !!text!! → click to reveal
         text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');

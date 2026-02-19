@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         Projects: `
 - [🧲 How Magnets Work](how_magnets_work.html)
-- [🎨 ComfyUI Guide](comfyui_guide.html)
 - [📖 Osyra's Tale](osyras_tale.html)
 - [🎣 Fishing Mini Game](fishing_mini_game/index.html)
 - [🤖 Vanity Bot](vanity.html)
+- [🐍 Python Lessons](python_lessons.html)
 - [🏫 Home School](school/index.html)`,
 
         Support: `
@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Archive links in markdown format
     const archives = `
+- [🎨 ComfyUI Guide](comfyui_guide.html)
 - [🎄 Clutter](clutter.html)
 - [🤖 All About AI](all_about_ai.html)
 - [💡 Do It Better For Free](do_it_better_for_free.html)
