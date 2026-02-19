@@ -57,6 +57,37 @@ $ bugs: known/fixed
   normal text
 
 . ............................
+# 2026 FEB 19
+@ website
++ moved mobile CSS from injected JS to its own file (mobile.css)
++ styles.css now imports mobile.css via @import
++ rewrote sidebar.js to define links in markdown format
++ added archive dropdown links in markdown format
++ fixed mobile scrolling (overflow-x/overflow-y mixed value bug)
++ added duplicate guard to mobile banner creation
++ fixed broken periodic table print function
++ fixed favicon path in school pages
++ fixed Osyra's Tale chapter 02 file reference (bootcamp → processing)
++ added emoji to page headers (index, donate, recommendations, commissions, how magnets work, vtuber guide, comfyui guide)
+- removed emoji from formal pages (urbex safety, all about AI)
++ removed table stripes and server-id styling from minecraft server status
++ hidden server status table from print view
+- removed NEW badge system from sidebar (updateDate, shouldBeNew, CSS)
+- removed unused commissions.js
+- removed unused archive.css (duplicate of main.css styles)
+- removed admin test files (theme.css, theme_testing.html)
+- removed 8 Flash .swf files from downloads (Flash is EOL)
+- removed school.zip (unreferenced)
+- removed unused CSS classes (.new, .disclaimer, .contact-table, .price, .required, .nav-icon, .flex)
+- removed clutter-toggle dead code from scripts.js
+- removed console.log calls from mobile.js
+- removed hard-coded [NEW] labels from school index
+- removed broken fitness-exercise4kids.html link from school index
+> mobile.js now only handles DOM creation and event listeners, no CSS injection
+> sidebar links use markdown syntax: - [text](url)
+> fixed CSS spec issue where mixed overflow-x/overflow-y caused scroll to break on mobile
+
+. ............................
 # 2026 FEB 16
 @ website
 + added "Back to Top" button to all pages (appears after scrolling)
