@@ -3,7 +3,6 @@
 sidebar {
   display: flex;
   flex-direction: column;
-  font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
   background-color: var(--dark-caramel);
   border-right: 2px solid var(--toasted-almond);
   padding: 12px;
@@ -21,7 +20,8 @@ sidebar {
 }
 
 sidebar h1 {
-  margin-left: 15px;
+  text-align: center;
+  font-family: 'Satisfy', cursive, sans-serif;
 }
 
 sidebar h3 {
@@ -47,20 +47,10 @@ sidebar nav a {
   display: inline-block;
   margin: 4px 0;
   font-weight: 500;
-  font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
 }
 
 sidebar nav a:hover {
   color: var(--pumpkin-spice);
-}
-
-sidebar .nav-icon {
-    width: 16px;
-    height: 16px;
-    vertical-align: middle;
-    margin-right: 8px;
-    display: inline-block;
-    filter: invert(100%) brightness(200%);
 }
 
 /* Archive dropdown */
@@ -74,7 +64,6 @@ sidebar .nav-dropdown-toggle {
     cursor: pointer;
     user-select: none;
     color: var(--half-and-half);
-    font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
     font-weight: 500;
     display: inline-block;
     margin: 4px 0;
@@ -107,7 +96,6 @@ sidebar .nav-dropdown-item {
     padding: 2px 0;
     margin: 4px 0;
     font-weight: 500;
-    font-family: 'Peppermint Pen', cursive, Arial, sans-serif;
 }
 
 sidebar .nav-dropdown-item:hover {
@@ -136,6 +124,7 @@ sidebar div a:hover {
 
 sidebar > div:first-child {
   flex-shrink: 0;
+  text-align: center;
 }
 
 sidebar .avatar-container {
@@ -162,25 +151,6 @@ sidebar h2 {
   vertical-align: middle;
   height: 40px;
   border: var(--half-and-half) 2px solid;
-}
-
-sidebar .flex {
-  display: flex;
-  gap: 16px;
-}
-
-sidebar .flex a {
-  color: var(--mocha);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-sidebar .flex a:hover {
-  color: var(--pumpkin-spice);
-}
-
-sidebar .flex a i {
-  margin-right: 4px;
 }
 
 @media print {

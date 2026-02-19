@@ -565,28 +565,7 @@
     }
 
     function printBoringChart() {
-      const printWindow = window.open('', '_blank');
-      printWindow.document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>Periodic Table</title>
-          <style>
-            body { margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-            img { max-width: 100%; height: auto; }
-            @media print {
-              body { padding: 0; }
-              img { max-width: 100%; max-height: 100vh; }
-              @page { margin: 0.25in; size: landscape; }
-            }
-          </style>
-        </head>
-        <body>
-          <img src="infographics/periodic_table.png" onload="window.print(); window.close();" />
-        </body>
-        </html>
-      `);
-      printWindow.document.close();
+      window.print();
     }
 
     window.onload = renderPeriodicTable;

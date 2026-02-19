@@ -7,9 +7,24 @@ const Md2Html = (function() {
         return div.innerHTML;
     }
 
+    function parseTimestamp(match, dd, mm, yyyy, hh, min) {
+        const date = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd),
+            hh ? parseInt(hh) : 0, min ? parseInt(min) : 0);
+        if (isNaN(date.getTime())) return match;
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        if (hh) { options.hour = '2-digit'; options.minute = '2-digit'; }
+        return '<time datetime="' + date.toISOString() + '">' + date.toLocaleString(undefined, options) + '</time>';
+    }
+
     function parseInlineFormatting(text) {
         // Inline code: `code` (process first to protect code content)
         text = text.replace(/`(.*?)`/g, '<code>$1</code>');
+
+        // Timestamp: $$DDMMYYYY$$ or $$DDMMYYYY@HHMM$$ → local time
+        text = text.replace(/\$\$(\d{2})(\d{2})(\d{4})(?:@(\d{2})(\d{2}))?\$\$/g, parseTimestamp);
+
+        // Spoiler: !!text!! → click to reveal
+        text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');
 
         // Bold: **text**
         text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
@@ -20,11 +35,21 @@ const Md2Html = (function() {
         // Strikethrough: ~~text~~
         text = text.replace(/~~(.*?)~~/g, '<del>$1</del>');
 
+        // Underline: __text__
+        text = text.replace(/__([^_]+?)__/g, '<u>$1</u>');
+
+        // Fill-in blank: __ (2+ underscores with no content between)
+        text = text.replace(/_{2,}/g, '<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;">');
+
         // Images: ![alt](url) — must come before links
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
 
         // Links: [text](url)
         text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+
+        // Checkboxes: [x] checked, [ ] unchecked
+        text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
+        text = text.replace(/\[ \]/g, '<input type="checkbox">');
 
         // Auto-link bare URLs and magnet links (only after whitespace or start of string)
         text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, '$1<a href="$2">$2</a>');
@@ -39,7 +64,7 @@ const Md2Html = (function() {
         } = options;
 
         let htmlContent = '';
-        const lines = markdownText.split('\n');
+        const lines = markdownText.trim().split(/\r?\n/);
         let inBlockquote = false;
         let inCodeBlock = false;
         let codeBlockContent = '';
@@ -143,7 +168,7 @@ const Md2Html = (function() {
                 }
             }
             // Horizontal rule
-            else if (line.match(/^[-*_]{3,}$/)) {
+            else if (line.match(/^[-*]{3,}$/)) {
                 closeOpenBlocks();
                 processedLine = '<hr>';
             }

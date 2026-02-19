@@ -4,11 +4,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('back-to-top');
   if (!mainEl || !btn) return;
 
-  mainEl.addEventListener('scroll', function () {
-    btn.style.display = mainEl.scrollTop > 1600 ? 'block' : 'none';
-  });
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-  btn.addEventListener('click', function () {
-    mainEl.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (isMobile) {
+    window.addEventListener('scroll', function () {
+      btn.style.display = window.scrollY > 800 ? 'block' : 'none';
+    });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  } else {
+    mainEl.addEventListener('scroll', function () {
+      btn.style.display = mainEl.scrollTop > 1600 ? 'block' : 'none';
+    });
+    btn.addEventListener('click', function () {
+      mainEl.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 });
