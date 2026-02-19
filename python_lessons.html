@@ -1,0 +1,164 @@
+<!-- python_lessons.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Python Lessons - Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Python Programming Lessons - Learn Python step by step with interactive tutorials" />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, Python, programming, tutorials, lessons, learn to code" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Python Lessons - Coffee Byte Dev" />
+  <meta property="og:description" content="Python Programming Lessons - Learn Python step by step with interactive tutorials" />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/python_lessons.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Python Lessons - Coffee Byte Dev" />
+  <meta name="twitter:description" content="Python Programming Lessons - Learn Python step by step with interactive tutorials" />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/md2html.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
+
+  <script>
+    image = "python_lessons.jpg";
+    title = "Python Lessons";
+  </script>
+
+  <style>
+    main.archive .chapter-link {
+      cursor: pointer;
+      color: var(--caramel);
+    }
+    main.archive .chapter-link:hover {
+      color: var(--pumpkin-spice);
+      text-decoration: underline;
+    }
+    main.archive .chapter-link.active {
+      color: var(--pumpkin-spice);
+      font-weight: bold;
+    }
+    .chapter-content {
+      display: block;
+      white-space: normal;
+      font-family: Arial, sans-serif;
+      background: var(--dark-mocha);
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border-left: 3px solid var(--pumpkin-spice);
+    }
+    .chapter-content p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+    .chapter-content h1, .chapter-content h2, .chapter-content h3 {
+      color: var(--pumpkin-spice);
+    }
+    @media print {
+      .chapter-content {
+        background: white;
+        color: black;
+        border-left-color: #333;
+      }
+      .chapter-content h1, .chapter-content h2, .chapter-content h3 {
+        color: black;
+      }
+    }
+    .loading {
+      color: var(--half-and-half);
+      font-style: italic;
+    }
+  </style>
+
+</head>
+<body>
+
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+  <!-- Main Content -->
+  <main class="archive">
+
+    <div class="download-bar">
+      <h1>Python Lessons</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div id="chapter-list"></div>
+
+    <button id="back-to-top">Back to Top</button>
+
+  </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const md = `
+# Chapter 01: Python Basics
+
+01 - [Introduction to Python & print()](python_lessons/Chapter 01/Lesson 01.md)
+02 - [Variables](python_lessons/Chapter 01/Lesson 02.md)
+03 - [Strings](python_lessons/Chapter 01/Lesson 03.md)
+04 - [Numbers & Math Operations](python_lessons/Chapter 01/Lesson 04.md)
+05 - [Working with Variables](python_lessons/Chapter 01/Lesson 05.md)
+06 - [Chapter 1 Review Quiz](python_lessons/Chapter 01/Test 01.md)
+
+~~Chapter 02~~
+
+---
+
+**Last Updated:** $$19.02.2026$$
+**Author:** Coffee Byte Dev (osyra42)
+`;
+
+    const container = document.getElementById('chapter-list');
+    container.innerHTML = Md2Html.md2html(md);
+
+    // Intercept clicks on .md links for inline lesson viewing
+    container.querySelectorAll('a[href$=".md"]').forEach(link => {
+        link.classList.add('chapter-link');
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const parent = this.closest('p, h1, h2, h3, h4, h5, h6');
+            if (!parent) return;
+            const existing = parent.nextElementSibling;
+
+            // If already open, toggle it closed
+            if (existing && existing.classList.contains('chapter-content')) {
+                existing.remove();
+                this.classList.remove('active');
+                return;
+            }
+
+            // Create content div after the parent element
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'chapter-content';
+            contentDiv.innerHTML = '<p class="loading">Loading...</p>';
+            parent.insertAdjacentElement('afterend', contentDiv);
+            this.classList.add('active');
+
+            fetch(this.href + '?t=' + Date.now())
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to load file');
+                    return response.text();
+                })
+                .then(text => {
+                    contentDiv.innerHTML = Md2Html.md2html(text);
+                })
+                .catch(error => {
+                    contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
+                });
+        });
+    });
+});
+</script>
+
+</body>
+</html>

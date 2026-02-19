@@ -28,7 +28,7 @@
   <script src="assets/js/back-to-top.js" defer></script>
 
   <script>
-    image = "pdf_files.jpg";
+    image = "vtuber_guide.jpg";
     title = "VTuber Guide";
   </script>
 
@@ -82,7 +82,7 @@ VRoid Studio is a free 3D character creator designed for VTuber models.
 
 > 📋 **Download & Installation:**
 > **Official Site:** [VRoid Studio](https://vroid.com/en/studio)
-> **Steam Version:** Available on Steam for easy updates
+> **Steam Version:** [VRoid Studio on Steam](https://store.steampowered.com/app/1486350/VRoid_Studio/) for easy updates
 
 #### Key Features
 
@@ -105,7 +105,22 @@ VRoid Studio is a free 3D character creator designed for VTuber models.
 
 Choose a motion-tracking tool based on your hardware and needs.
 
-#### Option 1: VSeeFace (Webcam Required)
+#### Option 1: VMagicMirror (Recommended)
+
+This is the tool I personally use and recommend. It works with or without a webcam and provides excellent control over your avatar.
+
+| Attribute | Details |
+|---|---|
+| Website | [VMagicMirror](https://malaybaku.github.io/VMagicMirror/en/) |
+| Best For | Versatile avatar animation with or without a webcam |
+| Requirements | None (webcam optional) |
+| Pros | Custom gestures and expressions, webcam and non-webcam modes, actively maintained |
+
+> 💡 **Tip:** For a $20 donation to the VMagicMirror developer, you unlock additional features including hand tracking and more. Well worth it if you plan to use the tool regularly.
+
+#### Option 2: VSeeFace (Webcam Required)
+
+> ⚠️ **Deprecated:** VSeeFace has not received recent updates and is no longer actively maintained. It still works, but consider VMagicMirror as a more reliable long-term choice.
 
 | Attribute | Details |
 |---|---|
@@ -113,15 +128,6 @@ Choose a motion-tracking tool based on your hardware and needs.
 | Best For | Real-time facial and body tracking |
 | Requirements | Webcam |
 | Pros | Smooth lip-sync and eye tracking, lightweight performance |
-
-#### Option 2: VMagicMirror (No Webcam Needed)
-
-| Attribute | Details |
-|---|---|
-| Website | [VMagicMirror](https://malaybaku.github.io/VMagicMirror/en/) |
-| Best For | Keyboard/mouse-controlled animations |
-| Requirements | None (no webcam needed) |
-| Pros | Custom gestures and expressions, works without a camera |
 
 ## 💻 Section 2: VTuber Creation for Low-End Devices
 
@@ -135,7 +141,7 @@ For creators who want minimal resource usage or prefer a simpler 2D aesthetic, V
 |---|---|
 | Website | [Veadotube Mini](https://veadotube.com/) |
 | Best For | 2D PNGTuber-style avatars |
-| Features | Minimal CPU/GPU usage, supports face tracking via webcam |
+| Features | Minimal CPU/GPU usage, voice detection for avatar animation |
 
 > 📋 **What is a PNGTuber?**
 > A PNGTuber uses static or minimally animated 2D images that react to voice input, typically switching between "talking" and "idle" states. This approach requires far fewer system resources than full 3D avatar tracking.
@@ -158,16 +164,45 @@ If you need to design or modify your avatar, these software options cater to dif
 
 | Path | Avatar Type | Tools Needed | Hardware Requirements |
 |---|---|---|---|
-| Standard 3D | Full 3D VTuber | VRoid Studio + VSeeFace | Webcam, moderate PC specs |
-| 3D No-Webcam | Full 3D VTuber | VRoid Studio + VMagicMirror | No webcam needed, moderate PC specs |
+| Standard 3D (Recommended) | Full 3D VTuber | VRoid Studio + VMagicMirror | Webcam optional, moderate PC specs |
+| 3D Webcam | Full 3D VTuber | VRoid Studio + VSeeFace | Webcam, moderate PC specs (VSeeFace is deprecated) |
 | Low-End 2D | PNGTuber | Krita/GIMP + Veadotube Mini | Minimal specs, webcam optional |
 
 ### Step-by-Step Workflow
 
 1. **Design Phase:** Use VRoid Studio with reference images to create your 3D model, or create 2D artwork in Krita/GIMP for a PNGTuber
 2. **Export Phase:** Save your work in editable format (`.vroid` or `.psd/.kra`) and export for use (`.vrm` or `.png`)
-3. **Animation Phase:** Import your avatar into your chosen tracking software — VSeeFace for webcam-based 3D tracking, VMagicMirror for keyboard/mouse-controlled 3D animation, or Veadotube Mini for 2D PNGTuber animation
+3. **Animation Phase:** Import your avatar into your chosen tracking software — VMagicMirror for 3D animation with or without a webcam (recommended), VSeeFace for webcam-based 3D tracking (deprecated), or Veadotube Mini for 2D PNGTuber animation
 4. **Streaming Setup:** Configure OBS or your streaming software to capture your avatar with a transparent background
+
+## 🎥 Section 4: Using Your Avatar on Discord
+
+Once your avatar is animated, you can use it as your camera in Discord calls using OBS Virtual Camera.
+
+### Step 1: Download and Launch OBS
+
+Download [OBS Studio](https://obsproject.com/) if you don't already have it. Install and launch the application.
+
+### Step 2: Add Your Avatar to the Scene
+
+1. In OBS, click the **+** button under **Sources**
+2. Select **Game Capture**
+3. Set the **Mode** to "Capture specific window"
+4. Choose your avatar software (VMagicMirror, VSeeFace, or Veadotube Mini) from the window list
+5. Click **OK**
+
+### Step 3: Start the Virtual Camera
+
+Click **Start Virtual Camera** in the bottom-right of OBS. This creates a virtual webcam that other applications can use.
+
+### Step 4: Set Up Discord
+
+1. Open **Discord** and go to **Settings** (gear icon)
+2. Navigate to **Voice & Video**
+3. Under **Camera**, select **OBS Virtual Camera** from the dropdown
+4. Join a voice channel or call and turn on your camera — your avatar will appear instead of a regular webcam feed
+
+> 💡 **Tip:** Make sure OBS is running and the virtual camera is active before turning on your camera in Discord.
 
 ## 🚀 Conclusion & Next Steps
 
@@ -175,23 +210,21 @@ Creating a VTuber avatar is more accessible than ever, with free tools available
 
 > 📋 **Summary:**
 > **Design Phase:** Use VRoid Studio with reference images
-> **Animation Phase:** Pick VSeeFace (webcam) or VMagicMirror (no webcam)
+> **Animation Phase:** Use VMagicMirror (recommended) or VSeeFace (deprecated)
 > **Low-End Alternative:** Use Veadotube Mini for 2D avatars
 > **Asset Creation:** Utilize Clip Studio, Krita, or GIMP for custom edits
 
 ### 📚 Further Learning Resources
 
-- **YouTube Tutorials** - Search for "VRoid Studio tutorial" or "VSeeFace setup"
+- **YouTube Tutorials** - Search for "VRoid Studio tutorial" or "VMagicMirror setup"
 - [r/VirtualYoutubers](https://www.reddit.com/r/VirtualYoutubers/) - Reddit community for VTuber discussion and help
 - [Booth.pm](https://booth.pm/) - Marketplace for additional avatar assets
 - [VRoid Hub](https://hub.vroid.com/) - Share and discover VRoid models
-    </div>
 
-    <hr>
+---
 
-    <div class="footer">
-      <p><strong>Archive Date:</strong> January 2026</p>
-      <p><strong>Archived By:</strong> Coffee Byte Dev (osyra42)</p>
+**Last Updated:** $$19.02.2026$$
+**Author:** Coffee Byte Dev (osyra42)
     </div>
 
     <button id="back-to-top">Back to Top</button>

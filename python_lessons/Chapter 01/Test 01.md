@@ -1,102 +1,87 @@
-What’s the correct way to create a variable named score with the value of 100?
+# Test 01: Chapter 1 Review
 
-100 = score
-score 100
+Test your knowledge from Chapter 1!
+
+---
+
+**Q1.** What's the correct way to create a variable named `score` with the value of 100?
+
+```python
 score = 100
+```
 
+---
 
+**Q2.** What might you name a variable that stores information about the weather?
 
+Answer: `temperature`
 
-What might you name a variable that stores information about the weather?
+---
 
-number
-price
-temperature
+**Q3.** What's the data type called that comes as a piece of text?
 
+Answer: **string**
 
+---
 
-What’s the data type called that comes as a piece of text?
+**Q4.** Produce a line of code to store the value "Paris" in a variable named `city`.
 
-text
-string
-word
+```python
+city = "Paris"
+```
 
+---
 
+**Q5.** Complete the code to create a variable, then send its value to the screen.
 
-Produce a line of code to store the value "Paris" in a variable named city
+```python
+age = 56
+print(age)
+```
 
+---
 
+**Q6.** What will this code send to the screen?
 
-
-Complete the code to create a variable, then send its value to the screen
-
-age
-56
-
-
-
-
-What will this code send to the screen?
-
+```python
 name = "Tom"
 salary = 75000
 print(name)
-PY
-75000
-Tom
-name
+```
 
+Answer: `Tom`
 
+---
 
+**Q7.** What will this code send to the screen?
 
-What will this code send to the screen?
-
+```python
 player = "James"
 score = 55
 level = 14
-PY
-level
-nothing / no message
-55
+```
 
+Answer: **nothing** — there is no `print()` statement.
 
+---
 
+**Q8.** What value will this code send to the screen?
 
-Rearrange the statements so that first the code declares the movie variable, then declares the year variable, and finally displays the value of the movie variable on the screen.
-
-
-
-
-
-
-
-What value will this code send to the screen?
-
+```python
 band = "Beatles"
 song = "Yesterday"
 song = "Let it be"
 print(song)
-PY
-Let it be
-Yesterday
-song
-Beatles
+```
 
+Answer: `Let it be` — the variable was reassigned.
 
+---
 
+**Q9.** The code below is expected to calculate the number of items per box. Complete the code:
 
-The code below is expected to calculate the number of items per box.
-
-Complete the code to declare the variables items and boxes, then display the result of the division on the screen
-
-items 
- 18
+```python
+items = 18
 boxes = 6
-(items / boxes)
-
-
-
-
-
-
-
+print(items / boxes)  # Shows: 3.0
+```

@@ -1,162 +1,108 @@
-Numerical data is information that comes in the form of numbers.
+# Lesson 04: Numbers & Math Operations
 
- 
+Numerical data is information that comes in the form of numbers.
 
 In this lesson, you'll learn how to deal with numerical data in your computer programs.
 
+---
 
-
-
-
-
-
-
+## Storing Numbers
 
 Numerical values can be directly stored in variables.
 
-Complete the code below
+```python
+population = 8000000
+```
 
-population
+Numerical data shouldn't be in quotation marks.
 
-
-
-
-Translate course
-Select the name of the variable that is storing a numerical value
-
+```python
 book = "The Hobbit"
 pages = 310
-PY
-pages
-book
+```
 
+Here, `pages` is storing a numerical value and `book` is storing a string.
 
-
-
-
-Translate course
-Numerical data shouldn't be in quotation marks. The line of code below declares a numerical variable
-
+```python
 points = 500
-PY
-Identify the elements of the variable
+```
 
-Variable name:
-Variable value:
+- **Variable name:** points
+- **Variable value:** 500
 
+---
 
+## Printing Numbers
 
+You can send a number to the screen with the `print()` statement. You just need to insert the number between the parentheses.
 
+```python
+print(280)
+```
 
-What does the print() statement do?
+---
 
-It modifies a variable
-It displays a value on the screen
+## Math Operations
 
+You can perform math operations with numbers. Each `print()` instruction will add a value to the screen in a new line.
 
+```python
+print(7 + 3)    # Addition: 10
+print(10 - 5)   # Subtraction: 5
+print(5 * 3)    # Multiplication: 15
+print(10 / 2)   # Division: 5.0
+```
 
+The symbol used to multiply numbers in Python is `*`.
 
+---
 
-Translate course
-You can send a number to the screen with the print() statement. You just need to insert the number between the parentheses.
+## Print vs No Print
 
-Complete the code
+You can use the `print()` statement to check that the computer is following your instructions.
 
-print
-280
+Both lines of code below will make the computer perform the calculation. But only the first one will show the result on the screen:
 
+```python
+print(3 + 7)  # Shows 10 on screen
+3 + 7          # Calculates but shows nothing
+```
 
+---
 
+## Accessing Variable Values
 
+A variable's name is used to identify where that information is stored. You can access the value that a variable is storing by calling its name.
 
-You can perform math operations with numbers. Each print() instruction will add a value to the screen in a new line.
-
- 
-
-Run the code below to see the result of the calculations
-
-print(7 + 3)
-print(10 - 5)
-print(5 * 3)
-print(10 / 2)
-
-
-
-
-
-
-What symbol is used to multiply numbers in Python?
-
-*
-:
-X
-
-
-
-
-
-You can use the print() statement to check that the computer is following your instructions.
-
- 
-
-Both lines of code below will make the computer perform the calculation. Which one will also show the result on the screen?
-
-print(3 + 7)
-3 + 7
-
-
-
-
-
-
-Translate course
-A variable’s name is used to identify where that information is stored. You can access the value that a variable is storing by calling its name.
-
-When run, what will this code show on the screen?
-
+```python
 budget = 200
-print(budget)
-PY
-budget
-200
+print(budget)  # Shows: 200
+```
 
+You access the value stored in a variable by **calling the variable name**.
 
+---
 
+## Combining It All
 
-
-
-How do you access the value stored in a variable?
-
-Using exclamation marks
-Calling the variable name
-
-
-
-The fragment below is part of a prototype for a new video game. Which 2 values will this code display on the screen?
-
+```python
 username = "magician"
 points = 50
 lives = 3
-print(username)
-print(points)
-PY
-Select all correct answers.
+print(username)  # Shows: magician
+print(points)    # Shows: 50
+```
 
+This code displays `magician` and `50` — only the values passed to `print()` are shown.
 
+---
 
+## Lesson Takeaways
 
-
-
-
-Lesson Takeaways
 Great work! You completed the lesson. You learned that:
 
- 
-
-🌟 Numerical values can be stored in variables
-
-🌟 You can access the value stored in a variable by calling its name
-
-🌟 Numerical data should not be surrounded by quotation marks
+- Numerical values can be stored in variables
+- You can access the value stored in a variable by calling its name
+- Numerical data should not be surrounded by quotation marks
 
 In the next lesson, you'll learn to work with the data you stored in variables.

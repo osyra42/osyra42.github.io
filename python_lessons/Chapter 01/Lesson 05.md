@@ -1,177 +1,115 @@
+# Lesson 05: Working with Variables
+
 Variables are key to software development. They allow you to store, label and play with data.
 
- 
+In this lesson, you'll learn to work with data that has been stored in variables.
 
-In this lesson, you’ll learn to work with data that has been stored in variables.
+---
 
+## Quick Review
 
+Store a string in a variable:
 
+```python
+size = "large"
+```
 
+Store a number in a variable:
 
-Complete the code to store the string in the variable
+```python
+age = 25
+```
 
-size
+Access a variable's value by calling its name:
 
-
-
-
-Complete the code to store the number in the variable
-
-age
-
-
-
-
-You can access the value stored in a variable by calling its name.
-
-What will this code send to the screen?
-
+```python
 price = 150
-print(price)
-PY
-price
-150
-print
+print(price)  # Shows: 150
+```
 
+---
 
+## Calculations with Variables
 
+You can make calculations using the values in variables.
 
-
-You can make calculations using the values in variables. What will this code send to the screen?
-
+```python
 budget = 20
-print(budget + 10)
-PY
-budget
-20
-30
+print(budget + 10)  # Shows: 30
+```
 
-
-
-
-
-What will this code send to the screen?
-
+```python
 price = 5
 amount = 3
-print(price * amount)
-PY
-5
-3
-15
-price
+print(price * amount)  # Shows: 15
+```
 
+---
 
-
-
-
-
+## Storing Calculation Results
 
 You can store the result of a calculation in a variable.
 
-What’s this code sending to the screen?
-
+```python
 score = 7 + 8
-print(score)
-PY
-15
-score
-7
-
-
-
+print(score)  # Shows: 15
+```
 
 You can create a new variable to store the result of a calculation made using other variables.
 
-Complete the code to declare a variable named total
-
+```python
 price = 5
 amount = 6
-PY
-= price
-amount
+total = price * amount
+print(total)  # Shows: 30
+```
 
+---
 
-
-
-
-
-
-
-
+## Reassigning Variables
 
 You can update the value stored in a variable. The variable will forget the previously stored value.
 
- 
-
-Run the code to check the new stored value
-
+```python
 price = 99
 price = 100
-print(price)
+print(price)  # Shows: 100
+```
 
+Updating the value of a variable is called **reassigning** a variable.
 
-
-Updating the value of a variable is called reassigning a variable.
-
-What will this code send to the screen?
-
+```python
 points = 35
 points = 45
-print(points)
-PY
-points
-45
-35
+print(points)  # Shows: 45
+```
 
+---
 
+## Putting It All Together
 
-
-
-Rearrange the statements so that first the code declares the price variable, then declares the discount variable, and finally displays the discount value on the screen.
-
-
-
-
-
-
-What values will the code send to the screen?
-
+```python
 name = "Tom"
 level = 14
-print(name)
+print(name)         # Shows: Tom
 level = level + 1
-print(level)
-PY
-Select all correct answers.
+print(level)        # Shows: 15
+```
 
+Creating a variable:
 
+```python
+credit = 200
+```
 
+---
 
+## Lesson Takeaways
 
-
-Type to declare a variable named credit
-
-credit 
- 200
-
-
-
-
-
-
-
- Lesson Takeaways
 Great job! You learned that:
 
- 
-
-🌟 You can run calculations using the values stored in variables
-
-🌟 You can store the result of a calculation in a variable
-
-🌟 Updating the value of a variable is called reassigning a variable
+- You can run calculations using the values stored in variables
+- You can store the result of a calculation in a variable
+- Updating the value of a variable is called **reassigning** a variable
 
 In the next lesson, you'll start fixing errors in broken code.
-
-
