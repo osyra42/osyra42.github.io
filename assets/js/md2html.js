@@ -1,6 +1,10 @@
 // md2html.js - A self-executing Markdown to HTML converter
 const Md2Html = (function() {
     
+    function isExternalUrl(url) {
+        return /^https?:\/\//i.test(url) || url.startsWith('magnet:') || url.endsWith('.pdf');
+    }
+
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
@@ -44,15 +48,22 @@ const Md2Html = (function() {
         // Images: ![alt](url) — must come before links
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
 
-        // Links: [text](url)
-        text = text.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2">$1</a>');
+        // Links: [text](url) — external links open in new tab
+        text = text.replace(/\[(.*?)\]\((.*?)\)/g, function(_, linkText, url) {
+            if (isExternalUrl(url)) {
+                return `<a href="${url}" target="_blank">${linkText}</a>`;
+            }
+            return `<a href="${url}">${linkText}</a>`;
+        });
 
         // Checkboxes: [x] checked, [ ] unchecked
         text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
         text = text.replace(/\[ \]/g, '<input type="checkbox">');
 
         // Auto-link bare URLs and magnet links (only after whitespace or start of string)
-        text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, '$1<a href="$2">$2</a>');
+        text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, function(_, prefix, url) {
+            return `${prefix}<a href="${url}" target="_blank">${url}</a>`;
+        });
 
         return text;
     }
