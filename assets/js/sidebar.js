@@ -25,12 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
 - [⛏️ Minecraft Server](minecraft.html)`,
 
         Projects: `
+- [📝 Worksheets 🆕](worksheets.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
 - [📖 Osyra's Tale](osyras_tale.html)
 - [🎣 Fishing Mini Game](fishing_mini_game/index.html)
 - [🤖 Vanity Bot](vanity.html)
-- [🐍 Python Lessons](python_lessons.html)
-- [🏫 Home School](school/index.html)`,
+- [🐍 Python Lessons](python_lessons.html)`,
 
         Support: `
 - [☕ Donate](donate.html)`,
@@ -42,17 +42,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Archive links in markdown format
     const archives = `
-- [🎨 ComfyUI Guide](comfyui_guide.html)
-- [🎄 Clutter](clutter.html)
 - [🤖 All About AI](all_about_ai.html)
+- [🔢 Casio Programs](assets/jail/[osyra42] - casio_programs.pdf)
+- [🎄 Clutter](clutter.html)
+- [🎨 ComfyUI Guide](comfyui_guide.html)
 - [💡 Do It Better For Free](do_it_better_for_free.html)
-- [🏚️ Urbex Safety](urbex_safety.html)
-- [🎭 VTuber Guide](vtuber_guide.html)
-- [🎬 Media Mimic](media_mimic.html)
+- [💎 Ever Diamond](ever_diamond.html)
 - [⚡ Glitched](glitched.html)
 - [⚔️ Infinite Devastation](infinite_devastation.html)
-- [💎 Ever Diamond](ever_diamond.html)
-- [🔢 Casio Programs](assets/jail/[osyra42] - casio_programs.pdf)`;
+- [🎬 Media Mimic](media_mimic.html)
+- [🏚️ Urbex Safety](urbex_safety.html)
+- [🎭 VTuber Guide](vtuber_guide.html)`;
 
     function archiveDropdown() {
         const links = archives.trim().split('\n').map(line => {
