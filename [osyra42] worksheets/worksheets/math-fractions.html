@@ -290,59 +290,41 @@
   <div class="app-container">
     <div class="app-header">
       <a class="back-link" href="index.html">BACK</a>
-      <h1 class="app-title">Osyra's Worksheets
-        <a href="https://librecounter.org/referer/show" target="_blank">
-          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
-        </a>
-      </h1>
+      <h1 class="app-title">Osyra's Worksheets</h1>
     </div>
 
     <div class="controls-panel no-print">
       <div class="controls">
         <label>
-          <span>Ruler Length:</span>
-          <select id="rulerLength">
-            <option value="6" selected>6 inches</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Increment:</span>
-          <select id="increment">
-            <option value="0.125" selected>1/8 inch</option>
-            <option value="0.25">1/4 inch</option>
-            <option value="0.5">1/2 inch</option>
-            <option value="1">1 inch</option>
-          </select>
-        </label>
-
-        <label>
           <span>Number of Questions:</span>
           <select id="numQuestions">
-            <option value="5">5</option>
-            <option value="10" selected>10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Min Length (inches):</span>
-          <select id="minLength">
-            <option value="0.5">0.5</option>
-            <option value="1" selected>1</option>
-            <option value="2">2</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Max Length (inches):</span>
-          <select id="maxLength">
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5" selected>5</option>
             <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="12" selected>12</option>
+            <option value="15">15</option>
+            <option value="18">18</option>
           </select>
+        </label>
+
+        <label>
+          <span>Max Denominator:</span>
+          <select id="maxDenominator">
+            <option value="4">4 (Quarters)</option>
+            <option value="6">6 (Sixths)</option>
+            <option value="8" selected>8 (Eighths)</option>
+            <option value="10">10 (Tenths)</option>
+            <option value="12">12 (Twelfths)</option>
+          </select>
+        </label>
+
+        <label style="flex-direction: row; align-items: center; gap: 8px;">
+          <input type="checkbox" id="allowImproper">
+          <span>Allow Improper Fractions</span>
+        </label>
+
+        <label style="flex-direction: row; align-items: center; gap: 8px;">
+          <input type="checkbox" id="simplifyFractions" checked>
+          <span>Simplify Fractions</span>
         </label>
 
         <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
@@ -353,11 +335,11 @@
 
     <div class="worksheet">
       <div class="worksheet-header">
-        <h2>Measurement Worksheet</h2>
+        <h2>Fractions Worksheet</h2>
         <div class="info">
           <span>Name: _______________________</span>
           <span>Date: _______________________</span>
-          <span>Score: _______ / 10</span>
+          <span>Score: _______ / 12</span>
         </div>
       </div>
       <div class="canvas-container">
@@ -382,181 +364,123 @@
       answersCanvas = document.getElementById('answersCanvas');
       questionsCtx = questionsCanvas.getContext('2d');
       answersCtx = answersCanvas.getContext('2d');
-
-      // A4 paper dimensions at 96 DPI
-      const A4_WIDTH = 794;
-      const A4_HEIGHT = 900;
-
-      // Set canvas size to A4
-      questionsCanvas.width = A4_WIDTH;
-      questionsCanvas.height = A4_HEIGHT;
-      answersCanvas.width = A4_WIDTH;
-      answersCanvas.height = A4_HEIGHT;
-
-      // Set canvas display size to fit container while maintaining aspect ratio
-      const containerWidth = questionsCanvas.parentElement.clientWidth;
-      const scale = containerWidth / A4_WIDTH;
-      const displayHeight = A4_HEIGHT * scale;
-
-      questionsCanvas.style.width = containerWidth + 'px';
-      questionsCanvas.style.height = displayHeight + 'px';
-      answersCanvas.style.width = containerWidth + 'px';
-      answersCanvas.style.height = displayHeight + 'px';
     }
 
-    function createMeasurementProblem(rulerLength, increment, minLength, maxLength) {
-      // Generate random length aligned to increment
-      const minSteps = Math.ceil(minLength / increment);
-      const maxSteps = Math.floor(maxLength / increment);
-      const steps = Math.floor(Math.random() * (maxSteps - minSteps + 1)) + minSteps;
-      const length = steps * increment;
+    function gcd(a, b) {
+      return b === 0 ? a : gcd(b, a % b);
+    }
 
+    function simplifyFraction(numerator, denominator) {
+      const divisor = gcd(numerator, denominator);
       return {
-        length: length,
-        rulerLength: rulerLength,
-        increment: increment
+        numerator: numerator / divisor,
+        denominator: denominator / divisor
       };
     }
 
-    function drawRuler(ctx, x, y, rulerLength, increment, pixelsPerInch) {
-      const rulerWidth = rulerLength * pixelsPerInch;
-      const rulerHeight = 50;
+    function createFractionProblem(maxDenominator, allowImproper, simplify) {
+      // Choose a random denominator between 2 and maxDenominator
+      const denominator = Math.floor(Math.random() * (maxDenominator - 1)) + 2;
 
-      // Draw ruler background
-      ctx.fillStyle = '#f5e6d3';
-      ctx.fillRect(x, y, rulerWidth, rulerHeight);
+      // Choose numerator based on improper fraction setting
+      // For proper fractions, numerator must be less than denominator (1 to denominator-1)
+      // For improper fractions, numerator can be up to 2x denominator
+      const maxNumerator = allowImproper ? denominator * 2 : (denominator - 1);
+      const numerator = Math.floor(Math.random() * maxNumerator) + 1;
 
-      // Draw ruler border
-      ctx.strokeStyle = '#5d4e37';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(x, y, rulerWidth, rulerHeight);
+      // Original fraction
+      let displayNum = numerator;
+      let displayDenom = denominator;
 
-      // Draw markings
-      ctx.strokeStyle = '#3d3d3d';
-      ctx.fillStyle = '#3d3d3d';
-      ctx.font = '10px Arial';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
+      // Simplified fraction (for answer)
+      let answerFraction = { numerator, denominator };
+      if (simplify) {
+        answerFraction = simplifyFraction(numerator, denominator);
+      }
 
-      const numInches = Math.floor(rulerLength);
+      return {
+        numerator: displayNum,
+        denominator: displayDenom,
+        answerNumerator: answerFraction.numerator,
+        answerDenominator: answerFraction.denominator
+      };
+    }
 
-      // Draw each inch and subdivisions
-      for (let inch = 0; inch <= numInches; inch++) {
-        const inchX = x + (inch * pixelsPerInch);
+    function drawPieChart(ctx, x, y, radius, numerator, denominator, shadeColor) {
+      const centerX = x;
+      const centerY = y;
 
-        // Draw inch mark (tallest)
-        ctx.lineWidth = 2;
+      // Draw pie segments
+      for (let i = 0; i < denominator; i++) {
+        const startAngle = (i / denominator) * Math.PI * 2 - Math.PI / 2;
+        const endAngle = ((i + 1) / denominator) * Math.PI * 2 - Math.PI / 2;
+
+        // Determine if this segment should be shaded
+        const isShaded = i < numerator;
+
+        // Draw segment
         ctx.beginPath();
-        ctx.moveTo(inchX, y);
-        ctx.lineTo(inchX, y + rulerHeight);
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+        ctx.closePath();
+
+        // Fill segment
+        if (isShaded) {
+          ctx.fillStyle = shadeColor;
+        } else {
+          ctx.fillStyle = '#ffffff';
+        }
+        ctx.fill();
+
+        // Draw segment border
+        ctx.strokeStyle = '#333333';
+        ctx.lineWidth = 2;
         ctx.stroke();
-
-        // Draw inch number at the beginning of each inch segment
-        if (inch < numInches) {
-          ctx.fillText(inch.toString(), inchX + 8, y + 10);
-        }
-
-        // Draw subdivisions
-        if (inch < numInches) {
-          const subdivisionsPerInch = 1 / increment;
-          for (let sub = 1; sub < subdivisionsPerInch; sub++) {
-            const subX = inchX + (sub * increment * pixelsPerInch);
-
-            // Determine mark height based on fraction
-            let markHeight;
-            if (sub % 4 === 0) {
-              // 1/2 mark
-              markHeight = rulerHeight * 0.6;
-              ctx.lineWidth = 1.5;
-            } else if (sub % 2 === 0) {
-              // 1/4 mark
-              markHeight = rulerHeight * 0.45;
-              ctx.lineWidth = 1;
-            } else {
-              // 1/8 mark
-              markHeight = rulerHeight * 0.3;
-              ctx.lineWidth = 0.5;
-            }
-
-            ctx.beginPath();
-            ctx.moveTo(subX, y + rulerHeight);
-            ctx.lineTo(subX, y + rulerHeight - markHeight);
-            ctx.stroke();
-          }
-        }
       }
-    }
 
-    function drawLine(ctx, x, y, length, pixelsPerInch) {
-      const lineLength = length * pixelsPerInch;
-      const lineY = y;
-
-      // Draw the line
-      ctx.strokeStyle = '#e8997a';
-      ctx.lineWidth = 3;
+      // Draw center circle outline
       ctx.beginPath();
-      ctx.moveTo(x, lineY);
-      ctx.lineTo(x + lineLength, lineY);
-      ctx.stroke();
-
-      // Draw end caps
+      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+      ctx.strokeStyle = '#333333';
       ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(x, lineY - 5);
-      ctx.lineTo(x, lineY + 5);
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(x + lineLength, lineY - 5);
-      ctx.lineTo(x + lineLength, lineY + 5);
       ctx.stroke();
     }
 
-    function formatFraction(decimal) {
-      const whole = Math.floor(decimal);
-      const fraction = decimal - whole;
-
-      if (fraction === 0) {
-        return whole.toString() + '"';
+    function formatFraction(numerator, denominator) {
+      if (numerator === 0) return '0';
+      if (denominator === 1) return numerator.toString();
+      if (numerator > denominator) {
+        const whole = Math.floor(numerator / denominator);
+        const remainder = numerator % denominator;
+        if (remainder === 0) {
+          return whole.toString();
+        }
+        return `${whole} ${remainder}/${denominator}`;
       }
-
-      // Convert to eighths
-      const eighths = Math.round(fraction * 8);
-
-      // Simplify fraction
-      let num = eighths;
-      let den = 8;
-
-      if (num % 4 === 0) {
-        num /= 4;
-        den /= 4;
-      } else if (num % 2 === 0) {
-        num /= 2;
-        den /= 2;
-      }
-
-      if (whole === 0) {
-        return `${num}/${den}"`;
-      } else {
-        return `${whole} ${num}/${den}"`;
-      }
+      return `${numerator}/${denominator}`;
     }
 
     function drawWorksheet() {
       const numProblems = currentProblems.length;
-      const margin = 20;
-      const problemSpacing = 75;
-      const pixelsPerInch = 80;
-      const pageHeight = 900; // A4 height
-      const maxProblemsPerPage = Math.floor((pageHeight - margin * 2) / problemSpacing);
-
-      // Calculate number of pages needed
-      const numPages = Math.ceil(numProblems / maxProblemsPerPage);
-
-      // Resize canvases to fit all pages
-      const totalHeight = numPages * pageHeight;
+      const margin = 30;
+      const cols = 3;
+      const pageHeight = 900;
       const A4_WIDTH = 794;
 
+      // Fixed dimensions for each problem cell
+      const cellWidth = 250;
+      const cellHeight = 200;
+
+      // Calculate how many rows fit on one page
+      const availableHeightPerPage = pageHeight - (2 * margin);
+      const maxRowsPerPage = Math.floor(availableHeightPerPage / cellHeight);
+      const maxProblemsPerPage = maxRowsPerPage * cols;
+
+      // Calculate total pages needed
+      const numPages = Math.ceil(numProblems / maxProblemsPerPage);
+      const totalHeight = numPages * pageHeight;
+
+      // Resize canvases
       questionsCanvas.width = A4_WIDTH;
       questionsCanvas.height = totalHeight;
       answersCanvas.width = A4_WIDTH;
@@ -572,11 +496,11 @@
       answersCanvas.style.width = containerWidth + 'px';
       answersCanvas.style.height = displayHeight + 'px';
 
-      // Clear both canvases
+      // Clear canvases
       questionsCtx.clearRect(0, 0, questionsCanvas.width, questionsCanvas.height);
       answersCtx.clearRect(0, 0, answersCanvas.width, answersCanvas.height);
 
-      // Draw page separators (for visual reference)
+      // Draw page separators
       questionsCtx.strokeStyle = '#cccccc';
       questionsCtx.lineWidth = 1;
       questionsCtx.setLineDash([5, 5]);
@@ -589,62 +513,50 @@
       }
       questionsCtx.setLineDash([]);
 
-      let currentY = margin;
-      let currentPage = 0;
-
       // Draw each problem
       currentProblems.forEach((problem, index) => {
-        // Check if we need to move to next page
-        if (currentY + problemSpacing > (currentPage + 1) * pageHeight - margin) {
-          currentPage++;
-          currentY = currentPage * pageHeight + margin;
-        }
+        const col = index % cols;
+        const globalRow = Math.floor(index / cols);
 
-        const rulerWidth = problem.rulerLength * pixelsPerInch;
-        const rulerStartX = margin + 50;
-        const rulerEndX = rulerStartX + rulerWidth;
+        // Calculate which page this problem is on
+        const currentPage = Math.floor(index / maxProblemsPerPage);
+        const rowOnPage = globalRow % maxRowsPerPage;
+
+        const x = margin + col * cellWidth + cellWidth / 2;
+        const y = currentPage * pageHeight + margin + rowOnPage * cellHeight + cellHeight / 2 - 10;
 
         // Draw problem number
         questionsCtx.fillStyle = '#5d4e37';
         questionsCtx.font = 'bold 14px Arial';
-        questionsCtx.textAlign = 'left';
+        questionsCtx.textAlign = 'center';
         questionsCtx.textBaseline = 'top';
-        questionsCtx.fillText(`${index + 1}.`, margin, currentY + 10);
+        questionsCtx.fillText(`${index + 1}.`, x, y - 80);
 
-        // Draw ruler
-        drawRuler(questionsCtx, rulerStartX, currentY, problem.rulerLength, problem.increment, pixelsPerInch);
+        // Draw pie chart
+        const radius = 60;
+        drawPieChart(questionsCtx, x, y, radius, problem.numerator, problem.denominator, '#e8997a');
 
-        // Draw line to measure
-        const lineY = currentY + 55;
-        drawLine(questionsCtx, rulerStartX, lineY, problem.length, pixelsPerInch);
-
-        // Draw answer line
-        const answerLineStartX = rulerEndX + 60;
-        const answerLineY = currentY + 25;
+        // Draw answer line (moved lower)
+        const lineY = y + radius + 40;
         questionsCtx.strokeStyle = '#5d4e37';
-        questionsCtx.lineWidth = 1;
+        questionsCtx.lineWidth = 2;
         questionsCtx.beginPath();
-        questionsCtx.moveTo(answerLineStartX, answerLineY);
-        questionsCtx.lineTo(answerLineStartX + 120, answerLineY);
+        questionsCtx.moveTo(x - 40, lineY);
+        questionsCtx.lineTo(x + 40, lineY);
         questionsCtx.stroke();
 
-        // Draw "Answer:" label
-        questionsCtx.fillStyle = '#5d4e37';
-        questionsCtx.font = '12px Arial';
-        questionsCtx.textAlign = 'right';
-        questionsCtx.textBaseline = 'bottom';
-        questionsCtx.fillText('Answer:', answerLineStartX - 5, answerLineY);
-
-        // Draw answer if showing
+        // Draw answer if showing (above the line)
         if (showingAnswers) {
           answersCtx.fillStyle = '#e8997a';
-          answersCtx.font = 'bold 14px Arial';
+          answersCtx.font = 'bold 16px Arial';
           answersCtx.textAlign = 'center';
           answersCtx.textBaseline = 'bottom';
-          answersCtx.fillText(formatFraction(problem.length), answerLineStartX + 60, answerLineY - 2);
+          answersCtx.fillText(
+            formatFraction(problem.answerNumerator, problem.answerDenominator),
+            x,
+            lineY - 5
+          );
         }
-
-        currentY += problemSpacing;
       });
     }
 
@@ -669,11 +581,9 @@
         // Draw header on each page
         const headerHeight = 60;
 
-        // Draw header background
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, 794, headerHeight);
 
-        // Draw header border
         ctx.strokeStyle = '#333333';
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -681,12 +591,11 @@
         ctx.lineTo(794, headerHeight);
         ctx.stroke();
 
-        // Draw header text
         ctx.fillStyle = '#5d4e37';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Measurement Worksheet', 397, 25);
+        ctx.fillText('Fractions Worksheet', 397, 25);
 
         ctx.font = '12px Arial';
         ctx.textBaseline = 'middle';
@@ -699,13 +608,13 @@
         ctx.textAlign = 'right';
         ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
 
-        // Copy the portion of the main canvas for this page
+        // Copy canvas content
         ctx.drawImage(
           questionsCanvas,
-          0, page * pageHeight,  // source x, y
-          794, 900 - headerHeight,  // source width, height
-          0, headerHeight,       // dest x, y (offset by header)
-          794, 900 - headerHeight   // dest width, height
+          0, page * pageHeight,
+          794, 900 - headerHeight,
+          0, headerHeight,
+          794, 900 - headerHeight
         );
 
         // Copy answers canvas if showing answers
@@ -725,11 +634,10 @@
     }
 
     function generateWorksheet() {
-      const rulerLength = parseInt(document.getElementById('rulerLength').value);
-      const increment = parseFloat(document.getElementById('increment').value);
       const numQuestions = parseInt(document.getElementById('numQuestions').value);
-      const minLength = parseFloat(document.getElementById('minLength').value);
-      const maxLength = parseFloat(document.getElementById('maxLength').value);
+      const maxDenominator = parseInt(document.getElementById('maxDenominator').value);
+      const allowImproper = document.getElementById('allowImproper').checked;
+      const simplify = document.getElementById('simplifyFractions').checked;
 
       // Update score field
       const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
@@ -739,14 +647,13 @@
 
       currentProblems = [];
       for (let i = 0; i < numQuestions; i++) {
-        currentProblems.push(createMeasurementProblem(rulerLength, increment, minLength, maxLength));
+        currentProblems.push(createFractionProblem(maxDenominator, allowImproper, simplify));
       }
 
       showingAnswers = false;
       answersCanvas.classList.remove('show');
       drawWorksheet();
 
-      // Generate print pages after drawing
       setTimeout(() => createPrintPages(), 100);
     }
 
@@ -755,7 +662,6 @@
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
 
-      // Toggle visibility of answers canvas
       if (showingAnswers) {
         answersCanvas.classList.add('show');
       } else {
@@ -768,19 +674,19 @@
       setTimeout(() => createPrintPages(), 100);
     }
 
-    // Initialize and generate initial worksheet
+    // Initialize
     window.onload = function() {
       initCanvases();
       generateWorksheet();
     };
 
-    // Handle window resize
+    // Handle resize
     window.onresize = function() {
       const A4_WIDTH = 794;
-      const A4_HEIGHT = 900;
+      const totalHeight = questionsCanvas.height;
       const containerWidth = questionsCanvas.parentElement.clientWidth;
       const scale = containerWidth / A4_WIDTH;
-      const displayHeight = A4_HEIGHT * scale;
+      const displayHeight = totalHeight * scale;
 
       questionsCanvas.style.width = containerWidth + 'px';
       questionsCanvas.style.height = displayHeight + 'px';

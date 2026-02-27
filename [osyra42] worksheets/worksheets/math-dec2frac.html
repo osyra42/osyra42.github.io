@@ -290,11 +290,7 @@
   <div class="app-container">
     <div class="app-header">
       <a class="back-link" href="index.html">BACK</a>
-      <h1 class="app-title">Osyra's Worksheets
-        <a href="https://librecounter.org/referer/show" target="_blank">
-          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
-        </a>
-      </h1>
+      <h1 class="app-title">Osyra's Worksheets</h1>
     </div>
 
     <div class="controls-panel no-print">
@@ -302,40 +298,26 @@
         <label>
           <span>Number of Questions:</span>
           <select id="numQuestions">
-            <option value="5">5</option>
-            <option value="10" selected>10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Min Coins:</span>
-          <select id="minCoins">
-            <option value="3">3</option>
-            <option value="5" selected>5</option>
-            <option value="7">7</option>
-            <option value="10">10</option>
-          </select>
-        </label>
-
-        <label>
-          <span>Max Coins:</span>
-          <select id="maxCoins">
-            <option value="8">8</option>
-            <option value="10" selected>10</option>
             <option value="12">12</option>
-            <option value="15">15</option>
+            <option value="18">18</option>
+            <option value="24" selected>24</option>
+            <option value="30">30</option>
+            <option value="36">36</option>
           </select>
         </label>
 
         <label>
-          <span>Max Value:</span>
-          <select id="maxValue">
-            <option value="1.00">$1.00</option>
-            <option value="2.00" selected>$2.00</option>
-            <option value="5.00">$5.00</option>
+          <span>Complexity:</span>
+          <select id="complexity">
+            <option value="halves">Halves (0.5)</option>
+            <option value="quarters">Quarters (0.25)</option>
+            <option value="eighths" selected>Eighths (0.125)</option>
           </select>
+        </label>
+
+        <label style="flex-direction: row; align-items: center; gap: 8px;">
+          <input type="checkbox" id="simplifyFractions" checked>
+          <span>Simplify Fractions</span>
         </label>
 
         <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
@@ -346,11 +328,11 @@
 
     <div class="worksheet">
       <div class="worksheet-header">
-        <h2>Currency Worksheet</h2>
+        <h2>Decimal to Fraction Worksheet</h2>
         <div class="info">
           <span>Name: _______________________</span>
           <span>Date: _______________________</span>
-          <span>Score: _______ / 10</span>
+          <span>Score: _______ / 24</span>
         </div>
       </div>
       <div class="canvas-container">
@@ -370,15 +352,6 @@
     let questionsCanvas, answersCanvas;
     let questionsCtx, answersCtx;
 
-    // Coin definitions
-    const COINS = [
-      { value: 0.01, name: 'Penny', color: '#cd7f32', size: 30 },
-      { value: 0.05, name: 'Nickel', color: '#c0c0c0', size: 34 },
-      { value: 0.10, name: 'Dime', color: '#b8b8b8', size: 28 },
-      { value: 0.25, name: 'Quarter', color: '#d0d0d0', size: 38 },
-      { value: 1.00, name: 'Dollar', color: '#daa520', size: 42 }
-    ];
-
     function initCanvases() {
       questionsCanvas = document.getElementById('questionsCanvas');
       answersCanvas = document.getElementById('answersCanvas');
@@ -386,135 +359,84 @@
       answersCtx = answersCanvas.getContext('2d');
     }
 
-    function checkCoinOverlap(coin1, coin2) {
-      // Calculate distance between coin centers
-      const dx = coin1.x - coin2.x;
-      const dy = coin1.y - coin2.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-
-      // Calculate radii
-      const r1 = coin1.size / 2;
-      const r2 = coin2.size / 2;
-
-      // Allow 50% overlap: coins can overlap if distance >= (r1 + r2) / 2
-      const minDistance = (r1 + r2) / 2;
-
-      return distance < minDistance;
+    function gcd(a, b) {
+      return b === 0 ? a : gcd(b, a % b);
     }
 
-    function createCurrencyProblem(minCoins, maxCoins, maxValue, coinsBoxWidth, coinsBoxHeight) {
-      const numCoins = Math.floor(Math.random() * (maxCoins - minCoins + 1)) + minCoins;
-      const coins = [];
-      let totalValue = 0;
-
-      // Generate random coins until we reach the desired count or max value
-      for (let i = 0; i < numCoins; i++) {
-        let validCoin = null;
-        let attempts = 0;
-
-        // Try to find a coin that doesn't exceed maxValue
-        while (!validCoin && attempts < 20) {
-          const randomCoin = COINS[Math.floor(Math.random() * COINS.length)];
-          if (totalValue + randomCoin.value <= maxValue) {
-            validCoin = randomCoin;
-          }
-          attempts++;
-        }
-
-        if (validCoin) {
-          // Try to find a position with acceptable overlap
-          let validPosition = false;
-          let positionAttempts = 0;
-          let coinX, coinY;
-
-          while (!validPosition && positionAttempts < 50) {
-            const maxRadius = Math.max(...COINS.map(c => c.size / 2));
-            coinX = maxRadius + Math.random() * (coinsBoxWidth - maxRadius * 2);
-            coinY = maxRadius + Math.random() * (coinsBoxHeight - maxRadius * 2);
-
-            const testCoin = {
-              ...validCoin,
-              x: coinX,
-              y: coinY
-            };
-
-            // Check if this position overlaps too much with existing coins
-            validPosition = true;
-            for (const existingCoin of coins) {
-              if (checkCoinOverlap(testCoin, existingCoin)) {
-                validPosition = false;
-                break;
-              }
-            }
-
-            positionAttempts++;
-          }
-
-          // If we found a valid position, add the coin
-          if (validPosition) {
-            coins.push({
-              ...validCoin,
-              x: coinX,
-              y: coinY
-            });
-            totalValue += validCoin.value;
-          } else {
-            // Skip this coin if we couldn't find a valid position
-            break;
-          }
-        } else {
-          break; // Can't add more coins without exceeding maxValue
-        }
-      }
-
+    function simplifyFraction(numerator, denominator) {
+      const divisor = gcd(numerator, denominator);
       return {
-        coins: coins,
-        totalValue: parseFloat(totalValue.toFixed(2))
+        numerator: numerator / divisor,
+        denominator: denominator / divisor
       };
     }
 
-    function drawCoin(ctx, x, y, coin) {
-      const radius = coin.size / 2;
-
-      // Draw coin circle
-      ctx.fillStyle = coin.color;
-      ctx.beginPath();
-      ctx.arc(x, y, radius, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Draw coin border
-      ctx.strokeStyle = '#333333';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Draw inner circle (detail)
-      ctx.strokeStyle = '#555555';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(x, y, radius - 3, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Draw value text
-      ctx.fillStyle = '#000000';
-      ctx.font = 'bold 10px Arial';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-
-      const valueText = coin.value >= 1 ? `$${coin.value.toFixed(2)}` : `${(coin.value * 100).toFixed(0)}¢`;
-      ctx.fillText(valueText, x, y);
+    function formatFraction(numerator, denominator) {
+      if (numerator === 0) return '0';
+      if (denominator === 1) return numerator.toString();
+      return `${numerator}/${denominator}`;
     }
 
-    function formatCurrency(value) {
-      return `$${value.toFixed(2)}`;
+    // Define possible fractions based on complexity
+    const FRACTION_SETS = {
+      halves: [
+        { decimal: 0.5, numerator: 1, denominator: 2 }
+      ],
+      quarters: [
+        { decimal: 0.25, numerator: 1, denominator: 4 },
+        { decimal: 0.5, numerator: 2, denominator: 4 },
+        { decimal: 0.75, numerator: 3, denominator: 4 }
+      ],
+      eighths: [
+        { decimal: 0.125, numerator: 1, denominator: 8 },
+        { decimal: 0.25, numerator: 2, denominator: 8 },
+        { decimal: 0.375, numerator: 3, denominator: 8 },
+        { decimal: 0.5, numerator: 4, denominator: 8 },
+        { decimal: 0.625, numerator: 5, denominator: 8 },
+        { decimal: 0.75, numerator: 6, denominator: 8 },
+        { decimal: 0.875, numerator: 7, denominator: 8 }
+      ]
+    };
+
+    function createDecimalToFractionProblem(complexity, simplify) {
+      const fractionSet = FRACTION_SETS[complexity];
+      const fraction = fractionSet[Math.floor(Math.random() * fractionSet.length)];
+
+      // Display fraction (unsimplified)
+      let displayNum = fraction.numerator;
+      let displayDenom = fraction.denominator;
+
+      // Answer fraction (possibly simplified)
+      let answerFraction = { numerator: fraction.numerator, denominator: fraction.denominator };
+      if (simplify) {
+        answerFraction = simplifyFraction(fraction.numerator, fraction.denominator);
+      }
+
+      return {
+        decimal: fraction.decimal,
+        answerNumerator: answerFraction.numerator,
+        answerDenominator: answerFraction.denominator
+      };
     }
 
     function drawWorksheet() {
       const numProblems = currentProblems.length;
+      const cols = 6;
       const margin = 20;
-      const problemSpacing = 90;
+      const spacing = 12;
       const pageHeight = 900;
       const A4_WIDTH = 794;
-      const maxProblemsPerPage = Math.floor((pageHeight - margin * 2) / problemSpacing);
+
+      // Calculate box dimensions
+      const availableWidth = A4_WIDTH - (2 * margin);
+      const boxWidth = Math.min(110, (availableWidth - (cols - 1) * spacing) / cols);
+      const boxHeight = 90;
+
+      // Calculate how many rows fit on one page
+      const rowHeight = boxHeight + spacing;
+      const availableHeightPerPage = pageHeight - (2 * margin);
+      const maxRowsPerPage = Math.floor(availableHeightPerPage / rowHeight);
+      const maxProblemsPerPage = maxRowsPerPage * cols;
 
       // Calculate total pages needed
       const numPages = Math.ceil(numProblems / maxProblemsPerPage);
@@ -553,72 +475,68 @@
       }
       questionsCtx.setLineDash([]);
 
-      let currentY = margin;
-      let currentPage = 0;
-
       // Draw each problem
       currentProblems.forEach((problem, index) => {
-        // Check if we need to move to next page
-        if (currentY + problemSpacing > (currentPage + 1) * pageHeight - margin) {
-          currentPage++;
-          currentY = currentPage * pageHeight + margin;
-        }
+        const col = index % cols;
+        const globalRow = Math.floor(index / cols);
 
-        // Draw problem number
-        questionsCtx.fillStyle = '#5d4e37';
-        questionsCtx.font = 'bold 14px Arial';
-        questionsCtx.textAlign = 'left';
-        questionsCtx.textBaseline = 'top';
-        questionsCtx.fillText(`${index + 1}.`, margin, currentY + 10);
+        // Calculate which page this problem is on
+        const currentPage = Math.floor(index / maxProblemsPerPage);
+        const rowOnPage = globalRow % maxRowsPerPage;
 
-        // Define bounding box for coins (right side)
-        const coinsBoxX = A4_WIDTH / 2;
-        const coinsBoxY = currentY;
-        const coinsBoxWidth = A4_WIDTH / 2 - margin * 2;
-        const coinsBoxHeight = problemSpacing - 10;
+        const x = margin + col * (boxWidth + spacing);
+        const y = currentPage * pageHeight + margin + rowOnPage * rowHeight;
 
-        // Draw bounding box for coins
+        // Draw box border
         questionsCtx.strokeStyle = '#d4c9ba';
         questionsCtx.lineWidth = 2;
-        questionsCtx.strokeRect(coinsBoxX, coinsBoxY, coinsBoxWidth, coinsBoxHeight);
+        questionsCtx.strokeRect(x, y, boxWidth, boxHeight);
 
-        // Draw coins at their stored positions
-        problem.coins.forEach((coin, coinIndex) => {
-          const coinX = coinsBoxX + coin.x;
-          const coinY = coinsBoxY + coin.y;
+        // Fill background
+        questionsCtx.fillStyle = '#faf8f3';
+        questionsCtx.fillRect(x + 2, y + 2, boxWidth - 4, boxHeight - 4);
 
-          drawCoin(questionsCtx, coinX, coinY, coin);
-        });
+        // Draw problem number
+        questionsCtx.fillStyle = '#8b7355';
+        questionsCtx.font = '10px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.textBaseline = 'alphabetic';
+        questionsCtx.fillText((index + 1) + '.', x + 8, y + 15);
 
-        // Draw answer line (left side)
-        const answerLineStartX = margin + 80;
-        const answerLineY = currentY + 40;
-        const answerLineWidth = 150;
+        // Draw problem as single string: "  0.5 = _____"
+        const centerY = y + boxHeight / 2 + 5;
 
-        questionsCtx.strokeStyle = '#5d4e37';
-        questionsCtx.lineWidth = 1;
-        questionsCtx.beginPath();
-        questionsCtx.moveTo(answerLineStartX, answerLineY);
-        questionsCtx.lineTo(answerLineStartX + answerLineWidth, answerLineY);
-        questionsCtx.stroke();
+        // Pad decimal to consistent width (5 chars for 0.125)
+        const decimalStr = problem.decimal.toString();
+        const paddedDecimal = decimalStr.padStart(5, ' ');
 
-        // Draw "Total:" label
-        questionsCtx.fillStyle = '#5d4e37';
-        questionsCtx.font = '14px Arial';
-        questionsCtx.textAlign = 'right';
-        questionsCtx.textBaseline = 'bottom';
-        questionsCtx.fillText('Total:', answerLineStartX - 10, answerLineY);
+        // Create the complete problem string
+        const problemString = paddedDecimal + ' = ___';
 
-        // Draw answer if showing
+        // Draw the entire problem string centered
+        questionsCtx.fillStyle = '#3d3d3d';
+        questionsCtx.font = 'bold 16px Courier New, monospace';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText(problemString, x + boxWidth / 2, centerY);
+
+        // Draw answer if showing (positioned where the underscores are)
         if (showingAnswers) {
           answersCtx.fillStyle = '#e8997a';
-          answersCtx.font = 'bold 16px Arial';
+          answersCtx.font = 'bold 14px Courier New, monospace';
           answersCtx.textAlign = 'center';
-          answersCtx.textBaseline = 'bottom';
-          answersCtx.fillText(formatCurrency(problem.totalValue), answerLineStartX + answerLineWidth / 2, answerLineY - 2);
-        }
+          answersCtx.textBaseline = 'middle';
 
-        currentY += problemSpacing;
+          // Position answer where "___" appears in the problem string
+          // The string is "  0.5 = ___" (13 chars total, answer at chars 9-11)
+          const answerX = x + boxWidth / 2 + 36; // Offset to align with underscores (moved right ~2 chars)
+
+          answersCtx.fillText(
+            formatFraction(problem.answerNumerator, problem.answerDenominator),
+            answerX,
+            centerY
+          );
+        }
       });
     }
 
@@ -643,11 +561,9 @@
         // Draw header on each page
         const headerHeight = 60;
 
-        // Draw header background
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, 794, headerHeight);
 
-        // Draw header border
         ctx.strokeStyle = '#333333';
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -655,12 +571,11 @@
         ctx.lineTo(794, headerHeight);
         ctx.stroke();
 
-        // Draw header text
         ctx.fillStyle = '#5d4e37';
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Currency Worksheet', 397, 25);
+        ctx.fillText('Decimal to Fraction Worksheet', 397, 25);
 
         ctx.font = '12px Arial';
         ctx.textBaseline = 'middle';
@@ -673,13 +588,13 @@
         ctx.textAlign = 'right';
         ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
 
-        // Copy the portion of the main canvas for this page
+        // Copy canvas content
         ctx.drawImage(
           questionsCanvas,
-          0, page * pageHeight,  // source x, y
-          794, 900 - headerHeight,  // source width, height
-          0, headerHeight,       // dest x, y (offset by header)
-          794, 900 - headerHeight   // dest width, height
+          0, page * pageHeight,
+          794, 900 - headerHeight,
+          0, headerHeight,
+          794, 900 - headerHeight
         );
 
         // Copy answers canvas if showing answers
@@ -700,9 +615,8 @@
 
     function generateWorksheet() {
       const numQuestions = parseInt(document.getElementById('numQuestions').value);
-      const minCoins = parseInt(document.getElementById('minCoins').value);
-      const maxCoins = parseInt(document.getElementById('maxCoins').value);
-      const maxValue = parseFloat(document.getElementById('maxValue').value);
+      const complexity = document.getElementById('complexity').value;
+      const simplify = document.getElementById('simplifyFractions').checked;
 
       // Update score field
       const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
@@ -710,23 +624,15 @@
         scoreSpan.textContent = `Score: _______ / ${numQuestions}`;
       }
 
-      // Calculate box dimensions for coin placement
-      const A4_WIDTH = 794;
-      const margin = 20;
-      const problemSpacing = 90;
-      const coinsBoxWidth = A4_WIDTH / 2 - margin * 2;
-      const coinsBoxHeight = problemSpacing - 10;
-
       currentProblems = [];
       for (let i = 0; i < numQuestions; i++) {
-        currentProblems.push(createCurrencyProblem(minCoins, maxCoins, maxValue, coinsBoxWidth, coinsBoxHeight));
+        currentProblems.push(createDecimalToFractionProblem(complexity, simplify));
       }
 
       showingAnswers = false;
       answersCanvas.classList.remove('show');
       drawWorksheet();
 
-      // Generate print pages after drawing
       setTimeout(() => createPrintPages(), 100);
     }
 
@@ -735,7 +641,6 @@
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
 
-      // Toggle visibility of answers canvas
       if (showingAnswers) {
         answersCanvas.classList.add('show');
       } else {
@@ -748,13 +653,13 @@
       setTimeout(() => createPrintPages(), 100);
     }
 
-    // Initialize and generate initial worksheet
+    // Initialize
     window.onload = function() {
       initCanvases();
       generateWorksheet();
     };
 
-    // Handle window resize
+    // Handle resize
     window.onresize = function() {
       const A4_WIDTH = 794;
       const totalHeight = questionsCanvas.height;

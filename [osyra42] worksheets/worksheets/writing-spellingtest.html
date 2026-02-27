@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Osyra's Worksheets</title>
+  <title>Osyra's Worksheets - Spelling Test</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -74,7 +74,7 @@
     .controls {
       display: flex;
       gap: 15px;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
     }
 
@@ -87,7 +87,7 @@
       color: var(--half-and-half);
     }
 
-    select, input[type="text"], input[type="number"] {
+    textarea {
       padding: 10px 14px;
       font-size: 14px;
       border: 2px solid var(--coffee-bean);
@@ -96,9 +96,12 @@
       color: var(--steamed-milk);
       transition: all 0.2s ease;
       font-family: inherit;
+      resize: vertical;
+      min-height: 100px;
+      width: 300px;
     }
 
-    select:focus, input[type="text"]:focus, input[type="number"]:focus {
+    textarea:focus {
       outline: none;
       border-color: var(--pumpkin-spice);
       background: var(--espresso);
@@ -120,10 +123,15 @@
       color: var(--espresso);
     }
 
-    button.primary:hover {
+    button.primary:hover:not(:disabled) {
       background: var(--caramel);
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
+    }
+
+    button.primary:disabled {
+      background: var(--coffee-bean);
+      cursor: not-allowed;
     }
 
     button.secondary {
@@ -134,13 +142,6 @@
     button.secondary:hover {
       background: var(--coffee-bean);
       transform: translateY(-1px);
-    }
-
-    input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: var(--pumpkin-spice);
     }
 
     .worksheet {
@@ -225,6 +226,13 @@
       transform: translateY(-1px);
     }
 
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-self: flex-end;
+    }
+
     @media print {
       body {
         background: white;
@@ -279,7 +287,7 @@
         align-items: stretch;
       }
 
-      .controls label {
+      textarea {
         width: 100%;
       }
     }
@@ -290,60 +298,35 @@
   <div class="app-container">
     <div class="app-header">
       <a class="back-link" href="index.html">BACK</a>
-      <h1 class="app-title">Osyra's Worksheets
-        <a href="https://librecounter.org/referer/show" target="_blank">
-          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
-        </a>
-      </h1>
+      <h1 class="app-title">Osyra's Worksheets</h1>
     </div>
 
     <div class="controls-panel no-print">
       <div class="controls">
         <label>
-          <span>Number of Questions:</span>
-          <select id="numQuestions">
-            <option value="6">6</option>
-            <option value="9">9</option>
-            <option value="12" selected>12</option>
-            <option value="15">15</option>
-            <option value="18">18</option>
-          </select>
+          <span>Enter Spelling Words (one per line):</span>
+          <textarea id="wordsInput" placeholder="apple&#10;book&#10;computer&#10;dance&#10;elephant">apple
+banana
+computer
+dragon
+elephant</textarea>
         </label>
 
-        <label>
-          <span>Max Denominator:</span>
-          <select id="maxDenominator">
-            <option value="4">4 (Quarters)</option>
-            <option value="6">6 (Sixths)</option>
-            <option value="8" selected>8 (Eighths)</option>
-            <option value="10">10 (Tenths)</option>
-            <option value="12">12 (Twelfths)</option>
-          </select>
-        </label>
-
-        <label style="flex-direction: row; align-items: center; gap: 8px;">
-          <input type="checkbox" id="allowImproper">
-          <span>Allow Improper Fractions</span>
-        </label>
-
-        <label style="flex-direction: row; align-items: center; gap: 8px;">
-          <input type="checkbox" id="simplifyFractions" checked>
-          <span>Simplify Fractions</span>
-        </label>
-
-        <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
-        <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
-        <button class="secondary" onclick="window.print()">Print Worksheet</button>
+        <div class="buttons-container">
+          <button class="primary" id="generateBtn" onclick="generateWorksheet()">Generate Worksheet</button>
+          <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
+          <button class="secondary" onclick="window.print()">Print Worksheet</button>
+        </div>
       </div>
     </div>
 
     <div class="worksheet">
       <div class="worksheet-header">
-        <h2>Fractions Worksheet</h2>
+        <h2>Spelling Test</h2>
         <div class="info">
           <span>Name: _______________________</span>
           <span>Date: _______________________</span>
-          <span>Score: _______ / 12</span>
+          <span id="scoreField">Score: _______ / 5</span>
         </div>
       </div>
       <div class="canvas-container">
@@ -358,7 +341,8 @@
 
   <script>
     // Global state
-    let currentProblems = [];
+    let currentWords = [];
+    let shuffledWords = [];
     let showingAnswers = false;
     let questionsCanvas, answersCanvas;
     let questionsCtx, answersCtx;
@@ -370,118 +354,34 @@
       answersCtx = answersCanvas.getContext('2d');
     }
 
-    function gcd(a, b) {
-      return b === 0 ? a : gcd(b, a % b);
-    }
-
-    function simplifyFraction(numerator, denominator) {
-      const divisor = gcd(numerator, denominator);
-      return {
-        numerator: numerator / divisor,
-        denominator: denominator / divisor
-      };
-    }
-
-    function createFractionProblem(maxDenominator, allowImproper, simplify) {
-      // Choose a random denominator between 2 and maxDenominator
-      const denominator = Math.floor(Math.random() * (maxDenominator - 1)) + 2;
-
-      // Choose numerator based on improper fraction setting
-      // For proper fractions, numerator must be less than denominator (1 to denominator-1)
-      // For improper fractions, numerator can be up to 2x denominator
-      const maxNumerator = allowImproper ? denominator * 2 : (denominator - 1);
-      const numerator = Math.floor(Math.random() * maxNumerator) + 1;
-
-      // Original fraction
-      let displayNum = numerator;
-      let displayDenom = denominator;
-
-      // Simplified fraction (for answer)
-      let answerFraction = { numerator, denominator };
-      if (simplify) {
-        answerFraction = simplifyFraction(numerator, denominator);
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
-
-      return {
-        numerator: displayNum,
-        denominator: displayDenom,
-        answerNumerator: answerFraction.numerator,
-        answerDenominator: answerFraction.denominator
-      };
-    }
-
-    function drawPieChart(ctx, x, y, radius, numerator, denominator, shadeColor) {
-      const centerX = x;
-      const centerY = y;
-
-      // Draw pie segments
-      for (let i = 0; i < denominator; i++) {
-        const startAngle = (i / denominator) * Math.PI * 2 - Math.PI / 2;
-        const endAngle = ((i + 1) / denominator) * Math.PI * 2 - Math.PI / 2;
-
-        // Determine if this segment should be shaded
-        const isShaded = i < numerator;
-
-        // Draw segment
-        ctx.beginPath();
-        ctx.moveTo(centerX, centerY);
-        ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-        ctx.closePath();
-
-        // Fill segment
-        if (isShaded) {
-          ctx.fillStyle = shadeColor;
-        } else {
-          ctx.fillStyle = '#ffffff';
-        }
-        ctx.fill();
-
-        // Draw segment border
-        ctx.strokeStyle = '#333333';
-        ctx.lineWidth = 2;
-        ctx.stroke();
-      }
-
-      // Draw center circle outline
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-      ctx.strokeStyle = '#333333';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-    }
-
-    function formatFraction(numerator, denominator) {
-      if (numerator === 0) return '0';
-      if (denominator === 1) return numerator.toString();
-      if (numerator > denominator) {
-        const whole = Math.floor(numerator / denominator);
-        const remainder = numerator % denominator;
-        if (remainder === 0) {
-          return whole.toString();
-        }
-        return `${whole} ${remainder}/${denominator}`;
-      }
-      return `${numerator}/${denominator}`;
+      return shuffled;
     }
 
     function drawWorksheet() {
-      const numProblems = currentProblems.length;
+      const numItems = currentWords.length;
       const margin = 30;
-      const cols = 3;
       const pageHeight = 900;
       const A4_WIDTH = 794;
+      const halfWidth = A4_WIDTH / 2;
 
-      // Fixed dimensions for each problem cell
-      const cellWidth = 250;
-      const cellHeight = 200;
+      // Calculate item dimensions
+      const instructionsHeight = 50;
+      const itemHeight = 35;
+      const spacing = 8;
+      const rowHeight = itemHeight + spacing;
 
-      // Calculate how many rows fit on one page
-      const availableHeightPerPage = pageHeight - (2 * margin);
-      const maxRowsPerPage = Math.floor(availableHeightPerPage / cellHeight);
-      const maxProblemsPerPage = maxRowsPerPage * cols;
+      // Calculate how many items fit on one page
+      const availableHeightPerPage = pageHeight - (2 * margin) - instructionsHeight;
+      const maxItemsPerPage = Math.floor(availableHeightPerPage / rowHeight);
 
       // Calculate total pages needed
-      const numPages = Math.ceil(numProblems / maxProblemsPerPage);
+      const numPages = Math.max(1, Math.ceil(numItems / maxItemsPerPage));
       const totalHeight = numPages * pageHeight;
 
       // Resize canvases
@@ -500,11 +400,12 @@
       answersCanvas.style.width = containerWidth + 'px';
       answersCanvas.style.height = displayHeight + 'px';
 
-      // Clear canvases
-      questionsCtx.clearRect(0, 0, questionsCanvas.width, questionsCanvas.height);
+      // Clear both canvases
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, questionsCanvas.width, questionsCanvas.height);
       answersCtx.clearRect(0, 0, answersCanvas.width, answersCanvas.height);
 
-      // Draw page separators
+      // Draw page separators (horizontal)
       questionsCtx.strokeStyle = '#cccccc';
       questionsCtx.lineWidth = 1;
       questionsCtx.setLineDash([5, 5]);
@@ -517,51 +418,123 @@
       }
       questionsCtx.setLineDash([]);
 
-      // Draw each problem
-      currentProblems.forEach((problem, index) => {
-        const col = index % cols;
-        const globalRow = Math.floor(index / cols);
+      // Draw content for each page
+      for (let page = 0; page < numPages; page++) {
+        const pageStartY = page * pageHeight;
+        const itemsOnThisPage = Math.min(maxItemsPerPage, numItems - (page * maxItemsPerPage));
+        const startIndex = page * maxItemsPerPage;
 
-        // Calculate which page this problem is on
-        const currentPage = Math.floor(index / maxProblemsPerPage);
-        const rowOnPage = globalRow % maxRowsPerPage;
+        // Instructions box - left side
+        questionsCtx.fillStyle = '#f5f5f5';
+        questionsCtx.fillRect(margin, pageStartY + margin, halfWidth - margin - 15, 35);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.strokeRect(margin, pageStartY + margin, halfWidth - margin - 15, 35);
 
-        const x = margin + col * cellWidth + cellWidth / 2;
-        const y = currentPage * pageHeight + margin + rowOnPage * cellHeight + cellHeight / 2 - 10;
-
-        // Draw problem number
         questionsCtx.fillStyle = '#5d4e37';
-        questionsCtx.font = 'bold 14px Arial';
+        questionsCtx.font = '12px Arial';
         questionsCtx.textAlign = 'center';
-        questionsCtx.textBaseline = 'top';
-        questionsCtx.fillText(`${index + 1}.`, x, y - 80);
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText('Write the correct spelling on each line.', margin + (halfWidth - margin - 15) / 2, pageStartY + margin + 17);
 
-        // Draw pie chart
-        const radius = 60;
-        drawPieChart(questionsCtx, x, y, radius, problem.numerator, problem.denominator, '#e8997a');
+        // Instructions box - right side (word bank)
+        questionsCtx.fillStyle = '#f5f5f5';
+        questionsCtx.fillRect(halfWidth + 15, pageStartY + margin, halfWidth - margin - 15, 35);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.strokeRect(halfWidth + 15, pageStartY + margin, halfWidth - margin - 15, 35);
 
-        // Draw answer line (moved lower)
-        const lineY = y + radius + 40;
-        questionsCtx.strokeStyle = '#5d4e37';
+        questionsCtx.fillStyle = '#5d4e37';
+        questionsCtx.font = '12px Arial';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.fillText('✂ Word Bank (cut along dashed line)', halfWidth + 15 + (halfWidth - margin - 15) / 2, pageStartY + margin + 17);
+
+        // Draw vertical dashed cut line in the middle
+        questionsCtx.strokeStyle = '#8b7355';
         questionsCtx.lineWidth = 2;
+        questionsCtx.setLineDash([10, 6]);
         questionsCtx.beginPath();
-        questionsCtx.moveTo(x - 40, lineY);
-        questionsCtx.lineTo(x + 40, lineY);
+        questionsCtx.moveTo(halfWidth, pageStartY + margin);
+        questionsCtx.lineTo(halfWidth, pageStartY + pageHeight - margin);
         questionsCtx.stroke();
+        questionsCtx.setLineDash([]);
 
-        // Draw answer if showing (above the line)
-        if (showingAnswers) {
-          answersCtx.fillStyle = '#e8997a';
-          answersCtx.font = 'bold 16px Arial';
-          answersCtx.textAlign = 'center';
-          answersCtx.textBaseline = 'bottom';
-          answersCtx.fillText(
-            formatFraction(problem.answerNumerator, problem.answerDenominator),
-            x,
-            lineY - 5
-          );
+        // Draw scissors icon at top of cut line
+        questionsCtx.font = '16px Arial';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.fillStyle = '#8b7355';
+        questionsCtx.fillText('✂', halfWidth, pageStartY + margin - 5);
+
+        // Draw answer lines on the left side
+        for (let i = 0; i < itemsOnThisPage; i++) {
+          const globalIndex = startIndex + i;
+          const y = pageStartY + margin + instructionsHeight + (i * rowHeight) + 20;
+
+          // Draw number
+          questionsCtx.fillStyle = '#5d4e37';
+          questionsCtx.font = 'bold 16px Arial';
+          questionsCtx.textAlign = 'left';
+          questionsCtx.textBaseline = 'middle';
+          questionsCtx.fillText(`${globalIndex + 1}.`, margin + 10, y);
+
+          // Draw answer line
+          questionsCtx.strokeStyle = '#5d4e37';
+          questionsCtx.lineWidth = 1;
+          questionsCtx.beginPath();
+          questionsCtx.moveTo(margin + 45, y + 10);
+          questionsCtx.lineTo(halfWidth - 30, y + 10);
+          questionsCtx.stroke();
         }
-      });
+
+        // Draw shuffled words on the right side (word bank)
+        const pageShuffledWords = shuffledWords.slice(startIndex, startIndex + itemsOnThisPage);
+
+        for (let i = 0; i < pageShuffledWords.length; i++) {
+          const y = pageStartY + margin + instructionsHeight + (i * rowHeight) + 20;
+
+          // Draw word box
+          questionsCtx.fillStyle = '#faf8f3';
+          questionsCtx.fillRect(halfWidth + 30, y - 12, halfWidth - margin - 45, 28);
+          questionsCtx.strokeStyle = '#d4c9ba';
+          questionsCtx.lineWidth = 1;
+          questionsCtx.strokeRect(halfWidth + 30, y - 12, halfWidth - margin - 45, 28);
+
+          // Draw bullet point
+          questionsCtx.fillStyle = '#8b7355';
+          questionsCtx.font = '14px Arial';
+          questionsCtx.textAlign = 'left';
+          questionsCtx.textBaseline = 'middle';
+          questionsCtx.fillText('•', halfWidth + 40, y + 2);
+
+          // Draw word
+          questionsCtx.fillStyle = '#3d3d3d';
+          questionsCtx.font = '16px Arial';
+          questionsCtx.textAlign = 'left';
+          const word = pageShuffledWords[i].charAt(0).toUpperCase() + pageShuffledWords[i].slice(1);
+          questionsCtx.fillText(word, halfWidth + 60, y + 2);
+        }
+      }
+
+      // Draw answers on overlay canvas if showing
+      if (showingAnswers) {
+        for (let page = 0; page < numPages; page++) {
+          const pageStartY = page * pageHeight;
+          const itemsOnThisPage = Math.min(maxItemsPerPage, numItems - (page * maxItemsPerPage));
+          const startIndex = page * maxItemsPerPage;
+
+          for (let i = 0; i < itemsOnThisPage; i++) {
+            const globalIndex = startIndex + i;
+            const y = pageStartY + margin + instructionsHeight + (i * rowHeight) + 20;
+
+            answersCtx.fillStyle = '#c75000';
+            answersCtx.font = 'bold 14px Arial';
+            answersCtx.textAlign = 'left';
+            answersCtx.textBaseline = 'middle';
+            const answer = currentWords[globalIndex].charAt(0).toUpperCase() + currentWords[globalIndex].slice(1);
+            answersCtx.fillText(answer, margin + 50, y + 2);
+          }
+        }
+      }
     }
 
     function createPrintPages() {
@@ -570,7 +543,7 @@
 
       const pageHeight = 900;
       const numPages = Math.ceil(questionsCanvas.height / pageHeight);
-      const numQuestions = currentProblems.length;
+      const numQuestions = currentWords.length;
 
       for (let page = 0; page < numPages; page++) {
         const pageDiv = document.createElement('div');
@@ -582,7 +555,7 @@
 
         const ctx = pageCanvas.getContext('2d');
 
-        // Draw header on each page
+        // Draw header
         const headerHeight = 60;
 
         ctx.fillStyle = '#ffffff';
@@ -599,10 +572,9 @@
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Fractions Worksheet', 397, 25);
+        ctx.fillText('Spelling Test', 397, 25);
 
         ctx.font = '12px Arial';
-        ctx.textBaseline = 'middle';
         ctx.textAlign = 'left';
         ctx.fillText('Name: _______________________', 30, 50);
 
@@ -612,7 +584,7 @@
         ctx.textAlign = 'right';
         ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
 
-        // Copy canvas content
+        // Copy worksheet content
         ctx.drawImage(
           questionsCanvas,
           0, page * pageHeight,
@@ -621,7 +593,7 @@
           794, 900 - headerHeight
         );
 
-        // Copy answers canvas if showing answers
+        // Copy answers if showing
         if (showingAnswers) {
           ctx.drawImage(
             answersCanvas,
@@ -638,30 +610,34 @@
     }
 
     function generateWorksheet() {
-      const numQuestions = parseInt(document.getElementById('numQuestions').value);
-      const maxDenominator = parseInt(document.getElementById('maxDenominator').value);
-      const allowImproper = document.getElementById('allowImproper').checked;
-      const simplify = document.getElementById('simplifyFractions').checked;
+      const input = document.getElementById('wordsInput').value.trim();
+      const words = input.split('\n')
+        .map(w => w.trim().toLowerCase())
+        .filter(w => w.length > 0);
+
+      if (words.length === 0) {
+        alert('Please enter at least one word.');
+        return;
+      }
+
+      currentWords = words;
+      shuffledWords = shuffleArray(words);
 
       // Update score field
-      const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
-      if (scoreSpan) {
-        scoreSpan.textContent = `Score: _______ / ${numQuestions}`;
-      }
-
-      currentProblems = [];
-      for (let i = 0; i < numQuestions; i++) {
-        currentProblems.push(createFractionProblem(maxDenominator, allowImproper, simplify));
-      }
+      document.getElementById('scoreField').textContent = `Score: _______ / ${currentWords.length}`;
 
       showingAnswers = false;
       answersCanvas.classList.remove('show');
       drawWorksheet();
-
       setTimeout(() => createPrintPages(), 100);
     }
 
     function toggleAnswers() {
+      if (currentWords.length === 0) {
+        alert('Please generate a worksheet first.');
+        return;
+      }
+
       showingAnswers = !showingAnswers;
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
@@ -673,8 +649,6 @@
       }
 
       drawWorksheet();
-
-      // Regenerate print pages to include/exclude answers
       setTimeout(() => createPrintPages(), 100);
     }
 
@@ -684,20 +658,10 @@
       generateWorksheet();
     };
 
-    // Handle resize
     window.onresize = function() {
-      const A4_WIDTH = 794;
-      const totalHeight = questionsCanvas.height;
-      const containerWidth = questionsCanvas.parentElement.clientWidth;
-      const scale = containerWidth / A4_WIDTH;
-      const displayHeight = totalHeight * scale;
-
-      questionsCanvas.style.width = containerWidth + 'px';
-      questionsCanvas.style.height = displayHeight + 'px';
-      answersCanvas.style.width = containerWidth + 'px';
-      answersCanvas.style.height = displayHeight + 'px';
-
-      drawWorksheet();
+      if (questionsCanvas && currentWords.length > 0) {
+        drawWorksheet();
+      }
     };
   </script>
 </body>

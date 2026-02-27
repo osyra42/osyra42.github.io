@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Osyra's Worksheets</title>
+  <title>Osyra's Worksheets - Word Scramble</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
@@ -74,7 +74,7 @@
     .controls {
       display: flex;
       gap: 15px;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
     }
 
@@ -87,7 +87,7 @@
       color: var(--half-and-half);
     }
 
-    select, input[type="text"], input[type="number"] {
+    textarea {
       padding: 10px 14px;
       font-size: 14px;
       border: 2px solid var(--coffee-bean);
@@ -96,9 +96,12 @@
       color: var(--steamed-milk);
       transition: all 0.2s ease;
       font-family: inherit;
+      resize: vertical;
+      min-height: 100px;
+      width: 300px;
     }
 
-    select:focus, input[type="text"]:focus, input[type="number"]:focus {
+    textarea:focus {
       outline: none;
       border-color: var(--pumpkin-spice);
       background: var(--espresso);
@@ -120,10 +123,15 @@
       color: var(--espresso);
     }
 
-    button.primary:hover {
+    button.primary:hover:not(:disabled) {
       background: var(--caramel);
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(182, 141, 64, 0.3);
+    }
+
+    button.primary:disabled {
+      background: var(--coffee-bean);
+      cursor: not-allowed;
     }
 
     button.secondary {
@@ -134,13 +142,6 @@
     button.secondary:hover {
       background: var(--coffee-bean);
       transform: translateY(-1px);
-    }
-
-    input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: var(--pumpkin-spice);
     }
 
     .worksheet {
@@ -225,6 +226,13 @@
       transform: translateY(-1px);
     }
 
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-self: flex-end;
+    }
+
     @media print {
       body {
         background: white;
@@ -279,7 +287,7 @@
         align-items: stretch;
       }
 
-      .controls label {
+      textarea {
         width: 100%;
       }
     }
@@ -290,53 +298,35 @@
   <div class="app-container">
     <div class="app-header">
       <a class="back-link" href="index.html">BACK</a>
-      <h1 class="app-title">Osyra's Worksheets
-        <a href="https://librecounter.org/referer/show" target="_blank">
-          <img style="float: right;display: inline;width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
-        </a>
-      </h1>
+      <h1 class="app-title">Osyra's Worksheets</h1>
     </div>
 
     <div class="controls-panel no-print">
       <div class="controls">
         <label>
-          <span>Number of Questions:</span>
-          <select id="numQuestions">
-            <option value="12">12</option>
-            <option value="18">18</option>
-            <option value="24" selected>24</option>
-            <option value="30">30</option>
-            <option value="36">36</option>
-          </select>
+          <span>Enter Words (one per line):</span>
+          <textarea id="wordsInput" placeholder="apple&#10;book&#10;computer&#10;dance&#10;elephant">apple
+book
+computer
+dance
+elephant</textarea>
         </label>
 
-        <label>
-          <span>Complexity:</span>
-          <select id="complexity">
-            <option value="halves">Halves (0.5)</option>
-            <option value="quarters">Quarters (0.25)</option>
-            <option value="eighths" selected>Eighths (0.125)</option>
-          </select>
-        </label>
-
-        <label style="flex-direction: row; align-items: center; gap: 8px;">
-          <input type="checkbox" id="simplifyFractions" checked>
-          <span>Simplify Fractions</span>
-        </label>
-
-        <button class="primary" onclick="generateWorksheet()">Generate New Worksheet</button>
-        <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
-        <button class="secondary" onclick="window.print()">Print Worksheet</button>
+        <div class="buttons-container">
+          <button class="primary" id="generateBtn" onclick="generateWorksheet()">Generate Worksheet</button>
+          <button class="secondary" onclick="toggleAnswers()">Show Answers</button>
+          <button class="secondary" onclick="window.print()">Print Worksheet</button>
+        </div>
       </div>
     </div>
 
     <div class="worksheet">
       <div class="worksheet-header">
-        <h2>Decimal to Fraction Worksheet</h2>
+        <h2>Word Scramble Worksheet</h2>
         <div class="info">
           <span>Name: _______________________</span>
           <span>Date: _______________________</span>
-          <span>Score: _______ / 24</span>
+          <span id="scoreField">Score: _______ / 5</span>
         </div>
       </div>
       <div class="canvas-container">
@@ -351,7 +341,8 @@
 
   <script>
     // Global state
-    let currentProblems = [];
+    let currentWords = [];
+    let scrambledWords = [];
     let showingAnswers = false;
     let questionsCanvas, answersCanvas;
     let questionsCtx, answersCtx;
@@ -363,90 +354,46 @@
       answersCtx = answersCanvas.getContext('2d');
     }
 
-    function gcd(a, b) {
-      return b === 0 ? a : gcd(b, a % b);
-    }
-
-    function simplifyFraction(numerator, denominator) {
-      const divisor = gcd(numerator, denominator);
-      return {
-        numerator: numerator / divisor,
-        denominator: denominator / divisor
-      };
-    }
-
-    function formatFraction(numerator, denominator) {
-      if (numerator === 0) return '0';
-      if (denominator === 1) return numerator.toString();
-      return `${numerator}/${denominator}`;
-    }
-
-    // Define possible fractions based on complexity
-    const FRACTION_SETS = {
-      halves: [
-        { decimal: 0.5, numerator: 1, denominator: 2 }
-      ],
-      quarters: [
-        { decimal: 0.25, numerator: 1, denominator: 4 },
-        { decimal: 0.5, numerator: 2, denominator: 4 },
-        { decimal: 0.75, numerator: 3, denominator: 4 }
-      ],
-      eighths: [
-        { decimal: 0.125, numerator: 1, denominator: 8 },
-        { decimal: 0.25, numerator: 2, denominator: 8 },
-        { decimal: 0.375, numerator: 3, denominator: 8 },
-        { decimal: 0.5, numerator: 4, denominator: 8 },
-        { decimal: 0.625, numerator: 5, denominator: 8 },
-        { decimal: 0.75, numerator: 6, denominator: 8 },
-        { decimal: 0.875, numerator: 7, denominator: 8 }
-      ]
-    };
-
-    function createDecimalToFractionProblem(complexity, simplify) {
-      const fractionSet = FRACTION_SETS[complexity];
-      const fraction = fractionSet[Math.floor(Math.random() * fractionSet.length)];
-
-      // Display fraction (unsimplified)
-      let displayNum = fraction.numerator;
-      let displayDenom = fraction.denominator;
-
-      // Answer fraction (possibly simplified)
-      let answerFraction = { numerator: fraction.numerator, denominator: fraction.denominator };
-      if (simplify) {
-        answerFraction = simplifyFraction(fraction.numerator, fraction.denominator);
+    function scrambleWord(word) {
+      const chars = word.split('');
+      // Fisher-Yates shuffle
+      for (let i = chars.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [chars[i], chars[j]] = [chars[j], chars[i]];
       }
-
-      return {
-        decimal: fraction.decimal,
-        answerNumerator: answerFraction.numerator,
-        answerDenominator: answerFraction.denominator
-      };
+      const scrambled = chars.join('');
+      // If it's the same as original (can happen with short words), try again
+      if (scrambled === word && word.length > 1) {
+        return scrambleWord(word);
+      }
+      return scrambled;
     }
 
     function drawWorksheet() {
-      const numProblems = currentProblems.length;
-      const cols = 6;
-      const margin = 20;
-      const spacing = 12;
+      const numItems = scrambledWords.length;
+      const cols = 2;
+      const margin = 30;
+      const spacing = 15;
       const pageHeight = 900;
       const A4_WIDTH = 794;
 
-      // Calculate box dimensions
+      // Calculate item dimensions
       const availableWidth = A4_WIDTH - (2 * margin);
-      const boxWidth = Math.min(110, (availableWidth - (cols - 1) * spacing) / cols);
-      const boxHeight = 90;
+      const itemWidth = (availableWidth - spacing) / cols;
+      const itemHeight = 70;
 
-      // Calculate how many rows fit on one page
-      const rowHeight = boxHeight + spacing;
-      const availableHeightPerPage = pageHeight - (2 * margin);
+      // Calculate how many rows fit on one page (accounting for instructions)
+      const instructionsHeight = 50;
+      const rowHeight = itemHeight + spacing;
+      const availableHeightPerPage = pageHeight - (2 * margin) - instructionsHeight;
       const maxRowsPerPage = Math.floor(availableHeightPerPage / rowHeight);
-      const maxProblemsPerPage = maxRowsPerPage * cols;
+      const maxItemsPerPage = maxRowsPerPage * cols;
 
       // Calculate total pages needed
-      const numPages = Math.ceil(numProblems / maxProblemsPerPage);
+      const numPages = Math.max(1, Math.ceil(numItems / maxItemsPerPage));
       const totalHeight = numPages * pageHeight;
 
-      // Resize canvases to fit all pages
+      // Resize canvases
       questionsCanvas.width = A4_WIDTH;
       questionsCanvas.height = totalHeight;
       answersCanvas.width = A4_WIDTH;
@@ -463,10 +410,11 @@
       answersCanvas.style.height = displayHeight + 'px';
 
       // Clear both canvases
-      questionsCtx.clearRect(0, 0, questionsCanvas.width, questionsCanvas.height);
+      questionsCtx.fillStyle = '#ffffff';
+      questionsCtx.fillRect(0, 0, questionsCanvas.width, questionsCanvas.height);
       answersCtx.clearRect(0, 0, answersCanvas.width, answersCanvas.height);
 
-      // Draw page separators (for visual reference)
+      // Draw page separators
       questionsCtx.strokeStyle = '#cccccc';
       questionsCtx.lineWidth = 1;
       questionsCtx.setLineDash([5, 5]);
@@ -479,69 +427,96 @@
       }
       questionsCtx.setLineDash([]);
 
-      // Draw each problem
-      currentProblems.forEach((problem, index) => {
+      // Draw instructions on each page
+      for (let page = 0; page < numPages; page++) {
+        const pageStartY = page * pageHeight;
+
+        // Instructions box
+        questionsCtx.fillStyle = '#f5f5f5';
+        questionsCtx.fillRect(margin, pageStartY + margin, availableWidth, 35);
+        questionsCtx.strokeStyle = '#d4c9ba';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.strokeRect(margin, pageStartY + margin, availableWidth, 35);
+
+        questionsCtx.fillStyle = '#5d4e37';
+        questionsCtx.font = '14px Arial';
+        questionsCtx.textAlign = 'center';
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText('Unscramble each word and write the correct spelling on the line.', A4_WIDTH / 2, pageStartY + margin + 17);
+      }
+
+      // Draw scrambled words
+      scrambledWords.forEach((item, index) => {
         const col = index % cols;
         const globalRow = Math.floor(index / cols);
+        const currentPage = Math.floor(index / maxItemsPerPage);
+        const rowOnPage = Math.floor((index % maxItemsPerPage) / cols);
 
-        // Calculate which page this problem is on
-        const currentPage = Math.floor(index / maxProblemsPerPage);
-        const rowOnPage = globalRow % maxRowsPerPage;
+        const x = margin + col * (itemWidth + spacing);
+        const y = currentPage * pageHeight + margin + instructionsHeight + rowOnPage * rowHeight;
 
-        const x = margin + col * (boxWidth + spacing);
-        const y = currentPage * pageHeight + margin + rowOnPage * rowHeight;
-
-        // Draw box border
+        // Draw item box
+        questionsCtx.fillStyle = '#ffffff';
+        questionsCtx.fillRect(x, y, itemWidth, itemHeight);
         questionsCtx.strokeStyle = '#d4c9ba';
         questionsCtx.lineWidth = 2;
-        questionsCtx.strokeRect(x, y, boxWidth, boxHeight);
+        questionsCtx.strokeRect(x, y, itemWidth, itemHeight);
 
-        // Fill background
-        questionsCtx.fillStyle = '#faf8f3';
-        questionsCtx.fillRect(x + 2, y + 2, boxWidth - 4, boxHeight - 4);
-
-        // Draw problem number
+        // Draw number
         questionsCtx.fillStyle = '#8b7355';
-        questionsCtx.font = '10px Arial';
+        questionsCtx.font = 'bold 14px Arial';
         questionsCtx.textAlign = 'left';
-        questionsCtx.textBaseline = 'alphabetic';
-        questionsCtx.fillText((index + 1) + '.', x + 8, y + 15);
+        questionsCtx.textBaseline = 'middle';
+        questionsCtx.fillText(`${index + 1}.`, x + 10, y + 25);
 
-        // Draw problem as single string: "  0.5 = _____"
-        const centerY = y + boxHeight / 2 + 5;
+        // Draw scrambled word in box
+        questionsCtx.fillStyle = '#f0f0f0';
+        questionsCtx.fillRect(x + 35, y + 10, 120, 30);
+        questionsCtx.strokeStyle = '#999999';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.setLineDash([3, 3]);
+        questionsCtx.strokeRect(x + 35, y + 10, 120, 30);
+        questionsCtx.setLineDash([]);
 
-        // Pad decimal to consistent width (5 chars for 0.125)
-        const decimalStr = problem.decimal.toString();
-        const paddedDecimal = decimalStr.padStart(5, ' ');
-
-        // Create the complete problem string
-        const problemString = paddedDecimal + ' = ___';
-
-        // Draw the entire problem string centered
         questionsCtx.fillStyle = '#3d3d3d';
         questionsCtx.font = 'bold 16px Courier New, monospace';
         questionsCtx.textAlign = 'center';
-        questionsCtx.textBaseline = 'middle';
-        questionsCtx.fillText(problemString, x + boxWidth / 2, centerY);
+        questionsCtx.fillText(item.scrambled.toUpperCase(), x + 95, y + 27);
 
-        // Draw answer if showing (positioned where the underscores are)
-        if (showingAnswers) {
-          answersCtx.fillStyle = '#e8997a';
-          answersCtx.font = 'bold 14px Courier New, monospace';
-          answersCtx.textAlign = 'center';
-          answersCtx.textBaseline = 'middle';
+        // Draw answer line
+        questionsCtx.strokeStyle = '#5d4e37';
+        questionsCtx.lineWidth = 1;
+        questionsCtx.beginPath();
+        questionsCtx.moveTo(x + 170, y + 35);
+        questionsCtx.lineTo(x + itemWidth - 70, y + 35);
+        questionsCtx.stroke();
 
-          // Position answer where "___" appears in the problem string
-          // The string is "  0.5 = ___" (13 chars total, answer at chars 9-11)
-          const answerX = x + boxWidth / 2 + 36; // Offset to align with underscores (moved right ~2 chars)
-
-          answersCtx.fillText(
-            formatFraction(problem.answerNumerator, problem.answerDenominator),
-            answerX,
-            centerY
-          );
-        }
+        // Draw hint
+        questionsCtx.fillStyle = '#999999';
+        questionsCtx.font = 'italic 11px Arial';
+        questionsCtx.textAlign = 'left';
+        questionsCtx.fillText(`(${item.hint})`, x + 10, y + 55);
       });
+
+      // Draw answers on overlay canvas if showing
+      if (showingAnswers) {
+        scrambledWords.forEach((item, index) => {
+          const col = index % cols;
+          const globalRow = Math.floor(index / cols);
+          const currentPage = Math.floor(index / maxItemsPerPage);
+          const rowOnPage = Math.floor((index % maxItemsPerPage) / cols);
+
+          const x = margin + col * (itemWidth + spacing);
+          const y = currentPage * pageHeight + margin + instructionsHeight + rowOnPage * rowHeight;
+
+          answersCtx.fillStyle = '#c75000';
+          answersCtx.font = 'bold 14px Arial';
+          answersCtx.textAlign = 'left';
+          answersCtx.textBaseline = 'alphabetic';
+          const answer = item.original.charAt(0).toUpperCase() + item.original.slice(1);
+          answersCtx.fillText(answer, x + 175, y + 33);
+        });
+      }
     }
 
     function createPrintPages() {
@@ -550,7 +525,7 @@
 
       const pageHeight = 900;
       const numPages = Math.ceil(questionsCanvas.height / pageHeight);
-      const numQuestions = currentProblems.length;
+      const numQuestions = scrambledWords.length;
 
       for (let page = 0; page < numPages; page++) {
         const pageDiv = document.createElement('div');
@@ -562,7 +537,7 @@
 
         const ctx = pageCanvas.getContext('2d');
 
-        // Draw header on each page
+        // Draw header
         const headerHeight = 60;
 
         ctx.fillStyle = '#ffffff';
@@ -579,10 +554,9 @@
         ctx.font = 'bold 18px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('Decimal to Fraction Worksheet', 397, 25);
+        ctx.fillText('Word Scramble Worksheet', 397, 25);
 
         ctx.font = '12px Arial';
-        ctx.textBaseline = 'middle';
         ctx.textAlign = 'left';
         ctx.fillText('Name: _______________________', 30, 50);
 
@@ -592,7 +566,7 @@
         ctx.textAlign = 'right';
         ctx.fillText(`Score: _______ / ${numQuestions}`, 764, 50);
 
-        // Copy canvas content
+        // Copy worksheet content
         ctx.drawImage(
           questionsCanvas,
           0, page * pageHeight,
@@ -601,7 +575,7 @@
           794, 900 - headerHeight
         );
 
-        // Copy answers canvas if showing answers
+        // Copy answers if showing
         if (showingAnswers) {
           ctx.drawImage(
             answersCanvas,
@@ -618,29 +592,44 @@
     }
 
     function generateWorksheet() {
-      const numQuestions = parseInt(document.getElementById('numQuestions').value);
-      const complexity = document.getElementById('complexity').value;
-      const simplify = document.getElementById('simplifyFractions').checked;
+      const input = document.getElementById('wordsInput').value.trim();
+      const words = input.split('\n')
+        .map(w => w.trim().toLowerCase())
+        .filter(w => w.length > 0);
+
+      if (words.length === 0) {
+        alert('Please enter at least one word.');
+        return;
+      }
+
+      currentWords = words;
+      scrambledWords = words.map(word => ({
+        original: word,
+        scrambled: scrambleWord(word),
+        hint: `${word.length} letters`
+      }));
+
+      // Shuffle the order
+      for (let i = scrambledWords.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [scrambledWords[i], scrambledWords[j]] = [scrambledWords[j], scrambledWords[i]];
+      }
 
       // Update score field
-      const scoreSpan = document.querySelector('.worksheet-header .info span:last-child');
-      if (scoreSpan) {
-        scoreSpan.textContent = `Score: _______ / ${numQuestions}`;
-      }
-
-      currentProblems = [];
-      for (let i = 0; i < numQuestions; i++) {
-        currentProblems.push(createDecimalToFractionProblem(complexity, simplify));
-      }
+      document.getElementById('scoreField').textContent = `Score: _______ / ${currentWords.length}`;
 
       showingAnswers = false;
       answersCanvas.classList.remove('show');
       drawWorksheet();
-
       setTimeout(() => createPrintPages(), 100);
     }
 
     function toggleAnswers() {
+      if (currentWords.length === 0) {
+        alert('Please generate a worksheet first.');
+        return;
+      }
+
       showingAnswers = !showingAnswers;
       const button = event.target;
       button.textContent = showingAnswers ? 'Hide Answers' : 'Show Answers';
@@ -652,8 +641,6 @@
       }
 
       drawWorksheet();
-
-      // Regenerate print pages to include/exclude answers
       setTimeout(() => createPrintPages(), 100);
     }
 
@@ -663,20 +650,10 @@
       generateWorksheet();
     };
 
-    // Handle resize
     window.onresize = function() {
-      const A4_WIDTH = 794;
-      const totalHeight = questionsCanvas.height;
-      const containerWidth = questionsCanvas.parentElement.clientWidth;
-      const scale = containerWidth / A4_WIDTH;
-      const displayHeight = totalHeight * scale;
-
-      questionsCanvas.style.width = containerWidth + 'px';
-      questionsCanvas.style.height = displayHeight + 'px';
-      answersCanvas.style.width = containerWidth + 'px';
-      answersCanvas.style.height = displayHeight + 'px';
-
-      drawWorksheet();
+      if (questionsCanvas && scrambledWords.length > 0) {
+        drawWorksheet();
+      }
     };
   </script>
 </body>
