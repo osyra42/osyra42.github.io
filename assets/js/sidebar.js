@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = {
         Navigation: `
 - [🏠 Home Page](index.html)
-- [📋 Changelog](changelog.html)
+- [📋 Changelog 🆕](changelog.html)
 - [💼 Commissions](commissions.html)
-- [⭐ Recommendations](recommendations.html)
+- [⭐ Recommendations 🆕](recommendations.html)
 - [⛏️ Minecraft Server](minecraft.html)`,
 
         Projects: `
