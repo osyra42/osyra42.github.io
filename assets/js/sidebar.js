@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Archive links in markdown format
     const archives = `
 - [🤖 All About AI](all_about_ai.html)
-- [🔢 Casio Programs](assets/jail/[osyra42] - casio_programs.pdf)
+- [🔢 Casio Code](casio_code.html)
 - [🎄 Clutter](clutter.html)
 - [🎨 ComfyUI Guide](comfyui_guide.html)
 - [💡 Do It Better For Free](do_it_better_for_free.html)
