@@ -135,17 +135,17 @@ page ii
 
 ## Timer Version 2.0
 ```basic
-"HOW MANY MINUTES"?→C
+"HOW MANY MINUTES"? → C
 ClrGraph
-0→A
+0 → A
 Lbl 1: Text 14,1, " SET FOR □□ MINUTES"
 Text 14, 33,C
 Text 1, 15,"/360 OF A MINUTE"
-0→T
+0 → T
 While T<359
-T+1→T
+T+1 → T
 Text 1, 1, T
-While End
+WhileEnd
 Isz A
 Cls
 Text 7,1,A
@@ -164,11 +164,11 @@ page 1
 ClrText
 Locate 3,1,"SEC"
 Locate 3,2,"MIN"
-1→M
-Lbl1:1→S
+1 → M
+Lbl 1: 1 → S
 Do
 Locate 1,1, S
-For 1→A To 260
+For 1 → A To 260
 Next
 Isz S
 LpWhile S<60
@@ -180,14 +180,14 @@ Goto l
 ## Timer Version 4.2
 ```basic
 ClrText
-0→T
+0 → T
 Locate 4,1, "SEC"
 Locate 4,2, "MIN"
-Lbl1: Isz T
-T÷5.4→S
-S÷60→M
-S>60⇒S-60Int M→S
-S<10⇒Locate 2,1,"□"
+Lbl 1: Isz T
+T÷5.4 → S
+S÷60 → M
+S>60 ⇒ S-60Int M → S
+S<10 ⇒ Locate 2,1,"□"
 Locate 1,1,Int S
 Locate 1,2,Int M
 Goto 1
@@ -198,9 +198,9 @@ page 1
 ## Timer Version 5.7 (Scribble)
 ```basic
 ClrText
-0→S
+0 → S
 Lbl 0
-S+0°0°00.07254983833°→S
+S+0°0°00.07254983833° → S
 's obtained by S/P=S/X
 'P = Previous
 'S = actual time
@@ -214,11 +214,11 @@ Goto 0
 ```basic
 ClrText
 "SET TIME"
-"HOUR"? →H
-"MIN"? →M
-S÷3600+M÷60+H→T
+"HOUR"? → H
+"MIN"? → M
+S÷3600+M÷60+H → T
 ClrText
-For 0→S To T Step 0.00001844533
+For 0 → S To T Step 0.00001844533
 'Same method as above
 Locate 1,1,S
 Next
@@ -228,12 +228,12 @@ Next
 ```basic
 ClrText
 "SET TIME"
-"HOUR"? →H
-"MIN"? →M
-"SEC"? →S
+"HOUR"? → H
+"MIN"? → M
+"SEC"? → S
 ClrText
-S÷3600+M÷60+H→T
-For 0→S To T Step 0.00001844533
+S÷3600+M÷60+H → T
+For 0 → S To T Step 0.00001844533
 Locate 1,1,S
 Next
 ClrText
@@ -243,14 +243,14 @@ page 2
 
 ## Timer Version 8.1 (mem 51)
 ```basic
-For 0→S To 1 Step 0.00001844533
+For 0 → S To 1 Step 0.00001844533
 Locate 1,1,S
 Next
 ```
 
 ## Timer Version 8.2 (mem 51)
 ```basic
-For 0→S To 1 Step 0.00001838150
+For 0 → S To 1 Step 0.00001838150
 Locate 1,1,S
 Next
 ```
@@ -263,23 +263,23 @@ page 3
 ```basic
 Lbl 1
 ClrText
-Locate Int 16Rand#+1, Int 7Ran#+1,"CASIO°"
-For 1→A To 100
+Locate Int 16 Ran#+1, Int 7 Ran#+1,"CASIO°"
+For 1 → A To 100
 Next
 Goto 1
 ```
 ### Version 2.2
 ```basic
 Do
-"SPEED"?→C
+"SPEED"? → C
 LpWhile C<0 Or C>10
-Cx50→C
+Cx50 → C
 Lbl 1
 ClrText
-Int 16Ran#+1→A
-Int 7Ran#+1→B
+Int 16 Ran#+1 → A
+Int 7 Ran#+1 → B
 Locate A,B, "CASIO°"
-For 1→D To C
+For 1 → D To C
 Next
 Goto 1
 ```
@@ -288,25 +288,25 @@ page 4
 ## Screen Saver III (Text blip)
 ### Version 1.2
 ```basic
-Lvl 1
-CIrGraph
-Text Int 58Ran#+1, Int 82Ran#+1,"SAMPLE TEXT"
-For 1→A To 100
+Lbl 1
+ClrGraph
+Text Int 58 Ran#+1, Int 82 Ran#+1,"SAMPLE TEXT"
+For 1 → A To 100
 Next
 Goto 1
 ```
 ### Version 2.1
 ```basic
 Do
-"SPEED"?->C
+"SPEED"? → C
 LpWhile C<0 Or C>10
-Cx50→C
+Cx50 → C
 Lbl 1
 ClrGraph
-Int 58Ran#+1→A
-Int 82Ran#+1→B
+Int 58 Ran#+1 → A
+Int 82 Ran#+1 → B
 Text A, B,"SAMPLE TEXT"
-For 1→D To C
+For 1 → D To C
 Next
 Goto 1
 ```
@@ -315,12 +315,12 @@ page 4
 ## Screen Saver II (slide tort)
 ### Version 2.3
 ```basic
-"SPEED"?→C
+"SPEED"? → C
 LpWhile C<0 Or C>10
 Lbl 1
 ClrGraph
-Int 54Ran#+1→R
-For l→A To 127 Step C
+Int 54 Ran#+1 → R
+For l → A To 127 Step C
 Text R,A,"□□□SAMPLE TEXT"
 Next
 Goto 1
@@ -330,64 +330,64 @@ page 5
 ## Screen Saver IV (bouncing word)
 ### Version 1.0
 ```basic
-Int 17Ran#+1→A
-Int 7 Ran#+1→B
-Int 2 Ran#→ D
-Int 2 Ran#→ E
-Lb1 1
-A<2⇒1→D
-B<2⇒1→E
-A>16⇒0→D
-B>6⇒0→E
-D=0⇒Dsz A
-D=1⇒Isz A
-E=0⇒Dsz B
-E=1⇒Isz B
+Int 17 Ran#+1 → A
+Int 7 Ran#+1 → B
+Int 2 Ran# → D
+Int 2 Ran# → E
+Lbl 1
+A<2 ⇒ 1 → D
+B<2 ⇒ 1 → E
+A>16 ⇒ 0 → D
+B>6 ⇒ 0 → E
+D=0 ⇒ Dsz A
+D=1 ⇒ Isz A
+E=0 ⇒ Dsz B
+E=1 ⇒ Isz B
 ClrText
 Locate A,B,"CASIO"
 Goto 1
 ```
-## Screen Sawer I (ike pipes)
+## Screen Saver V (like pipes)
 ### Version 1.6
 ```basic
-Int 21 Ran#+1→X
-Int 7 Ran#+1→Y
+Int 21 Ran#+1 → X
+Int 7 Ran#+1 → Y
 Lbl 1
 ClrText
-For 1→A To 25
+For 1 → A To 25
 Locate X,Y,"O"
-Int 4Ran#→B
-B=0⇒ DszY
-B=1⇒ IszY
-B=2⇒ DszX
-B=3⇒ IszX
-X>21⇒1→X
-X<1⇒21→X
-Y>7⇒1→Y
-Y<1⇒7→Y
+Int 4Ran# → B
+B=0⇒ Dsz Y
+B=1⇒ Isz Y
+B=2⇒ Dsz X
+B=3⇒ Isz X
+X>21 ⇒ 1 → X
+X<1 ⇒ 21 → X
+Y>7 ⇒ 1 → Y
+Y<1 ⇒ 7 → Y
 Next
 Goto 1
 ```
 ### Version 2.2
 ```basic
 Do
-"SPEED"?→C
+"SPEED"? → C
 LpWhile C<0 Or C>10
-Cx5→C
+Cx5 → C
 Lbl 1
-Int 21 Ran#+1→X
-Int 7 Ran#+1→Y
+Int 21 Ran#+1 → X
+Int 7 Ran#+1 → Y
 ClrText
-For 1→A To C
-Int 4Ran#→D
+For 1 → A To C
+Int 4 Ran# → D
 D=0⇒ Isz Y
-D=1⇒ Inz X
+D=1⇒ Isz X
 D=2⇒ Dsz X
 D=3⇒ Dsz Y
-X>21⇒1→X
-X<1⇒21→X
-Y>7⇒1→Y
-Y<1⇒7→Y
+X>21 ⇒ 1 → X
+X<1 ⇒ 21 → X
+Y>7 ⇒ 1 → Y
+Y<1 ⇒ 7 → Y
 Locate X,Y,"O"
 Next
 Goto 1
@@ -396,25 +396,25 @@ Goto 1
 ### Version 3.1 (interactive)
 ```basic
 Do
-"SPEED"?→C
+"SPEED"? → C
 LpWhile C<0 Or C>10
-Cx5→C
+Cx5 → C
 Lbl 1
-Int 21 Ran#+1→X
-Int 7 Ran#+1→Y
+Int 21 Ran#+1 → X
+Int 7 Ran#+1 → Y
 ClrText
-For 1→A To C
-GetKey→G
-G=0⇒ Int 4Ran#→D
-G>0⇒4→D
-G=37 Or D=0 >Isz Y
-G-27 Or D=1→ Isz X
-G=38 Or D=2 Dsz X
-G=28 Or D=3 Dsz Y
-X>21⇒1→X
-X<1⇒21→X
-Y>7⇒1→Y
-Y<1→7→Y
+For 1 → A To C
+GetKey → G
+G=0⇒ Int 4Ran# → D
+G>0 ⇒ 4 → D
+G=37 Or D=0 ⇒ Isz Y
+G=27 Or D=1 ⇒ Isz X
+G=38 Or D=2 ⇒ Dsz X
+G=28 Or D=3 ⇒ Dsz Y
+X>21 ⇒ 1 → X
+X<1 ⇒ 21 → X
+Y>7 ⇒ 1 → Y
+Y<1 ⇒ 7 → Y
 Locate X,Y,"O"
 Next
 Goto 1
@@ -436,30 +436,30 @@ Int 7 Ran# → W
 Int 21 Ran# → T
 Int 7 Ran# → U
 Do
-X=1⇒1→A
-X=21⇒0→A
-Y=1⇒1→B
-Y=7⇒0→B
-V=1⇒1→C
-V=21⇒0→C
-W=1⇒1→D
-W=7⇒0→D
-T=1⇒1→E
-T=7⇒0→E
-U=1⇒1→F
-U=7⇒0→F
-A=0⇒Dsz X
-A=1⇒Isz X
-B=0⇒Dsz Y
-B=1⇒Isz Y
-C=0⇒Dsz V
-C=1⇒Isz V
-D=0⇒Dsz W
-D=1⇒Isz W
-E=0⇒Dsz T
-E=1⇒Isz T
-F=0⇒Dsz U
-F=1⇒Isz U
+X=1 ⇒ 1 → A
+X=21 ⇒ 0 → A
+Y=1 ⇒ 1 → B
+Y=7 ⇒ 0 → B
+V=1 ⇒ 1 → C
+V=21 ⇒ 0 → C
+W=1 ⇒ 1 → D
+W=7 ⇒ 0 → D
+T=1 ⇒ 1 → E
+T=21 ⇒ 0 → E
+U=1 ⇒ 1 → F
+U=7 ⇒ 0 → F
+A=0 ⇒ Dsz X
+A=1 ⇒ Isz X
+B=0 ⇒ Dsz Y
+B=1 ⇒ Isz Y
+C=0 ⇒ Dsz V
+C=1 ⇒ Isz V
+D=0 ⇒ Dsz W
+D=1 ⇒ Isz W
+E=0 ⇒ Dsz T
+E=1 ⇒ Isz T
+F=0 ⇒ Dsz U
+F=1 ⇒ Isz U
 Locate X,Y,"O"
 Locate V,W,"O"
 Locate T,U,"O"
@@ -470,33 +470,33 @@ page 7
 ## Pong
 ### Version 3.1
 ```basic
-9→A:7→B:8→C:0→E:0→S
+9 → A: 7 → B: 8 → C: 0 → E: 0 → S
 Int 2 Ran# → D
 Do
 D=0⇒ Dsz A
 D=1⇒ Isz A
 E=0⇒ Isz B
 E=1⇒ Dsz B
-For 1→N To 2
-GetKey→G
-G=27⇒Isz C
-G=38⇒Dsz C
-C>19⇒19→C
-C<1⇒1→C
+For 1 → N To 2
+GetKey → G
+G=27 ⇒ Isz C
+G=38 ⇒ Dsz C
+C>19 ⇒ 19 → C
+C<1 ⇒ 1 → C
 ClrText
 Locate C,7,"=-="
 Locate A,B,"°"
 Next
-A<2⇒1→D
-B<2⇒1→E
-A>20⇒0→D
-B>6⇒0→E
-B=7 And A≠C And A≠C+1 And A≠C+2⇒Break
-B=7⇒Isz S 
+A<2 ⇒ 1 → D
+B<2 ⇒ 1 → E
+A>20 ⇒ 0 → D
+B>6 ⇒ 0 → E
+B=7 And A≠C And A≠C+1 And A≠C+2 ⇒ Break
+B=7 ⇒ Isz S 
 LpWhile 1
 ClrText
 Locate 7,3,"GAME OVER"
-Locate 7,5,"SCORE:"
+Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
@@ -506,76 +506,76 @@ page 8
 ```basic
 ClrText
 Locate 6,4,"Version 4.3"
-For 1→A To 250
+For 1 → A To 250
 Next
 ClrText
 Locate 7,2,"Scribble"
 Locate 8,3,"Presents"
 Locate 10,5,"log"
-Locate, 9,5,"Mod"
+Locate 9,5,"Mod"
 Locate 9,5,"P"
 Locate 11,5,"n"
-Locate, 1,7,"Press [EXE] to start."◢
+Locate 1,7,"Press [EXE] to start."◢
 ClrGraph
-Text 1,1  "Use left and right to keep the"
-Text 7.1, "ball up. use the [OPTN] button"
+Text 1,1,"Use left and right to keep the"
+Text 7,1,"ball up. use the [OPTN] button"
 Text 13,1, "To change the bar. use the"
-Text 19,1,"[VARS] button to change the'
+Text 19,1,"[VARS] button to change the"
 Text 25,1,"ball. [MENU] will pause the"
-Text 31,1,"Game and [EXE] will resume.
+Text 31,1,"Game and [EXE] will resume."
 Text 37,1,"[EXIT] will stop the game."
 Text 43,1,"[SHIFT] will turn on Autoplay"
 Text 49,1,"and [ALPHA] will turn if off."
 Text 55,1,"I hope you have fun. [EXE]"
-For 1→A To 100
+For 1 → A To 100
 Next
-For 1→A To 2000
-GetKey→G
-G>0 And G≠31⇒Break
+For 1 → A To 2000
+GetKey → G
+G>0 And G≠31 ⇒ Break
 Next
-9→A:7→B:8→C:1→E:0→I:0→S:0→r:1→θ
+9 → A: 7 → B: 8 → C: 1 → E: 0 → I: 0 → S: 0 → r: 1 → θ
 Int 2 Ran# → D
 Do
 D=0⇒ Dsz A
 D=1⇒ Isz A
 E=1⇒ Dsz B
 E=0⇒ Isz B
-For 1→N To 2
-GetKey→G
+For 1 → N To 2
+GetKey → G
 G=48⇒ Locate 1,7,"PAUSE□□□□□PRESS[EXE]"◢
-G=78⇒ 1→I
-G=77⇒ 0→I
-I=1⇒ A-1→C
+G=78⇒ 1 → I
+G=77⇒ 0 → I
+I=1⇒ A-1 → C
 G=68⇒ Isz θ
 G=58⇒ Isz r
-r=4⇒ 1→r
-θ=6⇒ 1→θ
+r=4⇒ 1 → r
+θ=6⇒ 1 → θ
 G=47⇒ ClrText
 G=47⇒ Stop
 G=27⇒ Isz C
-G=38⇒ Dsz D
-C>19⇒ 19→C
-C<1⇒ 1→C
+G=38⇒ Dsz C
+C>19⇒ 19 → C
+C<1⇒ 1 → C
 ClrText
-θ=1⇒Locate C,7,"=-="
-θ=2⇒Locate C,7,"---"
-θ=3⇒Locate C,7,">-<"
-θ=4⇒Locate C,7,"(-)"
-θ=5⇒Locate C,7,"=V="
-r=1⇒Locate A,B,"°"
-r=2⇒Locate A,B,"θ"
-r=3⇒Locate A,B,"O"
+θ=1 ⇒ Locate C,7,"=-="
+θ=2 ⇒ Locate C,7,"---"
+θ=3 ⇒ Locate C,7,">-<"
+θ=4 ⇒ Locate C,7,"(-)"
+θ=5 ⇒ Locate C,7,"=V="
+r=1 ⇒ Locate A,B,"°"
+r=2 ⇒ Locate A,B,"θ"
+r=3 ⇒ Locate A,B,"O"
 Next
-A<2⇒1→D
-B<2⇒0→E
-A>20⇒0→D
-B>6⇒1→E
-B=7 And A≠C And A≠C+1 And A≠C+2⇒Break
-B=7⇒Isz S
+A<2 ⇒ 1 → D
+B<2 ⇒ 0 → E
+A>20 ⇒ 0 → D
+B>6 ⇒ 1 → E
+B=7 And A≠C And A≠C+1 And A≠C+2 ⇒ Break
+B=7 ⇒ Isz S
 LpWhile 1
 ClrText
 Locate 7,3,"GAME OVER"
-Locate 7,5,"SCORE:"
+Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
@@ -589,7 +589,7 @@ and SUDOKU is to play game
 ```basic
 Do
 ClrText
-"HOW MANY NUMBERS"?→Z
+"HOW MANY NUMBERS"? → Z
 LpWhile Z<0 Or Z>81 Or Frac Z ≠ 0
 {9,9} → Dim Mat G
 Mat G → Mat H
@@ -599,14 +599,14 @@ Mat G → Mat K
 Locate 1,6,"Loading..."
 Locate 1,7,"["
 Locate 21,7,"]"
-For 1→N To Z
+For 1 → N To Z
 Int (N÷Zx19)+1 → P
 P>1 ⇒ Locate P,7,"="
 Do
-Int 9Ran#+1 → A
-Int 9Ran#+1 → C
-Int 9Ran#+1 → D
-3 Int((C-1)÷3)+Int((D+2)÷3)→B
+Int 9 Ran#+1 → A
+Int 9 Ran#+1 → C
+Int 9 Ran#+1 → D
+3 Int((C-1)÷3)+Int((D+2)÷3) → B
 LpWhile Mat H[A,C]=1 Or Mat I[A,D]=1 Or Mat J[A,B]=1 Or Mat K[C, D]≠0 
 A → Mat G[C,D]
 1 → Mat H[A,C]
@@ -628,10 +628,10 @@ F-Line 10,10,10,1
 F-Line 1,7,10,7
 F-Line 1,4,10,4
 Text 25,90,"WAIT..."
-For 1→C To 9
-For 1→D To 9
-Int 7C-5→ E
-Int 9D-6→ F
+For 1 → C To 9
+For 1 → D To 9
+Int 7C-5 → E
+Int 9D-6 → F
 Mat G[C,D] → Q
 Next
 Next
@@ -641,12 +641,12 @@ Text 43, 90,"0=ERASE"
 Text 49,90, "10=QUIT"
 Text 55, 98, "11=BACK"
 Text 12,90, "READY□□"
-5.5→ G~H
+5.5 → G~H
 Lbl 1
 Plot G,H◢
-X→G:Y→H
-10-Int Y→C
-Int X→D
+X → G: Y → H
+10-Int Y → C
+Int X → D
 D>9 ⇒ Goto 1
 Mat K [C,D]≠0 ⇒ Goto 1
 Do
@@ -657,7 +657,7 @@ Locate 1,1,"WRITE"
 LpWhile A<0 Or A>11 Or Frac A≠0
 A=10⇒ Goto 9
 A=11⇒ Goto 1
-3Int((C-1)÷3)+Int((D+2)÷3)→B
+3Int((C-1)÷3)+Int((D+2)÷3) → B
 Mat G [C,D] → M
 A=0⇒ Goto 2
 Mat H[A,C]=1 Or Mat I[A,D]=1 Or Mat J[A,B]=1⇒ Goto 1
@@ -666,13 +666,13 @@ Mat H[A,C]=1 Or Mat I[A,D]=1 Or Mat J[A,B]=1⇒ Goto 1
 1 → Mat J[A,B]
 Lbl 2
 If M≠0
-Then 0→ Mat H[M,C]
-0→ Mat I[M,D]
-0→ Mat J[M,B]
+Then 0 → Mat H[M,C]
+0 → Mat I[M,D]
+0 → Mat J[M,B]
 IfEnd
 A → Mat G[C,D]
-Int 7C-5→E
-Int 9D-4→F
+Int 7C-5 → E
+Int 9D-4 → F
 A≠0⇒ Text E,F,A
 A=0⇒ Text E,F,"□"
 Goto 1
@@ -691,19 +691,19 @@ page 11
 ## Version 2.0
 ```basic
 ClrText
-10→ Dim List 1
+10 → Dim List 1
 1 → D
-"PRIME FACTOR"?→ A
+"PRIME FACTOR"? → A
 Goto 2
-Lbl 1: 2 → List 1[D]:Isz D
-A÷2→A:A=1⇒Goto 9:3→B
-Lbl 2: Frac(A÷2)=0⇒Goto 1:3→B
+Lbl 1: 2 → List 1[D]: Isz D
+A÷2 → A: A=1 ⇒ Goto 9: 3 → B
+Lbl 2: Frac(A÷2)=0 ⇒ Goto 1: 3 → B
 Lbl 3: √A+1 → C
-Lbl 4: B≥C ⇒Goto 8:Frac(A÷B)=0⇒Goto 6
-Lbl 5: B+2→B:Goto 4
-Lbl 6: A ÷B x B - A = 0⇒Goto 7:Goto 5
-Lbl 7: B → List 1[D]:Isz D
-A ÷ B → A:Goto 3
+Lbl 4: B≥C ⇒Goto 8: Frac(A÷B)=0 ⇒ Goto 6
+Lbl 5: B+2 → B: Goto 4
+Lbl 6: A ÷B x B - A = 0 ⇒ Goto 7: Goto 5
+Lbl 7: B → List 1[D]: Isz D
+A ÷ B → A: Goto 3
 Lbl 8: A → List 1[D]
 Lbl 9: List 1
 ```
@@ -711,17 +711,17 @@ Lbl 9: List 1
 ## Version 1.0 (non-list)
 ```basic
 ClrText
-"PRIME FACTOR"?→ A
+"PRIME FACTOR"? → A
 Goto 2
 Lbl 1: 2◢
-A÷2 → A:A=1⇒Goto 9:3→B
-Lbl 2: Frac(A÷2)=0⇒Goto 1:3→B
+A÷2 → A: A=1 ⇒ Goto 9: 3 → B
+Lbl 2: Frac(A÷2)=0 ⇒ Goto 1: 3 → B
 Lbl 3: √A+1 → C
-Lbl 4: B≥C ⇒Goto 8:Frac(A÷B)=0⇒Goto 6
-Lbl 5: B+2→B:Goto 4
-Lbl 6: A ÷B x B - A = 0⇒Goto 7:Goto 5
+Lbl 4: B≥C ⇒Goto 8: Frac(A÷B)=0 ⇒ Goto 6
+Lbl 5: B+2 → B: Goto 4
+Lbl 6: A ÷B x B - A = 0 ⇒ Goto 7: Goto 5
 Lbl 7: B◢
-A ÷ B → A:Goto 3
+A ÷ B → A: Goto 3
 Lbl 8: A◢
 Lbl 9: "DONE"
 ```
@@ -737,19 +737,19 @@ Locate 1,1,"√N□□Int N="
 Abs N → O
 Int(O÷2) → F
 Locate 1,7,"WAIT..."
-For 1→A To F
+For 1 → A To F
 O ÷ A² → C
 Frac C = 0 ⇒ C → D
 Frac C = 0 ⇒ A → E
 Next
 ClrText
 "□"
-E> 1 ⇒ Locate, 1,1,E
-D>1 => Locate, 3,1,"√"
-D>1 => Locate, 4,1,D
-N<0 ⇒ Locate, 7,1,"i"
-Locate, 1,5,"Ans"
-Locate, 1,6,√N
+E>1 ⇒ Locate 1,1,E
+D>1 ⇒ Locate 3,1,"√"
+D>1 ⇒ Locate 4,1,D
+N<0 ⇒ Locate 7,1,"i"
+Locate 1,5,"Ans"
+Locate 1,6,√N
 ```
 
 # Rationalizer (Scribble)
@@ -757,11 +757,11 @@ Locate, 1,6,√N
 ```basic
 1 → A~D
 ClrText
-"EQUATION"?→ Y
+"EQUATION"? → Y
 Abs Y → Z
 Locate 1,7,"WAIT..."
 Z² → F
-For 100→E To 1 Step -1
+For 100 → E To 1 Step -1
 E² → L
 Frac (FxL) → J
 Frac √L → K
@@ -782,15 +782,15 @@ Next
 IfEnd
 D√B÷C → X
 ClrText
-"□":"□":"□":"□":"□":"□"
-Frac √B ≠ 0 And D>1 ⇒ Locate, 9,1,D
-Frac √B ≠ 0 ⇒ Locate, 11,1,"√"
-Frac √B ≠ 0 ⇒ Locate, 12,1,B
-Frac √B = 0 ⇒ Locate, 11,1,√B
-C>1 ⇒ Locate, 9,2,"-----"
-C>1 ⇒ Locate, 11,3,C
-X=1 And Y ≠ 1 ⇒ Locate, 11,1,"□"
-X=1 And Y ≠ 1 ⇒ Locate, 8,2,"NotAble"
+"□": "□": "□": "□": "□": "□"
+Frac √B ≠ 0 And D>1 ⇒ Locate 9,1,D
+Frac √B ≠ 0 ⇒ Locate 11,1,"√"
+Frac √B ≠ 0 ⇒ Locate 12,1,B
+Frac √B = 0 ⇒ Locate 11,1,√B
+C>1 ⇒ Locate 9,2,"-----"
+C>1 ⇒ Locate 11,3,C
+X=1 And Y ≠ 1 ⇒ Locate 11,1,"□"
+X=1 And Y ≠ 1 ⇒ Locate 8,2,"NotAble"
 Locate 1,5,"Calc="
 Locate 6,5,X
 Locate 1,6,"Ans="
@@ -804,11 +804,11 @@ page 14
 ```basic
 1 → A~D
 ClrText
-"EQUATION"?→ Y
+"EQUATION"? → Y
 Abs Y → Z
 Locate 1,7,"WAIT..."
 Z² → F
-For 100→E To 1 Step -1
+For 100 → E To 1 Step -1
 E² → L
 Frac (FxL) → J
 Frac √L → K
@@ -829,14 +829,14 @@ Next
 IfEnd
 D√B÷C → X
 ClrText
-"□":"□":"□":"□":"□":"□"
+"□": "□": "□": "□": "□": "□"
 If X ≠ 1 And Y ≠ 1
-Then Frac √B ≠ 0 And D>1 ⇒ Locate, 4,1,D
-Frac √B ≠ 0 ⇒ Locate, 6,1,"√"
-Frac √B ≠ 0 ⇒ Locate, 7,1,B
-Frac √B = 0 ⇒ Locate, 6,1,√B
-C>1 ⇒ Locate, 4,2,"-----"
-C>1 ⇒ Locate, 6,3,C
+Then Frac √B ≠ 0 And D>1 ⇒ Locate 4,1,D
+Frac √B ≠ 0 ⇒ Locate 6,1,"√"
+Frac √B ≠ 0 ⇒ Locate 7,1,B
+Frac √B = 0 ⇒ Locate 6,1,√B
+C>1 ⇒ Locate 4,2,"-----"
+C>1 ⇒ Locate 6,3,C
 Else Locate 3,2,"Not Able"
 IfEnd
 Locate 1,5,"Calc="
@@ -849,12 +849,12 @@ Locate 1,6,"Ans="
 ```basic
 2 → F
 ClrText
-"HOW MANY"?→ N
+"HOW MANY"? → N
 Locate 1,7,"["
 Locate 21,7,"]"
 N → Dim List 2
-Seq(X,X,1,N,1)→ List 1
-For 1→B To N
+Seq(X,X,1,N,1) → List 1
+For 1 → B To N
 Lbl 1
 Int N Ran#+1 → A
 List 1[A] → C
@@ -881,10 +881,10 @@ now press exe when done
 0 → A: 101 → B
 Lbl 1
 ClrText
-Int 100 Rand#+1 → C
-C>A And C<B ⇒ Goto 2:Goto 1
+Int 100 Ran#+1 → C
+C>A And C<B ⇒ Goto 2: Goto 1
 Lbl 2
-"□":"□":"□"
+"□": "□": "□"
 Locate 1,1,C
 Locate 1,3,"Higher, Lower, yes"
 ? → D
@@ -900,8 +900,8 @@ page 16
 ## Version 4.0
 ```basic
 ClrText
-0→ A
-"□":"□"
+0 → A
+"□": "□"
 Locate 1,1,"I'm Thinking of a"
 Locate 1,2,"Number between 1-100"
 Int 100 Ran#+1 → N
@@ -911,7 +911,7 @@ U>N ⇒ "LESS"
 U<N ⇒ "MORE"
 U≠N ⇒ Goto 1
 U = N "CORRECT"
-U=N ⇒ "TRIES":A
+U=N ⇒ "TRIES": A
 ```
 page 17
 ---
@@ -923,7 +923,7 @@ Lbl 0
 ClrText
 Locate 2,1,"PLAY"
 Locate 2,2,"SHUFFLE"
-1→ r:Prog "MENU"
+1 → r: Prog "MENU"
 r>2 ⇒ Locate 8,7, "Menu ERROR"
 r=1 ⇒ Goto 2
 r=2 ⇒ Goto 1
@@ -933,7 +933,7 @@ ClrText
 Locate 1,7,"SHUFFLING..."
 Prog "MIX"
 Locate 1,7,"TRANSFERRING..."
-For 1→Z To 52
+For 1 → Z To 52
 List2[Z] → Y
 Y>0 ⇒ Y+.4 → X
 Y>13 ⇒ Y-13+.3 → X
@@ -966,15 +966,12 @@ Goto 0
 # Catch Game
 ## Version 3.1
 ```basic
-0→S:4→D:21→C
+0 → S: 4 → D: 21 → C
 ClrText
-Lbl1
-Int 7Ran#+1 → R
-For 1→A To C-4
+Lbl 1
+Int 7 Ran#+1 → R
+For 1 → A To C-4
 Locate A,R,"□=--→"
-GetKey→G
-G=28⇒ Dsz D
-G=28 And D>0 ⇒ Locate C,D+1, "□"
 G=37 ⇒ Isz D
 G=37 And D<8 ⇒ Locate C,D-1, "□"
 D≥8 ⇒ 7 → D
@@ -982,11 +979,11 @@ D≤0 ⇒ 1 → D: Locate C,D,"O"
 Next
 If D=R
 Then Isz S
-21-(Int(S÷3))→C
+21-(Int(S÷3)) → C
 Goto 1
 Else ClrText
 Locate 7,3,"GAME OVER"
-Locate 7,5,"SCORE:"
+Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
@@ -996,22 +993,22 @@ page 18
 # Running Man
 ## Version 1.3
 ```basic
-1→A:4→B:21→X:4→Y:-1→S:0→G
+1 → A: 4 → B: 21 → X: 4 → Y: -1 → S: 0 → G
 ClrText
-Lbl0
-Int 21Ran#+1 → E
-Int 7Ran#+1 → F
-Lvl1:Isz S
-A>21 ⇒ 21→A
-X>21 ⇒ 1→X
-X<1 ⇒ 21→X
-Y>7 ⇒ 1→Y
-Y<1 ⇒ 7→Y
+Lbl 0
+Int 21 Ran#+1 → E
+Int 7 Ran#+1 → F
+Lbl 1: Isz S
+A>21 ⇒ 21 → A
+X>21 ⇒ 1 → X
+X<1 ⇒ 21 → X
+Y>7 ⇒ 1 → Y
+Y<1 ⇒ 7 → Y
 ClrText
 Locate E,F,"θ"
 Locate A,B,"B"
 Locate X,Y,"A"
-GetKey→G
+GetKey → G
 G=28⇒ Dsz Y
 G=27⇒ Isz X
 G=38⇒ Dsz X
@@ -1022,10 +1019,10 @@ B<Y ⇒ Isz B
 B>Y ⇒ Dsz B
 A=X And B=Y ⇒ Goto 2
 X=E And Y=F ⇒ Goto 0: Goto 1
-Lbl2
+Lbl 2
 ClrText
 Locate 7,3,"GAME OVER"
-Locate 7,5,"SCORE:"
+Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
@@ -1034,11 +1031,11 @@ Stop
 ## Version 1.5
 ```basic
 ClrText
-"□":"□":"□":"□":"□"
+"□": "□": "□": "□": "□"
 Locate 1,1,"you must push the"
-locate l,2, "indicated button"
+Locate 1,2,"indicated button"
 Locate 1,3, "using the directional"
-Locate 1,4 "arrows before time"
+Locate 1,4,"arrows before time"
 Locate 1,5," runs out."◢
 ClrText
 101 → D
@@ -1064,15 +1061,15 @@ Lbl 2: Dsz A
 A=9 ⇒ Locate 20,7,"□"
 GetKey → G
 A=0 ⇒ Goto 3
-G=28 ⇒ 1→B
-G=27 ⇒ 2→B
-G=37 ⇒ 3→B
-G=38 ⇒ 0→B
+G=28 ⇒ 1 → B
+G=27 ⇒ 2 → B
+G=37 ⇒ 3 → B
+G=38 ⇒ 0 → B
 G=0 ⇒ Goto 2
 B=R ⇒ Goto 1
 Lbl 3: ClrText
 Locate 7,3,"GAME OVER"
-Locate 7,5,"SCORE:"
+Locate 7,5,"SCORE: "
 Locate 13,5,100-D
 Stop
 ```
@@ -1087,8 +1084,8 @@ Page 20
 ```basic
 ClrGraph
 RclPict 1
-For 1→B To 63
-For 1→A To 127
+For 1 → B To 63
+For 1 → A To 127
 PxlTest B,A
 Ans → C
 If C=1
@@ -1106,8 +1103,8 @@ Stop
 ```basic
 ClrGraph
 RclPict 1
-For 1→B To 63
-For 1→A To 127
+For 1 → B To 63
+For 1 → A To 127
 PlotChg A,B
 Next
 Next
@@ -1119,12 +1116,12 @@ Page 21
 # Roll Playing Dice Damage
 ## Version 2.2
 ```basic
-0→ A:0 → T
+0 → A: 0 → T
 "Number of sides"? → S
 "Number of dice?"? → D
 "Additives"? → M
 "Percent Damage"? → P
-Lbl1:Int S Ran#+1 → N
+Lbl 1: Int S Ran#+1 → N
 N+A → A: Isz T
 If T=D
 Then "Total damage"
@@ -1140,7 +1137,7 @@ Else Goto 1
 ## Version 2.3
 ```basic
 Int 7 Ran#+1 → R
-For 1→A To 20
+For 1 → A To 20
 ClrText
 Locate A,R,"=-->"
 GetKey → G
@@ -1160,7 +1157,7 @@ or
 or
 ```basic
 1 → A: 3 → B
-Lbl1 : A-1÷B+1(B+2) → A
+Lbl 1: A-1÷B+1(B+2) → A
 B + 4 → B
 Locate 1,1,Ax4
 Goto 1
@@ -1184,11 +1181,11 @@ GetKey → G
 G=28 ⇒ Dsz r
 G=37 ⇒ Isz r
 G=31 ⇒ Break
-r>7 ⇒ 7→r
-r<1 ⇒ 1→r
+r>7 ⇒ 7 → r
+r<1 ⇒ 1 → r
 G=28 And r<7 ⇒ Locate θ,r+1,"□"
 G=37 And r>1 ⇒ Locate θ,r-1,"□"
-Locate θ,r,"→"
+Locate θ,r," → "
 LpWhile G≠31
 Return
 ```
@@ -1199,26 +1196,28 @@ Return
 1 → A ~ B
 ClrText
 Lbl 1
-Locate A,B,"→"
+Locate A,B," → "
 A → C: B → D
 GetKey → G
 G = 28 ⇒ Dsz B
 G = 37 ⇒ Isz B
-B>7 ⇒ 7→B
-B<1 ⇒ 1→B
+B>7 ⇒ 7 → B
+B<1 ⇒ 1 → B
 G=27 ⇒ Isz A
 G=28 ⇒ Dsz A
-A>21 ⇒ 21→A
-A<1 ⇒ 1→A
+A>21 ⇒ 21 → A
+A<1 ⇒ 1 → A
 G ≠ 0 ⇒ Locate C,D,"□"
 Goto 1
 ```
+page 23
+---
 
 # Blank Menu Screen
 ## Version 5.1
 ```basic
 1 → Y
-For 1→A To 100
+For 1 → A To 100
 Next
 Lbl 1
 Locate 1,7,"→"
@@ -1226,14 +1225,12 @@ GetKey → G
 G=28 ⇒ Dsz Y
 G=37 ⇒ Isz Y
 G=31 ⇒ Return
-Y<1 ⇒ 1→Y
-Y>7 ⇒ 7→Y
+Y<1 ⇒ 1 → Y
+Y>7 ⇒ 7 → Y
 G=28 ⇒ Locate 1,Y+1,"□"
 G=37 ⇒ Locate 1,Y-1,"□"
 Goto 1
 ```
-page 23
----
 
 page 24
 ---
@@ -1321,11 +1318,314 @@ G=137 ⇒ 0 → A
 Lbl 9
 Return
 ```
+
+# Typing
+## Version 2.9
+```basic
+H=1 ⇒ Locate A,B,"→□"
+GetKey → G
+Not G ⇒ Goto 1
+G = 31 ⇒ Return
+If G = 27
+Then Fill (0,Mat T)
+1 → A ~ B
+ClrText
+Goto 1
+IfEnd
+G=41 ⇒ 1 → H
+G=51 ⇒ 0 → H
+G=41 Or G=51 ⇒ Goto 1
+H=1 ⇒ G+100 → G
+G=144 ⇒ 44 → G
+G=44 ⇒ Dsz A
+A>21 ⇒ Dsz B
+A>21 ⇒ 1 → A
+G=44 And A>1 ⇒ Locate 1,B,"□"
+A<1 ⇒ Dsz B
+A<1 ⇒ 21 → A
+A<1 And B<1 ⇒ 1 → A ~ B
+G=44 ⇒ 0 → Mat T[A,B]
+G=44 ⇒ Goto 1
+G → Mat T[A,B]
+Prog "ABC"
+Isz A
+A>21 ⇒ Isz B
+A>21 ⇒ 1 → A
+Goto 1
+```
 page 25
 ---
 
+# Read
+## Version 1.0
+```basic
+2 → H
+ClrText
+For 1 → B To 7
+For 1 → A To 21
+Mat T[A,B] → G
+Not G ⇒ Goto 1
+Prog "ABC"
+Next
+Next
+Stop
+Lbl 1
+Locate 21,7,"□"
+Return
+```
+# Keypad
+## Version 1.0
+```basic
+Lbl 1
+GetKey → G
+Not G ⇒ 0 → Z
+Not G ⇒ Goto 1
+G>0 And Z ≠ 0 ⇒ Goto 1
+G>0 ⇒ 1 → Z
+Return
+```
 
+# Ask (like ask Judd.com)
+## Version 1.2
+```basic
+ClrText
+"□": "□": "□": "□": "□": "□"
+0 → C~D
+0 → H
+{21,2} → Dim Mat Q
+For 1 → B To 2
+For 1 → A To 21
+Lbl 1
+GetKey → G
+Not G ⇒ Goto 1
+G=41 ⇒ Isz D
+G=41 And D=2 ⇒ Dsz A
+G>0 ⇒ Isz C
+G>0 And G ≠ 41 And D=1 ⇒ G → Mat Q[A,B]
+If D=1
+Then C=1 ⇒ Locate A,B,"P"
+C= 2 ⇒ Locate A,B,"L"
+C= 3 ⇒ Locate A,B,"E"
+C= 4 ⇒ Locate A,B,"A"
+C= 5 ⇒ Locate A,B,"S"
+C= 6 ⇒ Locate A,B,"E"
+C= 7 ⇒ Locate A,B,"□"
+C= 8 ⇒ Locate A,B,"H"
+C= 9 ⇒ Locate A,B,"E"
+C=10 ⇒ Locate A,B,"L"
+C=11 ⇒ Locate A,B,"P"
+C=12 ⇒ Locate A,B,"□"
+C=13 ⇒ Locate A,B,"M"
+C=14 ⇒ Locate A,B,"E"
+C=15 ⇒ Locate A,B,"□"
+C=16 ⇒ Locate A,B,"A"
+C=17 ⇒ Locate A,B,"N"
+C=18 ⇒ Locate A,B,"S"
+C=19 ⇒ Locate A,B,"W"
+C=20 ⇒ Locate A,B,"E"
+C=21 ⇒ Locate A,B,"R"
+C=22 ⇒ Locate A,B,"M"
+C=23 ⇒ Locate A,B,"Y"
+C=24 ⇒ Locate A,B,"□"
+C=25 ⇒ Locate A,B,"F"
+C=26 ⇒ Locate A,B,"R"
+C=27 ⇒ Locate A,B,"I"
+C=28 ⇒ Locate A,B,"E"
+C=29 ⇒ Locate A,B,"N"
+C=30 ⇒ Locate A,B,"D"
+C=31 ⇒ Locate A,B,"S"
+C=32 ⇒ Locate A,B,"□"
+C=33 ⇒ Locate A,B,"Q"
+C=34 ⇒ Locate A,B,"U"
+C=35 ⇒ Locate A,B,"E"
+C=36 ⇒ Locate A,B,"S"
+C=37 ⇒ Locate A,B,"T"
+C=38 ⇒ Locate A,B,"I"
+C=39 ⇒ Locate A,B,"O"
+C=40 ⇒ Locate A,B,"N"
+C=41 ⇒ Locate A,B,"."
+Else Prog "ABC"
+IfEnd
+G=79 ⇒ Goto 3
+Next
+Next
+Lbl 3
+For 1 → F To 100
+Next
+For 3 → B To 2
+For 1 → A To 21
+Lbl 2
+GetKey → G
+Not G ⇒ Goto 2
+G=69 ⇒ Locate A,B,"?"
+G=69 ⇒ Prog "ANS"
+Prog "ABC"
+Next
+Next
+```
 
+# Answer
+## Version 1.1
+```basic
+Mat Q[2,1] → Q
+Not Q ⇒ "No Reply"
+Not Q ⇒ Stop
+For 1 → C To 2
+For 1 → A To 21
+Mat Q[A,C] → G
+Not G And A ≠ 1 And B ≠ 1 ⇒ Goto 1
+C+5 → B
+Prog "ABC"
+Next
+Next
+Lbl 1
+Locate 1,6,"□"
+Stop
+```
+page 27
+
+# ABC
+## Version 3.2
+```basic
+G → N
+N = 0 ⇒ Return
+N>70 ⇒ Goto 5
+N>60 ⇒ Goto 4
+N>50 ⇒ Goto 3
+N>40 ⇒ Goto 2
+N>30 ⇒ Goto 1
+Lbl 0
+G=25 ⇒ Locate A,B,"L"
+G=26 ⇒ Locate A,B,"F"
+G=28 ⇒ Locate A,B,5
+G=29 ⇒ Locate A,B,"/"
+Goto 9: Lbl 1
+G=32 ⇒ Locate A,B,"Y"
+G=33 ⇒ Locate A,B,"T"
+G=35 ⇒ Locate A,B,"K"
+G=36 ⇒ Locate A,B,"E"
+G=37 ⇒ Locate A,B,0
+G=39 ⇒ Locate A,B,"'"
+Goto 9: Lbl 2
+G=42 ⇒ Locate A,B,"X"
+G=43 ⇒ Locate A,B,"S"
+G=45 ⇒ Locate A,B,"J"
+G=46 ⇒ Locate A,B,"D"
+G=47 ⇒ Locate A,B,9
+G=48 ⇒ Locate A,B,4
+G=49 ⇒ Locate A,B,","
+Goto 9: Lbl 3
+G=52 ⇒ Locate A,B,"W"
+G=53 ⇒ Locate A,B,"R"
+G=54 ⇒ Locate A,B,"O"
+G=55 ⇒ Locate A,B,"I"
+G=57 ⇒ Locate A,B,8
+G=58 ⇒ Locate A,B,3
+G=59 ⇒ Locate A,B,"!"
+Goto 9: Lbl 4
+G=61 ⇒ Locate A,B,"□"
+G=62 ⇒ Locate A,B,"V"
+G=63 ⇒ Locate A,B,"Q"
+G=64 ⇒ Locate A,B,"N"
+G=65 ⇒ Locate A,B,"H"
+G=66 ⇒ Locate A,B,"B"
+G=67 ⇒ Locate A,B,7
+G=68 ⇒ Locate A,B,2
+G=69 ⇒ Locate A,B,"?"
+Goto 9: Lbl 5
+G=71 ⇒ Locate A,B,"Z"
+G=72 ⇒ Locate A,B,"U"
+G=73 ⇒ Locate A,B,"P"
+G=74 ⇒ Locate A,B,"M"
+G=75 ⇒ Locate A,B,"G"
+G=76 ⇒ Locate A,B,"A"
+G=77 ⇒ Locate A,B,6
+G=78 ⇒ Locate A,B,1
+G=79 ⇒ Locate A,B,"."
+Lbl 9
+Return
+```
+
+# Type
+## Version 3.2
+```basic
+H>0 ⇒ Locate A,B,"→□"
+GetKey → G
+Not G ⇒ Goto 1
+Locate A,B,"□"
+G=31 ⇒ Return
+If G=27
+Then Fill (0,Mat A)
+1 → A ~ B
+ClrText
+Goto 1
+ElseIf G=38
+Then Isz B
+0 → A
+IfEnd
+G=44 ⇒ Dsz A
+A>21 ⇒ Isz B
+A>21 ⇒ 1 → A
+G=44 And A<1 ⇒ Locate 1,B,"□"
+A<1 ⇒ Dsz B
+A<1 ⇒ 21 → A
+G=44 ⇒ 0 → Mat A[A,B]
+G=44 ⇒ Goto 1
+G → Mat A[A,B]
+G → N
+Prog "ABC"
+Isz A
+A>21 ⇒ Isz B
+A>21 ⇒ 1 → A
+Goto 1
+```
+page 28
+
+# Hangman
+## Version 1.3
+### needs programs ABC and READ and TYPE to use
+```basic
+7 → J
+prog "TYPE"
+For 1 → B To 3
+For 1 → A To 21
+Mat A[A,B] → G
+Not G ⇒ Goto 3
+Frac(G÷10)=.9 → Next
+G≠61 Or G≠0 ⇒ Locate A,B,"-"
+G=61 ⇒ Locate A,B,"□"
+Next
+Next
+Lbl 3
+Locate 5,6,J
+Locate 7,6,"Tries left"
+Locate 3,7,"Choose a letter"
+Lbl 1
+GetKey → H
+H=0 ⇒ Goto 1
+Locate 3,7,"□□□□□□□□□□□□□□□□"
+'x16 blank spaces
+0 → I
+For 1 → B To 3
+For 1 → A To 21
+Not G ⇒ Goto 4
+If G=H
+Then H → G: 1 → I
+Prog "ABC"
+IfEnd
+Next
+Next
+Lbl 4
+I=0 ⇒ Dsz J: J → J
+If J=0
+Then Locate 5,6,J
+Locate 6,4,"GAME OVER"
+For 1 → L To 500
+Next
+Prog "READ"
+IfEnd
+Goto 3
+```
 
 
 
