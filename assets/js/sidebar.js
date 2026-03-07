@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const nav = {
         Navigation: `
 - [🏠 Home Page](index.html)
-- [📋 Changelog 🆕](changelog.html)
+- [📋 Changelog](changelog.html)
 - [💼 Commissions](commissions.html)
-- [⭐ Recommendations 🆕](recommendations.html)
+- [⭐ Recommendations](recommendations.html)
 - [⛏️ Minecraft Server](minecraft.html)`,
 
         Projects: `
-- [📝 Worksheets 🆕](worksheets.html)
+- [📝 Worksheets](worksheets.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
 - [📖 Osyra's Tale](osyras_tale.html)
 - [🎣 Fishing Mini Game](fishing_mini_game/index.html)
 - [🤖 Vanity Bot](vanity.html)
-- [🐍 Code Resources](code_resources.html)`,
+- [🐍 Code Resources 🆕](code_resources.html)`,
 
         Support: `
 - [☕ Donate](donate.html)`,
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Archive links in markdown format
     const archives = `
 - [🤖 All About AI](all_about_ai.html)
-- [🔢 Casio Code](casio_code.html)
+- [🔢 Casio Code 🆕](casio_code.html)
 - [🎄 Clutter](clutter.html)
 - [🎨 ComfyUI Guide](comfyui_guide.html)
 - [💡 Do It Better For Free](do_it_better_for_free.html)
