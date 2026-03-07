@@ -191,12 +191,14 @@ hr {
     color: black !important;
     overflow: visible !important;
   }
-  sidebar { display: none !important; }
-  main {
+  sidebar, .mobile-banner, .overlay { display: none !important; }
+  main, main.archive {
     background: white !important;
     color: black !important;
     height: auto !important;
     overflow: visible !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
   #back-to-top, .download-bar, .server-status { display: none !important; }
   a { color: black !important; }

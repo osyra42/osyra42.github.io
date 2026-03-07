@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [📖 Osyra's Tale](osyras_tale.html)
 - [🎣 Fishing Mini Game](fishing_mini_game/index.html)
 - [🤖 Vanity Bot](vanity.html)
-- [🐍 Python Lessons](python_lessons.html)`,
+- [🐍 Code Resources](code_resources.html)`,
 
         Support: `
 - [☕ Donate](donate.html)`,

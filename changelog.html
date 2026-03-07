@@ -44,23 +44,22 @@
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <pre id="changelog">
+    <pre id="changelog" style="background:#0a0a0a; padding:20px; border-radius:5px;">
 . ............................
 LEGEND OF COLORS
-(in this order)
-. decoration text
 # yellow: timestamps
 @ purple: project
 + green: added
 - red: removed
 > blue: description
 $ bugs: known/fixed
-  normal text
 
 . ............................
 # 2026 MAR 07
 @ website
 + added Casio Code page (Casio fx-9750 G PLUS calculator programs archive)
++ renamed Python Lessons to Code Resources (now multi-language)
++ added curated learning resources for 8 languages (Python, JS, Rust, Java, C#, C/C++, PHP, SQL)
 - removed casio_program PDF and DOCX files
 - removed jail folder (all PDF files are dead)
 > transcribed from original handwritten notebook with 28+ programs
@@ -70,7 +69,14 @@ $ fixed logic bugs in Casio code (T=7 to T=21, Dsz D to Dsz C)
 $ fixed Casio code formatting (Locate casing, arrow syntax, spacing)
 $ restored missing Casio code sections (Blank Menu Screen, Typing v2.9, Type v3.2)
 $ fixed meta tag spacing on Casio Code page (og:title, https://)
-$ archive pages not scrolling vertically on mobile
+
+@ mobile
++ compact download bar (title left, button right, single row)
++ tables use full width with text wrapping instead of horizontal scroll
++ moved all archive mobile styles from main.css to mobile.css
+$ fixed archive pages not scrolling vertically
+$ mobile banner and overlay hidden when printing
+$ print now shows all pages instead of only one
 
 . ............................
 # 2026 FEB 27
@@ -431,8 +437,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const changelog = document.getElementById('changelog');
     if (changelog) {
         const chalk = {
-            black: "444444", red: "FF6663", orange: "FEB144", yellow: "FDFD97",
-            green: "9EE09E", blue: "9EC1CF", purple: "CC99C9", white: "FFFFFF"
+            black: "000000",
+            red: "FF4D4D",
+            orange: "FFB833",
+            yellow: "FFE633",
+            green: "33FF88",
+            blue: "33AAFF",
+            purple: "BB55FF",
+            white: "FFFFFF"
         };
 
         let coloredContent = '';
@@ -446,7 +458,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 case line.startsWith('$ '): color = chalk.orange; break;
                 case line.startsWith('> '): color = chalk.blue; break;
                 case line.startsWith('  '): color = chalk.white; break;
-                case line.startsWith('. '): color = chalk.black; break;
+                case line.startsWith('. '):
+                    coloredContent += `<span style="display:block;overflow:hidden;white-space:nowrap;color:#${chalk.white};letter-spacing:0.3em;">${'·'.repeat(200)}</span>\n`;
+                    return;
             }
             coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
         });
