@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [📝 Worksheets](worksheets.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
 - [📖 Osyra's Tale](osyras_tale.html)
-- [🕹️ Blank Pixel Game 🆕](blank_pixel_game/index.html)
+- [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [🤖 Vanity Bot](vanity.html)
 - [🐍 Code Resources 🆕](code_resources.html)`,
 
