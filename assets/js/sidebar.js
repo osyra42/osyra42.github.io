@@ -25,12 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
 - [⛏️ Minecraft Server](minecraft.html)`,
 
         Projects: `
-- [📝 Worksheets](worksheets.html)
-- [🧲 How Magnets Work](how_magnets_work.html)
-- [📖 Osyra's Tale](osyras_tale.html)
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
-- [🤖 Vanity Bot](vanity.html)
-- [🐍 Code Resources 🆕](code_resources.html)`,
+- [📖 Osyra's Tale](osyras_tale.html)
+- [🧲 How Magnets Work](how_magnets_work.html)
+- [🤖 Vanity Bot](vanity.html)`,
 
         Support: `
 - [☕ Donate](donate.html)`,
@@ -43,8 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Archive links in markdown format
     const archives = `
 - [🤖 All About AI](all_about_ai.html)
-- [🔢 Casio Code 🆕](casio_code.html)
+- [🔢 Casio Code](casio_code.html)
 - [🎄 Clutter](clutter.html)
+- [🐍 Code Resources](code_resources.html)
 - [🎨 ComfyUI Guide](comfyui_guide.html)
 - [💡 Do It Better For Free](do_it_better_for_free.html)
 - [💎 Ever Diamond](ever_diamond.html)
@@ -52,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
 - [⚔️ Infinite Devastation](infinite_devastation.html)
 - [🎬 Media Mimic](media_mimic.html)
 - [🏚️ Urbex Safety](urbex_safety.html)
-- [🎭 VTuber Guide](vtuber_guide.html)`;
+- [🎭 VTuber Guide](vtuber_guide.html)
+- [📝 Worksheets](worksheets.html)`;
 
     function archiveDropdown() {
         const links = archives.trim().split('\n').map(line => {
