@@ -11,7 +11,7 @@ const Md2Html = (function() {
         return div.innerHTML;
     }
 
-    function parseTimestamp(match, dd, mm, yyyy, hh, min) {
+    function parseTimestamp(match, yyyy, mm, dd, hh, min) {
         const date = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd),
             hh ? parseInt(hh) : 0, min ? parseInt(min) : 0);
         if (isNaN(date.getTime())) return match;
@@ -24,8 +24,8 @@ const Md2Html = (function() {
         // Inline code: `code` (process first to protect code content)
         text = text.replace(/`(.*?)`/g, '<code>$1</code>');
 
-        // Timestamp: $$DD.MM.YYYY$$ or $$DD.MM.YYYY@HH.MM$$ → local time
-        text = text.replace(/\$\$(\d{2})\.(\d{2})\.(\d{4})(?:@(\d{2})\.(\d{2}))?\$\$/g, parseTimestamp);
+        // Timestamp: $$YYYY.MM.DD$$ or $$YYYY.MM.DD@HH.MM$$ → local time
+        text = text.replace(/\$\$(\d{4})\.(\d{2})\.(\d{2})(?:@(\d{2})\.(\d{2}))?\$\$/g, parseTimestamp);
 
         // Spoiler: !!text!! → click to reveal
         text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');

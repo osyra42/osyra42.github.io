@@ -29,6 +29,45 @@
     image = "changelog.jpg";
     title = "Changelog";
   </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const changelog = document.getElementById('changelog');
+      if (changelog) {
+          // Kimbie Dark palette
+          const chalk = {
+              bg: "221a0f",
+              cream: "d3af86",
+              orange: "f79a32",
+              green: "889b4a",
+              red: "dc3958",
+              rose: "98676a",
+              burnt: "f06431",
+              beige: "d6baad",
+              muted: "362712"
+          };
+
+          let coloredContent = '';
+          changelog.textContent.split('\n').forEach(line => {
+              let color;
+              switch (true) {
+                  case line.startsWith('# '): color = chalk.cream; break;
+                  case line.startsWith('- '): color = chalk.red; break;
+                  case line.startsWith('+ '): color = chalk.green; break;
+                  case line.startsWith('@ '): color = chalk.orange; break;
+                  case line.startsWith('$ '): color = chalk.burnt; break;
+                  case line.startsWith('> '): color = chalk.rose; break;
+                  case line.startsWith('  '): color = chalk.beige; break;
+                  case line.startsWith('. '):
+                      coloredContent += `<span style="display:block;overflow:hidden;white-space:nowrap;color:#${chalk.muted};letter-spacing:0.3em;">${'·'.repeat(200)}</span>\n`;
+                      return;
+              }
+              coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
+          });
+
+          changelog.innerHTML = coloredContent;
+      }
+  });
+  </script>
 </head>
 <body>
 
@@ -44,15 +83,39 @@
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <pre id="changelog" style="background:#0a0a0a; padding:20px; border-radius:5px;">
+    <pre id="changelog" style="background:#221a0f; padding:20px; border-radius:5px;">
 . ............................
-LEGEND OF COLORS
-# yellow: timestamps
-@ purple: project
+LEGEND (Kimbie Dark)
+# cream: timestamps
+@ orange: project
 + green: added
 - red: removed
-> blue: description
-$ bugs: known/fixed
+> rose: description
+$ burnt: bugs/fixed
+
+. ............................
+# 2026 MAR 20
+@ blank_pixel_game
++ added development roadmap (A Sundered Gem)
+> 8-phase plan from core mechanics through endgame with story outline
+
+@ website
++ rewrote index page About Me and What I Build in a more casual voice
++ added Game Development section to index page (A Sundered Gem)
++ split Minecraft Server into its own section on index page
++ added links throughout index page (worksheets, Osyra's Tale, code resources, commissions, donate)
++ updated Technical Skills block with AI APIs, tools, and game dev specifics
++ rewrote Minecraft page (rules table, intro, Paper server, staff formatting)
++ changed timestamp format from DD.MM.YYYY to YYYY.MM.DD across all pages
++ updated md2html.js to parse new timestamp format
++ added Osyra's Tale character dossier and background links
++ added footer timestamps to Osyra's Tale and Casio Code
++ switched highlight.js theme from Monokai to Kimbie Dark on Casio Code
++ updated changelog colors to Kimbie Dark palette
+- removed stale new emoji from Recommendations, Worksheets, Changelog, and Casio Code
+> index page origin story: started as a crayon drawing mocked up in Photoshop
+> Minecraft intro now covers free hosting, 14 years experience, and private server offer
+> all 23 pages updated with new YYYY.MM.DD timestamp format
 
 . ............................
 # 2026 MAR 14
@@ -66,7 +129,6 @@ $ bugs: known/fixed
 + added Blank Pixel Game page with download table and feature list
 + archived Code Resources and Worksheets to sidebar Archives dropdown
 - removed Fishing Mini Game from sidebar (replaced by Blank Pixel Game)
-- removed stale new emoji from Casio Code
 > sidebar Projects now sorted by latest updated (top to bottom)
 
 . ............................
@@ -466,44 +528,5 @@ $ page title is missing
 
     <button id="back-to-top">Back to Top</button>
   </main>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const changelog = document.getElementById('changelog');
-    if (changelog) {
-        const chalk = {
-            black: "000000",
-            red: "FF4D4D",
-            orange: "FFB833",
-            yellow: "FFE633",
-            green: "33FF88",
-            blue: "33AAFF",
-            purple: "BB55FF",
-            white: "FFFFFF"
-        };
-
-        let coloredContent = '';
-        changelog.textContent.split('\n').forEach(line => {
-            let color;
-            switch (true) {
-                case line.startsWith('# '): color = chalk.yellow; break;
-                case line.startsWith('- '): color = chalk.red; break;
-                case line.startsWith('+ '): color = chalk.green; break;
-                case line.startsWith('@ '): color = chalk.purple; break;
-                case line.startsWith('$ '): color = chalk.orange; break;
-                case line.startsWith('> '): color = chalk.blue; break;
-                case line.startsWith('  '): color = chalk.white; break;
-                case line.startsWith('. '):
-                    coloredContent += `<span style="display:block;overflow:hidden;white-space:nowrap;color:#${chalk.white};letter-spacing:0.3em;">${'·'.repeat(200)}</span>\n`;
-                    return;
-            }
-            coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
-        });
-
-        changelog.innerHTML = coloredContent;
-    }
-});
-</script>
-
 </body>
 </html>
