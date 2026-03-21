@@ -23,6 +23,8 @@
 
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/md2html.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
@@ -47,9 +49,28 @@
     </div>
 
     <div class="markdown">
-🕹️ A pixel art adventure game made in GameMaker Studio 2 by osyra42. **Latest: 2026.03.14**
+🕹️ A pixel art adventure game made in GameMaker Studio 2 by osyra42. **Latest: 2026.03.21**
 
-🔗 [Play in Browser](blank_pixel_game/index.html)
+🔗 [Play in Browser](blank_pixel_game/index.html) — Press F11 for fullscreen, makes it a much better experience.
+
+### 🎮 Controls
+
+```yaml
+# Movement
+Move:          W A S D
+Run:           Shift
+Dodge:         Space
+
+# Combat
+Attack:        Left Click
+Use:           Right Click
+
+# Interaction
+Interact:      E
+Potion:        Q
+Inventory:     Tab
+Pause:         Escape
+```
 
 ---
 
@@ -57,6 +78,8 @@
 
 | Date | HTML | Windows |
 |------|------|---------|
+| 2026.03.21 | [HTML](assets/downloads/[osyra42]%20blank_pixel_game@HTML-2026.03.21.zip) | [Windows](assets/downloads/[osyra42]%20blank_pixel_game@WIND-2026.03.21.zip) |
+| 2026.03.20 | [HTML](assets/downloads/[osyra42]%20blank_pixel_game@HTML-2026.03.20.zip) | [Windows](assets/downloads/[osyra42]%20blank_pixel_game@WIND-2026.03.20.zip) |
 | 2026.03.14 | [HTML](assets/downloads/[osyra42]%20blank_pixel_game@HTML-2026.03.14.zip) | [Windows](assets/downloads/[osyra42]%20blank_pixel_game@WIND-2026.03.14.zip) |
 | 2026.03.13 | [HTML](assets/downloads/[osyra42]%20blank_pixel_game@HTML-2026.03.13.zip) | [Windows](assets/downloads/[osyra42]%20blank_pixel_game@WIND-2026.03.13.zip) |
 | 2026.03.12 | [HTML](assets/downloads/[osyra42]%20blank_pixel_game@HTML-2026.03.12.zip) | [Windows](assets/downloads/[osyra42]%20blank_pixel_game@WIND-2026.03.12.zip) |
@@ -81,6 +104,13 @@ Blank Pixel Game is a work-in-progress pixel art adventure built in GameMaker St
 - Attack action with directional swing
 - Dummy enemies with health bars and floating damage values
 - Enemies drop coins that are thrown out on death
+- Enemies have a 25% chance per gift to drop loot on death
+
+### 🎒 Inventory
+- Pick up gifts with E (interact)
+- Items go into proper inventory slots
+- Inventory sorting and equipment management
+- Inventory overflow prevention — can't pick up items when full
 
 ### 💰 Economy
 - Rebalanced coin distribution
@@ -92,10 +122,11 @@ Blank Pixel Game is a work-in-progress pixel art adventure built in GameMaker St
 
 ### 🖥️ HUD
 - Adjusted HUD layout
+- Experimental chat log — tells the player what's happening in the game
 
 ---
 
-**Last Updated:** $$2026.03.14$$
+**Last Updated:** $$2026.03.21$$
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
