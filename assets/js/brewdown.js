@@ -1,5 +1,5 @@
-// md2html.js - A self-executing Markdown to HTML converter
-const Md2Html = (function() {
+// brewdown.js - A coffee-flavored Markdown to HTML converter
+const Brewdown = (function() {
     
     function isExternalUrl(url) {
         return /^https?:\/\//i.test(url) || url.startsWith('magnet:') || url.endsWith('.pdf');
@@ -24,8 +24,8 @@ const Md2Html = (function() {
         // Inline code: `code` (process first to protect code content)
         text = text.replace(/`(.*?)`/g, '<code>$1</code>');
 
-        // Timestamp: $$YYYY.MM.DD$$ or $$YYYY.MM.DD@HH.MM$$ → local time
-        text = text.replace(/\$\$(\d{4})\.(\d{2})\.(\d{2})(?:@(\d{2})\.(\d{2}))?\$\$/g, parseTimestamp);
+        // Timestamp: @@YYYY.MM.DD@@ or @@YYYY.MM.DD.HH.MM@@ → local time
+        text = text.replace(/@@(\d{4})\.(\d{2})\.(\d{2})(?:\.(\d{2})\.(\d{2}))?@@/g, parseTimestamp);
 
         // Spoiler: !!text!! → click to reveal
         text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');
@@ -68,10 +68,10 @@ const Md2Html = (function() {
         return text;
     }
 
-    function md2html(markdownText, options = {}) {
+    function brewdown(markdownText, options = {}) {
         const {
             wrapInContainer = false,
-            containerClass = 'md2html-container'
+            containerClass = 'brewdown-container'
         } = options;
 
         let htmlContent = '';
@@ -82,6 +82,7 @@ const Md2Html = (function() {
         let codeBlockLang = '';
         let inTable = false;
         let tableRows = [];
+        let detailsDepth = 0;
         function closeOpenBlocks() {
             if (inBlockquote) { htmlContent += '</blockquote>\n'; inBlockquote = false; }
             if (inTable) { flushTable(); }
@@ -144,6 +145,26 @@ const Md2Html = (function() {
                 return;
             } else if (inTable) {
                 flushTable();
+            }
+
+            // Collapsible open: >>> Title
+            if (line.trim().startsWith('>>>')) {
+                closeOpenBlocks();
+                const title = line.trim().substring(3).trim() || 'Details';
+                processedLine = `<details><summary>${parseInlineFormatting(title)}</summary>`;
+                detailsDepth++;
+                htmlContent += processedLine + '\n';
+                return;
+            }
+            // Collapsible close: <<<
+            if (line.trim() === '<<<') {
+                closeOpenBlocks();
+                if (detailsDepth > 0) {
+                    processedLine = '</details>';
+                    detailsDepth--;
+                    htmlContent += processedLine + '\n';
+                }
+                return;
             }
 
             // Headers
@@ -212,6 +233,7 @@ const Md2Html = (function() {
         }
         if (inBlockquote) htmlContent += '</blockquote>';
         if (inTable) flushTable();
+        while (detailsDepth > 0) { htmlContent += '</details>\n'; detailsDepth--; }
 
         if (wrapInContainer) {
             return `<div class="${containerClass}">${htmlContent}</div>`;
@@ -222,13 +244,13 @@ const Md2Html = (function() {
 
     // Auto-execute function to process script tags
     function processScriptTags() {
-        // Find all script tags with the data-md2html attribute
-        const scripts = document.querySelectorAll('script[data-md2html]');
+        // Find all script tags with the data-brewdown attribute
+        const scripts = document.querySelectorAll('script[data-brewdown]');
 
         scripts.forEach(script => {
-            const markdownFile = script.getAttribute('data-md2html');
+            const markdownFile = script.getAttribute('data-brewdown');
             const wrapInContainer = script.hasAttribute('data-wrap-container');
-            const containerClass = script.getAttribute('data-container-class') || 'md2html-container';
+            const containerClass = script.getAttribute('data-container-class') || 'brewdown-container';
 
             if (markdownFile) {
                 // Fetch and parse from file
@@ -240,7 +262,7 @@ const Md2Html = (function() {
                         return response.text();
                     })
                     .then(data => {
-                        const htmlContent = md2html(data, {
+                        const htmlContent = brewdown(data, {
                             wrapInContainer: wrapInContainer,
                             containerClass: containerClass
                         });
@@ -254,7 +276,7 @@ const Md2Html = (function() {
                     .catch(error => {
                         console.error('Error loading markdown:', error);
                         const errorDiv = document.createElement('div');
-                        errorDiv.className = 'md2html-error';
+                        errorDiv.className = 'brewdown-error';
                         errorDiv.innerHTML = `<p>Error loading content: ${error.message}</p>`;
                         script.parentNode.replaceChild(errorDiv, script);
                     });
@@ -262,7 +284,7 @@ const Md2Html = (function() {
                 // Parse inline content from the script tag
                 const inlineMarkdown = script.textContent;
                 if (inlineMarkdown.trim()) {
-                    const htmlContent = md2html(inlineMarkdown, {
+                    const htmlContent = brewdown(inlineMarkdown, {
                         wrapInContainer: wrapInContainer,
                         containerClass: containerClass
                     });
@@ -282,7 +304,7 @@ const Md2Html = (function() {
         divs.forEach(div => {
             const markdownText = div.textContent;
             if (markdownText.trim()) {
-                div.innerHTML = md2html(markdownText);
+                div.innerHTML = brewdown(markdownText);
                 div.classList.remove('markdown');
                 div.classList.add('markdown-rendered');
             }
@@ -307,7 +329,7 @@ const Md2Html = (function() {
 
     // Public API
     return {
-        md2html,
+        brewdown,
         parseInlineFormatting,
         processScriptTags,
         processMarkdownDivs
