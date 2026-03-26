@@ -16,7 +16,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - `css/mobile.css`: ALL mobile-specific styles (768px breakpoint) — loaded by `mobile.js`
   - `js/sidebar.js`: Dynamic sidebar generation with navigation links
   - `js/scripts.js`: General utilities and clutter toggle functionality
-  - `js/md2html.js`: Markdown-to-HTML converter (two modes: `<div class="markdown">` and `<script data-md2html>`)
+  - `js/brewdown.js`: Markdown-to-HTML converter (two modes: `<div class="markdown">` and `<script data-brewdown>`)
   - `js/mobile.js`: Loads mobile.css and handles mobile responsive behavior
   - `js/back-to-top.js`: Back to top button functionality
   - `clutter-main/clutter.js`: Visual clutter effect
@@ -49,7 +49,7 @@ All main site pages follow this structure:
 
 ## Markdown Content
 
-`md2html.js` supports two ways to embed markdown in pages:
+`brewdown.js` supports two ways to embed markdown in pages:
 
 ### 1. `<div class="markdown">` (preferred for most pages)
 ```html
@@ -62,28 +62,28 @@ Some content here
 ```
 The div's text content is converted to HTML on load. The div gets class `markdown-rendered` after processing.
 
-### 2. `<script data-md2html>` (for archive/document pages or external files)
+### 2. `<script data-brewdown>` (for archive/document pages or external files)
 ```html
 <!-- Inline markdown -->
-<script type="text/markdown" data-md2html>
+<script type="text/markdown" data-brewdown>
 # Heading
 Content here
 </script>
 
 <!-- External markdown file -->
-<script data-md2html="path/to/file.md"></script>
+<script data-brewdown="path/to/file.md"></script>
 ```
 The script tag is replaced with a div containing the rendered HTML.
 
 ### Archive Pages
-Long-form document pages use `<main class="archive">` with dedicated styling in `main.css`. These typically use the `<script type="text/markdown" data-md2html>` pattern and include a download bar:
+Long-form document pages use `<main class="archive">` with dedicated styling in `main.css`. These typically use the `<script type="text/markdown" data-brewdown>` pattern and include a download bar:
 ```html
 <main class="archive">
   <div class="download-bar">
     <h1>Page Title</h1>
     <button class="download-btn" onclick="window.print()">Save as PDF</button>
   </div>
-  <script type="text/markdown" data-md2html>
+  <script type="text/markdown" data-brewdown>
   ...
   </script>
 </main>

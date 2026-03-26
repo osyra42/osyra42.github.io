@@ -24,7 +24,7 @@
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
-  <script src="assets/js/md2html.js" defer></script>
+  <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 
   <script>
@@ -98,7 +98,7 @@
 
 ---
 
-**Last Updated:** $$2026.03.07$$
+**Last Updated:** @@2026.03.07@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
 `;
 
     const container = document.getElementById('chapter-list');
-    container.innerHTML = Md2Html.md2html(md);
+    container.innerHTML = Brewdown.brewdown(md);
 
     // Intercept clicks on .md links for inline chapter viewing
     container.querySelectorAll('a[href$=".md"]').forEach(link => {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return response.text();
                 })
                 .then(text => {
-                    contentDiv.innerHTML = Md2Html.md2html(text);
+                    contentDiv.innerHTML = Brewdown.brewdown(text);
                 })
                 .catch(error => {
                     contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';

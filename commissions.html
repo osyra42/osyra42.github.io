@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="Request custom development work - Discord bots, VTuber models, and more" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
-  <script src="assets/js/md2html.js" defer></script>
+  <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
@@ -194,7 +194,7 @@ Factors that influence acceptance include complexity, scope, technical requireme
 
 ---
 
-**Last Updated:** $$2026.02.19$$
+**Last Updated:** @@2026.02.19@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -232,7 +232,7 @@ Factors that influence acceptance include complexity, scope, technical requireme
           return r.text();
         })
         .then(md => {
-          container.innerHTML = Md2Html.md2html(md);
+          container.innerHTML = Brewdown.brewdown(md);
           document.getElementById('form-actions-container').classList.remove('hidden');
           document.getElementById('form-preview').classList.add('hidden');
           container.scrollIntoView({ behavior: 'smooth' });
