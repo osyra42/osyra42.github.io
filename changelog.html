@@ -21,6 +21,7 @@
   <meta name="twitter:description" content="Website changelog - track updates, new features, and bug fixes for Coffee Byte Dev" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
+  <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
@@ -76,7 +77,7 @@
   </sidebar>
 
   <!-- Main Content -->
-  <main class="archive">
+  <main>
 
     <div class="download-bar">
       <h1>Changelog</h1>
@@ -94,12 +95,50 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
-# 2026 MAR 26
-@ website
+# 2026 MAR 27
+@ vanity
++ Kale Update — Vanity is now a full AI agent
++ added voice recognition and voice output
++ added agent architecture with tools
++ added Minecraft automation (autonomous assistant)
++ added note taking and file editing
++ added online research
+> still functions as a generic chatbot
+
+@ minecraft
++ added step-by-step connection instructions for each server (collapsible)
++ added ATM10 modded server system requirements (RAM, CPU, SSD, Java 21)
++ added "New to Minecraft?" section with purchase link and specs
++ added Discord community invite link
++ added server status via {{}} template variables in Brewdown
++ expanded all 9 rules with detailed explanations and examples
++ added "Coffee Block Community" heading
+- removed standalone server status table (merged into each server's connection table)
+> server status now pings play.coffeeblock.xyz on ports 25565, 25566, 25567
+
+@ brewdown
 + renamed md2html.js to brewdown.js (Brewdown — a coffee-flavored markdown library)
-+ added collapsible sections to Brewdown (>>> to open, <<< to close, supports nesting)
++ added collapsible sections (>>> to open, <<< to close, supports nesting)
++ added {{variable}} template syntax (renders as updatable spans)
++ added leading whitespace preservation (indentation renders visually)
 + changed timestamp syntax from $$...$$ to @@...@@ (renders as localized date/time)
-> all 25 pages updated with new script references, API calls, and timestamp format
++ changed fill-in blank from 2 to 3 underscores (___)
+- removed blockquote auto-italic
+
+@ website
++ created theme.css (consolidated all color variables)
++ created print.css (consolidated all print styles)
++ created brewdown.css (extracted markdown output styles)
++ consolidated --archive-* variables into coffee-theme names
++ sidebar now renders through Brewdown (archives use collapsible)
++ sidebar title (Coffee Byte Dev) now caramel orange and larger
+- removed .archive class from all pages (merged into main)
+- removed duplicate color variables (--archive-* replaced by coffee-theme)
+- removed redundant global styles from styles.css (tables, lists, hr, headings)
+- removed .server-status CSS (table now rendered by Brewdown)
+- removed custom archive dropdown JS (replaced by Brewdown collapsible)
+> CSS architecture: theme.css → sidebar.css → main.css → brewdown.css → mobile.css → print.css
+> all 26 pages updated with refactored styles
 
 . ............................
 # 2026 MAR 21

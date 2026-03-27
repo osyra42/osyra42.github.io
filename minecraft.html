@@ -25,9 +25,9 @@
     content="Join Coffee Block - osyra42's Minecraft server with rules, connection info, and season history" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
+  <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
-  <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 
@@ -35,6 +35,7 @@
     image = "minecraft.jpg";
     title = "Minecraft Server";
   </script>
+  <script>Brewdown.defaultVar = 'Pinging...';</script>
 
 </head>
 
@@ -45,58 +46,59 @@
   </sidebar>
 
   <!-- Main Content -->
-  <main class="archive">
+  <main>
 
     <div class="download-bar">
       <h1>Minecraft Server</h1>
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <!-- Server Status (outside markdown - needs JS DOM access) -->
-    <table class="server-status">
-      <thead>
-        <tr>
-          <th>Permission</th>
-          <th>Server ID</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Public</td>
-          <td>VAN21</td>
-          <td id="server1-status">Checking...</td>
-        </tr>
-        <tr>
-          <td>Public</td>
-          <td>ATM10</td>
-          <td id="server2-status">Checking...</td>
-        </tr>
-        <tr>
-          <td>Blank</td>
-          <td>_____</td>
-          <td id="server3-status">Checking...</td>
-        </tr>
-      </tbody>
-    </table>
-
     <div class="markdown">
-☕ **Join right now.** No whitelist, no application, no waiting. Just connect and play. All servers are free, **Java Edition only**, and open to everyone 24/7. No donations required, no pay-to-win, no premium ranks — everyone gets the same experience.
+# ☕ Coffee Block Community
+
+**Join right now.** No whitelist, no application, no waiting. Just connect and play. All servers are free, **Java Edition only**, and open to everyone 24/7. No donations required, no pay-to-win, no premium ranks — everyone gets the same experience.
 
 These aren't cheap cloud VMs. I run real hardware, I'm the admin, and I actually play. 14 years of hosting means the servers stay up, the rules make sense, and the community comes first. Hacks are allowed. PvP is consent-based. Self-care is rule #1.
 
+🔗 [Join the Discord](https://discord.gg/2USS2tgDgE) — Ask questions, find players, or just hang out.
+
+---
+
+## 🆕 New to Minecraft?
+[Purchase Minecraft Java Edition](https://www.minecraft.net/en-us) for about $30. Any modern computer should be able to run vanilla Minecraft.
+
+For modded servers like ATM10 (~500 mods), your computer needs at least **8 GB of RAM allocated to Minecraft** (12 GB recommended, don't go over 12). A fast CPU with **3.8+ GHz** single-core speed matters more than core count. An **SSD is strongly recommended** — loading from a hard drive can take 10+ minutes. You'll need about **2 GB of free storage** for the modpack files and **Java 21** installed.
+
+---
+
 ## 📜 Server Rules — These apply to all servers.
-| # | Rule | Description |
-|---|------|-------------|
-| 1 | 💚 Self Care | Prioritize real-life responsibilities over the game. |
-| 2 | 🚫 Server Damage | Don't intentionally lag or break the server; results in a ban. |
-| 3 | 🤝 No Disrespect | Avoid excessive rudeness; players are here to relax. |
-| 4 | ✋ Player Consent | Get consent for griefing, fighting, raiding, or looting. |
-| 5 | 💬 Conversations | Avoid topics like sex, violence, politics, or hate speech. |
-| 6 | 🏠 Be Independent | Build on your own; team activities require player consent. |
-| 7 | 🔧 Hacks Allowed | Hacks are fine unless they cause server damage. |
-| 8 | 🗳️ Vote Ban | The community can vote to ban a player if needed. |
-| 9 | 📝 Changes | Majority approval required for server or rule changes. |
+
+**1. 💚 Self Care**
+If you need to eat, sleep, or handle real life — do it. No one will be upset that you logged off. This is a game, not a job. Take care of yourself first.
+
+**2. 🚫 Server Damage**
+Don't intentionally lag or crash the server. No lag machines, no chunk loaders spiraling out of control, nothing that makes it unplayable for others. This is an instant ban if this was intentional.
+
+**3. 🤝 No Disrespect**
+Keep it civil. Trash talk during PvP is one thing, but targeting someone personally or being excessively toxic will get you removed. People are here to relax.
+
+**4. ✋ Player Consent**
+Before you grief, fight, raid, or loot another player — ask them first. Players can consent to activities like war, PvP tournaments, or base raids. But if a player does not want to participate, you have to respect their decision. No exceptions.
+
+**5. 💬 Conversations**
+Keep chat clean. No sex, violence, politics, or hate speech. There are plenty of other places on the internet for that. This isn't one of them.
+
+**6. 🏠 Be Independent**
+Build your own stuff. If you want to team up, both players need to agree. Don't just move into someone's base uninvited.
+
+**7. 🔧 Hacks Allowed**
+Client mods are fine — X-ray, minimaps, sorting tools, shaders, whatever helps you play. The only rule is don't use them to damage the server or ruin someone else's experience without consent. For example, if you use X-ray and another player doesn't want you sharing the materials with them, you have to respect that.
+
+**8. 🗳️ Vote Ban**
+If a player is causing problems, the community can vote to ban them. Majority rules. This keeps the power with the players, not just the admin.
+
+**9. 📝 Changes**
+Any changes to the server or rules need majority approval from active players. Nobody makes unilateral decisions here.
 
 🐛 **Reporting Issues** — Contact [@osyra42](discord:discordapp.com/users/163839418623459330) on Discord or your server's Moderators. Include detailed descriptions and screenshots.
 
@@ -111,13 +113,23 @@ I promise you that this is good enough. ☕
 
 # ⛏️ VAN21
 
-| Server Name | IP and Port |
-|-------------|-------------|
-| Coffee Block (Vanilla) | play.coffeeblock.xyz |
+| Server Name | IP and Port | Status |
+|-------------|-------------|--------|
+| Coffee Block (Vanilla) | play.coffeeblock.xyz | {{server1-status}} |
 
-🎮 Coffee Block (Vanilla)
-This server runs Minecraft **1.21.11** on Paper for performance and stability, but uses a vanilla client. No mods, no modpacks, no extra files — just launch Minecraft Java Edition and connect.
+This server runs Minecraft **1.21.11** on Paper. No mods, no modpacks, no extra files needed.
+
 !!⚠️ Minecraft 26.1 has been released but we're not ready to update yet. Please wait.!!
+
+>>> Instructions on how to connect.
+1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us)
+2. Open the Minecraft Launcher
+3. Select version **1.21.11** and hit **Play**
+4. From the main menu, click **Multiplayer**
+5. Click **Add Server**
+6. Enter the IP: `play.coffeeblock.xyz`
+7. Join and play!
+<<<
 
 **Staff:** osyra42 👑, enderwolf_22 🛡️
 🔧 **Admin:** [Check for updates](https://fill-ui.papermc.io/projects/paper)
@@ -127,23 +139,34 @@ This server runs Minecraft **1.21.11** on Paper for performance and stability, b
 
 # ⛏️ ATM10
 
-| Server Name | IP and Port |
-|-------------|-------------|
-| Coffee Block (Modded) | play.coffeeblock.xyz:25566 |
+| Server Name | IP and Port | Status |
+|-------------|-------------|--------|
+| Coffee Block (Modded) | play.coffeeblock.xyz:25566 | {{server2-status}} |
 
-🎮 Coffee Block (Modded)
-This server runs Minecraft **1.21.1** (Java Edition) with All the Mods 10 v6.2.
+This server runs Minecraft **1.21.1** (Java Edition) with All the Mods 10 v6.2. The server will reject vanilla clients — you must install the modpack first.
 
-⚠️ **You must install the ATM10 modpack before you can connect.** The server will reject vanilla clients. Make sure your client version matches **1.21.1**. You can grab it from CurseForge or however you prefer to install modpacks.
+>>> Instructions on how to connect.
+1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us)
+2. Download and install the [CurseForge App](https://www.curseforge.com/download/app)
+3. In CurseForge, search for **All the Mods 10** and install it
+4. In the modpack settings, allocate at least **6 GB of RAM** or it won't launch
+5. Launch the modpack from CurseForge
+6. From the main menu, click **Multiplayer**
+7. Click **Add Server**
+8. Enter the IP: `play.coffeeblock.xyz:25566`
+9. Join and play!
 
 🔗 [Download ATM10 from CurseForge](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/all?page=1&pageSize=20&showAlphaFiles=show)
+<<<
 
 **Staff:** osyra42 👑
 
-This server is live! Connect and start playing. 🎉
-
 ---
 # ⛏️ Your Server Here
+
+| Server Name | IP and Port | Status |
+|-------------|-------------|--------|
+| ??? | !!play.coffeeblock.xyz:25567!! | {{server3-status}} |
 
 💰 Want your own private server? Click here.
 
@@ -171,7 +194,7 @@ Interested? [Send a donation](donate.html) and let me know what you want.
 | Season 8 (current) | [Vanilla 1.21.11](https://www.minecraft.net/en-us) |
 <<<
 
-**Last Updated:** @@2026.03.21@@
+**Last Updated:** @@2026.03.27@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -179,33 +202,33 @@ Interested? [Send a donation](donate.html) and let me know what you want.
   </main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const servers = [
-        { id: 'server1-status', host: 'play.coffeeblock.xyz', port: 25565 },
-        { id: 'server2-status', host: 'play.coffeeblock.xyz', port: 25566 },
-        { id: 'server3-status', host: 'coffeebyte.dev', port: 25567 }
-      ];
+    // Ping a Minecraft server and update the status span
+    function ping(id, host, port) {
+      var el = document.getElementById(id);
+      if (!el) return;
 
-      servers.forEach(server => checkServerStatus(server));
+      fetch('https://api.mcsrvstat.us/2/' + host + ':' + port)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.online) {
+            el.textContent = 'Online';
+            el.style.color = '#33ff33';
+          } else {
+            el.textContent = 'Offline';
+            el.style.color = '#ff3333';
+          }
+        })
+        .catch(function() {
+          el.textContent = 'Error';
+          el.style.color = '#ff3333';
+        });
+    }
 
-      function checkServerStatus(server) {
-        const statusElement = document.getElementById(server.id);
-        if (!statusElement) return;
-
-        statusElement.textContent = 'Checking...';
-        statusElement.style.color = '#FFA500';
-
-        fetch(`https://api.mcsrvstat.us/2/${server.host}:${server.port}`)
-          .then(response => response.json())
-          .then(data => {
-            statusElement.textContent = data.online ? 'Online' : 'Offline';
-            statusElement.style.color = data.online ? '#33ff33' : '#ff3333';
-          })
-          .catch(() => {
-            statusElement.textContent = 'Error';
-            statusElement.style.color = '#ff3333';
-          });
-      }
+    // Ping all servers after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      ping('server1-status', 'play.coffeeblock.xyz', 25565);
+      ping('server2-status', 'play.coffeeblock.xyz', 25566);
+      ping('server3-status', 'play.coffeeblock.xyz', 25567);
     });
   </script>
 

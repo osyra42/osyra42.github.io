@@ -1,0 +1,61 @@
+/* print.css — Print-friendly overrides */
+
+@media print {
+  body {
+    display: block !important;
+    background: white !important;
+    color: black !important;
+    overflow: visible !important;
+  }
+
+  sidebar, .mobile-banner, .overlay { display: none !important; }
+  #back-to-top, .download-bar { display: none !important; }
+
+  main {
+    height: auto !important;
+    overflow: visible !important;
+    background-color: white !important;
+    color: #333 !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+
+    /* Light mode color overrides */
+    --espresso: #ffffff;
+    --steamed-milk: #333333;
+    --caramel: #8B4513;
+    --pumpkin-spice: #5c4937;
+    --dark-mocha: #f8f5f0;
+    --coffee-bean: #d2b48c;
+    --half-and-half: #666666;
+    --light-cream: #d2691e;
+    --mint: #5a7a6a;
+    --heavy-mint: #e8f0eb;
+    --light-mint: #3d5a4c;
+  }
+
+  main > *:not(.download-bar) {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  a { color: black !important; }
+  h1, h2, h3, h4, h5, h6 { color: black !important; }
+  blockquote { border-color: #999 !important; }
+  hr { background-color: #ccc !important; }
+
+  main .warning-box {
+    background-color: #fff5f5;
+    border-color: #c0392b;
+  }
+
+  main th { background-color: #f8f5f0; }
+  main tr:nth-child(even) { background-color: #faf8f5; }
+  main code,
+  main pre { background-color: #f0e6d8; }
+
+  main pre code.hljs {
+    background: #f0e6d8 !important;
+    color: #333 !important;
+  }
+}

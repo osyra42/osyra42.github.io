@@ -1,6 +1,9 @@
 // brewdown.js - A coffee-flavored Markdown to HTML converter
 const Brewdown = (function() {
-    
+
+    // Default text for {{var}} placeholders — override per page with Brewdown.defaultVar = 'text'
+    let defaultVar = 'Loading...';
+
     function isExternalUrl(url) {
         return /^https?:\/\//i.test(url) || url.startsWith('magnet:') || url.endsWith('.pdf');
     }
@@ -42,8 +45,8 @@ const Brewdown = (function() {
         // Underline: __text__
         text = text.replace(/__([^_]+?)__/g, '<u>$1</u>');
 
-        // Fill-in blank: __ (2+ underscores with no content between)
-        text = text.replace(/_{2,}/g, '<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;">');
+        // Fill-in blank: ___ (3+ underscores with no content between)
+        text = text.replace(/_{3,}/g, '<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;">');
 
         // Images: ![alt](url) — must come before links
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
@@ -63,6 +66,11 @@ const Brewdown = (function() {
         // Auto-link bare URLs and magnet links (only after whitespace or start of string)
         text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, function(_, prefix, url) {
             return `${prefix}<a href="${url}" target="_blank">${url}</a>`;
+        });
+
+        // Template variables: {{name}} → <span id="name">default text</span>
+        text = text.replace(/\{\{(\w[\w-]*)\}\}/g, function(match, name) {
+            return `<span id="${name}">${defaultVar}</span>`;
         });
 
         return text;
@@ -108,11 +116,14 @@ const Brewdown = (function() {
             inTable = false;
         }
 
-        lines.forEach(line => {
+        lines.forEach(rawLine => {
             let processedLine = '';
+            // Count leading spaces for indentation, then trim for pattern matching
+            const indent = inCodeBlock ? 0 : rawLine.match(/^(\s*)/)[1].length;
+            const line = inCodeBlock ? rawLine : rawLine.trimStart();
 
             // Fenced code blocks: ```
-            if (line.trim().startsWith('```')) {
+            if (line.startsWith('```')) {
                 if (!inCodeBlock) {
                     closeOpenBlocks();
                     inCodeBlock = true;
@@ -136,28 +147,28 @@ const Brewdown = (function() {
             }
 
             // Table rows: | cell | cell |
-            if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+            if (line.startsWith('|') && line.endsWith('|')) {
                 if (!inTable) {
                     closeOpenBlocks();
                     inTable = true;
                 }
-                tableRows.push(line.trim());
+                tableRows.push(line);
                 return;
             } else if (inTable) {
                 flushTable();
             }
 
             // Collapsible open: >>> Title
-            if (line.trim().startsWith('>>>')) {
+            if (line.startsWith('>>>')) {
                 closeOpenBlocks();
-                const title = line.trim().substring(3).trim() || 'Details';
+                const title = line.substring(3).trim() || 'Details';
                 processedLine = `<details><summary>${parseInlineFormatting(title)}</summary>`;
                 detailsDepth++;
                 htmlContent += processedLine + '\n';
                 return;
             }
             // Collapsible close: <<<
-            if (line.trim() === '<<<') {
+            if (line === '<<<') {
                 closeOpenBlocks();
                 if (detailsDepth > 0) {
                     processedLine = '</details>';
@@ -188,8 +199,8 @@ const Brewdown = (function() {
                 processedLine = `<h6>${parseInlineFormatting(line.substring(7))}</h6>`;
             }
             // Blockquotes
-            else if (line.startsWith('> ') || line.trim() === '>') {
-                const content = line.trim() === '>' ? '' : line.substring(2);
+            else if (line.startsWith('> ') || line === '>') {
+                const content = line === '>' ? '' : line.substring(2);
                 if (!inBlockquote) {
                     processedLine = content
                         ? `<blockquote><p>${parseInlineFormatting(content)}</p>`
@@ -205,16 +216,16 @@ const Brewdown = (function() {
                 processedLine = '<hr>';
             }
             // Empty line - close open blocks or add spacing
-            else if (line.trim() === '') {
+            else if (rawLine.trim() === '') {
                 if (inBlockquote) {
                     processedLine = '</blockquote>';
                     inBlockquote = false;
                 } else {
-                    processedLine = '<p>&nbsp;</p>';
+                    processedLine = '<br>';
                 }
             }
             // HTML passthrough: lines starting with < are passed through as-is
-            else if (line.trim().match(/^<[a-zA-Z\/]/)) {
+            else if (line.match(/^<[a-zA-Z\/]/)) {
                 closeOpenBlocks();
                 processedLine = line;
             }
@@ -223,6 +234,9 @@ const Brewdown = (function() {
                 processedLine = `<p>${parseInlineFormatting(line)}</p>`;
             }
 
+            if (indent > 0 && processedLine) {
+                processedLine = processedLine.replace(/^(<\w+)/, `$1 style="margin-left:${indent}ch"`);
+            }
             htmlContent += processedLine + '\n';
         });
 
@@ -328,10 +342,15 @@ const Brewdown = (function() {
     }
 
     // Public API
-    return {
+    const api = {
         brewdown,
         parseInlineFormatting,
         processScriptTags,
         processMarkdownDivs
     };
+    Object.defineProperty(api, 'defaultVar', {
+        get() { return defaultVar; },
+        set(v) { defaultVar = v; }
+    });
+    return api;
 })();
