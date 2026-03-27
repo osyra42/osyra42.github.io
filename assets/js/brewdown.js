@@ -2,7 +2,7 @@
 const Brewdown = (function() {
 
     // Default text for {{var}} placeholders — override per page with Brewdown.defaultVar = 'text'
-    let defaultVar = 'Loading...';
+    let defaultVar = '';
 
     function isExternalUrl(url) {
         return /^https?:\/\//i.test(url) || url.startsWith('magnet:') || url.endsWith('.pdf');
@@ -91,6 +91,7 @@ const Brewdown = (function() {
         let inTable = false;
         let tableRows = [];
         let detailsDepth = 0;
+        let inForm = false;
         function closeOpenBlocks() {
             if (inBlockquote) { htmlContent += '</blockquote>\n'; inBlockquote = false; }
             if (inTable) { flushTable(); }
@@ -178,6 +179,22 @@ const Brewdown = (function() {
                 return;
             }
 
+            // Form block: :: Title to open, :: to close
+            if (line.startsWith('::')) {
+                closeOpenBlocks();
+                if (!inForm) {
+                    const title = line.substring(2).trim();
+                    const titleAttr = title ? ` data-form-title="${escapeHtml(title)}"` : '';
+                    processedLine = `<div class="brewdown-form"${titleAttr}>`;
+                    inForm = true;
+                } else {
+                    processedLine = '</div>';
+                    inForm = false;
+                }
+                htmlContent += processedLine + '\n';
+                return;
+            }
+
             // Headers
             if (line.startsWith('# ')) {
                 closeOpenBlocks();
@@ -247,6 +264,7 @@ const Brewdown = (function() {
         }
         if (inBlockquote) htmlContent += '</blockquote>';
         if (inTable) flushTable();
+        if (inForm) { htmlContent += '</div>\n'; inForm = false; }
         while (detailsDepth > 0) { htmlContent += '</details>\n'; detailsDepth--; }
 
         if (wrapInContainer) {

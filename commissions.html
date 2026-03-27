@@ -47,7 +47,7 @@
       padding: 10px 16px;
       min-width: 180px;
       height: 44px;
-      border: 2px solid #8b7355;
+      border: 2px solid var(--toasted-almond);
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
@@ -58,42 +58,42 @@
     }
 
     .btn-primary {
-      background: #8b4513;
-      color: #f8e5c8;
-      border-color: #d2691e;
+      background: var(--mocha);
+      color: var(--light-cream);
+      border-color: var(--caramel);
     }
 
     .btn-primary:hover {
-      background: #d2691e;
+      background: var(--caramel);
       transform: translateY(-1px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .btn-secondary {
-      background: #f5f5dc;
-      color: #3c2a1e;
-      border-color: #8b7355;
+      background: var(--steamed-milk);
+      color: var(--dark-mocha);
+      border-color: var(--toasted-almond);
     }
 
     .btn-secondary:hover {
-      background: #d2b48c;
+      background: var(--half-and-half);
       transform: translateY(-1px);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     #form-preview {
-      background: #5d4037;
-      color: #f8e5c8;
-      border: 1px solid #8b7355;
+      background: var(--coffee-bean);
+      color: var(--light-cream);
+      border: 1px solid var(--toasted-almond);
       padding: 15px;
       border-radius: 6px;
-      margin-top: 20px;
       white-space: pre-wrap;
       font-family: 'Courier New', monospace;
       font-size: 14px;
       line-height: 1.5;
       max-height: 400px;
       overflow-y: auto;
+      margin-top: 12px;
     }
 
     .hidden {
@@ -111,14 +111,14 @@
 
     .status-banner.open {
       background: rgba(75, 139, 69, 0.2);
-      border: 2px solid #4b8b45;
-      color: #7cb576;
+      border: 2px solid var(--mint);
+      color: var(--light-mint);
     }
 
     .status-banner.closed {
       background: rgba(139, 69, 69, 0.2);
-      border: 2px solid #8b4545;
-      color: #c75b5b;
+      border: 2px solid var(--raspberry);
+      color: var(--raspberry);
     }
 
     .status-banner span {
@@ -132,18 +132,14 @@
     }
 
     @media print {
-      .status-banner, .form-actions,
-      #service-content, .markdown { display: none !important; }
-
-      #form-actions-container { display: block !important; }
+      .status-banner, .form-actions { display: none !important; }
 
       #form-preview {
-        display: block !important;
         background: white !important;
         color: black !important;
-        border: 1px solid #ccc;
-        max-height: none;
-        overflow: visible;
+        border: 1px solid #ccc !important;
+        max-height: none !important;
+        overflow: visible !important;
         word-break: break-word;
       }
     }
@@ -169,127 +165,206 @@
     </div>
 
     <div class="markdown">
-# 📋 Commission Policy
-> **__💲 Pricing:__** All commissions are taken at my discretion for free
-> **__⏳ Free Timeline:__** ~3 months on average
-> **__⚡ Priority:__** $20 guarantees completion in less than a week
-> **__💳 Payment:__** Optional payments via the [donate page](donate.html)
+>>> 📋 Commission Policy
+> **💲 Paid:** $20 to start — paid via the [donate page](donate.html), no refunds once work begins
+> **🆓 Free:** Available if you stay in active communication throughout the project — if you ghost, the project gets dropped
+> **⏳ Timeline:** ~3 months on average, depending on complexity and queue position
 >
-> **__👤 Request Limit:__** One active request per person
-> **__✅ Acceptance:__** Based on interest, availability, and skill alignment
-> **__🔄 Scope Changes:__** May reset your position in the queue
->
-> **__🚫 Refunds:__** No refunds on priority payments once work begins
-> **__✋ Right to Decline:__** I may decline any request for any reason
+> **👤 One Request:** One active commission per person
+> **🔄 Scope Changes:** May reset your position in the queue
+> **✋ Right to Decline:** I may decline any request for any reason
 
-Factors that influence acceptance include complexity, scope, technical requirements, and whether the project presents an interesting challenge or learning opportunity for me. View [examples of my previous work](examples.html) to get an idea of what I can create.
+View [examples of my previous work](examples.html) to get an idea of what I can create.
+<<<
 
-# 🛠️ Select a Service
-🤖 [Discord Bot](commissions/discord-bot.md)
-👾 [VTuber Model](commissions/vtuber-model.md)
-🖨️ [3D Printing](commissions/3d-print.md)
-💻 [Code Help](commissions/code-help.md)
-🌐 [Web Development](commissions/web-development.md)
-📋 [Other](commissions/other.md)
+>>> 💻 Technical Skills & Expertise
+
+🌐 **Frontend** — HTML5, CSS3, JavaScript (ES6+), Canvas API, DOM Manipulation, Progressive Web Apps
+
+⚙️ **Backend** — Python, PHP, SQLite, RESTful APIs, Server Administration
+
+🤖 **AI** — OpenAI, Anthropic Claude, Groq, OpenRouter, Ollama, DeepSeek, TTS Pipelines, Audio Processing, Prompt Engineering
+
+🎨 **3D & Design** — Modeling, Rigging, Animation, VRM/VTuber Avatars, 3D Printing, UI/UX
+
+✏️ **Creative** — Technical Writing, Fiction, Digital Storytelling, Interactive Media
+
+🕹️ **Game Dev** — GameMaker Studio 2, Sprite Animation, Entity Systems, Loot Tables, HUD/GUI
+
+🖥️ **Servers** — Minecraft Administration (14+ Years), Modpack Config, Community Management
+
+🔧 **Tools** — Git, GitHub, VS Code, PySide6, Mineflayer.js, ComfyUI, VRoid Studio, VMagicMirror
+<<<
 
 ---
 
-**Last Updated:** @@2026.02.19@@
-**Author:** Coffee Byte Dev (osyra42)
+# 🛠️ Commission Request
+
+:: Commission Request
+
+## Step 1 — Tell Me Who You Are
+
+**Your Name:**
+___
+
+**Contact Method:**
+[ ] Discord
+[ ] Email
+[ ] Other ___
+
+**Contact Info:**
+___
+
+---
+
+## Step 2 — What Do You Need?
+
+Pick the service that best fits your project, then describe what you're looking for. The more detail you give, the better I can evaluate the request.
+
+**Service Type:**
+[ ] Discord Bot — *purpose, features, API integrations, database and hosting needs*
+[ ] VTuber Model — *model type (3D VRM, PNGTuber), art style, character concept, target platform*
+[ ] 3D Printing — *design source (your files or from scratch), material, color, shipping info*
+[ ] Code Help — *bug fix, code review, optimization, or tutoring; include language and repo link*
+[ ] Web Development — *site type, features needed (auth, payments, CMS), design status*
+[ ] Other ___
+
+**Describe your project:**
+___
+
+**Reference links or examples:**
+___
+
+---
+
+## Step 3 — Details & Preferences
+
+Fill out whatever applies. Skip anything that doesn't — this section is optional.
+
+**Preferred language or platform:**
+___
+
+**Do you need hosting or setup?**
+[ ] Yes
+[ ] No
+[ ] Not sure
+
+**Material or style preference:**
+___
+
+**GitHub/repo link:**
+___
+
+**Shipping address (3D prints only):**
+___
+
+**How urgent is this?**
+[ ] Not urgent
+[ ] Moderately urgent
+[ ] Urgent
+
+**Additional Notes:**
+___
+
+---
+
+## Step 4 — Review & Send
+
+Preview your form below, then send it to me via [Discord](https://discordapp.com/users/163839418623459330) or [Email](mailto:CoffeeByteDev@proton.me). I'll get back to you with questions or an acceptance.
+
+**Priority Processing:** [ ] I am interested in making a $20 payment
+
+::
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary" onclick="generatePreview()">Preview Request</button>
+      <button type="button" class="btn btn-secondary" onclick="downloadRequest()">Download Request</button>
+      <button type="button" class="btn btn-secondary" onclick="copyRequest()">Copy to Clipboard</button>
     </div>
 
-    <div id="service-content"></div>
+    <pre id="form-preview" class="hidden"></pre>
 
-    <div id="form-actions-container" class="hidden">
-      <div id="form-preview" class="hidden"></div>
-
-      <div class="form-actions">
-        <button type="button" class="btn btn-primary" onclick="generatePreview()">Preview Request</button>
-        <button type="button" class="btn btn-secondary" onclick="downloadRequest()">Download Request</button>
-        <button type="button" class="btn btn-secondary" onclick="copyRequest()">Copy to Clipboard</button>
-      </div>
-
-      <div class="markdown">
-📨 Send the completed request to osyra42 via [Discord](https://discordapp.com/users/163839418623459330) or [Email](mailto:CoffeeByteDev@proton.me)
-      </div>
+    <div class="markdown">
+---
+**Last Updated:** @@2026.03.27@@
+**Author:** Coffee Byte Dev (osyra42)
     </div>
     <button id="back-to-top">Back to Top</button>
   </main>
 
   <script>
-    // Intercept clicks on .md links and load via md2html
-    document.addEventListener('click', function(e) {
-      const link = e.target.closest('a[href$=".md"]');
-      if (!link) return;
-      e.preventDefault();
-
-      const file = link.getAttribute('href');
-      const container = document.getElementById('service-content');
-
-      fetch(file)
-        .then(r => {
-          if (!r.ok) throw new Error('Failed to load: ' + file);
-          return r.text();
-        })
-        .then(md => {
-          container.innerHTML = Brewdown.brewdown(md);
-          document.getElementById('form-actions-container').classList.remove('hidden');
-          document.getElementById('form-preview').classList.add('hidden');
-          container.scrollIntoView({ behavior: 'smooth' });
-        })
-        .catch(err => {
-          container.innerHTML = '<p>Error loading service: ' + err.message + '</p>';
-        });
-    });
-
     function generatePreview() {
-      const container = document.getElementById('service-content');
-      const title = container.querySelector('h1');
+      const container = document.querySelector('.brewdown-form');
+      if (!container) return;
 
-      let preview = `===== ${(title?.textContent || 'COMMISSION REQUEST').toUpperCase()} =====\n\n`;
+      const title = container.getAttribute('data-form-title') || 'Commission Request';
+      let preview = `# ${title}\n`;
 
-      // Walk through each paragraph and collect inputs/checkboxes
-      container.querySelectorAll('p').forEach(p => {
-        const checkboxes = p.querySelectorAll('input[type="checkbox"]');
-        const textInputs = p.querySelectorAll('input[type="text"]');
-        const label = p.cloneNode(true);
-        // Remove inputs from cloned node to get just label text
-        label.querySelectorAll('input').forEach(i => i.remove());
-        const labelText = label.textContent.trim();
+      // Walk every element inside the form in DOM order
+      const nodes = container.querySelectorAll('h2, p');
+      let lastLabel = '';
 
-        if (!labelText && checkboxes.length === 0 && textInputs.length === 0) return;
-
-        let line = labelText;
-
-        // Collect checked checkboxes with their adjacent text
-        if (checkboxes.length > 0) {
-          const checked = [];
-          checkboxes.forEach(cb => {
-            if (cb.checked) {
-              // Get the text node after the checkbox
-              let text = '';
-              let node = cb.nextSibling;
-              while (node && node.nodeType === 3) {
-                text += node.textContent;
-                node = node.nextSibling;
-              }
-              text = text.trim().replace(/\s+/g, ' ');
-              if (text) checked.push(text);
-            }
-          });
-          if (checked.length > 0) line += ' ' + checked.join(', ');
+      nodes.forEach(el => {
+        if (el.tagName === 'H2') {
+          preview += `\n## ${el.textContent.trim()}\n`;
+          lastLabel = '';
+          return;
         }
 
-        // Collect text input values
-        textInputs.forEach(input => {
-          if (input.value.trim()) line += ' ' + input.value.trim();
-        });
+        const checkboxes = el.querySelectorAll('input[type="checkbox"]');
+        const textInputs = el.querySelectorAll('input[type="text"]');
+        const strong = el.querySelector('strong');
 
-        if (line) preview += line + '\n';
+        // Label-only paragraph (bold text, no inputs) — save for next line
+        if (strong && checkboxes.length === 0 && textInputs.length === 0) {
+          lastLabel = strong.textContent.trim();
+          return;
+        }
+
+        // Text input paragraph (the ___ that follows a label)
+        if (textInputs.length > 0 && checkboxes.length === 0) {
+          const value = textInputs[0].value.trim();
+          if (lastLabel) {
+            preview += `${lastLabel} ${value || '—'}\n`;
+            lastLabel = '';
+          } else if (value) {
+            preview += `${value}\n`;
+          }
+          return;
+        }
+
+        // Checkbox paragraph
+        if (checkboxes.length > 0) {
+          // If this paragraph also has a label, print it
+          if (strong) {
+            preview += `${strong.textContent.trim()}\n`;
+          } else if (lastLabel) {
+            preview += `${lastLabel}\n`;
+            lastLabel = '';
+          }
+          checkboxes.forEach(cb => {
+            let text = '';
+            let node = cb.nextSibling;
+            while (node) {
+              if (node.nodeType === 3) text += node.textContent;
+              else if (node.tagName === 'INPUT' || node.tagName === 'EM') break;
+              node = node.nextSibling;
+            }
+            text = text.replace(/\s+/g, ' ').replace(/[—–\-]\s*$/, '').trim();
+            if (!text) return;
+            preview += `[${cb.checked ? 'x' : ' '}] ${text}\n`;
+          });
+          // "Other ___" trailing text input
+          textInputs.forEach(input => {
+            if (input.value.trim()) preview += `    Other: ${input.value.trim()}\n`;
+          });
+          return;
+        }
+
+        lastLabel = '';
       });
 
-      preview += `\n-----------------------------------\n`;
-      preview += `Form generated: ${new Date().toLocaleString()}\n`;
+      preview += `\nGenerated: ${new Date().toLocaleString()}\n`;
 
       const previewEl = document.getElementById('form-preview');
       previewEl.textContent = preview;
@@ -299,14 +374,12 @@ Factors that influence acceptance include complexity, scope, technical requireme
     function downloadRequest() {
       generatePreview();
       const preview = document.getElementById('form-preview').textContent;
-      const title = document.querySelector('#service-content h1');
-      const name = title?.textContent?.replace(/[^\w\s]/g, '').trim().toLowerCase().replace(/\s+/g, '_') || 'request';
       const date = new Date().toISOString().slice(0, 10);
 
       const blob = new Blob([preview], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
-      a.download = `${name}_request_${date}.txt`;
+      a.download = `commission_request_${date}.txt`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

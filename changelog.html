@@ -106,37 +106,24 @@ $ burnt: bugs/fixed
 > still functions as a generic chatbot
 
 @ minecraft
-+ added step-by-step connection instructions for each server (collapsible)
-+ added ATM10 modded server system requirements (RAM, CPU, SSD, Java 21)
-+ added "New to Minecraft?" section with purchase link and specs
-+ added Discord community invite link
-+ added server status via {{}} template variables in Brewdown
-+ expanded all 9 rules with detailed explanations and examples
-+ added "Coffee Block Community" heading
-- removed standalone server status table (merged into each server's connection table)
-> server status now pings play.coffeeblock.xyz on ports 25565, 25566, 25567
++ added connection instructions, system requirements, and Discord invite
++ expanded all 9 rules with detailed explanations
++ added live server status pings
+- removed standalone server status table (merged into connection tables)
 
 @ brewdown
-+ renamed md2html.js to brewdown.js (Brewdown — a coffee-flavored markdown library)
-+ added collapsible sections (>>> to open, <<< to close, supports nesting)
-+ added {{variable}} template syntax (renders as updatable spans)
-+ added leading whitespace preservation (indentation renders visually)
-+ changed timestamp syntax from $$...$$ to @@...@@ (renders as localized date/time)
-+ changed fill-in blank from 2 to 3 underscores (___)
-- removed blockquote auto-italic
++ renamed md2html.js to brewdown.js
++ added collapsible sections (>>>), template variables ({{}}), and form blocks (::)
++ added whitespace preservation and updated timestamp/fill-in syntax
 
 @ website
-+ created theme.css (consolidated all color variables)
-+ created print.css (consolidated all print styles)
-+ created brewdown.css (extracted markdown output styles)
-+ consolidated --archive-* variables into coffee-theme names
-+ sidebar now renders through Brewdown (archives use collapsible)
-+ sidebar title (Coffee Byte Dev) now caramel orange and larger
-- removed .archive class from all pages (merged into main)
-- removed duplicate color variables (--archive-* replaced by coffee-theme)
-- removed redundant global styles from styles.css (tables, lists, hr, headings)
-- removed .server-status CSS (table now rendered by Brewdown)
-- removed custom archive dropdown JS (replaced by Brewdown collapsible)
++ rebuilt commissions page with universal step-by-step request form
++ rewrote commission policy for clarity (paid vs free paths)
++ added collapsible policy and technical skills sections
++ refactored CSS into theme.css, print.css, brewdown.css
++ sidebar now renders through Brewdown
+- removed separate commission .md forms and redundant CSS
+> swapped Vanity Bot above Osyra's Tale in sidebar
 > CSS architecture: theme.css → sidebar.css → main.css → brewdown.css → mobile.css → print.css
 > all 26 pages updated with refactored styles
 
