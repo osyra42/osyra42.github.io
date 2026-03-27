@@ -9,16 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
 **Navigation**
 - [🏠 Home Page](index.html)
 - [📋 Changelog](changelog.html)
-- [💼 Commissions](commissions.html)
+- [💼 Commissions 🆕](commissions.html)
 - [⭐ Recommendations](recommendations.html)
 - [⛏️ Minecraft Server 🆕](minecraft.html)
 
 ---
 **Projects**
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
+- [🤖 Vanity Bot 🆕](vanity.html)
 - [📖 Osyra's Tale](osyras_tale.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
-- [🤖 Vanity Bot](vanity.html)
 >>> 📦 Archives
     - [🤖 All About AI](all_about_ai.html)
     - [🔢 Casio Code](casio_code.html)
