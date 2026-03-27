@@ -4,75 +4,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('sidebar');
     if (!sidebar) return;
 
-    // Parse markdown links: - [text](url) → <a href="url">- text</a><br>
-    function mdLinks(md) {
-        return md.trim().split('\n').map(line => {
-            const match = line.trim().match(/^- \[(.+?)\]\((.+?)\)$/);
-            if (!match) return '';
-            const isExternal = match[2].endsWith('.pdf') || match[2].startsWith('http');
-            const attrs = isExternal ? ' target="_blank" rel="noopener"' : '';
-            return `<a href="${match[2]}"${attrs}>- ${match[1]}</a><br>`;
-        }).join('');
-    }
-
-    // Navigation sections in markdown format
-    const nav = {
-        Navigation: `
+    // Sidebar navigation as one brewdown document
+    const navMarkdown = `
+**Navigation**
 - [🏠 Home Page](index.html)
 - [📋 Changelog](changelog.html)
 - [💼 Commissions](commissions.html)
 - [⭐ Recommendations](recommendations.html)
-- [⛏️ Minecraft Server](minecraft.html)`,
+- [⛏️ Minecraft Server 🆕](minecraft.html)
 
-        Projects: `
+---
+**Projects**
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [📖 Osyra's Tale](osyras_tale.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
-- [🤖 Vanity Bot](vanity.html)`,
+- [🤖 Vanity Bot](vanity.html)
+>>> 📦 Archives
+    - [🤖 All About AI](all_about_ai.html)
+    - [🔢 Casio Code](casio_code.html)
+    - [🎄 Clutter](clutter.html)
+    - [🐍 Code Resources](code_resources.html)
+    - [🎨 ComfyUI Guide](comfyui_guide.html)
+    - [💡 Do It Better For Free](do_it_better_for_free.html)
+    - [💎 Ever Diamond](ever_diamond.html)
+    - [⚡ Glitched](glitched.html)
+    - [⚔️ Infinite Devastation](infinite_devastation.html)
+    - [🎬 Media Mimic](media_mimic.html)
+    - [🏚️ Urbex Safety](urbex_safety.html)
+    - [🎭 VTuber Guide](vtuber_guide.html)
+    - [📝 Worksheets](worksheets.html)
+<<<
 
-        Support: `
-- [☕ Donate](donate.html)`,
+---
+**Support**
+- [☕ Donate](donate.html)
 
-        Legal: `
+---
+**Legal**
 - [📜 Vanity Legal](vanity_legal.html)
-- [📜 Website Legal](website_legal.html)`
-    };
+- [📜 Website Legal](website_legal.html)
+`;
 
-    // Archive links in markdown format
-    const archives = `
-- [🤖 All About AI](all_about_ai.html)
-- [🔢 Casio Code](casio_code.html)
-- [🎄 Clutter](clutter.html)
-- [🐍 Code Resources](code_resources.html)
-- [🎨 ComfyUI Guide](comfyui_guide.html)
-- [💡 Do It Better For Free](do_it_better_for_free.html)
-- [💎 Ever Diamond](ever_diamond.html)
-- [⚡ Glitched](glitched.html)
-- [⚔️ Infinite Devastation](infinite_devastation.html)
-- [🎬 Media Mimic](media_mimic.html)
-- [🏚️ Urbex Safety](urbex_safety.html)
-- [🎭 VTuber Guide](vtuber_guide.html)
-- [📝 Worksheets](worksheets.html)`;
-
-    function archiveDropdown() {
-        const links = archives.trim().split('\n').map(line => {
-            const match = line.trim().match(/^- \[(.+?)\]\((.+?)\)$/);
-            if (!match) return '';
-            const isExternal = match[2].endsWith('.pdf') || match[2].startsWith('http');
-            const attrs = isExternal ? ' target="_blank" rel="noopener"' : '';
-            return `<a href="${match[2]}" class="nav-dropdown-item"${attrs}>${match[1]}</a>`;
-        }).join('');
-
-        return `
-    <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">
-            - 📦 Archives
-            <span class="dropdown-arrow">&#9662;</span>
-        </span>
-        <div class="nav-dropdown-menu">${links}</div>
-    </div><br>`;
-    }
-
+    // Set the header HTML directly, render nav through brewdown
     sidebar.innerHTML = `
 <div class="text-center">
     <a href="index.html">
@@ -85,20 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     <h2>${title}</h2>
 </div>
-<nav>
-    <h3>Navigation</h3>
-    ${mdLinks(nav.Navigation)}
-    <hr>
-    <h3>Projects</h3>
-    ${mdLinks(nav.Projects)}
-    ${archiveDropdown()}
-    <hr>
-    <h3>Support</h3>
-    ${mdLinks(nav.Support)}
-    <hr>
-    <h3>Legal</h3>
-    ${mdLinks(nav.Legal)}
-</nav>
+<nav class="sidebar-nav"></nav>
 <hr/>
 <p style="position: relative; font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
     Contact Email - <a href="mailto:coffeebytedev@proton.me" style="color: var(--caramel); font-size: 10px;">CoffeeByteDev@proton.me</a>
@@ -109,12 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </a>
 </p>`;
 
-    // Dropdown toggle behavior
-    sidebar.querySelectorAll('.nav-dropdown-toggle').forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            const dropdown = this.closest('.nav-dropdown');
-            dropdown.classList.toggle('open');
-        });
-    });
+    // Render nav through brewdown
+    const navEl = sidebar.querySelector('.sidebar-nav');
+    navEl.innerHTML = Brewdown.brewdown(navMarkdown);
 });

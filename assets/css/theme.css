@@ -1,0 +1,31 @@
+/* theme.css — Coffee Byte Dev color palette */
+
+:root {
+  /* Coffee Base */
+  --espresso: #1e1610;
+  --dark-mocha: #2a1e14;
+  --coffee-bean: #453024;
+
+  /* Cream & Milk */
+  --steamed-milk: #f5f5dc;
+  --light-cream: #f8e5c8;
+  --half-and-half: #d2b48c;
+
+  /* Syrup & Flavor */
+  --caramel: #d2691e;
+  --pumpkin-spice: #b68d40;
+  --mocha: #8b4513;
+
+  /* Darker Syrups */
+  --dark-caramel: #38271e;
+  --toasted-almond: #5c4937;
+  --dark-chocolate: #120d08;
+
+  /* Mint */
+  --mint: #7a9e8c;
+  --light-mint: #a8c5b5;
+  --heavy-mint: #1e2820;
+
+  /* Accent */
+  --raspberry: #d7516c;
+}

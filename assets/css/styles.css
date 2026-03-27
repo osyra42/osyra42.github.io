@@ -1,7 +1,10 @@
 /* styles.css */
+@import url('theme.css');
 @import url('sidebar.css');
 @import url('main.css');
+@import url('brewdown.css');
 @import url('mobile.css');
+@import url('print.css');
 
 @font-face {
   font-family: 'Satisfy';
@@ -9,31 +12,6 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
-
-:root {
-  /* Coffee Base Colors */
-  --espresso: #1e1610; /* Darkest background */
-  --dark-mocha: #2a1e14; /* Secondary background */
-  --coffee-bean: #453024; /* Borders and accents */
-
-  /* Cream & Milk Colors */
-  --steamed-milk: #f5f5dc; /* Primary text */
-  --light-cream: #f8e5c8; /* Secondary text */
-  --half-and-half: #d2b48c; /* Tertiary text */
-
-  /* Syrup & Flavor Colors */
-  --caramel: #d2691e; /* Headings and highlights */
-  --pumpkin-spice: #b68d40; /* Accents and hover states */
-  --mocha: #8b4513; /* Links and interactive elements */
-
-  /* Darker Syrups */
-  --dark-caramel: #38271e; /* Card backgrounds */
-  --toasted-almond: #5c4937; /* Secondary borders */
-  --dark-chocolate: #120d08; /* Sidebar background */
-
-  /* Accent Colors */
-  --raspberry: #d7516c; /* NEW badges, required field indicators */
 }
 
 * {
@@ -44,12 +22,6 @@
   transition: color 0.2s;
   line-height: 1.5;
   font-size: 16px;
-}
-
-h1, h2, h3, h4, h5, h6,
-nav, .btn, .button,
-header, footer, .header, .footer {
-  font-family: Arial, sans-serif;
 }
 
 a:focus,
@@ -79,30 +51,6 @@ pre {
   white-space: pre-wrap;
 }
 
-.spoiler {
-  background-color: var(--coffee-bean);
-  color: var(--coffee-bean);
-  cursor: pointer;
-  border-radius: 3px;
-  padding: 0 4px;
-  transition: color 0.3s;
-}
-
-.spoiler.revealed {
-  color: var(--steamed-milk);
-}
-
-h1 {
-  color: var(--caramel);
-  font-size: 28px;
-}
-
-h3 {
-  font-size: 1.25rem;
-  color: var(--light-cream);
-  margin-top: 20px;
-}
-
 #back-to-top {
   display: none;
   position: fixed;
@@ -123,86 +71,10 @@ h3 {
   background: var(--caramel);
 }
 
-table {
-  border: 2px solid var(--mocha);
-  overflow-y: scroll;
-  min-width: 100%;
-}
-
-thead {
-  background-color: var(--coffee-bean);
-  color: var(--steamed-milk);
-  text-align: center;
-}
-
-td {
-  padding: 3px;
-  min-width: 60px;
-  border: 1px solid var(--toasted-almond);
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-ol, ul {
-  margin-left: 16px;
-}
-
-hr {
-  border: 0;
-  height: 2px;
-  background-color: var(--coffee-bean);
-}
-
-
-.server-status {
-  font-family: monospace;
-  min-width: auto;
-  width: auto;
-  margin: 1em auto;
-  border-collapse: collapse;
-  border: 1px solid var(--coffee-bean);
-  background-color: var(--dark-mocha);
-}
-.server-status th,
-.server-status td {
-  padding: 6px 16px;
-  border: 1px solid var(--coffee-bean);
-  text-align: center;
-}
-.server-status thead {
-  background-color: var(--coffee-bean);
-}
-.server-status tr:nth-child(even) {
-  background-color: transparent;
-}
-
 #changelog span {
   white-space: pre-wrap;
   font-family: monospace;
   font-size: 14px;
   line-height: 0.9;
   display: inline-block;
-}
-
-@media print {
-  body {
-    display: block !important;
-    background: white !important;
-    color: black !important;
-    overflow: visible !important;
-  }
-  sidebar, .mobile-banner, .overlay { display: none !important; }
-  main, main.archive {
-    background: white !important;
-    color: black !important;
-    height: auto !important;
-    overflow: visible !important;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-  }
-  #back-to-top, .download-bar, .server-status { display: none !important; }
-  a { color: black !important; }
-  h1, h2, h3, h4, h5, h6 { color: black !important; }
-  blockquote { border-color: #999 !important; }
-  hr { background-color: #ccc !important; }
 }
