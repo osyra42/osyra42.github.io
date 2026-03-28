@@ -58,4 +58,13 @@
     background: #f0e6d8 !important;
     color: #333 !important;
   }
+
+  #changelog {
+    background: white !important;
+    color: #333 !important;
+  }
+
+  #changelog span {
+    color: #333 !important;
+  }
 }
