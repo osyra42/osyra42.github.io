@@ -48,6 +48,10 @@ const Brewdown = (function() {
         // Fill-in blank: ___ (3+ underscores with no content between)
         text = text.replace(/_{3,}/g, '<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;">');
 
+        // Checkboxes: [x] checked, [ ] unchecked — must come before links
+        text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
+        text = text.replace(/\[ \]/g, '<input type="checkbox">');
+
         // Images: ![alt](url) — must come before links
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
 
@@ -58,10 +62,6 @@ const Brewdown = (function() {
             }
             return `<a href="${url}">${linkText}</a>`;
         });
-
-        // Checkboxes: [x] checked, [ ] unchecked
-        text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
-        text = text.replace(/\[ \]/g, '<input type="checkbox">');
 
         // Auto-link bare URLs and magnet links (only after whitespace or start of string)
         text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, function(_, prefix, url) {
