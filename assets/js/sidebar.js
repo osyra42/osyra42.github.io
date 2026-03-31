@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [🤖 Vanity Bot 🆕](vanity.html)
 - [📖 Osyra's Tale](osyras_tale.html)
+- [☕ Brewdown 🆕](brewdown.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
 >>> 📦 Archives
     - [🤖 All About AI](all_about_ai.html)

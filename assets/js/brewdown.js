@@ -24,8 +24,23 @@ const Brewdown = (function() {
     }
 
     function parseInlineFormatting(text) {
-        // Inline code: `code` (process first to protect code content)
-        text = text.replace(/`(.*?)`/g, '<code>$1</code>');
+        // Inline code: ```code``` or `code` (process first to protect code content)
+        const codeBlocks = [];
+        text = text.replace(/```(.*?)```/g, function(_, code) {
+            codeBlocks.push('<code>' + escapeHtml(code) + '</code>');
+            return `\x00CODE${codeBlocks.length - 1}\x00`;
+        });
+        text = text.replace(/`(.*?)`/g, function(_, code) {
+            codeBlocks.push('<code>' + escapeHtml(code) + '</code>');
+            return `\x00CODE${codeBlocks.length - 1}\x00`;
+        });
+
+        // Escape characters: \X → placeholder, restored at end
+        const escapes = [];
+        text = text.replace(/\\(.)/g, function(_, ch) {
+            escapes.push(ch);
+            return `\x00ESC${escapes.length - 1}\x00`;
+        });
 
         // Timestamp: @@YYYY.MM.DD@@ or @@YYYY.MM.DD.HH.MM@@ → local time
         text = text.replace(/@@(\d{4})\.(\d{2})\.(\d{2})(?:\.(\d{2})\.(\d{2}))?@@/g, parseTimestamp);
@@ -52,8 +67,20 @@ const Brewdown = (function() {
         text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
         text = text.replace(/\[ \]/g, '<input type="checkbox">');
 
-        // Images: ![alt](url) — must come before links
-        text = text.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1">');
+        // Media: ![alt](url) — detects type by extension, must come before links
+        text = text.replace(/!\[(.*?)\]\((.*?)\)/g, function(_, alt, url) {
+            const ext = url.split('.').pop().split(/[?#]/)[0].toLowerCase();
+            if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'avif'].includes(ext)) {
+                return `<img src="${url}" alt="${alt}">`;
+            }
+            if (['mp4', 'webm', 'ogg', 'mov'].includes(ext)) {
+                return `<video controls src="${url}" title="${alt}"></video>`;
+            }
+            if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
+                return `<audio controls src="${url}" title="${alt}"></audio>`;
+            }
+            return `<a href="${url}" target="_blank">${alt || url}</a>`;
+        });
 
         // Links: [text](url) — external links open in new tab
         text = text.replace(/\[(.*?)\]\((.*?)\)/g, function(_, linkText, url) {
@@ -73,6 +100,16 @@ const Brewdown = (function() {
             return `<span id="${name}">${defaultVar}</span>`;
         });
 
+        // Restore escaped characters
+        text = text.replace(/\x00ESC(\d+)\x00/g, function(_, i) {
+            return escapeHtml(escapes[parseInt(i)]);
+        });
+
+        // Restore inline code blocks
+        text = text.replace(/\x00CODE(\d+)\x00/g, function(_, i) {
+            return codeBlocks[parseInt(i)];
+        });
+
         return text;
     }
 
@@ -88,6 +125,7 @@ const Brewdown = (function() {
         let inCodeBlock = false;
         let codeBlockContent = '';
         let codeBlockLang = '';
+        let baseIndentRe = /^/;
         let inTable = false;
         let tableRows = [];
         let detailsDepth = 0;
@@ -121,7 +159,7 @@ const Brewdown = (function() {
             let processedLine = '';
             // Count leading spaces for indentation, then trim for pattern matching
             const indent = inCodeBlock ? 0 : rawLine.match(/^(\s*)/)[1].length;
-            const line = inCodeBlock ? rawLine : rawLine.trimStart();
+            const line = inCodeBlock ? rawLine.replace(baseIndentRe, '') : rawLine.trimStart();
 
             // Fenced code blocks: ```
             if (line.startsWith('```')) {
@@ -130,6 +168,7 @@ const Brewdown = (function() {
                     inCodeBlock = true;
                     codeBlockContent = '';
                     codeBlockLang = line.trim().substring(3).trim();
+                    baseIndentRe = /^/;
                 } else {
                     const langClass = codeBlockLang ? ` class="language-${codeBlockLang}"` : '';
                     processedLine = `<pre><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>`;
@@ -143,7 +182,11 @@ const Brewdown = (function() {
             }
 
             if (inCodeBlock) {
-                codeBlockContent += (codeBlockContent ? '\n' : '') + line;
+                if (!codeBlockContent && rawLine.trim()) {
+                    const baseIndent = rawLine.match(/^(\s*)/)[1];
+                    baseIndentRe = baseIndent ? new RegExp('^' + baseIndent) : /^/;
+                }
+                codeBlockContent += (codeBlockContent ? '\n' : '') + line.replace(/\\`/g, '`');
                 return;
             }
 
@@ -300,10 +343,14 @@ const Brewdown = (function() {
                         });
 
                         const container = document.createElement('div');
+                        container.className = 'markdown-rendered';
                         container.innerHTML = htmlContent;
                         script.parentNode.replaceChild(container, script);
 
-                        console.log(`Markdown content loaded from: ${markdownFile}`);
+                        // Apply syntax highlighting after external content loads
+                        if (typeof hljs !== 'undefined') {
+                            container.querySelectorAll('pre code[class]').forEach(block => hljs.highlightElement(block));
+                        }
                     })
                     .catch(error => {
                         console.error('Error loading markdown:', error);
@@ -322,6 +369,7 @@ const Brewdown = (function() {
                     });
 
                     const container = document.createElement('div');
+                    container.className = 'markdown-rendered';
                     container.innerHTML = htmlContent;
                     script.parentNode.replaceChild(container, script);
                 }
