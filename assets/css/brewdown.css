@@ -114,6 +114,11 @@ main pre {
   margin: 1em 0;
 }
 
+main pre code {
+  padding: 0;
+  background: none;
+}
+
 /* Blockquote */
 main blockquote {
   background: var(--dark-mocha);
