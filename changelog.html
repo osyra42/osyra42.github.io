@@ -95,6 +95,24 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 MAR 31
+@ brewdown
++ added escape character support (backslash prevents formatting)
++ added inline code HTML escaping (tags render as text)
++ added triple-tick inline code variant
++ added backtick escape inside fenced code blocks
++ added base indent stripping for code blocks in divs
++ moved Brewdown docs to external .md file (clean markdown, no HTML entity hacks)
++ added highlight.js support for externally loaded markdown files
++ reordered documentation for better readability
+$ fixed inline code padding inside pre blocks
+$ fixed escape characters consuming inline code backticks
+
+@ website
++ added print support for dropdowns (auto-expand on print)
+$ fixed pre code padding doubling inside code blocks
+
+. ............................
 # 2026 MAR 28
 @ website
 + added Amazon Affiliate and Google Play warnings on index page
