@@ -46,7 +46,208 @@
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <script data-brewdown="assets/docs/brewdown.md"></script>
+    <h1>Brewdown</h1>
+    <p>A coffee-flavored Markdown-to-HTML converter. Brewdown extends standard Markdown with media embedding, spoilers, collapsible sections, interactive forms, timestamps, and template variables. No dependencies. One script. Drop it in and go.</p>
+
+    <hr>
+
+    <h2>Quick Start</h2>
+    <p>Add these two lines to your HTML:</p>
+    <pre><code class="language-html">&lt;link rel="stylesheet" href="https://coffeebyte.dev/assets/css/brewdown.css" /&gt;
+&lt;script src="https://coffeebyte.dev/assets/js/brewdown.js" defer&gt;&lt;/script&gt;</code></pre>
+
+    <p>Then write markdown in a div:</p>
+    <pre><code class="language-html">&lt;div class="markdown"&gt;
+# Hello World
+This is **Brewdown** in action.
+&lt;/div&gt;</code></pre>
+
+    <p>Or load from an external file:</p>
+    <pre><code class="language-html">&lt;script data-brewdown="path/to/file.md"&gt;&lt;/script&gt;</code></pre>
+
+    <p>Or use inline script tags:</p>
+    <pre><code class="language-html">&lt;script type="text/markdown" data-brewdown&gt;
+# Hello World
+This is **Brewdown** in action.
+&lt;/script&gt;</code></pre>
+
+    <p>That's it. Brewdown processes everything on page load.</p>
+
+    <hr>
+
+    <h2>Text Formatting</h2>
+    <pre><code>**bold**
+*italic*
+~~strikethrough~~
+__underline__
+`inline code`</code></pre>
+
+    <h3>Escape Characters</h3>
+    <p>Use <code>\</code> before any character to prevent Brewdown from processing it.</p>
+    <pre><code>\*not italic\*
+\[not a link\](url)</code></pre>
+    <p>Inside code blocks, a backslash before a backtick escapes it so it displays literally.</p>
+
+    <hr>
+
+    <h2>Headings</h2>
+    <pre><code># Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6</code></pre>
+
+    <hr>
+
+    <h2>Links</h2>
+    <pre><code>[Link Text](https://example.com)</code></pre>
+    <p>External links (http/https, magnet, .pdf) automatically open in a new tab.</p>
+
+    <hr>
+
+    <h2>Media Embedding</h2>
+    <p>Use image syntax — Brewdown detects the file type by extension and renders the appropriate HTML element.</p>
+    <pre><code>![alt text](photo.jpg)        -&gt; &lt;img&gt;
+![alt text](video.mp4)        -&gt; &lt;video controls&gt;
+![alt text](song.mp3)         -&gt; &lt;audio controls&gt;
+![alt text](document.pdf)     -&gt; opens in new tab</code></pre>
+    <p><strong>Image:</strong> jpg, jpeg, png, gif, webp, svg, bmp, ico, avif</p>
+    <p><strong>Video:</strong> mp4, webm, ogg, mov</p>
+    <p><strong>Audio:</strong> mp3, wav, flac, aac, m4a</p>
+    <p><strong>Other:</strong> opens in a new tab (browser renders or downloads)</p>
+
+    <hr>
+
+    <h2>Code Blocks</h2>
+    <pre><code>```javascript
+function hello() {
+    console.log("Hello, world!");
+}
+```</code></pre>
+    <p>Works with highlight.js if loaded on the page.</p>
+
+    <hr>
+
+    <h2>Blockquotes</h2>
+    <pre><code>&gt; This is a blockquote.
+&gt; It can span multiple lines.</code></pre>
+
+    <hr>
+
+    <h2>Tables</h2>
+    <pre><code>| Name   | Role   |
+|--------|--------|
+| Alice  | Admin  |
+| Bob    | User   |</code></pre>
+
+    <hr>
+
+    <h2>Checkboxes</h2>
+    <pre><code>[ ] Unchecked
+[x] Checked</code></pre>
+
+    <hr>
+
+    <h2>Horizontal Rules</h2>
+    <pre><code>---</code></pre>
+
+    <hr>
+
+    <h2>Timestamps</h2>
+    <p>Converts a date to the user's local format with a semantic <code>&lt;time&gt;</code> element.</p>
+    <pre><code>@@2026.03.28@@              -&gt; March 28, 2026
+@@2026.03.28.14.30@@        -&gt; March 28, 2026 at 2:30 PM</code></pre>
+
+    <hr>
+
+    <h2>Spoilers</h2>
+    <p>Click-to-reveal hidden text.</p>
+    <pre><code>!!This text is hidden until clicked.!!</code></pre>
+    <p>Requires CSS for the <code>.spoiler</code> and <code>.spoiler.revealed</code> classes.</p>
+
+    <hr>
+
+    <h2>Collapsible Sections</h2>
+    <p>Wraps content in a <code>&lt;details&gt;/&lt;summary&gt;</code> element.</p>
+    <pre><code>&gt;&gt;&gt; Click to expand
+Content goes here.
+More content.
+&lt;&lt;&lt;</code></pre>
+    <p>Supports nesting:</p>
+    <pre><code>&gt;&gt;&gt; Outer
+&gt;&gt;&gt; Inner
+Nested content.
+&lt;&lt;&lt;
+&lt;&lt;&lt;</code></pre>
+
+    <hr>
+
+    <h2>Interactive Forms</h2>
+    <p>Wraps content in a form container div for use with JavaScript.</p>
+    <pre><code>:: My Form Title
+**Your Name:**
+___
+
+**Options:**
+[ ] Option A
+[ ] Option B
+::</code></pre>
+    <ul>
+      <li><code>___</code> (three or more underscores) creates a text input field</li>
+      <li><code>[ ]</code> creates an interactive checkbox</li>
+      <li>The form div gets class <code>brewdown-form</code> and a <code>data-form-title</code> attribute</li>
+    </ul>
+
+    <hr>
+
+    <h2>Template Variables</h2>
+    <p>Placeholders that render as <code>&lt;span&gt;</code> elements with IDs for JavaScript to target.</p>
+    <pre><code>Server status: {{server-status}}</code></pre>
+    <p>Set the default text before loading:</p>
+    <pre><code class="language-html">&lt;script&gt;Brewdown.defaultVar = 'Loading...';&lt;/script&gt;</code></pre>
+
+    <hr>
+
+    <h2>HTML Passthrough</h2>
+    <p>Raw HTML lines are passed through as-is.</p>
+
+    <hr>
+
+    <h2>API</h2>
+    <p>Brewdown exposes a public API for manual use:</p>
+    <pre><code class="language-javascript">// Convert markdown string to HTML
+const html = Brewdown.brewdown(markdownText);
+
+// With options
+const html = Brewdown.brewdown(markdownText, {
+    wrapInContainer: true,
+    containerClass: 'my-class'
+});
+
+// Parse inline formatting only
+const html = Brewdown.parseInlineFormatting(text);
+
+// Re-process script tags or markdown divs
+Brewdown.processScriptTags();
+Brewdown.processMarkdownDivs();
+
+// Set default text for template variables
+Brewdown.defaultVar = 'Loading...';</code></pre>
+
+    <hr>
+
+    <h2>CDN Links</h2>
+    <pre><code>https://coffeebyte.dev/assets/js/brewdown.js
+https://coffeebyte.dev/assets/css/brewdown.css</code></pre>
+    <p>Brewdown is free to use. No attribution required, but appreciated.</p>
+
+    <hr>
+
+    <div class="markdown">
+**Last Updated:** @@2026.04.04@@
+**Author:** Coffee Byte Dev (osyra42)
+    </div>
 
     <button id="back-to-top">Back to Top</button>
   </main>
