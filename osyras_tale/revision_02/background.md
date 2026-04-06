@@ -12,6 +12,6 @@ I was Chimera now. I wasn't always Chimera. This came from a lab. My true parent
 - Color contacts to hide my red eyes
 - Big hats to hide my ears
 - Long dresses to hide my tail
-Didn't need a smile much. I couldn't see my canines.
+Didn't need a smile much. They couldn't see my canines.
 
 People that I come into contact with just think I'm angry. It's good enough that they leave me alone.  
