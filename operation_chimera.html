@@ -33,22 +33,18 @@
   </script>
 
   <style>
-    main.archive .chapter-link {
-      cursor: pointer;
+    #chapter-list a[href$=".md"] {
       color: var(--caramel);
     }
-    main.archive .chapter-link:hover {
+    #chapter-list a[href$=".md"]:hover {
       color: var(--pumpkin-spice);
       text-decoration: underline;
     }
-    main.archive .chapter-link.active {
+    #chapter-list a[href$=".md"].active {
       color: var(--pumpkin-spice);
       font-weight: bold;
     }
     .chapter-content {
-      display: block;
-      white-space: normal;
-      font-family: Arial, sans-serif;
       background: var(--dark-mocha);
       padding: 1rem;
       margin: 0.5rem 0;
@@ -96,13 +92,84 @@
 > **Operation Chimera** is an ongoing collection of sci-fi noir short stories following a recurring cast of characters caught up in the Chimera Project — a secret program that turns people into engineered hybrid operatives. Each story follows a different mission, but the same characters (Osyra, Vanity, and the rest of the team) carry through. Expect dark themes, morally gray choices, and a slow-burn conspiracy.
     </div>
 
-    <div id="chapter-list"></div>
+    <script data-brewdown="operation_chimera/content_warning.md"></script>
+
+    <div id="chapter-list">
+      <script type="text/markdown" data-brewdown>
+---
+### Revision 02 (2026)
+01 - [Chapter 01 - Blood Relation](operation_chimera/revision_02/rev02_ch01_blood_relation.md)
+
+---
+
+### Revision 01 (2025)
+00 - [About Operation Chimera](operation_chimera/revision_01/rev01_about.md)
+00 - [Character Dossier — Dr. Osyra](operation_chimera/revision_01/rev01_char_osyra_dossier.md)
+00 - [Background — Dr. Osyra](operation_chimera/revision_01/rev01_char_osyra_background.md)
+01 - [Chapter 01 - Interview](operation_chimera/revision_01/rev01_ch01_interview.md)
+02 - [Chapter 02 - Processing](operation_chimera/revision_01/rev01_ch02_processing.md)
+~~03 - Chapter 03~~
+
+---
+
+### Revision 00 (2024)
+
+00 - [Chapter 00 - Part 1 - Chimera Project](operation_chimera/revision_00/rev00_ch00_part1_chimera_project.md)
+01 - [Chapter 01 - A Declaration of Self](operation_chimera/revision_00/rev00_ch01_a_declaration_of_self.md)
+02 - [Chapter 02 - The Gilded Cage](operation_chimera/revision_00/rev00_ch02_the_gilded_cage.md)
+03 - [Chapter 03 - Burnt Toast and Solder](operation_chimera/revision_00/rev00_ch03_burnt_toast_and_solder.md)
+04 - [Chapter 04 - The Awakening](operation_chimera/revision_00/rev00_ch04_the_awakening.md)
+05 - [Chapter 05 - The Second Tragedy](operation_chimera/revision_00/rev00_ch05_the_second_tragedy.md)
+06 - [Chapter 06 - A Promise](operation_chimera/revision_00/rev00_ch06_a_promise.md)
+07 - [Chapter 07 - Who is impressed?](operation_chimera/revision_00/rev00_ch07_who_is_impressed.md)
+08 - [Chapter 08 - Somehow Good News](operation_chimera/revision_00/rev00_ch08_somehow_good_news.md)
+09 - [Chapter 09 - A Big Surprise](operation_chimera/revision_00/rev00_ch09_a_big_surprise.md)
+10 - [Chapter 10 - Child Happiness](operation_chimera/revision_00/rev00_ch10_child_happiness.md)
+11 - [Chapter 11 - First Handshake](operation_chimera/revision_00/rev00_ch11_first_handshake.md)
+12 - [Chapter 12 - It's Mitosis](operation_chimera/revision_00/rev00_ch12_its_mitosis.md)
+13 - [Chapter 13 - Cool Sunglasses](operation_chimera/revision_00/rev00_ch13_cool_sunglasses.md)
+14 - [Chapter 14 - A New Opportunity](operation_chimera/revision_00/rev00_ch14_a_new_opportunity.md)
+15 - [Chapter 15 - The Warehouse](operation_chimera/revision_00/rev00_ch15_the_warehouse.md)
+16 - [Chapter 16 - New Turbines](operation_chimera/revision_00/rev00_ch16_new_turbines.md)
+17 - [Chapter 17 - The Mighty Pen](operation_chimera/revision_00/rev00_ch17_the_mighty_pen.md)
+18 - [Chapter 18 - Ship Shape](operation_chimera/revision_00/rev00_ch18_ship_shape.md)
+19 - [Chapter 19 - Happy Lab](operation_chimera/revision_00/rev00_ch19_happy_lab.md)
+20 - [Chapter 20 - Well Technically](operation_chimera/revision_00/rev00_ch20_well_technically.md)
+21 - [Chapter 21 - Clinical Trials](operation_chimera/revision_00/rev00_ch21_clinical_trials.md)
+22 - [Chapter 22 - The First Chimeran](operation_chimera/revision_00/rev00_ch22_the_first_chimeran.md)
+23 - [Chapter 23 - Successful Mutation](operation_chimera/revision_00/rev00_ch23_successful_mutation.md)
+24 - [Chapter 24 - Reassignment](operation_chimera/revision_00/rev00_ch24_reassignment.md)
+25 - [Chapter 25 - Morbid Fixation](operation_chimera/revision_00/rev00_ch25_morbid_fixation.md)
+26 - [Chapter 26 - It Burns Anything](operation_chimera/revision_00/rev00_ch26_it_burns_anything.md)
+27 - [Chapter 27 - Pudding Brain](operation_chimera/revision_00/rev00_ch27_pudding_brain.md)
+28 - [Chapter 28 - Mercenary](operation_chimera/revision_00/rev00_ch28_mercenary.md)
+29 - [Chapter 29 - Boot Camp](operation_chimera/revision_00/rev00_ch29_boot_camp.md)
+30 - [Chapter 30 - Chimera One](operation_chimera/revision_00/rev00_ch30_chimera_one.md)
+31 - [Chapter 31 - The Unchained](operation_chimera/revision_00/rev00_ch31_the_unchained.md)
+32 - [Chapter 32 - Deep Clean](operation_chimera/revision_00/rev00_ch32_deep_clean.md)
+33 - [Chapter 33 - Hollow Hound](operation_chimera/revision_00/rev00_ch33_hollow_hound.md)
+34 - [Chapter 34 - Discovery](operation_chimera/revision_00/rev00_ch34_discovery.md)
+35 - [Chapter 35 - Hunter's Orange](operation_chimera/revision_00/rev00_ch35_hunters_orange.md)
+36 - [Chapter 36 - Sick Bear Story](operation_chimera/revision_00/rev00_ch36_sick_bear_story.md)
+37 - [Chapter 37 - The Cleaners](operation_chimera/revision_00/rev00_ch37_the_cleaners.md)
+38 - [Chapter 38 - Stepping Stone](operation_chimera/revision_00/rev00_ch38_stepping_stone.md)
+39 - [Chapter 39 - Lifelines](operation_chimera/revision_00/rev00_ch39_lifelines.md)
+40 - [Chapter 40 - Part 2 - A True Predator](operation_chimera/revision_00/rev00_ch40_part2_a_true_predator.md)
+50 - [Chapter 50 - Part 3 - Search and Rescue](operation_chimera/revision_00/rev00_ch50_part3_search_and_rescue.md)
+90 - [Chapter 90 - Back Alley](operation_chimera/revision_00/rev00_ch90_back_alley.md)
+-- - [Character Dossier — Osyra](operation_chimera/revision_00/rev00_char_osyra.md)
+
+~~400A - Part 4~~
+      </script>
+    </div>
 
     <div class="markdown">
 
 ---
 
-**Last Updated:** @@2026.04.07@@
+**Last Updated:** @@2026.04.08@@
+(Revision 00 files flattened into a single folder; chapter filenames now match their in-file headings.)
+**Nomenclature:** files follow `rev##_ch##_title` (chapters), `rev##_part#_title` (part intros), `rev##_char_name` (character files), `rev##_about` (rev readmes).
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -112,77 +179,10 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const md = `
-### Operation Chimera - Revision 01 (2025)
-00 - [About Operation Chimera](operation_chimera/README.md)
-00 - [Character Dossier — Dr. Osyra](operation_chimera/osyra_dossier.md)
-00 - [Background — Dr. Osyra](operation_chimera/osyra_background.md)
-01 - [Chapter 01 - Interview](operation_chimera/revision_01/01_interview.md)
-02 - [Chapter 02 - Processing](operation_chimera/revision_01/02_processing.md)
-~~03 - Chapter 03~~
-
----
-
-### Operation Chimera - Revision 00 (2024)
-
-000A - [Part 0 - Random Things](operation_chimera/revision_00/Part 0/001.md)
-001A - [Chapter -1 - Back Alley](operation_chimera/revision_00/Part 0/001.md)
-
-100A - [Part 1 - Chimera Project](operation_chimera/revision_00/Part 1/100.md)
-101A - [Chapter 01 - A Declaration of Self](operation_chimera/revision_00/Part 1/101.md)
-102B - [Chapter 02 - The Gilded Cage](operation_chimera/revision_00/Part 1/102.md)
-103A - [Chapter 03 - Burnt Toast and Solder](operation_chimera/revision_00/Part 1/103.md)
-104A - [Chapter 04 - The Awakening](operation_chimera/revision_00/Part 1/104.md)
-105A - [Chapter 05 - The Second Tragedy](operation_chimera/revision_00/Part 1/105.md)
-106A - [Chapter 06 - A Promise](operation_chimera/revision_00/Part 1/106.md)
-107B - [Chapter 07 - Who is impressed?](operation_chimera/revision_00/Part 1/107.md)
-108A - [Chapter 08 - Somehow Good News](operation_chimera/revision_00/Part 1/108.md)
-109A - [Chapter 09 - A Big Surprise](operation_chimera/revision_00/Part 1/109.md)
-110A - [Chapter 10 - Child Happiness](operation_chimera/revision_00/Part 1/110.md)
-111A - [Chapter 11 - First Handshake](operation_chimera/revision_00/Part 1/111.md)
-112A - [Chapter 12 - It's Mitosis](operation_chimera/revision_00/Part 1/112.md)
-113A - [Chapter 13 - Cool Sunglasses](operation_chimera/revision_00/Part 1/113.md)
-114A - [Chapter 14 - A New Opportunity](operation_chimera/revision_00/Part 1/114.md)
-115A - [Chapter 15 - The Warehouse](operation_chimera/revision_00/Part 1/115.md)
-116A - [Chapter 16 - New Turbines](operation_chimera/revision_00/Part 1/116.md)
-117A - [Chapter 17 - The Mighty Pen](operation_chimera/revision_00/Part 1/117.md)
-118A - [Chapter 18 - Ship Shape](operation_chimera/revision_00/Part 1/118.md)
-119A - [Chapter 19 - Happy Lab](operation_chimera/revision_00/Part 1/119.md)
-120A - [Chapter 20 - Well Technically](operation_chimera/revision_00/Part 1/120.md)
-121A - [Chapter 21 - Clinical Trials](operation_chimera/revision_00/Part 1/121.md)
-122A - [Chapter 22 - The First Chimeran](operation_chimera/revision_00/Part 1/122.md)
-123A - [Chapter 23 - Successful Mutation](operation_chimera/revision_00/Part 1/123.md)
-124A - [Chapter 24 - Reassignment](operation_chimera/revision_00/Part 1/124.md)
-125A - [Chapter 25 - Morbid Fixation](operation_chimera/revision_00/Part 1/125.md)
-126A - [Chapter 26 - It Burns Anything](operation_chimera/revision_00/Part 1/126.md)
-127A - [Chapter 27 - Pudding Brain](operation_chimera/revision_00/Part 1/127.md)
-128A - [Chapter 28 - Mercenary](operation_chimera/revision_00/Part 1/128.md)
-129A - [Chapter 29 - Boot Camp](operation_chimera/revision_00/Part 1/129.md)
-130A - [Chapter 30 - Chimera One](operation_chimera/revision_00/Part 1/130.md)
-131A - [Chapter 31 - The Unchained](operation_chimera/revision_00/Part 1/131.md)
-132A - [Chapter 32](operation_chimera/revision_00/Part 1/132.md)
-
-200A - [Part 2 - A True Predator](operation_chimera/revision_00/Part 2/200.md)
-233A - [Chapter 33](operation_chimera/revision_00/Part 2/233.md)
-234A - [Chapter 34](operation_chimera/revision_00/Part 2/234.md)
-235A - [Chapter 35](operation_chimera/revision_00/Part 2/235.md)
-236A - [Chapter 36](operation_chimera/revision_00/Part 2/236.md)
-237A - [Chapter 37](operation_chimera/revision_00/Part 2/237.md)
-238A - [Chapter 38](operation_chimera/revision_00/Part 2/238.md)
-239A - [Chapter 39](operation_chimera/revision_00/Part 2/239.md)
-240A - [Chapter 40](operation_chimera/revision_00/Part 2/240.md)
-
-300A - [Part 3 - Search and Rescue](operation_chimera/revision_00/Part 3/300.md)
-
-~~400A - Part 4~~
-`;
-
     const container = document.getElementById('chapter-list');
-    container.innerHTML = Brewdown.brewdown(md);
 
     // Intercept clicks on .md links for inline chapter viewing
     container.querySelectorAll('a[href$=".md"]').forEach(link => {
-        link.classList.add('chapter-link');
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const parent = this.closest('p, h1, h2, h3, h4, h5, h6');

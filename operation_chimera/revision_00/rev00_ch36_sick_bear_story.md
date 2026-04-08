@@ -1,4 +1,4 @@
-# Chapter 36
+# Chapter 36 - Sick Bear Story
 
 The two hunters, an older man named Earl and his teenage grandson, Leo, sat in a sterile, soundproofed room on a lower deck of The Bastion. They looked small and bewildered under the bright lights, their flannel shirts and worn jeans a stark contrast to the polished metal surroundings. A woman in a sharp, charcoal-gray suit, a PR spokesperson named Aliana, sat across from them, her smile professional and placating.
 

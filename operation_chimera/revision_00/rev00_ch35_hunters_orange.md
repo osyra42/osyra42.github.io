@@ -1,4 +1,4 @@
-# Chapter 35
+# Chapter 35 - Hunter's Orange
 
 The cry for help was a perfect, chilling mimicry of human fear, echoing through the dense pines. I pushed harder, my boots sinking into the soft loam, my tail lashing behind me for balance. Vanity's voice was a calm, remote presence in my ear.
 

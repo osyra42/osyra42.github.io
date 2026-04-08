@@ -1,4 +1,4 @@
-# Chapter 38
+# Chapter 38 - Stepping Stone
 
 The ride back to the Bastion was a silent, grim affair. The hard drive felt like a lead weight in Osyra's pack, its contents a poison she had already swallowed. The image of the Chupacabra—a flawed, terrified creature being ruthlessly culled by its more "perfect" successors—was burned into her mind. It was a stark metaphor for Elias's entire operation, and she knew with chilling certainty where she stood within it.
 
