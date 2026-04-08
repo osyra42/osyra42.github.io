@@ -1,4 +1,4 @@
-<!-- osyras_tale.html -->
+<!-- operation_chimera.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +9,16 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="Read Osyra's Tale - a sci-fi fantasy novel about chimera experiments and survival" />
-  <meta name="keywords" content="osyra42, Coffee Byte Dev, Osyra's Tale, novel, sci-fi, fantasy, chimera" />
+  <meta name="description" content="Read Operation Chimera - a sci-fi noir series about engineered hybrid operatives and the conspiracy behind the Chimera Project" />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, Operation Chimera, novel, sci-fi, noir, chimera" />
   <meta name="author" content="osyra42" />
-  <meta property="og:title" content="Osyra's Tale - Coffee Byte Dev" />
-  <meta property="og:description" content="Read Osyra's Tale - a sci-fi fantasy novel about chimera experiments and survival" />
+  <meta property="og:title" content="Operation Chimera - Coffee Byte Dev" />
+  <meta property="og:description" content="Read Operation Chimera - a sci-fi noir series about engineered hybrid operatives and the conspiracy behind the Chimera Project" />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
   <meta property="og:url" content="https://coffeebyte.dev" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Osyra's Tale - Coffee Byte Dev" />
-  <meta name="twitter:description" content="Read Osyra's Tale - a sci-fi fantasy novel about chimera experiments and survival" />
+  <meta name="twitter:title" content="Operation Chimera - Coffee Byte Dev" />
+  <meta name="twitter:description" content="Read Operation Chimera - a sci-fi noir series about engineered hybrid operatives and the conspiracy behind the Chimera Project" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <script src="assets/js/brewdown.js" defer></script>
@@ -28,8 +28,8 @@
   <script src="assets/js/back-to-top.js" defer></script>
 
   <script>
-    image = "osyras_tale.jpg";
-    title = "Osyra's Tale";
+    image = "operation_chimera.jpg";
+    title = "Operation Chimera";
   </script>
 
   <style>
@@ -88,8 +88,12 @@
   <main>
 
     <div class="download-bar">
-      <h1>Osyra's Tale</h1>
+      <h1>Operation Chimera</h1>
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+> **Operation Chimera** is an ongoing collection of sci-fi noir short stories following a recurring cast of characters caught up in the Chimera Project — a secret program that turns people into engineered hybrid operatives. Each story follows a different mission, but the same characters (Osyra, Vanity, and the rest of the team) carry through. Expect dark themes, morally gray choices, and a slow-burn conspiracy.
     </div>
 
     <div id="chapter-list"></div>
@@ -98,7 +102,7 @@
 
 ---
 
-**Last Updated:** @@2026.03.07@@
+**Last Updated:** @@2026.04.07@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -109,66 +113,66 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const md = `
-# Osyra's Tale - Revision 01 (2025)
-00 - [About Osyra's Tale](osyras_tale/README.md)
-00 - [Character Dossier — Dr. Osyra](osyras_tale/osyra_dossier.md)
-00 - [Background — Dr. Osyra](osyras_tale/osyra_background.md)
-01 - [Chapter 01 - Interview](osyras_tale/revision_01/01_interview.md)
-02 - [Chapter 02 - Processing](osyras_tale/revision_01/02_processing.md)
+### Operation Chimera - Revision 01 (2025)
+00 - [About Operation Chimera](operation_chimera/README.md)
+00 - [Character Dossier — Dr. Osyra](operation_chimera/osyra_dossier.md)
+00 - [Background — Dr. Osyra](operation_chimera/osyra_background.md)
+01 - [Chapter 01 - Interview](operation_chimera/revision_01/01_interview.md)
+02 - [Chapter 02 - Processing](operation_chimera/revision_01/02_processing.md)
 ~~03 - Chapter 03~~
 
 ---
 
-# Osyra's Tale - Revision 00 (2024)
+### Operation Chimera - Revision 00 (2024)
 
-### 000A - [Part 0 - Random Things](osyras_tale/revision_00/Part 0/001.md)
-001A - [Chapter -1 - Back Alley](osyras_tale/revision_00/Part 0/001.md)
+000A - [Part 0 - Random Things](operation_chimera/revision_00/Part 0/001.md)
+001A - [Chapter -1 - Back Alley](operation_chimera/revision_00/Part 0/001.md)
 
-### 100A - [Part 1 - Chimera Project](osyras_tale/revision_00/Part 1/100.md)
-101A - [Chapter 01 - A Declaration of Self](osyras_tale/revision_00/Part 1/101.md)
-102B - [Chapter 02 - The Gilded Cage](osyras_tale/revision_00/Part 1/102.md)
-103A - [Chapter 03 - Burnt Toast and Solder](osyras_tale/revision_00/Part 1/103.md)
-104A - [Chapter 04 - The Awakening](osyras_tale/revision_00/Part 1/104.md)
-105A - [Chapter 05 - The Second Tragedy](osyras_tale/revision_00/Part 1/105.md)
-106A - [Chapter 06 - A Promise](osyras_tale/revision_00/Part 1/106.md)
-107B - [Chapter 07 - Who is impressed?](osyras_tale/revision_00/Part 1/107.md)
-108A - [Chapter 08 - Somehow Good News](osyras_tale/revision_00/Part 1/108.md)
-109A - [Chapter 09 - A Big Surprise](osyras_tale/revision_00/Part 1/109.md)
-110A - [Chapter 10 - Child Happiness](osyras_tale/revision_00/Part 1/110.md)
-111A - [Chapter 11 - First Handshake](osyras_tale/revision_00/Part 1/111.md)
-112A - [Chapter 12 - It's Mitosis](osyras_tale/revision_00/Part 1/112.md)
-113A - [Chapter 13 - Cool Sunglasses](osyras_tale/revision_00/Part 1/113.md)
-114A - [Chapter 14 - A New Opportunity](osyras_tale/revision_00/Part 1/114.md)
-115A - [Chapter 15 - The Warehouse](osyras_tale/revision_00/Part 1/115.md)
-116A - [Chapter 16 - New Turbines](osyras_tale/revision_00/Part 1/116.md)
-117A - [Chapter 17 - The Mighty Pen](osyras_tale/revision_00/Part 1/117.md)
-118A - [Chapter 18 - Ship Shape](osyras_tale/revision_00/Part 1/118.md)
-119A - [Chapter 19 - Happy Lab](osyras_tale/revision_00/Part 1/119.md)
-120A - [Chapter 20 - Well Technically](osyras_tale/revision_00/Part 1/120.md)
-121A - [Chapter 21 - Clinical Trials](osyras_tale/revision_00/Part 1/121.md)
-122A - [Chapter 22 - The First Chimeran](osyras_tale/revision_00/Part 1/122.md)
-123A - [Chapter 23 - Successful Mutation](osyras_tale/revision_00/Part 1/123.md)
-124A - [Chapter 24 - Reassignment](osyras_tale/revision_00/Part 1/124.md)
-125A - [Chapter 25 - Morbid Fixation](osyras_tale/revision_00/Part 1/125.md)
-126A - [Chapter 26 - It Burns Anything](osyras_tale/revision_00/Part 1/126.md)
-127A - [Chapter 27 - Pudding Brain](osyras_tale/revision_00/Part 1/127.md)
-128A - [Chapter 28 - Mercenary](osyras_tale/revision_00/Part 1/128.md)
-129A - [Chapter 29 - Boot Camp](osyras_tale/revision_00/Part 1/129.md)
-130A - [Chapter 30 - Chimera One](osyras_tale/revision_00/Part 1/130.md)
-131A - [Chapter 31 - The Unchained](osyras_tale/revision_00/Part 1/131.md)
-132A - [Chapter 32](osyras_tale/revision_00/Part 1/132.md)
+100A - [Part 1 - Chimera Project](operation_chimera/revision_00/Part 1/100.md)
+101A - [Chapter 01 - A Declaration of Self](operation_chimera/revision_00/Part 1/101.md)
+102B - [Chapter 02 - The Gilded Cage](operation_chimera/revision_00/Part 1/102.md)
+103A - [Chapter 03 - Burnt Toast and Solder](operation_chimera/revision_00/Part 1/103.md)
+104A - [Chapter 04 - The Awakening](operation_chimera/revision_00/Part 1/104.md)
+105A - [Chapter 05 - The Second Tragedy](operation_chimera/revision_00/Part 1/105.md)
+106A - [Chapter 06 - A Promise](operation_chimera/revision_00/Part 1/106.md)
+107B - [Chapter 07 - Who is impressed?](operation_chimera/revision_00/Part 1/107.md)
+108A - [Chapter 08 - Somehow Good News](operation_chimera/revision_00/Part 1/108.md)
+109A - [Chapter 09 - A Big Surprise](operation_chimera/revision_00/Part 1/109.md)
+110A - [Chapter 10 - Child Happiness](operation_chimera/revision_00/Part 1/110.md)
+111A - [Chapter 11 - First Handshake](operation_chimera/revision_00/Part 1/111.md)
+112A - [Chapter 12 - It's Mitosis](operation_chimera/revision_00/Part 1/112.md)
+113A - [Chapter 13 - Cool Sunglasses](operation_chimera/revision_00/Part 1/113.md)
+114A - [Chapter 14 - A New Opportunity](operation_chimera/revision_00/Part 1/114.md)
+115A - [Chapter 15 - The Warehouse](operation_chimera/revision_00/Part 1/115.md)
+116A - [Chapter 16 - New Turbines](operation_chimera/revision_00/Part 1/116.md)
+117A - [Chapter 17 - The Mighty Pen](operation_chimera/revision_00/Part 1/117.md)
+118A - [Chapter 18 - Ship Shape](operation_chimera/revision_00/Part 1/118.md)
+119A - [Chapter 19 - Happy Lab](operation_chimera/revision_00/Part 1/119.md)
+120A - [Chapter 20 - Well Technically](operation_chimera/revision_00/Part 1/120.md)
+121A - [Chapter 21 - Clinical Trials](operation_chimera/revision_00/Part 1/121.md)
+122A - [Chapter 22 - The First Chimeran](operation_chimera/revision_00/Part 1/122.md)
+123A - [Chapter 23 - Successful Mutation](operation_chimera/revision_00/Part 1/123.md)
+124A - [Chapter 24 - Reassignment](operation_chimera/revision_00/Part 1/124.md)
+125A - [Chapter 25 - Morbid Fixation](operation_chimera/revision_00/Part 1/125.md)
+126A - [Chapter 26 - It Burns Anything](operation_chimera/revision_00/Part 1/126.md)
+127A - [Chapter 27 - Pudding Brain](operation_chimera/revision_00/Part 1/127.md)
+128A - [Chapter 28 - Mercenary](operation_chimera/revision_00/Part 1/128.md)
+129A - [Chapter 29 - Boot Camp](operation_chimera/revision_00/Part 1/129.md)
+130A - [Chapter 30 - Chimera One](operation_chimera/revision_00/Part 1/130.md)
+131A - [Chapter 31 - The Unchained](operation_chimera/revision_00/Part 1/131.md)
+132A - [Chapter 32](operation_chimera/revision_00/Part 1/132.md)
 
-### 200A - [Part 2 - A True Predator](osyras_tale/revision_00/Part 2/200.md)
-233A - [Chapter 33](osyras_tale/revision_00/Part 2/233.md)
-234A - [Chapter 34](osyras_tale/revision_00/Part 2/234.md)
-235A - [Chapter 35](osyras_tale/revision_00/Part 2/235.md)
-236A - [Chapter 36](osyras_tale/revision_00/Part 2/236.md)
-237A - [Chapter 37](osyras_tale/revision_00/Part 2/237.md)
-238A - [Chapter 38](osyras_tale/revision_00/Part 2/238.md)
-239A - [Chapter 39](osyras_tale/revision_00/Part 2/239.md)
-240A - [Chapter 40](osyras_tale/revision_00/Part 2/240.md)
+200A - [Part 2 - A True Predator](operation_chimera/revision_00/Part 2/200.md)
+233A - [Chapter 33](operation_chimera/revision_00/Part 2/233.md)
+234A - [Chapter 34](operation_chimera/revision_00/Part 2/234.md)
+235A - [Chapter 35](operation_chimera/revision_00/Part 2/235.md)
+236A - [Chapter 36](operation_chimera/revision_00/Part 2/236.md)
+237A - [Chapter 37](operation_chimera/revision_00/Part 2/237.md)
+238A - [Chapter 38](operation_chimera/revision_00/Part 2/238.md)
+239A - [Chapter 39](operation_chimera/revision_00/Part 2/239.md)
+240A - [Chapter 40](operation_chimera/revision_00/Part 2/240.md)
 
-### 300A - [Part 3 - Search and Rescue](osyras_tale/revision_00/Part 3/300.md)
+300A - [Part 3 - Search and Rescue](operation_chimera/revision_00/Part 3/300.md)
 
 ~~400A - Part 4~~
 `;
