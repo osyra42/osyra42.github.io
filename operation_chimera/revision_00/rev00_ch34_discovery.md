@@ -1,4 +1,4 @@
-# Chapter 34
+# Chapter 34 - Discovery
 
 The sterile, recycled air of Kael's office aboard The Bastion was a jarring transition from the rot-filled tunnels. I stood before his desk, the memory of the Hollow Hound's voice still a cold knot in my stomach. Vanity stood beside me, a silent, observant statue.
 

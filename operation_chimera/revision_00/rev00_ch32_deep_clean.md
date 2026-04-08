@@ -1,4 +1,4 @@
-# Chapter 32
+# Chapter 32 - Deep Clean
 
 Two days of eerie quiet passed. Osyra spent them testing the perimeter of her new prison-sanctuary, the weight of Kael's news a constant pressure. The legal threats were a distant storm cloud, but the silence from Vanity was more unnerving. The android had retreated into a state of near-total stillness, her violet eyes dimmed, processing something vast and internal. The only sign of activity was the occasional, almost imperceptible flicker of her optical sensors as they tracked a bird or a shifting branch. She was becoming.
 

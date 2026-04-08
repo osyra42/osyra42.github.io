@@ -95,6 +95,33 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 APR 08
+@ operation chimera
+> cleaned up page to use modern brewdown patterns
++ moved chapter list into inline script[data-brewdown] block (removed manual Brewdown.brewdown call + JS template literal)
++ updated chapter-link selectors to drop obsolete main.archive prefix
+- dropped JS that added .chapter-link class to each link (replaced with CSS attribute selector on #chapter-list a[href$=".md"])
+- removed redundant CSS: cursor:pointer on anchor, display:block + white-space:normal + font-family on .chapter-content (all defaults or globally inherited)
+> tightened intro blurb (removed repetition about recurring cast)
+- dropped "Operation Chimera -" prefix from revision headings (page h1 already says it)
+$ fixed: removed bogus "Part 0 - Random Things" entry that pointed to the same file as Chapter -1
+- struck through Chapters 33-40 in Revision 00 (never written — moved on to different idea)
++ added Revision 02 (2026) section with "Blood Relation" entry
++ linked Osyra character dossier under Revision 00
++ restored Chapters 33-40 links in Part 2 (files do exist — previous strikethrough was incorrect)
+- deleted empty stub files: revision_01/03_.md, revision_00/Characters/Layla.md, revision_00/Characters/Vanity.md
++ renamed all operation_chimera files to rev##_ch##_title pattern (chapters, parts, characters, about) via git mv
++ moved revision_01 top-level files (README, osyra dossier/background) into revision_01/ for consistency
++ added Chapter 32 subtitle "Deep Clean" (taken from the OPERATION: DEEP CLEAN mission brief inside the chapter)
++ added nomenclature note to page footer
++ flattened revision_00 into single folder (Part 0/1/2/3 and Characters subdirs removed)
++ added subtitles to Chapters 33-39 (Hollow Hound, Discovery, Hunter's Orange, Sick Bear Story, The Cleaners, Stepping Stone, Lifelines) — both filenames and in-file H1 headings
++ aligned all Rev 00 H1 headings with their filenames for consistency (Ch 00 Part 1, Ch 32 Deep Clean, Ch 50 Part 3, Ch 90 Back Alley)
+$ fixed: collapsed dual "# Chapter 39 / # Chapter 40" headings in the merged ch39 file
+> rebuilt Rev 00 section of the page to point at flattened paths and match new chapter titles
++ added revision-agnostic content warning (operation_chimera/content_warning.md) auto-loaded at the top of the chapter listings
+
+. ............................
 # 2026 APR 07
 @ book
 + renamed Osyra's Tale to Operation Chimera (ensemble retitle)

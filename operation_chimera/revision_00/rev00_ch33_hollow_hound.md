@@ -1,4 +1,4 @@
-# Chapter 33
+# Chapter 33 - Hollow Hound
 
 The silence of the remote cabin was shattered two mornings later by the insistent chime of the secure terminal. The mission brief was terse. An abandoned subway system. Unexplained disappearances. Signs pointed to a biological entity.
 

@@ -1,4 +1,4 @@
-# Chapter 37
+# Chapter 37 - The Cleaners
 
 The silence of the desert night was absolute, a heavy blanket broken only by the scuff of their boots on gravel. The observatory complex loomed ahead, a collection of angular shadows against the star-dusted sky. Osyra moved with a predator's grace, her senses stretched to their limits, every rustle of wind-swept sand noted and categorized. Vanity glided beside her, a silent specter, her multi-spectral eyes painting the world in layers of data invisible to any biological being.
 

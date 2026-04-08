@@ -1,4 +1,4 @@
-# Part 1 - Chimera Project
+# Chapter 00 - Part 1 - Chimera Project
 
 Foundation Internal Document
 Document ID: SCP-XXXX-A

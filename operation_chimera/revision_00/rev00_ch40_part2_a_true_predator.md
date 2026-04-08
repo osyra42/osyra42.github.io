@@ -1,4 +1,4 @@
-# Part 2 - A True Predator
+# Chapter 40 - Part 2 - A True Predator
 
 I am a hunter now.  
 My prey is the stuff of nightmares—things that slither, things that scream, things that should never have been born. I go where the rules of nature fray, where the air itself hums with wrongness. My only companion is Vanity, an android who treats protocols as polite suggestions and orders as opening arguments.  
