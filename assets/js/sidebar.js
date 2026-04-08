@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 **Projects**
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [🤖 Vanity Bot 🆕](vanity.html)
-- [📖 Osyra's Tale](osyras_tale.html)
+- [📖 Operation Chimera](operation_chimera.html)
 - [☕ Brewdown 🆕](brewdown.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
 >>> 📦 Archives

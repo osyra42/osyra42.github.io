@@ -24,7 +24,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
 ### Key Subsections
 - **school/**: Educational worksheet generators (see Worksheet Architecture below)
 - **fishing_mini_game/**: Browser-based fishing game (HTML5 Canvas, modular JS)
-- **osyras_tale/**: Markdown story content organized by Parts and Characters
+- **operation_chimera/**: Markdown story content organized by Parts and Characters
 
 ## Main Page Pattern
 
