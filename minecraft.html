@@ -131,24 +131,27 @@ I promise you that this is good enough. ☕
 
 # ⛏️ VAN26
 
-| Server Name | IP and Port | Status |
-|-------------|-------------|--------|
-| Coffee Block (Vanilla) | play.coffeeblock.xyz | {{server1-status}} |
+| Server Info | |
+|---|---|
+| **Server Name** | Coffee Block (Vanilla) |
+| **IP and Port** | play.coffeeblock.xyz |
+| **Status** | {{server1-status}} |
+| **Players** | {{server1-players}} |
+| **Version** | {{server1-version}} |
 
-This server runs Minecraft **26.1.1** on Paper. No mods, no modpacks, no extra files needed.
+This server runs on Paper. No mods, no modpacks, no extra files needed.
 
 >>> 🔧 **Admin**: Check For Updates
-> Checked @@2026.04.06@@
+> Checked @@2026.04.11@@
 > **REQUIRED**
-> [x] [Paper](https://fill-ui.papermc.io/projects/paper)
-> [x] [Discord SRV](https://modrinth.com/plugin/discordsrv)
+> [ ] [Paper](https://fill-ui.papermc.io/projects/paper)
+> [ ] [Discord SRV](https://modrinth.com/plugin/discordsrv)
 > **RECOMMENDED**
-> [x] [Simple Join Message](https://modrinth.com/plugin/sjm)
-> [x] [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion) Applied
-> [x] [World Edit](https://modrinth.com/plugin/worldedit)
-> [x] +1 more
+> [ ] [Simple Join Message](https://modrinth.com/plugin/sjm)
+> [ ] [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion)
+> [ ] [World Edit](https://modrinth.com/plugin/worldedit)
+> [ ] +1 more
 <<<
-
 >>> Instructions on how to connect.
 > 1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us)
 > 2. Open the Minecraft Launcher
@@ -166,18 +169,21 @@ This server runs Minecraft **26.1.1** on Paper. No mods, no modpacks, no extra f
 
 # ⛏️ ATM10
 
-| Server Name | IP and Port | Status |
-|-------------|-------------|--------|
-| Coffee Block (Modded) | play.coffeeblock.xyz:25566 | {{server2-status}} |
+| Server Info | |
+|---|---|
+| **Server Name** | Coffee Block (Modded) |
+| **IP and Port** | play.coffeeblock.xyz:25566 |
+| **Status** | {{server2-status}} |
+| **Players** | {{server2-players}} |
+| **Version** | {{server2-version}} |
 
-This server runs Minecraft **1.21.1** (Java Edition) with All the Mods 10 `v6.4`. The server will reject vanilla clients — you must install the modpack first.
+This server runs All the Mods 10 (Java Edition). The server will reject vanilla clients — you must install the modpack first.
 
 >>> 🔧 **Admin**: Check For Updates
-> Checked @@2026.04.06@@
+> Checked @@2026.04.11@@
 > **REQUIRED**
-> [x] [ATM10 Files](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/all?page=1&pageSize=20&showAlphaFiles=show) Updated to v6.4. Modded clients must update to continue playing.
+> [ ] [ATM10 Files](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/all?page=1&pageSize=20&showAlphaFiles=show)
 <<<
-
 >>> Instructions on how to connect.
 > 1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us)
 > 2. Download and install the [CurseForge App](https://www.curseforge.com/download/app)
@@ -204,33 +210,37 @@ This server runs Minecraft **1.21.1** (Java Edition) with All the Mods 10 `v6.4`
   </main>
 
   <script>
-    // Ping a Minecraft server and update the status span
+    // Ping a Minecraft server and update the status spans
     function ping(id, host, port) {
-      var el = document.getElementById(id);
-      if (!el) return;
+      var statusEl = document.getElementById(id + '-status');
+      var playersEl = document.getElementById(id + '-players');
+      var versionEl = document.getElementById(id + '-version');
 
       fetch('https://api.mcsrvstat.us/2/' + host + ':' + port)
         .then(function(r) { return r.json(); })
         .then(function(data) {
           if (data.online) {
-            el.textContent = 'Online';
-            el.style.color = '#33ff33';
+            if (statusEl) { statusEl.textContent = 'Online'; statusEl.style.color = '#33ff33'; }
+            if (playersEl) { playersEl.textContent = data.players.online + ' / ' + data.players.max; }
+            if (versionEl) { versionEl.textContent = data.version; }
           } else {
-            el.textContent = 'Offline';
-            el.style.color = '#ff3333';
+            if (statusEl) { statusEl.textContent = 'Offline'; statusEl.style.color = '#ff3333'; }
+            if (playersEl) { playersEl.textContent = '—'; }
+            if (versionEl) { versionEl.textContent = '—'; }
           }
         })
         .catch(function() {
-          el.textContent = 'Error';
-          el.style.color = '#ff3333';
+          if (statusEl) { statusEl.textContent = 'Error'; statusEl.style.color = '#ff3333'; }
+          if (playersEl) { playersEl.textContent = '—'; }
+          if (versionEl) { versionEl.textContent = '—'; }
         });
     }
 
     // Ping all servers after page loads
     document.addEventListener('DOMContentLoaded', function() {
-      ping('server1-status', 'play.coffeeblock.xyz', 25565);
-      ping('server2-status', 'play.coffeeblock.xyz', 25566);
-      ping('server3-status', 'play.coffeeblock.xyz', 25567);
+      ping('server1', 'play.coffeeblock.xyz', 25565);
+      ping('server2', 'play.coffeeblock.xyz', 25566);
+      ping('server3', 'play.coffeeblock.xyz', 25567);
     });
   </script>
 
