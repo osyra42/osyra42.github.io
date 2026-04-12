@@ -71,13 +71,13 @@ const Brewdown = (function() {
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, function(_, alt, url) {
             const ext = url.split('.').pop().split(/[?#]/)[0].toLowerCase();
             if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'avif'].includes(ext)) {
-                return `<img src="${url}" alt="${alt}">`;
+                return `<a href="${url}" target="_blank" class="media-link"><img src="${url}" alt="${alt}"></a>`;
             }
             if (['mp4', 'webm', 'ogg', 'mov'].includes(ext)) {
-                return `<video controls src="${url}" title="${alt}"></video>`;
+                return `<a href="${url}" target="_blank" class="media-link"><video controls src="${url}" title="${alt}"></video></a>`;
             }
             if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
-                return `<audio controls src="${url}" title="${alt}"></audio>`;
+                return `<a href="${url}" target="_blank" class="media-link"><audio controls src="${url}" title="${alt}"></audio></a>`;
             }
             return `<a href="${url}" target="_blank">${alt || url}</a>`;
         });
@@ -128,16 +128,18 @@ const Brewdown = (function() {
         let baseIndentRe = /^/;
         let inTable = false;
         let tableRows = [];
+        let inGallery = false;
         let detailsDepth = 0;
         let inForm = false;
         function closeOpenBlocks() {
             if (inBlockquote) { htmlContent += '</blockquote>\n'; inBlockquote = false; }
+            if (inGallery) { htmlContent += '</div>\n'; inGallery = false; }
             if (inTable) { flushTable(); }
         }
 
         function flushTable() {
             if (tableRows.length === 0) return;
-            let html = '<table>\n';
+            let html = '<div class="table-wrap"><table>\n';
             tableRows.forEach((row, i) => {
                 const cells = row.split('|').slice(1, -1);
                 // Skip separator row (e.g. |---|---|)
@@ -149,7 +151,7 @@ const Brewdown = (function() {
                 });
                 html += '</tr>\n';
             });
-            html += '</table>\n';
+            html += '</table></div>\n';
             htmlContent += html;
             tableRows = [];
             inTable = false;
@@ -289,8 +291,17 @@ const Brewdown = (function() {
                 closeOpenBlocks();
                 processedLine = line;
             }
+            // Media-only line: ![alt](url)
+            else if (line.match(/^!\[.*?\]\(.*?\)$/)) {
+                if (!inGallery) {
+                    htmlContent += '<div class="media-gallery">\n';
+                    inGallery = true;
+                }
+                processedLine = parseInlineFormatting(line);
+            }
             // Regular paragraph
             else {
+                closeOpenBlocks();
                 processedLine = `<p>${parseInlineFormatting(line)}</p>`;
             }
 

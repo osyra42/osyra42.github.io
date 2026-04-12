@@ -161,11 +161,15 @@
     max-width: 100% !important;
   }
 
+  main .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-width: 100% !important;
+  }
+
   main table {
     display: table !important;
-    width: 100% !important;
     table-layout: auto !important;
-    word-wrap: break-word !important;
   }
 
   main pre {
