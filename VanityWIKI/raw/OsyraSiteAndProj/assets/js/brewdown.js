@@ -1,0 +1,422 @@
+// brewdown.js - A coffee-flavored Markdown to HTML converter
+const Brewdown = (function() {
+
+    // Default text for {{var}} placeholders — override per page with Brewdown.defaultVar = 'text'
+    let defaultVar = '';
+
+    function isExternalUrl(url) {
+        return /^https?:\/\//i.test(url) || url.startsWith('magnet:') || url.endsWith('.pdf');
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function parseTimestamp(match, yyyy, mm, dd, hh, min) {
+        const date = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd),
+            hh ? parseInt(hh) : 0, min ? parseInt(min) : 0);
+        if (isNaN(date.getTime())) return match;
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        if (hh) { options.hour = '2-digit'; options.minute = '2-digit'; }
+        return '<time datetime="' + date.toISOString() + '">' + date.toLocaleString(undefined, options) + '</time>';
+    }
+
+    function parseInlineFormatting(text) {
+        // Inline code: ```code``` or `code` (process first to protect code content)
+        const codeBlocks = [];
+        text = text.replace(/```(.*?)```/g, function(_, code) {
+            codeBlocks.push('<code>' + escapeHtml(code) + '</code>');
+            return `\x00CODE${codeBlocks.length - 1}\x00`;
+        });
+        text = text.replace(/`(.*?)`/g, function(_, code) {
+            codeBlocks.push('<code>' + escapeHtml(code) + '</code>');
+            return `\x00CODE${codeBlocks.length - 1}\x00`;
+        });
+
+        // Escape characters: \X → placeholder, restored at end
+        const escapes = [];
+        text = text.replace(/\\(.)/g, function(_, ch) {
+            escapes.push(ch);
+            return `\x00ESC${escapes.length - 1}\x00`;
+        });
+
+        // Timestamp: @@YYYY.MM.DD@@ or @@YYYY.MM.DD.HH.MM@@ → local time
+        text = text.replace(/@@(\d{4})\.(\d{2})\.(\d{2})(?:\.(\d{2})\.(\d{2}))?@@/g, parseTimestamp);
+
+        // Spoiler: !!text!! → click to reveal
+        text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');
+
+        // Bold: **text**
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+        // Italic: *text*
+        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+        // Strikethrough: ~~text~~
+        text = text.replace(/~~(.*?)~~/g, '<del>$1</del>');
+
+        // Underline: __text__
+        text = text.replace(/__([^_]+?)__/g, '<u>$1</u>');
+
+        // Fill-in blank: ___ (3+ underscores with no content between)
+        text = text.replace(/_{3,}/g, '<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;">');
+
+        // Checkboxes: [x] checked, [ ] unchecked — must come before links
+        text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
+        text = text.replace(/\[ \]/g, '<input type="checkbox">');
+
+        // Media: ![alt](url) — detects type by extension, must come before links
+        text = text.replace(/!\[(.*?)\]\((.*?)\)/g, function(_, alt, url) {
+            const ext = url.split('.').pop().split(/[?#]/)[0].toLowerCase();
+            if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'avif'].includes(ext)) {
+                return `<img src="${url}" alt="${alt}">`;
+            }
+            if (['mp4', 'webm', 'ogg', 'mov'].includes(ext)) {
+                return `<video controls src="${url}" title="${alt}"></video>`;
+            }
+            if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
+                return `<audio controls src="${url}" title="${alt}"></audio>`;
+            }
+            return `<a href="${url}" target="_blank">${alt || url}</a>`;
+        });
+
+        // Links: [text](url) — external links open in new tab
+        text = text.replace(/\[(.*?)\]\((.*?)\)/g, function(_, linkText, url) {
+            if (isExternalUrl(url)) {
+                return `<a href="${url}" target="_blank">${linkText}</a>`;
+            }
+            return `<a href="${url}">${linkText}</a>`;
+        });
+
+        // Auto-link bare URLs and magnet links (only after whitespace or start of string)
+        text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, function(_, prefix, url) {
+            return `${prefix}<a href="${url}" target="_blank">${url}</a>`;
+        });
+
+        // Template variables: {{name}} → <span id="name">default text</span>
+        text = text.replace(/\{\{(\w[\w-]*)\}\}/g, function(match, name) {
+            return `<span id="${name}">${defaultVar}</span>`;
+        });
+
+        // Restore escaped characters
+        text = text.replace(/\x00ESC(\d+)\x00/g, function(_, i) {
+            return escapeHtml(escapes[parseInt(i)]);
+        });
+
+        // Restore inline code blocks
+        text = text.replace(/\x00CODE(\d+)\x00/g, function(_, i) {
+            return codeBlocks[parseInt(i)];
+        });
+
+        return text;
+    }
+
+    function brewdown(markdownText, options = {}) {
+        const {
+            wrapInContainer = false,
+            containerClass = 'brewdown-container'
+        } = options;
+
+        let htmlContent = '';
+        const lines = markdownText.trim().split(/\r?\n/);
+        let inBlockquote = false;
+        let inCodeBlock = false;
+        let codeBlockContent = '';
+        let codeBlockLang = '';
+        let baseIndentRe = /^/;
+        let inTable = false;
+        let tableRows = [];
+        let detailsDepth = 0;
+        let inForm = false;
+        function closeOpenBlocks() {
+            if (inBlockquote) { htmlContent += '</blockquote>\n'; inBlockquote = false; }
+            if (inTable) { flushTable(); }
+        }
+
+        function flushTable() {
+            if (tableRows.length === 0) return;
+            let html = '<table>\n';
+            tableRows.forEach((row, i) => {
+                const cells = row.split('|').slice(1, -1);
+                // Skip separator row (e.g. |---|---|)
+                if (i === 1 && cells.every(c => c.trim().match(/^[-:]+$/))) return;
+                const tag = i === 0 ? 'th' : 'td';
+                html += '<tr>';
+                cells.forEach(cell => {
+                    html += `<${tag}>${parseInlineFormatting(cell.trim())}</${tag}>`;
+                });
+                html += '</tr>\n';
+            });
+            html += '</table>\n';
+            htmlContent += html;
+            tableRows = [];
+            inTable = false;
+        }
+
+        lines.forEach(rawLine => {
+            let processedLine = '';
+            // Count leading spaces for indentation, then trim for pattern matching
+            const indent = inCodeBlock ? 0 : rawLine.match(/^(\s*)/)[1].length;
+            const line = inCodeBlock ? rawLine.replace(baseIndentRe, '') : rawLine.trimStart();
+
+            // Fenced code blocks: ```
+            if (line.startsWith('```')) {
+                if (!inCodeBlock) {
+                    closeOpenBlocks();
+                    inCodeBlock = true;
+                    codeBlockContent = '';
+                    codeBlockLang = line.trim().substring(3).trim();
+                    baseIndentRe = /^/;
+                } else {
+                    const langClass = codeBlockLang ? ` class="language-${codeBlockLang}"` : '';
+                    processedLine = `<pre><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>`;
+                    inCodeBlock = false;
+                    codeBlockContent = '';
+                    codeBlockLang = '';
+                }
+                if (inCodeBlock) return;
+                htmlContent += processedLine + '\n';
+                return;
+            }
+
+            if (inCodeBlock) {
+                if (!codeBlockContent && rawLine.trim()) {
+                    const baseIndent = rawLine.match(/^(\s*)/)[1];
+                    baseIndentRe = baseIndent ? new RegExp('^' + baseIndent) : /^/;
+                }
+                codeBlockContent += (codeBlockContent ? '\n' : '') + line.replace(/\\`/g, '`');
+                return;
+            }
+
+            // Table rows: | cell | cell |
+            if (line.startsWith('|') && line.endsWith('|')) {
+                if (!inTable) {
+                    closeOpenBlocks();
+                    inTable = true;
+                }
+                tableRows.push(line);
+                return;
+            } else if (inTable) {
+                flushTable();
+            }
+
+            // Collapsible open: >>> Title
+            if (line.startsWith('>>>')) {
+                closeOpenBlocks();
+                const title = line.substring(3).trim() || 'Details';
+                processedLine = `<details><summary>${parseInlineFormatting(title)}</summary>`;
+                detailsDepth++;
+                htmlContent += processedLine + '\n';
+                return;
+            }
+            // Collapsible close: <<<
+            if (line === '<<<') {
+                closeOpenBlocks();
+                if (detailsDepth > 0) {
+                    processedLine = '</details>';
+                    detailsDepth--;
+                    htmlContent += processedLine + '\n';
+                }
+                return;
+            }
+
+            // Form block: :: Title to open, :: to close
+            if (line.startsWith('::')) {
+                closeOpenBlocks();
+                if (!inForm) {
+                    const title = line.substring(2).trim();
+                    const titleAttr = title ? ` data-form-title="${escapeHtml(title)}"` : '';
+                    processedLine = `<div class="brewdown-form"${titleAttr}>`;
+                    inForm = true;
+                } else {
+                    processedLine = '</div>';
+                    inForm = false;
+                }
+                htmlContent += processedLine + '\n';
+                return;
+            }
+
+            // Headers
+            if (line.startsWith('# ')) {
+                closeOpenBlocks();
+                processedLine = `<h1>${parseInlineFormatting(line.substring(2))}</h1>`;
+            } else if (line.startsWith('## ')) {
+                closeOpenBlocks();
+                processedLine = `<h2>${parseInlineFormatting(line.substring(3))}</h2>`;
+            } else if (line.startsWith('### ')) {
+                closeOpenBlocks();
+                processedLine = `<h3>${parseInlineFormatting(line.substring(4))}</h3>`;
+            } else if (line.startsWith('#### ')) {
+                closeOpenBlocks();
+                processedLine = `<h4>${parseInlineFormatting(line.substring(5))}</h4>`;
+            } else if (line.startsWith('##### ')) {
+                closeOpenBlocks();
+                processedLine = `<h5>${parseInlineFormatting(line.substring(6))}</h5>`;
+            } else if (line.startsWith('###### ')) {
+                closeOpenBlocks();
+                processedLine = `<h6>${parseInlineFormatting(line.substring(7))}</h6>`;
+            }
+            // Blockquotes
+            else if (line.startsWith('> ') || line === '>') {
+                const content = line === '>' ? '' : line.substring(2);
+                if (!inBlockquote) {
+                    processedLine = content
+                        ? `<blockquote><p>${parseInlineFormatting(content)}</p>`
+                        : '<blockquote>';
+                    inBlockquote = true;
+                } else if (content) {
+                    processedLine = `<p>${parseInlineFormatting(content)}</p>`;
+                }
+            }
+            // Horizontal rule
+            else if (line.match(/^[-*]{3,}$/)) {
+                closeOpenBlocks();
+                processedLine = '<hr>';
+            }
+            // Empty line - close open blocks or add spacing
+            else if (rawLine.trim() === '') {
+                if (inBlockquote) {
+                    processedLine = '</blockquote>';
+                    inBlockquote = false;
+                } else {
+                    processedLine = '<br>';
+                }
+            }
+            // HTML passthrough: lines starting with < are passed through as-is
+            else if (line.match(/^<[a-zA-Z\/]/)) {
+                closeOpenBlocks();
+                processedLine = line;
+            }
+            // Regular paragraph
+            else {
+                processedLine = `<p>${parseInlineFormatting(line)}</p>`;
+            }
+
+            if (indent > 0 && processedLine) {
+                processedLine = processedLine.replace(/^(<\w+)/, `$1 style="margin-left:${indent}ch"`);
+            }
+            htmlContent += processedLine + '\n';
+        });
+
+        // Close any open elements at the end
+        if (inCodeBlock) {
+            const langClass = codeBlockLang ? ` class="language-${codeBlockLang}"` : '';
+            htmlContent += `<pre><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>`;
+        }
+        if (inBlockquote) htmlContent += '</blockquote>';
+        if (inTable) flushTable();
+        if (inForm) { htmlContent += '</div>\n'; inForm = false; }
+        while (detailsDepth > 0) { htmlContent += '</details>\n'; detailsDepth--; }
+
+        if (wrapInContainer) {
+            return `<div class="${containerClass}">${htmlContent}</div>`;
+        }
+
+        return htmlContent;
+    }
+
+    // Auto-execute function to process script tags
+    function processScriptTags() {
+        // Find all script tags with the data-brewdown attribute
+        const scripts = document.querySelectorAll('script[data-brewdown]');
+
+        scripts.forEach(script => {
+            const markdownFile = script.getAttribute('data-brewdown');
+            const wrapInContainer = script.hasAttribute('data-wrap-container');
+            const containerClass = script.getAttribute('data-container-class') || 'brewdown-container';
+
+            if (markdownFile) {
+                // Fetch and parse from file
+                fetch(markdownFile)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to load markdown file: ${markdownFile}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        const htmlContent = brewdown(data, {
+                            wrapInContainer: wrapInContainer,
+                            containerClass: containerClass
+                        });
+
+                        const container = document.createElement('div');
+                        container.className = 'markdown-rendered';
+                        container.innerHTML = htmlContent;
+                        script.parentNode.replaceChild(container, script);
+
+                        // Apply syntax highlighting after external content loads
+                        if (typeof hljs !== 'undefined') {
+                            container.querySelectorAll('pre code[class]').forEach(block => hljs.highlightElement(block));
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading markdown:', error);
+                        const errorDiv = document.createElement('div');
+                        errorDiv.className = 'brewdown-error';
+                        errorDiv.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+                        script.parentNode.replaceChild(errorDiv, script);
+                    });
+            } else {
+                // Parse inline content from the script tag
+                const inlineMarkdown = script.textContent;
+                if (inlineMarkdown.trim()) {
+                    const htmlContent = brewdown(inlineMarkdown, {
+                        wrapInContainer: wrapInContainer,
+                        containerClass: containerClass
+                    });
+
+                    const container = document.createElement('div');
+                    container.className = 'markdown-rendered';
+                    container.innerHTML = htmlContent;
+                    script.parentNode.replaceChild(container, script);
+                }
+            }
+        });
+    }
+
+    // Process div.markdown elements by converting their text content to HTML
+    function processMarkdownDivs() {
+        const divs = document.querySelectorAll('div.markdown');
+
+        divs.forEach(div => {
+            const markdownText = div.textContent;
+            if (markdownText.trim()) {
+                div.innerHTML = brewdown(markdownText);
+                div.classList.remove('markdown');
+                div.classList.add('markdown-rendered');
+            }
+        });
+    }
+
+    // Process all markdown sources when DOM is ready
+    function processAll() {
+        processScriptTags();
+        processMarkdownDivs();
+        // Apply syntax highlighting if highlight.js is loaded
+        if (typeof hljs !== 'undefined') {
+            hljs.highlightAll();
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', processAll);
+    } else {
+        processAll();
+    }
+
+    // Public API
+    const api = {
+        brewdown,
+        parseInlineFormatting,
+        processScriptTags,
+        processMarkdownDivs
+    };
+    Object.defineProperty(api, 'defaultVar', {
+        get() { return defaultVar; },
+        set(v) { defaultVar = v; }
+    });
+    return api;
+})();

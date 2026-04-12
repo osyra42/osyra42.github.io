@@ -1,0 +1,401 @@
+<!-- commissions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Coffee Byte Dev - Commissions</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Request custom development work from osyra42 - Discord bots, VTuber models, 3D printing, and more" />
+  <meta name="keywords" content="osyra42, commissions, discord bot, vtuber, 3d printing, web development" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Coffee Byte Dev - Commissions" />
+  <meta property="og:description" content="Request custom development work - Discord bots, VTuber models, and more" />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/commissions" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Coffee Byte Dev - Commissions" />
+  <meta name="twitter:description" content="Request custom development work - Discord bots, VTuber models, and more" />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <script src="assets/js/brewdown.js" defer></script>
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
+
+  <script>
+    image = "commissions.jpg";
+    title = "Commissions";
+  </script>
+
+  <style>
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      min-width: 180px;
+      height: 44px;
+      border: 2px solid var(--toasted-almond);
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--mocha);
+      color: var(--light-cream);
+      border-color: var(--caramel);
+    }
+
+    .btn-primary:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background: var(--steamed-milk);
+      color: var(--dark-mocha);
+      border-color: var(--toasted-almond);
+    }
+
+    .btn-secondary:hover {
+      background: var(--half-and-half);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    #form-preview {
+      background: var(--coffee-bean);
+      color: var(--light-cream);
+      border: 1px solid var(--toasted-almond);
+      padding: 15px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      max-height: 400px;
+      overflow-y: auto;
+      margin-top: 12px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .status-banner {
+      text-align: center;
+      padding: 15px 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .status-banner.open {
+      background: rgba(75, 139, 69, 0.2);
+      border: 2px solid var(--mint);
+      color: var(--light-mint);
+    }
+
+    .status-banner.closed {
+      background: rgba(139, 69, 69, 0.2);
+      border: 2px solid var(--raspberry);
+      color: var(--raspberry);
+    }
+
+    .status-banner span {
+      font-family: Arial, sans-serif;
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media print {
+      .status-banner, .form-actions { display: none !important; }
+
+      #form-preview {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc !important;
+        max-height: none !important;
+        overflow: visible !important;
+        word-break: break-word;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+
+  <!-- Main Content -->
+  <main>
+
+    <div class="download-bar">
+      <h1>Commissions</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <!-- Change class to "closed" when not accepting commissions -->
+    <div class="status-banner open">
+      <span>Commissions are OPEN</span>
+    </div>
+
+    <div class="markdown">
+>>> 📋 Commission Policy
+> **💲 Paid:** $20 to start — paid via the [donate page](donate.html), no refunds once work begins
+> **🆓 Free:** Available if you stay in active communication throughout the project — if you ghost, the project gets dropped
+> **⏳ Timeline:** ~3 months on average, depending on complexity and queue position
+>
+> **👤 One Request:** One active commission per person
+> **🔄 Scope Changes:** May reset your position in the queue
+> **✋ Right to Decline:** I may decline any request for any reason
+
+View [examples of my previous work](examples.html) to get an idea of what I can create.
+<<<
+
+>>> 💻 Technical Skills & Expertise
+
+🌐 **Frontend** — HTML5, CSS3, JavaScript (ES6+), Canvas API, DOM Manipulation, Progressive Web Apps
+
+⚙️ **Backend** — Python, PHP, SQLite, RESTful APIs, Server Administration
+
+🤖 **AI** — OpenAI, Anthropic Claude, Groq, OpenRouter, Ollama, DeepSeek, TTS Pipelines, Audio Processing, Prompt Engineering
+
+🎨 **3D & Design** — Modeling, Rigging, Animation, VRM/VTuber Avatars, 3D Printing, UI/UX
+
+✏️ **Creative** — Technical Writing, Fiction, Digital Storytelling, Interactive Media
+
+🕹️ **Game Dev** — GameMaker Studio 2, Sprite Animation, Entity Systems, Loot Tables, HUD/GUI
+
+🖥️ **Servers** — Minecraft Administration (14+ Years), Modpack Config, Community Management
+
+🔧 **Tools** — Git, GitHub, VS Code, PySide6, Mineflayer.js, ComfyUI, VRoid Studio, VMagicMirror
+<<<
+
+---
+
+# 🛠️ Commission Request
+
+:: Commission Request
+
+## Step 1 — Tell Me Who You Are
+
+**Your Name:**
+___
+
+**Contact Method:**
+[ ] Discord
+[ ] Email
+[ ] Other ___
+
+**Contact Info:**
+___
+
+---
+
+## Step 2 — What Do You Need?
+
+Pick the service that best fits your project, then describe what you're looking for. The more detail you give, the better I can evaluate the request.
+
+**Service Type:**
+[ ] Discord Bot — *purpose, features, API integrations, database and hosting needs*
+[ ] VTuber Model — *model type (3D VRM, PNGTuber), art style, character concept, target platform*
+[ ] 3D Printing — *design source (your files or from scratch), material, color, shipping info*
+[ ] Code Help — *bug fix, code review, optimization, or tutoring; include language and repo link*
+[ ] Web Development — *site type, features needed (auth, payments, CMS), design status*
+[ ] Other ___
+
+**Describe your project:**
+___
+
+**Reference links or examples:**
+___
+
+---
+
+## Step 3 — Details & Preferences
+
+Fill out whatever applies. Skip anything that doesn't — this section is optional.
+
+**Preferred language or platform:**
+___
+
+**Do you need hosting or setup?**
+[ ] Yes
+[ ] No
+[ ] Not sure
+
+**Material or style preference:**
+___
+
+**GitHub/repo link:**
+___
+
+**Shipping address (3D prints only):**
+___
+
+**How urgent is this?**
+[ ] Not urgent
+[ ] Moderately urgent
+[ ] Urgent
+
+**Additional Notes:**
+___
+
+---
+
+## Step 4 — Review & Send
+
+Preview your form below, then send it to me via [Discord](https://discordapp.com/users/163839418623459330) or [Email](mailto:CoffeeByteDev@proton.me). I'll get back to you with questions or an acceptance.
+
+**Priority Processing:** [ ] I am interested in making a $20 payment
+
+::
+    </div>
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary" onclick="generatePreview()">Preview Request</button>
+      <button type="button" class="btn btn-secondary" onclick="downloadRequest()">Download Request</button>
+      <button type="button" class="btn btn-secondary" onclick="copyRequest()">Copy to Clipboard</button>
+    </div>
+
+    <pre id="form-preview" class="hidden"></pre>
+
+    <div class="markdown">
+---
+**Last Updated:** @@2026.03.27@@
+**Author:** Coffee Byte Dev (osyra42)
+    </div>
+    <button id="back-to-top">Back to Top</button>
+  </main>
+
+  <script>
+    function generatePreview() {
+      const container = document.querySelector('.brewdown-form');
+      if (!container) return;
+
+      const title = container.getAttribute('data-form-title') || 'Commission Request';
+      let preview = `# ${title}\n`;
+
+      // Walk every element inside the form in DOM order
+      const nodes = container.querySelectorAll('h2, p');
+      let lastLabel = '';
+
+      nodes.forEach(el => {
+        if (el.tagName === 'H2') {
+          preview += `\n## ${el.textContent.trim()}\n`;
+          lastLabel = '';
+          return;
+        }
+
+        const checkboxes = el.querySelectorAll('input[type="checkbox"]');
+        const textInputs = el.querySelectorAll('input[type="text"]');
+        const strong = el.querySelector('strong');
+
+        // Label-only paragraph (bold text, no inputs) — save for next line
+        if (strong && checkboxes.length === 0 && textInputs.length === 0) {
+          lastLabel = strong.textContent.trim();
+          return;
+        }
+
+        // Text input paragraph (the ___ that follows a label)
+        if (textInputs.length > 0 && checkboxes.length === 0) {
+          const value = textInputs[0].value.trim();
+          if (lastLabel) {
+            preview += `${lastLabel} ${value || '—'}\n`;
+            lastLabel = '';
+          } else if (value) {
+            preview += `${value}\n`;
+          }
+          return;
+        }
+
+        // Checkbox paragraph
+        if (checkboxes.length > 0) {
+          // If this paragraph also has a label, print it
+          if (strong) {
+            preview += `${strong.textContent.trim()}\n`;
+          } else if (lastLabel) {
+            preview += `${lastLabel}\n`;
+            lastLabel = '';
+          }
+          checkboxes.forEach(cb => {
+            let text = '';
+            let node = cb.nextSibling;
+            while (node) {
+              if (node.nodeType === 3) text += node.textContent;
+              else if (node.tagName === 'INPUT' || node.tagName === 'EM') break;
+              node = node.nextSibling;
+            }
+            text = text.replace(/\s+/g, ' ').replace(/[—–\-]\s*$/, '').trim();
+            if (!text) return;
+            preview += `[${cb.checked ? 'x' : ' '}] ${text}\n`;
+          });
+          // "Other ___" trailing text input
+          textInputs.forEach(input => {
+            if (input.value.trim()) preview += `    Other: ${input.value.trim()}\n`;
+          });
+          return;
+        }
+
+        lastLabel = '';
+      });
+
+      preview += `\nGenerated: ${new Date().toLocaleString()}\n`;
+
+      const previewEl = document.getElementById('form-preview');
+      previewEl.textContent = preview;
+      previewEl.classList.remove('hidden');
+    }
+
+    function downloadRequest() {
+      generatePreview();
+      const preview = document.getElementById('form-preview').textContent;
+      const date = new Date().toISOString().slice(0, 10);
+
+      const blob = new Blob([preview], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `commission_request_${date}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function copyRequest() {
+      generatePreview();
+      const preview = document.getElementById('form-preview').textContent;
+
+      navigator.clipboard.writeText(preview).then(() => {
+        alert('Request copied to clipboard!');
+      }).catch(err => {
+        alert('Error copying to clipboard: ' + err);
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!-- blank_pixel_game.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Blank Pixel Game - Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Blank Pixel Game - A pixel art adventure game by osyra42" />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, pixel game, indie game, adventure" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Blank Pixel Game - Coffee Byte Dev" />
+  <meta property="og:description" content="Blank Pixel Game - A pixel art adventure game by osyra42" />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/blank_pixel_game" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blank Pixel Game - Coffee Byte Dev" />
+  <meta name="twitter:description" content="Blank Pixel Game - A pixel art adventure game by osyra42" />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <script src="assets/js/brewdown.js" defer></script>
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
+
+  <script>
+    image = "blank_pixel_game.jpg";
+    title = "Blank Pixel Game";
+  </script>
+</head>
+<body>
+
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+
+  <!-- Main Content -->
+  <main>
+
+    <div class="download-bar">
+      <h1>Blank Pixel Game</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+🕹️ A work-in-progress pixel art adventure built in GameMaker Studio 2 by osyra42. Explore the world, collect coins, and fight your way through — more to come!
+
+🔗 [Play in Browser](blank_pixel_game/index.html) — Press F11 for fullscreen, makes it a much better experience. The controls are below.
+
+### 🎮 Controls
+
+```yaml
+# Movement
+Move:          W A S D
+Run:           Shift
+Dodge:         Space
+
+# Combat
+Attack:        Left Click
+Use:           Right Click
+
+# Interaction
+Interact:      E
+Potion:        Q
+Inventory:     Tab
+Pause:         Escape
+```
+
+---
+
+## 📦 Downloads
+
+| Date | HTML5 | Windows | Linux |
+|------|-------|---------|-------|
+| 2026.04.04 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.04-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.04-WINDOWS.exe) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.04-WINZIP.zip) | — |
+| 2026.03.28 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.28-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.28-WINDOWS.exe) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.28-WINZIP.zip) | [AppImage](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.28-LINUX.AppImage) |
+| 2026.03.21 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.21-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.21-WINDOWS.exe) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.21-WINZIP.zip) | [AppImage](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.21-LINUX.AppImage) |
+| 2026.03.20 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.20-HTML5.zip) | [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.20-WINZIP.zip) | — |
+| 2026.03.14 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.14-HTML5.zip) | [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.14-WINZIP.zip) | — |
+| 2026.03.13 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.13-HTML5.zip) | [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.13-WINZIP.zip) | — |
+| 2026.03.12 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.12-HTML5.zip) | [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.12-WINZIP.zip) | — |
+| 2026.03.11 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.11-HTML5.zip) | — | — |
+
+---
+
+## ✨ Features
+
+### 🗺️ Dungeon Generation
+- Random dungeon generation using drunkard's walk algorithm
+- 64x64 tile grid with floor and void placement
+- 16 positional wall tiles that blend with surrounding terrain
+- Wall tiles block player movement
+- Safe spawning — player and enemies only placed on floor tiles, no shared tiles
+- Items snap to floor tiles and don't stack
+
+### 🏃 Movement
+- Walk and run with speed-based animation differences
+- Smooth 4-directional and diagonal movement
+- Consistent speed in all directions
+
+### ⚔️ Combat
+- Attack action with directional swing
+- Dummy enemies with health bars and floating damage values
+- Enemies drop coins that are thrown out on death
+- Enemies have a 25% chance per gift to drop loot on death
+
+### 🎒 Inventory
+- Pick up gifts with E (interact)
+- Items go into proper inventory slots
+- Inventory sorting and equipment management
+- Inventory overflow prevention — can't pick up items when full
+
+### 💰 Economy
+- Rebalanced coin distribution
+- Lucky coin — displays in green when value exceeds the loot pool
+- All coins rendered with blend for reduced PC load
+- Cute collect sound effect when picking up coins
+- Floating +money text on pickup
+- GUI money counter with comma-formatted numbers for easy readability
+
+### 🖥️ HUD
+- Adjusted HUD layout
+- Scrolling chat log — tells the player what's happening in the game
+- Objects have unique identity colors in chat
+- Dungeon seed displayed on game start
+
+---
+
+**Last Updated:** @@2026.04.04@@
+**Author:** Coffee Byte Dev (osyra42)
+    </div>
+
+    <button id="back-to-top">Back to Top</button>
+  </main>
+
+</body>
+</html>
