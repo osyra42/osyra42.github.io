@@ -1,0 +1,174 @@
+/* brewdown.css — Styles for Brewdown markdown output */
+
+/* Headings */
+main h1 {
+  color: var(--caramel);
+  font-size: 2.5em;
+  margin-bottom: 0.3em;
+  border-bottom: 4px solid var(--caramel);
+  padding-bottom: 0.3em;
+}
+
+main h2 {
+  color: var(--caramel);
+  font-size: 1.8em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  border-bottom: 2px solid var(--caramel);
+  padding-bottom: 0.3em;
+}
+
+main h3 {
+  color: var(--pumpkin-spice);
+  font-size: 1.4em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+main h4 {
+  color: var(--pumpkin-spice);
+  font-size: 1.2em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+}
+
+/* Text */
+main p {
+  margin-bottom: 0;
+  text-align: justify;
+}
+
+main p.indent {
+  text-indent: 2em;
+}
+
+main p.no-indent {
+  text-indent: 0;
+}
+
+/* Links */
+main a {
+  color: var(--caramel);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+main a:hover {
+  color: var(--light-cream);
+  text-decoration: underline;
+}
+
+/* Lists */
+main ul,
+main ol {
+  margin: 1em 0 1em 2em;
+}
+
+main li {
+  margin-bottom: 0.5em;
+}
+
+/* Tables */
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.9em;
+}
+
+main th,
+main td {
+  border: 1px solid var(--coffee-bean);
+  padding: 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+
+main th {
+  background-color: var(--dark-mocha);
+  color: var(--pumpkin-spice);
+  font-weight: bold;
+}
+
+main tr:nth-child(even) {
+  background-color: rgba(42, 30, 20, 0.5);
+}
+
+/* Code */
+main code {
+  background: var(--dark-mocha);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--pumpkin-spice);
+}
+
+main pre {
+  background: var(--dark-mocha);
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 1em 0;
+}
+
+main pre code {
+  padding: 0;
+  background: none;
+}
+
+/* Blockquote */
+main blockquote {
+  background: var(--dark-mocha);
+  border-left: 4px solid var(--caramel);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+/* Horizontal rule */
+main hr {
+  border: none;
+  border-top: 1px solid var(--coffee-bean);
+  margin: 2em 0;
+  height: auto;
+  background-color: transparent;
+}
+
+/* Spoiler */
+.spoiler {
+  background-color: var(--coffee-bean);
+  color: var(--coffee-bean);
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 4px;
+  transition: color 0.3s;
+}
+
+.spoiler.revealed {
+  color: var(--steamed-milk);
+}
+
+/* Collapsible (>>> / <<<) */
+main details {
+  margin: 1em 0;
+}
+
+main details summary {
+  cursor: pointer;
+  color: var(--caramel);
+  font-weight: bold;
+  padding: 0.5em 0;
+  transition: color 0.3s;
+}
+
+main details summary:hover {
+  color: var(--light-cream);
+}
+
+/* Dialogue */
+main .dialogue {
+  margin: 1em 0;
+  text-indent: 0;
+}

@@ -1,0 +1,288 @@
+/* main.css */
+
+/* Colors are in theme.css */
+
+main {
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: var(--espresso);
+  color: var(--steamed-milk);
+  line-height: 1.8;
+  width: 100%;
+  padding: 0;
+  display: block;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--pumpkin-spice) var(--dark-chocolate);
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+main p {
+  margin-bottom: 12px;
+}
+
+main,
+main * {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.8;
+}
+
+main code,
+main pre,
+main code *,
+main pre * {
+  font-family: 'Courier New', Consolas, monospace;
+}
+
+/* Constrain content but not the download bar */
+main > *:not(.download-bar) {
+  max-width: 794px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Download bar */
+main .download-bar {
+  background-color: var(--dark-mocha);
+  color: var(--steamed-milk);
+  padding: 8px 20px;
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-bottom: 2px solid var(--coffee-bean);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+main .download-bar h1 {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: var(--pumpkin-spice);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+main .download-btn {
+  background-color: var(--caramel);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+main .download-btn:hover {
+  background-color: var(--pumpkin-spice);
+}
+
+/* Brewdown output styles are in brewdown.css */
+
+/* Table of Contents */
+main .toc {
+  background-color: var(--dark-mocha);
+  border: 2px solid var(--coffee-bean);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+main .toc h2 {
+  color: var(--caramel);
+  margin-bottom: 15px;
+  margin-top: 0;
+  font-size: 1.4em;
+  border-bottom: none;
+}
+
+main .toc ul {
+  list-style: none;
+  margin-left: 0;
+  columns: 2;
+  column-gap: 30px;
+}
+
+main .toc li {
+  margin-bottom: 8px;
+  break-inside: avoid;
+}
+
+main .toc a { color: var(--caramel); }
+main .toc a:hover { color: var(--light-cream); }
+
+/* Characters section */
+main .characters {
+  background-color: var(--dark-mocha);
+  border: 2px solid var(--coffee-bean);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+main .characters h2 {
+  color: var(--caramel);
+  margin-bottom: 15px;
+  margin-top: 0;
+  font-size: 1.4em;
+  border-bottom: none;
+}
+
+main .characters ul {
+  list-style: none;
+  columns: 2;
+  column-gap: 30px;
+  margin: 0;
+}
+
+main .characters li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+main .characters li::before {
+  content: "\2726";
+  position: absolute;
+  left: 0;
+  color: var(--caramel);
+}
+
+/* Info boxes */
+main .info-box {
+  background: var(--dark-mocha);
+  border-left: 4px solid var(--caramel);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+main .info-box p {
+  margin-bottom: 0.5em;
+  text-indent: 0;
+}
+
+main .info-box p:last-child { margin-bottom: 0; }
+main .info-box strong { color: var(--pumpkin-spice); }
+
+/* Warning boxes */
+main .warning-box {
+  background: #3d2020;
+  border-left: 4px solid #c0392b;
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+main .warning-box p { margin-bottom: 0.5em; }
+main .warning-box p:last-child { margin-bottom: 0; }
+main .warning-box strong { color: #e74c3c; }
+
+/* Tip boxes (mint) */
+main .tip-box {
+  background: var(--heavy-mint);
+  border-left: 4px solid var(--mint);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+}
+
+main .tip-box p { margin-bottom: 0.5em; }
+main .tip-box p:last-child { margin-bottom: 0; }
+main .tip-box strong { color: var(--light-mint); }
+
+/* Executive summary */
+main .executive-summary {
+  background: var(--dark-mocha);
+  border: 2px solid var(--coffee-bean);
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 40px;
+}
+
+main .executive-summary h3 {
+  margin-top: 0;
+  color: var(--caramel);
+}
+
+/* Journal entries */
+main .journal-entry {
+  background: var(--dark-mocha);
+  border-left: 4px solid var(--caramel);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  font-style: italic;
+}
+
+main .journal-entry p { text-indent: 0; }
+
+main .journal-date {
+  font-weight: bold;
+  color: var(--pumpkin-spice);
+  font-style: normal;
+}
+
+/* Footer */
+main .footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 3px solid var(--coffee-bean);
+  text-align: center;
+  color: var(--half-and-half);
+  font-size: 0.9em;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+main .footer p {
+  margin-bottom: 10px;
+  text-indent: 0;
+}
+
+/* Utility */
+main .page-break { page-break-before: always; }
+
+main .section-divider {
+  text-align: center;
+  margin: 2em 0;
+  color: var(--caramel);
+}
+
+main .note-text {
+  font-style: italic;
+  color: var(--half-and-half);
+  text-indent: 0;
+}
+
+main .links-box {
+  background: var(--dark-mocha);
+  border: 2px solid var(--coffee-bean);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
+main .works-cited {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 2px solid var(--coffee-bean);
+}
+
+main .works-cited h2 { font-size: 1.4em; }
+
+main .works-cited li {
+  margin-bottom: 0.8em;
+  word-break: break-word;
+}
+
+
+/* Print styles are in print.css */
