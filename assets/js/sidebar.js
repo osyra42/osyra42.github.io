@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 **Navigation**
 - [🏠 Home Page](index.html)
 - [📋 Changelog](changelog.html)
-- [💼 Commissions 🆕](commissions.html)
+- [💼 Commissions](commissions.html)
 - [⭐ Recommendations](recommendations.html)
 - [⛏️ Minecraft Server 🆕](minecraft.html)
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 **Projects**
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [📖 Operation Chimera 🆕](operation_chimera.html)
-- [☕ Brewdown 🆕](brewdown.html)
+- [☕ Brewdown](brewdown.html)
 - [🤖 Vanity Bot](vanity.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
 >>> 📦 Archives
