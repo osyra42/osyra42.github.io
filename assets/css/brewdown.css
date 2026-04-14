@@ -90,6 +90,11 @@ main th {
   font-weight: bold;
 }
 
+main th:first-child,
+main td:first-child {
+  width: 30%;
+}
+
 main tr:nth-child(even) {
   background-color: rgba(42, 30, 20, 0.5);
 }
