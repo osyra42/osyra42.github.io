@@ -225,7 +225,8 @@ I promise you that this is good enough. ☕
       var playersEl = document.getElementById(id + '-players');
       var versionEl = document.getElementById(id + '-version');
 
-      fetch('https://api.mcsrvstat.us/2/' + host + ':' + port)
+      var url = 'https://api.mcsrvstat.us/2/' + host + (port ? ':' + port : '');
+      fetch(url)
         .then(function(r) { return r.json(); })
         .then(function(data) {
           if (data.online) {
@@ -248,8 +249,8 @@ I promise you that this is good enough. ☕
     // Ping all servers after page loads
     document.addEventListener('DOMContentLoaded', function() {
       ping('server1', 'play.coffeeblock.xyz', 25565);
-      ping('server2', 'play.coffeeblock.xyz', 25566);
-      ping('server3', 'play.coffeeblock.xyz', 25567);
+      ping('server2', 'modded.coffeeblock.xyz');
+      ping('server3', 'thefoxden.live');
     });
   </script>
 
