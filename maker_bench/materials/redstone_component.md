@@ -1,4 +1,4 @@
-# Digital Components
+# Redstone Components
 
 ## Peripherals
 - Leap Motion Controller Series 1
@@ -9,7 +9,7 @@
 - 120GB Corsair NVMe PCIe Gen 3 SSD
 - DVD Drive for PC Tower
 
-## Graphics
+## Displays
 - GTX 1050 Video Card
 
 ## Networking

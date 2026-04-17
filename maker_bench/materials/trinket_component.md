@@ -1,4 +1,4 @@
-# Hardware Components
+# Trinket Components
 
 ## Adhesives
 - Adhesive Paper Label
