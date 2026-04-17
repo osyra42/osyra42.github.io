@@ -1,4 +1,4 @@
-# Artistic Components
+# Dye Components
 
 ## Writing
 - Multicolor Pen

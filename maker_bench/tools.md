@@ -1,21 +1,21 @@
 # Tools
 
-## Measuring
+## Surveying
 - Digital Calipers
 
-## Cutting
+## Blades
 - Folding Knife
 
-## Striking
+## Hammers
 - Bump Hammer
 
-## Lock and Security
+## Lockpicking
 - Lock Pick Set
 
-## Utility
+## Survival Kit
 - Flashlight
 - Lighter
 - Unlimited Air
 
-## Fidgets
+## Curios
 - Sprocket Fidget
