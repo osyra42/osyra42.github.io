@@ -1,0 +1,402 @@
+<!-- zen_launcher.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Zen Launcher - Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Zen Launcher - generate cross-platform launcher scripts with environment checks" />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, Zen Launcher, bat, sh, launcher" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Zen Launcher - Coffee Byte Dev" />
+  <meta property="og:description" content="Generate cross-platform launcher scripts with environment checks" />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/zen_launcher" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zen Launcher - Coffee Byte Dev" />
+  <meta name="twitter:description" content="Generate cross-platform launcher scripts with environment checks" />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <script src="assets/js/brewdown.js" defer></script>
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
+
+  <script>
+    image = "zen_launcher.jpg";
+    title = "Zen Launcher";
+  </script>
+
+  <style>
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      min-width: 180px;
+      height: 44px;
+      border: 2px solid var(--toasted-almond);
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--mocha);
+      color: var(--light-cream);
+      border-color: var(--caramel);
+    }
+
+    .btn-primary:hover {
+      background: var(--caramel);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background: var(--steamed-milk);
+      color: var(--dark-mocha);
+      border-color: var(--toasted-almond);
+    }
+
+    .btn-secondary:hover {
+      background: var(--half-and-half);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .script-preview-block {
+      margin-top: 20px;
+    }
+
+    .script-preview-block h3 {
+      margin: 0 0 6px 0;
+      color: var(--caramel);
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    .script-preview-block pre {
+      background: var(--coffee-bean);
+      color: var(--light-cream);
+      border: 1px solid var(--toasted-almond);
+      padding: 15px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      max-height: 400px;
+      overflow-y: auto;
+      margin: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+
+  <!-- Main Content -->
+  <main>
+
+    <div class="download-bar">
+      <h1>Zen Launcher</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="markdown">
+Zen Launcher builds small launcher scripts (`.bat` for Windows, `.sh` for Mac/Linux) that sit next to your program. When someone runs them, they check that the right things are installed first — Python, Java, whatever you need — and only launch your program once the coast is clear. No more cryptic "command not found" errors for your users.
+
+Fill out the form, hit preview, and download the scripts.
+
+---
+
+# 🚀 Launcher Setup
+
+:: Zen Launcher
+
+## Step 1 — Launcher Info
+
+> The basics: what the scripts are called, and what shows up when they run.
+
+> The filename for the downloaded scripts. Type `dungeon_crawler` and you'll get `dungeon_crawler.bat` and `dungeon_crawler.sh`. Blank is fine — it defaults to `zen_launcher`.
+
+**Launcher Name** *(no extension):*
+___
+
+> What shows up in the title bar of the terminal window when the launcher runs. A cleaner, readable version of your program's name. Leave blank to reuse the Launcher Name.
+
+**Terminal Title:**
+___
+
+> The file that actually runs once the checks pass. The scripts figure out how to launch it from the extension — `.py` uses Python, `.jar` uses Java, `.js` uses Node, and so on. For a compiled binary, just give the path to the executable.
+
+**Executable / Entry File** *(e.g. `app.py` or `game.jar`):*
+___
+
+---
+
+## Step 2 — Runtime Environment
+
+> Check every runtime your program actually needs. Each one becomes a check in the scripts — if something's missing, the user gets a clear error instead of a crash. Bash, Command Prompt, Go, and Rust don't need checks since they're always there or ship as standalone binaries.
+
+**Runtime Types** *(check all that apply — they stack in order):*
+[ ] .NET (dotnet)
+[ ] Bash (no runtime check)
+[ ] Command Prompt (no runtime check)
+[ ] Go (compiled binary)
+[ ] Java (JAR)
+[ ] Node.js
+[ ] PHP
+[ ] Python
+[ ] Ruby
+[ ] Rust (compiled binary)
+
+> Just for documentation — note which version you tested against so people have a reference point.
+
+**Minimum Version** *(optional, e.g. `3.10`):*
+___
+
+---
+
+## Step 3 — Optional
+
+> Skip anything you don't need.
+
+> Extra flags or parameters that get passed to your program at startup.
+
+**Additional Arguments:**
+___
+
+> Override the default "X is required to run this program" message. Handy if you want to point users toward a download link or install guide.
+
+**Custom Error Message:**
+___
+
+::
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-primary" onclick="previewScripts()">Preview Scripts</button>
+      <button type="button" class="btn btn-secondary" onclick="downloadBat()">Download .bat</button>
+      <button type="button" class="btn btn-secondary" onclick="downloadSh()">Download .sh</button>
+    </div>
+
+    <div id="bat-preview-block" class="script-preview-block hidden">
+      <h3 id="bat-preview-title"></h3>
+      <pre id="bat-preview"></pre>
+    </div>
+
+    <div id="sh-preview-block" class="script-preview-block hidden">
+      <h3 id="sh-preview-title"></h3>
+      <pre id="sh-preview"></pre>
+    </div>
+
+    <div class="markdown">
+---
+**Last Updated:** @@2026.04.16@@
+**Author:** Coffee Byte Dev (osyra42)
+    </div>
+
+    <button id="back-to-top">Back to Top</button>
+  </main>
+
+  <script>
+    function collectFormData() {
+      const container = document.querySelector('.brewdown-form');
+      if (!container) return null;
+
+      const textInputs = container.querySelectorAll('input[type="text"]');
+      const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+
+      const data = {
+        name: textInputs[0] ? textInputs[0].value.trim() : '',
+        title: textInputs[1] ? textInputs[1].value.trim() : '',
+        entry: textInputs[2] ? textInputs[2].value.trim() : '',
+        version: textInputs[3] ? textInputs[3].value.trim() : '',
+        args: textInputs[4] ? textInputs[4].value.trim() : '',
+        errorMsg: textInputs[5] ? textInputs[5].value.trim() : '',
+        runtimes: []
+      };
+
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          let text = '';
+          let node = cb.nextSibling;
+          while (node) {
+            if (node.nodeType === 3) text += node.textContent;
+            else if (node.tagName === 'INPUT' || node.tagName === 'EM') break;
+            node = node.nextSibling;
+          }
+          text = text.replace(/\s+/g, ' ').trim();
+          const name = text.split(' ')[0];
+          if (name) data.runtimes.push(name);
+        }
+      });
+
+      return data;
+    }
+
+    const runtimeCommands = {
+      '.NET':            { bat: 'dotnet',  sh: 'dotnet' },
+      'Bash':            { bat: null,      sh: null },
+      'Command':         { bat: null,      sh: null },
+      'Go':              { bat: null,      sh: null },
+      'Java':            { bat: 'java',    sh: 'java' },
+      'Node.js':         { bat: 'node',    sh: 'node' },
+      'PHP':             { bat: 'php',     sh: 'php' },
+      'Python':          { bat: 'python',  sh: 'python3' },
+      'Ruby':            { bat: 'ruby',    sh: 'ruby' },
+      'Rust':            { bat: null,      sh: null }
+    };
+
+    function inferLaunchCommand(entry, isBat) {
+      const ext = entry.indexOf('.') >= 0 ? entry.split('.').pop().toLowerCase() : '';
+      const python = isBat ? 'python' : 'python3';
+      const quoted = '"' + entry + '"';
+
+      switch (ext) {
+        case 'py':  return python + ' ' + quoted;
+        case 'jar': return 'java -jar ' + quoted;
+        case 'js':
+        case 'mjs': return 'node ' + quoted;
+        case 'rb':  return 'ruby ' + quoted;
+        case 'php': return 'php ' + quoted;
+        case 'dll': return 'dotnet ' + quoted;
+        case 'sh':  return 'bash ' + quoted;
+        case 'bat':
+        case 'cmd': return isBat ? 'call ' + quoted : quoted;
+        default:    return isBat ? quoted : './' + entry;
+      }
+    }
+
+    function buildBat(data) {
+      const entry = data.entry || 'program';
+      const args = data.args ? ' ' + data.args : '';
+      const customErr = data.errorMsg || '';
+      const name = data.name || 'zen_launcher';
+      const title = data.title || name;
+
+      let lines = ['@echo off', 'title ' + title, 'cd /d "%~dp0"', ''];
+
+      data.runtimes.forEach(rtName => {
+        const rt = runtimeCommands[rtName];
+        if (!rt || !rt.bat) return;
+        const errMsg = customErr || (rtName + ' is required to run this program.');
+        lines.push('where ' + rt.bat + ' >nul 2>&1');
+        lines.push('if %ERRORLEVEL% NEQ 0 (');
+        lines.push('    echo ' + errMsg);
+        lines.push('    pause');
+        lines.push('    exit /b 1');
+        lines.push(')');
+        lines.push('');
+      });
+
+      lines.push(inferLaunchCommand(entry, true) + args);
+      lines.push('pause');
+      return lines.join('\r\n');
+    }
+
+    function buildSh(data) {
+      const entry = data.entry || 'program';
+      const args = data.args ? ' ' + data.args : '';
+      const customErr = data.errorMsg || '';
+      const name = data.name || 'zen_launcher';
+      const title = data.title || name;
+
+      let lines = ['#!/bin/bash', "printf '\\033]0;%s\\007' '" + title + "'", 'cd "$(dirname "$0")"', ''];
+
+      data.runtimes.forEach(rtName => {
+        const rt = runtimeCommands[rtName];
+        if (!rt || !rt.sh) return;
+        const errMsg = customErr || (rtName + ' is required to run this program.');
+        lines.push('if ! command -v ' + rt.sh + ' &> /dev/null; then');
+        lines.push('    echo "' + errMsg + '"');
+        lines.push('    exit 1');
+        lines.push('fi');
+        lines.push('');
+      });
+
+      lines.push(inferLaunchCommand(entry, false) + args);
+      return lines.join('\n');
+    }
+
+    function previewScripts() {
+      const data = collectFormData();
+      if (!data) return;
+
+      if (!data.runtimes.length) {
+        alert('Please select at least one runtime type.');
+        return;
+      }
+
+      const name = data.name || 'zen_launcher';
+      const bat = buildBat(data);
+      const sh = buildSh(data);
+
+      document.getElementById('bat-preview-title').textContent = name + '.bat';
+      document.getElementById('bat-preview').textContent = bat;
+      document.getElementById('bat-preview-block').classList.remove('hidden');
+
+      document.getElementById('sh-preview-title').textContent = name + '.sh';
+      document.getElementById('sh-preview').textContent = sh;
+      document.getElementById('sh-preview-block').classList.remove('hidden');
+    }
+
+    function downloadFile(content, filename) {
+      const blob = new Blob([content], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    function downloadBat() {
+      const data = collectFormData();
+      if (!data) return;
+      if (!data.runtimes.length) { alert('Please select at least one runtime type.'); return; }
+      const name = data.name || 'zen_launcher';
+      downloadFile(buildBat(data), name + '.bat');
+    }
+
+    function downloadSh() {
+      const data = collectFormData();
+      if (!data) return;
+      if (!data.runtimes.length) { alert('Please select at least one runtime type.'); return; }
+      const name = data.name || 'zen_launcher';
+      downloadFile(buildSh(data), name + '.sh');
+    }
+  </script>
+
+</body>
+</html>
