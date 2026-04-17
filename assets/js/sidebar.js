@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 **Projects**
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [📖 Operation Chimera 🆕](operation_chimera.html)
+- [🚀 Zen Launcher 🆕](zen_launcher.html)
 - [☕ Brewdown](brewdown.html)
 - [🤖 Vanity Bot](vanity.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
