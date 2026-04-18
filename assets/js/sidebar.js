@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [🏠 Home Page](index.html)
 - [📋 Changelog](changelog.html)
 - [💼 Commissions](commissions.html)
-- [⭐ Recommendations](recommendations.html)
+- [⭐ Recommendations 🆕](recommendations.html)
 - [⛏️ Minecraft Server 🆕](minecraft.html)
 
 ---
