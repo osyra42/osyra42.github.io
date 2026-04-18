@@ -25,7 +25,7 @@ She hides her traits in civilian life using color contacts, hats, dresses—anyt
 **Weapons:**
 - Charge Rifle (tungsten/iron core spikes, electromagnetic acceleration)
 - M1911 Pistol
-- R15 Rifle
+- AR-15 Rifle
 - Breaching/Demolition Tool
 - Reinforced Combat Knife
 
