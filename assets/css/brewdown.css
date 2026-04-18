@@ -95,6 +95,12 @@ main td:first-child {
   width: 30%;
 }
 
+main th.col-index,
+main td.col-index {
+  width: 24px;
+  text-align: center;
+}
+
 main tr:nth-child(even) {
   background-color: rgba(42, 30, 20, 0.5);
 }

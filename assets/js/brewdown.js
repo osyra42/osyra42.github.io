@@ -140,14 +140,18 @@ const Brewdown = (function() {
         function flushTable() {
             if (tableRows.length === 0) return;
             let html = '<div class="table-wrap"><table>\n';
+            const indexCols = new Set();
             tableRows.forEach((row, i) => {
                 const cells = row.split('|').slice(1, -1);
                 // Skip separator row (e.g. |---|---|)
                 if (i === 1 && cells.every(c => c.trim().match(/^[-:]+$/))) return;
                 const tag = i === 0 ? 'th' : 'td';
                 html += '<tr>';
-                cells.forEach(cell => {
-                    html += `<${tag}>${parseInlineFormatting(cell.trim())}</${tag}>`;
+                cells.forEach((cell, colIdx) => {
+                    const trimmed = cell.trim();
+                    if (i === 0 && trimmed === '#') indexCols.add(colIdx);
+                    const cls = indexCols.has(colIdx) ? ' class="col-index"' : '';
+                    html += `<${tag}${cls}>${parseInlineFormatting(trimmed)}</${tag}>`;
                 });
                 html += '</tr>\n';
             });
