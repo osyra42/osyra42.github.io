@@ -12,11 +12,11 @@ A strange sensation washed over me. I'd never wanted to be close to family befor
 
 "Okay, we're just about there," Korval said. "Make sure you dress appropriately."
 
-For a moment, I'd nearly forgotten that my grandmother didn't know about my altered form. I climbed into the back seat and changed my jeans for a dress. Put a hat on, added contacts. I felt like a completely different person. I couldn't tell which version of me was real. The one where I was Chimeran? Or the one where I was a scientist?
+For a moment, I'd nearly forgotten that my grandmother didn't know about my altered form. I climbed into the back seat and changed my jeans for a dress. Put a hat on, added contacts. I felt like a completely different person. I couldn't tell which version of me was real. The one where I'm Chimeran? Or the one where I was human?
 
 ---
 
-I was Chimera now. I wasn't always Chimera. This came from a lab. My true parents died when I was young. I was given to a foster parent who immediately sold me to a medical facility. They experimented on me. They experimented on many other kids. Most of them didn't make it. I did.
+I was Chimera now. I wasn't always Chimera. This came from a lab. I was given up for adoption as an infant. My aunt took me in and raised me until she passed. After that I went to foster care — they're the ones who sold me to the medical facility. I was sixteen. They experimented on me. They experimented on many other kids. Most of them didn't make it. I did.
 
 I became a Chimera—part wolf, part human. You couldn't classify me as human or animal. While they were running their tests, there was a breach. Someone blew up part of the building. The facilities shut down, and I got free. They wrote it off as a total loss.
 
@@ -111,3 +111,9 @@ I finally spoke again. "Do you know where they're taking him?"
 "All I was told was standard transfer," Korval said. "Anyway, that's all I have to report, Captain. I'm out." He did a short bow, turned, got in the car, and left. Like there was nothing else to do in the world. Stiff, mechanical.
 
 I shut the door and turned around to face Rosalyn, but she wasn't there. She seemed to be in the kitchen. I wandered back to the comfortable chair. Sat down. It was relaxing. It took the edge off. I couldn't have explained the military secrets if I had to. I kept these thoughts to myself.
+
+For a moment I was alone with my thoughts. I had nothing to think about except what this new recruiter would be like. Hopefully they figured out how to do things my way. She eventually brought in some tea. It was hard to pay attention to that. The comfortable chair was lulling me to sleep as my ever-energetic body was slowing down. Hopefully the tea would increase my energy again. I didn't feel it happening. The weight of the world was crushing me. I'd been running for so long, I hadn't even noticed how tired I was. I accepted the cup from her almost greedily. Anything to stay awake for this moment.
+
+"What was that about?" she asked.
+
+"I have a new crew member I have to train. Someone at the office. It's not really a big deal." I took a sip of the tea. It smelled wonderful. Spiced chai. One of my favorites.

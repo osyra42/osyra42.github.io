@@ -222,7 +222,7 @@ ___
 
     <div class="markdown">
 ---
-**Last Updated:** @@2026.04.16@@
+**Last Updated:** @@2026.04.24@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -281,71 +281,116 @@ ___
     function inferLaunchCommand(entry, isBat) {
       const ext = entry.indexOf('.') >= 0 ? entry.split('.').pop().toLowerCase() : '';
       const python = isBat ? 'python' : 'python3';
-      const quoted = '"' + entry + '"';
+      const ref = isBat ? '"%ENTRY%"' : '"$ENTRY"';
+      const bareRef = isBat ? '"%ENTRY%"' : './"$ENTRY"';
 
       switch (ext) {
-        case 'py':  return python + ' ' + quoted;
-        case 'jar': return 'java -jar ' + quoted;
+        case 'py':  return python + ' ' + ref;
+        case 'jar': return 'java -jar ' + ref;
         case 'js':
-        case 'mjs': return 'node ' + quoted;
-        case 'rb':  return 'ruby ' + quoted;
-        case 'php': return 'php ' + quoted;
-        case 'dll': return 'dotnet ' + quoted;
-        case 'sh':  return 'bash ' + quoted;
+        case 'mjs': return 'node ' + ref;
+        case 'rb':  return 'ruby ' + ref;
+        case 'php': return 'php ' + ref;
+        case 'dll': return 'dotnet ' + ref;
+        case 'sh':  return 'bash ' + ref;
         case 'bat':
-        case 'cmd': return isBat ? 'call ' + quoted : quoted;
-        default:    return isBat ? quoted : './' + entry;
+        case 'cmd': return isBat ? 'call ' + ref : ref;
+        default:    return bareRef;
       }
     }
 
     function buildBat(data) {
       const entry = data.entry || 'program';
-      const args = data.args ? ' ' + data.args : '';
       const customErr = data.errorMsg || '';
       const name = data.name || 'zen_launcher';
       const title = data.title || name;
+      const hasChecks = data.runtimes.some(r => runtimeCommands[r] && runtimeCommands[r].bat);
 
-      let lines = ['@echo off', 'title ' + title, 'cd /d "%~dp0"', ''];
+      let lines = [];
 
-      data.runtimes.forEach(rtName => {
-        const rt = runtimeCommands[rtName];
-        if (!rt || !rt.bat) return;
-        const errMsg = customErr || (rtName + ' is required to run this program.');
-        lines.push('where ' + rt.bat + ' >nul 2>&1');
-        lines.push('if %ERRORLEVEL% NEQ 0 (');
-        lines.push('    echo ' + errMsg);
-        lines.push('    pause');
-        lines.push('    exit /b 1');
-        lines.push(')');
+      // Imports
+      lines.push('@echo off');
+
+      // Variables
+      lines.push('');
+      lines.push('REM === Variables ===');
+      lines.push('set "TITLE=' + title + '"');
+      lines.push('set "ENTRY=' + entry + '"');
+      if (data.args) lines.push('set "ARGS=' + data.args + '"');
+
+      // Requirements
+      if (hasChecks) {
         lines.push('');
-      });
+        lines.push('REM === Requirements ===');
+        data.runtimes.forEach(rtName => {
+          const rt = runtimeCommands[rtName];
+          if (!rt || !rt.bat) return;
+          const errMsg = customErr || (rtName + ' is required to run this program.');
+          lines.push('where ' + rt.bat + ' >nul 2>&1');
+          lines.push('if %ERRORLEVEL% NEQ 0 (');
+          lines.push('    echo ' + errMsg);
+          lines.push('    pause');
+          lines.push('    exit /b 1');
+          lines.push(')');
+        });
+      }
 
-      lines.push(inferLaunchCommand(entry, true) + args);
+      // Script
+      lines.push('');
+      lines.push('REM === Script ===');
+      lines.push('title %TITLE%');
+      lines.push('cd /d "%~dp0"');
+      lines.push(inferLaunchCommand(entry, true) + (data.args ? ' %ARGS%' : ''));
+
+      // Execution
+      lines.push('');
+      lines.push('REM === Execution ===');
       lines.push('pause');
+
       return lines.join('\r\n');
     }
 
     function buildSh(data) {
       const entry = data.entry || 'program';
-      const args = data.args ? ' ' + data.args : '';
       const customErr = data.errorMsg || '';
       const name = data.name || 'zen_launcher';
       const title = data.title || name;
+      const hasChecks = data.runtimes.some(r => runtimeCommands[r] && runtimeCommands[r].sh);
 
-      let lines = ['#!/bin/bash', "printf '\\033]0;%s\\007' '" + title + "'", 'cd "$(dirname "$0")"', ''];
+      let lines = [];
 
-      data.runtimes.forEach(rtName => {
-        const rt = runtimeCommands[rtName];
-        if (!rt || !rt.sh) return;
-        const errMsg = customErr || (rtName + ' is required to run this program.');
-        lines.push('if ! command -v ' + rt.sh + ' &> /dev/null; then');
-        lines.push('    echo "' + errMsg + '"');
-        lines.push('    exit 1');
-        lines.push('fi');
+      // Imports
+      lines.push('#!/bin/bash');
+
+      // Variables
+      lines.push('');
+      lines.push('# === Variables ===');
+      lines.push('TITLE="' + title + '"');
+      lines.push('ENTRY="' + entry + '"');
+      if (data.args) lines.push('ARGS="' + data.args + '"');
+
+      // Requirements
+      if (hasChecks) {
         lines.push('');
-      });
+        lines.push('# === Requirements ===');
+        data.runtimes.forEach(rtName => {
+          const rt = runtimeCommands[rtName];
+          if (!rt || !rt.sh) return;
+          const errMsg = customErr || (rtName + ' is required to run this program.');
+          lines.push('if ! command -v ' + rt.sh + ' &> /dev/null; then');
+          lines.push('    echo "' + errMsg + '"');
+          lines.push('    exit 1');
+          lines.push('fi');
+        });
+      }
 
-      lines.push(inferLaunchCommand(entry, false) + args);
+      // Script
+      lines.push('');
+      lines.push('# === Script ===');
+      lines.push("printf '\\033]0;%s\\007' \"$TITLE\"");
+      lines.push('cd "$(dirname "$0")"');
+      lines.push(inferLaunchCommand(entry, false) + (data.args ? ' $ARGS' : ''));
+
       return lines.join('\n');
     }
 

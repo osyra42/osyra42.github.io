@@ -95,6 +95,35 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 APR 24
+@ operation chimera
++ expanded Aurora Pulse wiki (pass tiers with colored wristband emblems, exterior mural, games room, kitchen & bar, menu, dress code, Chimeran policy)
+- removed "Dr." title and Private Investigator profession from Osyra
+- removed forensic science / engineering education from Osyra's profile
+> rewrote Blood Relation backstory — parents gave Osyra up for adoption as an infant, aunt raised her until she died, foster care sold her at 16
+> reworked Osyra wiki to match new Rev 03 canon (age 16 at transformation, late 20s present, self-taught biology/genetics/cybersecurity from researching own transformation)
+> preserved intentional tense-shift foreshadowing in Blood Relation ("I'm Chimeran" vs "I was human")
+
+@ minecraft
++ added Rules row to every Server Info table
++ added GPU spec to server hardware block
++ added emoji-indexed minimum requirements section for ATM10 (🧠 CPU, 🎮 GPU, 💾 RAM, 🗃️ SSD, 📁 Disk, ☕ Java)
+> reformatted server hardware block with 3-letter acronyms (CPU, RAM, SSD, GPU, PSU, NET)
+> tightened intro paragraphs (Coffee Block framing, 14 years hosting experience, administrator role)
+> split CurseForge install / modpack download into two steps for ATM10 connect flow consistency
+> rewrote per-server descriptions for consistency
+$ fixed ATM10 disk space requirement (2 GB → 15 GB, per all-themods.com)
+$ fixed ATM10 CPU minimum (3.8 GHz → 3.0 GHz / 4 cores, per all-themods.com)
+
+@ zen launcher
++ restructured generated .bat and .sh scripts into labeled sections (imports → variables → requirements → script → execution)
++ generated scripts now define TITLE / ENTRY / ARGS variables referenced throughout
+> launch commands reference %ENTRY% / $ENTRY instead of inlining entry filenames
+
+@ brewdown
+- removed top margins from h2, h3, and h4 so headers sit flush with content above
+
+. ............................
 # 2026 APR 18
 @ recommendations
 + added Movies section with Live Action and Animated subsections

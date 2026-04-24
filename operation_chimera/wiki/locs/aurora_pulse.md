@@ -11,7 +11,7 @@ The building was originally a factory warehouse, decommissioned years before Uta
 ## Layout
 
 ### Dance Floor
-The main room runs on black lights and neon colors. Random shapes printed across the carpet seem to glow under the UV. A seating ledge runs the perimeter of the room so people can sit against the wall — but the line of that edge isn't straight or consistent, it bends and warps. None of the lines in the room are straight. Combined with the chromatic effects, simply walking across the dance floor can make you feel drunk.
+The main room runs on black lights and neon colors. Random shapes printed across the carpet seem to glow under the blacklight. A seating ledge runs the perimeter of the room so people can sit against the wall — but the line of that edge isn't straight or consistent, it bends and warps. None of the lines in the room are straight. Combined with the chromatic effects, simply walking across the dance floor can make you feel drunk.
 
 ### Stage (front and center)
 The front of the room is set up for karaoke, with the DJ booth tucked back into the corner. If you look closely at the booth, you'll notice a sliding wall — when Uta's done for the night, it rolls shut to hide and lock away all the equipment.
