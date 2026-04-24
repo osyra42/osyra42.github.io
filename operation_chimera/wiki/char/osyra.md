@@ -9,8 +9,8 @@ She hides her traits in civilian life using color contacts, hats, dresses—anyt
 
 ## Profile
 
-**Full Name:** Dr. Osyra Jasmine Renaya
-**Age:** Mid-20s at transformation, early 30s present
+**Full Name:** Osyra Jasmine Renaya
+**Age:** 16 at transformation; late 20s present (Captain-rank operative)
 **Height:** 6'4"
 **Build:** Tall, muscular, predatory
 **Hair:** Black
@@ -18,9 +18,9 @@ She hides her traits in civilian life using color contacts, hats, dresses—anyt
 **Skin:** Light brown
 **Wolf Traits:** Black ears and tail, elongated canines, heightened senses, reflexes, tracking instincts
 
-**Education:** Forensic Science (major), Engineering (minor)
-**Profession:** Private Investigator / "Chimera One"
-**Skills:** Cybersecurity (self-taught), combat, tracking, investigation, wilderness survival
+**Education:** High school (interrupted at 16 by the experiments). Self-taught biology, genetics, and cybersecurity — started as curiosity about what had been done to her own body and grew from there.
+**Profession:** Agency operative; callsign "Chimera One"
+**Skills:** Combat, tracking, investigation, wilderness survival; self-taught biology/genetics and cybersecurity
 
 **Weapons:**
 - Charge Rifle (tungsten/iron core spikes, electromagnetic acceleration)
@@ -32,16 +32,16 @@ She hides her traits in civilian life using color contacts, hats, dresses—anyt
 ## Personality
 - Deep and brooding, rarely sociable
 - Calculated and stoic, rarely showing emotional reactions
-- Fiercely independent due to parental neglect
-- Intellectually gifted—intelligence was her primary identity and shield
+- Fiercely independent after a life of being handed off
+- Intellectually driven — researches what she doesn't understand, especially her own transformation
 - Latent protective instinct despite alienation
 - Haunted internally by her past, though rarely discusses it
-- Controlled composure under pressure—processes events analytically
+- Controlled composure under pressure — processes events analytically
 
 ## Background
 
 ### Early Life
-Her parents died when she was young. She was given to her aunt, who sold her to a medical facility for experimentation.
+Osyra was given up for adoption as an infant; her parents' fate is unknown to her. Her aunt took her in and raised her until she passed away. After that, Osyra went into foster care. At sixteen, her foster guardian sold her to a medical facility.
 
 ### Experimentation
 The facility conducted illegal human hybridization experiments—blending human and wolf genetics to create enhanced operatives. Most subjects died. Osyra's body adapted—nervous system, musculature, and senses stabilized. She retained her intelligence but gained enhanced senses, physical enhancements, predatory instincts, and heightened environmental awareness. She emerged as the first successful chimera.
@@ -65,4 +65,7 @@ She was discovered by someone sifting through the paperwork in the building. The
 - Reframed as an interview and processing sequence with a character dossier
 
 ### Revision 02 → 03
-- Dropped the interview framing. Now opens with Osyra already established as a Captain on active duty, visiting family for the first time. Early life changed—parents died and aunt sold her to the facility, rather than being abducted as an adult auditor. The story is told in past tense as a personal account.
+- Dropped the interview framing. Now opens with Osyra already established as a Captain on active duty, visiting family for the first time. Story told in past tense as a personal account.
+- Early life reworked: given up for adoption as an infant (parents still alive, fate unknown — seeded for later reveal), raised by her aunt, then sent to foster care after the aunt passed. Foster guardian sold her to the facility at age 16.
+- No formal scientific education anymore — any scientific background comes from self-directed research after her transformation.
+- Dropped the "Dr." title and Private Investigator profession.
