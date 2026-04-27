@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
 - [🏠 Home Page](index.html)
 - [📋 Changelog](changelog.html)
 - [💼 Commissions](commissions.html)
-- [⭐ Recommendations 🆕](recommendations.html)
+- [⭐ Recommendations](recommendations.html)
 - [⛏️ Minecraft Server 🆕](minecraft.html)
 
 ---
 **Projects**
 - [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [📖 Operation Chimera 🆕](operation_chimera.html)
-- [🚀 Zen Launcher 🆕](zen_launcher.html)
+- [🎭 VTuber Guide 🆕](vtuber_guide.html)
 - [☕ Brewdown](brewdown.html)
 - [🤖 Vanity Bot](vanity.html)
 - [🧲 How Magnets Work](how_magnets_work.html)
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
     - [⚔️ Infinite Devastation](infinite_devastation.html)
     - [🎬 Media Mimic](media_mimic.html)
     - [🏚️ Urbex Safety](urbex_safety.html)
-    - [🎭 VTuber Guide](vtuber_guide.html)
     - [📝 Worksheets](worksheets.html)
+    - [🚀 Zen Launcher](zen_launcher.html)
 <<<
 
 ---
