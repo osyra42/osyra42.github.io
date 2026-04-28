@@ -21,6 +21,8 @@
   <meta name="twitter:description" content="Brewdown - A coffee-flavored Markdown to HTML converter with media embedding, spoilers, forms, and more" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -57,7 +59,7 @@
 &lt;script src="https://coffeebyte.dev/assets/js/brewdown.js" defer&gt;&lt;/script&gt;</code></pre>
 
     <p>Then write markdown in a div:</p>
-    <pre><code class="language-html">&lt;div class="markdown"&gt;
+    <pre><code class="language-html">&lt;div class="brewdown"&gt;
 # Hello World
 This is **Brewdown** in action.
 &lt;/div&gt;</code></pre>
@@ -228,9 +230,9 @@ const html = Brewdown.brewdown(markdownText, {
 // Parse inline formatting only
 const html = Brewdown.parseInlineFormatting(text);
 
-// Re-process script tags or markdown divs
+// Re-process script tags or brewdown divs
 Brewdown.processScriptTags();
-Brewdown.processMarkdownDivs();
+Brewdown.processBrewdownDivs();
 
 // Set default text for template variables
 Brewdown.defaultVar = 'Loading...';</code></pre>
@@ -244,7 +246,7 @@ https://coffeebyte.dev/assets/css/brewdown.css</code></pre>
 
     <hr>
 
-    <div class="markdown">
+    <div class="brewdown">
 **Last Updated:** @@2026.04.04@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>

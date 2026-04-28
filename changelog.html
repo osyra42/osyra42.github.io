@@ -21,6 +21,8 @@
   <meta name="twitter:description" content="Website changelog - track updates, new features, and bug fixes for Coffee Byte Dev" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -93,6 +95,35 @@ LEGEND (Kimbie Dark)
 - red: removed
 > rose: description
 $ burnt: bugs/fixed
+
+. ............................
+# 2026 APR 27
+@ website
++ added markdown H1 to all content pages (blank pixel game, commissions, how magnets work, operation chimera, recommendations, vanity, vtuber guide, worksheets) so the printed/PDF version has a title at the top
+> download-bar H1 is hidden in print mode, so the markdown H1 carries the title for save-as-PDF
+
+@ casio code
++ added `# 🔢 Casio Code` H1 above Preface so the printed PDF has a proper title
+> swapped all 54 ` ```basic ` code blocks to ` ```vbnet ` for closer keyword highlighting (Casio BASIC isn't a hljs language, but VB.NET picks up If/Then/Else/IfEnd/For/Next/While/Do/Goto/Return)
+
+@ website
++ added highlight.js + Kimbie Dark CSS to every page (25 pages that previously didn't load it) so future code blocks just work without remembering to add the import
+> normalized all_about_ai.html to load highlight.js with `defer` like every other page
+$ fixed highlight.js never running on pages where script-tag order had brewdown.js before highlight.min.js — `hljs` was undefined when brewdown's highlightAll check ran; reordered highlight.min.js first across all pages
+$ fixed brewdown.js running its processAll() during the defer phase before sibling defer scripts had loaded — switched to DOMContentLoaded so dependencies like hljs are guaranteed to be ready
+
+@ brewdown
++ renamed `Brewdown.processMarkdownDivs()` API to `Brewdown.processBrewdownDivs()` for naming consistency
+> renamed markdown content class to `brewdown` for naming accuracy (`class="markdown"` → `class="brewdown"`, `markdown-rendered` → `brewdown-rendered`); updated brewdown.js selector and CLAUDE.md docs to match
+> updated brewdown.html API docs, brewdown.css header comment, brewdown.js processAll comment, and CLAUDE.md headings to use "Brewdown" instead of "markdown" where the term referred specifically to this library
+
+@ vtuber guide
++ added Contents section listing the page's main sections
+- removed stale "Archived Tutorial Document" subtitle
+- removed Section X numbering from major headings
+> flattened h4 sub-headers under Step 1 and Step 2 into bold inline labels
+> converted single-tool tables (VMagicMirror, Veadotube Mini) into tighter bullet blocks
+> moved VTuber Guide to Projects in sidebar; Zen Launcher moved to Archives
 
 . ............................
 # 2026 APR 26
