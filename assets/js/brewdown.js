@@ -358,7 +358,7 @@ const Brewdown = (function() {
                         });
 
                         const container = document.createElement('div');
-                        container.className = 'markdown-rendered';
+                        container.className = 'brewdown-rendered';
                         container.innerHTML = htmlContent;
                         script.parentNode.replaceChild(container, script);
 
@@ -384,7 +384,7 @@ const Brewdown = (function() {
                     });
 
                     const container = document.createElement('div');
-                    container.className = 'markdown-rendered';
+                    container.className = 'brewdown-rendered';
                     container.innerHTML = htmlContent;
                     script.parentNode.replaceChild(container, script);
                 }
@@ -392,34 +392,36 @@ const Brewdown = (function() {
         });
     }
 
-    // Process div.markdown elements by converting their text content to HTML
-    function processMarkdownDivs() {
-        const divs = document.querySelectorAll('div.markdown');
+    // Process div.brewdown elements by converting their text content to HTML
+    function processBrewdownDivs() {
+        const divs = document.querySelectorAll('div.brewdown');
 
         divs.forEach(div => {
             const markdownText = div.textContent;
             if (markdownText.trim()) {
                 div.innerHTML = brewdown(markdownText);
-                div.classList.remove('markdown');
-                div.classList.add('markdown-rendered');
+                div.classList.remove('brewdown');
+                div.classList.add('brewdown-rendered');
             }
         });
     }
 
-    // Process all markdown sources when DOM is ready
+    // Process all Brewdown sources when DOM is ready
     function processAll() {
         processScriptTags();
-        processMarkdownDivs();
+        processBrewdownDivs();
         // Apply syntax highlighting if highlight.js is loaded
         if (typeof hljs !== 'undefined') {
             hljs.highlightAll();
         }
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', processAll);
-    } else {
+    // Wait for DOMContentLoaded (fires after all defer scripts) so dependencies
+    // like hljs are loaded by the time processAll runs.
+    if (document.readyState === 'complete') {
         processAll();
+    } else {
+        document.addEventListener('DOMContentLoaded', processAll);
     }
 
     // Public API
@@ -427,7 +429,7 @@ const Brewdown = (function() {
         brewdown,
         parseInlineFormatting,
         processScriptTags,
-        processMarkdownDivs
+        processBrewdownDivs
     };
     Object.defineProperty(api, 'defaultVar', {
         get() { return defaultVar; },

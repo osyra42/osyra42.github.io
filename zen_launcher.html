@@ -21,6 +21,8 @@
   <meta name="twitter:description" content="Generate cross-platform launcher scripts with environment checks" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -132,7 +134,7 @@
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <div class="markdown">
+    <div class="brewdown">
 Zen Launcher builds small launcher scripts (`.bat` for Windows, `.sh` for Mac/Linux) that sit next to your program. When someone runs them, they check that the right things are installed first — Python, Java, whatever you need — and only launch your program once the coast is clear. No more cryptic "command not found" errors for your users.
 
 Fill out the form, hit preview, and download the scripts.
@@ -220,7 +222,7 @@ ___
       <pre id="sh-preview"></pre>
     </div>
 
-    <div class="markdown">
+    <div class="brewdown">
 ---
 **Last Updated:** @@2026.04.24@@
 **Author:** Coffee Byte Dev (osyra42)

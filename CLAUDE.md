@@ -16,7 +16,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - `css/mobile.css`: ALL mobile-specific styles (768px breakpoint) — loaded by `mobile.js`
   - `js/sidebar.js`: Dynamic sidebar generation with navigation links
   - `js/scripts.js`: General utilities and clutter toggle functionality
-  - `js/brewdown.js`: Markdown-to-HTML converter (two modes: `<div class="markdown">` and `<script data-brewdown>`)
+  - `js/brewdown.js`: Markdown-to-HTML converter (two modes: `<div class="brewdown">` and `<script data-brewdown>`)
   - `js/mobile.js`: Loads mobile.css and handles mobile responsive behavior
   - `js/back-to-top.js`: Back to top button functionality
   - `clutter-main/clutter.js`: Visual clutter effect
@@ -32,14 +32,18 @@ All main site pages follow this structure:
 ```html
 <head>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/brewdown.js" defer></script>
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
   <!-- IMPORTANT: Define image/title BEFORE sidebar.js loads -->
   <script>
     image = "page-image.jpg";  // Profile image filename (in assets/images/profiles/)
     title = "Page Title";       // Sidebar heading
   </script>
-  <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/scripts.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
 </head>
 <body>
   <sidebar></sidebar>
@@ -47,24 +51,26 @@ All main site pages follow this structure:
 </body>
 ```
 
-## Markdown Content
+**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` calls `hljs.highlightAll()` if hljs is available — if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later.
 
-`brewdown.js` supports two ways to embed markdown in pages:
+## Brewdown Content
 
-### 1. `<div class="markdown">` (preferred for most pages)
+`brewdown.js` supports two ways to embed Brewdown content in pages:
+
+### 1. `<div class="brewdown">` (preferred for most pages)
 ```html
 <main>
-  <div class="markdown">
+  <div class="brewdown">
 # Heading
 Some content here
   </div>
 </main>
 ```
-The div's text content is converted to HTML on load. The div gets class `markdown-rendered` after processing.
+The div's text content is converted to HTML on load. The div gets class `brewdown-rendered` after processing.
 
 ### 2. `<script data-brewdown>` (for archive/document pages or external files)
 ```html
-<!-- Inline markdown -->
+<!-- Inline Brewdown content -->
 <script type="text/markdown" data-brewdown>
 # Heading
 Content here

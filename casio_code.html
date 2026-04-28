@@ -21,11 +21,11 @@
   <meta name="twitter:description" content="Casio fx-9750 G PLUS calculator programs and notes" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
-  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
-  <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
 
@@ -49,6 +49,8 @@
     </div>
 
     <script type="text/markdown" data-brewdown>
+# 🔢 Casio Code
+
 # Preface
 Most programs are designed for the Casio fx-9750 G PLUS. Be aware of the following:
 
@@ -134,7 +136,7 @@ page ii
 ---
 
 ## Timer Version 2.0
-```basic
+```vbnet
 "HOW MANY MINUTES"? → C
 ClrGraph
 0 → A
@@ -160,7 +162,7 @@ page 1
 
 ## Timer Version 3.1
 
-```basic
+```vbnet
 ClrText
 Locate 3,1,"SEC"
 Locate 3,2,"MIN"
@@ -178,7 +180,7 @@ Goto l
 ```
 
 ## Timer Version 4.2
-```basic
+```vbnet
 ClrText
 0 → T
 Locate 4,1, "SEC"
@@ -196,7 +198,7 @@ page 1
 
 ---
 ## Timer Version 5.7 (Scribble)
-```basic
+```vbnet
 ClrText
 0 → S
 Lbl 0
@@ -211,7 +213,7 @@ Goto 0
 ```
 
 ## Timer Version 6.2
-```basic
+```vbnet
 ClrText
 "SET TIME"
 "HOUR"? → H
@@ -225,7 +227,7 @@ Next
 ```
 
 ## Timer Version 7.0
-```basic
+```vbnet
 ClrText
 "SET TIME"
 "HOUR"? → H
@@ -242,14 +244,14 @@ page 2
 ---
 
 ## Timer Version 8.1 (mem 51)
-```basic
+```vbnet
 For 0 → S To 1 Step 0.00001844533
 Locate 1,1,S
 Next
 ```
 
 ## Timer Version 8.2 (mem 51)
-```basic
+```vbnet
 For 0 → S To 1 Step 0.00001838150
 Locate 1,1,S
 Next
@@ -260,7 +262,7 @@ page 3
 
 ## Screen Saver I (output blip)
 ### Version 1.4
-```basic
+```vbnet
 Lbl 1
 ClrText
 Locate Int 16 Ran#+1, Int 7 Ran#+1,"CASIO°"
@@ -269,7 +271,7 @@ Next
 Goto 1
 ```
 ### Version 2.2
-```basic
+```vbnet
 Do
 "SPEED"? → C
 LpWhile C<0 Or C>10
@@ -287,7 +289,7 @@ page 4
 ---
 ## Screen Saver III (Text blip)
 ### Version 1.2
-```basic
+```vbnet
 Lbl 1
 ClrGraph
 Text Int 58 Ran#+1, Int 82 Ran#+1,"SAMPLE TEXT"
@@ -296,7 +298,7 @@ Next
 Goto 1
 ```
 ### Version 2.1
-```basic
+```vbnet
 Do
 "SPEED"? → C
 LpWhile C<0 Or C>10
@@ -314,7 +316,7 @@ page 4
 ---
 ## Screen Saver II (slide tort)
 ### Version 2.3
-```basic
+```vbnet
 "SPEED"? → C
 LpWhile C<0 Or C>10
 Lbl 1
@@ -329,7 +331,7 @@ page 5
 ---
 ## Screen Saver IV (bouncing word)
 ### Version 1.0
-```basic
+```vbnet
 Int 17 Ran#+1 → A
 Int 7 Ran#+1 → B
 Int 2 Ran# → D
@@ -349,7 +351,7 @@ Goto 1
 ```
 ## Screen Saver V (like pipes)
 ### Version 1.6
-```basic
+```vbnet
 Int 21 Ran#+1 → X
 Int 7 Ran#+1 → Y
 Lbl 1
@@ -369,7 +371,7 @@ Next
 Goto 1
 ```
 ### Version 2.2
-```basic
+```vbnet
 Do
 "SPEED"? → C
 LpWhile C<0 Or C>10
@@ -394,7 +396,7 @@ Goto 1
 ```
 
 ### Version 3.1 (interactive)
-```basic
+```vbnet
 Do
 "SPEED"? → C
 LpWhile C<0 Or C>10
@@ -422,7 +424,7 @@ Goto 1
 page 6
 ---
 ## Screen Saver IV (3 bouncing balls)
-```basic
+```vbnet
 Int 2 Ran# → A
 Int 2 Ran# → B
 Int 2 Ran# → C
@@ -469,7 +471,7 @@ page 7
 ---
 ## Pong
 ### Version 3.1
-```basic
+```vbnet
 9 → A: 7 → B: 8 → C: 0 → E: 0 → S
 Int 2 Ran# → D
 Do
@@ -503,7 +505,7 @@ Stop
 page 8
 ---
 ### Extended Version 4.3 (autoplay)
-```basic
+```vbnet
 ClrText
 Locate 6,4,"Version 4.3"
 For 1 → A To 250
@@ -586,7 +588,7 @@ page 9
 NEWSUDOK is for a new game
 and SUDOKU is to play game
 ## NEWSUDOK (version 3.2)
-```basic
+```vbnet
 Do
 ClrText
 "HOW MANY NUMBERS"? → Z
@@ -618,7 +620,7 @@ Prog "SUDOKU"
 ```
 
 ### SUDOKU (version 3.2)
-```basic
+```vbnet
 ClrGraph
 ViewWindow 1,15,1,1,10,1
 Text 1,90, "SUDOKU"
@@ -689,7 +691,7 @@ page 11
 
 # Prime Factor (List Form)
 ## Version 2.0
-```basic
+```vbnet
 ClrText
 10 → Dim List 1
 1 → D
@@ -709,7 +711,7 @@ Lbl 9: List 1
 ```
 
 ## Version 1.0 (non-list)
-```basic
+```vbnet
 ClrText
 "PRIME FACTOR"? → A
 Goto 2
@@ -729,7 +731,7 @@ page 13
 ---
 # Radical simplify
 ## Version 4.5
-```basic
+```vbnet
 ClrText
 "□"
 Locate 1,1,"√N□□Int N="
@@ -754,7 +756,7 @@ Locate 1,6,√N
 
 # Rationalizer (Scribble)
 ## version 1.9
-```basic
+```vbnet
 1 → A~D
 ClrText
 "EQUATION"? → Y
@@ -801,7 +803,7 @@ page 14
 
 # Rational
 ## Version 1.0
-```basic
+```vbnet
 1 → A~D
 ClrText
 "EQUATION"? → Y
@@ -846,7 +848,7 @@ Locate 1,6,"Ans="
 ```
 # Mixing
 ## Version 1.3
-```basic
+```vbnet
 2 → F
 ClrText
 "HOW MANY"? → N
@@ -871,7 +873,7 @@ List 2
 # Prog "AAA"
 ## Version 1.0
 
-```basic
+```vbnet
 Think of a number
 between I and 100
 inclusive, and I
@@ -898,7 +900,7 @@ page 16
 
 # Pick a number
 ## Version 4.0
-```basic
+```vbnet
 ClrText
 0 → A
 "□": "□"
@@ -918,7 +920,7 @@ page 17
 
 # Deck of Cards
 ## version 4.1
-```basic
+```vbnet
 Lbl 0
 ClrText
 Locate 2,1,"PLAY"
@@ -965,7 +967,7 @@ Goto 0
 
 # Catch Game
 ## Version 3.1
-```basic
+```vbnet
 0 → S: 4 → D: 21 → C
 ClrText
 Lbl 1
@@ -992,7 +994,7 @@ page 18
 
 # Running Man
 ## Version 1.3
-```basic
+```vbnet
 1 → A: 4 → B: 21 → X: 4 → Y: -1 → S: 0 → G
 ClrText
 Lbl 0
@@ -1029,7 +1031,7 @@ Stop
 
 # Speed Game
 ## Version 1.5
-```basic
+```vbnet
 ClrText
 "□": "□": "□": "□": "□"
 Locate 1,1,"you must push the"
@@ -1081,7 +1083,7 @@ Page 20
 
 # Identify Pixels
 ## Version 2.1
-```basic
+```vbnet
 ClrGraph
 RclPict 1
 For 1 → B To 63
@@ -1100,7 +1102,7 @@ Stop
 
 # Reverse Pixels
 ## Version 2.0
-```basic
+```vbnet
 ClrGraph
 RclPict 1
 For 1 → B To 63
@@ -1115,7 +1117,7 @@ Page 21
 
 # Roll Playing Dice Damage
 ## Version 2.2
-```basic
+```vbnet
 0 → A: 0 → T
 "Number of sides"? → S
 "Number of dice?"? → D
@@ -1135,7 +1137,7 @@ Else Goto 1
 
 # Controlled Arrow Flight
 ## Version 2.3
-```basic
+```vbnet
 Int 7 Ran#+1 → R
 For 1 → A To 20
 ClrText
@@ -1147,15 +1149,15 @@ Next
 ```
 
 # Pi (π) Calculations
-```basic
+```vbnet
 4Σ(((-1)^(x-1))÷(2x-1),X,1,∞,1)
 ```
 or
-```basic
+```vbnet
 ∞xsin180/∞
 ```
 or
-```basic
+```vbnet
 1 → A: 3 → B
 Lbl 1: A-1÷B+1(B+2) → A
 B + 4 → B
@@ -1164,7 +1166,7 @@ Goto 1
 ```
 
 # GetKey Identification
-```basic
+```vbnet
 "READY 1, 2, 3"
 GetKey → G
 Locate 1,1,G
@@ -1174,7 +1176,7 @@ page 22
 
 # Bank Menu Screen
 ## Version 4.1
-```basic
+```vbnet
 1 → θ
 Do
 GetKey → G
@@ -1192,7 +1194,7 @@ Return
 
 # Pointer
 ## Version 1.1
-```basic
+```vbnet
 1 → A ~ B
 ClrText
 Lbl 1
@@ -1215,7 +1217,7 @@ page 23
 
 # Blank Menu Screen
 ## Version 5.1
-```basic
+```vbnet
 1 → Y
 For 1 → A To 100
 Next
@@ -1237,7 +1239,7 @@ page 24
 
 # ABC
 ## Version 2.1
-```basic
+```vbnet
 H=1 ⇒ Goto 1
 G=25 ⇒ Locate A,B,"L"
 G=26 ⇒ Locate A,B,"F"
@@ -1321,7 +1323,7 @@ Return
 
 # Typing
 ## Version 2.9
-```basic
+```vbnet
 H=1 ⇒ Locate A,B,"→□"
 GetKey → G
 Not G ⇒ Goto 1
@@ -1358,7 +1360,7 @@ page 25
 
 # Read
 ## Version 1.0
-```basic
+```vbnet
 2 → H
 ClrText
 For 1 → B To 7
@@ -1375,7 +1377,7 @@ Return
 ```
 # Keypad
 ## Version 1.0
-```basic
+```vbnet
 Lbl 1
 GetKey → G
 Not G ⇒ 0 → Z
@@ -1387,7 +1389,7 @@ Return
 
 # Ask (like ask Judd.com)
 ## Version 1.2
-```basic
+```vbnet
 ClrText
 "□": "□": "□": "□": "□": "□"
 0 → C~D
@@ -1466,7 +1468,7 @@ Next
 
 # Answer
 ## Version 1.1
-```basic
+```vbnet
 Mat Q[2,1] → Q
 Not Q ⇒ "No Reply"
 Not Q ⇒ Stop
@@ -1486,7 +1488,7 @@ page 27
 
 # ABC
 ## Version 3.2
-```basic
+```vbnet
 G → N
 N = 0 ⇒ Return
 N>70 ⇒ Goto 5
@@ -1548,7 +1550,7 @@ Return
 
 # Type
 ## Version 3.2
-```basic
+```vbnet
 H>0 ⇒ Locate A,B,"→□"
 GetKey → G
 Not G ⇒ Goto 1
@@ -1584,7 +1586,7 @@ page 28
 # Hangman
 ## Version 1.3
 ### needs programs ABC and READ and TYPE to use
-```basic
+```vbnet
 7 → J
 prog "TYPE"
 For 1 → B To 3
@@ -1632,7 +1634,7 @@ Goto 3
 
 ---
 
-**Last Updated:** @@2026.03.07@@
+**Last Updated:** @@2026.04.27@@
 **Author:** Coffee Byte Dev (osyra42)
 
 </script>
