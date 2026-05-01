@@ -97,6 +97,15 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 APR 28
+@ minecraft
++ added per-server minimum requirements YAML blocks under VAN26 (vanilla, Mojang official minimums) and ATM10 (modded)
+> rewrote intro paragraph to a friendly invite (dropped boasts about hardware, hosting tenure, no-pay-to-win, etc.)
+> "New to Minecraft?" reduced to a short welcome/congrats — server-specific specs now live with each server
+> server hardware block converted to YAML (Kimbie Dark colors keys/strings)
+> ATM10 minimum requirements rephrased as floors with "+" / "or better" framing, not fixed specs
+
+. ............................
 # 2026 APR 27
 @ website
 + added markdown H1 to all content pages (blank pixel game, commissions, how magnets work, operation chimera, recommendations, vanity, vtuber guide, worksheets) so the printed/PDF version has a title at the top
@@ -110,7 +119,7 @@ $ burnt: bugs/fixed
 + added highlight.js + Kimbie Dark CSS to every page (25 pages that previously didn't load it) so future code blocks just work without remembering to add the import
 > normalized all_about_ai.html to load highlight.js with `defer` like every other page
 $ fixed highlight.js never running on pages where script-tag order had brewdown.js before highlight.min.js — `hljs` was undefined when brewdown's highlightAll check ran; reordered highlight.min.js first across all pages
-$ fixed brewdown.js running its processAll() during the defer phase before sibling defer scripts had loaded — switched to DOMContentLoaded so dependencies like hljs are guaranteed to be ready
+$ fixed brewdown.js timing regression that broke the Minecraft page's `{{server1-status}}` ping variables — reverted processAll back to immediate-execution during defer; the script-order fix (highlight before brewdown) is sufficient on its own
 
 @ brewdown
 + renamed `Brewdown.processMarkdownDivs()` API to `Brewdown.processBrewdownDivs()` for naming consistency
