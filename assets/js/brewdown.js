@@ -416,12 +416,13 @@ const Brewdown = (function() {
         }
     }
 
-    // Wait for DOMContentLoaded (fires after all defer scripts) so dependencies
-    // like hljs are loaded by the time processAll runs.
-    if (document.readyState === 'complete') {
-        processAll();
-    } else {
+    // Run processAll as soon as the script executes so other DOMContentLoaded
+    // listeners (e.g. ping handlers in minecraft.html) find rendered DOM.
+    // This relies on highlight.min.js being loaded BEFORE brewdown.js — see CLAUDE.md.
+    if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', processAll);
+    } else {
+        processAll();
     }
 
     // Public API
