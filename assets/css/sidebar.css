@@ -57,6 +57,27 @@ sidebar p {
   color: var(--half-and-half);
 }
 
+.sidebar-footer {
+  position: relative;
+  font-size: 8px;
+  color: var(--pumpkin-spice);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-footer a {
+  font-size: 8px;
+  color: var(--caramel);
+}
+
+.sidebar-footer img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+}
+
 sidebar nav {
   color: var(--mocha);
 }
