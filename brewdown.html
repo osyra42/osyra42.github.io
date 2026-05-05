@@ -9,16 +9,16 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="Brewdown - A coffee-flavored Markdown to HTML converter with media embedding, spoilers, forms, and more" />
+  <meta name="description" content="Brewdown — the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
   <meta name="keywords" content="brewdown, markdown, html, converter, library, javascript, coffee byte dev, osyra42" />
   <meta name="author" content="osyra42" />
   <meta property="og:title" content="Brewdown - Coffee Byte Dev" />
-  <meta property="og:description" content="Brewdown - A coffee-flavored Markdown to HTML converter with media embedding, spoilers, forms, and more" />
+  <meta property="og:description" content="Brewdown — the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
   <meta property="og:url" content="https://coffeebyte.dev/brewdown.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brewdown - Coffee Byte Dev" />
-  <meta name="twitter:description" content="Brewdown - A coffee-flavored Markdown to HTML converter with media embedding, spoilers, forms, and more" />
+  <meta name="twitter:description" content="Brewdown — the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
@@ -49,31 +49,28 @@
     </div>
 
     <h1>Brewdown</h1>
-    <p>A coffee-flavored Markdown-to-HTML converter. Brewdown extends standard Markdown with media embedding, spoilers, collapsible sections, interactive forms, timestamps, and template variables. No dependencies. One script. Drop it in and go.</p>
+    <p>Brewdown is the markdown converter that powers this site. It extends standard Markdown with media embedding, spoilers, collapsible sections, interactive forms, timestamps, and template variables. This page documents the syntax used across Coffee Byte Dev and what the converter does with it.</p>
 
     <hr>
 
-    <h2>Quick Start</h2>
-    <p>Add these two lines to your HTML:</p>
-    <pre><code class="language-html">&lt;link rel="stylesheet" href="https://coffeebyte.dev/assets/css/brewdown.css" /&gt;
-&lt;script src="https://coffeebyte.dev/assets/js/brewdown.js" defer&gt;&lt;/script&gt;</code></pre>
+    <h2>How It Works</h2>
+    <p>Every page on this site loads <code>brewdown.js</code> in its <code>&lt;head&gt;</code> with the <code>defer</code> attribute. On page load, the script scans the DOM for two patterns and rewrites them to HTML in place:</p>
 
-    <p>Then write markdown in a div:</p>
+    <p><strong>1. A <code>&lt;div class="brewdown"&gt;</code> with markdown inside it.</strong> The div's text content is converted; the div gets the additional class <code>brewdown-rendered</code> after processing.</p>
     <pre><code class="language-html">&lt;div class="brewdown"&gt;
 # Hello World
 This is **Brewdown** in action.
 &lt;/div&gt;</code></pre>
 
-    <p>Or load from an external file:</p>
-    <pre><code class="language-html">&lt;script data-brewdown="path/to/file.md"&gt;&lt;/script&gt;</code></pre>
-
-    <p>Or use inline script tags:</p>
+    <p><strong>2. A <code>&lt;script&gt;</code> tag with a <code>data-brewdown</code> attribute.</strong> Used either with inline markdown or to load an external <code>.md</code> file. The script tag is replaced with a div containing the rendered HTML.</p>
     <pre><code class="language-html">&lt;script type="text/markdown" data-brewdown&gt;
 # Hello World
 This is **Brewdown** in action.
-&lt;/script&gt;</code></pre>
+&lt;/script&gt;
 
-    <p>That's it. Brewdown processes everything on page load.</p>
+&lt;script data-brewdown="path/to/file.md"&gt;&lt;/script&gt;</code></pre>
+
+    <p>If <code>highlight.js</code> is also on the page, Brewdown calls <code>hljs.highlightAll()</code> after rendering so code blocks pick up syntax colors. This is why <code>highlight.min.js</code> must load before <code>brewdown.js</code> — if it loads after, the check fails and code blocks render plain.</p>
 
     <hr>
 
@@ -217,7 +214,7 @@ ___
     <hr>
 
     <h2>API</h2>
-    <p>Brewdown exposes a public API for manual use:</p>
+    <p>Brewdown exposes these methods on the global <code>Brewdown</code> object for code that needs to call it directly (rather than relying on the automatic page-load processing):</p>
     <pre><code class="language-javascript">// Convert markdown string to HTML
 const html = Brewdown.brewdown(markdownText);
 
@@ -239,15 +236,8 @@ Brewdown.defaultVar = 'Loading...';</code></pre>
 
     <hr>
 
-    <h2>CDN Links</h2>
-    <pre><code>https://coffeebyte.dev/assets/js/brewdown.js
-https://coffeebyte.dev/assets/css/brewdown.css</code></pre>
-    <p>Brewdown is free to use. No attribution required, but appreciated.</p>
-
-    <hr>
-
     <div class="brewdown">
-**Last Updated:** @@2026.04.04@@
+**Last Updated:** @@2026.05.05@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 

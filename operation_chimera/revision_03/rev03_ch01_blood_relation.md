@@ -78,11 +78,7 @@ Somehow I felt like this was a memory in the back of my mind. Something I missed
 
 "They are," I said.
 
-"How about some pictures? So I can remember you once this day's over."
-
-"No pictures. Everything I do is classified."
-
-"Maybe just one or two while you're here? Just for me." Rosalyn had been wandering around this whole time. She finally reached onto a counter and picked up a Polaroid.
+"How about some pictures? So I can remember you once this day's over." Rosalyn had been wandering around this whole time. She finally reached onto a counter and picked up a Polaroid.
 
 I felt my face go red. I didn't take pictures. This was completely embarrassing. I couldn't deny her. That'd be cruel. But to accept was just so damn awkward. I'd have to consider this. Did she take a picture of me? Should she take a picture of the person I pretended to be? "Later," I told her.
 

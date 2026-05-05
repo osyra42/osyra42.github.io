@@ -97,6 +97,74 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 MAY 05
+@ website
++ added "3D & Animation" and "Mixed Multimedia" sections to What I Build on index
++ added expansion-of-focus notice blockquote at top of index
++ updated About Me to mention shift toward visual work
+- removed Amazon Affiliate notice and Google Play warning blockquotes from index page
+- removed Amazon Affiliate clause from Support My Work section on index
+- removed Amazon Affiliate disclaimer from Products section on recommendations page
+- removed affiliate disclosure section (and meta tag references) from website legal page
+- deleted assets/legal/coffee_byte_dev_affiliate_disclosure.md
+> reordered What I Build sections by recent activity (Developer Tools → Minecraft → Games → Writing → Educational → AI)
+> moved Donate from its own Support section up into Navigation (between Commissions and Recommendations)
+> moved Vanity Legal and Website Legal links out of their own sidebar section and into the sidebar footer paragraph as "Legal: Website | Vanity"
+> consolidated sidebar footer onto a single line — "<email> — Legal: Website | Vanity" (email shown as plain text, no link or "Contact:" label)
+> refactored sidebar footer to use `.sidebar-footer` CSS class — moved inline styles from the `<p>`, child `<a>` tags, and librecounter `<img>` into sidebar.css; bumped font-size from 8px to 11px for readability
+
+@ how magnets work
+> updated Kali Linux example from Kali Purple 2025.4 to Kali Linux 2026.1 — refreshed magnet link, .torrent file URL, and inline 🧲 link
+
+@ donate
++ added markdown H1 (`# 💜 Support My Work`) so the printed PDF carries a title
++ added "Easiest path" tip callout pointing visitors directly at Ko-fi
++ added Author line at bottom (was missing)
+- removed redundant intro paragraphs (consolidated to a single warmer opener)
+- removed marketing-speak fluff from each section description
+- removed redundant 🔗 prefixes from links (already styled)
+- removed bloated thank-you closer (two paragraphs → one)
+> nested Steam Wishlist under the Wishlists H2 (was a sibling section); promoted Amazon and Steam to H3 subsections
+> tightened language throughout — first-person, conversational, less generic gratitude
+
+@ zen launcher
++ added concept description with three-stage breakdown (environment check, dependency check, launch)
++ added "Why It Exists" and "How It Looks" sections with example folder layout
++ added "How I Use It" note — Zen Launcher ships with every program I distribute
+- removed launcher script generator form (Step 1, Step 2, Step 3) and supporting markup
+- removed form preview/download (.bat/.sh) buttons and ~210 lines of supporting JavaScript
+- removed form-related CSS (.btn, .form-actions, .script-preview-block, .hidden, mobile rules)
+> reframed zen_launcher.html from launcher-script generator into a concept reference page
+> standardized launcher filenames to lowercase/underscore (zen_launcher.bat, zen_launcher.sh) across the page
+
+@ vanity
++ added "Vanity Minecraft" section above Kale Update — autonomous goal-oriented fishing bot with backward crafting, chest awareness, storage management, threat defense, and a player reputation system
++ added intro line announcing the two-product split (Vanity Minecraft + Vanity Kale)
+- removed "Minecraft Automation" bullet from Kale Update feature list (moved to Vanity Minecraft)
+- removed marketing-speak boilerplate from older entries ("I'm thrilled to announce", "Stay tuned for more updates", "Your feedback is invaluable", etc.)
+- removed obsolete "What's Coming Next?" forward-looking text from Honeynut (now redundant with Ivy entry above it)
+> standardized date format across all version entries (MMM YYYY all caps)
+> standardized bullet separators to em-dashes throughout the page
+> stripped trailing periods from bullet items
+> normalized first-person voice (royal "we" → "I") across older entries
+> updated meta description to reflect the two-product split and update history scope
+
+@ brewdown
++ added "How It Works" section explaining DOM scan patterns, defer/load order, and the highlight.js integration
+- removed Quick Start install steps, CDN Links section, and "free to use" attribution line
+- removed "library" framing from meta description
+> reframed brewdown.html from "drop-in library" tutorial to a how-it-works reference for the converter that powers this site
+
+@ commissions
++ merged examples.html portfolio content into commissions page (all 3D print and VTuber image references retained)
++ added per-service rate card ("Starting at $20") for 3D Prints, VTuber Models, Discord Bots, Web Development, and Code Help
++ added "How to Commission" contact section at bottom (Discord/email-driven, replaces the form)
+- removed 4-step commission request form (Step 1 through Step 4)
+- removed form preview/download/copy-to-clipboard buttons and ~100 lines of supporting JavaScript
+- removed form-related CSS (.btn, .form-actions, #form-preview, .hidden)
+- deleted examples.html (content absorbed; only inbound link was from commissions itself)
+
+. ............................
 # 2026 APR 28
 @ minecraft
 + added per-server minimum requirements YAML blocks under VAN26 (vanilla, Mojang official minimums) and ATM10 (modded)

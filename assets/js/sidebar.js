@@ -9,18 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
 **Navigation**
 - [🏠 Home Page](index.html)
 - [📋 Changelog](changelog.html)
-- [💼 Commissions](commissions.html)
+- [💼 Commissions 🆕](commissions.html)
+- [☕ Donate 🆕](donate.html)
 - [⭐ Recommendations](recommendations.html)
-- [⛏️ Minecraft Server 🆕](minecraft.html)
+- [⛏️ Minecraft Server](minecraft.html)
 
 ---
 **Projects**
-- [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
+- [☕ Brewdown 🆕](brewdown.html)
+- [🧲 How Magnets Work 🆕](how_magnets_work.html)
+- [🤖 Vanity Bot 🆕](vanity.html)
 - [📖 Operation Chimera 🆕](operation_chimera.html)
-- [🎭 VTuber Guide 🆕](vtuber_guide.html)
-- [☕ Brewdown](brewdown.html)
-- [🤖 Vanity Bot](vanity.html)
-- [🧲 How Magnets Work](how_magnets_work.html)
+- [🕹️ Blank Pixel Game](blank_pixel_game.html)
+- [🎭 VTuber Guide](vtuber_guide.html)
 >>> 📦 Archives
     - [🤖 All About AI](all_about_ai.html)
     - [🔢 Casio Code](casio_code.html)
@@ -34,17 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
     - [🎬 Media Mimic](media_mimic.html)
     - [🏚️ Urbex Safety](urbex_safety.html)
     - [📝 Worksheets](worksheets.html)
-    - [🚀 Zen Launcher](zen_launcher.html)
+    - [🚀 Zen Launcher 🆕](zen_launcher.html)
 <<<
-
----
-**Support**
-- [☕ Donate](donate.html)
-
----
-**Legal**
-- [📜 Vanity Legal](vanity_legal.html)
-- [📜 Website Legal](website_legal.html)
 `;
 
     // Set the header HTML directly, render nav through brewdown
@@ -62,12 +54,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <nav class="sidebar-nav"></nav>
 <hr/>
-<p style="position: relative; font-size: 8px; color: var(--pumpkin-spice); text-align: center; margin: 0; padding: 0;">
-    Contact Email - <a href="mailto:coffeebytedev@proton.me" style="color: var(--caramel); font-size: 10px;">CoffeeByteDev@proton.me</a>
+<p class="sidebar-footer">
+    CoffeeByteDev@proton.me — Legal: <a href="website_legal.html">Website</a> | <a href="vanity_legal.html">Vanity</a>
     <br>
     Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
     <a href="https://librecounter.org/referer/show" target="_blank">
-          <img style="position: absolute; bottom: 0; right: 0; width:20px;" src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+          <img src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
         </a>
 </p>`;
 

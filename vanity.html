@@ -9,16 +9,16 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="Vanity - AI-powered Discord bot with VTuber integration, voice responses, and Twitch connectivity" />
-  <meta name="keywords" content="osyra42, Coffee Byte Dev, Vanity, Discord bot, AI, VTuber" />
+  <meta name="description" content="Vanity — split into Vanity Kale (AI agent for voice, files, and research) and Vanity Minecraft (autonomous in-game bot). Update history from 2017." />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, Vanity, Discord bot, AI, VTuber, Minecraft" />
   <meta name="author" content="osyra42" />
   <meta property="og:title" content="Vanity - Coffee Byte Dev" />
-  <meta property="og:description" content="Vanity - AI-powered Discord bot with VTuber integration, voice responses, and Twitch connectivity" />
+  <meta property="og:description" content="Vanity — split into Vanity Kale (AI agent) and Vanity Minecraft (autonomous in-game bot). Update history from 2017." />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
   <meta property="og:url" content="https://coffeebyte.dev/vanity.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vanity - Coffee Byte Dev" />
-  <meta name="twitter:description" content="Vanity - AI-powered Discord bot with VTuber integration, voice responses, and Twitch connectivity" />
+  <meta name="twitter:description" content="Vanity — split into Vanity Kale (AI agent) and Vanity Minecraft (autonomous in-game bot). Update history from 2017." />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
@@ -54,6 +54,24 @@
 
 [Vanity's Legal Stuff](vanity_legal.html)
 
+Vanity has been split into two products that share the lineage below: **Vanity Minecraft** (the in-game bot that plays alongside you) and **Vanity Kale** (the AI agent for voice, file editing, and research).
+
+---
+
+## Vanity Minecraft
+*Active*
+
+An autonomous Minecraft bot that picks a goal and works backward from it. The current goal is fishing — find water, secure a fishing rod, fish, manage the haul, and defend the spot.
+
+**Behavior:**
+
+- **Goal-Oriented Autonomy** — Logs into the server and identifies what it needs to fish. Locates water and checks whether it already has a fishing rod or the materials for one (sticks + string)
+- **Backward Crafting** — If it lacks the rod, it walks the chain backward: sticks need planks, planks need logs. It cuts down a tree and crafts forward (logs → planks → sticks → fishing rod), building a crafting bench along the way if it doesn't have one
+- **Chest Awareness** — If it spotted a chest earlier in the world, it checks the chest for any of those materials before gathering from scratch
+- **Storage Management** — Once fishing, when its inventory fills up, it crafts a chest, places it near the fishing spot, and offloads the haul into it. Then it goes back to fishing
+- **Threat Defense** — If something attacks it or threatens its fishing spot during the session, it stops fishing and fights off the threat
+- **Player Reputation** — Remembers how individual players have treated it. A player who's hurt the bot before gets attacked on sight. A player who's given it crafting materials gets recognized as friendly — instead of fighting, the bot offers them a rare fishing item
+
 ---
 
 ## Kale Update
@@ -66,7 +84,6 @@ Vanity's biggest update yet. She's no longer just a chatbot — she's a full AI 
 - **Voice Recognition** — Listen and respond to voice commands
 - **Voice Output** — Spoken responses for hands-free interaction
 - **Agent Architecture** — Uses agents and tools to handle complex tasks
-- **Minecraft Automation** — Plays alongside you on the server as an autonomous assistant
 - **Generic Chatbot** — Works as a conversational bot
 - **Note Taking** — Can take notes and edit files on your behalf
 - **File Editing** — Read, write, and modify files as needed
@@ -77,7 +94,7 @@ Vanity's biggest update yet. She's no longer just a chatbot — she's a full AI 
 ## Jicama Update
 *JAN 2026*
 
-This update focused on Minecraft gameplay as the foundation for AI development. The research and groundwork from this update carried forward into the Kale update.
+Focused on Minecraft gameplay as the foundation for the agent architecture that landed in Kale.
 
 **Focus:**
 
@@ -93,154 +110,129 @@ This update focused on Minecraft gameplay as the foundation for AI development. 
 ## Ivy Update
 *MAY 2025*
 
-This iteration of Vanity, "Ivy," was developed to explore the potential of a real-time gaming AI VTuber. The focus was on creating a responsive and modular system, with promising initial results.
+Explored the potential of a real-time gaming AI VTuber, focused on a responsive and modular system.
 
-**Key Features of Vanity Ivy:**
+**Key Features:**
 
-- **Modular Core** - Built on a new, flexible architecture for seamless updates and future expansion.
-- **Ultra-Fast Voice** - Drastically reduced latency for more natural and immediate conversational flow.
-- **Smarter Conversations** - A new parsing algorithm delivers smoother and more intuitive interactions.
-- **VTuber Integration** - Features a fully-rigged avatar with controller support for dynamic, responsive movement.
-- **Twitch Connectivity** - Full read and reply system for direct engagement with live chat.
-- **Advanced AI** - Powered by DeepSeek-v3 for high-quality response generation.
-- **Experimental Audio** - Includes experimental support for VB-Cable audio routing—we welcome your feedback!
+- **Modular Core** — Built on a new, flexible architecture for seamless updates and future expansion
+- **Ultra-Fast Voice** — Drastically reduced latency for more natural and immediate conversational flow
+- **Smarter Conversations** — A new parsing algorithm delivers smoother and more intuitive interactions
+- **VTuber Integration** — Fully-rigged avatar with controller support for dynamic, responsive movement
+- **Twitch Connectivity** — Full read and reply system for direct engagement with live chat
+- **Advanced AI** — Powered by DeepSeek-v3 for high-quality response generation
+- **Experimental Audio** — Initial support for VB-Cable audio routing
 
 ---
 
 ## Honeynut Update
-*Nov 2024*
+*NOV 2024*
 
-I'm thrilled to share some major upgrades we've been working on for Vanity. These changes are all about speed, stability, and paving the way for future innovations. Here's what's new:
+Major upgrades focused on speed, stability, and groundwork for future iterations.
 
 **Key Improvements:**
 
-- **New AI Backend** - Vanity now runs on Llama 3.1 70B via Groq API, delivering faster, sharper, and more natural responses.
-- **Enhanced Voice Conversations** - A brand-new parsing algorithm makes interactions smoother and more intuitive.
-- **Experimental Features** - We're testing VB-Cable audio routing and controller input support—give them a try and share your feedback!
+- **New AI Backend** — Vanity now runs on Llama 3.1 70B via Groq API, delivering faster, sharper, and more natural responses
+- **Enhanced Voice Conversations** — A new parsing algorithm makes interactions smoother and more intuitive
+- **Experimental Features** — Testing VB-Cable audio routing and controller input support
+- **Backend Cleanup** — Fully removed the old GPT4All and Ollama backends to keep Vanity lean
 
-**Current Focus (Testing Phase):**
+**Testing Phase:**
 
 - Voice stability (reducing delays for seamless conversations)
 - Controller responsiveness (optimizing for hands-on control)
 
-**What's Coming Next?**
-
-This update lays the groundwork for Vanity Ivy, featuring a modular design for easier updates, ultra-fast voice responses, and seamless input/output handling.
-
-**Important Note:** To ensure peak performance, we've fully removed the old GPT4All and Ollama backends. This keeps Vanity lean, efficient, and ready for future upgrades.
-
-We can't wait to hear your thoughts—let us know how the new features work for you!
-
 ---
 
 ## Garlic Update
-*Sep 2024*
+*SEP 2024*
 
-I'm thrilled to announce the latest update for the bot, which introduces some significant changes and improvements! Here's what you can expect:
+Significant changes aimed at simplifying the bot.
 
-- **Model Update** - I'm now utilizing the **Dolphin-2.5-mixtral-8x7b** model, which promises enhanced performance and more accurate responses. This model is designed to provide a better user experience with improved AI capabilities.
-- **Switch to Ollama** - In this update, I've transitioned from GPT4All to Ollama for much better performance. This change is expected to significantly enhance the bot's responsiveness and overall efficiency.
-- **Removed Cogs and Simplification Functions** - To streamline the bot's operation and improve response times, I've removed certain cogs and functions that were intended to simplify the development process and allow for expansion.
-- **Fixed Slash Commands and AI Response Disconnect Issues** - I've addressed and resolved issues related to slash commands and AI response disconnects, ensuring a smoother and more reliable user experience.
-- **Voice Module Removal** - After careful consideration, I've decided to remove the voice module output to Discord. The process was simply too slow and did not meet the desired performance standards.
+**Key Changes:**
 
-This update aims to simplify the bot and get core functionalities back up and running smoothly, while also leveraging the new model and Ollama for better performance. Thank you for your continued support and patience as I work to improve the bot's performance and reliability.
+- **Model Update** — Switched to the **Dolphin-2.5-mixtral-8x7b** model for enhanced performance and more accurate responses
+- **Switch to Ollama** — Transitioned from GPT4All to Ollama for much better performance and responsiveness
+- **Removed Cogs** — Stripped out simplification functions and cogs that were complicating the codebase
+- **Slash Commands & Disconnect Fixes** — Resolved issues with slash commands and AI response disconnects
+- **Voice Module Removal** — Removed the voice module output to Discord; the process was too slow to meet performance standards
 
 ---
 
 ## Fennel Update
-*Jun 2024*
+*JUN 2024*
 
-I'm excited to share a small but impactful update for the bot! Here's what's new:
+A small but impactful update.
 
-- **Model Update** - I'm now using the **nous-hermes-2-solar-10.7b.Q5_K_M** model. This model introduces various ways the bot can reply based on the roles the user might have, enhancing the interaction experience.
-- **Hardware Upgrade** - I've upgraded the PC Vanity is running on to include 64GB of RAM. This upgrade will significantly help with larger models, ensuring smoother and more efficient performance.
-- **Role-Based Responses** - The new model allows for more dynamic and context-aware responses, tailored to the roles users have within the Discord server.
-- **Speech Capabilities** - This update still utilizes OpenVoice for speech synthesis, ensuring that the bot can continue to provide spoken responses.
+**Key Changes:**
 
-This update, though small, brings notable improvements to the bot's capabilities and performance. Thank you for your continued support and patience as I work to enhance the bot's functionality.
+- **Model Update** — Now using **nous-hermes-2-solar-10.7b.Q5_K_M**, which supports varied replies based on user roles
+- **Hardware Upgrade** — Upgraded the host PC to 64GB of RAM to handle larger models
+- **Role-Based Responses** — More dynamic and context-aware responses, tailored to user roles within the Discord server
+- **Speech Capabilities** — Continued use of OpenVoice for speech synthesis
 
 ---
 
 ## Eggplant Update
-*Jan 2024*
+*JAN 2024*
 
-I'm thrilled to announce the fifth iteration of Vanity Bot, and it's a massive update! This version represents a complete overhaul of the bot, with significant changes and exciting new features.
+The fifth iteration — a complete overhaul.
 
 **Key Features:**
 
-- **Switch to Python** - We've transitioned the entire codebase from JavaScript to Python. This change allows us to leverage Python's powerful libraries and frameworks, enabling more sophisticated and efficient development.
-- **AI-Powered Responses** - We've integrated GPT4All with the Nous-Hermes-2-solar-10.7b model to power Vanity's responses. This AI model provides more intelligent, contextually relevant, and dynamic interactions, making conversations with Vanity feel more natural and engaging.
-- **Voice Responses** - In addition to text responses, Vanity now uses OpenVoice to generate voice responses. This means that all of Vanity's replies are voiced, adding a new layer of interactivity and immersion.
-- **Multiple Personalities** - We've introduced the ability for Vanity to switch between different "personalities" based on user roles. This feature allows for more tailored and varied interactions, making Vanity feel more versatile and adaptable.
-- **Removed Minecraft Playing** - Unfortunately, we had to remove the Minecraft playing feature to focus on the core improvements and new functionalities. However, we're exploring ways to reintroduce similar features in the future.
-
-This update marks a significant leap forward in making Vanity a more intelligent, interactive, and versatile bot. We're excited to see how these new features will enhance your experience with the bot.
-
-Stay tuned for more updates and improvements. Your feedback is crucial, so please don't hesitate to share your thoughts and suggestions!
+- **Switch to Python** — Moved the codebase from JavaScript to Python to leverage Python's libraries and frameworks
+- **AI-Powered Responses** — Integrated GPT4All with the Nous-Hermes-2-solar-10.7b model for more intelligent, context-aware interactions
+- **Voice Responses** — Added OpenVoice for spoken replies alongside text
+- **Multiple Personalities** — Vanity can switch between personalities based on user roles
+- **Removed Minecraft Playing** — Cut the Minecraft feature to focus on core improvements (revisited later)
 
 ---
 
 ## Diakon Update
-*Nov 2023*
+*NOV 2023*
 
-I'm excited to share the fourth iteration of Vanity Bot with you all! This update focuses on enhancing Vanity's interaction with users in the game and improving its Minecraft playing capabilities.
+The fourth iteration, focused on Minecraft interaction.
 
 **Key Features:**
 
-- **Enhanced In-Game Interaction** - We've made significant strides in how Vanity interacts with users within the Minecraft environment. The bot now responds more intelligently to player actions and commands, making the gaming experience more immersive and interactive.
-- **Improved Minecraft Playing** - We've continued to refine Vanity's Minecraft playing abilities. This includes better navigation, resource gathering, and basic gameplay mechanics. While still in alpha, these improvements bring us closer to a more robust in-game experience.
-- **Forge Server Connectivity** - We've made additional attempts to connect Vanity to Forge servers. This is a challenging task, but we're making progress. Successfully connecting to a Forge server would open up a whole new world of modded Minecraft experiences for Vanity.
-
-This update represents a focused effort to make Vanity a more capable and engaging companion in the Minecraft world. We're excited to see how these improvements will enhance your gaming sessions.
-
-Stay tuned for more updates and improvements. Your feedback is invaluable, so please share your thoughts and suggestions!
+- **Enhanced In-Game Interaction** — Vanity responds more intelligently to player actions and commands within Minecraft
+- **Improved Minecraft Playing** — Better navigation, resource gathering, and basic gameplay mechanics (still in alpha)
+- **Forge Server Connectivity** — Continued work on connecting to Forge servers for modded support
 
 ---
 
 ## Carrot Update
-*Aug 2023*
+*AUG 2023*
 
-I'm excited to share the third iteration of Vanity Bot with you all! This update brings some significant improvements and new features that enhance both the chat interaction and the bot's capabilities.
+The third iteration, introducing Minecraft integration.
 
 **Key Features:**
 
-- **Enhanced Chat Interaction** - We've revamped the chat feature by incorporating arrays and dictionaries. This allows for more dynamic and contextually relevant responses, making conversations with Vanity feel more natural and engaging.
-- **Minecraft Integration (Alpha)** - Vanity can now log into Minecraft and play alongside users! This feature is powered by Mineflayer.js and represents an early alpha version of our Minecraft integration. While it's still in its infancy, it opens up exciting possibilities for future development.
-
-This update marks a major step forward in making Vanity more versatile and interactive. We're thrilled to see how these new features will enhance your experience with the bot.
-
-Stay tuned for more updates and improvements. Your feedback is crucial, so please don't hesitate to share your thoughts and suggestions!
+- **Enhanced Chat Interaction** — Revamped chat using arrays and dictionaries for more dynamic, contextually relevant responses
+- **Minecraft Integration (Alpha)** — Vanity can log into Minecraft and play alongside users, powered by Mineflayer.js
 
 ---
 
 ## Broccoli Update
-*May 2018*
+*MAY 2018*
 
-I'm thrilled to announce the second iteration of Vanity Bot! In this update, we've introduced some exciting new features that make the bot more interactive and responsive.
+The second iteration, adding interactivity and message handling.
 
 **Key Features:**
 
-- **Regex-Based Message Recognition** - Vanity can now recognize specific patterns in messages using regular expressions (regex). When a matching pattern is detected, the bot responds with a randomized reply, making interactions more dynamic and engaging.
-- **Announcement Repeater** - The bot can now repeat announcements or important messages, ensuring they get the attention they deserve.
-- **Direct Messaging** - Vanity can send direct messages (DMs) to users, providing a more personalized experience.
-
-This update marks the first significant step towards making Vanity more responsive and user-centric. We're just getting started, and there's plenty more to come!
-
-Stay tuned for more updates and improvements. As always, your feedback is invaluable, so don't hesitate to share your thoughts!
+- **Regex-Based Message Recognition** — Recognizes specific patterns in messages and responds with randomized replies
+- **Announcement Repeater** — Repeats announcements or important messages
+- **Direct Messaging** — Sends DMs to users for a more personalized experience
 
 ---
 
 ## Asparagus Update
-*Dec 2017*
+*DEC 2017*
 
-I'm excited to share the first iteration of Vanity Bot with you all. This initial version was developed using JavaScript with Node.js and the Discord.js library. While it was primarily built following a tutorial, it laid the foundation for some basic functionality, including commands like chat pruning and other simple tasks.
-
-This version was a great learning experience, and it's just the beginning of what Vanity can become. Stay tuned for more updates as we continue to expand and improve the bot!
+The first iteration. Built in JavaScript using Node.js and the Discord.js library, primarily following a tutorial. Laid the foundation with basic functionality like chat pruning and other simple commands.
 
 ---
 
-**Last Updated:** @@2026.04.27@@
+**Last Updated:** @@2026.05.05@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
