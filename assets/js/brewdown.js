@@ -48,6 +48,12 @@ const Brewdown = (function() {
         // Spoiler: !!text!! → click to reveal
         text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');
 
+        // Click-to-copy: ^^text^^ → click to copy, appends 📋, flashes "Copied!" for 500ms
+        text = text.replace(/\^\^(.*?)\^\^/g, function(_, content) {
+            const handler = "var e=this,o=e.innerHTML;navigator.clipboard.writeText(e.dataset.copy);e.innerHTML='Copied!';setTimeout(function(){e.innerHTML=o},500)";
+            return '<span class="copy-text" data-copy="' + escapeHtml(content) + '" onclick="' + handler + '">' + content + ' 📋</span>';
+        });
+
         // Bold: **text**
         text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
@@ -79,20 +85,29 @@ const Brewdown = (function() {
             if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
                 return `<a href="${url}" target="_blank" class="media-link"><audio controls src="${url}" title="${alt}"></audio></a>`;
             }
-            return `<a href="${url}" target="_blank">${alt || url}</a>`;
+            let suffix = url.startsWith('magnet:') ? '' : ' 🔗';
+            if (/\.zip(\?|#|$)/i.test(url)) suffix += ' 💾';
+            return `<a href="${url}" target="_blank">${alt || url}${suffix}</a>`;
         });
 
-        // Links: [text](url) — external links open in new tab
+        // Links: [text](url) — external links open in new tab and get 🔗 (except magnet:); .zip links get 💾
         text = text.replace(/\[(.*?)\]\((.*?)\)/g, function(_, linkText, url) {
-            if (isExternalUrl(url)) {
-                return `<a href="${url}" target="_blank">${linkText}</a>`;
+            const external = isExternalUrl(url);
+            const isZip = /\.zip(\?|#|$)/i.test(url);
+            let suffix = '';
+            if (external && !url.startsWith('magnet:')) suffix += ' 🔗';
+            if (isZip) suffix += ' 💾';
+            if (external || isZip) {
+                return `<a href="${url}" target="_blank">${linkText}${suffix}</a>`;
             }
             return `<a href="${url}">${linkText}</a>`;
         });
 
         // Auto-link bare URLs and magnet links (only after whitespace or start of string)
         text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, function(_, prefix, url) {
-            return `${prefix}<a href="${url}" target="_blank">${url}</a>`;
+            let suffix = url.startsWith('magnet:') ? '' : ' 🔗';
+            if (/\.zip(\?|#|$)/i.test(url)) suffix += ' 💾';
+            return `${prefix}<a href="${url}" target="_blank">${url}${suffix}</a>`;
         });
 
         // Template variables: {{name}} → <span id="name">default text</span>

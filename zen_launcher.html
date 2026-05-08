@@ -52,13 +52,19 @@
     <div class="brewdown">
 # 🚀 Zen Launcher
 
-Zen Launcher is a small launcher script that sits next to a program and runs a sanity check before starting it. Users double-click one file — `zen_launcher.bat` on Windows, `zen_launcher.sh` on Mac and Linux — and the launcher walks through the checks before handing off to the actual program.
+Zen Launcher is a small launcher script that sits next to a program and runs a sanity check before starting it.
 
 ---
 
-## What It Does
+## I Use It
 
-Zen Launcher runs through three stages before launching the main file:
+Every program I distribute ships with Zen Launcher next to it. If you've received a program from me, you've already used it.
+
+---
+
+## What It Is
+
+Two text files — `zen_launcher.bat` for Windows and `zen_launcher.sh` for Mac and Linux — that run through three stages before launching the main file:
 
 **1. Environment Check**
 
@@ -74,38 +80,187 @@ Once the checks pass, Zen Launcher runs the main file. It also sets the terminal
 
 ---
 
-## Why It Exists
-
-Distributing a small program to non-technical users is brittle. They hit "command not found" errors, miss a runtime version requirement, or don't know to install dependencies. The program crashes mid-run with an opaque traceback.
-
-Zen Launcher front-loads those failures into a single readable check phase. The user sees something like *"Python is required to run this program"* instead of a wall of errors. The launcher is the only thing they ever click — the actual program file (`app.py`, `game.jar`, `bot.js`) sits next to it and never gets touched directly.
-
----
-
-## How It Looks
+## How to Use It
 
 A typical bundle:
 
 ```
 my_project/
-├─ zen_launcher.bat       (user double-clicks this on Windows)
-├─ zen_launcher.sh        (user double-clicks this on Mac/Linux)
+├─ zen_launcher.bat       (Windows)
+├─ zen_launcher.sh        (Mac/Linux)
 ├─ app.py                (the actual program)
 ├─ requirements.txt
 └─ ...
 ```
 
-The launcher scripts are short, hand-editable shell/batch files. There's no compiled binary or installer to manage — just two text files that anyone can read, audit, or tweak.
+Double-click the launcher for your platform. The program file (`app.py`, `game.jar`, `bot.js`) sits next to it and never gets touched directly.
 
 ---
 
-## How I Use It
+## How to Make One
 
-Every program I distribute ships with Zen Launcher next to it. If you've received a program from me, you've already used it.
+The spec below is explicit enough to follow by hand or to hand to an AI agent. Each section names exactly what to vary per project.
+
+### Inputs
+
+| Field | Required | Example |
+|---|---|---|
+| `TITLE` | yes | `My Program` |
+| `ENTRY` | yes | `app.py`, `game.jar`, `bot.js` |
+| `RUNTIME` | yes | `python`, `node`, `java`, `ruby`, `php`, `dotnet`, or `none` (compiled binary) |
+| `ARGS` | no | `--port=8080 --debug` (default: empty) |
+| `DEPS` | no | `pip`, `npm`, `bundler`, or none — controls whether to add a dep check |
+
+### Script Structure
+
+Each script has five labeled sections in this order:
+
+1. **Imports** — `@echo off` (bat) or `#!/bin/bash` (sh)
+2. **Variables** — declare `TITLE`, `ENTRY`, and `ARGS` at the top
+3. **Requirements** — runtime check (always) then optional dependency check; bail with a readable error on failure
+4. **Script** — set terminal title, `cd` to the script's own directory, run the entry file with `ARGS`
+5. **Execution** — `pause` on Windows so the window doesn't close on error (Mac/Linux can stay open in the calling terminal)
+
+### Runtime Check Patterns
+
+Windows (`.bat`):
+
+```bat
+where python >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Python is required to run this program.
+    pause
+    exit /b 1
+)
+```
+
+Mac and Linux (`.sh`):
+
+```sh
+if ! command -v python3 &> /dev/null; then
+    echo "Python is required to run this program."
+    exit 1
+fi
+```
+
+Swap `python` / `python3` for the runtime command you actually need: `java`, `node`, `dotnet`, `php`, `ruby`, etc. Bash, Command Prompt, Go, and Rust don't need a check — Bash and CMD are always present, and Go/Rust ship as standalone binaries with no runtime.
+
+### Dependency Check Patterns
+
+Optional stage. Skip for runtimes that don't have a dep system (Java JARs bundle their deps, .NET resolves at runtime, Go/Rust binaries are static).
+
+Windows (`.bat`):
+
+```bat
+pip check >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Missing Python dependencies. Run: pip install -r requirements.txt
+    pause
+    exit /b 1
+)
+```
+
+Mac and Linux (`.sh`):
+
+```sh
+if ! pip check &> /dev/null; then
+    echo "Missing Python dependencies. Run: pip install -r requirements.txt"
+    exit 1
+fi
+```
+
+Per-runtime dep-check commands and install hints:
+
+| Runtime | Dep check | Install hint |
+|---|---|---|
+| Python | `pip check` | `pip install -r requirements.txt` |
+| Node.js | `npm list --depth=0` | `npm install` |
+| Ruby | `bundle check` | `bundle install` |
+| Java / .NET / PHP / Go / Rust | (skip) | — |
+
+### Launch Command by Entry File Extension
+
+| Entry | bat | sh |
+|---|---|---|
+| `.py` | `python "%ENTRY%" %ARGS%` | `python3 "$ENTRY" $ARGS` |
+| `.jar` | `java -jar "%ENTRY%" %ARGS%` | `java -jar "$ENTRY" $ARGS` |
+| `.js`, `.mjs` | `node "%ENTRY%" %ARGS%` | `node "$ENTRY" $ARGS` |
+| `.rb` | `ruby "%ENTRY%" %ARGS%` | `ruby "$ENTRY" $ARGS` |
+| `.php` | `php "%ENTRY%" %ARGS%` | `php "$ENTRY" $ARGS` |
+| `.dll` (.NET) | `dotnet "%ENTRY%" %ARGS%` | `dotnet "$ENTRY" $ARGS` |
+| `.sh` | `bash "%ENTRY%" %ARGS%` | `bash "$ENTRY" $ARGS` |
+| compiled binary | `"%ENTRY%" %ARGS%` | `./"$ENTRY" $ARGS` |
+
+### Reference Templates
+
+Complete Python launcher with every stage filled in. Swap variables and commands for your runtime.
+
+Windows (`zen_launcher.bat`):
+
+```bat
+@echo off
+
+REM === Variables ===
+set "TITLE=My Program"
+set "ENTRY=app.py"
+set "ARGS="
+
+REM === Requirements ===
+where python >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Python is required to run this program.
+    pause
+    exit /b 1
+)
+
+pip check >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Missing Python dependencies. Run: pip install -r requirements.txt
+    pause
+    exit /b 1
+)
+
+REM === Script ===
+title %TITLE%
+cd /d "%~dp0"
+python "%ENTRY%" %ARGS%
+
+REM === Execution ===
+pause
+```
+
+Mac and Linux (`zen_launcher.sh`):
+
+```sh
+#!/bin/bash
+
+# === Variables ===
+TITLE="My Program"
+ENTRY="app.py"
+ARGS=""
+
+# === Requirements ===
+if ! command -v python3 &> /dev/null; then
+    echo "Python is required to run this program."
+    exit 1
+fi
+
+if ! pip check &> /dev/null; then
+    echo "Missing Python dependencies. Run: pip install -r requirements.txt"
+    exit 1
+fi
+
+# === Script ===
+printf '\033]0;%s\007' "$TITLE"
+cd "$(dirname "$0")"
+python3 "$ENTRY" $ARGS
+```
+
+The `cd` line in both scripts ensures the launcher works no matter where it's invoked from — `%~dp0` on Windows and `dirname "$0"` on Unix both resolve to the directory containing the script itself, not the user's current working directory.
 
 ---
 
-**Last Updated:** @@2026.05.05@@
+**Last Updated:** @@2026.05.08@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 

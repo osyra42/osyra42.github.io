@@ -97,153 +97,171 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
-# 2026 MAY 05
-@ website
-+ added "3D & Animation" and "Mixed Multimedia" sections to What I Build on index
-+ added expansion-of-focus notice blockquote at top of index
-+ updated About Me to mention shift toward visual work
-- removed Amazon Affiliate notice and Google Play warning blockquotes from index page
-- removed Amazon Affiliate clause from Support My Work section on index
-- removed Amazon Affiliate disclaimer from Products section on recommendations page
-- removed affiliate disclosure section (and meta tag references) from website legal page
-- deleted assets/legal/coffee_byte_dev_affiliate_disclosure.md
-> reordered What I Build sections by recent activity (Developer Tools → Minecraft → Games → Writing → Educational → AI)
-> moved Donate from its own Support section up into Navigation (between Commissions and Recommendations)
-> moved Vanity Legal and Website Legal links out of their own sidebar section and into the sidebar footer paragraph as "Legal: Website | Vanity"
-> consolidated sidebar footer onto a single line — "<email> — Legal: Website | Vanity" (email shown as plain text, no link or "Contact:" label)
-> refactored sidebar footer to use `.sidebar-footer` CSS class — moved inline styles from the `<p>`, child `<a>` tags, and librecounter `<img>` into sidebar.css; bumped font-size from 8px to 11px for readability
+# 2026 MAY 08
+@ minecraft
++ ViaBackwards plugin link
++ InvSee++ plugin link
 
-@ how magnets work
-> updated Kali Linux example from Kali Purple 2025.4 to Kali Linux 2026.1 — refreshed magnet link, .torrent file URL, and inline 🧲 link
+@ blank_pixel_game
+> downloads converted to .zip (link text [EXE] / [AppImage] kept)
 
-@ donate
-+ added markdown H1 (`# 💜 Support My Work`) so the printed PDF carries a title
-+ added "Easiest path" tip callout pointing visitors directly at Ko-fi
-+ added Author line at bottom (was missing)
-- removed redundant intro paragraphs (consolidated to a single warmer opener)
-- removed marketing-speak fluff from each section description
-- removed redundant 🔗 prefixes from links (already styled)
-- removed bloated thank-you closer (two paragraphs → one)
-> nested Steam Wishlist under the Wishlists H2 (was a sibling section); promoted Amazon and Steam to H3 subsections
-> tightened language throughout — first-person, conversational, less generic gratitude
+@ blender resources
++ created Blender Resources page (parallel to Code Resources)
++ Blender 5.1.1 version note; donut tutorial linked to specific video
 
 @ zen launcher
-+ added concept description with three-stage breakdown (environment check, dependency check, launch)
-+ added "Why It Exists" and "How It Looks" sections with example folder layout
-+ added "How I Use It" note — Zen Launcher ships with every program I distribute
-- removed launcher script generator form (Step 1, Step 2, Step 3) and supporting markup
-- removed form preview/download (.bat/.sh) buttons and ~210 lines of supporting JavaScript
-- removed form-related CSS (.btn, .form-actions, .script-preview-block, .hidden, mobile rules)
-> reframed zen_launcher.html from launcher-script generator into a concept reference page
-> standardized launcher filenames to lowercase/underscore (zen_launcher.bat, zen_launcher.sh) across the page
-
-@ vanity
-+ added "Vanity Minecraft" section above Kale Update — autonomous goal-oriented fishing bot with backward crafting, chest awareness, storage management, threat defense, and a player reputation system
-+ added intro line announcing the two-product split (Vanity Minecraft + Vanity Kale)
-- removed "Minecraft Automation" bullet from Kale Update feature list (moved to Vanity Minecraft)
-- removed marketing-speak boilerplate from older entries ("I'm thrilled to announce", "Stay tuned for more updates", "Your feedback is invaluable", etc.)
-- removed obsolete "What's Coming Next?" forward-looking text from Honeynut (now redundant with Ivy entry above it)
-> standardized date format across all version entries (MMM YYYY all caps)
-> standardized bullet separators to em-dashes throughout the page
-> stripped trailing periods from bullet items
-> normalized first-person voice (royal "we" → "I") across older entries
-> updated meta description to reflect the two-product split and update history scope
++ Inputs table and Dependency Check Patterns
++ ARGS variable in templates
+> reference templates cover every stage
 
 @ brewdown
-+ added "How It Works" section explaining DOM scan patterns, defer/load order, and the highlight.js integration
-- removed Quick Start install steps, CDN Links section, and "free to use" attribution line
-- removed "library" framing from meta description
-> reframed brewdown.html from "drop-in library" tutorial to a how-it-works reference for the converter that powers this site
++ ^^text^^ click-to-copy with 📋 indicator
++ 🔗 indicator on external link text
++ 💾 indicator on .zip links
+> "Copied!" flash for 500ms, link styling
+> 🔗 skipped for magnet: links
+
+@ website
+> 🔗/📋 prefixes swapped for topic-fit emojis
+> how_magnets_work step 1: 💾 → 💻
+
+. ............................
+# 2026 MAY 07
+@ zen launcher
++ "How to Make One" section with bat/sh templates
+- Why It Exists section
+> sections reordered (I Use It first)
+> folder layout merged into "How to Use It"
+
+. ............................
+# 2026 MAY 06
+@ recommendations
+- product subcategory subheadings
+> merged product subtables into one
+> swapped Product/Note columns; renamed headers to Name/Product
+
+. ............................
+# 2026 MAY 05
+@ website
++ "3D & Animation" and "Mixed Multimedia" sections on index
++ expansion notice and visual-work mention on index
+- Amazon Affiliate notices, Google Play warning, affiliate disclosure
+- assets/legal/coffee_byte_dev_affiliate_disclosure.md
+> reordered What I Build sections by recent activity
+> moved Donate to Navigation; Legal links to sidebar footer
+> consolidated sidebar footer to one line; refactored to .sidebar-footer class
+
+@ how magnets work
+> updated Kali example to Kali Linux 2026.1
+
+@ donate
++ markdown H1, Ko-fi tip callout, Author line
+- marketing fluff and 🔗 link prefixes
+> nested Steam Wishlist under Wishlists; tightened language
+
+@ zen launcher
++ "Why It Exists", "How It Looks", "How I Use It" sections
+- generator form and supporting JS/CSS
+> reframed from generator into concept reference
+> standardized filenames to zen_launcher.bat / zen_launcher.sh
+
+@ vanity
++ Vanity Minecraft section (autonomous fishing bot)
++ intro announcing two-product split
+- Minecraft Automation bullet from Kale
+- marketing-speak boilerplate from older entries
+> standardized dates, separators, voice, and meta description
+
+@ brewdown
++ "How It Works" section
+- Quick Start, CDN Links, "free to use" line, "library" framing
+> reframed from drop-in tutorial into how-it-works reference
 
 @ commissions
-+ merged examples.html portfolio content into commissions page (all 3D print and VTuber image references retained)
-+ added per-service rate card ("Starting at $20") for 3D Prints, VTuber Models, Discord Bots, Web Development, and Code Help
-+ added "How to Commission" contact section at bottom (Discord/email-driven, replaces the form)
-- removed 4-step commission request form (Step 1 through Step 4)
-- removed form preview/download/copy-to-clipboard buttons and ~100 lines of supporting JavaScript
-- removed form-related CSS (.btn, .form-actions, #form-preview, .hidden)
-- deleted examples.html (content absorbed; only inbound link was from commissions itself)
++ examples.html merged in (image references retained)
++ per-service rate card ("Starting at $20") and "How to Commission" section
+- 4-step form, preview/download buttons, supporting JS/CSS
+- examples.html
 
 . ............................
 # 2026 APR 28
 @ minecraft
-+ added per-server minimum requirements YAML blocks under VAN26 (vanilla, Mojang official minimums) and ATM10 (modded)
-> rewrote intro paragraph to a friendly invite (dropped boasts about hardware, hosting tenure, no-pay-to-win, etc.)
-> "New to Minecraft?" reduced to a short welcome/congrats — server-specific specs now live with each server
-> server hardware block converted to YAML (Kimbie Dark colors keys/strings)
-> ATM10 minimum requirements rephrased as floors with "+" / "or better" framing, not fixed specs
++ per-server minimum requirements YAML blocks (VAN26, ATM10)
+> rewrote intro paragraph as friendly invite
+> "New to Minecraft?" reduced to short welcome
+> hardware block converted to YAML
+> ATM10 minimums rephrased as floors
 
 . ............................
 # 2026 APR 27
 @ website
-+ added markdown H1 to all content pages (blank pixel game, commissions, how magnets work, operation chimera, recommendations, vanity, vtuber guide, worksheets) so the printed/PDF version has a title at the top
-> download-bar H1 is hidden in print mode, so the markdown H1 carries the title for save-as-PDF
++ markdown H1 on all content pages for printed PDF titles
 
 @ casio code
-+ added `# 🔢 Casio Code` H1 above Preface so the printed PDF has a proper title
-> swapped all 54 ` ```basic ` code blocks to ` ```vbnet ` for closer keyword highlighting (Casio BASIC isn't a hljs language, but VB.NET picks up If/Then/Else/IfEnd/For/Next/While/Do/Goto/Return)
++ # 🔢 Casio Code H1 above Preface
+> swapped basic code blocks to vbnet for better hljs highlighting
 
 @ website
-+ added highlight.js + Kimbie Dark CSS to every page (25 pages that previously didn't load it) so future code blocks just work without remembering to add the import
-> normalized all_about_ai.html to load highlight.js with `defer` like every other page
-$ fixed highlight.js never running on pages where script-tag order had brewdown.js before highlight.min.js — `hljs` was undefined when brewdown's highlightAll check ran; reordered highlight.min.js first across all pages
-$ fixed brewdown.js timing regression that broke the Minecraft page's `{{server1-status}}` ping variables — reverted processAll back to immediate-execution during defer; the script-order fix (highlight before brewdown) is sufficient on its own
++ highlight.js + Kimbie Dark CSS on every page
+> normalized all_about_ai.html highlight.js loading
+$ highlight.js script-order fix (highlight before brewdown)
+$ brewdown.js timing regression breaking Minecraft ping variables
 
 @ brewdown
-+ renamed `Brewdown.processMarkdownDivs()` API to `Brewdown.processBrewdownDivs()` for naming consistency
-> renamed markdown content class to `brewdown` for naming accuracy (`class="markdown"` → `class="brewdown"`, `markdown-rendered` → `brewdown-rendered`); updated brewdown.js selector and CLAUDE.md docs to match
-> updated brewdown.html API docs, brewdown.css header comment, brewdown.js processAll comment, and CLAUDE.md headings to use "Brewdown" instead of "markdown" where the term referred specifically to this library
++ renamed processMarkdownDivs → processBrewdownDivs API
+> renamed class="markdown" → class="brewdown"
+> updated docs and comments to use "Brewdown" not "markdown"
 
 @ vtuber guide
-+ added Contents section listing the page's main sections
-- removed stale "Archived Tutorial Document" subtitle
-- removed Section X numbering from major headings
-> flattened h4 sub-headers under Step 1 and Step 2 into bold inline labels
-> converted single-tool tables (VMagicMirror, Veadotube Mini) into tighter bullet blocks
-> moved VTuber Guide to Projects in sidebar; Zen Launcher moved to Archives
++ Contents section
+- "Archived Tutorial Document" subtitle
+- Section X numbering on headings
+> flattened h4 sub-headers into bold inline labels
+> single-tool tables → bullet blocks
+> moved to Projects in sidebar; Zen Launcher to Archives
 
 . ............................
 # 2026 APR 26
 @ vtuber guide
-- removed all VSeeFace recommendations (no longer actively maintained)
-- removed VSeeFace row from Workflow Summary quick-reference table
-> VMagicMirror is now the only suggested 3D animation tool
+- VSeeFace recommendations (no longer maintained)
+- VSeeFace row from Workflow Summary table
+> VMagicMirror now the only suggested 3D tool
 
 . ............................
 # 2026 APR 25
 @ blank_pixel_game
-+ added new 2026.04.25 build (HTML5, EXE, WINZIP, AppImage)
-+ added off-screen culling — entities outside camera view skip draw and processing
-+ added HTML5-specific optimizations for smoother browser play
++ 2026.04.25 build (HTML5, EXE, WINZIP, AppImage)
++ off-screen culling for entities outside camera view
++ HTML5-specific optimizations
 
 . ............................
 # 2026 APR 24
 @ operation chimera
-+ expanded Aurora Pulse wiki (pass tiers with colored wristband emblems, exterior mural, games room, kitchen & bar, menu, dress code, Chimeran policy)
-- removed "Dr." title and Private Investigator profession from Osyra
-- removed forensic science / engineering education from Osyra's profile
-> rewrote Blood Relation backstory — parents gave Osyra up for adoption as an infant, aunt raised her until she died, foster care sold her at 16
-> reworked Osyra wiki to match new Rev 03 canon (age 16 at transformation, late 20s present, self-taught biology/genetics/cybersecurity from researching own transformation)
-> preserved intentional tense-shift foreshadowing in Blood Relation ("I'm Chimeran" vs "I was human")
++ expanded Aurora Pulse wiki
+- "Dr." title and PI profession from Osyra
+- forensic / engineering education from Osyra
+> rewrote Blood Relation backstory (adopted as infant, raised by aunt, sold at 16)
+> reworked Osyra wiki to match Rev 03 canon
+> preserved tense-shift foreshadowing in Blood Relation
 
 @ minecraft
-+ added Rules row to every Server Info table
-+ added GPU spec to server hardware block
-+ added emoji-indexed minimum requirements section for ATM10 (🧠 CPU, 🎮 GPU, 💾 RAM, 🗃️ SSD, 📁 Disk, ☕ Java)
-> reformatted server hardware block with 3-letter acronyms (CPU, RAM, SSD, GPU, PSU, NET)
-> tightened intro paragraphs (Coffee Block framing, 14 years hosting experience, administrator role)
-> split CurseForge install / modpack download into two steps for ATM10 connect flow consistency
-> rewrote per-server descriptions for consistency
-$ fixed ATM10 disk space requirement (2 GB → 15 GB, per all-themods.com)
-$ fixed ATM10 CPU minimum (3.8 GHz → 3.0 GHz / 4 cores, per all-themods.com)
++ Rules row on every Server Info table
++ GPU spec to server hardware block
++ ATM10 minimum requirements section
+> reformatted hardware block with 3-letter acronyms
+> tightened intro paragraphs
+> split CurseForge install / modpack download into two steps
+> rewrote per-server descriptions
+$ ATM10 disk requirement (2 GB → 15 GB)
+$ ATM10 CPU minimum (3.8 GHz → 3.0 GHz / 4 cores)
 
 @ zen launcher
-+ restructured generated .bat and .sh scripts into labeled sections (imports → variables → requirements → script → execution)
-+ generated scripts now define TITLE / ENTRY / ARGS variables referenced throughout
-> launch commands reference %ENTRY% / $ENTRY instead of inlining entry filenames
++ generated scripts restructured into labeled sections
++ TITLE / ENTRY / ARGS variables defined and referenced
+> launch commands reference %ENTRY% / $ENTRY instead of inline filenames
 
 @ brewdown
-- removed top margins from h2, h3, and h4 so headers sit flush with content above
+- top margins from h2, h3, h4 (flush headers)
 
 . ............................
 # 2026 APR 18
@@ -258,118 +276,118 @@ $ fixed ATM10 CPU minimum (3.8 GHz → 3.0 GHz / 4 cores, per all-themods.com)
 > sorted all tables alphabetically and added episode tracking format (s01e64)
 
 @ brewdown
-+ tables with "#" header columns auto-narrow the index column to 24px
++ "#" header columns auto-narrow to 24px
 
 @ operation chimera
-+ added Aurora Pulse — Uta Yuki's nightclub — as the first location wiki page
-+ added Alissa McKay and Eric McKay to the character wiki (Revision 01 history preserved for later use)
-+ organized wiki into subfolders: char/ for characters, locs/ for locations, imgs/ for images
-+ restructured main wiki collapsible into nested sections (Lore + Characters + Locations)
-- removed rev01_char_osyra.md, rev02_char_osyra_dossier.md, rev02_char_osyra_background.md (old character reference docs; essentials captured in the wiki)
-- removed broken links from the main page for files that had already been deleted (rev03_characters.md, rev02_about.md)
-> renamed images folder from images to imgs (matches 4-letter convention: wiki, char, locs, imgs)
-$ fixed typo: R15 → AR-15 in Osyra's weapons list
++ Aurora Pulse location wiki page (Uta Yuki's nightclub)
++ Alissa McKay and Eric McKay character profiles
++ wiki subfolders: char/, locs/, imgs/
++ nested wiki sections (Lore, Characters, Locations)
+- old rev01/rev02 Osyra character reference docs
+- broken links to deleted files
+> images folder renamed to imgs (4-letter convention)
+$ R15 → AR-15 in Osyra's weapons list
 
 . ............................
 # 2026 APR 17
 @ blank_pixel_game
-+ added new 2026.04.17 build (HTML5, EXE, WINZIP)
-+ adjusted coin colors to match realistic metals — copper, bronze, silver, electrum, gold, platinum, rhodium
-+ adjusted coin values (1 / 5 / 20 / 100 / 500 / 2500 / 10000)
-+ adjusted coin rarity to fit a bell curve — lucky valuable drops now possible
-- removed coin merger — it increased lag instead of reducing it
++ 2026.04.17 build (HTML5, EXE, WINZIP)
++ coin colors match realistic metals (copper → rhodium)
++ coin values (1 / 5 / 20 / 100 / 500 / 2500 / 10000)
++ coin rarity bell curve
+- coin merger (increased lag)
 > loot multiplier kept at x100
-$ fixed armored dummies not having more HP than regular dummies
+$ armored dummies HP fixed
 
 . ............................
 # 2026 APR 16
 @ zen launcher
-+ created Zen Launcher — cross-platform launcher script generator (.bat and .sh)
-+ added runtime checks for 10 environments (.NET, Bash, Command Prompt, Go, Java, Node.js, PHP, Python, Ruby, Rust)
-+ added cd to script directory so launchers work regardless of invocation path
-+ added terminal/CMD title support that persists through execution
-+ added preview panes split by file type (.bat and .sh shown separately)
++ created Zen Launcher (.bat / .sh script generator)
++ runtime checks for 10 environments
++ cd to script directory for invocation-path independence
++ persistent terminal/CMD title support
++ preview panes split by file type
 + added to sidebar under Projects
 
 @ donate
 + swapped PayPal link for Ko-fi
 
 @ minecraft
-+ added CFML (Fox Den) private server with its own DNS (thefoxden.live)
-+ ran update checks for all three servers
-+ added "stealing" to Player Consent rule examples
-- removed rules 8 (Vote Ban) and 9 (Changes) — admin-governed
-- changed modded server IP from play.coffeeblock.xyz:25566 to modded.coffeeblock.xyz (SRV record)
++ CFML (Fox Den) private server (thefoxden.live)
++ update checks for all three servers
++ "stealing" added to Player Consent examples
+- rules 8 (Vote Ban) and 9 (Changes) — admin-governed
 > vanilla server updated to 21.1.2
-> reorganized rules by priority (most important at top)
-> clarified which rules apply per server (1-7 public, 1-6 private)
-> reordered sections: connect instructions first, admin updates last
-> updated ping function to support hostname-only lookups for SRV records
+> modded server IP → modded.coffeeblock.xyz (SRV record)
+> reorganized rules by priority
+> clarified rule scope per server (1-7 public, 1-6 private)
+> reordered sections (connect first, admin updates last)
+> ping function supports hostname-only SRV lookups
 
 @ brewdown
-> tables now use consistent 30% width on first column for key-value layouts
+> 30% first column for key-value tables
 
 . ............................
 # 2026 APR 12
 @ operation chimera
-+ created character wiki with lore page and 6 character profiles (Osyra, Vanity, Korval, Rosalyn, Uta, Layla)
-+ added media gallery support to Brewdown (flexbox layout, click to open full size)
-+ added wiki images folder for character portraits
-- renamed revisions from 00/01/02 to 01/02/03 (folders, file prefixes, and all links)
-- removed stale nomenclature note from page footer
-> restructured chapter list with collapsible sections (wiki, revision 03, 02, 01)
-> extracted character info from old revision files into wiki pages
-> separated current canon from revision history in each wiki entry
++ character wiki with lore page and 6 character profiles
++ media gallery support to Brewdown (flexbox, click for full size)
++ wiki images folder
+- renamed revisions 00/01/02 → 01/02/03
+- stale nomenclature note from page footer
+> chapter list with collapsible sections
+> extracted character info from revision files into wiki
+> separated canon from revision history in wiki entries
 
 @ brewdown
-+ consecutive images auto-grouped in flex gallery container
-+ all media (images, video, audio) wrapped in clickable links that open full size in new tab
++ consecutive images auto-grouped in flex gallery
++ media wrapped in clickable links (full size in new tab)
 + max media size capped at 256px
-- fixed word-break: break-all breaking words mid-character in pre blocks (changed to break-word)
-> tables now wrapped in scrollable container for mobile horizontal overflow
+> tables wrapped in scrollable container for mobile overflow
+$ word-break breaking words mid-character in pre blocks (break-all → break-word)
 
 . ............................
 # 2026 APR 11
 @ minecraft
-+ reset plugin/mod update checklists for new check cycle
-+ updated modded server ATM10 to v6.6
-- removed hardcoded version numbers from server descriptions (now pulled from API)
-> updated server info tables to vertical layout with live player count and version from API
++ reset plugin/mod update checklists
++ ATM10 updated to v6.6
+- hardcoded version numbers from server descriptions
+> server info tables → vertical layout with live API data
 
 @ operation chimera
-+ added characters file to revision 02 chapter list
-+ added chapter 02 placeholder (strikethrough)
-> cleaned up chapter 01 Blood Relation (grammar, past tense, dialogue formatting)
-> refined character profiles (simplified language, removed redundancies, fixed typos)
-> adjusted Osyra's dialogue to be shorter and more military
-> adjusted Rosalyn's dialogue to be warmer and more present
++ characters file to rev 02 chapter list
++ chapter 02 placeholder
+> cleaned up chapter 01 Blood Relation
+> refined character profiles
+> Osyra's dialogue: shorter, more military
+> Rosalyn's dialogue: warmer, more present
 
 . ............................
 # 2026 APR 08
 @ operation chimera
-+ moved chapter list into inline script[data-brewdown] block (removed manual Brewdown.brewdown call + JS template literal)
-+ updated chapter-link selectors to drop obsolete main.archive prefix
-+ added Revision 02 (2026) section with "Blood Relation" entry
-+ linked Osyra character dossier under Revision 00
-+ restored Chapters 33-40 links in Part 2 (files do exist — previous strikethrough was incorrect)
-+ renamed all operation_chimera files to rev##_ch##_title pattern (chapters, parts, characters, about) via git mv
-+ moved revision_01 top-level files (README, osyra dossier/background) into revision_01/ for consistency
-+ added Chapter 32 subtitle "Deep Clean" (taken from the OPERATION: DEEP CLEAN mission brief inside the chapter)
-+ added nomenclature note to page footer
-+ flattened revision_00 into single folder (Part 0/1/2/3 and Characters subdirs removed)
-+ added subtitles to Chapters 33-39 (Hollow Hound, Discovery, Hunter's Orange, Sick Bear Story, The Cleaners, Stepping Stone, Lifelines) — both filenames and in-file H1 headings
-+ aligned all Rev 00 H1 headings with their filenames for consistency (Ch 00 Part 1, Ch 32 Deep Clean, Ch 50 Part 3, Ch 90 Back Alley)
-+ added revision-agnostic content warning (operation_chimera/content_warning.md) auto-loaded at the top of the chapter listings
-- dropped JS that added .chapter-link class to each link (replaced with CSS attribute selector on #chapter-list a[href$=".md"])
-- removed redundant CSS: cursor:pointer on anchor, display:block + white-space:normal + font-family on .chapter-content (all defaults or globally inherited)
-- dropped "Operation Chimera -" prefix from revision headings (page h1 already says it)
-- struck through Chapters 33-40 in Revision 00 (never written — moved on to different idea)
-- deleted empty stub files: revision_01/03_.md, revision_00/Characters/Layla.md, revision_00/Characters/Vanity.md
-> cleaned up page to use modern brewdown patterns
-> tightened intro blurb (removed repetition about recurring cast)
-> rebuilt Rev 00 section of the page to point at flattened paths and match new chapter titles
-$ fixed: removed bogus "Part 0 - Random Things" entry that pointed to the same file as Chapter -1
-$ fixed: collapsed dual "# Chapter 39 / # Chapter 40" headings in the merged ch39 file
++ chapter list moved into inline script[data-brewdown] block
++ chapter-link selectors drop obsolete main.archive prefix
++ Revision 02 (2026) section with "Blood Relation" entry
++ Osyra character dossier linked under Revision 00
++ restored Chapters 33-40 links in Part 2
++ renamed all files to rev##_ch##_title pattern via git mv
++ moved revision_01 top-level files into revision_01/
++ Chapter 32 subtitle "Deep Clean"
++ nomenclature note in page footer
++ flattened revision_00 into single folder
++ subtitles for Chapters 33-39
++ aligned all Rev 00 H1 headings with filenames
++ revision-agnostic content warning auto-loaded at top
+- JS adding .chapter-link class (now CSS attribute selector)
+- redundant CSS on .chapter-content
+- "Operation Chimera -" prefix from revision headings
+- struck through Chapters 33-40 in Revision 00
+- empty stub files
+> page uses modern brewdown patterns
+> tightened intro blurb
+> rebuilt Rev 00 section to match new paths and titles
+$ bogus "Part 0 - Random Things" entry pointing to same file as Chapter -1
+$ dual "# Chapter 39 / # Chapter 40" headings in merged ch39 file
 
 . ............................
 # 2026 APR 07

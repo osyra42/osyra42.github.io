@@ -60,7 +60,7 @@
 
 Coffee Block is my little collection of Minecraft servers — a few public ones, sometimes a private one too. They're free, Java Edition only, and running 24/7. Come and go as you like.
 
-🔗 [Join the Discord](https://discord.gg/2USS2tgDgE) — Say hi, find players, or just hang out.
+[Join the Discord](https://discord.gg/2USS2tgDgE) — Say hi, find players, or just hang out.
 
 ---
 
@@ -131,7 +131,7 @@ motto: "The goal is to get just enough to make it work."
 | Server Info | |
 |---|---|
 | **Server Name** | Coffee Block (Vanilla) |
-| **IP and Port** | play.coffeeblock.xyz |
+| **IP and Port** | ^^play.coffeeblock.xyz^^ |
 | **Status** | {{server1-status}} |
 | **Players** | {{server1-players}} |
 | **Version** | {{server1-version}} |
@@ -140,7 +140,7 @@ motto: "The goal is to get just enough to make it work."
 
 Vanilla Minecraft running on Paper. No mods, no modpacks, no extra files needed.
 
->>> 📋 Minimum Requirements
+>>> ⚙️ Minimum Requirements
 ```yaml
 CPU:    "Intel Core i3-3210 / AMD A8-7600 or better"
 GPU:    "Intel HD Graphics 4000 / Radeon R5 (OpenGL 4.5) or better"
@@ -161,15 +161,13 @@ java:   "Version 25 (bundled with the launcher)"
 <<<
 
 >>> 🔧 **Admin**: Check For Updates
-> Checked @@2026.04.24@@
-> **REQUIRED**
+> Checked @@2026.05.08@@
 > [x] [Paper](https://fill-ui.papermc.io/projects/paper)
 > [x] [Discord SRV](https://modrinth.com/plugin/discordsrv)
-> **RECOMMENDED**
-> [ ] [Simple Join Message](https://modrinth.com/plugin/sjm)
 > [x] [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion)
+> [x] [ViaBackwards](https://hangar.papermc.io/ViaVersion/ViaBackwards)
 > [x] [World Edit](https://modrinth.com/plugin/worldedit)
-> [x] +1 admin tool
+> [x] [InvSee++](https://modrinth.com/plugin/invsee++)
 <<<
 
 ---
@@ -179,7 +177,7 @@ java:   "Version 25 (bundled with the launcher)"
 | Server Info | |
 |---|---|
 | **Server Name** | Coffee Block (Modded) |
-| **IP and Port** | modded.coffeeblock.xyz |
+| **IP and Port** | ^^modded.coffeeblock.xyz^^ |
 | **Status** | {{server2-status}} |
 | **Players** | {{server2-players}} |
 | **Version** | {{server2-version}} |
@@ -188,7 +186,7 @@ java:   "Version 25 (bundled with the launcher)"
 
 Modded Minecraft running All the Mods 10 (~500 mods). The server rejects vanilla clients — install the modpack first.
 
->>> 📋 Minimum Requirements
+>>> ⚙️ Minimum Requirements
 ```yaml
 CPU:    "4+ cores at 3.0+ GHz (single-thread speed matters most)"
 GPU:    "GTX 1050 Ti / 4 GB VRAM or better"
@@ -210,12 +208,11 @@ java:   "Version 21"
 > 8. Enter the IP: `modded.coffeeblock.xyz`
 > 9. Join and play!
 
-🔗 [Download ATM10 from CurseForge](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/all?page=1&pageSize=20&showAlphaFiles=show)
+📦 [Download ATM10 from CurseForge](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/all?page=1&pageSize=20&showAlphaFiles=show)
 <<<
 
 >>> 🔧 **Admin**: Check For Updates
-> Checked @@2026.04.24@@
-> **REQUIRED**
+> Checked @@2026.05.08@@
 > [ ] [ATM10 Files](https://www.curseforge.com/minecraft/modpacks/all-the-mods-10/files/all?page=1&pageSize=20&showAlphaFiles=show)
 <<<
 
@@ -234,7 +231,7 @@ java:   "Version 21"
 
 Private modded server running a custom modpack. Whitelist-only access — see Discord for details.
 
->>> 📋 Minimum Requirements
+>>> ⚙️ Minimum Requirements
 ```yaml
 CPU:    "4+ cores at 2.5+ GHz"
 GPU:    "GTX 1050 / 2 GB VRAM or better"
@@ -259,14 +256,14 @@ java:   "Version 18"
 <<<
 
 >>> 🔧 **Admin**: Check For Updates
-> Checked @@2026.04.24@@
+> Checked @@2026.05.08@@
 > Server files are private.
 <!-- https://www.curseforge.com/minecraft/modpacks/ciscos-fantasy-medieval-adventure-rpg/files/all -->
 <<<
 
 ---
 
-**Last Updated:** @@2026.05.01@@
+**Last Updated:** @@2026.05.08@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -303,7 +300,7 @@ java:   "Version 18"
 
     // Ping all servers after page loads
     document.addEventListener('DOMContentLoaded', function() {
-      ping('server1', 'play.coffeeblock.xyz', 25565);
+      ping('server1', 'play.coffeeblock.xyz');
       ping('server2', 'modded.coffeeblock.xyz');
       ping('server3', 'thefoxden.live');
     });
