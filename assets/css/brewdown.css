@@ -161,6 +161,19 @@ main hr {
   color: var(--steamed-milk);
 }
 
+/* Click-to-copy — styled like an <a> link */
+.copy-text {
+  color: var(--caramel);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.copy-text:hover {
+  color: var(--light-cream);
+  text-decoration: underline;
+}
+
 /* Collapsible (>>> / <<<) */
 main details {
   margin: 0.3em 0;

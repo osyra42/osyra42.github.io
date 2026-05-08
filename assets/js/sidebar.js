@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMarkdown = `
 **Navigation**
 - [🏠 Home Page](index.html)
-- [📋 Changelog](changelog.html)
+- [📰 Changelog](changelog.html)
 - [💼 Commissions 🆕](commissions.html)
 - [☕ Donate 🆕](donate.html)
 - [⭐ Recommendations](recommendations.html)
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 **Projects**
+- [🧊 Blender Resources 🆕](blender_resources.html)
 - [☕ Brewdown 🆕](brewdown.html)
 - [🧲 How Magnets Work 🆕](how_magnets_work.html)
 - [🤖 Vanity Bot 🆕](vanity.html)
