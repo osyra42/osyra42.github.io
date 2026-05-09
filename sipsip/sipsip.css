@@ -1,0 +1,248 @@
+@import url('theme.css');
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gray-950);
+  color: var(--gray-200);
+  font-family: Arial, sans-serif;
+}
+
+.piles {
+  display: flex;
+  align-items: center;
+  gap: 0.6in;
+  perspective: 1500px;
+}
+
+.pile {
+  position: relative;
+  width: 2.5in;
+  height: 3.5in;
+}
+
+.draw-pile::before,
+.draw-pile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  border: 0.05in solid var(--gray-700);
+  border-radius: 0.18in;
+  z-index: -1;
+}
+
+.draw-pile::before {
+  transform: translate(3px, 3px);
+  opacity: 0.7;
+}
+
+.draw-pile::after {
+  transform: translate(6px, 6px);
+  opacity: 0.4;
+}
+
+.pile-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed var(--gray-700);
+  border-radius: 0.18in;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-600);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.discard-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card-flip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.card-flip.drawing {
+  animation: draw-flip 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  cursor: default;
+}
+
+.card-flip.spawning {
+  animation: spawn-card 0.35s ease-out forwards;
+}
+
+@keyframes draw-flip {
+  0% {
+    transform: translate(0, 0) rotateY(0);
+  }
+  22% {
+    transform: translate(0, -0.4in) rotateY(0);
+  }
+  100% {
+    transform: translate(3.1in, 0) rotateY(180deg);
+  }
+}
+
+@keyframes spawn-card {
+  0% {
+    opacity: 0;
+    transform: translateY(0.3in);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.card {
+  width: 2.5in;
+  height: 3.5in;
+  background: var(--gray-200);
+  color: var(--gray-900);
+  border: 0.05in solid var(--gray-700);
+  border-radius: 0.18in;
+  box-shadow: 0 0.18in 0.45in rgba(0, 0, 0, 0.6);
+  padding: 0.28in;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.card-back {
+  background: #000;
+  color: var(--gray-200);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.card-header {
+  flex: 0 0 0.2in;
+}
+
+.card-text {
+  flex: 1 1 auto;
+  text-align: justify;
+  hyphens: auto;
+  font-size: 15pt;
+  font-weight: 600;
+  line-height: 1.3;
+  overflow: hidden;
+}
+
+.card-footer {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 0.08in;
+  border-top: 1px solid rgba(23, 23, 23, 0.15);
+}
+
+.card-deck {
+  font-size: 7pt;
+  font-weight: 600;
+  color: var(--gray-700);
+  opacity: 0.45;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.site-title {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  color: var(--gray-500);
+  font-family: Arial, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.decks {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--gray-800);
+  border: 1px solid var(--gray-700);
+  border-radius: 0.5rem;
+  color: var(--gray-200);
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+}
+
+.decks-title {
+  margin: 0 0 0.6rem 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--gray-700);
+  color: var(--gray-400);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.decks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.decks label {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.decks input[type="checkbox"] {
+  width: 0.95rem;
+  height: 0.95rem;
+  cursor: pointer;
+  accent-color: var(--gray-400);
+}
