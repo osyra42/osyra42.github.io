@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sip Sip</title>
+  <link rel="stylesheet" href="sipsip.css" />
+</head>
+<body>
+  <h1 class="site-title">Sip Sip</h1>
+  <aside class="decks">
+    <h2 class="decks-title">Decks</h2>
+    <div class="decks-list" id="decks"></div>
+  </aside>
+  <div class="piles">
+    <div class="pile draw-pile" id="draw-pile">
+      <div class="card-flip" id="top-card">
+        <div class="card card-face card-back">
+          <span class="card-back-text">Sip Sip</span>
+        </div>
+        <div class="card card-face card-front">
+          <div class="card-header"></div>
+          <div class="card-text" id="card-text"></div>
+          <div class="card-footer">
+            <div class="card-deck" id="card-deck"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pile discard-pile">
+      <div class="pile-placeholder" id="discard-placeholder">Discard</div>
+      <div class="card discard-top" id="discard-top" hidden>
+        <div class="card-header"></div>
+        <div class="card-text" id="discard-text"></div>
+        <div class="card-footer">
+          <div class="card-deck" id="discard-deck"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="sipsip.js" defer></script>
+</body>
+</html>
