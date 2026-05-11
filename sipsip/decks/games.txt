@@ -1,0 +1,48 @@
+[SIP-IF] Sip if you've ever rage-quit a game.
+[LISTING] Name 5 Mario™ games or sip.
+[SIP-IF] The player who plays on easy mode gives out a sip.
+[GROUP] On three, everyone yell out your favorite Pokémon™. Two players who match clink and sip.
+[SIP-IF] Sip if you've ever bought a game on Steam™ sale and never opened it.
+[VOTE] Most likely to hard-carry the team? Most votes gives out a sip.
+[LISTING] Name 3 video game consoles or sip.
+[RACE] Pick a player. They have 10 seconds to name 5 Pokémon™. Fail and sip.
+[SIP-IF] Sip if you've ever skipped sleep for a game release.
+[GROUP] Quick, everyone hum a video game theme on three. Most recognized doesn't sip.
+[VOTE] Most likely to have a gamer rage outburst? Most votes sips.
+[SIP-IF] Sip if you've cried at a video game ending.
+[LISTING] Name 3 Zelda™ games or sip.
+[VOTE] The player who's logged the most hours in a single game sips. Be honest.
+[SIP-IF] Sip if you've ever pretended to be lower-skilled to let someone win.
+[VOTE] On three, point at the player most likely to be a sweat in a casual game. They sip.
+[LISTING] Name 3 indie games or sip.
+[REVEAL] Pick a player. They have to defend a controversial gaming take. If the table agrees, everyone else sips. If not, they sip.
+[SIP-IF] Sip if you've ever beat a souls game without summoning help.
+[VOTE] Most likely to abandon a game right before the final boss? Most votes sips.
+[LISTING] Name 3 FromSoftware™ games or sip.
+[VOTE] The player with the rarest gaming achievement gives out two sips.
+[SIP-IF] Sip if you've owned a Game Boy™.
+[GROUP] On three, everyone make their best controller-throwing motion. Most dramatic sips.
+[LISTING] Name 3 battle royale games or sip.
+[PERFORMANCE] Pick a player. They have 15 seconds to explain Dark Souls™ lore. Fail and sip.
+[SIP-IF] Sip if you've yelled at a teammate over voice chat.
+[VOTE] Most likely to pull up a guide for a puzzle? Most votes sips.
+[LISTING] Name 3 mobile games you actually like or sip.
+[SIP-IF] The player who's never played a Nintendo™ console takes two sips. Welcome to the cult.
+[SIP-IF] Sip if you've ever bought DLC and regretted it.
+[RACE] Quick, first player to name a fighting game character gives out a sip.
+[LISTING] Name 3 PlayStation™ exclusives or sip.
+[SIP-IF] Sip if you've ever quit a multiplayer match because someone was mean.
+[VOTE] Most likely to have an embarrassing online username from middle school? Most votes sips.
+[PERFORMANCE] Pick a player. They have to do their best Mario™ impression. If it's bad, they sip.
+[SIP-IF] Sip if you've ever bought a console just for one game.
+[LISTING] Name 3 games with permadeath or sip.
+[VOTE] The player most likely to streak in Animal Crossing™ takes a sip.
+[LISTING] Name 3 racing games or sip.
+[SIP-IF] Sip if you've ever played for 10+ hours straight.
+[VOTE] Everybody votes on who at the table would survive longest in a zombie apocalypse. They sip.
+[VOTE] Most likely to defend a bad video game movie? Most votes sips.
+[LISTING] Name 3 couch co-op games or sip.
+[SIP-IF] Sip if you have an unfinished open-world map driving you crazy.
+[SIP-IF] The player who games on the worst hardware gives out a sip.
+[VOTE] Pick the most sus player at the table. They sip and explain themselves.
+[VOTE] What element is your starter Pokemon? Least popular sips. 

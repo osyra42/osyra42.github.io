@@ -1,0 +1,48 @@
+[SIP-IF] Sip if you've ever pushed to main on a Friday.
+[LISTING] Name 5 programming languages or sip.
+[VOTE] The player most likely to use Comic Sans in production sips.
+[RACE] Quick, write "Hello World" in any language out loud. First to fail sips.
+[SIP-IF] Sip if you've ever blamed the intern.
+[PERFORMANCE] Pick a player. They have to explain recursion in under 10 seconds without saying "recursion". Fail and sip.
+[GROUP] Everyone reveal your IDE of choice on three. Anyone using vim must defend it or sip.
+[SIP-IF] Sip if your laptop has a sticker on it. Two sips if it's for a tool you don't actually use.
+[LISTING] Name 3 JavaScript™ frameworks or sip.
+[VOTE] The player with the most GitHub™ green squares last week gives out two sips.
+[SIP-IF] Sip if you've ever debugged for hours just to find a typo.
+[GROUP] On three, everyone shout your most cursed Stack Overflow™ habit. Most relatable gives out a sip.
+[SIP-IF] Sip if you've ever copy-pasted code without understanding it.
+[LISTING] Name 3 software design patterns or sip.
+[RACE] Quick, the player to your left has 5 seconds to name an HTTP status code. Fail sips, success picks someone to sip.
+[SIP-IF] The youngest dev at the table sips for the rest of us.
+[SIP-IF] Sip if you've ever crashed production.
+[VOTE] Most likely to over-engineer a one-line fix? Most votes sips.
+[LISTING] Name 3 tech CEOs or sip.
+[PERFORMANCE] Pick a player. They must trash-talk a programming language for 10 seconds. If anyone agrees, that player sips. If no one agrees, the picker sips.
+[SIP-IF] Sip if you've ever opened 100+ tabs and your laptop fan started screaming.
+[GROUP] Everyone do their best impression of a rubber-duck debugging session. Worst one sips.
+[LISTING] Name 5 git commands or sip.
+[SIP-IF] Sip if you've never written a unit test.
+[VOTE] The player most likely to ship without a code review takes a sip and apologizes.
+[LISTING] Name 3 cloud providers or sip.
+[VOTE] On three, point at the player most likely to be on call right now. They sip.
+[SIP-IF] Sip if you've ever Googled "how to exit Vim™".
+[LISTING] Name 3 Python™ libraries or sip.
+[RACE] The player reading this card has 15 seconds to name an obscure command-line flag. Fail and sip.
+[SIP-IF] Sip if you've ever had a "works on my machine" moment.
+[REVEAL] Everyone reveal the worst variable name they've ever shipped. Worst gives out a sip.
+[LISTING] Name 3 databases or sip.
+[SIP-IF] Sip if you've ever broken the build right before a demo.
+[PERFORMANCE] Pick a player. They explain blockchain in 10 seconds without sounding like a crypto bro. Fail and sip.
+[SIP-IF] Sip if you've ever named a function "foo" or "bar" in production.
+[LISTING] Name 3 JavaScript™ runtime errors or sip.
+[RACE] Quick, who can name a regex flag fastest? Last sips.
+[SIP-IF] Sip if your home setup has more than 3 monitors.
+[VOTE] The player who codes in the worst lighting takes a sip.
+[LISTING] Name 3 tech YouTubers or sip.
+[SIP-IF] Sip if you've ever rage-quit because of a merge conflict.
+[VOTE] Everyone vote tabs or spaces losing team sips.
+[LISTING] Name 3 game engines or sip.
+[REVEAL] Pick a player. They share their worst on-call horror story in 30 seconds.
+[SIP-IF] Sip if you've ever blamed someone else's PR for your bug.
+[LISTING] Name 3 ways to style a webpage or sip.
+[VOTE] The player most likely to develop a posture injury from coding takes two sips. Fix your back.

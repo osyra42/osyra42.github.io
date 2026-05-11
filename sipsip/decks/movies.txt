@@ -1,0 +1,48 @@
+[SIP-IF] Sip if you've ever fallen asleep in a theater.
+[LISTING] Name 5 Tarantino™ films or sip.
+[VOTE] The player most likely to claim "the book was better" gives out a sip.
+[PERFORMANCE] Quick, do your best impression of any movie villain. If we can't guess, sip.
+[SIP-IF] Sip if you've cried at a Pixar™ movie.
+[VOTE] Most likely to walk out of a movie? Most votes sips.
+[LISTING] Name 3 actors who've played Batman™ or sip.
+[SIP-IF] Pick a player. They name any movie. Anyone who's never seen it sips.
+[SIP-IF] Sip if you've snuck into a different movie at the theater.
+[GROUP] On three, everyone shout your favorite movie. Two players who match clink and sip.
+[LISTING] Name 5 Marvel™ movies or sip.
+[VOTE] The player most likely to defend a movie everyone hates takes a sip and explains themselves.
+[SIP-IF] Sip if you've watched a movie in another language without subtitles.
+[LISTING] Name 3 horror movies that scared you or sip.
+[PERFORMANCE] Pick a player. They deliver a dramatic monologue from any movie. Best one gives out a sip.
+[SIP-IF] Sip if you've ever lied about seeing a classic movie.
+[VOTE] Most likely to pause a movie to explain something? Most votes sips.
+[LISTING] Name 3 Christopher Nolan™ films or sip.
+[VOTE] The player who's seen the fewest movies at the table sips. Cheers to free time.
+[SIP-IF] Sip if you've watched the same movie 10+ times.
+[GROUP] On three, everyone yell their favorite movie villain. Funniest gives out a sip.
+[LISTING] Name 3 James Bond™ actors or sip.
+[REVEAL] Pick a player. Predict who should play the next James Bond™. If the table approves, you give out a sip.
+[SIP-IF] Sip if you've cried in front of someone during a movie.
+[VOTE] Most likely to fall for a plot twist that everyone else saw coming? Most votes sips.
+[LISTING] Name 3 movie soundtracks you'd own on vinyl or sip.
+[RACE] Quick, first player to name a Pixar™ short film gives out a sip.
+[SIP-IF] Sip if you've gone to a midnight premiere.
+[LISTING] Name 3 directors you'd recognize by style alone or sip.
+[VOTE] The player most likely to talk through a movie sips.
+[SIP-IF] Sip if you've ever watched a movie just for the soundtrack.
+[PERFORMANCE] Pick a player. They name a movie line they love. Anyone who can place it picks someone to sip.
+[LISTING] Name 3 movies based on true stories or sip.
+[VOTE] On three, point at the player most likely to live-tweet a movie. They sip.
+[SIP-IF] Sip if you've ever seen a movie alone on a date night.
+[LISTING] Name 3 rom-coms you'd defend to the death or sip.
+[VOTE] Most likely to ruin a movie by guessing the ending? Most votes sips.
+[REVEAL] Pick a player. Suggest a comfort movie that fits them. If they agree, you give out a sip.
+[SIP-IF] Sip if you've ever started a movie and forgotten you'd already seen it.
+[LISTING] Name 3 westerns or sip.
+[VOTE] The player with the worst movie taste at the table sips. Most votes wins.
+[SIP-IF] Sip if you can do an entire scene from any movie line for line.
+[LISTING] Name 3 movies with stunning cinematography or sip.
+[GROUP] Quick, on three, everyone shout your guilty pleasure movie. Most embarrassing gives out a sip.
+[PERFORMANCE] Pick a player. They strike a famous movie poster pose. If we guess it, they pick someone to sip.
+[SIP-IF] Sip if you've watched a 3+ hour movie in one sitting.
+[LISTING] Name 3 actors you'd watch in literally anything or sip.
+[VOTE] The player most likely to start a movie marathon at 1am takes a sip.
