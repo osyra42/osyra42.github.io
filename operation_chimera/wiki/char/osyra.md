@@ -44,7 +44,7 @@ She hides her traits in civilian life using color contacts, hats, dresses—anyt
 Osyra was given up for adoption as an infant; her parents' fate is unknown to her. Her aunt took her in and raised her until she passed away. After that, Osyra went into foster care. At sixteen, her foster guardian sold her to a medical facility.
 
 ### Experimentation
-The facility conducted illegal human hybridization experiments—blending human and wolf genetics to create enhanced operatives. Most subjects died. Osyra's body adapted—nervous system, musculature, and senses stabilized. She retained her intelligence but gained enhanced senses, physical enhancements, predatory instincts, and heightened environmental awareness. She emerged as the first successful chimera.
+The facility conducted illegal human hybridization experiments using a virus engineered in multiple numbered variants. Osyra was injected with Chimera-9, the wolf-human variant. Other subjects received other numbered variants. Most subjects across all variants died or transformed into unstable forms. Osyra's body adapted—nervous system, musculature, and senses stabilized. She retained her intelligence but gained enhanced senses, physical enhancements, predatory instincts, and heightened environmental awareness. She emerged as a successful Chimera-9 subject.
 
 ### Escape
 A mysterious external force attacked the facility before the lab could fully secure her. Explosions destroyed security systems and containment doors. She used the confusion to escape. She saw the lab owner alive and watching from an observation deck. The facility was officially listed as an industrial accident.

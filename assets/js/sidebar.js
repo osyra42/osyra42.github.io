@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
 - [🤖 Vanity Bot 🆕](vanity.html)
 - [📖 Operation Chimera 🆕](operation_chimera.html)
 - [🕹️ Blank Pixel Game](blank_pixel_game.html)
-- [🎭 VTuber Guide](vtuber_guide.html)
 >>> 📦 Archives
     - [🤖 All About AI](all_about_ai.html)
     - [🔢 Casio Code](casio_code.html)
@@ -35,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     - [⚔️ Infinite Devastation](infinite_devastation.html)
     - [🎬 Media Mimic](media_mimic.html)
     - [🏚️ Urbex Safety](urbex_safety.html)
+    - [🎭 VTuber Guide](vtuber_guide.html)
     - [📝 Worksheets](worksheets.html)
     - [🚀 Zen Launcher 🆕](zen_launcher.html)
 <<<
