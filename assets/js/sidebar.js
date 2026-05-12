@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 **Projects**
+- [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
 - [🧊 Blender Resources 🆕](blender_resources.html)
 - [☕ Brewdown 🆕](brewdown.html)
 - [🧲 How Magnets Work 🆕](how_magnets_work.html)
 - [🤖 Vanity Bot 🆕](vanity.html)
 - [📖 Operation Chimera 🆕](operation_chimera.html)
-- [🕹️ Blank Pixel Game](blank_pixel_game.html)
 >>> 📦 Archives
     - [🤖 All About AI](all_about_ai.html)
     - [🔢 Casio Code](casio_code.html)
