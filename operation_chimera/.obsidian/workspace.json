@@ -11,12 +11,14 @@
             "id": "6269b1509025010c",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.12.7"
+                "file": "revision_03/rev03_ch02_.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.12.7"
+              "icon": "lucide-file",
+              "title": "rev03_ch02_"
             }
           }
         ]
@@ -180,6 +182,9 @@
   },
   "active": "6269b1509025010c",
   "lastOpenFiles": [
+    "revision_02/rev02_ch02_processing.md",
+    "revision_02/rev02_ch01_interview.md",
+    "revision_03/rev03_ch01_blood_relation.md",
     "revision_03/rev03_proofreading.md.tmp.46704.54565f8218b0",
     "revision_03/rev03_proofreading.md.tmp.46704.0dec9ce989a0",
     "revision_03/rev03_ch01_proofread.md",
@@ -191,7 +196,6 @@
     "revision_03/rev03_ch01_proofread.md.tmp.46704.01cacc402672",
     "revision_03/rev03_ch01_proofread.md.tmp.46704.531ccdda2cd8",
     "revision_03/rev03_ch01_proofread.md.tmp.46704.0e95b84d59bd",
-    "revision_03/rev03_ch01_proofread.md.tmp.46704.cf2bca3a23a3",
-    "wiki/char/osyra.md.tmp.46704.8abd6d65766c"
+    "revision_03/rev03_ch01_proofread.md.tmp.46704.cf2bca3a23a3"
   ]
 }

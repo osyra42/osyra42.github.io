@@ -59,18 +59,15 @@ Vanity has been split into two products that share the lineage below: **Vanity M
 ---
 
 ## Vanity Minecraft
-*Active*
 
-An autonomous Minecraft bot that picks a goal and works backward from it. The current goal is fishing — find water, secure a fishing rod, fish, manage the haul, and defend the spot.
+Vanity is an autonomous Minecraft player. She isn't a server NPC and nobody is controlling her — she logs into the server like a real player, walks around, fights, fishes, sleeps, and remembers things between sessions.
 
-**Behavior:**
+Most of the time you'll find her at the water's edge, casting and reeling. She takes care of everything else herself: she eats when she's hungry, walks to her bed at night, deposits fish in her chests when her inventory fills up, and sets up her own infrastructure if anything is missing — hunting sheep for a bed, chopping trees for a rod, building chests near her fishing spot. After every catch she pauses, looks around, and decides what to do next based on what's nearby.
 
-- **Goal-Oriented Autonomy** — Logs into the server and identifies what it needs to fish. Locates water and checks whether it already has a fishing rod or the materials for one (sticks + string)
-- **Backward Crafting** — If it lacks the rod, it walks the chain backward: sticks need planks, planks need logs. It cuts down a tree and crafts forward (logs → planks → sticks → fishing rod), building a crafting bench along the way if it doesn't have one
-- **Chest Awareness** — If it spotted a chest earlier in the world, it checks the chest for any of those materials before gathering from scratch
-- **Storage Management** — Once fishing, when its inventory fills up, it crafts a chest, places it near the fishing spot, and offloads the haul into it. Then it goes back to fishing
-- **Threat Defense** — If something attacks it or threatens its fishing spot during the session, it stops fishing and fights off the threat
-- **Player Reputation** — Remembers how individual players have treated it. A player who's hurt the bot before gets attacked on sight. A player who's given it crafting materials gets recognized as friendly — instead of fighting, the bot offers them a rare fishing item
+She remembers every player she meets. Her opinion of you sits on a scale from -10 to +10, starts at neutral, and drifts back toward zero over time. Hit her once and she'll punch back as a warning, then back off ten blocks — she assumes you bumped her by accident. Hit her again within a minute and she'll fight you for real, with the right weapon for the situation: axe against single targets, sword against groups, bow at range, shield up against skeletons. Drop her a netherite ingot, a diamond, or some food and her opinion of you climbs. Earn enough trust and she won't fight you under any circumstances.
+
+She defends herself but isn't aggressive. She'll let players walk past her without reacting. Lava and drowning override everything else — safety always wins. Two chat commands are open to anyone (`!status` and `!rep`) so you can check what she's doing or see where you stand with her. The rest are reserved for her owner.
+
 
 ---
 

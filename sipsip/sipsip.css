@@ -13,6 +13,37 @@ html, body {
   margin: 0;
 }
 
+.logout {
+  position: fixed;
+  top: 0.3in;
+  right: 0.3in;
+  font-size: 0.85rem;
+  color: #dc2626;
+  text-decoration: none;
+  border: 1px solid #7f1d1d;
+  background: var(--gray-900);
+  padding: 0.08in 0.18in;
+  border-radius: 0.08in;
+  transition: color 0.15s, border-color 0.15s;
+  z-index: 10;
+}
+
+.logout:hover {
+  color: #fca5a5;
+  border-color: #dc2626;
+}
+
+.last-updated {
+  position: fixed;
+  bottom: 0.4in;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gray-700);
+  font-size: 0.7rem;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.1em;
+}
+
 body {
   display: flex;
   align-items: center;
@@ -289,7 +320,7 @@ body {
 
 .rules {
   position: fixed;
-  top: 1.25rem;
+  top: 4rem;
   right: 1.25rem;
   padding: 0.85rem 1rem;
   background: var(--gray-800);

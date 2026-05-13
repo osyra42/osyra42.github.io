@@ -4,39 +4,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('sidebar');
     if (!sidebar) return;
 
-    // Sidebar navigation as one brewdown document
+    // Sidebar navigation as one brewdown document.
+    // Trailing @@YYYY.MM.DD@@ timestamps drive the auto-🆕 feature:
+    // within 7 days of today → renders as 🆕; older → hidden. See post-process below.
     const navMarkdown = `
 **Navigation**
 - [🏠 Home Page](index.html)
 - [📰 Changelog](changelog.html)
-- [💼 Commissions 🆕](commissions.html)
-- [☕ Donate 🆕](donate.html)
-- [⭐ Recommendations](recommendations.html)
-- [⛏️ Minecraft Server](minecraft.html)
+- [⛏️ Minecraft Server](minecraft.html) @@2026.05.12@@
+- [💼 Commissions](commissions.html) @@2026.05.08@@
+- [⭐ Recommendations](recommendations.html) @@2026.05.06@@
+- [☕ Donate](donate.html) @@2026.05.05@@
 
 ---
 **Projects**
-- [🕹️ Blank Pixel Game 🆕](blank_pixel_game.html)
-- [📖 Operation Chimera 🆕](operation_chimera.html)
-- [🧊 Blender Resources 🆕](blender_resources.html)
-- [☕ Brewdown 🆕](brewdown.html)
-- [🧲 How Magnets Work 🆕](how_magnets_work.html)
-- [🤖 Vanity Bot 🆕](vanity.html)
+- [📖 Operation Chimera](operation_chimera.html) @@2026.05.13@@
+- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.12@@
+- [☕ Brewdown](brewdown.html) @@2026.05.12@@
+- [🧋 Sip Sip](sipsip/index.html) @@2026.05.12@@
+- [🧊 Blender Resources](blender_resources.html) @@2026.05.08@@
+- [🧲 How Magnets Work](how_magnets_work.html) @@2026.05.08@@
+- [🤖 Vanity Bot](vanity.html) @@2026.05.05@@
 >>> 📦 Archives
-    - [🤖 All About AI](all_about_ai.html)
-    - [🔢 Casio Code](casio_code.html)
-    - [🎄 Clutter](clutter.html)
-    - [🐍 Code Resources](code_resources.html)
-    - [🎨 ComfyUI Guide](comfyui_guide.html)
-    - [💡 Do It Better For Free](do_it_better_for_free.html)
-    - [💎 Ever Diamond](ever_diamond.html)
-    - [⚡ Glitched](glitched.html)
-    - [⚔️ Infinite Devastation](infinite_devastation.html)
-    - [🎬 Media Mimic](media_mimic.html)
-    - [🏚️ Urbex Safety](urbex_safety.html)
-    - [🎭 VTuber Guide](vtuber_guide.html)
-    - [📝 Worksheets](worksheets.html)
-    - [🚀 Zen Launcher 🆕](zen_launcher.html)
+    - [🤖 All About AI](all_about_ai.html) @@2026.02.19@@
+    - [🔢 Casio Code](casio_code.html) @@2026.04.27@@
+    - [🎄 Clutter](clutter.html) @@2026.02.19@@
+    - [🐍 Code Resources](code_resources.html) @@2026.03.07@@
+    - [🎨 ComfyUI Guide](comfyui_guide.html) @@2026.02.19@@
+    - [💡 Do It Better For Free](do_it_better_for_free.html) @@2026.02.19@@
+    - [💎 Ever Diamond](ever_diamond.html) @@2026.02.19@@
+    - [⚡ Glitched](glitched.html) @@2026.02.19@@
+    - [⚔️ Infinite Devastation](infinite_devastation.html) @@2026.02.19@@
+    - [🎬 Media Mimic](media_mimic.html) @@2026.05.08@@
+    - [🏚️ Urbex Safety](urbex_safety.html) @@2026.05.08@@
+    - [🎭 VTuber Guide](vtuber_guide.html) @@2026.05.08@@
+    - [📝 Worksheets](worksheets.html) @@2026.05.08@@
+    - [🚀 Zen Launcher](zen_launcher.html) @@2026.05.08@@
 <<<
 `;
 
@@ -67,4 +70,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Render nav through brewdown
     const navEl = sidebar.querySelector('.sidebar-nav');
     navEl.innerHTML = Brewdown.brewdown(navMarkdown);
+
+    // Sidebar-only: trailing @@date@@ timestamps within 7 days render as 🆕, older are hidden.
+    // This transform is scoped to the sidebar — do not generalize it to other brewdown output.
+    const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    navEl.querySelectorAll('time').forEach(t => {
+        const dt = Date.parse(t.getAttribute('datetime'));
+        if (Number.isFinite(dt) && dt >= cutoff) {
+            const badge = document.createElement('span');
+            badge.className = 'sidebar-new';
+            badge.textContent = '🆕';
+            t.replaceWith(badge);
+        } else {
+            t.remove();
+        }
+    });
 });
