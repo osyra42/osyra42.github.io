@@ -100,7 +100,7 @@ I stared at him.
 
 "Bullshit. I don't want some rookie I have to break in."
 
-His name was Jerry Ryan. It took me a couple of months to explain the way I'd like my notes. Aggression, nihilism, and all. At first I didn't even want to take notes at all. This was the compromise between me and corporate. And then he took on a few more people. I think he had four people under him. He was taking the notes for them. What a paper pusher. But honestly, I did really enjoy his company. It was gone now. Such was life.
+His name was Ryan. It took me a couple of months to explain the way I'd like my notes. Aggression, nihilism, and all. At first I didn't even want to take notes at all. This was the compromise between me and corporate. And then he took on a few more people. I think he had four people under him. He was taking the notes for them. What a paper pusher. But honestly, I did really enjoy his company. It was gone now. Such was life.
 
 I finally spoke again. "Do you know where they're taking him?"
 
@@ -108,7 +108,11 @@ I finally spoke again. "Do you know where they're taking him?"
 
 I shut the door and turned around to face Rosalyn, but she wasn't there. She seemed to be in the kitchen. I wandered back to the comfortable chair. Sat down. It was relaxing. It took the edge off. I couldn't have explained the military secrets if I had to. I kept these thoughts to myself.
 
-For a moment I was alone with my thoughts. I had nothing to think about except what this new recruiter would be like. Hopefully they figured out how to do things my way. She eventually brought in some tea. It was hard to pay attention to that. The comfortable chair was lulling me to sleep as my ever-energetic body was slowing down. Hopefully the tea would increase my energy again. I didn't feel it happening. The weight of the world was crushing me. I'd been running for so long, I hadn't even noticed how tired I was. I accepted the cup from her almost greedily. Anything to stay awake for this moment.
+For a moment I was alone with my thoughts. I had nothing to think about except what this new recruiter would be like. Hopefully they figured out how to do things my way.
+
+What kind of name was Vanity, anyway. Just Vanity. No rank, no surname on the report. In a place where every form had a last name printed on it, that was the kind of detail you noticed. I noticed. I didn't ask. The agency had its quirks, and pulling on one of them wasn't my job.
+
+She eventually brought in some tea. It was hard to pay attention to that. The comfortable chair was lulling me to sleep as my ever-energetic body was slowing down. Hopefully the tea would increase my energy again. I didn't feel it happening. The weight of the world was crushing me. I'd been running for so long, I hadn't even noticed how tired I was. I accepted the cup from her almost greedily. Anything to stay awake for this moment.
 
 "What was that about?" she asked.
 

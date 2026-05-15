@@ -70,7 +70,7 @@ There were eggs in the fridge. A loaf of bread on the counter, half wrapped. But
 
 I knew how to do this. I hadn't done it in a long time, but I knew how. Cracked four eggs into a bowl. Scrambled them with the back of a fork. Cut four slices of bread and set them aside. Lit the burner. Pan on. A knob of butter went in and started to foam.
 
-It had been six, maybe seven years since I'd made breakfast for someone other than myself. Korval didn't count — Korval ate when he was told to and not when he wasn't. Jerry had come by the safehouse on Saturdays sometimes, and once or twice I'd made him toast. Not really the same.
+It had been six, maybe seven years since I'd made breakfast for someone other than myself. Korval didn't count — Korval ate when he was told to and not when he wasn't. Ryan had come by the safehouse on Saturdays sometimes, and once or twice I'd made him toast. Not really the same.
 
 This was the same.
 
