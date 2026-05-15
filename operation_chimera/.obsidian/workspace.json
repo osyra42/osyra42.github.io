@@ -180,8 +180,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "6269b1509025010c",
+  "active": "5e2ba8c6f17e6602",
   "lastOpenFiles": [
+    "revision_03/rev03_proofreading.md.tmp.28252.ca128103aff1",
+    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.5da6bb4dccfa",
+    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.b96adcd6be51",
+    "~syncthing~notes.md.tmp",
     "revision_02/rev02_ch02_processing.md",
     "revision_02/rev02_ch01_interview.md",
     "revision_03/rev03_ch01_blood_relation.md",
@@ -193,9 +197,6 @@
     "revision_03/rev03_ch01_proofread.md.tmp.46704.3e665e6af91b",
     "revision_03/rev03_ch01_proofread.md.tmp.46704.7416527f82fa",
     "revision_03/rev03_ch01_proofread.md.tmp.46704.e083232b3602",
-    "revision_03/rev03_ch01_proofread.md.tmp.46704.01cacc402672",
-    "revision_03/rev03_ch01_proofread.md.tmp.46704.531ccdda2cd8",
-    "revision_03/rev03_ch01_proofread.md.tmp.46704.0e95b84d59bd",
-    "revision_03/rev03_ch01_proofread.md.tmp.46704.cf2bca3a23a3"
+    "revision_03/rev03_ch01_proofread.md.tmp.46704.01cacc402672"
   ]
 }

@@ -53,10 +53,10 @@
 
 A work-in-progress pixel art adventure built in GameMaker Studio 2 by osyra42. Explore the world, collect coins, and fight your way through — more to come!
 
-🎮 [Play in Browser](blank_pixel_game/index.html) — Press F11 for fullscreen, makes it a much better experience. The controls are below.
+🎮 **[PLAY IN BROWSER](blank_pixel_game/index.html)**
+> Press F11 for fullscreen, makes it a much better experience. The controls are below.
 
 ### 🎮 Controls
-
 ```yaml
 # Movement
 Move:          W A S D
@@ -74,7 +74,7 @@ Inventory:     Tab
 Pause:         Escape
 
 # Debug
-Toggle Menu:   F3
+Toggle Overlay: F3
 ```
 
 ---
@@ -83,6 +83,7 @@ Toggle Menu:   F3
 
 | Date | HTML5 | Windows | Linux |
 |------|-------|---------|-------|
+| 2026.05.15 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.15-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.15-WINDOWS.zip) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.15-WINZIP.zip) | [AppImage](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.15-LINUX.zip) |
 | 2026.05.12 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.12-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.12-WINDOWS.zip) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.12-WINZIP.zip) | [AppImage](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.12-LINUX.zip) |
 | 2026.04.25 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.25-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.25-WINDOWS.zip) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.25-WINZIP.zip) | [AppImage](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.25-LINUX.zip) |
 | 2026.04.17 | [HTML5](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.17-HTML5.zip) | [EXE](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.17-WINDOWS.zip) · [ZIP](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.04.17-WINZIP.zip) | — |
@@ -99,55 +100,33 @@ Toggle Menu:   F3
 
 ## ✨ Features
 
-### 🗺️ Dungeon Generation
-- Random dungeon generation using drunkard's walk algorithm
-- 64x64 tile grid with floor and void placement
-- 16 positional wall tiles that blend with surrounding terrain
-- Wall tiles block player movement
-- Safe spawning — player and enemies only placed on floor tiles, no shared tiles
-- Items snap to floor tiles and don't stack
-
-### 🏃 Movement
-- Walk and run with speed-based animation differences
-- Smooth 4-directional and diagonal movement
-- Consistent speed in all directions
+### 🗺️ Procedural Dungeons
+- Every floor is a fresh 64×64 layout — never the same twice
+- Share a seed to replay the same dungeon
 
 ### ⚔️ Combat
-- Attack action with directional swing
-- Dummy enemies with health bars and floating damage values
-- Enemies drop coins that are thrown out on death
-- Enemies have a 25% chance per gift to drop loot on death
+- Directional sword swing
+- Enemies with health bars and floating damage numbers
+- Breakable pots — 150 scattered through every dungeon; smash for a chance at coins
 
-### 🎒 Inventory
-- Pick up gifts with E (interact)
-- Items go into proper inventory slots
-- Inventory sorting and equipment management
-- Inventory overflow prevention — can't pick up items when full
+### 🪜 Floor Progression
+- Clear all enemies and a ladder appears, taking you to a freshly-generated dungeon
+- Floor counter ticks up each descent
 
-### 💰 Economy
-- Rebalanced coin distribution
-- Lucky coin — displays in green when value exceeds the loot pool
-- All coins rendered with blend for reduced PC load
-- Cute collect sound effect when picking up coins
-- Floating +money text on pickup
-- GUI money counter with comma-formatted numbers for easy readability
+### 🎒 Inventory & Loot
+- Sorting and equipment management
+- Closest-only pickup — only the nearest in-range item is grabbed
+- Enemies drop coins on death; lucky coins worth more than the loot pool show in green
 
-### 🖥️ HUD
-- Adjusted HUD layout
-- Scrolling chat log — tells the player what's happening in the game
-- Objects have unique identity colors in chat
-- Dungeon seed displayed on game start
-
-### ⚡ Performance
-- Off-screen culling — entities outside the camera view skip draw and processing
-- HTML5-specific optimizations for smoother browser play
-
-### 🐛 Debug
-- Debug menu toggled with F3 — inspect game state at runtime
+### 💬 Chat-driven HUD
+- Scrolling chat log with unique identity colors per object
+- Messages fade after a moment instead of sticking
+- Counts down remaining enemies and announces when the ladder is available
+- Seed and floor number in the lower-right corner
 
 ---
 
-**Last Updated:** @@2026.05.12@@
+**Last Updated:** @@2026.05.15@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
