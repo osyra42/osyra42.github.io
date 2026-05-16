@@ -5,21 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!sidebar) return;
 
     // Sidebar navigation as one brewdown document.
-    // Trailing @@YYYY.MM.DD@@ timestamps drive the auto-🆕 feature:
-    // within 7 days of today → renders as 🆕; older → hidden. See post-process below.
+    // Trailing @@YYYY.MM.DD@@ timestamps drive the auto-✨ feature:
+    // within 7 days of today → renders as ✨; older → hidden. See post-process below.
     const navMarkdown = `
 **Navigation**
 - [🏠 Home Page](index.html)
 - [📰 Changelog](changelog.html)
-- [⛏️ Minecraft Server](minecraft.html) @@2026.05.14@@
+- [⛏️ Minecraft Server](minecraft.html) @@2026.05.16@@
 - [💼 Commissions](commissions.html) @@2026.05.08@@
 - [⭐ Recommendations](recommendations.html) @@2026.05.06@@
 - [☕ Donate](donate.html) @@2026.05.05@@
 
 ---
 **Projects**
+- [📖 Operation Chimera](operation_chimera.html) @@2026.05.16@@
 - [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.15@@
-- [📖 Operation Chimera](operation_chimera.html) @@2026.05.14@@
 - [☕ Brewdown](brewdown.html) @@2026.05.12@@
 - [🧋 Sip Sip](sipsip/index.html) @@2026.05.12@@
 - [🧊 Blender Resources](blender_resources.html) @@2026.05.08@@
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navEl = sidebar.querySelector('.sidebar-nav');
     navEl.innerHTML = Brewdown.brewdown(navMarkdown);
 
-    // Sidebar-only: trailing @@date@@ timestamps within 7 days render as 🆕, older are hidden.
+    // Sidebar-only: trailing @@date@@ timestamps within 7 days render as ✨, older are hidden.
     // This transform is scoped to the sidebar — do not generalize it to other brewdown output.
     const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
     navEl.querySelectorAll('time').forEach(t => {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (Number.isFinite(dt) && dt >= cutoff) {
             const badge = document.createElement('span');
             badge.className = 'sidebar-new';
-            badge.textContent = '🆕';
+            badge.textContent = '✨';
             t.replaceWith(badge);
         } else {
             t.remove();

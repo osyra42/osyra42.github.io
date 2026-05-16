@@ -94,13 +94,13 @@ I stared at him.
 
 "You don't need to do anything on your end. They've already swapped out the agent. Contact them through normal means. Chain of command says we still have to inform you that there was a change."
 
-"What about Corporal Ryan?" I asked.
+"What about Corporal Bennett?" I asked.
 
 "He's been reassigned. There's nothing we can do," Korval said.
 
 "Bullshit. I don't want some rookie I have to break in."
 
-His name was Ryan. It took me a couple of months to explain the way I'd like my notes. Aggression, nihilism, and all. At first I didn't even want to take notes at all. This was the compromise between me and corporate. And then he took on a few more people. I think he had four people under him. He was taking the notes for them. What a paper pusher. But honestly, I did really enjoy his company. It was gone now. Such was life.
+His name was Bennett. It took me a couple of months to explain the way I'd like my notes. Aggression, nihilism, and all. At first I didn't even want to take notes at all. This was the compromise between me and corporate. And then he took on a few more people. I think he had four people under him. He was taking the notes for them. What a paper pusher. But honestly, I did really enjoy his company. It was gone now. Such was life.
 
 I finally spoke again. "Do you know where they're taking him?"
 
@@ -110,7 +110,7 @@ I shut the door and turned around to face Rosalyn, but she wasn't there. She see
 
 For a moment I was alone with my thoughts. I had nothing to think about except what this new recruiter would be like. Hopefully they figured out how to do things my way.
 
-What kind of name was Vanity, anyway. Just Vanity. No rank, no surname on the report. In a place where every form had a last name printed on it, that was the kind of detail you noticed. I noticed. I didn't ask. The agency had its quirks, and pulling on one of them wasn't my job.
+What kind of name was Vanity, anyway. Just Vanity. No rank in front, no surname behind. That wasn't how the agency announced people — you got Corporal Bennett, you got Captain Renaya. You didn't get one word and nothing else. I noticed. I didn't ask. The agency had its quirks, and pulling on one of them wasn't my job.
 
 She eventually brought in some tea. It was hard to pay attention to that. The comfortable chair was lulling me to sleep as my ever-energetic body was slowing down. Hopefully the tea would increase my energy again. I didn't feel it happening. The weight of the world was crushing me. I'd been running for so long, I hadn't even noticed how tired I was. I accepted the cup from her almost greedily. Anything to stay awake for this moment.
 
@@ -382,9 +382,9 @@ I rubbed at my eye with the back of my wrist.
 
 She didn't say anything.
 
-"After the place came down, the agency found me. Put me to work. The dangerous-animals part isn't quite right — most of what they send me out for isn't an animal at all. Cryptids, mostly. Things that warp the air around them. Objects that don't behave the way objects should. I track them. I observe. I write up what was there. Sometimes I have to put one down. The killing isn't usually the point."
+"After the place came down, the agency found me. Put me to work. The dangerous-animals part is half the truth. The other half is — rich people lose things they'd rather nobody else find. A phone in a forest. A ring that went over the side of a boat. Strange jobs, weird hours, more money than the work is worth. The kind of money people pay you to forget about the job once it's done. The rest of it I can't really talk about."
 
-She was quiet a long moment.
+She was quiet a long moment. She was looking at me the same way she'd looked at me when I came out of the bathroom — like I was somebody who'd come in from the yard with something scraped up. Except this time the scrapes were under the skin, and she could see them, and she wasn't going to mention it.
 
 "The biggest hurdle is I can't go outside without a disguise," I said. "People see me and they get scared. Or they get violent. Or they get scared and call somebody who'll get violent. The hat and the dress and the contacts — that's how I buy groceries. That's how I get on a bus. That's how I knock on a front door without somebody phoning it in."
 
@@ -406,19 +406,15 @@ I had to look at the floor for a minute.
 
 She didn't leave right away. I think she knew that if she stood up to go I'd start crying, and that wasn't a thing either of us wanted to do in front of the other.
 
-So she sat in the little chair by the dresser and asked me, very gently, about the small things. Did the ears hurt under the hat. Did my tail get cold in winter. Could I eat normal food. Did I sleep on my back or my side, with a tail.
+So she sat in the little chair by the dresser and asked me about the small things. Did the ears hurt under the hat. Did my tail get cold in winter. Could I eat normal food.
 
-I answered most of them. Some of them I laughed at — a small dry laugh that came out before I could stop it. The contacts were the worst part, I told her. Twelve hours and they felt like sand.
+I answered most of them. The contacts were the worst — twelve hours and they felt like sand.
 
-"Then take them out, honey. In this house. Always."
+"Then take them out, honey. In this house. Always. And the hat."
 
-"Okay."
+I nodded.
 
-"And the hat."
-
-"Okay."
-
-She paused. Her mouth went a little quirky on one side. "Now. I'll only say this once. The state of that bathroom floor isn't from the shower, is it."
+Her mouth went a little quirky on one side. "Now. I'll only say this once. The state of that bathroom floor isn't from the shower, is it."
 
 I felt my face go hot all at once.
 
@@ -428,29 +424,17 @@ I felt my face go hot all at once.
 
 "I was drying off."
 
-"You were drying off."
+"You were drying off?"
 
 "In a particular way."
 
-"Sweetheart, I lived with a man who used to come home from the woods wearing half the mud. A wet floor isn't going to scandalize me. Just maybe put a towel down next time."
+"Sweetheart, I lived with a man who used to come home from the woods wearing half the mud. Just maybe put a towel down next time."
 
-I made a noise into the back of my hand. Half a laugh, half wanting to die. The first sound out of me all day that I hadn't calculated.
+I made a noise into the back of my hand — half a laugh, half a wince. The first uncalculated sound out of me all day.
 
 "There it is," Rosalyn said, pleased with herself.
 
-She watched me for another second, then her face went easy again. "And if you'd like to sleep without the nightshirt because of the — " She gestured, vaguely. " — the arrangement back there. You go right ahead. It's just me here."
-
-I almost laughed again. "I'll keep the nightshirt."
-
-"Suit yourself." She smiled. "I just don't want you uncomfortable."
-
-She stood, finally. The chair creaked under her the way the bed had under me. She picked up the blanket from the foot of the bed and shook it out and laid it across again, neater this time.
-
-"In case you get cold," she said. "Old houses."
-
-"Thank you."
-
-She paused at the door. Her hand on the frame.
+She stood. Picked the blanket up from the foot of the bed and laid it neater across. Paused at the door.
 
 "Osyra."
 
@@ -460,13 +444,11 @@ She paused at the door. Her hand on the frame.
 
 She closed the door softly behind her.
 
-I sat in the lamplight for a long time before I lay down. My tail curled around against the small of my back, the way it always did when I slept. My ears flattened against the pillow.
+I lay down. My tail curled around against the small of my back, the way it always did when I slept. My ears flattened against the pillow.
 
 I had not, in fact, fallen apart.
 
-I'd spent the last hour sitting in front of someone as myself. Ears out. Tail out. Mouth closed only out of habit, not because I had to. Nothing in me ached the way it always did at the end of a day in the disguise. Nothing in me was bracing.
-
-It was a small thing. It was a thing I hadn't known I could miss.
+Nothing in me was bracing.
 
 The house creaked. Settled. Somewhere down the hall, a kettle clicked off.
 
