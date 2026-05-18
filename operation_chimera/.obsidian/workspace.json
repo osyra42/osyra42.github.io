@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "revision_03/rev03_ch02_.md",
+                "file": "content_warning.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "rev03_ch02_"
+              "title": "content_warning"
             }
           }
         ]
@@ -182,21 +182,41 @@
   },
   "active": "6269b1509025010c",
   "lastOpenFiles": [
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.6b343a4ac9b1",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.ec5772e37047",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.ae8bd496b63e",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.12b111f65789",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.0232e171b90d",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.354a72659569",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.99970f603b55",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.930ebe69d832",
-    "revision_03/rev03_proofreading.md.tmp.28252.d365cd9a02a8",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.bab10c8e7345",
-    "revision_03/rev03_ch01_blood_relation.md.tmp.28252.f3b7711fd333",
-    "revision_02/rev02_ch02_processing.md",
-    "revision_02/rev02_ch01_interview.md",
-    "revision_03/rev03_ch01_blood_relation.md",
-    "revision_03/rev03_ch01_proofread.md",
-    "revision_03/rev03_proofreading.md"
+    "stories/blood_relation/04_the_morning.md.tmp.28252.e02fcbaa1156",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.d847f5b53199",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.b3f393b605b6",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.e5c2c70322fc",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.9e8c683c10d0",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.01e1b3eb9b6b",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.dcbf4ed5b5e8",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.2b205287fa11",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.82650b1a4e44",
+    "stories/blood_relation/04_the_morning.md.tmp.28252.0bcbc21acbd8",
+    "old_versions/revision_02/rev02_ch02_processing.md",
+    "old_versions/revision_02/rev02_ch01_interview.md",
+    "old_versions/revision_02",
+    "old_versions/revision_01/rev01_ch90_back_alley.md",
+    "old_versions/revision_01/rev01_ch50_part3_search_and_rescue.md",
+    "old_versions/revision_01/rev01_ch39_lifelines.md",
+    "old_versions/revision_01/rev01_ch40_part2_a_true_predator.md",
+    "old_versions/revision_01/rev01_ch38_stepping_stone.md",
+    "old_versions/revision_01/rev01_ch37_the_cleaners.md",
+    "old_versions/revision_01/rev01_ch36_sick_bear_story.md",
+    "old_versions/revision_01/rev01_ch34_discovery.md",
+    "old_versions/revision_01/rev01_ch35_hunters_orange.md",
+    "old_versions/revision_01/rev01_ch33_hollow_hound.md",
+    "old_versions/revision_01/rev01_ch32_deep_clean.md",
+    "old_versions/revision_01/rev01_ch30_chimera_one.md",
+    "old_versions/revision_01/rev01_ch31_the_unchained.md",
+    "old_versions/revision_01/rev01_ch26_it_burns_anything.md",
+    "old_versions/revision_01/rev01_ch25_morbid_fixation.md",
+    "old_versions/revision_01/rev01_ch29_boot_camp.md",
+    "old_versions/revision_01/rev01_ch24_reassignment.md",
+    "old_versions/revision_01/rev01_ch28_mercenary.md",
+    "old_versions/revision_01/rev01_ch27_pudding_brain.md",
+    "old_versions/revision_01/rev01_ch23_successful_mutation.md",
+    "old_versions/revision_01/rev01_ch22_the_first_chimeran.md",
+    "old_versions/revision_01/rev01_ch21_clinical_trials.md",
+    "old_versions/revision_01/rev01_ch20_well_technically.md"
   ]
 }

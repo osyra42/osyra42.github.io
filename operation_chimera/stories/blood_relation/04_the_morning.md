@@ -1,3 +1,5 @@
+# The Morning
+
 I woke up before the sun.
 
 The house had that early-morning quiet to it — the kind where you can hear the floor settling and the refrigerator cycling on and off down the hall and nothing else. My ears caught the click of pipes somewhere on the far side of a wall. I lay there for a minute. Tail flat against the small of my back. Ears flat on the pillow. I'd slept hard. I couldn't remember the last time I'd slept hard.
@@ -100,7 +102,7 @@ Her hand came up slowly and rested on the doorframe. She looked at the photo a l
 
 "Right strength." She opened her eyes again and went back to looking at the fridge. "When did you take that."
 
-"A little after five."
+"A few minutes ago."
 
 "Mm." She walked over to it. Stood there in front of the photo. Reached up and touched the corner gently, the way she'd touched my ear last night.
 
@@ -150,47 +152,25 @@ I answered. Not many words to most of it. Enough.
 
 After a while she set her fork down, picked her mug up, and said, "What happened to you after that place came down."
 
-I set my fork down too.
+I set my fork down too. "Someone from the people I work for now found me. They had paperwork on me. They offered me a job."
 
-"I was on the side of a road outside the city for two days. Maybe three. I don't really know. I was sleeping in a stand of trees when somebody found me."
+"Just like that."
 
-"Found you."
+"Just like that. I'm not really supposed to talk about who or how."
 
-"An older man. Tweed jacket on a warm day. He came up the slope from the road and sat down on a stump about fifteen feet from where I was hiding, and he waited there until I came out of the brush. Didn't try to come any closer. Didn't put a hand toward me. He had a folder under his arm with my name on it and a few other things in it that didn't belong to anyone but me."
+"Mm. I won't ask."
 
-"What did he say."
+I took a sip of the coffee. "He brought me a sandwich before he asked me anything else. That part stuck."
 
-"That he worked for a part of the government most of the government didn't know existed. That he'd been going through what was left of the lab and he'd found my file. He told me I could come with him or I could keep running, and either was fine, but if I came with him he could put a roof and a hot meal in front of me before he asked me anything else."
+She smiled faintly. "Mm. They trained you, after."
 
-"And you went."
-
-"I went. I wasn't really being given a choice. I was sixteen and I looked like this." I gestured a little at my own face. "I couldn't have walked into a diner. He knew that and I knew that and we both pretended he was being generous."
-
-"Was the meal any good."
-
-"It was a sandwich in the back seat of a car. It was fine."
-
-She smiled faintly. "Mm."
-
----
-
-"They trained you, after."
-
-"For about two years. Off and on. They had a compound. Old military base, looked like — concrete buildings with the paint coming off, a fence with the wire turned in, a few instructors who'd been around long enough to know better. Combat. Tracking. How to shoot what I'm shooting. How not to shoot what I shouldn't be." I took a sip of the coffee. "The work part of it wasn't the hard part. My body had already changed. Most of the people training me weren't used to teaching someone who could hear them coming around a corner before they got there. I was a strange student. They didn't always know what to do with me."
+"For a while, yeah."
 
 "What was the hard part."
 
-"Learning how to look human again. They had me in disguise drills for six months before they let me into the field. Sit down. Stand up. Walk down a sidewalk without flicking your ears at every loud noise. Smile without showing your teeth. Don't sniff things." I shook my head a little. "Don't sniff things was the one that kept catching me out. I'd lean toward something without realizing."
+"Learning how to look human again. Don't flick your ears at every loud noise. Smile without showing your teeth. Don't sniff things." I shook my head a little. "Don't sniff things was the one that kept catching me out. I'd lean toward something without realizing."
 
-"That's a hard one to drill out."
-
-"There was an instructor in charge of the civilian-pass work. Brennan. Older. Walked with a cane. She'd come at me with a clipboard and have me cross a hallway and order a coffee from a man on a stool at the end of it. She'd mark down everything I did wrong. Send me back to do it again."
-
-"Sounds awful."
-
-"She was good. She didn't say a kind word to me the whole six months. At the end of it she shook my hand and told me I was the cleanest pass she'd ever certified. She meant it as a compliment."
-
-"Did you take it as one."
+"Did you ever get past it."
 
 "Eventually."
 
@@ -198,40 +178,30 @@ She laughed once. Quietly.
 
 ---
 
-We finished. I started to get up to clean. She put her hand flat on the table.
+There was a few moments of silence. There was something on my mind. I wanted to say something. 
 
-"Sit a minute, honey."
+I'd been rehearsing it since the photo went on the fridge. A couple hours of practice — the wording, the tone, how to make it sound matter-of-fact, the way I'd been trained to make things sound. I had a version that could come out clean. Professional. The kind of thank-you you'd give a colleague who'd covered your shift.
 
-I sat.
+The silence stretched. I didn't fill it. Neither did she.
 
-She looked at her plate for a moment. Then at me. Then past my shoulder, at the photo on the fridge.
+I looked at her.
 
-"I want to say something," she said. "And I want to say it once, before you go off and do your work today and we have to pretend last night was a normal evening."
+The clean version dissolved.
 
-"All right."
+"Thank you for accepting me for who I am."
 
-"If yesterday had gone different — if I hadn't been the kind of person you could come home to like this — I want you to know that wouldn't have been on you. I don't always know whether I'd have done the right thing standing in someone else's shoes. But last night was not a hard thing for me to do. It was the easiest thing in the world."
+It came out small. The last word cracked.
 
-I sat with that for a while.
+She didn't say anything. She got up. Came around the table. Put a hand on my shoulder.
 
-Then I said the thing I'd been trying to find a way to say since the photo went on the fridge.
+I'd been on guard so long I'd forgotten there was anything else to be. I'd built the disguise, built the silence, built the whole catalogue of polite goodbyes that came after people saw what I was. I had not built a frame for somebody touching my shoulder and meaning it.
 
-"Thank you."
+I can only be tough for so long before I break. Kindness is a rare commodity.
 
-She waited.
+Her kindness was like a pickaxe to the wall I'd built between me and the world. I couldn't hold back anymore. It all came loose. I cried.
 
-"For — " I stopped. Started again. "For not flinching last night. For letting me come in here the way I actually am. I didn't think it was the kind of thing a person could just decide to do."
+The cry was short and hard. I don't know what came over me. I couldn't hold it back. She looked at me with worry. Asked if she'd done something wrong. She hadn't, but I couldn't control my voice. I couldn't answer.
 
-"Honey."
+When it was done, I felt empty. The weight of the world was off my shoulders for just a moment. I had no responsibilities. I didn't have to hide. At least not here.
 
-"I've been moving through the world a long time figuring it wasn't on the table. I just wanted to say thank you. For having it on the table."
-
-She didn't speak right away. When she did, her voice was steady.
-
-"You're welcome, sweetheart."
-
-She reached over and put her hand on top of mine. Old, knotted, warm.
-
-We sat like that for a moment.
-
-Then she patted the back of my hand once, picked up her fork again, and said, "Now finish your toast. It's getting cold."
+I apologized. I had no idea what else to say.
