@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', function() {
 **Navigation**
 - [🏠 Home Page](index.html)
 - [📰 Changelog](changelog.html)
-- [⛏️ Minecraft Server](minecraft.html) @@2026.05.16@@
+- [⛏️ Minecraft Server](minecraft.html) @@2026.05.18@@
 - [💼 Commissions](commissions.html) @@2026.05.08@@
 - [⭐ Recommendations](recommendations.html) @@2026.05.06@@
 - [☕ Donate](donate.html) @@2026.05.05@@
 
 ---
 **Projects**
-- [📖 Operation Chimera](operation_chimera.html) @@2026.05.16@@
-- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.15@@
-- [☕ Brewdown](brewdown.html) @@2026.05.12@@
+- [📖 Operation Chimera](operation_chimera.html) @@2026.05.18@@
+- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.18@@
+- [☕ Brewdown](brewdown.html) @@2026.05.18@@
 - [🧋 Sip Sip](sipsip/index.html) @@2026.05.12@@
 - [🧊 Blender Resources](blender_resources.html) @@2026.05.08@@
 - [🧲 How Magnets Work](how_magnets_work.html) @@2026.05.08@@

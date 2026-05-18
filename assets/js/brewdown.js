@@ -46,12 +46,12 @@ const Brewdown = (function() {
         text = text.replace(/@@(\d{4})\.(\d{2})\.(\d{2})(?:\.(\d{2})\.(\d{2}))?@@/g, parseTimestamp);
 
         // Spoiler: !!text!! → click to reveal
-        text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');
+        text = text.replace(/!!(.*?)!!/g, '<span class="spoiler" title="Click to reveal" onclick="this.classList.toggle(\'revealed\')">$1</span>');
 
         // Click-to-copy: ^^text^^ → click to copy, prepends 📋, flashes "Copied!" for 500ms
         text = text.replace(/\^\^(.*?)\^\^/g, function(_, content) {
             const handler = "var e=this,o=e.innerHTML;navigator.clipboard.writeText(e.dataset.copy);e.innerHTML='Copied!';setTimeout(function(){e.innerHTML=o},500)";
-            return '<span class="copy-text" data-copy="' + escapeHtml(content) + '" onclick="' + handler + '">📋 ' + content + '</span>';
+            return '<span class="copy-text" title="Click to copy this text" data-copy="' + escapeHtml(content) + '" onclick="' + handler + '">📋 ' + content + '</span>';
         });
 
         // Bold: **text**
@@ -77,37 +77,51 @@ const Brewdown = (function() {
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, function(_, alt, url) {
             const ext = url.split('.').pop().split(/[?#]/)[0].toLowerCase();
             if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'avif'].includes(ext)) {
-                return `<a href="${url}" target="_blank" class="media-link"><img src="${url}" alt="${alt}"></a>`;
+                return `<a href="${url}" target="_blank" class="media-link" title="Click to open"><img src="${url}" alt="${alt}"></a>`;
             }
             if (['mp4', 'webm', 'ogg', 'mov'].includes(ext)) {
-                return `<a href="${url}" target="_blank" class="media-link"><video controls src="${url}" title="${alt}"></video></a>`;
+                return `<a href="${url}" target="_blank" class="media-link" title="Click to open"><video controls src="${url}" title="${alt}"></video></a>`;
             }
             if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
-                return `<a href="${url}" target="_blank" class="media-link"><audio controls src="${url}" title="${alt}"></audio></a>`;
+                return `<a href="${url}" target="_blank" class="media-link" title="Click to open"><audio controls src="${url}" title="${alt}"></audio></a>`;
             }
-            let badge = url.startsWith('magnet:') ? '' : '🔗 ';
-            if (/\.zip(\?|#|$)/i.test(url)) badge += '💾 ';
-            return `<a href="${url}" target="_blank">${badge}${alt || url}</a>`;
+            const isMagnet = url.startsWith('magnet:');
+            const isZip = /\.zip(\?|#|$)/i.test(url);
+            let badge = isMagnet ? '' : '🔗 ';
+            if (isZip) badge += '💾 ';
+            let titleAttr = '';
+            if (isZip) titleAttr = ' title="Click to save"';
+            else if (!isMagnet) titleAttr = ' title="Click to follow external link"';
+            return `<a href="${url}" target="_blank"${titleAttr}>${badge}${alt || url}</a>`;
         });
 
         // Links: [text](url) — external links open in new tab and get 🔗 prefix (except magnet:); .zip links get 💾 prefix
         text = text.replace(/\[(.*?)\]\((.*?)\)/g, function(_, linkText, url) {
             const external = isExternalUrl(url);
+            const isMagnet = url.startsWith('magnet:');
             const isZip = /\.zip(\?|#|$)/i.test(url);
             let badge = '';
-            if (external && !url.startsWith('magnet:')) badge += '🔗 ';
+            if (external && !isMagnet) badge += '🔗 ';
             if (isZip) badge += '💾 ';
+            let titleAttr = '';
+            if (isZip) titleAttr = ' title="Click to save"';
+            else if (external && !isMagnet) titleAttr = ' title="Click to follow external link"';
             if (external || isZip) {
-                return `<a href="${url}" target="_blank">${badge}${linkText}</a>`;
+                return `<a href="${url}" target="_blank"${titleAttr}>${badge}${linkText}</a>`;
             }
             return `<a href="${url}">${linkText}</a>`;
         });
 
         // Auto-link bare URLs and magnet links (only after whitespace or start of string)
         text = text.replace(/(^|\s)((?:https?:\/\/|magnet:\?)[^\s<]+)/g, function(_, ws, url) {
-            let badge = url.startsWith('magnet:') ? '' : '🔗 ';
-            if (/\.zip(\?|#|$)/i.test(url)) badge += '💾 ';
-            return `${ws}<a href="${url}" target="_blank">${badge}${url}</a>`;
+            const isMagnet = url.startsWith('magnet:');
+            const isZip = /\.zip(\?|#|$)/i.test(url);
+            let badge = isMagnet ? '' : '🔗 ';
+            if (isZip) badge += '💾 ';
+            let titleAttr = '';
+            if (isZip) titleAttr = ' title="Click to save"';
+            else if (!isMagnet) titleAttr = ' title="Click to follow external link"';
+            return `${ws}<a href="${url}" target="_blank"${titleAttr}>${badge}${url}</a>`;
         });
 
         // Template variables: {{name}} → <span id="name">default text</span>

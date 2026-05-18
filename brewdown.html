@@ -103,6 +103,7 @@ __underline__
     <pre><code>[Link Text](https://example.com)</code></pre>
     <p>External links (http/https, magnet, .pdf) automatically open in a new tab. http/https and .pdf links also get a 🔗 indicator prepended; magnet links do not.</p>
     <p>Any link whose URL ends in <code>.zip</code> also gets a 💾 indicator prepended (regardless of whether it's external or local). This is independent of 🔗 — an external <code>.zip</code> URL gets both.</p>
+    <p>External links carry <code>title="Click to follow external link"</code> and .zip links carry <code>title="Click to save"</code> as a hover tooltip. Magnet and internal links carry no title.</p>
 
     <hr>
 
@@ -164,14 +165,14 @@ function hello() {
     <h2>Spoilers</h2>
     <p>Click-to-reveal hidden text.</p>
     <pre><code>!!This text is hidden until clicked.!!</code></pre>
-    <p>Requires CSS for the <code>.spoiler</code> and <code>.spoiler.revealed</code> classes.</p>
+    <p>Wrapped in <code>&lt;span class="spoiler" title="Click to reveal"&gt;</code>. Requires CSS for the <code>.spoiler</code> and <code>.spoiler.revealed</code> classes.</p>
 
     <hr>
 
     <h2>Click-to-Copy</h2>
     <p>Click the rendered text to copy its content to the clipboard. A 📋 indicator is prepended automatically.</p>
     <pre><code>^^npm install foo^^</code></pre>
-    <p>Wraps content in <code>&lt;span class="copy-text"&gt;</code> with a click handler that writes <code>data-copy</code> to the clipboard via <code>navigator.clipboard.writeText</code>.</p>
+    <p>Wraps content in <code>&lt;span class="copy-text" title="Click to copy this text"&gt;</code> with a click handler that writes <code>data-copy</code> to the clipboard via <code>navigator.clipboard.writeText</code>.</p>
 
     <hr>
 
@@ -245,7 +246,7 @@ Brewdown.defaultVar = 'Loading...';</code></pre>
     <hr>
 
     <div class="brewdown">
-**Last Updated:** @@2026.05.12@@
+**Last Updated:** @@2026.05.18@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
