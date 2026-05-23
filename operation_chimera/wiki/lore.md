@@ -17,16 +17,3 @@ Otherworldly creatures, objects that warp reality, things that bend the mind. Th
 ### The World
 A modern setting. Cities with metropolis centers that give way to rural neighborhoods. Hotels, cars, Polaroid cameras. A world that looks normal on the surface but has things hiding underneath it.
 
-## History
-
-### Revision 01
-- The lab was run by Dr. Elias, chief scientist and architect of the Chimera Project
-- The Chimeran virus had multiple generations: Chimera-9 (stable hybrids), Chimera-10 (unstable creatures like Hollow Hounds), planned Chimera-11 (using Layla Null's immunity as a failsafe)
-- The virus produced a "Fugue State"—an uncontrolled biochemical burst inducing dread in nearby biological entities
-- Hollow Hounds (Canis Praedon): dog-like entities with necrotic traits, capable of intelligent speech, engineered for evidence cleanup
-- Other entities encountered: Chupacabra, Wendigo
-- The agency was referred to as "The Foundation" with an O5 Council and Ethics Committee
-- Dr. Elias launched a legal campaign to strip Chimeran-class beings of human rights
-- Named locations: Prosperity Gap (mine), Aetherius Observatory (desert research facility), The Bastion (mercenary command carrier)
-- Named organizations: The Foundation, Elias Foundation, McKay Innovations, Kael's Mercenary Unit
-- Technology included Charge Rifles, HUD glasses with multi-spectral vision, data-slates, encrypted satellite communications

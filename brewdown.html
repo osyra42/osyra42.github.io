@@ -70,6 +70,8 @@ This is **Brewdown** in action.
 
 &lt;script data-brewdown="path/to/file.md"&gt;&lt;/script&gt;</code></pre>
 
+    <p><code>&lt;script data-brewdown&gt;</code> tags also work <em>inside</em> a <code>&lt;div class="brewdown"&gt;</code>. The script is preserved through the parent div's render pass and processed in a second pass — useful for embedding external chapter files inside a collapsible (<code>&gt;&gt;&gt;</code>) block.</p>
+
     <p>If <code>highlight.js</code> is also on the page, Brewdown calls <code>hljs.highlightAll()</code> after rendering so code blocks pick up syntax colors. This is why <code>highlight.min.js</code> must load before <code>brewdown.js</code> — if it loads after, the check fails and code blocks render plain.</p>
 
     <hr>
@@ -150,6 +152,16 @@ function hello() {
 
     <hr>
 
+    <h2>Fill-in Blanks</h2>
+    <p>Three or more underscores create a text input field. An optional placeholder follows the underscores with no spaces; underscores inside the placeholder render as spaces.</p>
+    <pre><code>___                     -&gt; blank input
+___hello                -&gt; input with placeholder "hello"
+___help_me              -&gt; input with placeholder "help me"
+___for_example_here     -&gt; input with placeholder "for example here"</code></pre>
+    <p>Note: a literal space in the markdown terminates the placeholder. Use underscores to insert spaces.</p>
+
+    <hr>
+
     <h2>Horizontal Rules</h2>
     <pre><code>---</code></pre>
 
@@ -177,7 +189,7 @@ function hello() {
     <hr>
 
     <h2>Collapsible Sections</h2>
-    <p>Wraps content in a <code>&lt;details&gt;/&lt;summary&gt;</code> element.</p>
+    <p>Wraps content in a <code>&lt;details&gt;/&lt;summary&gt;</code> element. The <code>&lt;details&gt;</code> element gets an <code>id</code> auto-slugified from its title, and the title is auto-added to the table of contents (unless the title is empty).</p>
     <pre><code>&gt;&gt;&gt; Click to expand
 Content goes here.
 More content.
@@ -191,29 +203,27 @@ Nested content.
 
     <hr>
 
-    <h2>Interactive Forms</h2>
-    <p>Wraps content in a form container div for use with JavaScript.</p>
-    <pre><code>:: My Form Title
-**Your Name:**
-___
+    <h2>Table of Contents</h2>
+    <p>H1, H2, and H3 headers automatically collect into a table of contents, but the TOC is only rendered when you explicitly write <code>::toc::</code> in the source — opt-in, not automatic, so pages with lots of incidental headers (like the changelog) don't sprout unwanted TOCs. Every header (H1-H6) and every <code>&gt;&gt;&gt;</code> collapsible gets an <code>id="..."</code> attribute auto-slugified from its text, so links can scroll to them — but <code>&gt;&gt;&gt;</code> collapsibles are NOT auto-listed in the TOC (use a header or <code>::label::</code> above the collapsible if you want a TOC entry that scrolls to it).</p>
+    <pre><code>::toc::
 
-**Options:**
-[ ] Option A
-[ ] Option B
-::</code></pre>
-    <ul>
-      <li><code>___</code> (three or more underscores) creates a text input field</li>
-      <li><code>[ ]</code> creates an interactive checkbox</li>
-      <li>The form div gets class <code>brewdown-form</code> and a <code>data-form-title</code> attribute</li>
-    </ul>
+## First Section
+Content here.
+
+## Second Section
+More content.</code></pre>
+    <p>For non-header anchors, wrap any inline label in <code>::label::</code> markers. The label gets a span with an ID and is added to the TOC.</p>
+    <pre><code>Some prose with ::a special anchor:: inline.</code></pre>
+    <p>Renders TOC as <code>&lt;pre class="brewdown-toc"&gt;</code> with a bold <strong>TABLE OF CONTENTS</strong> header followed by one anchor per line. H3 and <code>&gt;&gt;&gt;</code> entries are indented two spaces under their parent H2. Clicking any link scrolls to the anchor via native browser behavior.</p>
 
     <hr>
 
     <h2>Template Variables</h2>
     <p>Placeholders that render as <code>&lt;span&gt;</code> elements with IDs for JavaScript to target.</p>
     <pre><code>Server status: {{server-status}}</code></pre>
-    <p>Set the default text before loading:</p>
-    <pre><code class="language-html">&lt;script&gt;Brewdown.defaultVar = 'Loading...';&lt;/script&gt;</code></pre>
+    <p>Set the default text <em>before</em> brewdown.js loads (since brewdown.js is deferred, an inline <code>Brewdown.defaultVar = …</code> in the head would run before <code>Brewdown</code> exists). Use the <code>window.brewdownDefaultVar</code> stash instead — brewdown.js reads it at init:</p>
+    <pre><code class="language-html">&lt;script&gt;window.brewdownDefaultVar = 'Loading...';&lt;/script&gt;</code></pre>
+    <p>After brewdown loads, <code>Brewdown.defaultVar = 'text'</code> works as expected from any non-deferred code (e.g. DOMContentLoaded handlers, button clicks).</p>
 
     <hr>
 
@@ -246,7 +256,7 @@ Brewdown.defaultVar = 'Loading...';</code></pre>
     <hr>
 
     <div class="brewdown">
-**Last Updated:** @@2026.05.18@@
+**Last Updated:** @@2026.05.23@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 

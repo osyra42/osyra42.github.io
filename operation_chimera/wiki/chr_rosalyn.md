@@ -16,7 +16,3 @@ She met Osyra for the first time at her ivy-covered home. She tried to take Pola
 **Personality:** Gentle, sweet, accepting, non-judgmental
 **Background:** Holds a doctorate; field unspecified in story so far
 
-## History
-
-### Revision 01 → 03
-- Did not appear in Revisions 01 or 02. First introduced in Revision 03.

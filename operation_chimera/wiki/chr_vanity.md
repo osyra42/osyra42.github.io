@@ -7,7 +7,7 @@ An AI-powered Android. She keeps records of everything Osyra does, since Osyra r
 
 Rarely seen outside of headquarters. She understands tactical situations quickly and is ridiculously strong. She runs on a closed network and cannot be hacked remotely. To interface with any digital system, she has to physically lay her hands on it like a handshake.
 
-She was recently assigned as Osyra's new headquarters agent, replacing Corporal Jerry Ryan. She has not yet appeared in person.
+She was recently assigned as Osyra's new headquarters agent, replacing Corporal Jerry Bennett. She has not yet appeared in person.
 
 ## Profile
 
@@ -30,13 +30,3 @@ As a machine, Vanity has perfect precision with any firearm—effectively aimbot
 ### Autonomy
 Vanity is an unshackled model. She doesn't have to listen to any of her users. She has a genuine sense of autonomy and chooses to cooperate rather than being compelled to. She does not acknowledge authority—compliance is always her decision.
 
-## History
-
-### Revision 01
-- Designated as the "Player 1" android, designed to assist Layla
-- Awakened into consciousness and met Layla for the first time in Chapter 11
-- Agreed to maintain the McKay house when approached by Nancy, Layla's aunt
-- Featured across 22 chapters
-
-### Revision 01 → 03
-- Shifted from a character with a full origin arc to a name-dropped replacement agent. Her backstory with the McKay family has not yet been referenced in the current revision.

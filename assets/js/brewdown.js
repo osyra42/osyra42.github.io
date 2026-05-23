@@ -1,8 +1,18 @@
 // brewdown.js - A coffee-flavored Markdown to HTML converter
 const Brewdown = (function() {
 
-    // Default text for {{var}} placeholders — override per page with Brewdown.defaultVar = 'text'
-    let defaultVar = '';
+    // Default text for {{var}} placeholders.
+    // Pages can seed this BEFORE brewdown.js loads by setting `window.brewdownDefaultVar = 'text'`
+    // in an inline <script> in the head (necessary because brewdown.js is deferred, so any
+    // `Brewdown.defaultVar = …` inline in head would run before Brewdown exists).
+    // After load, you can still use `Brewdown.defaultVar = 'text'` from non-deferred code.
+    let defaultVar = (typeof window !== 'undefined' && typeof window.brewdownDefaultVar === 'string')
+        ? window.brewdownDefaultVar
+        : '';
+
+    // TOC entries collected during a brewdown() call. Set to an array at the start of brewdown(),
+    // reset to null when finished. parseInlineFormatting checks this before pushing entries.
+    let _tocEntries = null;
 
     function isExternalUrl(url) {
         return /^https?:\/\//i.test(url) || url.startsWith('magnet:') || url.endsWith('.pdf');
@@ -12,6 +22,24 @@ const Brewdown = (function() {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
+    }
+
+    function slugify(text) {
+        return text.toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function renderToc(entries) {
+        if (!entries || entries.length === 0) return '';
+        // Indent by level: labels flush left, H1 flush left, H2 at +2, H3 at +4.
+        // Rendered inside <pre> so whitespace shows; no <ul>/<li> = no bullet dots.
+        // Auto-prepends a bold "TABLE OF CONTENTS" header so the section is self-labeling.
+        const lines = entries.map(e => {
+            const indent = e.level === 0 ? '' : '  '.repeat(Math.max(0, e.level - 1));
+            return `${indent}<a href="#${e.slug}">${escapeHtml(e.text)}</a>`;
+        });
+        return `<pre class="brewdown-toc"><strong>TABLE OF CONTENTS</strong>\n\n${lines.join('\n')}</pre>`;
     }
 
     function parseTimestamp(match, yyyy, mm, dd, hh, min) {
@@ -54,6 +82,19 @@ const Brewdown = (function() {
             return '<span class="copy-text" title="Click to copy this text" data-copy="' + escapeHtml(content) + '" onclick="' + handler + '">📋 ' + content + '</span>';
         });
 
+        // TOC: ::toc:: spawns the table of contents at that position. ::label:: creates an
+        // explicit TOC anchor wrapping the label text. Headers (H2-H3) auto-collect into the
+        // TOC during block processing; this handles the inline pair syntax.
+        text = text.replace(/::([^:\n]+?)::/g, function(_, content) {
+            const trimmed = content.trim();
+            if (trimmed.toLowerCase() === 'toc') {
+                return '\x00BREWDOWN_TOC\x00';
+            }
+            const slug = slugify(trimmed);
+            if (_tocEntries) _tocEntries.push({ level: 0, text: trimmed, slug });
+            return `<span id="${slug}" class="toc-anchor">${trimmed}</span>`;
+        });
+
         // Bold: **text**
         text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
@@ -66,8 +107,13 @@ const Brewdown = (function() {
         // Underline: __text__
         text = text.replace(/__([^_]+?)__/g, '<u>$1</u>');
 
-        // Fill-in blank: ___ (3+ underscores with no content between)
-        text = text.replace(/_{3,}/g, '<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;">');
+        // Fill-in blank: ___ (3+ underscores). Optional placeholder follows with no spaces;
+        // underscores inside the placeholder render as spaces (e.g. ___for_example → placeholder="for example").
+        text = text.replace(/_{3,}(\S*)/g, function(_, ph) {
+            const display = ph.replace(/_/g, ' ');
+            const placeholderAttr = display ? ` placeholder="${escapeHtml(display)}"` : '';
+            return `<input type="text" style="border:none;border-bottom:2px solid currentColor;min-width:100px;font:inherit;background:transparent;color:inherit;"${placeholderAttr}>`;
+        });
 
         // Checkboxes: [x] checked, [ ] unchecked — must come before links
         text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
@@ -148,6 +194,7 @@ const Brewdown = (function() {
             containerClass = 'brewdown-container'
         } = options;
 
+        _tocEntries = [];
         let htmlContent = '';
         const lines = markdownText.trim().split(/\r?\n/);
         let inBlockquote = false;
@@ -159,7 +206,6 @@ const Brewdown = (function() {
         let tableRows = [];
         let inGallery = false;
         let detailsDepth = 0;
-        let inForm = false;
         function closeOpenBlocks() {
             if (inBlockquote) { htmlContent += '</blockquote>\n'; inBlockquote = false; }
             if (inGallery) { htmlContent += '</div>\n'; inGallery = false; }
@@ -237,11 +283,15 @@ const Brewdown = (function() {
                 flushTable();
             }
 
-            // Collapsible open: >>> Title
+            // Collapsible open: >>> Title — gives <details> an id (so links can scroll to it),
+            // but does NOT add to TOC. Collapsibles are often UI affordances ("Click to view"),
+            // not section headers, so auto-listing them clutters the TOC. Use a header or
+            // ::label:: above the collapsible if you want a TOC entry that scrolls to it.
             if (line.startsWith('>>>')) {
                 closeOpenBlocks();
                 const title = line.substring(3).trim() || 'Details';
-                processedLine = `<details><summary>${parseInlineFormatting(title)}</summary>`;
+                const slug = slugify(title);
+                processedLine = `<details id="${slug}"><summary>${parseInlineFormatting(title)}</summary>`;
                 detailsDepth++;
                 htmlContent += processedLine + '\n';
                 return;
@@ -257,41 +307,24 @@ const Brewdown = (function() {
                 return;
             }
 
-            // Form block: :: Title to open, :: to close
-            if (line.startsWith('::')) {
+            // TOC marker on its own line — emit as block placeholder (no <p> wrap)
+            if (line.trim() === '::toc::') {
                 closeOpenBlocks();
-                if (!inForm) {
-                    const title = line.substring(2).trim();
-                    const titleAttr = title ? ` data-form-title="${escapeHtml(title)}"` : '';
-                    processedLine = `<div class="brewdown-form"${titleAttr}>`;
-                    inForm = true;
-                } else {
-                    processedLine = '</div>';
-                    inForm = false;
-                }
-                htmlContent += processedLine + '\n';
+                htmlContent += '\x00BREWDOWN_TOC\x00\n';
                 return;
             }
 
-            // Headers
-            if (line.startsWith('# ')) {
+            // Headers — # to ###### get id="slug-of-text"; H1/H2/H3 auto-collect into TOC
+            const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
+            if (headerMatch) {
                 closeOpenBlocks();
-                processedLine = `<h1>${parseInlineFormatting(line.substring(2))}</h1>`;
-            } else if (line.startsWith('## ')) {
-                closeOpenBlocks();
-                processedLine = `<h2>${parseInlineFormatting(line.substring(3))}</h2>`;
-            } else if (line.startsWith('### ')) {
-                closeOpenBlocks();
-                processedLine = `<h3>${parseInlineFormatting(line.substring(4))}</h3>`;
-            } else if (line.startsWith('#### ')) {
-                closeOpenBlocks();
-                processedLine = `<h4>${parseInlineFormatting(line.substring(5))}</h4>`;
-            } else if (line.startsWith('##### ')) {
-                closeOpenBlocks();
-                processedLine = `<h5>${parseInlineFormatting(line.substring(6))}</h5>`;
-            } else if (line.startsWith('###### ')) {
-                closeOpenBlocks();
-                processedLine = `<h6>${parseInlineFormatting(line.substring(7))}</h6>`;
+                const level = headerMatch[1].length;
+                const headerText = headerMatch[2];
+                const slug = slugify(headerText);
+                if (_tocEntries && level >= 1 && level <= 3) {
+                    _tocEntries.push({ level, text: headerText, slug });
+                }
+                processedLine = `<h${level} id="${slug}">${parseInlineFormatting(headerText)}</h${level}>`;
             }
             // Blockquotes
             else if (line.startsWith('> ') || line === '>') {
@@ -351,8 +384,14 @@ const Brewdown = (function() {
         }
         if (inBlockquote) htmlContent += '</blockquote>';
         if (inTable) flushTable();
-        if (inForm) { htmlContent += '</div>\n'; inForm = false; }
         while (detailsDepth > 0) { htmlContent += '</details>\n'; detailsDepth--; }
+
+        // Final TOC pass: replace ::toc:: placeholder with rendered TOC. Opt-in only —
+        // pages must explicitly write ::toc:: to get one (no auto-prepend), so pages with
+        // lots of incidental headers don't sprout unwanted TOCs.
+        const tocHtml = renderToc(_tocEntries);
+        htmlContent = htmlContent.replace(/\x00BREWDOWN_TOC\x00/g, tocHtml);
+        _tocEntries = null;
 
         if (wrapInContainer) {
             return `<div class="${containerClass}">${htmlContent}</div>`;
@@ -421,24 +460,50 @@ const Brewdown = (function() {
         });
     }
 
-    // Process div.brewdown elements by converting their text content to HTML
+    // Process div.brewdown elements by converting their text content to HTML.
+    // Child <script data-brewdown> elements are preserved through rendering: each is captured
+    // as a placeholder element that passes through brewdown as HTML, then restored to the
+    // original script's outerHTML before the div is updated. A second pass of
+    // processScriptTags() in processAll() then handles those preserved scripts.
     function processBrewdownDivs() {
         const divs = document.querySelectorAll('div.brewdown');
 
         divs.forEach(div => {
-            const markdownText = div.textContent;
+            const scripts = [];
+            let markdownText = '';
+
+            div.childNodes.forEach(child => {
+                if (child.nodeType === Node.TEXT_NODE) {
+                    markdownText += child.textContent;
+                } else if (child.nodeType === Node.ELEMENT_NODE &&
+                           child.tagName === 'SCRIPT' &&
+                           child.hasAttribute('data-brewdown')) {
+                    scripts.push(child.outerHTML);
+                    // No leading/trailing \n — surrounding text nodes already carry whitespace.
+                    // Extra newlines would create blank lines that brewdown turns into <br>.
+                    markdownText += `<brewdown-embed-placeholder data-i="${scripts.length - 1}"></brewdown-embed-placeholder>`;
+                } else if (child.nodeType === Node.ELEMENT_NODE) {
+                    markdownText += child.outerHTML;
+                }
+            });
+
             if (markdownText.trim()) {
-                div.innerHTML = brewdown(markdownText);
+                let html = brewdown(markdownText);
+                html = html.replace(/<brewdown-embed-placeholder data-i="(\d+)"><\/brewdown-embed-placeholder>/g,
+                    (_, i) => scripts[parseInt(i)]);
+                div.innerHTML = html;
                 div.classList.remove('brewdown');
                 div.classList.add('brewdown-rendered');
             }
         });
     }
 
-    // Process all Brewdown sources when DOM is ready
+    // Process all Brewdown sources when DOM is ready.
+    // Order matters: divs first so embedded <script data-brewdown> tags become live DOM nodes
+    // via innerHTML; then processScriptTags() picks them up alongside top-level scripts.
     function processAll() {
-        processScriptTags();
         processBrewdownDivs();
+        processScriptTags();
         // Apply syntax highlighting if highlight.js is loaded
         if (typeof hljs !== 'undefined') {
             hljs.highlightAll();

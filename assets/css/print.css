@@ -10,6 +10,7 @@
 
   sidebar, .mobile-banner, .overlay { display: none !important; }
   #back-to-top, .download-bar { display: none !important; }
+  .brewdown-toc { display: none !important; }
 
   main {
     height: auto !important;

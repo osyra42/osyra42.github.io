@@ -5,7 +5,7 @@
 ## Current
 Captain Osyra Renaya. A Chimeran operative—part wolf, part human. Dark, brooding, and indifferent—she doesn't speak much until it's absolutely necessary. She saves people because it's her job, not because she wants to.
 
-She hides her traits in civilian life using color contacts, hats, dresses—anything that works. She recently visited her biological grandmother Rosalyn for the first time. Her previous agent Corporal Jerry Ryan was reassigned and replaced by Vanity. She is escorted everywhere by her bodyguard Korval.
+She hides her traits in civilian life using color contacts, hats, dresses—anything that works. She recently visited her biological grandmother Rosalyn for the first time. Her previous agent Corporal Jerry Bennett was reassigned and replaced by Vanity. She is escorted everywhere by her bodyguard Korval.
 
 ## Profile
 
@@ -52,20 +52,3 @@ A mysterious external force attacked the facility before the lab could fully sec
 ### After the Lab
 She was discovered by someone sifting through the paperwork in the building. They recognized her, found her, and offered her a job. They wanted her to hunt down and fix things—deal with anomalous entities and situations. The pay was good. She got to be the secret they didn't point and laugh at.
 
-## History
-
-### Revision 01
-- Introduced as Dr. Osyra with a full origin arc across 40+ chapters
-- Background included growing up in extreme wealth with neglectful parents; closest figure was Derran, the butler
-- Started as a forensic financial auditor who uncovered the lab through a routine audit
-- Abducted by the lab owner after filing a report
-- Eventually tracked and killed the lab owner with a syringe into his IV line
-
-### Revision 02
-- Reframed as an interview and processing sequence with a character dossier
-
-### Revision 02 → 03
-- Dropped the interview framing. Now opens with Osyra already established as a Captain on active duty, visiting family for the first time. Story told in past tense as a personal account.
-- Early life reworked: given up for adoption as an infant (parents still alive, fate unknown — seeded for later reveal), raised by her aunt, then sent to foster care after the aunt passed. Foster guardian sold her to the facility at age 16.
-- No formal scientific education anymore — any scientific background comes from self-directed research after her transformation.
-- Dropped the "Dr." title and Private Investigator profession.
