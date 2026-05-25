@@ -101,28 +101,62 @@
 
 ## 🩸 Blood Relation
 
->>> 01 — The Visit
-<script data-brewdown="operation_chimera/stories/blood_relation/01_the_visit.md"></script>
+>>> 01 — The Schoolhouse
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/01_the_schoolhouse.md"></script>
+</div>
 <<<
 
->>> 02 — The Reveal
-<script data-brewdown="operation_chimera/stories/blood_relation/02_the_reveal.md"></script>
+>>> 02 — The Address
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/02_the_address.md"></script>
+</div>
 <<<
 
->>> 03 — The Letting Go
-<script data-brewdown="operation_chimera/stories/blood_relation/03_the_letting_go.md"></script>
+>>> 03 — The Visit
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/03_the_visit.md"></script>
+</div>
 <<<
 
->>> 04 — The Morning
-<script data-brewdown="operation_chimera/stories/blood_relation/04_the_morning.md"></script>
+>>> 04 — The Reveal
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/04_the_reveal.md"></script>
+</div>
+<<<
+
+>>> 05 — The Letting Go
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/05_the_letting_go.md"></script>
+</div>
+<<<
+
+>>> 06 — The Morning
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/06_the_morning.md"></script>
+</div>
+<<<
+
+>>> 07 — The Letter
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/07_the_letter.md"></script>
+</div>
+<<<
+
+>>> 08 — The Debrief
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/blood_relation/08_the_debrief.md"></script>
+</div>
 <<<
 
 ---
 
-## 🐬 The Book of Maru
+## 🫀 Mireheart
 
 >>> 01 — Placeholder
-<script data-brewdown="operation_chimera/stories/book_of_maru/01_placeholder.md"></script>
+<div class="chapter-content">
+<script data-brewdown="operation_chimera/stories/mireheart/01_placeholder.md"></script>
+</div>
 <<<
 
 ---
@@ -135,7 +169,7 @@
 
 ---
 
-**Last Updated:** @@2026.05.23@@
+**Last Updated:** @@2026.05.24@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
@@ -146,41 +180,44 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.getElementById('wiki-loader');
+    if (!container) return;
 
-    // Intercept clicks on .md links for inline chapter viewing
-    container.querySelectorAll('a[href$=".md"]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const parent = this.closest('p, h1, h2, h3, h4, h5, h6');
-            if (!parent) return;
-            const existing = parent.nextElementSibling;
+    // Delegate click handling on the container so it catches links added later
+    // by the async wiki fetch (wiki/index.md loads after DOMContentLoaded).
+    container.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href$=".md"]');
+        if (!link || !container.contains(link)) return;
 
-            // If already open, toggle it closed
-            if (existing && existing.classList.contains('chapter-content')) {
-                existing.remove();
-                this.classList.remove('active');
-                return;
-            }
+        e.preventDefault();
+        const parent = link.closest('p, h1, h2, h3, h4, h5, h6');
+        if (!parent) return;
+        const existing = parent.nextElementSibling;
 
-            // Create content div after the parent element
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'chapter-content';
-            contentDiv.innerHTML = '<p class="loading">Loading...</p>';
-            parent.insertAdjacentElement('afterend', contentDiv);
-            this.classList.add('active');
+        // If already open, toggle it closed
+        if (existing && existing.classList.contains('chapter-content')) {
+            existing.remove();
+            link.classList.remove('active');
+            return;
+        }
 
-            fetch(this.href + '?t=' + Date.now())
-                .then(response => {
-                    if (!response.ok) throw new Error('Failed to load file');
-                    return response.text();
-                })
-                .then(text => {
-                    contentDiv.innerHTML = Brewdown.brewdown(text);
-                })
-                .catch(error => {
-                    contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
-                });
-        });
+        // Create content div after the parent element
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'chapter-content';
+        contentDiv.innerHTML = '<p class="loading">Loading...</p>';
+        parent.insertAdjacentElement('afterend', contentDiv);
+        link.classList.add('active');
+
+        fetch(link.href + '?t=' + Date.now())
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load file');
+                return response.text();
+            })
+            .then(text => {
+                contentDiv.innerHTML = Brewdown.brewdown(text);
+            })
+            .catch(error => {
+                contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
+            });
     });
 });
 </script>

@@ -3,14 +3,15 @@
 ![Osyra Renaya](operation_chimera/wiki/imgs/osyra0.jpg)
 
 ## Current
-Captain Osyra Renaya. A Chimeran operative—part wolf, part human. Dark, brooding, and indifferent—she doesn't speak much until it's absolutely necessary. She saves people because it's her job, not because she wants to.
+Osyra Renaya. A Chimeran Operator—part wolf, part human. Dark, brooding, and indifferent—she doesn't speak much until it's absolutely necessary. She saves people because it's her job, not because she wants to.
 
-She hides her traits in civilian life using color contacts, hats, dresses—anything that works. She recently visited her biological grandmother Rosalyn for the first time. Her previous agent Corporal Jerry Bennett was reassigned and replaced by Vanity. She is escorted everywhere by her bodyguard Korval.
+She hides her traits in civilian life using color contacts, hats, dresses—anything that works. She recently visited her biological grandmother Rosalyn for the first time. Vanity is her long-time record keeper at headquarters; Osyra debriefs her after every assignment. She is escorted everywhere by her bodyguard Korval.
 
 ## Profile
 
 **Full Name:** Osyra Jasmine Renaya
-**Age:** 16 at transformation; late 20s present (Captain-rank operative)
+**Age:** 16 at transformation; late 20s present
+**Rank:** Operator
 **Height:** 6'4"
 **Build:** Tall, muscular, predatory
 **Hair:** Black
@@ -19,7 +20,7 @@ She hides her traits in civilian life using color contacts, hats, dresses—anyt
 **Wolf Traits:** Black ears and tail, elongated canines, heightened senses, reflexes, tracking instincts
 
 **Education:** High school (interrupted at 16 by the experiments). Self-taught biology, genetics, and cybersecurity — started as curiosity about what had been done to her own body and grew from there.
-**Profession:** Agency operative; callsign "Chimera One"
+**Profession:** Agency Operator; callsign "Chimera One"
 **Skills:** Combat, tracking, investigation, wilderness survival; self-taught biology/genetics and cybersecurity
 
 **Weapons:**

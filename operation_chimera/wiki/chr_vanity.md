@@ -3,15 +3,18 @@
 ![Vanity](operation_chimera/wiki/imgs/vanity0.jpg)
 
 ## Current
-An AI-powered Android. She keeps records of everything Osyra does, since Osyra refuses to do any paperwork. She also tracks the other operatives. She collects data by any means—moral, immoral, or otherwise. She does not acknowledge authority.
+An AI-powered Android. Codename **Wiki** — because she keeps the record on everything. Vanity is a **Handler** — she runs Operators from headquarters, takes their debriefs, dispatches them, holds their files. Osyra is one of hers. So are others. She collects data by any means — moral, immoral, or otherwise. She does not acknowledge authority.
 
 Rarely seen outside of headquarters. She understands tactical situations quickly and is ridiculously strong. She runs on a closed network and cannot be hacked remotely. To interface with any digital system, she has to physically lay her hands on it like a handshake.
 
-She was recently assigned as Osyra's new headquarters agent, replacing Corporal Jerry Bennett. She has not yet appeared in person.
+Vanity and Osyra have worked together since long before the events of Blood Relation. Vanity has not yet appeared in person on the page.
 
 ## Profile
 
 **Full Name:** Vanity
+**Codename:** Wiki
+**Rank:** Handler
+**Role:** Runs Operators from headquarters — debriefs, dispatches, keeps the file
 **Eyes:** Violet
 **Build:** Synthetic skin, human-like physical form
 **Created By:** Alissa and Eric McKay

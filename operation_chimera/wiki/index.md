@@ -1,6 +1,9 @@
 **Lore**
   [World Lore](operation_chimera/wiki/lore.md)
 
+**Groups**
+  [The Agency](operation_chimera/wiki/grp_agency.md)
+
 **Characters**
   [Alissa McKay](operation_chimera/wiki/chr_alissa.md)
   [Eric McKay](operation_chimera/wiki/chr_eric.md)

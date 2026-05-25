@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "concepts.md",
+                "file": "stories/blood_relation/01_the_schoolhouse.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "concepts"
+              "title": "01_the_schoolhouse"
             }
           }
         ]
@@ -170,7 +170,26 @@
   },
   "active": "bb7fec4f5f642eca",
   "lastOpenFiles": [
+    "stories/book_of_maru/01_placeholder.md",
+    "stories/blood_relation/01_the_schoolhouse.md",
+    "stories/blood_relation/02_the_reveal.md",
+    "content_warning.md",
+    "stories/blood_relation/Untitled.md",
+    "stories/blood_relation/proofreading.md",
+    "stories/blood_relation/01_the_visit.md",
     "concepts.md",
+    "wiki/chr_osyra.md",
+    "wiki/chr_layla.md",
+    "wiki/chr_rosalyn.md",
+    "wiki/chr_alissa.md",
+    "wiki/chr_eric.md",
+    "wiki/chr_korval.md",
+    "wiki/index.md",
+    "wiki/chr_uta.md",
+    "wiki/chr_vanity.md",
+    "wiki/loc_aurora_pulse.md",
+    "stories/book_of_maru/proofreading.md",
+    "stories/book_of_maru",
     "revision_03/rev03_ch01_blood_relation.md",
     "revision_03/rev03_ch01_proofread.md"
   ]
