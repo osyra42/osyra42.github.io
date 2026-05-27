@@ -1,0 +1,68 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0a0c0f;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', monospace;
+    padding: 1.5rem;
+}
+
+.terminal {
+    background: #0f1115;
+    border-left: 2px solid #2ecc71;
+    max-width: 780px;
+    width: 100%;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.6);
+}
+
+.output {
+    color: #cbd5e6;
+    font-size: 1rem;
+    line-height: 1.6;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    border-top: 1px dashed #2c3e2f;
+    padding-top: 1.2rem;
+}
+
+.prompt {
+    color: #2ecc71;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+#passwordInput {
+    background: transparent;
+    border: none;
+    color: #f0f3fa;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    flex: 1;
+    letter-spacing: 0.2px;
+}
+
+#passwordInput::placeholder {
+    color: #3b4252;
+    font-style: italic;
+}
+
+.hidden {
+    display: none;
+}
