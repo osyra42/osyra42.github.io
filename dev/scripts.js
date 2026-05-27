@@ -2,35 +2,32 @@
 (function() {
     const CORRECT_PASSWORD = "osyra42quest";
     const outputEl = document.getElementById('output');
-    const inputLine = document.getElementById('inputLine');
     const passwordField = document.getElementById('passwordInput');
-
-    // block everything until authenticated
-    let authenticated = false;
+    
+    let unlocked = false;
 
     function renderLockedMessage() {
         outputEl.innerHTML = `
-            <div style="margin-bottom: 1.2rem;">🔐 <strong style="color:#e67e22;">developer gate</strong></div>
-            <div style="margin-bottom: 0.8rem;">⚡ this page requires a password to load.</div>
-            <div style="margin-bottom: 1rem;">⛓️ javascript blocks rendering until valid passphrase.</div>
+            <div style="margin-bottom: 1.2rem;">🔐 <strong style="color:#e67e22;">developer gate · locked</strong></div>
+            <div style="margin-bottom: 0.8rem;">⚡ JS blocks page content until correct password</div>
+            <div style="margin-bottom: 1rem;">⛓️ authentication required to view quest board</div>
             <div style="border-left: 3px solid #2ecc71; padding-left: 1rem; margin-top: 1.2rem;">
                 ✦ <span style="color:#b48ead;">for osyra42</span> — developer quests & project coordination<br>
-                ✦ use <span style="background:#1e2a2a; padding: 0.1rem 0.4rem;">markdown-like</span> notes without a parser (raw emoji + text)<br>
+                ✦ raw emoji + markdown-style notes (no parser)<br>
                 ✦ assist with: <span style="color:#e5c07b;">tooling · scripts · debug · prototypes</span>
             </div>
             <div style="margin-top: 1.6rem;">
                 📜 <span style="color:#98c379;"># dev-quests > osyra42/workspace</span><br>
-                🧩 _no external parser — plain emoji/markdown vibe_
+                🧩 _plain text — no markdown engine_
             </div>
+            <div style="margin-top: 1.2rem; color:#2ecc71;">↓ enter password below ↓</div>
         `;
-        // show password field
-        inputLine.style.display = 'flex';
-        if (passwordField) passwordField.focus();
     }
 
-    function unlockPage() {
-        authenticated = true;
-        // full content after authentication — hyper minimal but complete
+    function unlockContent() {
+        if (unlocked) return;
+        unlocked = true;
+        
         outputEl.innerHTML = `
             <div style="margin-bottom: 1rem;">✅ <strong style="color:#2ecc71;">access granted</strong> — welcome, operative.</div>
             <div style="margin-bottom: 0.8rem;">━━━━━━━━━━━━━━━━━━━━━━</div>
@@ -44,7 +41,7 @@
                 # quest: osyra42/tasks<br>
                 - [ ] build modular script 🔁<br>
                 - [ ] review PR for core lib 🧪<br>
-                - [ ] `deploy assist` — staging env<br>
+                - [ ] \`deploy assist\` — staging env<br>
                 <br>
                 > *emojis only, no markdown engine*<br>
                 🌱 〰️ [repo: osyra42/dev-dojo] 〰️ 🐚
@@ -53,38 +50,37 @@
                 💡 session active — reload will re-lock.
             </div>
         `;
-        // remove input line completely after success
+        
+        // hide password field after unlock
+        const inputLine = document.getElementById('inputLine');
         if (inputLine) inputLine.style.display = 'none';
-        // remove any leftover blocking UI
-        document.body.style.opacity = '1';
     }
 
-    function handlePasswordSubmit(e) {
-        if (authenticated) return;
-        if (e.key === 'Enter' && passwordField.value.trim() === CORRECT_PASSWORD) {
-            unlockPage();
-        } else if (e.key === 'Enter') {
-            outputEl.innerHTML += `<div style="color:#e06c75; margin-top:0.8rem;">⛔ invalid pass. try again. 🔁</div>`;
-            passwordField.value = '';
-            // keep blocked state
-            const oldOutput = outputEl.innerHTML;
-            setTimeout(() => {
-                if (!authenticated) outputEl.innerHTML = oldOutput.replace(/<div style="color:#e06c75; margin-top:0.8rem;">⛔ invalid pass. try again. 🔁<\/div>/, '');
-            }, 1200);
+    function checkPassword(e) {
+        if (e.key === 'Enter' && passwordField) {
+            if (passwordField.value === CORRECT_PASSWORD) {
+                unlockContent();
+            } else {
+                outputEl.innerHTML += `<div style="color:#e06c75; margin-top:0.8rem;">❌ wrong password — try again</div>`;
+                passwordField.value = '';
+                // remove error message after 2 seconds but keep locked content
+                setTimeout(() => {
+                    if (!unlocked) {
+                        const errorMsg = outputEl.querySelector('div:last-child');
+                        if (errorMsg && errorMsg.style.color === 'rgb(224, 108, 117)') {
+                            errorMsg.remove();
+                        }
+                    }
+                }, 1500);
+            }
         }
     }
 
-    // initial load – blocking everything until password
-    function init() {
-        renderLockedMessage();
-        // fully block any accidental content flash
-        document.body.style.background = "#0a0c0f";
-        if (passwordField) {
-            passwordField.addEventListener('keypress', handlePasswordSubmit);
-            passwordField.focus();
-        }
-        // ensure no interactive elements before auth (except password)
+    // initial render — page stays blocked
+    renderLockedMessage();
+    
+    if (passwordField) {
+        passwordField.addEventListener('keypress', checkPassword);
+        passwordField.focus();
     }
-
-    init();
 })();
