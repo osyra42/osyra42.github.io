@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 **Projects**
-- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.30@@
+- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.31@@
 - [📖 Operation Chimera](operation_chimera.html) @@2026.05.24@@
 - [☕ Brewdown](brewdown.html) @@2026.05.23@@
 - [🧋 Sip Sip](sipsip/index.html) @@2026.05.12@@

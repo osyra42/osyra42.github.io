@@ -54,35 +54,25 @@
 A work-in-progress pixel art adventure built in GameMaker Studio 2 by osyra42. Explore the world, collect coins, and fight your way through — more to come!
 
 🎮 **[PLAY IN BROWSER](blank_pixel_game/index.html)**
-> Press F11 for fullscreen, makes it a much better experience. The controls are below.
-
-### 🎮 Controls (in game soon)
-```yaml
-# Movement
-Move:          W A S D
-Run:           Shift
-Dodge:         Space
-
-# Combat
-Attack:        Left Click
-Use:           Right Click
-
-# Interaction
-Interact:      E
-Potion:        Q
-Inventory:     Tab
-Pause:         Escape
-
-# Debug
-Toggle Overlay: F3
-```
+> Press F11 for fullscreen, makes it a much better experience.
 
 ---
 
 ## 📦 Releases
 
-### 🆕 2026.05.30 — Tooltips
+### 🆕 2026.05.31 — Pause Menu
 
+ESC opens a pause menu with Resume and Quit buttons. Controls list is shown right in the menu in a two-column layout, so they're always one keystroke away. The game actually freezes while paused — enemies, items, animations, all of it.
+
+Fixed a few input-leak bugs along the way: clicking Resume no longer fires a phantom attack on close, moving items around the inventory no longer fires a phantom attack either, and swinging the sword while paused no longer crashes the game.
+
+**Assets**
+- **Portable** — [blank_pixel_game@2026.05.31-WINZIP.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.31-WINZIP.zip)
+- **Windows** — [blank_pixel_game@2026.05.31-WINDOWS.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.31-WINDOWS.zip)
+- **Browser** — [blank_pixel_game@2026.05.31-HTML5.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.31-HTML5.zip)
+- **Linux** — [blank_pixel_game@2026.05.31-LINUX.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.31-LINUX.zip)
+
+>>> 📦 2026.05.30 — Tooltips
 Hover an item in your inventory to see its name and description in a tooltip.
 
 **Assets**
@@ -90,6 +80,7 @@ Hover an item in your inventory to see its name and description in a tooltip.
 - **Windows** — [blank_pixel_game@2026.05.30-WINDOWS.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.30-WINDOWS.zip)
 - **Browser** — [blank_pixel_game@2026.05.30-HTML5.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.30-HTML5.zip)
 - **Linux** — [blank_pixel_game@2026.05.30-LINUX.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.05.30-LINUX.zip)
+<<<
 
 >>> 📦 2026.05.15 — Floor Progression Update
 Big update. Smashable pots — 150 per dungeon, drop coins. Floors are now a real loop: clear all enemies, a ladder appears, descend to a freshly-generated dungeon, floor counter ticks up.
@@ -210,7 +201,7 @@ Debug menu added with F3 toggle. Breakable pottery from earlier builds was pulle
 
 ---
 
-**Last Updated:** @@2026.05.30@@
+**Last Updated:** @@2026.05.31@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
