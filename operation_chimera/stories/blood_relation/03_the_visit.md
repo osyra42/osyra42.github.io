@@ -2,13 +2,13 @@
 
 Osyra was nervous. There were so many things that could go wrong.
 
-She thought it while looking out the window as Korval drove her to the destination. He was up front, behind the wheel — Korval, a tough, Russian ex-military type. Her chauffeur and bodyguard both. He always followed her everywhere. Not that she needed it. She was usually the dangerous one in any room.
+She thought it while looking out the window as Korval drove. He always followed her everywhere — not that she needed it. She was usually the dangerous one in any room.
 
-The agency had turned up word of one of her biological family members and given her the opportunity to visit. She'd taken it. Her grandmother — Rosalyn Renaya. Despite Osyra's protests — that she didn't need a bodyguard just to blend in as family — her boss had insisted and would not back down.
+The agency had turned up word of a biological family member and given her the opportunity to visit. She'd taken it. Her grandmother — Rosalyn Renaya.
 
 "How much further until we get there?" she said. The words came out before she'd decided to say them.
 
-"About thirty minutes," Korval answered in his thick Russian accent. Then he added, "Why are you so impatient? You're always calm."
+"About thirty minutes," Korval answered, the accent thick as ever. Then he added, "Why are you so impatient? You're always calm."
 
 A strange sensation washed over her. She'd never wanted to be close to family before. Maybe this was a new experience. She had nothing to say back. No reply. She stared out the window as the metropolis turned into rural neighborhoods.
 
@@ -17,24 +17,6 @@ A strange sensation washed over her. She'd never wanted to be close to family be
 For a moment she'd nearly forgotten that her grandmother didn't know about her altered form. She climbed into the back seat and changed her jeans for a dress. Put a hat on, added contacts. She felt like a completely different person. She couldn't tell which version of her was real. The one where she was Chimeran? Or the one where she was human?
 
 ---
-
-She was Chimera now. She wasn't always Chimera. This came from a lab. She'd been given up for adoption as an infant. Her aunt had taken her in and raised her until she passed. After that she'd gone to foster care — they were the ones who sold her to the medical facility. She was sixteen. They experimented on her. They experimented on many other kids. Most of them didn't make it. She did.
-
-She became a Chimera — part wolf, part human. You couldn't classify her as human or animal. While they were running their tests, there was a breach. Someone blew up part of the building. The facilities shut down, and she got free. They wrote it off as a total loss.
-
-But then came the problem: how to get work? How to get money when she looked like this? She was discovered by someone sifting through the paperwork in the building. They recognized her, found her, and offered her a job. Provide her capabilities — which had proven adequate. They wanted her to hunt down and fix things. Deal with anomalous entities and situations. The pay was good. She got to be the secret they didn't point and laugh at.
-
-She had wanted to go outside occasionally, so she'd learned how to conceal her form:
-
-- Color contacts to hide her red eyes
-- Big hats to hide her ears
-- Long dresses to hide her tail
-
-Didn't need to smile much. You couldn't see her canines anyway.
-
-People she came into contact with just thought she was angry. That was good enough. They left her alone.
-
-After a while lost in thought, she was suddenly snapped back to reality. This was her sign to get ready — prepare any way she saw fit. Double-check her dress was set just right. Hat hiding her ears. No smiling. Standard procedure.
 
 It was a relatively warm day. The sun was shining, and she looked like a bronze beauty.
 

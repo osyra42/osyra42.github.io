@@ -118,6 +118,24 @@ One of these was going to wait.
 
 The mother who had written the letter had waited longer than that already.
 
-Osyra stood.
+Osyra stood. Bag on her shoulder. Both folders inside it. The plane was thirty minutes out and getting closer.
 
-She walked out of the lounge.
+"Operator."
+
+She stopped at the door.
+
+"That's the file," Vanity said. "Visit. Reveal. Letter. The agency has it by morning." The half-beat — the one she didn't need and took anyway. "Now the rest. Off the record."
+
+Osyra had told a dead school nothing. She'd told Korval *good visit* and let the envelope ride on the seat between them unexplained. She had spent a lifetime making herself easy to walk away from, which is its own way of saying nothing.
+
+She set the bag back down.
+
+And she told her. The hat coming off in the back room and the ache going out of her ears. The mirror. The shake she chose every time because it felt good every time. The album — the great-grandmother, the mother on the porch steps, the aunt with flour on her hands. The hand on her ear that didn't pull back. The word *clever*. The teeth in the Polaroid under the pear-shaped magnet. The thing that came loose at the kitchen table and wouldn't go back. All of it. In order. Slow where she needed to be slow.
+
+Vanity did not interrupt. Vanity never interrupted. She took it down the way she took everything down — completely, the first time, without being asked twice — and set it beside what she already had. Because she did already have some of it. She always knew more than she was told. The agency's eyes had been on that house before Osyra ever knocked, and a handler who keeps the record keeps all of it — the parts an Operator reports and the parts she doesn't. What Osyra gave her tonight, Vanity laid in next to what she'd gathered on her own. Where the two disagreed she kept both. Where they met, she knew which one was true.
+
+That was the whole of what she was for. Operators came back from the dark with what they'd found, and Wiki kept the record — not the version the file got, but the version that happened.
+
+This is that record. Osyra Renaya, in her own words and in the parts she never said out loud, set down by the one who keeps them: what happened to her in the two days she was gone.
+
+Then she picked the bag back up, and went to catch her plane.
