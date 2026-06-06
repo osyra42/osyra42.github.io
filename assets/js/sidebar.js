@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Sidebar navigation as one brewdown document.
     // Trailing @@YYYY.MM.DD@@ timestamps drive the auto-✨ feature:
-    // within 7 days of today → renders as ✨; older → hidden. See post-process below.
+    // within 4 weeks (28 days) of today → renders as ✨; older → hidden. See post-process below.
     const navMarkdown = `
 **Navigation**
 - [🏠 Home Page](index.html)
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 **Projects**
-- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.05.31@@
+- [🕹️ Blank Pixel Game](blank_pixel_game.html) @@2026.06.06@@
 - [📖 Operation Chimera](operation_chimera.html) @@2026.05.24@@
 - [☕ Brewdown](brewdown.html) @@2026.05.23@@
 - [🧋 Sip Sip](sipsip/index.html) @@2026.05.12@@
@@ -71,9 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const navEl = sidebar.querySelector('.sidebar-nav');
     navEl.innerHTML = Brewdown.brewdown(navMarkdown);
 
-    // Sidebar-only: trailing @@date@@ timestamps within 7 days render as ✨, older are hidden.
+    // Sidebar-only: trailing @@date@@ timestamps within 4 weeks (28 days) render as ✨, older are hidden.
     // This transform is scoped to the sidebar — do not generalize it to other brewdown output.
-    const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+    const cutoff = Date.now() - 28 * 24 * 60 * 60 * 1000;
     navEl.querySelectorAll('time').forEach(t => {
         const dt = Date.parse(t.getAttribute('datetime'));
         if (Number.isFinite(dt) && dt >= cutoff) {
