@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
 - [📖 Operation Chimera](operation_chimera.html) @@2026.05.24@@
 - [☕ Brewdown](brewdown.html) @@2026.05.23@@
 - [🧋 Sip Sip](sipsip/index.html) @@2026.05.12@@
-- [🧊 Blender Resources](blender_resources.html) @@2026.05.08@@
 - [🧲 How Magnets Work](how_magnets_work.html) @@2026.05.08@@
 - [🤖 Vanity Bot](vanity.html) @@2026.05.05@@
 >>> 📦 Archives
     - [🤖 All About AI](all_about_ai.html) @@2026.02.19@@
+    - [🧊 Blender Resources](blender_resources.html) @@2026.05.08@@
     - [🔢 Casio Code](casio_code.html) @@2026.04.27@@
     - [🎄 Clutter](clutter.html) @@2026.02.19@@
     - [🐍 Code Resources](code_resources.html) @@2026.03.07@@

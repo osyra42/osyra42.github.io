@@ -58,6 +58,8 @@ A work-in-progress pixel art adventure built in GameMaker Studio 2 by osyra42. E
 
 ---
 
+::toc::
+
 ## 📦 Releases
 
 ### 🆕 2026.06.06 — Minimap & Rarity
@@ -74,6 +76,7 @@ Fixed two annoyances: the player no longer spawns inside a pot or an enemy when 
 - **Browser** — [blank_pixel_game@2026.06.06-HTML5.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.06.06-HTML5.zip)
 - **Linux** — [blank_pixel_game@2026.06.06-LINUX.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.06.06-LINUX.zip)
 
+>>> OLDER VERSIONS
 >>> 📦 2026.05.31 — Pause Menu
 ESC opens a pause menu with Resume and Quit buttons. Controls list is shown right in the menu in a two-column layout, so they're always one keystroke away. The game actually freezes while paused — enemies, items, animations, all of it.
 
@@ -184,7 +187,7 @@ Debug menu added with F3 toggle. Breakable pottery from earlier builds was pulle
 **Assets**
 - **Browser** — [blank_pixel_game@2026.03.11-HTML5.zip](assets/downloads/blank_pixel_game/[osyra42]%20blank_pixel_game@2026.03.11-HTML5.zip)
 <<<
-
+<<<
 ---
 
 ## ✨ Features
@@ -217,7 +220,49 @@ Debug menu added with F3 toggle. Breakable pottery from earlier builds was pulle
 
 ---
 
-**Last Updated:** @@2026.06.06@@
+## 🧭 Roadmap
+
+Where the game is headed. No dates here — this is a side project I chip away at when I have the time, and deadlines only ever set me up to break them. Instead, here's what's coming, roughly in the order I plan to tackle it. The tiers go top to bottom, and anything **tabbed in** depends on the feature it sits beneath — those land later, once the thing above them is in.
+
+### Tier 1 — Foundations
+
+#### 🎒 Inventory Overhaul & Backpacks
+The current inventory needs a full rewrite, and the headline of that rewrite is backpacks — carryable containers that expand your storage and let you actually organize your gear instead of wrestling a handful of fixed slots. This rework is the bedrock for almost everything below it, so it goes first.
+
+    #### 📐 Grid-Based Item Sizes
+    Once the inventory is rebuilt, loot stops being one-slot-fits-all. Items you pick up off the ground take up different shaped areas in your bag — a dagger tucks into a single cell while a two-handed sword or a chestplate eats a whole block of space, Diablo-style. Packing the bag becomes its own little puzzle.
+
+#### 💾 Cross-Platform Save System
+A proper save system so progress survives between sessions. The hard requirement is that it behaves identically everywhere — the Windows, Linux, and browser builds all read and write saves the same way, with no per-platform quirks and nothing lost when you switch machines.
+
+    #### 🖥️ Multi-OS Command Object
+    Building the save system means solving "where does this OS keep its files" anyway, so while I'm in there I'll formalize that into a single multi-OS object that handles the OS lookups for me. One place to ask "what platform am I on, and what's the right command or path here," reused anywhere the game needs to behave differently per operating system.
+
+### Tier 2 — Dungeon Life
+
+#### 🧑‍🌾 Traveling Merchant
+An NPC merchant who wanders the dungeon instead of sitting in one spot. Run into them between fights and you can buy and sell on the spot — a moving shop that rewards exploring and finally gives all those coins somewhere to go.
+
+### Tier 3 — The Visual Overhaul
+
+#### 🧍 Character Sprite Update
+A complete pass on the character sprites with a real animation set — idle, walking, attacking, and the rest. This one is the gatekeeper for the visual features below it: a few of the next updates only make sense once the new sprites and their animations exist, so everything tabbed in here comes after this lands.
+
+    #### 🎣 Fishing
+    A fishing skill — find the right spot, cast, and reel something in. Slated for after the sprite update so the new animations can carry it.
+
+    #### ⛏️ Mining
+    Minable nodes scattered through the dungeon for gathering materials. Like fishing, it waits on the sprite update so the action has proper animation behind it.
+
+    #### 🎨 Character Customization
+    Customize how your character looks — and, more importantly, your equipped gear shows on the sprite. The weapon and armor you're actually carrying render in-hand and on-body instead of living only inside the inventory.
+
+        #### ✨ Enchantment Particles
+        Once gear is visible on the character, enchantments get their own particle effects — glints, auras, and trails on enchanted weapons and armor so a magic item reads at a glance. This sits last because it builds directly on customization putting your gear on the sprite in the first place.
+
+---
+
+**Last Updated:** @@2026.06.13@@
 **Author:** Coffee Byte Dev (osyra42)
     </div>
 
