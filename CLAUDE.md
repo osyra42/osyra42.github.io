@@ -9,7 +9,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
 ## Architecture
 
 ### Core Structure
-- **Root HTML pages**: Main site pages (index.html, commissions.html, donate.html, etc.)
+- **Root HTML pages**: Main site pages (index.html, support_me.html, etc.)
 - **assets/**: Shared resources for the main site
   - `css/styles.css`: Main stylesheet (imports `main.css`), coffee-themed CSS variables
   - `css/main.css`: Layout styles for `<main>` element and `.archive` pages
@@ -106,7 +106,7 @@ const nav = {
     Projects: `
 - [🐍 Code Resources](code_resources.html)`,
     Support: `
-- [☕ Donate](donate.html)`,
+- [☕ Support Me](support_me.html)`,
     Legal: `
 - [📜 Website Legal](website_legal.html)`
 };
