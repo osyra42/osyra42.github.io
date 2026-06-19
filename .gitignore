@@ -1,3 +1,10 @@
 .vscode/*
 .claude/*
 codebase.md
+
+# Editor / sync metadata
+.obsidian/
+.stfolder/
+.stfolder.removed-*/
+.stignore
+.stversions/

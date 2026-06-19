@@ -11,20 +11,23 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
 ### Core Structure
 - **Root HTML pages**: Main site pages (index.html, support_me.html, etc.)
 - **assets/**: Shared resources for the main site
-  - `css/styles.css`: Main stylesheet (imports `main.css`), coffee-themed CSS variables
-  - `css/main.css`: Layout styles for `<main>` element and `.archive` pages
-  - `css/mobile.css`: ALL mobile-specific styles (768px breakpoint) — loaded by `mobile.js`
+  - `css/styles.css`: Entry stylesheet — `@import`s all the partials below in order (theme → sidebar → main → brewdown → mobile → print). Pages link only `styles.css`.
+  - `css/theme.css`: `:root` CSS variables (coffee theme) and global/body layout
+  - `css/sidebar.css`: Sidebar styles
+  - `css/main.css`: `<main>` element / content styles
+  - `css/brewdown.css`: Styling for brewdown-rendered content
+  - `css/mobile.css`: ALL mobile-specific styles (768px breakpoint)
+  - `css/print.css`: Print styles (used by the "Save as PDF" pages)
   - `js/sidebar.js`: Dynamic sidebar generation with navigation links
   - `js/scripts.js`: General utilities and clutter toggle functionality
   - `js/brewdown.js`: Markdown-to-HTML converter (two modes: `<div class="brewdown">` and `<script data-brewdown>`)
-  - `js/mobile.js`: Loads mobile.css and handles mobile responsive behavior
+  - `js/mobile.js`: Mobile responsive behavior
   - `js/back-to-top.js`: Back to top button functionality
-  - `clutter-main/clutter.js`: Visual clutter effect
 
 ### Key Subsections
-- **school/**: Educational worksheet generators (see Worksheet Architecture below)
-- **fishing_mini_game/**: Browser-based fishing game (HTML5 Canvas, modular JS)
-- **operation_chimera/**: Markdown story content organized by Parts and Characters
+- **operation_chimera/**: Markdown story content — `stories/{book}/` for chapters/proofreading and `wiki/` for canon
+- **blank_pixel_game/**: Browser game build (HTML5 export under `html5game/`)
+- **sipsip/**: Sip Sip card game and its `decks/`
 
 ## Main Page Pattern
 
@@ -118,9 +121,13 @@ To add a sidebar link, edit the `nav` object or `archives` string in `sidebar.js
 
 ## CSS Organization
 
-- **`styles.css`**: Global styles, CSS variables, body grid layout. Imports `main.css`.
-- **`main.css`**: `<main>` element styles, `.archive` page styles, print styles for archive pages.
-- **`mobile.css`**: ALL mobile overrides (loaded dynamically by `mobile.js`). This includes archive mobile styles. Never put mobile `@media` queries in `main.css`.
+Pages link only `styles.css`, which `@import`s the partials in this order: `theme.css` → `sidebar.css` → `main.css` → `brewdown.css` → `mobile.css` → `print.css`. Keep each partial single-purpose:
+- **`theme.css`**: `:root` CSS variables (coffee theme), global + body grid layout
+- **`sidebar.css`**: Sidebar styles
+- **`main.css`**: `<main>` / content styles
+- **`brewdown.css`**: Styles for brewdown-rendered content
+- **`mobile.css`**: ALL mobile overrides (768px breakpoint). Never put mobile `@media` queries in the other files.
+- **`print.css`**: Print styles for the "Save as PDF" pages
 
 ## Changelog Format
 
@@ -135,32 +142,6 @@ To add a sidebar link, edit the `nav` object or `archives` string in `sidebar.js
 $ bugs: known/fixed
   normal indented text
 ```
-
-## Worksheet Architecture (school/)
-
-Each worksheet is a self-contained HTML file with inline CSS and embedded JavaScript.
-
-### Two-Canvas Layering System
-Canvas-based worksheets use two overlaid canvases:
-- `#questionsCanvas`: Questions/problems layer (always visible)
-- `#answersCanvas`: Answers overlay (toggled via `.show` class)
-
-### Core JavaScript Pattern
-```javascript
-let currentProblems = [];
-let showingAnswers = false;
-let questionsCanvas, answersCanvas, questionsCtx, answersCtx;
-
-initCanvases()       // Get canvas contexts
-generateWorksheet()  // Create problems, call drawWorksheet()
-drawWorksheet()      // Render to both canvases
-createPrintPages()   // Generate #printContainer for multi-page printing
-toggleAnswers()      // Toggle showingAnswers, update UI
-```
-
-### Print Support
-- Uses `@media print` to hide controls and show `#printContainer`
-- Page dimensions: 794x900px canvas, 7.5x10in print size, A4 portrait
 
 ## Design System
 
@@ -187,5 +168,5 @@ Layout uses CSS Grid: `grid-template-columns: 300px 1fr` (sidebar + content).
 
 ## File Locations
 - Profile images: `assets/images/profiles/`
-- Icons: `assets/images/icons/`
+- Shop images: `assets/images/shop/` (e.g. `3d_prints/`, `vtubers/`)
 - Legal documents: `assets/legal/`

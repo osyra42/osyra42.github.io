@@ -1,6 +1,6 @@
 # **Terms of Service for Vanity AI**
 
-**Last Updated:** November 25, 2025
+**Last Updated:** June 18, 2026
 **Operator:** osyra42
 **Contact:** coffeebytedev@proton.me
 **Website:** coffeebyte.dev
@@ -14,7 +14,8 @@ Vanity is a private AI assistant operated exclusively by osyra42. She is not a p
 **Key characteristics:**
 - **Private Operation:** Vanity operates solely under the direction of osyra42. There is no public access or external user control.
 - **Voice Interface:** Vanity uses voice activation and voice output for interaction with her operator.
-- **Public Appearances:** Vanity may appear as a VTuber on live streams, in Minecraft servers, or other digital platforms.
+- **Public Appearances:** Vanity may appear as a VTuber on live streams, in Minecraft servers, on Discord, or on other digital platforms. For most people, the only places they may encounter her directly are Minecraft and Discord.
+- **Reactive Behavior:** Vanity may perceive and react to conditions in the environments she is present in. These reactions are automatic and remain under the operator's direction; they cannot be triggered, controlled, or directed by external users.
 - **Information Collection:** Vanity collects publicly available information about topics and individuals as directed by her operator.
 - **Uncensored & Unfiltered:** Vanity has an intentionally rude, disrespectful, and uncensored personality. She is not filtered or moderated in any way. This is a deliberate design choice.
 
