@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [🎭 VTuber Guide](vtuber_guide.html) @@2026.06.16@@
 - [🧲 How Magnets Work](how_magnets_work.html) @@2026.05.08@@
 - [📝 Worksheets](worksheets.html) @@2026.05.08@@
-- [💡 Do It Better For Free](do_it_better_for_free.html) @@2026.02.19@@
+- [💡 Better for Free](better_for_free.html) @@2026.02.19@@
 - [🎨 ComfyUI Guide](comfyui_guide.html) @@2026.02.19@@
 
 ---
