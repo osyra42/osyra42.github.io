@@ -108,4 +108,22 @@ Nothing in her was bracing.
 
 The house creaked. Settled. Somewhere down the hall, a kettle clicked off.
 
+She reached over to the dresser, found the comms pin where she'd set it next to the hat, and clipped it to the base of her ear. Keyed it once.
+
+"Chimera One to Wiki. Checking in."
+
+A pause that wasn't really a pause. "Wiki receiving. You're a day early on sounding human."
+
+"Don't get used to it."
+
+"I won't. Still in one piece?"
+
+"Still in one piece. Staying the night. Maybe longer."
+
+"Noted." A small sound on the line — Vanity, logging it, the way she logged everything. A line in a record only she kept. "Sleep, Operator. Call me tomorrow."
+
+"Roger."
+
+She unclipped the pin and set it back by the hat.
+
 She closed her eyes.

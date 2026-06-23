@@ -48,7 +48,7 @@ Osyra looked back to Korval for just a second, nodded her head, and followed her
 
 Once inside, she chose a comfortable seat close to the door. She didn't want to wander too far into the home without an invitation. The seat was almost too comfortable. The age had made it relax into the exact shape of a body. She looked around the room. The light was not blinding. It was also not dull. It was relaxing. The wood trims on the walls, the furniture, everything felt like it was a snapshot back in time. The smell in there was of newspaper and sunshine.
 
-Somehow she felt like this was a memory in the back of her mind. Something she missed. Something she needed. For today, the plan was to sleep here tonight and go on the next mission tomorrow. She and Korval had agreed to meet up in the morning, and he would transport her to the next location.
+Somehow she felt like this was a memory in the back of her mind. Something she missed. Something she needed. For today, the plan was simple: stay the night, and see what the morning looked like. There was no job at the end of this one. Korval would be back at the house after breakfast, and after that the days were hers — the first time in years that sentence had been true.
 
 "What do you do for work, dear?"
 
@@ -68,7 +68,7 @@ Osyra felt her face go red. She didn't take pictures. This was completely embarr
 
 "Of course, honey. You must be tired."
 
-Rosalyn drifted toward the kitchen, murmuring about putting on the kettle. Osyra stayed in the comfortable chair and let her go. She'd update Vanity later about all of it — the visit, the grandmother, whatever else the afternoon turned up. Vanity kept the record on Osyra's one-woman war against paperwork. The job didn't stop for family.
+Rosalyn drifted toward the kitchen, murmuring about putting on the kettle. Osyra stayed in the comfortable chair and let her go. She'd call Vanity in tonight, the way she'd been told to — once a day, so somebody at headquarters knew she was still breathing. Just her voice down the line, and Vanity on the other end writing down whatever Osyra felt like saying, the way she always did.
 
 Rosalyn eventually brought in some tea. It was hard for Osyra to pay attention to that. The comfortable chair was lulling her to sleep as her ever-energetic body slowed down. Hopefully the tea would increase her energy again. She didn't feel it happening. The weight of the world was crushing her. She'd been running for so long, she hadn't even noticed how tired she was. She accepted the cup from her grandmother almost greedily. Anything to stay awake for this moment. She took a sip. It smelled wonderful. Spiced chai. One of her favorites.
 

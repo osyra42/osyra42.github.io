@@ -50,7 +50,7 @@ Osyra closed the folder. Put both hands flat on it.
 
 "How."
 
-"You take some days off the books. Korval drives you. I clear the paperwork. The agency calls her ahead of time so a stranger doesn't pull up to her door and shorten her life by ten years."
+"You take it as leave. Real leave, not a job with a family on the end of it. Korval drives you. I clear the paperwork. The agency calls her ahead of time so a stranger doesn't pull up to her door and shorten her life by ten years."
 
 "Have you called her."
 
@@ -66,11 +66,15 @@ Osyra looked at her.
 
 Vanity inclined her head — a small mechanical motion that meant *acknowledged*, and also meant *I'm proud of you*, and also meant *don't make me say it*.
 
-"Forty-eight hours."
+"Take the week. More if you need it. The queue will hold."
 
-"Forty-eight hours."
+"And you'll log it as what."
 
-Osyra stood. The folder went into her bag with the schoolhouse photograph. Two pieces of Rosalyn she had now — one from 1985, one from an agency record — were going to meet a third in person in two days.
+"Personal. You're not on a clock and you're not reporting in. Call me when you feel like it — once a day, so I know you're alive. That's all I want." A half-beat. "Just your voice down the line. That'll do."
+
+"I can do that."
+
+Osyra stood. The folder went into her bag with the schoolhouse photograph. Two pieces of Rosalyn she had now — one from 1985, one from an agency record — were going to meet a third in person soon.
 
 "Operator."
 

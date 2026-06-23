@@ -1,4 +1,4 @@
-# The Debrief
+# The Road North
 
 Korval's car came down the road outside, slow on the gravel.
 
@@ -56,86 +56,58 @@ He didn't ask what was in the envelope. He never asked.
 
 ---
 
-Headquarters smelled like air conditioning and floor polish. The lounge looked exactly as Osyra had left it two days ago. Vanity was at the same wall display. Same hands clasped behind her back. The exact same posture — the kind of unchanged only an android could hold.
+The road back toward the highway ran straight for a long while, fields on both sides going gold in the late light. Osyra sat in the back with the envelope in her lap. She hadn't put it in the bag. She'd meant to. Her hands hadn't done it.
 
-"Operator."
+She turned it over. The return address in the corner, careful handwriting, a P.O. box for a town she'd never heard of, somewhere up north. Her mother's hand. A few years old, Rosalyn had said. *They wouldn't have left that land.*
 
-"Vanity."
+"Korval."
 
-"Sit. Tell me what was worth two days."
+"Mm."
 
-Osyra sat. She gave the debrief flat — what happened, in order, the way she would have told a colleague who needed the file. Visit. Reveal. Letter. Address on the envelope. P.O. box up north.
+"How far north can this car go before you start complaining."
 
-Vanity listened. Did not interrupt. When Osyra finished, the corner of Vanity's mouth had done the small thing it did when she was filing something away as personal rather than operational.
+He met her eyes in the mirror for the first time all day. Considered it. Looked back at the road.
 
-"And you want time off to follow up on the address."
+"It is a good car," he said. "It does not complain. The driver, maybe, needs coffee."
 
-"Yeah. A week. Maybe ten days. I don't know what's there."
+"There's coffee on the way."
 
-Vanity inclined her head. A different incline from the day before. The one that meant *I have to say something you don't want to hear, and I am taking a moment I would not normally take to soften it.*
+"Then the car goes as far as you want."
 
-"I can't, Operator."
+Osyra looked at the address a moment longer. Then she clipped the comms pin to the base of her ear and keyed it.
 
-Osyra waited.
+"Chimera One to Wiki."
 
-"You just had two days. The queue is two and a half Operators deep, and one of them is you. The desk has a new artifact case. It came in while you were gone."
+"Wiki receiving. That's twice in two days you've called when nobody made you."
 
-"Vanity."
+"I'm extending. Few more days. Maybe a week."
 
-"I know."
+A pause that was Vanity deciding how much to make of it, and deciding on nothing. "Extending where."
 
-"They'll still be there."
+"North. Rosalyn gave me a letter. There's a return address on it." Osyra turned the envelope face-up against her knee. "My mother. My father. They're up there. Or they were."
 
-"They will."
+"And you're going to knock on that door too."
 
-Osyra didn't argue. The argument would have been pointless. Vanity had already done the math twice before Osyra walked in.
+"I'm going to drive to the town and see if the box is still rented. After that I don't know."
 
-"What's the case."
+"Then I don't either." Vanity's voice didn't change, but something in the cadence did — the version of her that wrote things down without being asked. "I'll move your leave to open-ended and keep the desk off you. Same arrangement. Call me once a day, just so I know you're alive."
 
-Vanity slid a folder across the table. Slimmer than the Rosalyn folder. A containment number on the tab and a date stamp on the corner — two days old.
+"You keep saying that like it's a real risk."
 
-"A book. Surfaced at a coastal museum the day you left. It's already moving. The agency has it on a generational watch list — it does what it does, and the cycle this time is faster than the file predicted. There's an Operator on-site as primary. He's been there since the kid found it. He's read deep. There is civilian readership forming around him now."
+"You keep going to places where it is." A half-beat. "Bring them something useful, Operator. Not money. Rosalyn's right about that."
 
-"How deep."
+Osyra didn't ask how Vanity knew what Rosalyn had said. Vanity always knew more than she'd been told. That was the whole of what she was for.
 
-"Deep enough that he has stopped filing."
+"Roger that."
 
-"Then I'm going in."
+"Drive safe. Let the man have his coffee."
 
-"Yes. Now. Every hour we wait is another civilian inside the bleed-zone, and reality around the primary is starting to drift. I need you on-site before the city is a bog."
+The pin cooled a degree. Open, idle. Osyra left it.
 
-Osyra nodded once.
+She slid the envelope into the inside pocket of her jacket, next to the photograph from 1985 — the grandmother, and now the way to the rest of them, riding together over her heart.
 
-"Your kit is already pulled. Armory, senior rack. Private plane on the strip in thirty minutes. Short flight. Car will be waiting on the other end. Korval flies with you. He drives on landing."
+"North," she told Korval.
 
-"He always drives."
+"North," he agreed, and took the on-ramp the other way than home.
 
-"As intended."
-
-Osyra closed the folder. Both folders were in her bag now. The envelope. The letter. The address up north. The book she hadn't seen yet.
-
-One of these was going to wait.
-
-The mother who had written the letter had waited longer than that already.
-
-Osyra stood. Bag on her shoulder. Both folders inside it. The plane was thirty minutes out and getting closer.
-
-"Operator."
-
-She stopped at the door.
-
-"That's the file," Vanity said. "Visit. Reveal. Letter. The agency has it by morning." The half-beat — the one she didn't need and took anyway. "Now the rest. Off the record."
-
-Osyra had told a dead school nothing. She'd told Korval *good visit* and let the envelope ride on the seat between them unexplained. She had spent a lifetime making herself easy to walk away from, which is its own way of saying nothing.
-
-She set the bag back down.
-
-And she told her. The hat coming off in the back room and the ache going out of her ears. The mirror. The shake she chose every time because it felt good every time. The album — the great-grandmother, the mother on the porch steps, the aunt with flour on her hands. The hand on her ear that didn't pull back. The word *clever*. The teeth in the Polaroid under the pear-shaped magnet. The thing that came loose at the kitchen table and wouldn't go back. All of it. In order. Slow where she needed to be slow.
-
-Vanity did not interrupt. Vanity never interrupted. She took it down the way she took everything down — completely, the first time, without being asked twice — and set it beside what she already had. Because she did already have some of it. She always knew more than she was told. The agency's eyes had been on that house before Osyra ever knocked, and a handler who keeps the record keeps all of it — the parts an Operator reports and the parts she doesn't. What Osyra gave her tonight, Vanity laid in next to what she'd gathered on her own. Where the two disagreed she kept both. Where they met, she knew which one was true.
-
-That was the whole of what she was for. Operators came back from the dark with what they'd found, and Wiki kept the record — not the version the file got, but the version that happened.
-
-This is that record. Osyra Renaya, in her own words and in the parts she never said out loud, set down by the one who keeps them: what happened to her in the two days she was gone.
-
-Then she picked the bag back up, and went to catch her plane.
+The fields gave out to trees. The trees got taller and closer to the road, and the light through them went the ordinary green of a long evening, and Osyra watched the town she'd found her grandmother in fall away behind her, and let herself, for once, look forward to the next thing instead of bracing for it.
