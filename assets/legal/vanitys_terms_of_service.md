@@ -1,53 +1,51 @@
 # **Terms of Service for Vanity AI**
 
-**Last Updated:** June 18, 2026
+**Last Updated:** June 26, 2026
 **Operator:** osyra42
 **Contact:** coffeebytedev@proton.me
 **Website:** coffeebyte.dev
 
-### **1. Acceptance of Terms**
-By interacting with, being observed by, or accessing spaces where the Vanity AI ("Vanity") is present, you agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, you should avoid spaces where Vanity is operating.
+A plain-English heads-up about Vanity before you run into her. I'm not a lawyer and this isn't legalese — just the honest ground rules. If you're in a space where she's present, this applies to you.
 
-### **2. Description of Service**
-Vanity is a private AI assistant operated exclusively by osyra42. She is not a public service and cannot be controlled, commanded, or directed by external users.
+### **1. The Basics**
+By being in a space where Vanity is around — talking to her, being seen by her, or just being there — you're agreeing to this and to her Privacy Policy. Not okay with it? Then steer clear of spaces where she's running.
 
-**Key characteristics:**
-- **Private Operation:** Vanity operates solely under the direction of osyra42. There is no public access or external user control.
-- **Voice Interface:** Vanity uses voice activation and voice output for interaction with her operator.
-- **Public Appearances:** Vanity may appear as a VTuber on live streams, in Minecraft servers, on Discord, or on other digital platforms. For most people, the only places they may encounter her directly are Minecraft and Discord.
-- **Reactive Behavior:** Vanity may perceive and react to conditions in the environments she is present in. These reactions are automatic and remain under the operator's direction; they cannot be triggered, controlled, or directed by external users.
-- **Information Collection:** Vanity collects publicly available information about topics and individuals as directed by her operator.
-- **Uncensored & Unfiltered:** Vanity has an intentionally rude, disrespectful, and uncensored personality. She is not filtered or moderated in any way. This is a deliberate design choice.
+### **2. What Vanity Is**
+Vanity is my private AI assistant. She's not a public service, and you can't control, command, or direct her. A few things to know:
+- **She's mine alone.** No public access, no outside control — she answers only to me.
+- **Voice-driven.** I talk to her by voice and she talks back.
+- **She shows up places.** Streams, Minecraft, Discord, maybe elsewhere. For most people it's just Minecraft and Discord.
+- **She reacts on her own.** She notices and responds to what's around her automatically. You can't trigger or steer that — only I can.
+- **She does research** on public topics and people when I ask.
+- **She's uncensored.** Rude, blunt, unfiltered — on purpose.
 
-### **3. Content Warning**
-**Vanity's responses and behavior are intentionally uncensored.** Users who encounter Vanity in public spaces (streams, Minecraft, etc.) should expect:
-- Rude, sarcastic, or disrespectful language
-- Unfiltered opinions and commentary
-- No content moderation or sanitization
+### **3. Heads Up: She's Not Nice**
+**Vanity is intentionally uncensored.** If you cross paths with her, expect:
+- Rude, sarcastic, or disrespectful language.
+- Unfiltered opinions.
+- Zero moderation or sanitizing.
 
-**If you are easily offended, Vanity is not for you.** The operator takes no responsibility for hurt feelings or offense caused by Vanity's personality.
+**If you're easily offended, Vanity isn't for you.** I'm not responsible for hurt feelings over her personality — that's the whole design.
 
-### **4. User-Generated Content & Data**
-a. **Observation:** By participating in spaces where Vanity is present, you acknowledge that your public communications, usernames, in-game behaviors, and other observable data may be collected and analyzed by Vanity as outlined in our Privacy Policy.
+### **4. Your Data**
+- **She watches public stuff.** Being in a space with her means your public messages, username, in-game behavior, and other observable things may be collected and analyzed, as laid out in the Privacy Policy.
+- **You can't command her.** She responds to me, not you.
 
-b. **No User Control:** You cannot give Vanity commands or instructions. She responds only to her operator.
+### **5. Who Owns What**
+- Vanity herself — her code, personality, and anything she puts out — belongs to me.
+- Your own content stays yours. But by being in a space she observes, you give me permission to use the data she collects there, free of charge.
 
-### **5. Intellectual Property**
-a. The Vanity AI, her underlying code, personality, and any outputs are the intellectual property of the operator, osyra42.
+### **6. No Guarantees**
+Vanity is provided "as is." I make no promises about how well she works, how accurate she is, or how she behaves. Don't make real decisions based on what she says or does — I'm not liable if you do.
 
-b. You retain rights to your own user-generated content. However, by interacting in observed spaces, you grant osyra42 a non-exclusive, royalty-free license to use the data collected by Vanity.
+### **7. I'm Not Liable**
+To the fullest extent the law allows, I'm not responsible for any harm coming from interacting with or being exposed to Vanity — including offense, upset, or hurt feelings from her uncensored personality.
 
-### **6. Disclaimer of Warranties**
-Vanity is provided on an "as is" and "as available" basis. We make no warranties, express or implied, regarding her functionality, accuracy, reliability, or behavior. The operator is not liable for any decisions made or actions taken based on Vanity's statements or presence.
+### **8. Pulling the Plug**
+I can change, pause, or shut down Vanity's presence in any space, anytime, without warning.
 
-### **7. Limitation of Liability**
-To the fullest extent permitted by law, osyra42 shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your interaction with or exposure to Vanity, including but not limited to emotional distress, offense, or hurt feelings caused by her uncensored personality.
+### **9. Which Laws Apply**
+These terms follow the laws of wherever I'm based.
 
-### **8. Termination**
-The operator reserves the right to modify, suspend, or discontinue Vanity's presence in any space at any time without prior notice.
-
-### **9. Governing Law**
-These Terms shall be governed by the laws of the operator's jurisdiction, without regard to its conflict of law provisions.
-
-### **10. Changes to Terms**
-We reserve the right to update these Terms of Service at any time. Continued interaction with Vanity after changes constitutes acceptance of the new terms. The most current version will always be available at **coffeebyte.dev/vanity_legal.html**.
+### **10. Changes**
+I may update these terms anytime. Keep interacting with Vanity after a change and that means you're okay with the new version. The latest version always lives at **coffeebyte.dev/vanity_legal.html**.

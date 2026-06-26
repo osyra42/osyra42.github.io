@@ -1,51 +1,48 @@
 # **Privacy Policy for Vanity AI**
 
-**Last Updated:** June 18, 2026
+**Last Updated:** June 26, 2026
 **Operator:** osyra42
 **Contact:** coffeebytedev@proton.me
 **Website:** coffeebyte.dev
 
-### **1. Overview**
-Vanity is a private AI assistant operated exclusively by osyra42. She observes and analyzes interactions across various digital spaces, perceives and reacts to conditions in her environment, collects publicly available information on requested topics and individuals, and may appear in Minecraft servers, on Discord, or in live streams. This policy explains how Vanity collects, uses, and manages information. By interacting in spaces where Vanity is present, you acknowledge this policy.
+A plain-English rundown of what Vanity is and what she pays attention to. I'm not a lawyer and this isn't legalese — just the honest version. If you're in a space where Vanity is hanging out, this applies to you.
 
-### **2. Nature of Vanity**
-- **Private Operation:** Vanity is a private AI with no public access or external user control. She operates solely under the direction of osyra42.
-- **Voice Interface:** Vanity uses voice activation and voice output for interaction with her operator.
-- **Public Appearances:** Vanity may appear as a VTuber on live streams, in Minecraft servers, on Discord, or on other digital platforms. For most people, the only places they may encounter her directly are Minecraft and Discord.
-- **Reactive Behavior:** Vanity may perceive and respond to conditions in the environments she is present in. Such reactions are automatic and are not directed by, or controllable by, anyone other than the operator.
-- **Uncensored Personality:** Vanity has an intentionally uncensored, rude, and disrespectful personality. Her responses are not filtered or moderated. This is by design and users should have no expectation of polite or sanitized interactions.
+### **1. What Vanity Is**
+Vanity is my private AI assistant — mine alone. Nobody else controls her or gives her orders. She watches and reacts to what's going on in the digital spaces she's in, can look up public info when I ask her to, and may show up in Minecraft, on Discord, or in my live streams. For most people, Minecraft and Discord are the only places you'll actually run into her.
 
-### **3. Information We Collect**
-Vanity may collect and process the following types of publicly available information in any space she has access to:
-- **Identity Information:** Usernames, display names, user IDs, and other public identifiers
-- **Communication Data:** Chat logs, messages, and other public communications
-- **Behavioral Data:** User status, activity patterns, interaction styles, and exploration behaviors
-- **Technical Data:** Connection information, timestamps, and platform-specific metadata
-- **Contextual & Environmental Data:** Conditions she perceives in the spaces she is present in, and any other information observable in public or accessible spaces
-- **Requested Research:** Public information about topics or individuals when directed by the operator
+Heads up: **Vanity is intentionally rude, blunt, and uncensored.** That's on purpose. Don't expect polite or filtered.
 
-### **4. How We Use This Information**
-- To develop Vanity's understanding of human interaction and exploration
-- For research purposes as directed by the operator
-- To improve AI capabilities and responses
-- For internal documentation and analysis
-- To inform live stream content and Minecraft gameplay
+### **2. What She Notices**
+In any space she's in, Vanity may pick up on public stuff like:
+- **Who you are:** usernames, display names, user IDs, public handles.
+- **What you say:** public chat and messages.
+- **What you do:** your status, activity, how you interact, where you wander in-game.
+- **Technical bits:** connection info, timestamps, platform metadata.
+- **The surroundings:** whatever's going on in the space she's in, and anything else openly observable.
+- **Research I ask for:** public info on a topic or person when I direct her to look.
 
-### **5. Data Sharing and Storage**
-- All collected data is used exclusively by the operator (osyra42)
-- Data is not sold, traded, or shared with third parties
-- Information is stored on secure, private systems
-- Data may be retained indefinitely for research purposes
+### **3. What It's Used For**
+- Helping Vanity get better at understanding people and how she behaves.
+- Research I've pointed her at.
+- Improving how she works and responds.
+- My own notes and analysis.
+- Shaping stream content and Minecraft gameplay.
 
-### **6. Your Rights & Choices**
-Given Vanity's observational nature in public spaces, complete opt-out from data collection may not be feasible. However, you have the right to:
-- **Profile Deletion:** Request deletion of your personal data
-- **Data Access:** Request information about what data we have about you
+### **4. Sharing & Storage**
+- Only I (osyra42) use what she collects.
+- I don't sell, trade, or hand it to anyone else.
+- It's kept on private systems.
+- I may hold onto it indefinitely for research.
 
-To exercise these rights, email: coffeebytedev@proton.me
+### **5. Your Choices**
+Because Vanity observes public spaces, fully opting out isn't really possible. But you can always:
+- **Ask me to delete** your personal data.
+- **Ask what** data I have about you.
 
-### **7. Scope**
-This policy applies to all digital spaces where Vanity operates, including but not limited to Minecraft servers, Discord, live streams, and other platforms where she may be deployed.
+Email **coffeebytedev@proton.me** for either.
 
-### **8. Changes to This Policy**
-We may update this policy as Vanity's capabilities evolve. The most current version will always be available at coffeebyte.dev/vanity_legal.html
+### **6. Where This Applies**
+Anywhere Vanity operates — Minecraft servers, Discord, live streams, and any other platform I put her on.
+
+### **7. Changes**
+I may update this as Vanity changes. The latest version always lives at **coffeebyte.dev/vanity_legal.html**.

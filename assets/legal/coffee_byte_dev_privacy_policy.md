@@ -1,40 +1,44 @@
 # **Website Privacy Policy**
 
-**Last Updated:** June 18, 2026  
+**Last Updated:** June 26, 2026  
 **Website:** coffeebyte.dev  
 **Contact:** coffeebytedev@proton.me
 
-### **1. Introduction**
-This Privacy Policy explains how I, osyra42, collect, use, and protect your information when you visit my website `coffeebyte.dev`. This site is my personal content hub, hosting research, tech guides, creative writing, project showcases, and mini-games.
+A plain-English look at what I do and don't do with your information here. I'm not a lawyer and this isn't legalese — just the honest version.
 
-### **2. Information I Collect**
-- **Information You Voluntarily Provide:** This includes your email address and any details you send when contacting me, such as through the ProtonMail link or any future contact form.
-- **Automatically Collected Information:** Like most websites, this site may collect non-personal data through your browser and server logs, such as your IP address, browser type, and pages visited. This is primarily for basic analytics and security.
-- **Cookies:** This site may use minimal cookies to enhance your browsing experience, such as remembering your display preferences.
+### **1. The Short Version**
+This is my personal site as a VTuber and one-person creator — guides, creative writing, games, 3D work, mini-games, and info about my streams and Minecraft server. I collect very little, I don't sell anything about you, and most of what's logged is the boring technical stuff every website sees.
 
-### **3. How I Use Your Information**
-I use the information I collect for the following purposes:
-- To operate, maintain, and improve `coffeebyte.dev`.
-- To respond to your comments and questions.
-- For my own analytical purposes to understand site traffic and content performance.
+This covers the `coffeebyte.dev` website only. My streams (Twitch, YouTube), Discord servers, and Minecraft server run on other platforms with their own privacy policies.
 
-### **4. Information Sharing**
-- **I Do Not Sell Your Data.** Your personal information is not for sale.
-- I will not share your personally identifiable information with third parties, except as necessary to fulfill your requests (for example, if you choose to support me through a third-party donation platform, that platform processes your payment under its own privacy policy) or if required by law.
+### **2. What I Collect**
+- **Stuff you hand me:** If you email me or use a contact link, I get whatever you send — your email address and your message.
+- **Stuff that's automatic:** Like any website, basic technical info may get logged — your IP address, browser type, and which pages you viewed. It's for keeping the site running, secure, and seeing roughly how it's used.
+- **Cookies:** At most, small ones to remember things like your display preferences. Nothing invasive.
 
-### **5. Data Security**
-I implement reasonable security measures to protect your information. However, no method of transmission over the Internet is 100% secure, and I cannot guarantee its absolute security.
+### **3. What I Do With It**
+- Keep the site running and make it better.
+- Reply to you if you reach out.
+- Get a rough sense of what's popular so I know what to work on.
 
-### **6. Your Rights**
-You have the right to:
-- **Access:** Ask what personal data I hold about you.
-- **Rectification:** Request that I correct any inaccurate data.
-- **Deletion:** Request that I delete your personal data.
+That's it.
 
-To exercise these rights, please contact me at **coffeebytedev@proton.me**.
+### **4. Sharing**
+I don't sell your information — full stop. I won't hand your personal details to anyone else, except when it's needed to do something you asked for (like a donation platform processing your payment under its own policy) or if the law requires it.
 
-### **7. Third-Party Links**
-This website may link to other sites not operated by me. I am not responsible for the content or privacy practices of those third-party sites.
+### **5. Keeping It Safe**
+I take reasonable steps to protect what little I have. That said, nothing sent over the internet is ever 100% secure, so I can't promise the impossible.
 
-### **8. Changes to This Policy**
-I may update this policy. The "Last Updated" date at the top will reflect any changes. Your continued use of the site after a change signifies your acceptance of the updated policy.
+### **6. Your Choices**
+Just ask, and I'll:
+- Tell you what personal info I have about you.
+- Fix anything that's wrong.
+- Delete it.
+
+Email me at **coffeebytedev@proton.me** for any of that.
+
+### **7. Links to Other Places**
+I link out to other sites sometimes. Once you leave mine, I've got no control over what they do — check their policies, not mine.
+
+### **8. Changes**
+If I update this, the "Last Updated" date up top will change. Keep using the site after that and it means you're okay with the new version.
