@@ -9,20 +9,22 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="Brewdown — the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
+  <meta name="description" content="Brewdown - the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
   <meta name="keywords" content="brewdown, markdown, html, converter, library, javascript, coffee byte dev, osyra42" />
   <meta name="author" content="osyra42" />
   <meta property="og:title" content="Brewdown - Coffee Byte Dev" />
-  <meta property="og:description" content="Brewdown — the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
+  <meta property="og:description" content="Brewdown - the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
   <meta property="og:url" content="https://coffeebyte.dev/brewdown.html" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brewdown - Coffee Byte Dev" />
-  <meta name="twitter:description" content="Brewdown — the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
+  <meta name="twitter:description" content="Brewdown - the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/signature.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -49,7 +51,7 @@
     </div>
 
     <h1>Brewdown</h1>
-    <p>Brewdown is the markdown converter that powers this site. It extends standard Markdown with media embedding, spoilers, collapsible sections, interactive forms, timestamps, and template variables. This page documents the syntax used across Coffee Byte Dev and what the converter does with it.</p>
+    <p>Brewdown is the markdown converter I built to run this site. It's plain Markdown with extras I kept wanting - media embedding, spoilers, collapsible sections, fill-in fields, timestamps, and template variables. This page is the reference: the syntax I use across Coffee Byte Dev and what the converter does with each piece.</p>
 
     <hr>
 
@@ -70,9 +72,9 @@ This is **Brewdown** in action.
 
 &lt;script data-brewdown="path/to/file.md"&gt;&lt;/script&gt;</code></pre>
 
-    <p><code>&lt;script data-brewdown&gt;</code> tags also work <em>inside</em> a <code>&lt;div class="brewdown"&gt;</code>. The script is preserved through the parent div's render pass and processed in a second pass — useful for embedding external chapter files inside a collapsible (<code>&gt;&gt;&gt;</code>) block.</p>
+    <p><code>&lt;script data-brewdown&gt;</code> tags also work <em>inside</em> a <code>&lt;div class="brewdown"&gt;</code>. The script is preserved through the parent div's render pass and processed in a second pass - useful for embedding external chapter files inside a collapsible (<code>&gt;&gt;&gt;</code>) block.</p>
 
-    <p>If <code>highlight.js</code> is also on the page, Brewdown calls <code>hljs.highlightAll()</code> after rendering so code blocks pick up syntax colors. This is why <code>highlight.min.js</code> must load before <code>brewdown.js</code> — if it loads after, the check fails and code blocks render plain.</p>
+    <p>If <code>highlight.js</code> is also on the page, Brewdown calls <code>hljs.highlightAll()</code> after rendering so code blocks pick up syntax colors. This is why <code>highlight.min.js</code> must load before <code>brewdown.js</code> - if it loads after, the check fails and code blocks render plain.</p>
 
     <hr>
 
@@ -104,13 +106,13 @@ __underline__
     <h2>Links</h2>
     <pre><code>[Link Text](https://example.com)</code></pre>
     <p>External links (http/https, magnet, .pdf) automatically open in a new tab. http/https and .pdf links also get a 🔗 indicator prepended; magnet links do not.</p>
-    <p>Any link whose URL ends in <code>.zip</code> also gets a 💾 indicator prepended (regardless of whether it's external or local). This is independent of 🔗 — an external <code>.zip</code> URL gets both.</p>
+    <p>Any link whose URL ends in <code>.zip</code> also gets a 💾 indicator prepended (regardless of whether it's external or local). This is independent of 🔗 - an external <code>.zip</code> URL gets both.</p>
     <p>External links carry <code>title="Click to follow external link"</code> and .zip links carry <code>title="Click to save"</code> as a hover tooltip. Magnet and internal links carry no title.</p>
 
     <hr>
 
     <h2>Media Embedding</h2>
-    <p>Use image syntax — Brewdown detects the file type by extension and renders the appropriate HTML element.</p>
+    <p>Use the image syntax for everything - Brewdown reads the file extension and picks the right HTML element for you.</p>
     <pre><code>![alt text](photo.jpg)        -&gt; &lt;img&gt;
 ![alt text](video.mp4)        -&gt; &lt;video controls&gt;
 ![alt text](song.mp3)         -&gt; &lt;audio controls&gt;
@@ -204,7 +206,7 @@ Nested content.
     <hr>
 
     <h2>Table of Contents</h2>
-    <p>H1, H2, and H3 headers automatically collect into a table of contents, but the TOC is only rendered when you explicitly write <code>::toc::</code> in the source — opt-in, not automatic, so pages with lots of incidental headers (like the changelog) don't sprout unwanted TOCs. Every header (H1-H6) and every <code>&gt;&gt;&gt;</code> collapsible gets an <code>id="..."</code> attribute auto-slugified from its text, so links can scroll to them — but <code>&gt;&gt;&gt;</code> collapsibles are NOT auto-listed in the TOC (use a header or <code>::label::</code> above the collapsible if you want a TOC entry that scrolls to it).</p>
+    <p>H1, H2, and H3 headers automatically collect into a table of contents, but the TOC is only rendered when you explicitly write <code>::toc::</code> in the source - opt-in, not automatic, so pages with lots of incidental headers (like the changelog) don't sprout unwanted TOCs. Every header (H1-H6) and every <code>&gt;&gt;&gt;</code> collapsible gets an <code>id="..."</code> attribute auto-slugified from its text, so links can scroll to them - but <code>&gt;&gt;&gt;</code> collapsibles are NOT auto-listed in the TOC (use a header or <code>::label::</code> above the collapsible if you want a TOC entry that scrolls to it).</p>
     <pre><code>::toc::
 
 ## First Section
@@ -221,7 +223,7 @@ More content.</code></pre>
     <h2>Template Variables</h2>
     <p>Placeholders that render as <code>&lt;span&gt;</code> elements with IDs for JavaScript to target.</p>
     <pre><code>Server status: {{server-status}}</code></pre>
-    <p>Set the default text <em>before</em> brewdown.js loads (since brewdown.js is deferred, an inline <code>Brewdown.defaultVar = …</code> in the head would run before <code>Brewdown</code> exists). Use the <code>window.brewdownDefaultVar</code> stash instead — brewdown.js reads it at init:</p>
+    <p>Set the default text <em>before</em> brewdown.js loads (since brewdown.js is deferred, an inline <code>Brewdown.defaultVar = …</code> in the head would run before <code>Brewdown</code> exists). Use the <code>window.brewdownDefaultVar</code> stash instead - brewdown.js reads it at init:</p>
     <pre><code class="language-html">&lt;script&gt;window.brewdownDefaultVar = 'Loading...';&lt;/script&gt;</code></pre>
     <p>After brewdown loads, <code>Brewdown.defaultVar = 'text'</code> works as expected from any non-deferred code (e.g. DOMContentLoaded handlers, button clicks).</p>
 
@@ -256,13 +258,7 @@ Brewdown.defaultVar = 'Loading...';</code></pre>
     <hr>
 
     <div class="brewdown">
-Author: osyra42
-Source: coffeebyte.dev/brewdown.html
-Contact: coffeebytedev@proton.me
-License: © 2026 Coffee Byte Dev — personal use, please don't redistribute
-Last Updated: @@2026.05.23@@
-
-Always check coffeebyte.dev for the current version.
+::signature::
     </div>
 
     <button id="back-to-top">Back to Top</button>

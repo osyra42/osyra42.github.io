@@ -23,6 +23,7 @@
 
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -97,29 +98,43 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 JUN 27
+@ website
+> replaced all em-dashes with hyphens site-wide; they rendered poorly
++ ::signature:: brewdown token - footer now pulls from one central config
+> migrated all 22 page footers to ::signature::
++ assets/js/update.js - one page-to-date map feeding both the footer and the sidebar ✨ badge
+> sidebar dates now read from update.js; fixed several stale sidebar dates that had drifted from footers
+> normalized prose voice across guides, landing, and main pages to match the index; facts/structure unchanged, fiction left alone
+
+@ minecraft
++ dormant server policy - 2 months idle to shutdown, 4-month grace to recover world or restart
+> reworded intro and server blurbs to match the index voice
+
+. ............................
 # 2026 JUN 26
 @ website
 > rewrote index.html welcome in a more natural, plain-spoken voice
 > dropped the dead archive reference from the content notice
-> content notice now warns pages can be removed — save a PDF to keep a copy
-- Amazon affiliate links on recommendations — no longer an associate
+> content notice now warns pages can be removed - save a PDF to keep a copy
+- Amazon affiliate links on recommendations - no longer an associate
 > swapped product links to plain Amazon URLs, kept all products listed
 > updated privacy policy and terms for VTuber/streaming/Minecraft scope
-> rewrote terms of service in plain English — no duty to update outdated guides
+> rewrote terms of service in plain English - no duty to update outdated guides
 > rewrote privacy policy in plain English to match
 > rewrote Vanity's privacy policy and terms in plain English too
 > pointed "hang out" Discord links to the fandom server invite; kept profile link for direct contact
 
 @ vtuber_guide
-$ fixed USA Girl download — link pointed to a filename that didn't exist
+$ fixed USA Girl download - link pointed to a filename that didn't exist
 
 . ............................
 # 2026 JUN 22
 @ operation_chimera
-+ Blood Relation ch9 "The People Up North" — Osyra drives north to find her parents, ends at their door
++ Blood Relation ch9 "The People Up North" - Osyra drives north to find her parents, ends at their door
 + daily check-in calls to Vanity while Osyra is on leave
 > reframed the Rosalyn trip as personal leave, not a mission
-> ch8 retitled "The Road North" — cut the HQ debrief, the next-book hook, and the record-keeper meta ending
+> ch8 retitled "The Road North" - cut the HQ debrief, the next-book hook, and the record-keeper meta ending
 - second-book teaser at the end of Blood Relation
 
 . ............................
@@ -132,7 +147,7 @@ $ fixed USA Girl download — link pointed to a filename that didn't exist
 # 2026 JUN 19
 @ vtuber_guide
 + Downloadable Models section
-+ USA Girl avatar download — VRoid Studio project plus VRM 1.0 and VRM 0.0 exports
++ USA Girl avatar download - VRoid Studio project plus VRM 1.0 and VRM 0.0 exports
 + auto-generated clickable table of contents (::toc::)
 - static hand-written Contents list, replaced by the live TOC
 
@@ -279,7 +294,7 @@ $ server status display
 - unused form blocks
 
 @ operation_chimera
-+ The Book of Maru — new story
++ The Book of Maru - new story
 - Earlier Revisions section
 > Blood Relation split into 4 chapters
 > Rosalyn promoted to Dr. Renaya
@@ -572,7 +587,7 @@ $ armored dummies HP fixed
 + CFML (Fox Den) private server (thefoxden.live)
 + update checks for all three servers
 + "stealing" added to Player Consent examples
-- rules 8 (Vote Ban) and 9 (Changes) — admin-governed
+- rules 8 (Vote Ban) and 9 (Changes) - admin-governed
 > vanilla server updated to 21.1.2
 > modded server IP → modded.coffeeblock.xyz (SRV record)
 > reorganized rules by priority
@@ -708,7 +723,7 @@ $ fixed changelog printing dark background (ink waste)
 @ blank_pixel_game
 + added random dungeon generation (drunkard's walk algorithm, 64x64 tile grid)
 + added wall tiles that block player movement
-+ safe spawning — player and enemies only placed on floor tiles, no shared tiles
++ safe spawning - player and enemies only placed on floor tiles, no shared tiles
 + items snap to floor tiles and don't stack
 + added controller input mapping
 + added GUI scaling matched to camera view
@@ -718,7 +733,7 @@ $ fixed changelog printing dark background (ink waste)
 . ............................
 # 2026 MAR 27
 @ vanity
-+ Kale Update — Vanity is now a full AI agent
++ Kale Update - Vanity is now a full AI agent
 + added voice recognition and voice output
 + added agent architecture with tools
 + added Minecraft automation (autonomous assistant)

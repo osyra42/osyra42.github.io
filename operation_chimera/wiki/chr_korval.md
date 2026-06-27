@@ -5,12 +5,12 @@
 ## Current
 Osyra's bodyguard and driver. American with Russian descent, thick accent, tough personality. He enjoys peace and quiet and does his job in a stiff, mechanical way. He has almost a sixth sense for when things are about to go wrong, yet he often cowers faster than Osyra when facing creatures from other worlds.
 
-He drove Osyra to meet her grandmother Rosalyn for the first time. After dropping her off, he departed with a short bow—stiff, mechanical.
+He drove Osyra to meet her grandmother Rosalyn for the first time. After dropping her off, he departed with a short bow - stiff, mechanical.
 
 ## Profile
 
 **Full Name:** John Korval
-**Nationality:** American — parents immigrated from Russia
+**Nationality:** American - parents immigrated from Russia
 **Role:** Bodyguard, driver
 **Personality:** Tough, quiet, mechanical
 **Strengths:** Sixth sense for danger, discipline, loyalty

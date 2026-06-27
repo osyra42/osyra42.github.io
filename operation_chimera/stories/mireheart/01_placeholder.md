@@ -1,6 +1,6 @@
 Mireheart
 
-The Book of Brine — an anomalous artifact, contaminated with a chimera virus.
+The Book of Brine - an anomalous artifact, contaminated with a chimera virus.
 
 ---
 
@@ -14,7 +14,7 @@ It wants to be immersive. So it makes itself immersive. By force.
 
 The Artifact
 
-Waterlogged. Bound in something that used to be hide. The text shifts between readings — sentences rewriting themselves, margins growing new paragraphs, pages appearing that weren't there before. Not because the virus does this. The book does this. The book has always done this.
+Waterlogged. Bound in something that used to be hide. The text shifts between readings - sentences rewriting themselves, margins growing new paragraphs, pages appearing that weren't there before. Not because the virus does this. The book does this. The book has always done this.
 
 It surfaces every few generations. Pulled from a wreck. Washed up after a storm. Found in an estate the heirs didn't know belonged to them.
 
@@ -26,9 +26,9 @@ The Virus
 
 Separate. A chimera. Stitched from sources that should not have met.
 
-It contaminated the book at some point — no one knows when. No one knows how. The book picked it up like a dirty needle. Now they travel together.
+It contaminated the book at some point - no one knows when. No one knows how. The book picked it up like a dirty needle. Now they travel together.
 
-The virus does not make you read. The book handles that. The virus waits. It transfers through skin contact — touching the pages, touching the binding, touching someone else who has touched it.
+The virus does not make you read. The book handles that. The virus waits. It transfers through skin contact - touching the pages, touching the binding, touching someone else who has touched it.
 
 The virus changes the body. Scales. Gills. Eyes flattening to the sides of the head. Lungs that start to crave water. A slow migration from human to something else. Something the bog recognizes.
 
@@ -38,7 +38,7 @@ Together
 
 The book makes you forget the outside world. The virus rebuilds you for a different one.
 
-The reality warping is the book's doing. The bog creeping into the room — the peat smell, the standing water, the moss on the walls — that is the virus finding purchase in a world the book has already softened.
+The reality warping is the book's doing. The bog creeping into the room - the peat smell, the standing water, the moss on the walls - that is the virus finding purchase in a world the book has already softened.
 
 You cannot separate them anymore. The book is the door. The virus is what lives inside.
 
@@ -56,7 +56,7 @@ Whoever hears you wants to come closer. That is the book's work. Whoever touches
 
 The Agency
 
-They have known about the artifact for generations. They have known about the chimera for less time — it wasn't always there. Someone contaminated the book. Or something. The files are incomplete.
+They have known about the artifact for generations. They have known about the chimera for less time - it wasn't always there. Someone contaminated the book. Or something. The files are incomplete.
 
 The protocol contains the book. The book escapes anyway.
 
@@ -66,7 +66,7 @@ The protocol does not account for a virus that lives in the pages and transfers 
 
 Inciting incident
 
-A fisherman dredges up the Book of Brine. He doesn't read it — he can't. But he touches it. He carries it to a museum. He hands it to a curator.
+A fisherman dredges up the Book of Brine. He doesn't read it - he can't. But he touches it. He carries it to a museum. He hands it to a curator.
 
 The virus has its first new hosts before anyone opens the cover.
 
@@ -78,7 +78,7 @@ By the time the Operator arrives, the kid is not the only reader anymore. And se
 
 The Operator
 
-POV. Not Osyra — she stays out of the chair for this one. But she is present. Watching.
+POV. Not Osyra - she stays out of the chair for this one. But she is present. Watching.
 
 The Operator knows: do not read. Do not touch without gloves. Do not listen to someone reading aloud.
 
@@ -98,7 +98,7 @@ She does not touch.
 
 She does not get close enough to hear someone turn a page.
 
-Whether she can stop what the Operator has started — and whether she can do it without becoming part of the story herself — is the question the final chapter answers.
+Whether she can stop what the Operator has started - and whether she can do it without becoming part of the story herself - is the question the final chapter answers.
 
 ---
 

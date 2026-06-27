@@ -1,3 +1,3 @@
 # Proofreading
 
-*Empty — ready for the next draft.*
+*Empty - ready for the next draft.*

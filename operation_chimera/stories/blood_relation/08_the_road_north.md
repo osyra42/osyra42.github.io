@@ -14,7 +14,7 @@ Rosalyn looked toward the window. Then back at Osyra.
 
 They both moved at once.
 
-Rosalyn went for a drawer by the wall phone and pulled out a pad of grocery-list paper. Osyra got her phone out. Korval honked once outside — polite.
+Rosalyn went for a drawer by the wall phone and pulled out a pad of grocery-list paper. Osyra got her phone out. Korval honked once outside - polite.
 
 "How fast can you write," Osyra said.
 
@@ -90,7 +90,7 @@ A pause that was Vanity deciding how much to make of it, and deciding on nothing
 
 "I'm going to drive to the town and see if the box is still rented. After that I don't know."
 
-"Then I don't either." Vanity's voice didn't change, but something in the cadence did — the version of her that wrote things down without being asked. "I'll move your leave to open-ended and keep the desk off you. Same arrangement. Call me once a day, just so I know you're alive."
+"Then I don't either." Vanity's voice didn't change, but something in the cadence did - the version of her that wrote things down without being asked. "I'll move your leave to open-ended and keep the desk off you. Same arrangement. Call me once a day, just so I know you're alive."
 
 "You keep saying that like it's a real risk."
 
@@ -104,7 +104,7 @@ Osyra didn't ask how Vanity knew what Rosalyn had said. Vanity always knew more 
 
 The pin cooled a degree. Open, idle. Osyra left it.
 
-She slid the envelope into the inside pocket of her jacket, next to the photograph from 1985 — the grandmother, and now the way to the rest of them, riding together over her heart.
+She slid the envelope into the inside pocket of her jacket, next to the photograph from 1985 - the grandmother, and now the way to the rest of them, riding together over her heart.
 
 "North," she told Korval.
 

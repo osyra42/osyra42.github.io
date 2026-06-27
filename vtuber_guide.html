@@ -23,6 +23,8 @@
 
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/signature.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -53,7 +55,7 @@
 
 ## 📖 Introduction
 
-This guide provides a structured approach to creating and animating a VTuber avatar, even on low-end devices. Whether you're a beginner or looking for optimized tools, this document will help you design, customize, and bring your virtual persona to life.
+This is how I make a VTuber avatar and get it moving, even on a weak machine. Whether you're starting from scratch or just want the tools that actually work, this walks you through designing one, customizing it, and bringing it to life.
 
 > ℹ️ **What is a VTuber?**
 > A VTuber (Virtual YouTuber) is a content creator who uses a computer-generated avatar, typically anime-styled, that is animated using motion capture or tracking software. The avatar moves and reacts in real-time based on the creator's movements and voice.
@@ -64,13 +66,13 @@ This guide provides a structured approach to creating and animating a VTuber ava
 
 ### 🖼️ Step 1: Prepare a Reference Image
 
-Before designing your avatar, gather visual references to ensure accuracy in colors, proportions, and style.
+Before you design anything, pull together some visual references so your colors, proportions, and style stay consistent.
 
 **Where to find references:**
 
-- [Pixiv](https://www.pixiv.net/) — a popular platform for anime-style artwork
-- [DeviantArt](https://www.deviantart.com/) — features a wide variety of character designs
-- **Game or anime screenshots** — useful for replicating existing characters
+- [Pixiv](https://www.pixiv.net/) - a popular platform for anime-style artwork
+- [DeviantArt](https://www.deviantart.com/) - features a wide variety of character designs
+- **Game or anime screenshots** - useful for replicating existing characters
 
 **Why use a reference:**
 
@@ -80,7 +82,7 @@ Before designing your avatar, gather visual references to ensure accuracy in col
 
 ### 🧑‍🎨 Step 2: Create Your Avatar in VRoid Studio
 
-VRoid Studio is a free 3D character creator designed for VTuber models.
+VRoid Studio is a free 3D character creator built for VTuber models. It's where I start every avatar.
 
 > ℹ️ **Download & Installation:**
 > **Official Site:** [VRoid Studio](https://vroid.com/en/studio)
@@ -103,9 +105,9 @@ VRoid Studio is a free 3D character creator designed for VTuber models.
 
 ### 🕺 Step 3: Animate Your Avatar with Motion Capture
 
-Choose a motion-tracking tool based on your hardware and needs.
+Pick a motion-tracking tool that fits your hardware and what you need it to do.
 
-**[VMagicMirror](https://malaybaku.github.io/VMagicMirror/en/)** — versatile avatar animation with or without a webcam. This is the tool I personally use and recommend.
+**[VMagicMirror](https://malaybaku.github.io/VMagicMirror/en/)** - versatile avatar animation with or without a webcam. This is the tool I personally use and recommend.
 
 - **Best for:** Versatile avatar animation with or without a webcam
 - **Requirements:** None (webcam optional)
@@ -115,11 +117,11 @@ Choose a motion-tracking tool based on your hardware and needs.
 
 ## 💻 VTuber Creation for Low-End Devices
 
-If your computer struggles with 3D modeling or real-time tracking, these alternatives provide lightweight solutions.
+If your computer chokes on 3D modeling or real-time tracking, these are the lighter options I'd reach for instead.
 
 ### 🎬 Animation Tool: Veadotube Mini
 
-For creators who want minimal resource usage or prefer a simpler 2D aesthetic, [Veadotube Mini](https://veadotube.com/) offers an excellent alternative to full 3D VTubing.
+If you want to keep resource use low or just like a simpler 2D look, [Veadotube Mini](https://veadotube.com/) is a solid alternative to full 3D VTubing.
 
 - **Best for:** 2D PNGTuber-style avatars
 - **Features:** Minimal CPU/GPU usage, voice detection for avatar animation
@@ -129,7 +131,7 @@ For creators who want minimal resource usage or prefer a simpler 2D aesthetic, [
 
 ### ✏️ Drawing & Asset Creation Tools
 
-If you need to design or modify your avatar, these software options cater to different skill levels and budgets.
+If you need to draw or tweak your avatar, here are a few options across different skill levels and budgets.
 
 | Software | Price | Best For | Website |
 |---|---|---|---|
@@ -152,12 +154,12 @@ If you need to design or modify your avatar, these software options cater to dif
 
 1. **Design Phase:** Use VRoid Studio with reference images to create your 3D model, or create 2D artwork in Krita/GIMP for a PNGTuber
 2. **Export Phase:** Save your work in editable format (`.vroid` or `.psd/.kra`) and export for use (`.vrm` or `.png`)
-3. **Animation Phase:** Import your avatar into your chosen tracking software — VMagicMirror for 3D animation with or without a webcam, or Veadotube Mini for 2D PNGTuber animation
+3. **Animation Phase:** Import your avatar into your chosen tracking software - VMagicMirror for 3D animation with or without a webcam, or Veadotube Mini for 2D PNGTuber animation
 4. **Streaming Setup:** Configure OBS or your streaming software to capture your avatar with a transparent background
 
 ## 🎥 Using Your Avatar on Discord
 
-Once your avatar is animated, you can use it as your camera in Discord calls using OBS Virtual Camera.
+Once your avatar is animated, you can use it as your camera in Discord calls through OBS Virtual Camera.
 
 ### Step 1: Download and Launch OBS
 
@@ -180,13 +182,13 @@ Click **Start Virtual Camera** in the bottom-right of OBS. This creates a virtua
 1. Open **Discord** and go to **Settings** (gear icon)
 2. Navigate to **Voice & Video**
 3. Under **Camera**, select **OBS Virtual Camera** from the dropdown
-4. Join a voice channel or call and turn on your camera — your avatar will appear instead of a regular webcam feed
+4. Join a voice channel or call and turn on your camera - your avatar will appear instead of a regular webcam feed
 
 > 💡 **Tip:** Make sure OBS is running and the virtual camera is active before turning on your camera in Discord.
 
 ## 🖼️ Example Models
 
-Here are some VRM avatars I've built using this exact workflow — a range of styles to show what's achievable with VRoid Studio and a bit of customization.
+Here are some VRM avatars I've built using this exact workflow - a range of styles to show what's achievable with VRoid Studio and a bit of customization.
 
 ![VTuber Model](assets/images/shop/vtubers/vtuber_4chan.jpg)
 ![VTuber Model](assets/images/shop/vtubers/vtuber_bigred.jpg)
@@ -203,14 +205,14 @@ Models I've made available to download and use. Each pack includes the editable 
 
 ![USA Girl](assets/images/shop/vtubers/usa_girl.jpg)
 
-**USA Girl** — [Download (.zip)](assets/downloads/[osyra42]%20usa_girl.zip)
-- `usa_girl.vroid` — editable VRoid Studio project file
-- VRM 1.0 export — for newer software that supports the VRM 1.0 spec
-- VRM 0.0 export — for older software still on VRM 0.x
+**USA Girl** - [Download (.zip)](assets/downloads/[osyra42]%20usa_girl.zip)
+- `usa_girl.vroid` - editable VRoid Studio project file
+- VRM 1.0 export - for newer software that supports the VRM 1.0 spec
+- VRM 0.0 export - for older software still on VRM 0.x
 
 ## 🚀 Conclusion & Next Steps
 
-Creating a VTuber avatar is more accessible than ever, with free tools available for every skill level and hardware configuration. Here's a quick recap:
+Making a VTuber avatar is easier than it's ever been - there are free tools for every skill level and any machine. Here's the quick recap:
 
 > ℹ️ **Summary:**
 > **Design Phase:** Use VRoid Studio with reference images
@@ -227,13 +229,7 @@ Creating a VTuber avatar is more accessible than ever, with free tools available
 
 ---
 
-Author: osyra42
-Source: coffeebyte.dev/vtuber_guide.html
-Contact: coffeebytedev@proton.me
-License: © 2026 Coffee Byte Dev — personal use, please don't redistribute
-Last Updated: @@2026.06.26@@
-
-Always check coffeebyte.dev for the current version.
+::signature::
     </div>
 
     <button id="back-to-top">Back to Top</button>

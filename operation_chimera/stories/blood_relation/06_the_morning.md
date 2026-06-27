@@ -2,23 +2,23 @@
 
 Osyra woke up before the sun.
 
-The house had that early-morning quiet to it — the kind where you can hear the floor settling and the refrigerator cycling on and off down the hall and nothing else. Her ears caught the click of pipes somewhere on the far side of a wall. She lay there for a minute. Tail flat against the small of her back. Ears flat on the pillow. She'd slept hard. She couldn't remember the last time she'd slept hard.
+The house had that early-morning quiet to it - the kind where you can hear the floor settling and the refrigerator cycling on and off down the hall and nothing else. Her ears caught the click of pipes somewhere on the far side of a wall. She lay there for a minute. Tail flat against the small of her back. Ears flat on the pillow. She'd slept hard. She couldn't remember the last time she'd slept hard.
 
 She got up the way she moved on jobs. Quiet.
 
 ---
 
-The hall floor was cold. The kitchen was darker than the bedroom had been — heavy curtains, a north-facing window. She felt her way to the lamp on the counter and clicked it on low.
+The hall floor was cold. The kitchen was darker than the bedroom had been - heavy curtains, a north-facing window. She felt her way to the lamp on the counter and clicked it on low.
 
 The Polaroid was where Rosalyn had left it the day before. On the counter, next to a ceramic jar of pens.
 
 Osyra looked at it for a while.
 
-Rosalyn had offered. Osyra had put her off. She'd told herself her grandmother meant a picture of the version of her she'd been allowed to meet — the hat, the dress, the careful unsmiling mouth — and she hadn't wanted to give her that.
+Rosalyn had offered. Osyra had put her off. She'd told herself her grandmother meant a picture of the version of her she'd been allowed to meet - the hat, the dress, the careful unsmiling mouth - and she hadn't wanted to give her that.
 
 That wasn't the version Rosalyn had meant. Osyra knew that now.
 
-She picked the camera up. Tested the weight. Checked the cartridge — half a pack of film left. Pulled a chair out from the table and sat under the lamp.
+She picked the camera up. Tested the weight. Checked the cartridge - half a pack of film left. Pulled a chair out from the table and sat under the lamp.
 
 ---
 
@@ -30,7 +30,7 @@ She set it face-down on the table to develop.
 
 The second was a profile. She turned her head left and held the camera further out. Caught the long shape of one ear from the side, the line of her jaw, the edge of a canine where her mouth wasn't quite closed.
 
-The third — she bit down lightly on the side of one finger and lifted her lip on the other side of her mouth. Showed the tooth clean. Like a horse trader, almost. The kind of picture you'd send to a doctor who'd asked.
+The third - she bit down lightly on the side of one finger and lifted her lip on the other side of her mouth. Showed the tooth clean. Like a horse trader, almost. The kind of picture you'd send to a doctor who'd asked.
 
 Three records. Three small pieces of evidence: this is what I am. This is what she'd accepted last night.
 
@@ -42,7 +42,7 @@ Then, without really planning to, she lifted it again.
 
 The fourth one she almost laughed at while she was taking it.
 
-She put two fingers up beside her face. A peace sign. The kind of thing kids did into phones now. She held the camera up high — overhead, the way the teenagers held them at bus stops — and tilted her head a little. Ears asymmetric. One up, one back.
+She put two fingers up beside her face. A peace sign. The kind of thing kids did into phones now. She held the camera up high - overhead, the way the teenagers held them at bus stops - and tilted her head a little. Ears asymmetric. One up, one back.
 
 Shutter. Whir.
 
@@ -72,7 +72,7 @@ There were eggs in the fridge. A loaf of bread on the counter, half wrapped. But
 
 She knew how to do this. She hadn't done it in a long time, but she knew how. Cracked four eggs into a bowl. Scrambled them with the back of a fork. Cut four slices of bread and set them aside. Lit the burner. Pan on. A knob of butter went in and started to foam.
 
-It had been six, maybe seven years since she'd made breakfast for someone other than herself. Korval didn't count — Korval ate when he was told to and not when he wasn't. There'd been a colleague who came by the safehouse on Saturdays sometimes, and once or twice she'd made him a bacon and egg on toast sandwich. Not really the same.
+It had been six, maybe seven years since she'd made breakfast for someone other than herself. Korval didn't count - Korval ate when he was told to and not when he wasn't. There'd been a colleague who came by the safehouse on Saturdays sometimes, and once or twice she'd made him a bacon and egg on toast sandwich. Not really the same.
 
 This was the same.
 
@@ -146,7 +146,7 @@ Rosalyn set it down carefully, face up. "Bossy."
 
 They ate.
 
-Rosalyn asked things between bites. Did Osyra cook often. Where had she learned. Did the eggs come out the way she liked them. What about coffee — did she take it black at home or did she let herself add things. Small questions. The kind you ask someone to keep them talking.
+Rosalyn asked things between bites. Did Osyra cook often. Where had she learned. Did the eggs come out the way she liked them. What about coffee - did she take it black at home or did she let herself add things. Small questions. The kind you ask someone to keep them talking.
 
 Osyra answered. Not many words to most of it. Enough.
 

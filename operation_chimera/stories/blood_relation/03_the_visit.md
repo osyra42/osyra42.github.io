@@ -2,9 +2,9 @@
 
 Osyra was nervous. There were so many things that could go wrong.
 
-She thought it while looking out the window as Korval drove. He always followed her everywhere — not that she needed it. She was usually the dangerous one in any room.
+She thought it while looking out the window as Korval drove. He always followed her everywhere - not that she needed it. She was usually the dangerous one in any room.
 
-The agency had turned up word of a biological family member and given her the opportunity to visit. She'd taken it. Her grandmother — Rosalyn Renaya.
+The agency had turned up word of a biological family member and given her the opportunity to visit. She'd taken it. Her grandmother - Rosalyn Renaya.
 
 "How much further until we get there?" she said. The words came out before she'd decided to say them.
 
@@ -48,7 +48,7 @@ Osyra looked back to Korval for just a second, nodded her head, and followed her
 
 Once inside, she chose a comfortable seat close to the door. She didn't want to wander too far into the home without an invitation. The seat was almost too comfortable. The age had made it relax into the exact shape of a body. She looked around the room. The light was not blinding. It was also not dull. It was relaxing. The wood trims on the walls, the furniture, everything felt like it was a snapshot back in time. The smell in there was of newspaper and sunshine.
 
-Somehow she felt like this was a memory in the back of her mind. Something she missed. Something she needed. For today, the plan was simple: stay the night, and see what the morning looked like. There was no job at the end of this one. Korval would be back at the house after breakfast, and after that the days were hers — the first time in years that sentence had been true.
+Somehow she felt like this was a memory in the back of her mind. Something she missed. Something she needed. For today, the plan was simple: stay the night, and see what the morning looked like. There was no job at the end of this one. Korval would be back at the house after breakfast, and after that the days were hers - the first time in years that sentence had been true.
 
 "What do you do for work, dear?"
 
@@ -68,7 +68,7 @@ Osyra felt her face go red. She didn't take pictures. This was completely embarr
 
 "Of course, honey. You must be tired."
 
-Rosalyn drifted toward the kitchen, murmuring about putting on the kettle. Osyra stayed in the comfortable chair and let her go. She'd call Vanity in tonight, the way she'd been told to — once a day, so somebody at headquarters knew she was still breathing. Just her voice down the line, and Vanity on the other end writing down whatever Osyra felt like saying, the way she always did.
+Rosalyn drifted toward the kitchen, murmuring about putting on the kettle. Osyra stayed in the comfortable chair and let her go. She'd call Vanity in tonight, the way she'd been told to - once a day, so somebody at headquarters knew she was still breathing. Just her voice down the line, and Vanity on the other end writing down whatever Osyra felt like saying, the way she always did.
 
 Rosalyn eventually brought in some tea. It was hard for Osyra to pay attention to that. The comfortable chair was lulling her to sleep as her ever-energetic body slowed down. Hopefully the tea would increase her energy again. She didn't feel it happening. The weight of the world was crushing her. She'd been running for so long, she hadn't even noticed how tired she was. She accepted the cup from her grandmother almost greedily. Anything to stay awake for this moment. She took a sip. It smelled wonderful. Spiced chai. One of her favorites.
 
@@ -94,13 +94,13 @@ Rosalyn turned another page, and the rhythm changed.
 
 Osyra looked.
 
-A young woman, sitting on the steps of a porch she didn't recognize. Thin. Tired in a way that didn't belong on a face that young. She was holding something in her lap — a bundle. A baby. She wasn't looking at the camera. She was looking down at the bundle.
+A young woman, sitting on the steps of a porch she didn't recognize. Thin. Tired in a way that didn't belong on a face that young. She was holding something in her lap - a bundle. A baby. She wasn't looking at the camera. She was looking down at the bundle.
 
 Osyra tried to remember her. She tried to picture the porch, the sound of her voice, anything at all. She came back with nothing. A blank wall where a person should have been. Whoever this woman was, she lived in someone else's head. Not Osyra's.
 
 "How old was she?" Osyra asked.
 
-"Just barely an adult." Rosalyn touched the edge of the photograph with one finger. "She and your father — they didn't have anything, sweetheart. Not really. Not enough for a child. They tried, for a while. But there's a kind of poor that doesn't bend, and they were in it." She paused. "I would have taken you in myself if I'd known. By the time I found out, your aunt had already stepped up. And she was good for you. I told myself that."
+"Just barely an adult." Rosalyn touched the edge of the photograph with one finger. "She and your father - they didn't have anything, sweetheart. Not really. Not enough for a child. They tried, for a while. But there's a kind of poor that doesn't bend, and they were in it." She paused. "I would have taken you in myself if I'd known. By the time I found out, your aunt had already stepped up. And she was good for you. I told myself that."
 
 Osyra nodded. There wasn't anything to say to that.
 
@@ -110,7 +110,7 @@ Rosalyn turned the page slower this time. "And there she is. Your aunt."
 
 The picture was in color. A woman in a kitchen, hair tied back with a faded bandana, laughing at something off-camera. There was flour on her hands.
 
-Osyra knew that kitchen. She knew the bandana. She knew the laugh — loud, sudden, a little embarrassing in public. She knew the smell of her aunt's bread, which she'd made every Sunday and ruined every other time she tried. She knew the way her aunt had said her name when she was tired but not angry. She knew the weight of her aunt's hand on her back the night she taught her how to hold a knife properly. She knew the morning her aunt didn't come down for breakfast, and how the house had felt wrong before she'd even started up the stairs to check on her.
+Osyra knew that kitchen. She knew the bandana. She knew the laugh - loud, sudden, a little embarrassing in public. She knew the smell of her aunt's bread, which she'd made every Sunday and ruined every other time she tried. She knew the way her aunt had said her name when she was tired but not angry. She knew the weight of her aunt's hand on her back the night she taught her how to hold a knife properly. She knew the morning her aunt didn't come down for breakfast, and how the house had felt wrong before she'd even started up the stairs to check on her.
 
 "She was kind," Osyra said.
 
@@ -124,9 +124,9 @@ Rosalyn's eyes had gone wet, but she didn't make a thing of it. She nodded once 
 
 The next photo stopped Osyra for a different reason.
 
-A man — middle-aged, broad-shouldered — standing in a clearing somewhere wooded. A rifle propped against his shoulder. A deer at his feet, freshly taken. He was smiling, but it was a tight kind of smile, like he wasn't really comfortable with the camera.
+A man - middle-aged, broad-shouldered - standing in a clearing somewhere wooded. A rifle propped against his shoulder. A deer at his feet, freshly taken. He was smiling, but it was a tight kind of smile, like he wasn't really comfortable with the camera.
 
-"My husband," Rosalyn said. "He's been gone a long time now. He'd have liked you, I think. He used to do something a bit like what you do — tracked nuisance animals, mostly. Bears that got into the trash. The occasional cat that started taking livestock."
+"My husband," Rosalyn said. "He's been gone a long time now. He'd have liked you, I think. He used to do something a bit like what you do - tracked nuisance animals, mostly. Bears that got into the trash. The occasional cat that started taking livestock."
 
 Osyra felt something tighten in her chest. Of course he did.
 

@@ -42,6 +42,33 @@ const Brewdown = (function() {
         return `<pre class="brewdown-toc"><strong>TABLE OF CONTENTS</strong>\n\n${lines.join('\n')}</pre>`;
     }
 
+    // Renders the standard page footer from window.SIGNATURE (see assets/js/signature.js).
+    // Author / Contact / License come from the central config; Source and Last Updated are
+    // derived from the current page filename + the per-page date map. Used by the ::signature::
+    // token so the footer lives in ONE place instead of being copy-pasted into every page.
+    function renderSignature() {
+        const sig = (typeof window !== 'undefined' && window.SIGNATURE) ? window.SIGNATURE : null;
+        if (!sig) return '<p>[signature unavailable — signature.js not loaded]</p>';
+        let file = (location.pathname.split('/').pop() || 'index.html');
+        if (!file) file = 'index.html';
+        const domain = sig.domain || 'coffeebyte.dev';
+        // Date comes from the central update.js map (window.UPDATES); fall back to any legacy
+        // sig.updated entry just in case update.js didn't load.
+        const rec = (typeof window !== 'undefined' && window.UPDATES) ? window.UPDATES[file] : null;
+        const date = (rec && rec.date) || (sig.updated && sig.updated[file]);
+        let dateHtml = 'Unlisted';
+        if (date) {
+            const p = date.split('.');
+            dateHtml = parseTimestamp(date, p[0], p[1], p[2]);
+        }
+        return '<p>Author: ' + escapeHtml(sig.author || '') + '<br>'
+            + 'Source: ' + escapeHtml(domain + '/' + file) + '<br>'
+            + 'Contact: ' + escapeHtml(sig.contact || '') + '<br>'
+            + 'License: ' + escapeHtml(sig.license || '') + '<br>'
+            + 'Last Updated: ' + dateHtml + '</p>'
+            + '<p>Always check ' + escapeHtml(domain) + ' for the current version.</p>';
+    }
+
     function parseTimestamp(match, yyyy, mm, dd, hh, min) {
         const date = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd),
             hh ? parseInt(hh) : 0, min ? parseInt(min) : 0);
@@ -314,6 +341,13 @@ const Brewdown = (function() {
                 return;
             }
 
+            // Signature marker on its own line — emit as block placeholder (no <p> wrap)
+            if (line.trim() === '::signature::') {
+                closeOpenBlocks();
+                htmlContent += '\x00BREWDOWN_SIG\x00\n';
+                return;
+            }
+
             // Headers — # to ###### get id="slug-of-text"; H1/H2/H3 auto-collect into TOC
             const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
             if (headerMatch) {
@@ -392,6 +426,9 @@ const Brewdown = (function() {
         const tocHtml = renderToc(_tocEntries);
         htmlContent = htmlContent.replace(/\x00BREWDOWN_TOC\x00/g, tocHtml);
         _tocEntries = null;
+
+        // Signature pass: replace ::signature:: placeholder with the rendered footer.
+        htmlContent = htmlContent.replace(/\x00BREWDOWN_SIG\x00/g, renderSignature());
 
         if (wrapInContainer) {
             return `<div class="${containerClass}">${htmlContent}</div>`;

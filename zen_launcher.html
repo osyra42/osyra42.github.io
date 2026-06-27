@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="Zen Launcher — a launcher pattern that runs environment and dependency checks before starting a program." />
+  <meta name="description" content="Zen Launcher - a launcher pattern that runs environment and dependency checks before starting a program." />
   <meta name="keywords" content="osyra42, Coffee Byte Dev, Zen Launcher, bat, sh, launcher" />
   <meta name="author" content="osyra42" />
   <meta property="og:title" content="Zen Launcher - Coffee Byte Dev" />
@@ -23,6 +23,8 @@
 
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/signature.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -52,23 +54,23 @@
     <div class="brewdown">
 # 🚀 Zen Launcher
 
-Zen Launcher is a small launcher script that sits next to a program and runs a sanity check before starting it.
+Zen Launcher is a small script that sits next to a program and runs a quick sanity check before starting it. Nothing fancy - it just makes sure the thing will actually run before it tries to.
 
 ---
 
 ## I Use It
 
-Every program I distribute ships with Zen Launcher next to it. If you've received a program from me, you've already used it.
+Every program I hand out ships with Zen Launcher next to it. If you've grabbed something from me, you've already used it.
 
 ---
 
 ## What It Is
 
-Two text files — `zen_launcher.bat` for Windows and `zen_launcher.sh` for Mac and Linux — that run through three stages before launching the main file:
+Two text files - `zen_launcher.bat` for Windows and `zen_launcher.sh` for Mac and Linux - that run through three stages before launching the main file:
 
 **1. Environment Check**
 
-Verifies the runtime the program needs is actually installed — Python, Java, Node.js, .NET, Ruby, PHP, whatever the project depends on. If something's missing, the user gets a clear message pointing at the specific missing piece, not a stack trace.
+Verifies the runtime the program needs is actually installed - Python, Java, Node.js, .NET, Ruby, PHP, whatever the project depends on. If something's missing, the user gets a clear message pointing at the specific missing piece, not a stack trace.
 
 **2. Dependency Check**
 
@@ -109,17 +111,17 @@ The spec below is explicit enough to follow by hand or to hand to an AI agent. E
 | `ENTRY` | yes | `app.py`, `game.jar`, `bot.js` |
 | `RUNTIME` | yes | `python`, `node`, `java`, `ruby`, `php`, `dotnet`, or `none` (compiled binary) |
 | `ARGS` | no | `--port=8080 --debug` (default: empty) |
-| `DEPS` | no | `pip`, `npm`, `bundler`, or none — controls whether to add a dep check |
+| `DEPS` | no | `pip`, `npm`, `bundler`, or none - controls whether to add a dep check |
 
 ### Script Structure
 
 Each script has five labeled sections in this order:
 
-1. **Imports** — `@echo off` (bat) or `#!/bin/bash` (sh)
-2. **Variables** — declare `TITLE`, `ENTRY`, and `ARGS` at the top
-3. **Requirements** — runtime check (always) then optional dependency check; bail with a readable error on failure
-4. **Script** — set terminal title, `cd` to the script's own directory, run the entry file with `ARGS`
-5. **Execution** — `pause` on Windows so the window doesn't close on error (Mac/Linux can stay open in the calling terminal)
+1. **Imports** - `@echo off` (bat) or `#!/bin/bash` (sh)
+2. **Variables** - declare `TITLE`, `ENTRY`, and `ARGS` at the top
+3. **Requirements** - runtime check (always) then optional dependency check; bail with a readable error on failure
+4. **Script** - set terminal title, `cd` to the script's own directory, run the entry file with `ARGS`
+5. **Execution** - `pause` on Windows so the window doesn't close on error (Mac/Linux can stay open in the calling terminal)
 
 ### Runtime Check Patterns
 
@@ -143,7 +145,7 @@ if ! command -v python3 &> /dev/null; then
 fi
 ```
 
-Swap `python` / `python3` for the runtime command you actually need: `java`, `node`, `dotnet`, `php`, `ruby`, etc. Bash, Command Prompt, Go, and Rust don't need a check — Bash and CMD are always present, and Go/Rust ship as standalone binaries with no runtime.
+Swap `python` / `python3` for the runtime command you actually need: `java`, `node`, `dotnet`, `php`, `ruby`, etc. Bash, Command Prompt, Go, and Rust don't need a check - Bash and CMD are always present, and Go/Rust ship as standalone binaries with no runtime.
 
 ### Dependency Check Patterns
 
@@ -176,7 +178,7 @@ Per-runtime dep-check commands and install hints:
 | Python | `pip check` | `pip install -r requirements.txt` |
 | Node.js | `npm list --depth=0` | `npm install` |
 | Ruby | `bundle check` | `bundle install` |
-| Java / .NET / PHP / Go / Rust | (skip) | — |
+| Java / .NET / PHP / Go / Rust | (skip) | - |
 
 ### Launch Command by Entry File Extension
 
@@ -256,17 +258,11 @@ cd "$(dirname "$0")"
 python3 "$ENTRY" $ARGS
 ```
 
-The `cd` line in both scripts ensures the launcher works no matter where it's invoked from — `%~dp0` on Windows and `dirname "$0"` on Unix both resolve to the directory containing the script itself, not the user's current working directory.
+The `cd` line in both scripts ensures the launcher works no matter where it's invoked from - `%~dp0` on Windows and `dirname "$0"` on Unix both resolve to the directory containing the script itself, not the user's current working directory.
 
 ---
 
-Author: osyra42
-Source: coffeebyte.dev/zen_launcher.html
-Contact: coffeebytedev@proton.me
-License: © 2026 Coffee Byte Dev — personal use, please don't redistribute
-Last Updated: @@2026.05.08@@
-
-Always check coffeebyte.dev for the current version.
+::signature::
     </div>
 
     <button id="back-to-top">Back to Top</button>

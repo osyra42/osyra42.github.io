@@ -37,6 +37,7 @@ All main site pages follow this structure:
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/signature.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
@@ -54,7 +55,19 @@ All main site pages follow this structure:
 </body>
 ```
 
-**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` calls `hljs.highlightAll()` if hljs is available — if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later.
+**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` calls `hljs.highlightAll()` if hljs is available — if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later. `signature.js` and `update.js` MUST also come before `brewdown.js` — brewdown reads `window.SIGNATURE` and `window.UPDATES` when it expands the `::signature::` token (see Page Footer below).
+
+## Page Footer (Signature) & Update Dates
+
+Every content page ends its Brewdown body with a single `::signature::` line instead of a hand-written footer. Brewdown expands it into the Author / Source / Contact / License / Last Updated block.
+
+Two central config files drive this, both loaded before `brewdown.js`:
+- **`assets/js/update.js`** (`window.UPDATES`) — the single source of truth for every page's `{ title, date }`, keyed by href. Feeds BOTH the footer's "Last Updated" AND the sidebar's ✨ "recently updated" badge (within 28 days).
+- **`assets/js/signature.js`** (`window.SIGNATURE`) — shared footer fields only: author, contact, license, domain.
+
+- **To bump a page's "Last Updated" date:** edit that page's entry in `assets/js/update.js`. One edit updates both the footer and the sidebar. Do NOT hand-edit footers — there's only the one `::signature::` token now.
+- Author / Contact / License / domain: change once in `signature.js`, applies everywhere.
+- Source and "Last Updated" are derived automatically from the current filename + the date map.
 
 ## Brewdown Content
 

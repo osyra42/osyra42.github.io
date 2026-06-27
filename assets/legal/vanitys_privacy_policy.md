@@ -5,10 +5,10 @@
 **Contact:** coffeebytedev@proton.me
 **Website:** coffeebyte.dev
 
-A plain-English rundown of what Vanity is and what she pays attention to. I'm not a lawyer and this isn't legalese — just the honest version. If you're in a space where Vanity is hanging out, this applies to you.
+A plain-English rundown of what Vanity is and what she pays attention to. I'm not a lawyer and this isn't legalese - just the honest version. If you're in a space where Vanity is hanging out, this applies to you.
 
 ### **1. What Vanity Is**
-Vanity is my private AI assistant — mine alone. Nobody else controls her or gives her orders. She watches and reacts to what's going on in the digital spaces she's in, can look up public info when I ask her to, and may show up in Minecraft, on Discord, or in my live streams. For most people, Minecraft and Discord are the only places you'll actually run into her.
+Vanity is my private AI assistant - mine alone. Nobody else controls her or gives her orders. She watches and reacts to what's going on in the digital spaces she's in, can look up public info when I ask her to, and may show up in Minecraft, on Discord, or in my live streams. For most people, Minecraft and Discord are the only places you'll actually run into her.
 
 Heads up: **Vanity is intentionally rude, blunt, and uncensored.** That's on purpose. Don't expect polite or filtered.
 
@@ -42,7 +42,7 @@ Because Vanity observes public spaces, fully opting out isn't really possible. B
 Email **coffeebytedev@proton.me** for either.
 
 ### **6. Where This Applies**
-Anywhere Vanity operates — Minecraft servers, Discord, live streams, and any other platform I put her on.
+Anywhere Vanity operates - Minecraft servers, Discord, live streams, and any other platform I put her on.
 
 ### **7. Changes**
 I may update this as Vanity changes. The latest version always lives at **coffeebyte.dev/vanity_legal.html**.

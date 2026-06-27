@@ -24,7 +24,7 @@ The chain on the front gate had been replaced inside the last year. New padlock.
 
 The playground was a tetanus exhibit. Weeds had come up through the asphalt in shapes that almost looked deliberate.
 
-The front doors were boarded. She went around to the side. The side door had been kicked in years ago — old damage, weather inside the frame — and she stepped through the broken plywood into a hallway that smelled like forest of mold from weather damage. There was a strange cold where expected humidity should be.
+The front doors were boarded. She went around to the side. The side door had been kicked in years ago - old damage, weather inside the frame - and she stepped through the broken plywood into a hallway that smelled like forest of mold from weather damage. There was a strange cold where expected humidity should be.
 
 She knew that cold. She'd worked in it before.
 
@@ -34,7 +34,7 @@ She moved.
 
 ---
 
-Lockers down both walls. Some intact, some pulled half off the brick. Old papers on the floor — homework mostly. A spelling test from 1989 with a star sticker still on it. The sticker had outlasted the kid by some margin, probably.
+Lockers down both walls. Some intact, some pulled half off the brick. Old papers on the floor - homework mostly. A spelling test from 1989 with a star sticker still on it. The sticker had outlasted the kid by some margin, probably.
 
 She stepped past.
 
@@ -68,7 +68,7 @@ She opened the closet.
 
 There was no child.
 
-There was a cassette tape player. The kind a teacher used to use, with a cassette in the deck — a child's voice on Side A in cheap handwritten marker, the writing faded but still readable. The reels were not turning. The voice was coming out of it anyway.
+There was a cassette tape player. The kind a teacher used to use, with a cassette in the deck - a child's voice on Side A in cheap handwritten marker, the writing faded but still readable. The reels were not turning. The voice was coming out of it anyway.
 
 *H. I. J.*
 
@@ -86,7 +86,7 @@ She picked the player up properly, kept the tape in her other hand, and carried 
 
 *Q. R. S. T. U.*
 
-She opened her bag and got out the agency containment box — black, lead-lined, a switch on the lid. Set the player inside. Set the tape in on top of it, just to be sure. Closed the lid. Flipped the switch.
+She opened her bag and got out the agency containment box - black, lead-lined, a switch on the lid. Set the player inside. Set the tape in on top of it, just to be sure. Closed the lid. Flipped the switch.
 
 The voice cut off mid-letter.
 
@@ -142,7 +142,7 @@ She would think about MRS. RENAYA, 1985.
 
 Korval pulled into the road. The school shrank in the rearview.
 
-Osyra tipped the hat back a finger's width and clipped the comms pin to the base of her left ear — a small plastic device, hair-clip shaped, designed to seat against the fur of a wolf ear without pulling. The pin warmed a degree against the skin as it found the channel. She seated the hat down again. Touched the side of her jaw to key transmit.
+Osyra tipped the hat back a finger's width and clipped the comms pin to the base of her left ear - a small plastic device, hair-clip shaped, designed to seat against the fur of a wolf ear without pulling. The pin warmed a degree against the skin as it found the channel. She seated the hat down again. Touched the side of her jaw to key transmit.
 
 "Chimera One to Wiki. I have something to report."
 

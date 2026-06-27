@@ -2,7 +2,7 @@
 
 There were a few moments of silence. Something was on Osyra's mind. She wanted to say something.
 
-She'd been rehearsing it since the photo went on the fridge. A couple hours of practice — the wording, the tone, how to make it sound matter-of-fact, the way she'd been trained to make things sound. She had a version that could come out clean. Professional. The kind of thank-you you'd give a colleague who'd covered your shift.
+She'd been rehearsing it since the photo went on the fridge. A couple hours of practice - the wording, the tone, how to make it sound matter-of-fact, the way she'd been trained to make things sound. She had a version that could come out clean. Professional. The kind of thank-you you'd give a colleague who'd covered your shift.
 
 The silence stretched. Osyra didn't fill it. Neither did Rosalyn.
 
@@ -30,7 +30,7 @@ She apologized. She had no idea what else to say.
 
 "What are you apologizing for, sweetheart."
 
-Osyra wiped her face with the back of her wrist. The words came out flat — the voice she'd use for a debrief, because that was the only voice she trusted with this.
+Osyra wiped her face with the back of her wrist. The words came out flat - the voice she'd use for a debrief, because that was the only voice she trusted with this.
 
 "I'm used to being told to leave. Every time. By the third meeting somebody starts looking for a reason to end it. I came in here expecting that. I didn't have a frame for the other thing."
 
@@ -42,7 +42,7 @@ Rosalyn didn't make a thing of it. She kept her hand where it was for a long mom
 
 She sat back down across from Osyra. Picked up her mug. Didn't fill the silence.
 
-Osyra took a drink of hers. The room had gone a little brighter — the kitchen window letting in just enough that the lamp on the counter wasn't pulling its weight anymore. Rosalyn's eggs had gone cold. She didn't seem to notice.
+Osyra took a drink of hers. The room had gone a little brighter - the kitchen window letting in just enough that the lamp on the counter wasn't pulling its weight anymore. Rosalyn's eggs had gone cold. She didn't seem to notice.
 
 "Can I ask you something."
 
@@ -54,7 +54,7 @@ Osyra looked at the picture on the fridge a second. Then back at her grandmother
 
 Rosalyn nodded once.
 
-"Are they — " Osyra couldn't find the rest of it.
+"Are they - " Osyra couldn't find the rest of it.
 
 "Still living?"
 
@@ -62,23 +62,23 @@ Rosalyn nodded once.
 
 Rosalyn took her time with the answer.
 
-"As far as I know. Last word I had was a few years back. They settled in the end — bought a small patch of land up north and put a trailer on it. They grow most of what they eat. There's a kind of struggling that goes quiet once it stops moving."
+"As far as I know. Last word I had was a few years back. They settled in the end - bought a small patch of land up north and put a trailer on it. They grow most of what they eat. There's a kind of struggling that goes quiet once it stops moving."
 
 Osyra nodded. Didn't trust her voice yet.
 
 "I might have something, though. Let me see."
 
-Rosalyn got up slow and went down the hall. Past the room Osyra had slept in. To a door at the end Osyra hadn't noticed before. Hinges complained. A drawer opened. Papers moved. Something heavier — a box — scraped across a wood floor. The kind of sound a person makes when they're not entirely sure where the thing is, only that it's in there somewhere.
+Rosalyn got up slow and went down the hall. Past the room Osyra had slept in. To a door at the end Osyra hadn't noticed before. Hinges complained. A drawer opened. Papers moved. Something heavier - a box - scraped across a wood floor. The kind of sound a person makes when they're not entirely sure where the thing is, only that it's in there somewhere.
 
 Osyra stayed at the table. Drank her coffee. Looked at the photo on the fridge so she didn't have to look at nothing.
 
 After a while Rosalyn came back. Slower than she'd gone. An envelope in one hand and a small folded paper in the other.
 
-"Here." She set them down. "Last letter I got from your mother. Few years old now. It's got a return address — a P.O. box for a small town up north. They'll be near it. They wouldn't have left that land." A pause. "She used to write me once a year. Christmas. Then it stopped. I figured she ran out of things to say. Could mean they're fine."
+"Here." She set them down. "Last letter I got from your mother. Few years old now. It's got a return address - a P.O. box for a small town up north. They'll be near it. They wouldn't have left that land." A pause. "She used to write me once a year. Christmas. Then it stopped. I figured she ran out of things to say. Could mean they're fine."
 
 Osyra picked up the envelope. The handwriting on the front was careful in the way handwriting gets when paper is something you don't waste.
 
-"They're proud, mind you," Rosalyn said. Quiet. "They wouldn't take money. Wouldn't take charity. They taught themselves how to do everything because they had to — how to grow, how to mend, how to fix what most people would throw out. If you go to them — and I'm not telling you to or not to — you bring something they can use, not something that makes them feel small."
+"They're proud, mind you," Rosalyn said. Quiet. "They wouldn't take money. Wouldn't take charity. They taught themselves how to do everything because they had to - how to grow, how to mend, how to fix what most people would throw out. If you go to them - and I'm not telling you to or not to - you bring something they can use, not something that makes them feel small."
 
 "Like what."
 

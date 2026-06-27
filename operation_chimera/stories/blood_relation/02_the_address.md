@@ -22,7 +22,7 @@ Vanity was the only one in the building who could make a rank sound like a greet
 
 "You smell like a school that has been closed for twenty years."
 
-Osyra sat. Vanity moved to the chair opposite, deliberately a half-beat slow — the android courtesy of pretending to be a person who needed a moment. A small folder sat on the table between them. Vanity slid it across.
+Osyra sat. Vanity moved to the chair opposite, deliberately a half-beat slow - the android courtesy of pretending to be a person who needed a moment. A small folder sat on the table between them. Vanity slid it across.
 
 "That's the woman in your photograph."
 
@@ -30,7 +30,7 @@ Osyra opened the folder.
 
 A color photograph paper-clipped to the corner: an older woman in a sun hat, in a garden, smiling at someone off-camera. Her face was the face from the 1985 wall, thirty years later. Her face was Osyra's own face forty years older.
 
-"Dr. Rosalyn Renaya," Vanity said. "Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995 — same school you came from. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law — your biological parents, per the foster paperwork on you — left the area when you were an infant. Their records thin out after that and don't come back. Her record on you ends at the foster system."
+"Dr. Rosalyn Renaya," Vanity said. "Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995 - same school you came from. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law - your biological parents, per the foster paperwork on you - left the area when you were an infant. Their records thin out after that and don't come back. Her record on you ends at the foster system."
 
 Osyra looked at the page. Read the address.
 
@@ -64,17 +64,17 @@ Osyra looked at her.
 
 "Today."
 
-Vanity inclined her head — a small mechanical motion that meant *acknowledged*, and also meant *I'm proud of you*, and also meant *don't make me say it*.
+Vanity inclined her head - a small mechanical motion that meant *acknowledged*, and also meant *I'm proud of you*, and also meant *don't make me say it*.
 
 "Take the week. More if you need it. The queue will hold."
 
 "And you'll log it as what."
 
-"Personal. You're not on a clock and you're not reporting in. Call me when you feel like it — once a day, so I know you're alive. That's all I want." A half-beat. "Just your voice down the line. That'll do."
+"Personal. You're not on a clock and you're not reporting in. Call me when you feel like it - once a day, so I know you're alive. That's all I want." A half-beat. "Just your voice down the line. That'll do."
 
 "I can do that."
 
-Osyra stood. The folder went into her bag with the schoolhouse photograph. Two pieces of Rosalyn she had now — one from 1985, one from an agency record — were going to meet a third in person soon.
+Osyra stood. The folder went into her bag with the schoolhouse photograph. Two pieces of Rosalyn she had now - one from 1985, one from an agency record - were going to meet a third in person soon.
 
 "Operator."
 
