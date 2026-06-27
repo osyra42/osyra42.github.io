@@ -24,7 +24,7 @@ window.UPDATES = {
     "how_magnets_work.html":     { title: "How Magnets Work",     date: "2026.05.08" },
     "worksheets.html":           { title: "Worksheets",           date: "2026.06.20" },
     "better_for_free.html":      { title: "Better for Free",      date: "2026.06.20" },
-    "comfyui_guide.html":        { title: "ComfyUI Guide",        date: "2026.06.20" },
+    "comfyui_guide.html":        { title: "ComfyUI Guide",        date: "2026.06.27" },
     "brewdown.html":             { title: "Brewdown",             date: "2026.05.23" },
     "blender_resources.html":    { title: "Blender Resources",    date: "2026.05.08" },
     "zen_launcher.html":         { title: "Zen Launcher",         date: "2026.05.08" },
