@@ -1,0 +1,156 @@
+<!-- oc_lore.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lore - Operation Chimera - Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="The Operation Chimera codex - characters, locations, groups, and the world lore behind the Chimera Project." />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, Operation Chimera, lore, wiki, characters, chimera" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Operation Chimera - Lore" />
+  <meta property="og:description" content="The Operation Chimera codex - characters, locations, and world lore." />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/oc_lore.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Operation Chimera - Lore" />
+  <meta name="twitter:description" content="The Operation Chimera codex - characters, locations, and world lore." />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/signature.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
+  <script src="assets/js/brewdown.js" defer></script>
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
+
+  <script>
+    image = "operation_chimera.jpg";
+    title = "Operation Chimera Lore";
+  </script>
+
+  <style>
+    #wiki-loader a[href$=".md"] {
+      color: var(--caramel);
+    }
+    #wiki-loader a[href$=".md"]:hover {
+      color: var(--pumpkin-spice);
+      text-decoration: underline;
+    }
+    #wiki-loader a[href$=".md"].active {
+      color: var(--pumpkin-spice);
+      font-weight: bold;
+    }
+    .chapter-content {
+      background: var(--dark-mocha);
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border-left: 3px solid var(--pumpkin-spice);
+    }
+    .chapter-content p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+    .chapter-content h1, .chapter-content h2, .chapter-content h3 {
+      color: var(--pumpkin-spice);
+    }
+    @media print {
+      .chapter-content {
+        background: white;
+        color: black;
+        border-left-color: #333;
+      }
+      .chapter-content h1, .chapter-content h2, .chapter-content h3 {
+        color: black;
+      }
+    }
+    .loading {
+      color: var(--half-and-half);
+      font-style: italic;
+    }
+  </style>
+
+</head>
+<body>
+
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+  <!-- Main Content -->
+  <main>
+
+    <div id="wiki-loader" class="brewdown">
+# 🌐 Operation Chimera — Lore
+
+[← Operation Chimera](operation_chimera.html) · *Codex*
+
+> The in-world codex. Click any entry below to open it. Covers the characters, locations, groups, and the world behind the Chimera Project.
+
+---
+
+<script data-brewdown="operation_chimera/lore/index.md"></script>
+
+---
+
+::signature::
+    </div>
+
+    <button id="back-to-top">Back to Top</button>
+
+  </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('wiki-loader');
+    if (!container) return;
+
+    // Delegate click handling on the container so it catches links added later
+    // by the async wiki fetch (wiki/index.md loads after DOMContentLoaded).
+    container.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href$=".md"]');
+        if (!link || !container.contains(link)) return;
+
+        e.preventDefault();
+        const parent = link.closest('p, h1, h2, h3, h4, h5, h6');
+        if (!parent) return;
+        const existing = parent.nextElementSibling;
+
+        // If already open, toggle it closed
+        if (existing && existing.classList.contains('chapter-content')) {
+            existing.remove();
+            link.classList.remove('active');
+            return;
+        }
+
+        // Create content div after the parent element
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'chapter-content';
+        contentDiv.innerHTML = '<p class="loading">Loading...</p>';
+        parent.insertAdjacentElement('afterend', contentDiv);
+        link.classList.add('active');
+
+        fetch(link.href + '?t=' + Date.now())
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to load file');
+                return response.text();
+            })
+            .then(text => {
+                contentDiv.innerHTML = Brewdown.brewdown(text);
+            })
+            .catch(error => {
+                contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
+            });
+    });
+});
+</script>
+
+</body>
+</html>

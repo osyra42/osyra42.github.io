@@ -1,4 +1,4 @@
-# The Reveal
+# Chapter 4 - The Reveal
 
 The back room was small. Wood paneling on the walls, a single bed made up with a hand-stitched quilt, a low dresser, a window that looked out into the dark of the yard. A second door on the right opened onto a bathroom - Osyra could see a strip of tile through the gap.
 

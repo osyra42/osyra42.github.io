@@ -1,6 +1,6 @@
 # Dr. Rosalyn Renaya
 
-![Rosalyn Renaya](operation_chimera/wiki/imgs/rosalyn0.jpg)
+![Rosalyn Renaya](operation_chimera/lore/imgs/rosalyn0.jpg)
 
 ## Current
 Osyra's biological grandmother. Very gentle and sweet. The emotional anchor in a story full of people who don't do emotions well. She accepts all people the way they are and tries to understand them rather than tell them how to live. She just listens.

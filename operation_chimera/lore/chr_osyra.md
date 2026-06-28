@@ -1,6 +1,6 @@
 # Osyra Renaya
 
-![Osyra Renaya](operation_chimera/wiki/imgs/osyra0.jpg)
+![Osyra Renaya](operation_chimera/lore/imgs/osyra0.jpg)
 
 ## Current
 Osyra Renaya. A Chimeran Operator - part wolf, part human. Dark, brooding, and indifferent - she doesn't speak much until it's absolutely necessary. She saves people because it's her job, not because she wants to.

@@ -1,4 +1,4 @@
-# The Morning
+# Chapter 6 - The Morning
 
 Osyra woke up before the sun.
 

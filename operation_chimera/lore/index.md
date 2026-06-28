@@ -1,18 +1,19 @@
 **Lore**
-  [World Lore](operation_chimera/wiki/lore.md)
+  [World Lore](operation_chimera/lore/lore.md)
 
 **Groups**
-  [The Agency](operation_chimera/wiki/grp_agency.md)
+  [The Agency](operation_chimera/lore/grp_agency.md)
 
 **Characters**
-  [Alissa McKay](operation_chimera/wiki/chr_alissa.md)
-  [Eric McKay](operation_chimera/wiki/chr_eric.md)
-  [John Korval](operation_chimera/wiki/chr_korval.md)
-  [Layla Null](operation_chimera/wiki/chr_layla.md)
-  [Osyra Renaya](operation_chimera/wiki/chr_osyra.md)
-  [Rosalyn Renaya](operation_chimera/wiki/chr_rosalyn.md)
-  [Uta Yuki](operation_chimera/wiki/chr_uta.md)
-  [Vanity](operation_chimera/wiki/chr_vanity.md)
+  [Alissa McKay](operation_chimera/lore/chr_alissa.md)
+  [Eric McKay](operation_chimera/lore/chr_eric.md)
+  [John Korval](operation_chimera/lore/chr_korval.md)
+  [Layla Null](operation_chimera/lore/chr_layla.md)
+  [Osyra Renaya](operation_chimera/lore/chr_osyra.md)
+  [Rosalyn Renaya](operation_chimera/lore/chr_rosalyn.md)
+  [Uta Yuki](operation_chimera/lore/chr_uta.md)
+  [Vanity](operation_chimera/lore/chr_vanity.md)
 
 **Locations**
-  [Aurora Pulse](operation_chimera/wiki/loc_aurora_pulse.md)
+  [Aurora Pulse](operation_chimera/lore/loc_aurora_pulse.md)
+  [The Hunting Lodge](operation_chimera/lore/loc_hunting_lodge.md)

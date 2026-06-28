@@ -1,6 +1,6 @@
 # Layla Null
 
-![Layla Null](operation_chimera/wiki/imgs/layla0.jpg)
+![Layla Null](operation_chimera/lore/imgs/layla0.jpg)
 
 ## Current
 Mousey, meek, not intimidating, but extremely smart. The emotional support of the team - she assists Vanity with situations that require a human touch. Super empathetic.

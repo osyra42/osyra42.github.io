@@ -1,4 +1,4 @@
-# The Letting Go
+# Chapter 5 - The Letting Go
 
 Rosalyn didn't leave right away. She knew that if she stood up to go, Osyra would start crying, and that wasn't a thing either of them wanted to do in front of the other.
 

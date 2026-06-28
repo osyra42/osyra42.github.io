@@ -1,4 +1,4 @@
-# The Address
+# Chapter 2 - The Address
 
 The containment lounge sat between the vault corridor and the rest of the building. Long tables. Padded chairs. Coffee that was always on. Low-light displays along one wall showing the current inventory of the vaults, color-coded by threat tier. A ficus in the corner that had been alive longer than Osyra had been with the agency.
 
@@ -16,11 +16,11 @@ She stood near the long table, hands clasped behind her back, looking at one of 
 
 Vanity was the only one in the building who could make a rank sound like a greeting and not an order. She was also the only one Osyra answered with her real name and not her surname. The arrangement had never been negotiated out loud.
 
-"Sit. You smell like the school."
+"Sit. You smell like cedar and animal furs."
 
-"I smell like a school."
+"I smell like home."
 
-"You smell like a school that has been closed for twenty years."
+"You smell like a hunting lodge that hasn't been aired out in twenty years."
 
 Osyra sat. Vanity moved to the chair opposite, deliberately a half-beat slow - the android courtesy of pretending to be a person who needed a moment. A small folder sat on the table between them. Vanity slid it across.
 
@@ -28,9 +28,9 @@ Osyra sat. Vanity moved to the chair opposite, deliberately a half-beat slow - t
 
 Osyra opened the folder.
 
-A color photograph paper-clipped to the corner: an older woman in a sun hat, in a garden, smiling at someone off-camera. Her face was the face from the 1985 wall, thirty years later. Her face was Osyra's own face forty years older.
+A color photograph paper-clipped to the corner: an older woman in a sun hat, in a garden, smiling at someone off-camera. Her face was the face from the photograph in Osyra's coat, thirty years later. Her face was Osyra's own face forty years older.
 
-"Dr. Rosalyn Renaya," Vanity said. "Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995 - same school you came from. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law - your biological parents, per the foster paperwork on you - left the area when you were an infant. Their records thin out after that and don't come back. Her record on you ends at the foster system."
+"Dr. Rosalyn Renaya," Vanity said. "Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995, a few towns from where you were born. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law - your biological parents, per the foster paperwork on you - left the area when you were an infant. Their records thin out after that and don't come back. Her record on you ends at the foster system."
 
 Osyra looked at the page. Read the address.
 
@@ -74,7 +74,7 @@ Vanity inclined her head - a small mechanical motion that meant *acknowledged*, 
 
 "I can do that."
 
-Osyra stood. The folder went into her bag with the schoolhouse photograph. Two pieces of Rosalyn she had now - one from 1985, one from an agency record - were going to meet a third in person soon.
+Osyra stood. The folder went into her bag with the photograph from the house. Two pieces of Rosalyn she had now - one from 1985, one from an agency record - were going to meet a third in person soon.
 
 "Operator."
 

@@ -1,6 +1,6 @@
 # Eric McKay
 
-![Eric McKay](operation_chimera/wiki/imgs/eric.jpg)
+![Eric McKay](operation_chimera/lore/imgs/eric.jpg)
 
 ## Current
 Has not yet appeared.

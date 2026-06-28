@@ -36,48 +36,6 @@
     title = "Operation Chimera";
   </script>
 
-  <style>
-    #wiki-loader a[href$=".md"] {
-      color: var(--caramel);
-    }
-    #wiki-loader a[href$=".md"]:hover {
-      color: var(--pumpkin-spice);
-      text-decoration: underline;
-    }
-    #wiki-loader a[href$=".md"].active {
-      color: var(--pumpkin-spice);
-      font-weight: bold;
-    }
-    .chapter-content {
-      background: var(--dark-mocha);
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border-radius: 8px;
-      border-left: 3px solid var(--pumpkin-spice);
-    }
-    .chapter-content p {
-      margin: 0.5rem 0;
-      line-height: 1.6;
-    }
-    .chapter-content h1, .chapter-content h2, .chapter-content h3 {
-      color: var(--pumpkin-spice);
-    }
-    @media print {
-      .chapter-content {
-        background: white;
-        color: black;
-        border-left-color: #333;
-      }
-      .chapter-content h1, .chapter-content h2, .chapter-content h3 {
-        color: black;
-      }
-    }
-    .loading {
-      color: var(--half-and-half);
-      font-style: italic;
-    }
-  </style>
-
 </head>
 <body>
 
@@ -87,93 +45,37 @@
   <!-- Main Content -->
   <main>
 
-    <div class="download-bar">
-      <h1>Operation Chimera</h1>
-      <button class="download-btn" onclick="window.print()">Save as PDF</button>
-    </div>
-
-    <div id="wiki-loader" class="brewdown">
+    <div class="brewdown">
 # 📖 Operation Chimera
 
-> **Operation Chimera** is an ongoing collection of sci-fi noir short stories. The cast keeps getting pulled into the Chimera Project - a secret program that turns people into engineered hybrid operatives. Each story is its own mission, but the same characters (Osyra, Vanity, and the rest of the team) carry through. It's dark, the choices aren't clean, and the conspiracy unwinds slowly.
+> **Operation Chimera** is an ongoing collection of sci-fi noir stories. The cast keeps getting pulled into the Chimera Project - a secret program that turns people into engineered hybrid operatives. It's dark, the choices aren't clean, and the conspiracy unwinds slowly.
 
 <script data-brewdown="operation_chimera/content_warning.md"></script>
 
-::toc::
+---
 
-## 🩸 Blood Relation
+## 🗡️ Main Story — The Chimera Incident
 
->>> 01 - The Schoolhouse
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/01_the_schoolhouse.md"></script>
-</div>
-<<<
+The main quest: the core conspiracy behind the Chimera Project, told in order across sections.
 
->>> 02 - The Address
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/02_the_address.md"></script>
-</div>
-<<<
-
->>> 03 - The Visit
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/03_the_visit.md"></script>
-</div>
-<<<
-
->>> 04 - The Reveal
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/04_the_reveal.md"></script>
-</div>
-<<<
-
->>> 05 - The Letting Go
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/05_the_letting_go.md"></script>
-</div>
-<<<
-
->>> 06 - The Morning
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/06_the_morning.md"></script>
-</div>
-<<<
-
->>> 07 - The Letter
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/07_the_letter.md"></script>
-</div>
-<<<
-
->>> 08 - The Road North
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/08_the_road_north.md"></script>
-</div>
-<<<
-
->>> 09 - The People Up North
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/blood_relation/09_the_people_up_north.md"></script>
-</div>
-<<<
+- [📁 Section 01](oc_section01.html) - *coming soon*
 
 ---
 
-## 🫀 Mireheart
+## 🧭 Side Stories
 
->>> 01 - Placeholder
-<div class="chapter-content">
-<script data-brewdown="operation_chimera/stories/mireheart/01_placeholder.md"></script>
-</div>
-<<<
+Self-contained missions. They really happened in-world, but they aren't tied to the Chimera Incident - read them in any order.
+
+- [🩸 Blood Relation](oc_blood_relation.html) - an old photograph from a job leads Osyra to a thread of her own blood
+- [🫀 Mireheart](oc_mireheart.html) - the Book of Brine, an artifact that wants to be read *(in progress)*
 
 ---
 
-## 🌐 Wiki
+## 📖 Lore
 
->>> Click to View
-<script data-brewdown="operation_chimera/wiki/index.md"></script>
-<<<
+The in-world codex: characters, locations, groups, and the world behind the Chimera Project.
+
+- [🌐 Operation Chimera Wiki](oc_lore.html)
 
 ---
 
@@ -183,51 +85,6 @@
     <button id="back-to-top">Back to Top</button>
 
   </main>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const container = document.getElementById('wiki-loader');
-    if (!container) return;
-
-    // Delegate click handling on the container so it catches links added later
-    // by the async wiki fetch (wiki/index.md loads after DOMContentLoaded).
-    container.addEventListener('click', function(e) {
-        const link = e.target.closest('a[href$=".md"]');
-        if (!link || !container.contains(link)) return;
-
-        e.preventDefault();
-        const parent = link.closest('p, h1, h2, h3, h4, h5, h6');
-        if (!parent) return;
-        const existing = parent.nextElementSibling;
-
-        // If already open, toggle it closed
-        if (existing && existing.classList.contains('chapter-content')) {
-            existing.remove();
-            link.classList.remove('active');
-            return;
-        }
-
-        // Create content div after the parent element
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'chapter-content';
-        contentDiv.innerHTML = '<p class="loading">Loading...</p>';
-        parent.insertAdjacentElement('afterend', contentDiv);
-        link.classList.add('active');
-
-        fetch(link.href + '?t=' + Date.now())
-            .then(response => {
-                if (!response.ok) throw new Error('Failed to load file');
-                return response.text();
-            })
-            .then(text => {
-                contentDiv.innerHTML = Brewdown.brewdown(text);
-            })
-            .catch(error => {
-                contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
-            });
-    });
-});
-</script>
 
 </body>
 </html>

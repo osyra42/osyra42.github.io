@@ -1,4 +1,4 @@
-# The Letter
+# Chapter 7 - The Letter
 
 There were a few moments of silence. Something was on Osyra's mind. She wanted to say something.
 

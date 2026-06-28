@@ -1,6 +1,6 @@
 # Aurora Pulse
 
-![Aurora Pulse](operation_chimera/wiki/imgs/aurora0.png)
+![Aurora Pulse](operation_chimera/lore/imgs/aurora0.png)
 
 ## Current
 Uta Yuki's nightclub. A place where young adults go to dance, drink, eat, and hang out. Owner and occasional DJ: Uta Yuki.
