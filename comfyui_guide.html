@@ -53,6 +53,8 @@
     <div class="brewdown">
 # 🎨 How to Use ComfyUI
 
+::toc::
+
 ## 🖌️ What is ComfyUI?
 
 [ComfyUI](https://github.com/comfyanonymous/ComfyUI) is a node-based interface for Stable Diffusion and other generative AI models. Instead of a single text box, you build your image generation pipeline by wiring nodes together - similar to Blender's shader nodes or Unreal's Blueprints.
@@ -65,7 +67,44 @@
 - **Efficient** - Only re-runs changed parts of your workflow
 - **Extensible** - Huge library of custom nodes from the community
 
-For installation and getting started, see the [official ComfyUI documentation](https://docs.comfy.org/).
+---
+
+## 🚀 Getting Started
+
+The fastest way to get running on Windows with an NVIDIA GPU:
+
+1. Download the **portable build** from the [ComfyUI releases page](https://github.com/comfyanonymous/ComfyUI/releases).
+2. Extract the `.7z` somewhere with plenty of space (models are large).
+3. Run `run_nvidia_gpu.bat` (use `run_cpu.bat` only if you have no compatible GPU - it's very slow).
+4. ComfyUI opens in your browser at `http://127.0.0.1:8188`.
+
+For full instructions and other platforms, see the [official ComfyUI documentation](https://docs.comfy.org/).
+
+#### 📁 Where Each File Goes
+
+Drop your downloaded models into the matching folder under `ComfyUI/models/`:
+
+| File type | Folder |
+| --- | --- |
+| Checkpoints | `models/checkpoints/` |
+| LoRAs | `models/loras/` |
+| VAE | `models/vae/` |
+| Upscale models | `models/upscale_models/` |
+
+Restart ComfyUI (or hit **Refresh** in the browser) after adding files so they show up in the node dropdowns.
+
+#### 🧩 ComfyUI Manager
+
+Install [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager) early - it's the easiest way to install custom nodes, update ComfyUI, and auto-fetch any missing nodes when you load someone else's workflow. Follow its install steps, then look for the **Manager** button in the ComfyUI menu.
+
+#### 🖥️ Hardware / VRAM
+
+SDXL models (like the checkpoint below) want roughly **8 GB of VRAM** to run comfortably at 1024x1024. If you're tight on memory, launch with one of these flags:
+
+- `--medvram` - balances speed and memory use (good first choice)
+- `--lowvram` - for cards with very little VRAM; slower but gets you running
+
+Add the flag inside the `.bat` file or on the command line.
 
 ---
 
@@ -76,9 +115,9 @@ These are what I use for most of my generations. Tweak them to suit your hardwar
 **Model & LoRAs:**
 
 - **Checkpoint:** [ChalicePDXL_v0.4](https://mega.nz/file/XdEGgKKD#69LIoYJyI6qYEmkuY5U07SxO2d9PsEbZnD5WmYiIUnE)
-- **LoRAs:** HandFineTuning_XL, add-detail-xl
+- **LoRAs:** [HandFineTuning_XL](https://civitai.com/models/278497/hand-fine-tuning?modelVersionId=358694) and [add-detail-xl](https://huggingface.co/LyliaEngine/add-detail-xl/tree/main), both at strength **~1.0**
 - **CLIP Skip:** -2
-- **VAE:** sdxl_vae
+- **VAE:** [sdxl_vae](https://huggingface.co/stabilityai/sdxl-vae/tree/main)
 
 **Generation Settings:**
 
@@ -90,9 +129,25 @@ These are what I use for most of my generations. Tweak them to suit your hardwar
 
 **Upscaling:**
 
-- **Model:** RealESRGAN_x4plus_anime
+- **Model:** [RealESRGAN_x4plus_anime](https://civitai.com/models/147821/realesrganx4plus-anime-6b)
 
 For more on samplers and schedulers, see the [ComfyUI node documentation](https://docs.comfy.org/built-in-nodes/overview).
+
+---
+
+## 🔗 Basic Workflow
+
+When you first open ComfyUI it loads a default text-to-image graph. If you ever need to rebuild it, this is the core chain - each node feeds the next:
+
+1. **Load Checkpoint** - loads your model. Outputs three things: MODEL, CLIP, and VAE.
+2. **CLIP Text Encode (Prompt) ×2** - one for your positive prompt, one for your negative prompt. Both take the CLIP output from the checkpoint.
+3. **KSampler** - the heart of the graph. Wire in MODEL (from checkpoint), the positive and negative conditioning (from the two CLIP encoders), and a **Empty Latent Image** for the canvas size (1024x1024). This is where steps, CFG, sampler, and scheduler from the settings above live.
+4. **VAE Decode** - turns the KSampler's latent output into an actual image, using the VAE from the checkpoint.
+5. **Save Image** - writes the decoded image to `ComfyUI/output/`.
+
+To add a LoRA, insert a **Load LoRA** node between the checkpoint and the rest: feed it MODEL + CLIP, and route its outputs onward. For upscaling, add an **Upscale Image (using Model)** node after the VAE Decode and point it at your upscale model.
+
+ComfyUI only re-runs the nodes that changed, so tweaking just the prompt won't re-run the whole graph.
 
 ---
 
@@ -144,9 +199,9 @@ brown jacket unzipped, jacket with a hood, light yellow shirt, and blue pants,
 
 ## 🎭 Character Prompts
 
-These are tested prompts for my original characters. The confidence percentage is how reliably each one comes out right.
+These are tested prompts for my original characters. The confidence percentage is roughly how many out of ten generations come out usable - so 97% means almost every gen lands, while 90% means you'll cull a few more.
 
-### Osyra (97% Confidence)
+#### Osyra (97% Confidence)
 
 ```
 score_9, score_8_up, score_7_up, best quality, 4k, masterpiece, digital art,
@@ -156,7 +211,7 @@ score_9, score_8_up, score_7_up, best quality, 4k, masterpiece, digital art,
 brown jacket unzipped, jacket with a hood, light yellow shirt, and blue pants,
 ```
 
-### Vanity (93% Confidence)
+#### Vanity (93% Confidence)
 
 ```
 score_9, score_8_up, score_7_up, best quality, 4k, masterpiece, digital art, sfw,
@@ -167,7 +222,7 @@ orange hoodie, dark orange sweatpants, clothing, clothing on,
 smile, looking at viewer,
 ```
 
-### Layla (92% Confidence)
+#### Layla (92% Confidence)
 
 ```
 score_9, score_8_up, score_7_up, best quality, 4k, masterpiece, digital art, sfw,
@@ -181,12 +236,29 @@ sad, depressed,
 
 ---
 
+## 🛠️ Troubleshooting
+
+- **Black or grey images** - usually a VAE problem. Make sure a VAE is loaded, and try adding the `--no-half-vae` launch flag.
+- **Out of memory (OOM)** - drop to a smaller resolution, or launch with `--medvram` / `--lowvram`. Tiled VAE decode also helps on large images.
+- **"Missing node" / red nodes** when loading a workflow - open **ComfyUI Manager → Install Missing Custom Nodes**, then restart.
+- **Models not showing in dropdowns** - confirm the file is in the right `models/` subfolder, then hit **Refresh** or restart ComfyUI.
+
+---
+
 ## 📚 Resources
 
 - [ComfyUI GitHub](https://github.com/comfyanonymous/ComfyUI) - Source code and releases
 - [ComfyUI Documentation](https://docs.comfy.org/) - Official guides and tutorials
 - [CivitAI](https://civitai.com/) - Models, LoRAs, and community workflows
 - [ComfyUI Manager](https://github.com/ltdrdata/ComfyUI-Manager) - Essential extension for managing custom nodes
+
+**Models I use:**
+
+- [ChalicePDXL_v0.4](https://mega.nz/file/XdEGgKKD#69LIoYJyI6qYEmkuY5U07SxO2d9PsEbZnD5WmYiIUnE) - Checkpoint
+- [HandFineTuning_XL](https://civitai.com/models/278497/hand-fine-tuning?modelVersionId=358694) - LoRA
+- [add-detail-xl](https://huggingface.co/LyliaEngine/add-detail-xl/tree/main) - LoRA
+- [RealESRGAN_x4plus_anime](https://civitai.com/models/147821/realesrganx4plus-anime-6b) - Upscale model
+- [sdxl_vae](https://huggingface.co/stabilityai/sdxl-vae/tree/main) - VAE
 
 ---
 

@@ -2,31 +2,31 @@
 
 /* Headings */
 main h1 {
-  color: var(--caramel);
+  color: var(--accent);
   font-size: 2.5em;
   margin-bottom: 0.3em;
-  border-bottom: 4px solid var(--caramel);
+  border-bottom: 4px solid var(--accent);
   padding-bottom: 0.3em;
 }
 
 main h2 {
-  color: var(--caramel);
+  color: var(--accent);
   font-size: 1.8em;
   margin-top: 0;
   margin-bottom: 0.5em;
-  border-bottom: 2px solid var(--caramel);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.3em;
 }
 
 main h3 {
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
   font-size: 1.4em;
   margin-top: 0;
   margin-bottom: 0.5em;
 }
 
 main h4 {
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
   font-size: 1.2em;
   margin-top: 0;
   margin-bottom: 0.4em;
@@ -48,7 +48,7 @@ main p.no-indent {
 
 /* Links */
 main a {
-  color: var(--caramel);
+  color: var(--accent);
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -86,7 +86,7 @@ main td {
 
 main th {
   background-color: var(--dark-mocha);
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
   font-weight: bold;
 }
 
@@ -112,7 +112,7 @@ main code {
   border-radius: 3px;
   font-family: 'Courier New', Consolas, monospace;
   font-size: 0.9em;
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
 }
 
 main pre {
@@ -133,7 +133,7 @@ main pre code {
 /* Blockquote */
 main blockquote {
   background: var(--dark-mocha);
-  border-left: 4px solid var(--caramel);
+  border-left: 4px solid var(--accent);
   padding: 1em 1.5em;
   margin: 1.5em 0;
 }
@@ -163,7 +163,7 @@ main hr {
 
 /* Click-to-copy — styled like an <a> link */
 .copy-text {
-  color: var(--caramel);
+  color: var(--accent);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
@@ -181,7 +181,7 @@ main details {
 
 main details summary {
   cursor: pointer;
-  color: var(--caramel);
+  color: var(--accent);
   font-weight: bold;
   padding: 0.25em 0;
   transition: color 0.3s;

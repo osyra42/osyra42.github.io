@@ -11,10 +11,12 @@
   --light-cream: #f8e5c8;
   --half-and-half: #d2b48c;
 
-  /* Syrup & Flavor */
-  --caramel: #d2691e;
-  --pumpkin-spice: #b68d40;
-  --mocha: #8b4513;
+  /* Accent slots — the default flavor (Caramel). Every [data-theme] block
+     below overrides these three with shades of its own flavor.
+     --accent = primary, --accent-light = lighter, --accent-dark = darker. */
+  --accent: #d2691e;
+  --accent-light: #c8843f;
+  --accent-dark: #8b4513;
 
   /* Darker Syrups */
   --dark-caramel: #38271e;
@@ -28,4 +30,91 @@
 
   /* Accent */
   --raspberry: #d7516c;
+}
+
+/* ---------------------------------------------------------------------------
+   Flavor themes — accent-only swaps. Backgrounds/cream stay constant so every
+   theme still reads as "coffee"; only the syrup accents change. Applied via
+   [data-theme="..."] on <html> by sidebar.js (persisted in localStorage).
+   Caramel is the default and lives in :root above (no data-theme attribute).
+   --------------------------------------------------------------------------- */
+[data-theme="mint"] {
+  --accent: #7a9e8c;
+  --accent-light: #9cb8aa;
+  --accent-dark: #5c7a69;
+}
+[data-theme="blueberry"] {
+  --accent: #6d77a6;
+  --accent-light: #9098bd;
+  --accent-dark: #4a5378;
+}
+[data-theme="raspberry"] {
+  --accent: #b86a80;
+  --accent-light: #cf94a4;
+  --accent-dark: #7e4658;
+}
+[data-theme="matcha"] {
+  --accent: #97a86a;
+  --accent-light: #b4c191;
+  --accent-dark: #6c7a45;
+}
+[data-theme="pumpkin"] {
+  --accent: #b07a45;
+  --accent-light: #c89f6b;
+  --accent-dark: #7e5528;
+}
+[data-theme="mocha"] {
+  --accent: #9a6650;
+  --accent-light: #b88c79;
+  --accent-dark: #6e4634;
+}
+[data-theme="hazelnut"] {
+  --accent: #a98a5c;
+  --accent-light: #c4ab83;
+  --accent-dark: #785f3a;
+}
+[data-theme="honey"] {
+  --accent: #bf9f5c;
+  --accent-light: #d6bf8a;
+  --accent-dark: #8a6f35;
+}
+[data-theme="ube"] {
+  --accent: #8a6fa8;
+  --accent-light: #ab95c2;
+  --accent-dark: #5f497a;
+}
+[data-theme="rose"] {
+  --accent: #b97f8c;
+  --accent-light: #d3a6af;
+  --accent-dark: #84545f;
+}
+[data-theme="chai"] {
+  --accent: #b56a4a;
+  --accent-light: #cf9075;
+  --accent-dark: #7e4630;
+}
+[data-theme="lavender"] {
+  --accent: #9a8fc0;
+  --accent-light: #bcb4d6;
+  --accent-dark: #6c6191;
+}
+[data-theme="peach"] {
+  --accent: #d39a78;
+  --accent-light: #e6bda3;
+  --accent-dark: #9c6a4c;
+}
+[data-theme="lemon"] {
+  --accent: #c2b34f;
+  --accent-light: #d6cb83;
+  --accent-dark: #8a7e30;
+}
+[data-theme="plum"] {
+  --accent: #97607e;
+  --accent-light: #b88da6;
+  --accent-dark: #6a4057;
+}
+[data-theme="espresso"] {
+  --accent: #9a7d68;
+  --accent-light: #b8a08c;
+  --accent-dark: #6e5544;
 }

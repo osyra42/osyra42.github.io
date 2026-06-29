@@ -11,7 +11,7 @@ sidebar {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   scrollbar-width: thin;
-  scrollbar-color: var(--pumpkin-spice) var(--dark-chocolate);
+  scrollbar-color: var(--accent-light) var(--dark-chocolate);
   -ms-overflow-style: none;
   overflow-x: hidden;
   overscroll-behavior-y: none;
@@ -22,13 +22,13 @@ sidebar {
 sidebar h1 {
   text-align: center;
   font-family: 'Satisfy', cursive, sans-serif;
-  color: var(--caramel);
+  color: var(--accent);
   font-size: 2em;
 }
 
 sidebar h3 {
   font-size: 1.25rem;
-  color: var(--caramel);
+  color: var(--accent);
   margin-bottom: 0px;
   flex-shrink: 0;
   margin-top: 0px;;
@@ -43,7 +43,7 @@ sidebar hr {
 
 sidebar details summary {
   cursor: pointer;
-  color: var(--caramel);
+  color: var(--accent);
   font-weight: bold;
   padding: 0.3em 0;
   transition: color 0.3s;
@@ -60,7 +60,7 @@ sidebar p {
 .sidebar-footer {
   position: relative;
   font-size: 8px;
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
   text-align: center;
   margin: 0;
   padding: 0;
@@ -68,7 +68,7 @@ sidebar p {
 
 .sidebar-footer a {
   font-size: 8px;
-  color: var(--caramel);
+  color: var(--accent);
 }
 
 .sidebar-footer img {
@@ -79,7 +79,7 @@ sidebar p {
 }
 
 sidebar nav {
-  color: var(--mocha);
+  color: var(--accent-dark);
 }
 
 sidebar nav a {
@@ -92,7 +92,7 @@ sidebar nav a {
 }
 
 sidebar nav a:hover {
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
 }
 
 /* Archive dropdown */
@@ -141,7 +141,7 @@ sidebar .nav-dropdown-item {
 }
 
 sidebar .nav-dropdown-item:hover {
-    color: var(--pumpkin-spice);
+    color: var(--accent-light);
 }
 
 sidebar div {
@@ -160,7 +160,7 @@ sidebar div a {
 }
 
 sidebar div a:hover {
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
 }
 
 sidebar > div:first-child {
@@ -192,6 +192,77 @@ sidebar h2 {
   height: 40px;
   line-height: 36px;
   border: var(--half-and-half) 2px solid;
+}
+
+/* "Ordering menu" card: a vertical cursive "Menu" label down the side,
+   with the flavor swatches stacked beside it inside a bordered box. */
+.theme-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px auto 0;
+  width: fit-content;
+  padding: 8px 12px;
+  background-color: var(--dark-mocha);
+  border: 2px solid var(--toasted-almond);
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.theme-menu-label {
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  line-height: 1;
+  padding-left: 4px;
+  border-left: 1px solid var(--toasted-almond);
+}
+
+.theme-picker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;          /* override sidebar div { margin-bottom: 8px } */
+  padding: 2px;
+}
+
+.theme-row {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;          /* override sidebar div { margin-bottom: 8px } */
+}
+
+/* Nudge staggered rows right by half a swatch for a subtle offset. */
+.theme-row--offset {
+  margin-left: 4px;
+}
+
+.theme-swatch {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid var(--coffee-bean);
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease;
+}
+
+.theme-swatch:hover {
+  transform: scale(1.15);
+}
+
+.theme-swatch.active {
+  border-color: var(--steamed-milk);
+  box-shadow: 0 0 0 2px var(--dark-mocha), 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 @media print {

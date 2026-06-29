@@ -15,7 +15,7 @@ main {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
   scrollbar-width: thin;
-  scrollbar-color: var(--pumpkin-spice) var(--dark-chocolate);
+  scrollbar-color: var(--accent-light) var(--dark-chocolate);
   -ms-overflow-style: none;
   overflow-x: hidden;
   overscroll-behavior-y: none;
@@ -69,13 +69,13 @@ main .download-bar {
 main .download-bar h1 {
   font-size: 1.5em;
   font-weight: normal;
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
   border-bottom: none;
   padding-bottom: 0;
 }
 
 main .download-btn {
-  background-color: var(--caramel);
+  background-color: var(--accent);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -87,7 +87,7 @@ main .download-btn {
 }
 
 main .download-btn:hover {
-  background-color: var(--pumpkin-spice);
+  background-color: var(--accent-light);
 }
 
 /* Brewdown output styles are in brewdown.css */
@@ -102,7 +102,7 @@ main .toc {
 }
 
 main .toc h2 {
-  color: var(--caramel);
+  color: var(--accent);
   margin-bottom: 15px;
   margin-top: 0;
   font-size: 1.4em;
@@ -121,7 +121,7 @@ main .toc li {
   break-inside: avoid;
 }
 
-main .toc a { color: var(--caramel); }
+main .toc a { color: var(--accent); }
 main .toc a:hover { color: var(--light-cream); }
 
 /* Characters section */
@@ -134,7 +134,7 @@ main .characters {
 }
 
 main .characters h2 {
-  color: var(--caramel);
+  color: var(--accent);
   margin-bottom: 15px;
   margin-top: 0;
   font-size: 1.4em;
@@ -158,13 +158,13 @@ main .characters li::before {
   content: "\2726";
   position: absolute;
   left: 0;
-  color: var(--caramel);
+  color: var(--accent);
 }
 
 /* Info boxes */
 main .info-box {
   background: var(--dark-mocha);
-  border-left: 4px solid var(--caramel);
+  border-left: 4px solid var(--accent);
   padding: 1em 1.5em;
   margin: 1.5em 0;
 }
@@ -175,7 +175,7 @@ main .info-box p {
 }
 
 main .info-box p:last-child { margin-bottom: 0; }
-main .info-box strong { color: var(--pumpkin-spice); }
+main .info-box strong { color: var(--accent-light); }
 
 /* Warning boxes */
 main .warning-box {
@@ -212,13 +212,13 @@ main .executive-summary {
 
 main .executive-summary h3 {
   margin-top: 0;
-  color: var(--caramel);
+  color: var(--accent);
 }
 
 /* Journal entries */
 main .journal-entry {
   background: var(--dark-mocha);
-  border-left: 4px solid var(--caramel);
+  border-left: 4px solid var(--accent);
   padding: 1em 1.5em;
   margin: 1.5em 0;
   font-style: italic;
@@ -228,7 +228,7 @@ main .journal-entry p { text-indent: 0; }
 
 main .journal-date {
   font-weight: bold;
-  color: var(--pumpkin-spice);
+  color: var(--accent-light);
   font-style: normal;
 }
 
@@ -254,7 +254,7 @@ main .page-break { page-break-before: always; }
 main .section-divider {
   text-align: center;
   margin: 2em 0;
-  color: var(--caramel);
+  color: var(--accent);
 }
 
 main .note-text {

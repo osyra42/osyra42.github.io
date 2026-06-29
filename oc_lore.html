@@ -38,14 +38,14 @@
 
   <style>
     #wiki-loader a[href$=".md"] {
-      color: var(--caramel);
+      color: var(--accent);
     }
     #wiki-loader a[href$=".md"]:hover {
-      color: var(--pumpkin-spice);
+      color: var(--accent-light);
       text-decoration: underline;
     }
     #wiki-loader a[href$=".md"].active {
-      color: var(--pumpkin-spice);
+      color: var(--accent-light);
       font-weight: bold;
     }
     .chapter-content {
@@ -53,14 +53,14 @@
       padding: 1rem;
       margin: 0.5rem 0;
       border-radius: 8px;
-      border-left: 3px solid var(--pumpkin-spice);
+      border-left: 3px solid var(--accent-light);
     }
     .chapter-content p {
       margin: 0.5rem 0;
       line-height: 1.6;
     }
     .chapter-content h1, .chapter-content h2, .chapter-content h3 {
-      color: var(--pumpkin-spice);
+      color: var(--accent-light);
     }
     @media print {
       .chapter-content {
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 contentDiv.innerHTML = Brewdown.brewdown(text);
             })
             .catch(error => {
-                contentDiv.innerHTML = '<p style="color: var(--caramel);">Error: ' + error.message + '</p>';
+                contentDiv.innerHTML = '<p style="color: var(--accent);">Error: ' + error.message + '</p>';
             });
     });
 });

@@ -1,5 +1,67 @@
 //sidebar.js
 
+// Flavor themes — accent-only palettes (see [data-theme] blocks in theme.css).
+// `color` is the swatch dot (each theme's primary accent). "caramel" is the
+// default :root palette and carries no data-theme attribute.
+const THEMES = [
+    { id: 'caramel',   label: 'Caramel',   color: '#d2691e' },
+    { id: 'mint',      label: 'Mint',      color: '#7a9e8c' },
+    { id: 'blueberry', label: 'Blueberry', color: '#6d77a6' },
+    { id: 'raspberry', label: 'Raspberry', color: '#b86a80' },
+    { id: 'matcha',    label: 'Matcha',    color: '#97a86a' },
+    { id: 'pumpkin',   label: 'Pumpkin Spice', color: '#b07a45' },
+    { id: 'mocha',     label: 'Mocha',     color: '#9a6650' },
+    { id: 'hazelnut',  label: 'Hazelnut',  color: '#a98a5c' },
+    { id: 'honey',     label: 'Honey',     color: '#bf9f5c' },
+    { id: 'ube',       label: 'Ube',       color: '#8a6fa8' },
+    { id: 'rose',      label: 'Rose',      color: '#b97f8c' },
+    { id: 'chai',      label: 'Chai',      color: '#b56a4a' },
+    { id: 'lavender',  label: 'Lavender',  color: '#9a8fc0' },
+    { id: 'peach',     label: 'Peach',     color: '#d39a78' },
+    { id: 'lemon',     label: 'Lemon',     color: '#c2b34f' },
+    { id: 'plum',      label: 'Plum',      color: '#97607e' },
+    { id: 'espresso',  label: 'Espresso',  color: '#9a7d68' },
+];
+
+// How many rows of swatches to lay out in the picker. Themes are dealt across
+// the rows round-robin, and odd rows are nudged right for a staggered look.
+const THEME_ROWS = 3;
+
+function themePickerRows() {
+    const swatch = t =>
+        `<button class="theme-swatch" type="button" data-theme-id="${t.id}" data-tooltip="${t.label}" aria-label="${t.label} theme" style="background:${t.color}"></button>`;
+
+    // Row sizes: spread evenly, then hand any remainder to the OUTER rows first
+    // (top, bottom, then inward) so the layout stays symmetric — e.g. 17 -> 6,5,6.
+    const sizes = new Array(THEME_ROWS).fill(Math.floor(THEMES.length / THEME_ROWS));
+    let rem = THEMES.length % THEME_ROWS;
+    for (let step = 0; rem > 0; step++) {
+        sizes[step % 2 === 0 ? step / 2 : THEME_ROWS - 1 - (step - 1) / 2]++;
+        rem--;
+    }
+
+    let html = '';
+    let i = 0;
+    for (let r = 0; r < THEME_ROWS; r++) {
+        const offset = r % 2 === 1 ? ' theme-row--offset' : '';
+        const dots = THEMES.slice(i, i + sizes[r]).map(swatch).join('');
+        i += sizes[r];
+        html += `<div class="theme-row${offset}">${dots}</div>`;
+    }
+    return html;
+}
+
+function applyTheme(id) {
+    if (id && id !== 'caramel') {
+        document.documentElement.setAttribute('data-theme', id);
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+}
+
+// Apply the saved theme ASAP (before DOMContentLoaded) to minimise flash.
+applyTheme(localStorage.getItem('theme') || 'caramel');
+
 document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.querySelector('sidebar');
     if (!sidebar) return;
@@ -65,6 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="assets/images/profiles/${image}" alt="${title}" />
     </div>
     <h2>${title}</h2>
+    <div class="theme-menu">
+      <span class="theme-menu-label">Flavors</span>
+      <div class="theme-picker" role="group" aria-label="Color theme">
+${themePickerRows()}
+      </div>
+    </div>
 </div>
 <nav class="sidebar-nav"></nav>
 <hr/>
@@ -97,5 +165,18 @@ document.addEventListener('DOMContentLoaded', function() {
             badge.textContent = ' ✨';
             a.after(badge);
         }
+    });
+
+    // Theme picker: highlight the active swatch and switch theme on click.
+    const current = localStorage.getItem('theme') || 'caramel';
+    const swatches = sidebar.querySelectorAll('.theme-swatch');
+    swatches.forEach(btn => {
+        if (btn.dataset.themeId === current) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.themeId;
+            localStorage.setItem('theme', id);
+            applyTheme(id);
+            swatches.forEach(b => b.classList.toggle('active', b === btn));
+        });
     });
 });

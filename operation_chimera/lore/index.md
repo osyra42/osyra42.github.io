@@ -1,6 +1,9 @@
 **Lore**
   [World Lore](operation_chimera/lore/lore.md)
 
+**Concepts**
+  [The Chimera Vaccine](operation_chimera/lore/con_vaccine.md)
+
 **Groups**
   [The Agency](operation_chimera/lore/grp_agency.md)
 
