@@ -10,7 +10,7 @@
 // Keys are the page's href exactly as used in the sidebar (e.g. "sipsip/index.html").
 window.UPDATES = {
     "index.html":                { title: "Home Page",            date: "2026.06.26" },
-    "minecraft.html":            { title: "Minecraft Server",     date: "2026.06.27" },
+    "minecraft.html":            { title: "Minecraft Server",     date: "2026.06.28" },
     "recommendations.html":      { title: "Recommendations",      date: "2026.06.26" },
     "support_me.html":           { title: "Support Me",           date: "2026.06.26" },
     "operation_chimera.html":    { title: "Operation Chimera",    date: "2026.06.28" },
