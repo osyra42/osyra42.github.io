@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMarkdown = `
 **Site**
 - [🏠 Home Page](index.html)
+- [🎯 Bounties](bounties.html)
 - [📰 Changelog](changelog.html)
 - [⛏️ Minecraft Server](minecraft.html)
 - [⭐ Recommendations](recommendations.html)

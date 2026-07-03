@@ -33,11 +33,12 @@ window.UPDATES = {
     "brewdown.html":             { title: "Brewdown",             date: "2026.05.23" },
     "blender_resources.html":    { title: "Blender Resources",    date: "2026.05.08" },
     "zen_launcher.html":         { title: "Zen Launcher",         date: "2026.05.08" },
+    "bounties.html":             { title: "Bounties",             date: "2026.07.03" },
     "vanity.html":               { title: "Vanity Bot",           date: "2026.05.05" },
     "casio_code.html":           { title: "Casio Code",           date: "2026.04.27" },
     "code_resources.html":       { title: "Code Resources",       date: "2026.03.07" },
     "3d_prints.html":            { title: "3D Prints",            date: "2026.06.16" },
-    "media_mimic.html":          { title: "Media Mimic",          date: "2026.05.08" },
+    "media_mimic.html":          { title: "Media Mimic",          date: "2026.07.03" },
     "clutter.html":              { title: "Clutter",              date: "2026.02.19" },
     "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.05.18" }
 };

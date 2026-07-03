@@ -58,13 +58,13 @@
 
 > ℹ️ **Name:** Media Mimic
 > **Type:** Desktop Application
-> **Language:** Python (95.7%), Batchfile (4.3%)
+> **Language:** Python
 > **Framework:** PySide6 (Qt for Python)
-> **Version:** Build v2024.11.22 Alpha
+> **Version:** Build v2026.07.03
 > **License:** Free & Open Source
 > **Created:** November 2024
 
-Media Mimic is a desktop media library interface I built with PySide6 to browse and play video content organized by categories. It scans a media directory you point it at and lays everything out in a visual grid.
+Media Mimic is a desktop media library interface I built with PySide6 to browse and play video content organized by categories. It scans a media directory you point it at and lays everything out in a visual grid, and now pulls real IMDb data — ratings, episode lists, runtime, and posters — for every title.
 
 ## Features
 
@@ -73,36 +73,55 @@ Media Mimic is a desktop media library interface I built with PySide6 to browse 
 - Categories (folders) contain series titles (subfolders)
 - Filters out blacklisted directories and files starting with specific characters
 
+### IMDb Enrichment (new)
+Media Mimic now enriches your library with real IMDb data via the [OMDb API](https://www.omdbapi.com/). Responses are cached to a local JSON file so repeated runs don't burn the free-tier request limit, and a cached run can render the whole library with no network calls.
+
+- **Episode lists** — pulls the full episode list from IMDb for each show
+- **Missing-episode audit** — compares IMDb's episode count against the video files on disk and flags how many appear to be missing (count-based, so it survives libraries numbered differently than IMDb)
+- **IMDb ratings** — records the IMDb rating per title
+- **Watch-time estimate** — runtime for a movie, or per-episode runtime × episodes on disk for a series, formatted as `Xh Ym`
+- **Poster download** — grabs the IMDb poster for each title, with a force-refresh option
+- **Standalone enrich tool** — `enrich.py` runs all of the above across the whole library (or one title) and writes a `report.json`
+- **Title matching** — cleans release-folder cruft (`(2005)`, `[1080p]`, codecs) off folder names, with a `title_overrides` map for names Windows folders can't represent (`Law & Order: SVU`, etc.)
+
 ### Visual Interface
 - Creates category headers with grid layouts of buttons
 - Each button displays a poster image (180x270 pixels) and title text
+- Surfaces the IMDb rating, watch time, and episode-completeness for each title
 - Automatically adjusts grid columns based on window width
 - Uses a scroll area for browsing large libraries
 - Includes custom window icons
 
 ### Video Playback Integration
 - Opens video folders in an existing VLC instance
-- Uses subprocess commands with recursive playlist options
+- Uses subprocess commands with recursive playlist-enqueue options
 - Displays warning messages if VLC isn't detected
 - Shows error dialogs if video folder opening fails
+- **VLC fix** — corrected the enqueue/launch handling so folders reliably open in the running VLC instance
 
 ### Dynamic Layout
 - Responsively recalculates grid columns on window resize
 - Optimizes button arrangement for different screen widths
 - Missing poster images default to a configured placeholder
 
+### Settings & Startup
+- **In-app settings persistence** — edits are written back into `settings.py` in place, preserving comments, ordering, and blank lines
+- **Zen launcher** — `zen_launcher.bat` verifies the project venv exists and dependencies are consistent (`pip check`), then launches windowless and detached so no console lingers behind the app
+- Sets the Windows AppUserModelID before any window is created so the taskbar icon groups correctly
+
 ## Requirements
 
 > ℹ️ **Operating System:** Windows (uses batch launcher)
 > **Python:** Python 3.x
 > **External Software:** VLC Media Player
+> **API:** free [OMDb](https://www.omdbapi.com/apikey.aspx) key for IMDb data
 
 ### Python Dependencies
-- `psutil` - version 6.1.0 (system utilities)
-- `PySide6` - version 6.8.0.1 (Qt framework)
-- `PySide6_Addons` - version 6.8.0.1
-- `PySide6_Essentials` - version 6.8.0.1
-- `shiboken6` - version 6.8.0.1 (C++ binding generator)
+- `psutil` - version 7.2.2 (system utilities)
+- `PySide6` - version 6.11.1 (Qt framework)
+- `PySide6_Addons` - version 6.11.1
+- `PySide6_Essentials` - version 6.11.1
+- `shiboken6` - version 6.11.1 (C++ binding generator)
 
 ## Configuration Options
 
@@ -111,18 +130,28 @@ Settings are defined in `settings.py` (copy from `settings.py.example`):
 - **window_title:** Application window name (default: "Media Mimic")
 - **app_icon:** Icon file (default: "icon.png")
 - **media_path:** Root directory for media files
+- **vlc_path:** Path to the VLC executable
 - **poster_path:** Folder containing poster images (default: "posters")
 - **default_poster:** Fallback poster image (default: "default.jpg")
 - **blacklisted_directories:** Folders to exclude from scanning
 - **blacklisted_starting_characters:** Ignore files/folders starting with these characters
+- **omdb_api_key:** Free OMDb API key for IMDb data (ratings, episodes, posters, runtime)
 
 ## Repository Structure
 
-- `/posters` - Directory for media poster images
 - `main.py` - Primary Python application script
+- `core/` - Enrichment modules
+  - `omdb_client.py` - Cached OMDb/IMDb API client
+  - `library.py` - Drive scan, ratings, watch time, episode audit, poster download
+  - `enrich.py` - Standalone tool that enriches the whole library and writes `report.json`
+  - `settings_io.py` - Reads/writes `settings.py` in place
+  - `title_overrides.py` - Folder-name → OMDb query overrides
+  - `paths.py` - Project-root path resolution
+- `posters/` - Directory for media poster images
+- `_cache/` - OMDb response cache and generated reports
 - `requirements.txt` - Python dependency specifications
 - `settings.py.example` - Configuration template
-- `zlauncher.bat` - Windows batch launcher
+- `zen_launcher.bat` - Windows batch launcher (venv + dependency checks)
 - `default.jpg` - Default poster placeholder
 - `icon.png` - Application icon
 

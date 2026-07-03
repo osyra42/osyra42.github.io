@@ -98,6 +98,21 @@ LEGEND (Kimbie Dark)
 $ burnt: bugs/fixed
 
 . ............................
+# 2026 JUL 03
+@ website
++ bounties.html - Bounties board; open tasks people can help with, each loads via URL hash
+- retired the standalone dev notes hub (dev/ folder, dev.css, dev.js)
+> moved dev/notes to bounties/ at root; added Bounties to the sidebar under Site
+@ media mimic
++ IMDb enrichment via OMDb - episode lists, missing-episode audit, ratings, watch time, posters
++ enrich.py - standalone tool that enriches the whole library and writes a report
++ cached OMDb responses so repeat runs skip the network; force-refresh option
++ in-app settings persistence - writes settings.py back in place, comments intact
++ zen_launcher.bat - venv + dependency checks, launches windowless and detached
+> refreshed the project doc for build v2026.07.03 - new features, core/ layout, PySide6 6.11
+$ fixed VLC enqueue/launch so folders reliably open in the running instance
+
+. ............................
 # 2026 JUN 29
 @ website
 + flavor themes - sidebar color picker with 17 muted coffee palettes

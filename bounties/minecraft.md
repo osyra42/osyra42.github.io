@@ -1,33 +1,29 @@
-# Minecraft
+# Minecraft Skin
+
+**The ask:** a custom Minecraft skin of my character, based on the reference below.
 
 ::toc::
 
-- [ ] Update character skin
+## Reference
 
-## How to update a Minecraft skin
+![Front view](bounties/image-38.png)
+![Side and back view](bounties/image-40.png)
 
-A skin is just a flat PNG image (64x64 pixels for modern skins) that Minecraft wraps around the player model. So "editing a skin" is really just editing that little PNG — but a good 3D editor lets you paint on the model itself instead of guessing where pixels land on a flat sheet.
+## Character
 
-### Recommended 3D editors
+- **Character:** a wolf-girl with warm tan skin and red eyes
+- **Hair:** black, shorter and layered around the face, very long and straight down the back
+- **Ears & tail:** black wolf ears with lighter grey inner fur, and a long black wolf tail with a grey underside
+- **Top:** brown-and-tan camo hoodie worn open, with darker chocolate-brown cuffs and hem, over a yellow/gold t-shirt
+- **Bottom:** dark navy jeans
+- **Shoes:** black sneakers with red accents (red heel and laces)
 
-- **Blockbench** ([blockbench.net](https://www.blockbench.net/)) — free, desktop and web. Best overall option. Pick "Minecraft Skin" when starting a new project. You can paint directly on the 3D model, see it rotate in real time, and export the PNG when you're done.
-- **PMCSkin3D** ([planetminecraft.com/pmcskin3d](https://www.planetminecraft.com/pmcskin3d/)) — free, browser-based. Long-running community favorite, very approachable for quick edits.
-- **NovaSkin** ([novaskin.me](https://novaskin.me/)) — free, browser-based. Big library of templates and parts you can mix in.
+## Spec
 
-### Workflow
+- **Model:** Slim (Alex, 3px arms)
+- **Format:** 64x64 PNG, delivered as-is (no upscaling)
+- **Deliverable:** the PNG only
 
-- [ ] Pick an editor (Blockbench is the best starting point)
-- [ ] Start a new project — choose "Minecraft Skin" with the modern 64x64 layout
-- [ ] Choose model type (Steve = 4px arms, Alex = 3px arms)
-- [ ] Paint or edit on the 3D preview
-- [ ] Toggle the outer layer (hat / jacket / sleeves) if you want overlay details
-- [ ] Export as PNG (keep the 64x64 size — don't upscale)
-- [ ] Go to [minecraft.net](https://www.minecraft.net/) → sign in → Profile → Skins
-- [ ] Upload the PNG and pick the matching model (Classic or Slim)
-- [ ] Launch Minecraft and verify the skin loaded
+## Contact
 
-### Tips
-
-- Save the editor's project file too, not just the PNG, so you can come back and tweak later.
-- For Bedrock, the upload path is in-game: Dressing Room → Classic Skins → Owned → Import.
-- If the skin looks weirdly stretched, you probably exported the wrong model type (Steve vs Alex).
+If you want to take this on, get in touch — see the contact in the footer below.
