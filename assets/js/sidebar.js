@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ---
 **Games**
 - [🕹️ Blank Pixel Game](blank_pixel_game.html)
+- [🎮 3D Pixel Game](3d_pixel_game.html)
 - [🧋 Sip Sip](sipsip/index.html)
 
 ---

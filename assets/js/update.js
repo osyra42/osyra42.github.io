@@ -10,19 +10,22 @@
 // Keys are the page's href exactly as used in the sidebar (e.g. "sipsip/index.html").
 window.UPDATES = {
     "index.html":                { title: "Home Page",            date: "2026.06.26" },
-    "minecraft.html":            { title: "Minecraft Server",     date: "2026.06.28" },
+    "minecraft.html":            { title: "Minecraft Server",     date: "2026.07.03" },
     "recommendations.html":      { title: "Recommendations",      date: "2026.06.26" },
     "support_me.html":           { title: "Support Me",           date: "2026.06.26" },
     "operation_chimera.html":    { title: "Operation Chimera",    date: "2026.06.28" },
     "oc_section01.html":         { title: "The Chimera Incident - Section 01", date: "2026.06.28" },
-    "oc_borne_weapon.html":      { title: "Borne Weapon",         date: "2026.06.29" },
+    "oc_borne_weapon.html":      { title: "Borne Weapon",         date: "2026.07.03" },
     "oc_blood_relation.html":    { title: "Blood Relation",       date: "2026.06.29" },
     "oc_mireheart.html":         { title: "Mireheart",            date: "2026.06.28" },
-    "oc_lore.html":              { title: "Operation Chimera Lore", date: "2026.06.29" },
+    "oc_saving_humans.html":     { title: "Saving Humans",        date: "2026.07.03" },
+    "oc_red_light.html":         { title: "Red Light",            date: "2026.07.03" },
+    "oc_lore.html":              { title: "Operation Chimera Lore", date: "2026.07.03" },
     "ever_diamond.html":         { title: "Ever Diamond",         date: "2026.02.19" },
     "infinite_devastation.html": { title: "Infinite Devastation", date: "2026.02.19" },
     "glitched.html":             { title: "Glitched",             date: "2026.02.19" },
     "blank_pixel_game.html":     { title: "Blank Pixel Game",     date: "2026.06.18" },
+    "3d_pixel_game.html":        { title: "3D Pixel Game",        date: "2026.07.03" },
     "sipsip/index.html":         { title: "Sip Sip",              date: "2026.05.12" },
     "urbex_safety.html":         { title: "Urbex Safety",         date: "2026.06.20" },
     "vtuber_guide.html":         { title: "VTuber Guide",         date: "2026.06.26" },
@@ -40,5 +43,5 @@ window.UPDATES = {
     "3d_prints.html":            { title: "3D Prints",            date: "2026.06.16" },
     "media_mimic.html":          { title: "Media Mimic",          date: "2026.07.03" },
     "clutter.html":              { title: "Clutter",              date: "2026.02.19" },
-    "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.05.18" }
+    "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.07.03" }
 };
