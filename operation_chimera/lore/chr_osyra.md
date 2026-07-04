@@ -39,6 +39,11 @@ She hides her traits in civilian life using color contacts, hats, dresses - anyt
 - Haunted internally by her past, though rarely discusses it
 - Controlled composure under pressure - processes events analytically
 
+### Pack and control
+Two modes. In civilian and social life she's the loner the profile describes - independent, rarely sociable, keeping everyone at arm's length. But on a mission the wolf logic switches on: her squad becomes **pack**, and she runs it as the alpha. She requires her team - she won't work a mission without them - but they move under her, on her terms; **no one goes in front of her, and she won't let anyone leave.** Keeping the pack is keeping control.
+
+Control is the load-bearing thing. She isn't afraid of dying; she's afraid of **losing control**, because every wound in her history happened the moment she didn't have it - given up, handed off, sold to the lab, experimented on. Loss of control is precisely the condition under which people did things to her. So she holds the reins on the mission, the pack, and herself with a grip that never fully relaxes. Her skepticism of everyone's intent isn't a worldview she reasoned into - it's the scar. Control is how she guarantees no one is ever again in a position to do that to her.
+
 ## Physiology
 
 A stable Chimera-9 expression - wolf traits on a human frame, the rewrite holding cleanly enough that she kept her mind.

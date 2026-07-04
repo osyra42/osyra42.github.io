@@ -18,7 +18,7 @@ window.UPDATES = {
     "oc_borne_weapon.html":      { title: "Borne Weapon",         date: "2026.07.04" },
     "oc_blood_relation.html":    { title: "Blood Relation",       date: "2026.06.29" },
     "oc_mireheart.html":         { title: "Mireheart",            date: "2026.06.28" },
-    "oc_saving_humans.html":     { title: "Saving Humans",        date: "2026.07.03" },
+    "oc_for_the_next_operator.html": { title: "For the Next Operator", date: "2026.07.04" },
     "oc_red_light.html":         { title: "Red Light",            date: "2026.07.03" },
     "oc_lore.html":              { title: "Operation Chimera Lore", date: "2026.07.03" },
     "ever_diamond.html":         { title: "Ever Diamond",         date: "2026.07.04" },

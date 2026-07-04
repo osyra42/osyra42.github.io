@@ -1,6 +1,10 @@
-# Saving Humans — concept notes
+# For the Next Operator — concept notes
 
-*A reflective side mini-book: Osyra's field reflections/vignettes. Each short chapter is one mission or moment that proves the central irony. Not yet canon - capturing the concept and titles.*
+*Title: **For the Next Operator.** (Working title was "Saving Humans / Saving Humans Isn't Saving Humanity" — see the superseded title-brainstorm section further down; that framing is retired as the title but its themes carry over.)*
+
+**Frame:** a retiring operator's field manual, structured after Dale Carnegie's *How to Win Friends and Influence People*. On her way out, Osyra writes down the lessons the job actually taught her, handed to whoever takes the callsign next. Each chapter reads like people-handling advice and is paid for by a mission she can't forget — the principle taught, then undercut by the war story that earned it.*
+
+*A reflective side mini-book in vignettes. Each short chapter is one lesson/mission that proves the central irony. Not yet canon - capturing the concept.*
 
 ## The core irony
 
@@ -19,8 +23,9 @@ The second turn of the knife: **a built weapon - a non-human - shows more humani
 ## Form & framing
 
 - **Reflective mini-book** - vignette collection. Each chapter = one mission/moment that surfaces the irony, told through a concrete event, not an essay.
-- **Framing:** Osyra recounting to Vanity (consistent with the existing "Osyra recounts, Vanity records" frame). Third-person omniscient, per house style.
-- Tone stays harsh where the scene calls for it - the cruelty should land, not be softened.
+- **Voice: FIRST and SECOND person — the deliberate exception to house style.** This is Osyra's field manual written TO the next operator: first person for her own account ("I found her under the table"), second person addressing the recruit directly ("you are going to be the source of the meaning"). The other OC books are third-person omniscient; this one is I/you throughout, because a manual handed to a successor has to be. Do NOT convert it to third person.
+- **Framing:** her retiring handoff — the manual they don't issue. (The Vanity "recounts/records" frame can still appear inside a chapter as a debrief beat, but the book's narration is her writing to the recruit, not Vanity's record.)
+- Tone stays harsh and RAW - gore/atrocity rendered on the page, not implied. The content warning licenses it; see the gore-explicit rule. The cruelty should land, not be softened.
 - Structure: short chapters, each ending on the quiet turn where the "saved" humans reveal the crueler thing.
 
 ## Chapter seed ideas (each = one proof of the irony)
@@ -31,7 +36,9 @@ The second turn of the knife: **a built weapon - a non-human - shows more humani
 - A civilian cruelty (a betrayal, an abandonment) that no cryptid caused and she can't fix by fighting.
 - Her own memory - being sold - surfacing mid-mission as the mirror.
 
-## Title candidates
+## Title candidates — SUPERSEDED (title is now "For the Next Operator")
+
+*Kept for reference; the book is titled **For the Next Operator** as of 2026-07-04. The brainstorm below is the earlier "Saving Humans" exploration — its themes (the irony, the cruelty, humanity as its own predator) still drive the book, but none of these are the title anymore.*
 
 *The irony: saving humans (the job) vs. saving humanity (impossible); a monster more humane than the people it guards; humans as their own cruelest predator.*
 
@@ -111,6 +118,43 @@ Pairing a hard title with the softer explanatory line under it is probably the m
 - *"The monsters were the easy part."*
 
 *Note: this is darker and more first-person than the "Saving Humans Isn't Saving Humanity" framing - it makes Osyra complicit/bitter rather than mournful. Leaning in on that voice.*
+
+## Chapter map — one vignette per principle
+
+*Each chapter = one positive principle ([_principles.md]) practiced for real, turned by one negative reading ([_philosophy.md]). Grouped by the four Carnegie sections. Titles are working, in Osyra's bitter register. The child chapter is the thesis and can open or anchor the book.*
+
+**I. Fundamentals of handling people**
+1. *Nothing to Blame* — don't criticize or condemn → they blame her for the ones she couldn't save
+2. *Worth Saying* — give honest appreciation → they take the credit, name her the monster
+3. *What They Want* — arouse an eager want → once safe, they resent the cost and give nothing back
+
+**II. Making them trust her**
+4. *Her Name Was* — **remember the name → the child doesn't make it (THESIS / draft first)**
+5. *Glad to See You* — warmth/smile → the warmth reads as a predator's trick
+6. *I Know Your Names* — be genuinely interested → they flinch that the thing *remembers* them
+7. *Talk Yourself Calm* — be a good listener → they spill everything, then testify against her kind
+8. *Made to Matter* — make them feel important → the one she dignified turns cruelest given power
+
+**III. Winning them over**
+9. *Let the Mob Win* — avoid arguments → they turn on each other the moment she leaves
+10. *Keep Your Face* — never say "you're wrong" → he rewrites the plan as his, brands her the threat
+11. *My Fault First* — admit your faults first → the admission becomes the whole indictment
+12. *From Where You Stand* — see it their way → understanding is one-way, no one asks what it costs her
+13. *Braver Than You Are* — appeal to nobler motives → they rise to it for the cameras, loot in the dark
+
+**IV. Leading without resentment**
+14. *Quietly* — praise then correct indirectly → he tells everyone she "threatened" him
+15. *He Held the Line* — let them save face → the coward is promoted to command the hunt of her
+16. *A Little Softer* — praise every improvement → the softening lasts exactly as long as the danger
+17. *The People You Could Be* — a reputation to live up to → they'd rather be the other thing
+
+*(Closer: the "that's not our job" turn — a shared monster would unite them; her mandate is to remove the one thing that would redeem them. Duty as damnation, and the last meaning she gets to assign.)*
+
+## The philosophical base — nihilism (see [_philosophy.md](_philosophy.md))
+
+The positive interpersonal principles ([_principles.md](_principles.md)) are the *technique*. Under them runs an **existential-nihilist** frame: there is no inherent purpose; meaning is **assigned**, not found. Osyra assigns herself purpose (the job, the duty) and holds it hard — but that self-made meaning **does not extend to others.** The people she saves don't grant it to her, to each other, or sometimes even to their own survival.
+
+So the vignettes don't only prove "humans are cruel" — they prove "she is the only one assigning meaning, and it can't reach past her own skin." The kindness works and buys nothing, because there was never a law of the world that said it should. The child vignette is the thesis: she does everything right, remembers the name, promises a toy *later* — and there is no later. Full mapping and the negative-principle table live in [_philosophy.md](_philosophy.md).
 
 ## The fusion — interpersonal principles + the cruelty + the unbearable truth
 
