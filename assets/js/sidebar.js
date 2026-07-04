@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
 **Games**
 - [🕹️ Blank Pixel Game](blank_pixel_game.html)
 - [🎮 3D Pixel Game](3d_pixel_game.html)
-- [🧋 Sip Sip](sipsip/index.html)
+- [🧋 Sip Sip](sipsip.html)
 
 ---
 **Guides & How-Tos**
@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [📝 Worksheets](worksheets.html)
 - [💡 Better for Free](better_for_free.html)
 - [🎨 ComfyUI Guide](comfyui_guide.html)
+- [🎬 How to Edit Videos](video_editing.html)
 
 ---
 **Dev & Tools**
