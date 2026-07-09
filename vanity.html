@@ -52,182 +52,59 @@
     </div>
 
     <div class="brewdown">
-# 🤖 Vanity
-
-[Vanity's Legal Stuff](vanity_legal.html)
-
-Vanity has been split into two products that share the lineage below: **Vanity Minecraft** (the in-game bot that plays alongside you) and **Vanity Kale** (the AI agent for voice, file editing, and research).
+<script data-brewdown="vanity/_intro.md"></script>
 
 ---
 
-## Vanity Minecraft
-
-Vanity is an autonomous Minecraft player. She isn't a server NPC and nobody is controlling her - she logs into the server like a real player, walks around, fights, fishes, sleeps, and remembers things between sessions.
-
-Most of the time you'll find her at the water's edge, casting and reeling. She takes care of everything else herself: she eats when she's hungry, walks to her bed at night, deposits fish in her chests when her inventory fills up, and sets up her own infrastructure if anything is missing - hunting sheep for a bed, chopping trees for a rod, building chests near her fishing spot. After every catch she pauses, looks around, and decides what to do next based on what's nearby.
-
-She remembers every player she meets. Her opinion of you sits on a scale from -10 to +10, starts at neutral, and drifts back toward zero over time. Hit her once and she'll punch back as a warning, then back off ten blocks - she assumes you bumped her by accident. Hit her again within a minute and she'll fight you for real, with the right weapon for the situation: axe against single targets, sword against groups, bow at range, shield up against skeletons. Drop her a netherite ingot, a diamond, or some food and her opinion of you climbs. Earn enough trust and she won't fight you under any circumstances.
-
-She defends herself but isn't aggressive. She'll let players walk past her without reacting. Lava and drowning override everything else - safety always wins. Two chat commands are open to anyone (`!status` and `!rep`) so you can check what she's doing or see where you stand with her. The rest are reserved for her owner.
-
+<script data-brewdown="vanity/_minecraft.md"></script>
 
 ---
 
-## Kale Update
-*MAR 2026*
-
-The biggest update so far. She's no longer just a chatbot - she's a full AI agent.
-
-**Key Features:**
-
-- **Voice Recognition** - Listen and respond to voice commands
-- **Voice Output** - Spoken responses for hands-free interaction
-- **Agent Architecture** - Uses agents and tools to handle complex tasks
-- **Generic Chatbot** - Works as a conversational bot
-- **Note Taking** - Can take notes and edit files on your behalf
-- **File Editing** - Read, write, and modify files as needed
-- **Online Research** - Searches the web and gathers information on demand
+<script data-brewdown="vanity/lettus.md"></script>
 
 ---
 
-## Jicama Update
-*JAN 2026*
-
-Focused on Minecraft gameplay as the foundation for the agent architecture that landed in Kale.
-
-**Focus:**
-
-- Combat mechanics and survival strategies
-- Item collection and resource gathering
-- Understanding and usage of tools
-- Inventory management
-- Sorting and organizing chests
-- Fishing and its prerequisites
+<script data-brewdown="vanity/kale.md"></script>
 
 ---
 
-## Ivy Update
-*MAY 2025*
-
-Explored the potential of a real-time gaming AI VTuber, focused on a responsive and modular system.
-
-**Key Features:**
-
-- **Modular Core** - Built on a new, flexible architecture for seamless updates and future expansion
-- **Ultra-Fast Voice** - Drastically reduced latency for more natural and immediate conversational flow
-- **Smarter Conversations** - A new parsing algorithm delivers smoother and more intuitive interactions
-- **VTuber Integration** - Fully-rigged avatar with controller support for dynamic, responsive movement
-- **Twitch Connectivity** - Full read and reply system for direct engagement with live chat
-- **Advanced AI** - Powered by DeepSeek-v3 for high-quality response generation
-- **Experimental Audio** - Initial support for VB-Cable audio routing
+<script data-brewdown="vanity/jicama.md"></script>
 
 ---
 
-## Honeynut Update
-*NOV 2024*
-
-Upgrades focused on speed, stability, and the groundwork for what came next.
-
-**Key Improvements:**
-
-- **New AI Backend** - Vanity now runs on Llama 3.1 70B via Groq API, delivering faster, sharper, and more natural responses
-- **Enhanced Voice Conversations** - A new parsing algorithm makes interactions smoother and more intuitive
-- **Experimental Features** - Testing VB-Cable audio routing and controller input support
-- **Backend Cleanup** - Fully removed the old GPT4All and Ollama backends to keep Vanity lean
-
-**Testing Phase:**
-
-- Voice stability (reducing delays for seamless conversations)
-- Controller responsiveness (optimizing for hands-on control)
+<script data-brewdown="vanity/ivy.md"></script>
 
 ---
 
-## Garlic Update
-*SEP 2024*
-
-A round of changes aimed at simplifying the bot.
-
-**Key Changes:**
-
-- **Model Update** - Switched to the **Dolphin-2.5-mixtral-8x7b** model for enhanced performance and more accurate responses
-- **Switch to Ollama** - Transitioned from GPT4All to Ollama for much better performance and responsiveness
-- **Removed Cogs** - Stripped out simplification functions and cogs that were complicating the codebase
-- **Slash Commands & Disconnect Fixes** - Resolved issues with slash commands and AI response disconnects
-- **Voice Module Removal** - Removed the voice module output to Discord; the process was too slow to meet performance standards
+<script data-brewdown="vanity/honeynut.md"></script>
 
 ---
 
-## Fennel Update
-*JUN 2024*
-
-Small, but it pulled its weight.
-
-**Key Changes:**
-
-- **Model Update** - Now using **nous-hermes-2-solar-10.7b.Q5_K_M**, which supports varied replies based on user roles
-- **Hardware Upgrade** - Upgraded the host PC to 64GB of RAM to handle larger models
-- **Role-Based Responses** - More dynamic and context-aware responses, tailored to user roles within the Discord server
-- **Speech Capabilities** - Continued use of OpenVoice for speech synthesis
+<script data-brewdown="vanity/garlic.md"></script>
 
 ---
 
-## Eggplant Update
-*JAN 2024*
-
-The fifth iteration - a complete overhaul.
-
-**Key Features:**
-
-- **Switch to Python** - Moved the codebase from JavaScript to Python to leverage Python's libraries and frameworks
-- **AI-Powered Responses** - Integrated GPT4All with the Nous-Hermes-2-solar-10.7b model for more intelligent, context-aware interactions
-- **Voice Responses** - Added OpenVoice for spoken replies alongside text
-- **Multiple Personalities** - Vanity can switch between personalities based on user roles
-- **Removed Minecraft Playing** - Cut the Minecraft feature to focus on core improvements (revisited later)
+<script data-brewdown="vanity/fennel.md"></script>
 
 ---
 
-## Diakon Update
-*NOV 2023*
-
-The fourth iteration, focused on Minecraft interaction.
-
-**Key Features:**
-
-- **Enhanced In-Game Interaction** - Vanity responds more intelligently to player actions and commands within Minecraft
-- **Improved Minecraft Playing** - Better navigation, resource gathering, and basic gameplay mechanics (still in alpha)
-- **Forge Server Connectivity** - Continued work on connecting to Forge servers for modded support
+<script data-brewdown="vanity/eggplant.md"></script>
 
 ---
 
-## Carrot Update
-*AUG 2023*
-
-The third iteration, introducing Minecraft integration.
-
-**Key Features:**
-
-- **Enhanced Chat Interaction** - Revamped chat using arrays and dictionaries for more dynamic, contextually relevant responses
-- **Minecraft Integration (Alpha)** - Vanity can log into Minecraft and play alongside users, powered by Mineflayer.js
+<script data-brewdown="vanity/diakon.md"></script>
 
 ---
 
-## Broccoli Update
-*MAY 2018*
-
-The second iteration, adding interactivity and message handling.
-
-**Key Features:**
-
-- **Regex-Based Message Recognition** - Recognizes specific patterns in messages and responds with randomized replies
-- **Announcement Repeater** - Repeats announcements or important messages
-- **Direct Messaging** - Sends DMs to users for a more personalized experience
+<script data-brewdown="vanity/carrot.md"></script>
 
 ---
 
-## Asparagus Update
-*DEC 2017*
+<script data-brewdown="vanity/broccoli.md"></script>
 
-The first iteration. Built in JavaScript using Node.js and the Discord.js library, primarily following a tutorial. Laid the foundation with basic functionality like chat pruning and other simple commands.
+---
+
+<script data-brewdown="vanity/asparagus.md"></script>
 
 ---
 

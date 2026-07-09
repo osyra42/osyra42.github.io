@@ -38,7 +38,7 @@ window.UPDATES = {
     "blender_resources.html":    { title: "Blender Resources",    date: "2026.05.08" },
     "zzz_launcher.html":         { title: "Sleep Launcher",       date: "2026.07.09" },
     "bounties.html":             { title: "Bounties",             date: "2026.07.04" },
-    "vanity.html":               { title: "Vanity Bot",           date: "2026.05.05" },
+    "vanity.html":               { title: "Vanity Bot",           date: "2026.07.09" },
     "casio_code.html":           { title: "Casio Code",           date: "2026.04.27" },
     "code_resources.html":       { title: "Code Resources",       date: "2026.03.07" },
     "3d_prints.html":            { title: "3D Prints",            date: "2026.07.04" },
