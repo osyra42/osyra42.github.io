@@ -15,6 +15,39 @@ Osyra has done exactly that: she assigns herself purpose — the job, the duty, 
 
 So she performs perfect, genuine kindness (the principles WORK), and it purchases nothing — not gratitude, not meaning, not even the outcome. The kindness is real and the void is real in the same breath. **She is the only one assigning purpose, and purpose doesn't extend past her own skin.**
 
+## Osyra's two modes — and the tiredness under all of it
+
+The principles are not lessons she believes in. They're a competence she's exhausted by. Two modes, thread the distinction through:
+
+- **On mission:** pure tradecraft, no warmth. Learning names is *for the mission log*. Attention to detail is *how you save lives*. She does what's required, cold and correct.
+- **In civilian life:** the same skills are the only way she connects with anyone at all - and she's tired of it. She is still the one assigning meaning, off the clock, uncredited.
+
+The bone-deep fatigue under the whole book: **she does all of it for humanity, can't take credit, and isn't appreciated.** Not sharp bitterness - weariness. She's the uncredited, unthanked source of everything, mission after mission, and it has worn her down. When a chapter reaches for what the job costs her, reach here.
+
+**Be specific, never vague.** Every detail concrete: not "the loudest toy on the shelf" but a specific Lego race car built by her own hands and left on the grave. Give people specific names, wants, objects. Vague = weak. Concrete = it lands.
+
+## THE RULE FOR EVERY CHAPTER'S TURN (most important craft note)
+
+The cruelty/cost must come **FROM the principle**, never bolted on after. A chapter fails if the principle works and then the world *simply turns on Osyra anyway* - arbitrary betrayal from outside. That secretly teaches "be kind and people betray you regardless," which is despair, not a lesson a recruit can use. The turn has to feel **earned and inevitable** - a trap baked into the tool, something Osyra genuinely learned and is warning you about.
+
+Two valid turn-shapes (mix per chapter, pick whichever the principle best supports - never the arbitrary one):
+
+1. **Kindness is the mechanism.** The principle *working* is the exact thing that causes the harm. Model: Ch.3 - she serves the father's "want" (love) flawlessly, and that is precisely how she carries the daughter back to her abuser. Usable lesson: *the want you serve can be a horror wearing love's face - read deeper.* The recruit walks away with a real field trap.
+
+2. **Kindness costs the operator.** The principle works and genuinely helps them, but the *doing* of it takes something out of Osyra. The lesson is what the job does to the one who keeps giving - not what the people do back. Model: Ch.6 rebuilt - keeping everyone's names builds a house of people who will never come inside it; the loneliness is the cost of the tool, not a betrayal.
+
+Test each chapter: "If I cut the ending, could the reader predict the specific harm from the principle alone?" If yes, the turn is earned. If the harm could have happened regardless of the principle, it's arbitrary - rebuild it.
+
+## The refrain — "not humanity, just the humans"
+
+The book's closing line is NOT the vague "that's not our job." Sharpen it every time: **it is not the job to save humanity - only the humans.** That distinction is the whole thesis in one blade:
+
+- **The humans** = the individual people in front of her, one town at a time. That's the job. She saves every one she can.
+- **Humanity** = the soul of the species, its capacity to be decent to itself. She could save *that* - a shared monster is the one thing that unites people, drops the hatred, makes them a team. All it would cost is letting the monster take some of them.
+- But the job is to let it take *none*. So she is barred, by the exact terms of her duty, from the one act that would redeem the species. She saves the humans and is forbidden to save humanity, and those two are in direct opposition.
+
+Use it CONCRETELY, not as a mantra, and NOT on every chapter (it becomes a tic). Reserve the full statement for where it earns its place - the thesis chapter, the finale, a couple of others. Elsewhere, end on that chapter's own specific turn.
+
 ## What "saving humans" actually is: saving the pack, keeping control
 
 The title cuts deeper than altruism. To Osyra, saving humans is **wolf logic — saving the pack.** She protects her own. But pack means hierarchy, and she is the alpha: her squad is *required* (she won't run a mission without them), yet they move **under her, on her terms.** No one goes in front of her. She won't let anyone leave. Keeping the pack intact is the same act as keeping control.

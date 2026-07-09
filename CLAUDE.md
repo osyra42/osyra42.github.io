@@ -25,7 +25,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - `js/back-to-top.js`: Back to top button functionality
 
 ### Key Subsections
-- **operation_chimera/**: Markdown story content, organized like an MMO — `main/` for the main-story sections (the Chimera Incident), `side/{book}/` for side-story chapters/proofreading, and `lore/` for the wiki/codex (characters, locations, world lore). Each book/section has its own root HTML page (e.g. `blood_relation.html`, `mireheart.html`, `section01.html`, `oc_lore.html`); `operation_chimera.html` is the hub that links them.
+- **operation_chimera/**: Markdown story content, organized like an MMO — `main/part N - {book}/` for the main-story parts (the Chimera Incident), `side/{book}/` for side-story chapters/proofreading, and `lore/` for the wiki/codex (characters, locations, world lore). Each book/part has its own root HTML page (e.g. `oc_blood_relation.html`, `oc_mireheart.html`, `oc_part1.html`, `oc_borne_weapon.html`, `oc_lore.html`); `operation_chimera.html` is the hub that links them.
 - **blank_pixel_game/**: Browser game build (HTML5 export under `html5game/`)
 - **sipsip/**: Sip Sip card game and its `decks/`
 
