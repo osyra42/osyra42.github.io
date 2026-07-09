@@ -66,19 +66,15 @@ Every program I hand out ships with Sleep Launcher next to it. If you've grabbed
 
 ## What It Is
 
-Two text files - `zzz_launcher.bat` for Windows and `zzz_launcher.sh` for Mac and Linux - that run through three stages before launching the main file:
+Two text files - `zzz_launcher.bat` for Windows and `zzz_launcher.sh` for Mac and Linux - that walk through a short gate of checks before launching the main file. Each check catches one thing that would otherwise stop the program from running, and hands the user a clear message pointing at the specific problem instead of a stack trace:
 
-**1. Environment Check**
+- **The launcher itself can run** - the right line endings and permissions for this OS
+- **The runtime is installed** - Python, Java, Node.js, .NET, Ruby, PHP, whatever the project depends on
+- **The runtime is new enough** - present, but not too old to run the program
+- **The dependencies are present** - the packages the program declares (from `requirements.txt`, `package.json`, and the like)
+- **The main file is there** - and the launcher runs from its own folder so relative paths resolve
 
-Verifies the runtime the program needs is actually installed - Python, Java, Node.js, .NET, Ruby, PHP, whatever the project depends on. If something's missing, the user gets a clear message pointing at the specific missing piece, not a stack trace.
-
-**2. Dependency Check**
-
-Reads the main file and confirms the dependencies it declares are present (e.g. packages from `requirements.txt`, libraries from `package.json`). Surfaces missing packages before they cause a crash mid-run.
-
-**3. Launch**
-
-Once the checks pass, Sleep Launcher runs the main file. It also sets the terminal window title and any environment variables the program needs at startup, so the launched process inherits a clean, named context.
+Only once every check passes does it set the terminal title and run the main file. It's runtime-neutral: the checks are the same questions for any language, and the full step-by-step spec is under [How to Make One](#how-to-make-one) below.
 
 ---
 
@@ -113,24 +109,57 @@ The spec below is explicit enough to follow by hand or to hand to an AI agent. E
 | `ARGS` | no | `--port=8080 --debug` (default: empty) |
 | `DEPS` | no | `pip`, `npm`, `bundler`, or none - controls whether to add a dep check |
 
-### Script Structure
+### The Verify Gate
 
-Each script has five labeled sections in this order:
+The heart of Sleep Launcher is a gate the script walks through before it ever runs the entry file. Each step answers one question that, if answered wrong, would stop the program from running - and each bails immediately with a message the user can act on. The steps are runtime-neutral: the *questions* are the same whether the program is Python, Node, Java, .NET, Ruby, PHP, or a compiled binary. Only the commands that answer them change.
 
-1. **Imports** - `@echo off` (bat) or `#!/bin/bash` (sh)
-2. **Variables** - declare `TITLE`, `ENTRY`, and `ARGS` at the top
-3. **Requirements** - runtime check (always) then optional dependency check; bail with a readable error on failure
-4. **Script** - set terminal title, `cd` to the script's own directory, run the entry file with `ARGS`
-5. **Execution** - `pause` on Windows so the window doesn't close on error (Mac/Linux can stay open in the calling terminal)
+Do them in this order - cheapest and most fundamental first, so the earliest failure is the one the user sees:
 
-### Runtime Check Patterns
+1. **Can the launcher itself run?** - the `.sh`/`.bat` is well-formed for this OS. If the launcher can't start, nothing inside it matters. *(OS-level, no runtime involved - see Step 1 below.)*
+2. **Does the runtime exist?** - the command that runs the entry file is on PATH.
+3. **Is the runtime new enough?** - installed but too old fails as hard as missing.
+4. **Are the dependencies present?** - the packages/libraries the program declares are installed.
+5. **Is the entry file where it should be?** - the main file exists next to the launcher, and we're running from the launcher's own folder.
+6. **Launch.** - only now run the entry file, with the detected runtime and any args.
+
+Steps 2-4 may not all apply. A compiled Go or Rust binary has no runtime and no dep system, so it skips 2-4 entirely - the gate is just "does the file exist, run it." Fill in only the steps your runtime actually needs.
+
+The examples below use Python because it hits the most edge cases (the command name alone varies three ways). For any other runtime, keep the same step and swap the command - the note under each step says what changes.
+
+---
+
+**Step 1 - Can the launcher itself run?**
+
+This is the one failure that happens *before* any of your checks, and it's almost always a `.sh` authored on Windows and run on Mac or Linux. Two causes:
+
+- **Windows line endings (CRLF).** A `.sh` saved with CRLF fails on Linux with `bad interpreter: /bin/bash^M` or `command not found` - the shell reads the trailing carriage return as part of the command. Save every `.sh` with LF endings, and pin it with a `.gitattributes` line so git never rewrites them: ^^*.sh text eol=lf^^. As a self-healing fallback, a `.sh` can strip its own carriage returns at the very top before anything else runs:
+
+```sh
+if grep -q $'\r' "$0"; then
+    sed -i 's/\r$//' "$0" && exec bash "$0" "$@"
+fi
+```
+
+- **The executable bit.** On Mac and Linux a fresh `.sh` can't be run as `./zzz_launcher.sh` until it's marked executable, or the user gets `Permission denied`. Cover it by telling the user to run `chmod +x zzz_launcher.sh` once, or by having them invoke it as `bash zzz_launcher.sh` (which ignores the exec bit). Say which in the bundle instructions.
+
+Windows `.bat` files have neither problem - double-click always works - so Step 1 is a Unix-only concern.
+
+---
+
+**Step 2 - Does the runtime exist?**
+
+Check that the command which runs the entry file is on PATH, and bail with a message naming the missing runtime rather than letting the OS throw `command not found`.
+
+The catch that trips people up: **the command isn't always the runtime's name, and can vary by platform.** So don't hard-code one name - detect which command exists, store it in a variable (`RUNTIME` below), and reuse that variable for the version check, the dep check, and the launch line. Then the rest of the script doesn't care which name won.
 
 Windows (`.bat`):
 
 ```bat
-where python >nul 2>&1
+where py >nul 2>&1 && (set "RUNTIME=py") || (set "RUNTIME=python")
+where %RUNTIME% >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
     echo Python is required to run this program.
+    echo Install Python 3 from python.org, then try again.
     pause
     exit /b 1
 )
@@ -139,126 +168,247 @@ if %ERRORLEVEL% NEQ 0 (
 Mac and Linux (`.sh`):
 
 ```sh
-if ! command -v python3 &> /dev/null; then
-    echo "Python is required to run this program."
+if command -v python3 &> /dev/null; then RUNTIME=python3
+elif command -v python &> /dev/null; then RUNTIME=python
+else
+    echo "Python is required. Install it from https://python.org/downloads then run this again."
     exit 1
 fi
 ```
 
-Swap `python` / `python3` for the runtime command you actually need: `java`, `node`, `dotnet`, `php`, `ruby`, etc. Bash, Command Prompt, Go, and Rust don't need a check - Bash and CMD are always present, and Go/Rust ship as standalone binaries with no runtime.
+*Other runtimes:* the shape is identical - only the candidate names change. Most runtimes have a single stable command and the detection collapses to one `where` / `command -v` check:
 
-### Dependency Check Patterns
+| Runtime | Command(s) to look for |
+|---|---|
+| Python | `py` then `python` on Windows; `python3` then `python` on Mac/Linux |
+| Node.js | `node` (sometimes `nodejs` on Debian/Ubuntu) |
+| Java | `java` |
+| .NET | `dotnet` |
+| Ruby | `ruby` |
+| PHP | `php` |
+| Compiled binary | (no runtime - skip this step) |
 
-Optional stage. Skip for runtimes that don't have a dep system (Java JARs bundle their deps, .NET resolves at runtime, Go/Rust binaries are static).
+---
 
-Windows (`.bat`):
+**Step 3 - Is the runtime new enough?**
 
-```bat
-pip check >nul 2>&1
-if %ERRORLEVEL% NEQ 0 (
-    echo Missing Python dependencies. Run: pip install -r requirements.txt
-    pause
-    exit /b 1
-)
-```
-
-Mac and Linux (`.sh`):
+A runtime can be present but too old to run the program - and "found, but too old" is a far clearer message than the syntax or bytecode error the user would otherwise hit. If the entry file needs a minimum, check it. Each runtime reports its version its own way, so use the runtime's own probe (reusing the `RUNTIME` variable from Step 2):
 
 ```sh
-if ! pip check &> /dev/null; then
-    echo "Missing Python dependencies. Run: pip install -r requirements.txt"
+# Python - needs 3.10+
+"$RUNTIME" -c 'import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)' || {
+    echo "Python 3.10+ is required. Found: $("$RUNTIME" --version)"; exit 1; }
+```
+
+*Other runtimes:* same idea, different probe - `node -v`, `java -version`, `dotnet --version`, `ruby -v`. Skip this step for compiled binaries (no separate runtime to be the wrong version) and whenever the program has no minimum version.
+
+---
+
+**Step 4 - Are the dependencies present?**
+
+If the program declares third-party packages, confirm they're installed before launch instead of crashing mid-run on the first missing import. Reuse the same `RUNTIME` so the check targets the exact interpreter you'll launch with:
+
+```sh
+# Python
+if ! "$RUNTIME" -m pip check &> /dev/null; then
+    echo "Missing dependencies. Run: $RUNTIME -m pip install -r requirements.txt"
     exit 1
 fi
 ```
 
-Per-runtime dep-check commands and install hints:
+(`python -m pip` beats a bare `pip` - it uses the interpreter you just detected, not whatever unrelated `pip` is first on PATH.)
+
+*Other runtimes:* use that ecosystem's checker, or skip the step if the runtime bundles its deps:
 
 | Runtime | Dep check | Install hint |
 |---|---|---|
 | Python | `pip check` | `pip install -r requirements.txt` |
 | Node.js | `npm list --depth=0` | `npm install` |
 | Ruby | `bundle check` | `bundle install` |
-| Java / .NET / PHP / Go / Rust | (skip) | - |
+| Java / .NET / PHP | (skip - deps bundled or resolved at runtime) | - |
+| Compiled binary | (skip - statically linked) | - |
+
+---
+
+**Step 5 - Is the entry file where it should be?**
+
+Two small things save a lot of confusion: run from the launcher's own directory so relative paths resolve, and confirm the entry file is actually there before trying to run it. `cd` to the script's folder - `%~dp0` on Windows, `dirname "$0"` on Unix - both resolve to where the script lives, not wherever the user launched it from. Quote every path (`"%ENTRY%"`, `"$ENTRY"`, `"%~dp0"`) so a space in a parent folder name doesn't break the command.
+
+```sh
+cd "$(dirname "$0")"
+if [ ! -f "$ENTRY" ]; then
+    echo "Cannot find $ENTRY next to the launcher."
+    exit 1
+fi
+```
+
+---
+
+**Step 6 - Launch.**
+
+Only after the gate passes, run the entry file with the detected runtime and the configured args. Set the terminal title first so the window is named. On Windows, `pause` at the very end so the window stays open long enough to read any error; on Mac/Linux the calling terminal stays open on its own.
+
+### Fixing Failures, Not Just Reporting Them
+
+A check that only says "Python is required" leaves the user stuck at the exact moment they need help most. Every failure message should carry the *fix*, and some failures the launcher can just fix itself. Two levels, in order of preference:
+
+**1. Tell them exactly how to fix it.** When a check fails, the message names the remedy - the download link, the exact install command - not just what's missing. Compare:
+
+```sh
+# weak - the user still has to go figure out what to do
+echo "Python is required."
+
+# strong - the message IS the fix
+echo "Python 3.10+ is required. Download it from https://python.org/downloads then run this again."
+```
+
+Do the same for a failed dependency check (give the exact `install` command, which the earlier steps already print) and for the executable bit (`Run: chmod +x zzz_launcher.sh`). The goal is that a user who can read the message can fix the problem without asking anyone.
+
+**2. Fix it automatically when the fix is a safe, known download.** Some missing pieces aren't a whole runtime the user has to install - they're a single self-contained file that belongs next to the program, like `ffmpeg.exe`. When it's missing, the launcher can fetch it into the root itself instead of stopping. Only do this for a specific, trusted URL you control or vendor - never a blind "install whatever's needed":
+
+Windows (`.bat`) - download `ffmpeg.exe` to the launcher's folder if it isn't there:
+
+```bat
+if not exist "%~dp0ffmpeg.exe" (
+    echo ffmpeg.exe is missing - downloading it now...
+    curl -L -o "%~dp0ffmpeg.exe" https://coffeebyte.dev/tools/ffmpeg.exe
+    if not exist "%~dp0ffmpeg.exe" (
+        echo Automatic download failed.
+        echo Please download ffmpeg.exe manually from https://ffmpeg.org/download.html
+        echo and drop it next to this launcher, then run it again.
+        pause & exit /b 1
+    )
+)
+```
+
+Mac and Linux (`.sh`):
+
+```sh
+if [ ! -f "$(dirname "$0")/ffmpeg" ]; then
+    echo "ffmpeg is missing - downloading it now..."
+    curl -L -o "$(dirname "$0")/ffmpeg" https://coffeebyte.dev/tools/ffmpeg
+    chmod +x "$(dirname "$0")/ffmpeg" 2>/dev/null
+    if [ ! -f "$(dirname "$0")/ffmpeg" ]; then
+        echo "Automatic download failed. Get ffmpeg from https://ffmpeg.org/download.html"
+        echo "and place it next to this launcher, then run it again."
+        exit 1
+    fi
+fi
+```
+
+The rule of thumb: **auto-fix a single dropped-in file; hand off anything that needs a real installer.** Runtimes (Python, Node, Java), system packages, and anything requiring admin rights or a PATH change should always fall back to a clear message with a link - the user installs those, the launcher doesn't. And always leave the manual instructions in the failure branch, so a user with no internet or a blocked download still knows exactly what to do by hand.
 
 ### Launch Command by Entry File Extension
 
+The launch line pairs the runtime with the entry file. Where the runtime was detected in Step 2, invoke it through the `RUNTIME` variable (`%RUNTIME%` / `$RUNTIME`) rather than a literal command, so you launch with the exact interpreter you verified. Runtimes with a single fixed command (`java`, `dotnet`, `bash`) can be written literally, and a compiled binary is just run directly.
+
 | Entry | bat | sh |
 |---|---|---|
-| `.py` | `python "%ENTRY%" %ARGS%` | `python3 "$ENTRY" $ARGS` |
+| `.py` | `%RUNTIME% "%ENTRY%" %ARGS%` | `"$RUNTIME" "$ENTRY" $ARGS` |
+| `.js`, `.mjs` | `%RUNTIME% "%ENTRY%" %ARGS%` | `"$RUNTIME" "$ENTRY" $ARGS` |
+| `.rb` | `%RUNTIME% "%ENTRY%" %ARGS%` | `"$RUNTIME" "$ENTRY" $ARGS` |
+| `.php` | `%RUNTIME% "%ENTRY%" %ARGS%` | `"$RUNTIME" "$ENTRY" $ARGS` |
 | `.jar` | `java -jar "%ENTRY%" %ARGS%` | `java -jar "$ENTRY" $ARGS` |
-| `.js`, `.mjs` | `node "%ENTRY%" %ARGS%` | `node "$ENTRY" $ARGS` |
-| `.rb` | `ruby "%ENTRY%" %ARGS%` | `ruby "$ENTRY" $ARGS` |
-| `.php` | `php "%ENTRY%" %ARGS%` | `php "$ENTRY" $ARGS` |
 | `.dll` (.NET) | `dotnet "%ENTRY%" %ARGS%` | `dotnet "$ENTRY" $ARGS` |
 | `.sh` | `bash "%ENTRY%" %ARGS%` | `bash "$ENTRY" $ARGS` |
 | compiled binary | `"%ENTRY%" %ARGS%` | `./"$ENTRY" $ARGS` |
 
 ### Reference Templates
 
-Complete Python launcher with every stage filled in. Swap variables and commands for your runtime.
+A complete Python launcher with every step of the gate filled in. Python is the example; swap the variables and the runtime commands (Steps 2-4) for whatever your program needs. The step comments map to the Verify Gate above.
 
 Windows (`zzz_launcher.bat`):
 
 ```bat
 @echo off
+setlocal
 
 REM === Variables ===
 set "TITLE=My Program"
 set "ENTRY=app.py"
 set "ARGS="
 
-REM === Requirements ===
-where python >nul 2>&1
+REM === Step 2: runtime exists (prefer py, fall back to python) ===
+where py >nul 2>&1 && (set "RUNTIME=py") || (set "RUNTIME=python")
+where %RUNTIME% >nul 2>&1
 if %ERRORLEVEL% NEQ 0 (
     echo Python is required to run this program.
-    pause
-    exit /b 1
+    echo Install Python 3 from python.org, then try again.
+    pause & exit /b 1
 )
 
-pip check >nul 2>&1
+REM === Step 3: runtime new enough (3.10+) ===
+%RUNTIME% -c "import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)"
 if %ERRORLEVEL% NEQ 0 (
-    echo Missing Python dependencies. Run: pip install -r requirements.txt
-    pause
-    exit /b 1
+    echo Python 3.10+ is required. Update it from https://python.org/downloads
+    pause & exit /b 1
 )
 
-REM === Script ===
-title %TITLE%
-cd /d "%~dp0"
-python "%ENTRY%" %ARGS%
+REM === Step 4: dependencies present ===
+%RUNTIME% -m pip check >nul 2>&1
+if %ERRORLEVEL% NEQ 0 (
+    echo Missing dependencies. Run: %RUNTIME% -m pip install -r requirements.txt
+    pause & exit /b 1
+)
 
-REM === Execution ===
+REM === Step 5: entry file present, run from launcher's folder ===
+cd /d "%~dp0"
+if not exist "%ENTRY%" (
+    echo Cannot find %ENTRY% next to the launcher.
+    pause & exit /b 1
+)
+
+REM === Step 6: launch ===
+title %TITLE%
+%RUNTIME% "%ENTRY%" %ARGS%
+
 pause
 ```
 
-Mac and Linux (`zzz_launcher.sh`):
+Mac and Linux (`zzz_launcher.sh`) - save with LF line endings, not CRLF:
 
 ```sh
 #!/bin/bash
+
+# === Step 1: self-heal Windows line endings ===
+if grep -q $'\r' "$0"; then
+    sed -i 's/\r$//' "$0" && exec bash "$0" "$@"
+fi
 
 # === Variables ===
 TITLE="My Program"
 ENTRY="app.py"
 ARGS=""
 
-# === Requirements ===
-if ! command -v python3 &> /dev/null; then
-    echo "Python is required to run this program."
+# === Step 2: runtime exists (prefer python3, fall back to python) ===
+if command -v python3 &> /dev/null; then RUNTIME=python3
+elif command -v python &> /dev/null; then RUNTIME=python
+else
+    echo "Python is required. Install it from https://python.org/downloads then run this again."
     exit 1
 fi
 
-if ! pip check &> /dev/null; then
-    echo "Missing Python dependencies. Run: pip install -r requirements.txt"
+# === Step 3: runtime new enough (3.10+) ===
+"$RUNTIME" -c 'import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)' || {
+    echo "Python 3.10+ is required (update from https://python.org/downloads). Found: $("$RUNTIME" --version)"; exit 1; }
+
+# === Step 4: dependencies present ===
+if ! "$RUNTIME" -m pip check &> /dev/null; then
+    echo "Missing dependencies. Run: $RUNTIME -m pip install -r requirements.txt"
     exit 1
 fi
 
-# === Script ===
-printf '\033]0;%s\007' "$TITLE"
+# === Step 5: entry file present, run from launcher's folder ===
 cd "$(dirname "$0")"
-python3 "$ENTRY" $ARGS
-```
+if [ ! -f "$ENTRY" ]; then
+    echo "Cannot find $ENTRY next to the launcher."
+    exit 1
+fi
 
-The `cd` line in both scripts ensures the launcher works no matter where it's invoked from - `%~dp0` on Windows and `dirname "$0"` on Unix both resolve to the directory containing the script itself, not the user's current working directory.
+# === Step 6: launch ===
+printf '\033]0;%s\007' "$TITLE"
+"$RUNTIME" "$ENTRY" $ARGS
+```
 
 ---
 
