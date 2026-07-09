@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 - [☕ Brewdown](brewdown.html)
 - [🧊 Blender Resources](blender_resources.html)
 - [🚀 Sleep Launcher](zzz_launcher.html)
+- [🎬 yt-dlp Tool](yt_dlp_tool.html)
 - [🤖 Vanity Bot](vanity.html)
 - [🔢 Casio Code](casio_code.html)
 - [🐍 Code Resources](code_resources.html)
