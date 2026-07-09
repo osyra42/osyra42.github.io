@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 **Dev & Tools**
 - [☕ Brewdown](brewdown.html)
 - [🧊 Blender Resources](blender_resources.html)
-- [🚀 Zen Launcher](zen_launcher.html)
+- [🚀 Sleep Launcher](zzz_launcher.html)
 - [🤖 Vanity Bot](vanity.html)
 - [🔢 Casio Code](casio_code.html)
 - [🐍 Code Resources](code_resources.html)

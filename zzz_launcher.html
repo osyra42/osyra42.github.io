@@ -1,23 +1,23 @@
-<!-- zen_launcher.html -->
+<!-- zzz_launcher.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Zen Launcher - Coffee Byte Dev</title>
+  <title>Sleep Launcher - Coffee Byte Dev</title>
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <!-- Meta Tags -->
-  <meta name="description" content="Zen Launcher - a launcher pattern that runs environment and dependency checks before starting a program." />
-  <meta name="keywords" content="osyra42, Coffee Byte Dev, Zen Launcher, bat, sh, launcher" />
+  <meta name="description" content="Sleep Launcher - a launcher pattern that runs environment and dependency checks before starting a program." />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, Sleep Launcher, bat, sh, launcher" />
   <meta name="author" content="osyra42" />
-  <meta property="og:title" content="Zen Launcher - Coffee Byte Dev" />
+  <meta property="og:title" content="Sleep Launcher - Coffee Byte Dev" />
   <meta property="og:description" content="A launcher pattern that runs environment and dependency checks before starting a program." />
   <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev/zen_launcher" />
+  <meta property="og:url" content="https://coffeebyte.dev/zzz_launcher" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Zen Launcher - Coffee Byte Dev" />
+  <meta name="twitter:title" content="Sleep Launcher - Coffee Byte Dev" />
   <meta name="twitter:description" content="A launcher pattern that runs environment and dependency checks before starting a program." />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
@@ -32,8 +32,8 @@
   <script src="assets/js/back-to-top.js" defer></script>
 
   <script>
-    image = "zen_launcher.jpg";
-    title = "Zen Launcher";
+    image = "zzz_launcher.jpg";
+    title = "Sleep Launcher";
   </script>
 
 </head>
@@ -47,26 +47,26 @@
   <main>
 
     <div class="download-bar">
-      <h1>Zen Launcher</h1>
+      <h1>Sleep Launcher</h1>
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
     <div class="brewdown">
-# 🚀 Zen Launcher
+# 🚀 Sleep Launcher
 
-Zen Launcher is a small script that sits next to a program and runs a quick sanity check before starting it. Nothing fancy - it just makes sure the thing will actually run before it tries to.
+Sleep Launcher is a small script that sits next to a program and runs a quick sanity check before starting it. Nothing fancy - it just makes sure the thing will actually run before it tries to.
 
 ---
 
 ## I Use It
 
-Every program I hand out ships with Zen Launcher next to it. If you've grabbed something from me, you've already used it.
+Every program I hand out ships with Sleep Launcher next to it. If you've grabbed something from me, you've already used it.
 
 ---
 
 ## What It Is
 
-Two text files - `zen_launcher.bat` for Windows and `zen_launcher.sh` for Mac and Linux - that run through three stages before launching the main file:
+Two text files - `zzz_launcher.bat` for Windows and `zzz_launcher.sh` for Mac and Linux - that run through three stages before launching the main file:
 
 **1. Environment Check**
 
@@ -78,7 +78,7 @@ Reads the main file and confirms the dependencies it declares are present (e.g. 
 
 **3. Launch**
 
-Once the checks pass, Zen Launcher runs the main file. It also sets the terminal window title and any environment variables the program needs at startup, so the launched process inherits a clean, named context.
+Once the checks pass, Sleep Launcher runs the main file. It also sets the terminal window title and any environment variables the program needs at startup, so the launched process inherits a clean, named context.
 
 ---
 
@@ -88,8 +88,8 @@ A typical bundle:
 
 ```
 my_project/
-├─ zen_launcher.bat       (Windows)
-├─ zen_launcher.sh        (Mac/Linux)
+├─ zzz_launcher.bat       (Windows)
+├─ zzz_launcher.sh        (Mac/Linux)
 ├─ app.py                (the actual program)
 ├─ requirements.txt
 └─ ...
@@ -197,7 +197,7 @@ Per-runtime dep-check commands and install hints:
 
 Complete Python launcher with every stage filled in. Swap variables and commands for your runtime.
 
-Windows (`zen_launcher.bat`):
+Windows (`zzz_launcher.bat`):
 
 ```bat
 @echo off
@@ -231,7 +231,7 @@ REM === Execution ===
 pause
 ```
 
-Mac and Linux (`zen_launcher.sh`):
+Mac and Linux (`zzz_launcher.sh`):
 
 ```sh
 #!/bin/bash

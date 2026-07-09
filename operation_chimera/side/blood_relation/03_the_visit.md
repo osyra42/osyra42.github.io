@@ -68,7 +68,7 @@ Osyra felt her face go red. She didn't take pictures. This was completely embarr
 
 "Of course, honey. You must be tired."
 
-Rosalyn drifted toward the kitchen, murmuring about putting on the kettle. Osyra stayed in the comfortable chair and let her go. She'd call Vanity in tonight, the way she'd been told to - once a day, so somebody at headquarters knew she was still breathing. Just her voice down the line, and Vanity on the other end writing down whatever Osyra felt like saying, the way she always did.
+Rosalyn drifted toward the kitchen, murmuring about putting on the kettle. Osyra stayed in the comfortable chair and let her go. She'd call Vanity in tonight, the way she'd been told to - once a day, so somebody at headquarters knew she was still breathing. Just her voice down the line, and Vanity on the other end writing down whatever Osyra felt like saying, patient, taking it all for the record.
 
 Rosalyn eventually brought in some tea. It was hard for Osyra to pay attention to that. The comfortable chair was lulling her to sleep as her ever-energetic body slowed down. Hopefully the tea would increase her energy again. She didn't feel it happening. The weight of the world was crushing her. She'd been running for so long, she hadn't even noticed how tired she was. She accepted the cup from her grandmother almost greedily. Anything to stay awake for this moment. She took a sip. It smelled wonderful. Spiced chai. One of her favorites.
 
@@ -106,7 +106,7 @@ Osyra nodded. There wasn't anything to say to that.
 
 She took another sip of the tea.
 
-Rosalyn turned the page slower this time. "And there she is. Your aunt."
+Rosalyn turned the page slower this time. "And there she is. Your aunt. Marissa."
 
 The picture was in color. A woman in a kitchen, hair tied back with a faded bandana, laughing at something off-camera. There was flour on her hands.
 

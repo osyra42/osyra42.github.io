@@ -12,7 +12,7 @@ She paused for a long moment. She looked down, a sweep of dark hair falling past
 
 "They ran illegal experiments. Hybridization—splicing animal into human and seeing what lived. I was a line item. A body nobody who mattered would come looking for."
 
-"They had charts of my development, my reflexes, my cellular response. Most of the others didn't survive what they were given. I did. When the place burned down I walked out, and I lived in the woods like an animal for the better part of two months—taking what I needed, answering to no one. Long enough to learn I could."
+"They had charts of my development, my reflexes, my cellular response. Most of the others didn't survive what they were given. I did. When the place burned down I walked out, and I lived like an animal for the better part of two years—started in the woods, ended up on the street—taking what I needed, answering to no one. Long enough to learn I could."
 
 She took a slow, steadying breath, her eyes—a sharp, unnatural red even in the low light—locked on the camera. Her hands, which had been resting on the desk, came up. They grasped the sides of the hood of her brown jacket.
 

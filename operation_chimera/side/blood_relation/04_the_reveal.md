@@ -20,7 +20,7 @@ She undressed in pieces.
 
 The hat first. She set it on the dresser the way you'd set something fragile. Her ears straightened and gave a slow twitch - they'd been pressed flat for hours and the muscles ached. She rubbed at the base of them with both hands. A small, embarrassing relief.
 
-Then the dress. The hem caught briefly on her tail, the way it always did. She shook it loose and folded it on the chair. Her tail uncurled from where she'd kept it tucked tight against her leg, and she felt that familiar prickle of pins and needles as the circulation came back.
+Then the dress. The hem caught briefly on her tail, snagging where it always snagged. She shook it loose and folded it on the chair. Her tail uncurled from where she'd kept it tucked tight against her leg, and she felt that familiar prickle of pins and needles as the circulation came back.
 
 She sat on the edge of the bed and worked the contacts out, one at a time, blinking them into the little case. The world went a little crisper. Reds went a little redder. She stared at herself in the dresser mirror - really stared, for the first time all day.
 

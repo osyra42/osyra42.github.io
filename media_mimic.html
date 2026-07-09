@@ -106,7 +106,7 @@ Media Mimic now enriches your library with real IMDb data via the [OMDb API](htt
 
 ### Settings & Startup
 - **In-app settings persistence** — edits are written back into `settings.py` in place, preserving comments, ordering, and blank lines
-- **Zen launcher** — `zen_launcher.bat` verifies the project venv exists and dependencies are consistent (`pip check`), then launches windowless and detached so no console lingers behind the app
+- **Sleep launcher** — `zzz_launcher.bat` verifies the project venv exists and dependencies are consistent (`pip check`), then launches windowless and detached so no console lingers behind the app
 - Sets the Windows AppUserModelID before any window is created so the taskbar icon groups correctly
 
 ## Requirements
@@ -151,7 +151,7 @@ Settings are defined in `settings.py` (copy from `settings.py.example`):
 - `_cache/` - OMDb response cache and generated reports
 - `requirements.txt` - Python dependency specifications
 - `settings.py.example` - Configuration template
-- `zen_launcher.bat` - Windows batch launcher (venv + dependency checks)
+- `zzz_launcher.bat` - Windows batch launcher (venv + dependency checks)
 - `default.jpg` - Default poster placeholder
 - `icon.png` - Application icon
 

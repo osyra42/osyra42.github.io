@@ -100,7 +100,7 @@ After a long moment she nodded, like she was filing the picture somewhere safe. 
 
 She closed the door softly behind her.
 
-Osyra lay down. Her tail curled around against the small of her back, the way it always did when she slept. Her ears flattened against the pillow.
+Osyra lay down. Her tail curled around against the small of her back, finding the sleeping curl on its own. Her ears flattened against the pillow.
 
 She had not, in fact, fallen apart.
 
