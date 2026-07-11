@@ -11,7 +11,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
 ### Core Structure
 - **Root HTML pages**: Main site pages (index.html, support_me.html, etc.)
 - **assets/**: Shared resources for the main site
-  - `css/styles.css`: Entry stylesheet — `@import`s all the partials below in order (theme → sidebar → main → brewdown → mobile → print). Pages link only `styles.css`.
+  - `css/styles.css`: Entry stylesheet - `@import`s all the partials below in order (theme → sidebar → main → brewdown → mobile → print). Pages link only `styles.css`.
   - `css/theme.css`: `:root` CSS variables (coffee theme) and global/body layout
   - `css/sidebar.css`: Sidebar styles
   - `css/main.css`: `<main>` element / content styles
@@ -25,7 +25,7 @@ This is a static personal website for Coffee Byte Dev (coffeebyte.dev), hosted o
   - `js/back-to-top.js`: Back to top button functionality
 
 ### Key Subsections
-- **operation_chimera/**: Markdown story content, organized like an MMO — `main/part N - {book}/` for the main-story parts (the Chimera Incident), `side/{book}/` for side-story chapters, and `lore/` for the wiki/codex (characters, locations, world lore). Each book/part has its own root HTML page (e.g. `oc_blood_relation.html`, `oc_mireheart.html`, `oc_part1.html`, `oc_borne_weapon.html`, `oc_lore.html`); `operation_chimera.html` is the hub that links them.
+- **operation_chimera/**: Markdown story content, organized like an MMO - `main/part N - {book}/` for the main-story parts (the Chimera Incident), `side/{book}/` for side-story chapters, and `lore/` for the wiki/codex (characters, locations, world lore). Each book/part has its own root HTML page (e.g. `oc_blood_relation.html`, `oc_mireheart.html`, `oc_part1.html`, `oc_borne_weapon.html`, `oc_lore.html`); `operation_chimera.html` is the hub that links them.
 - **blank_pixel_game/**: Browser game build (HTML5 export under `html5game/`)
 - **sipsip/**: Sip Sip card game and its `decks/`
 
@@ -55,17 +55,17 @@ All main site pages follow this structure:
 </body>
 ```
 
-**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` calls `hljs.highlightAll()` if hljs is available — if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later. `signature.js` and `update.js` MUST also come before `brewdown.js` — brewdown reads `window.SIGNATURE` and `window.UPDATES` when it expands the `::signature::` token (see Page Footer below).
+**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` calls `hljs.highlightAll()` if hljs is available - if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later. `signature.js` and `update.js` MUST also come before `brewdown.js` - brewdown reads `window.SIGNATURE` and `window.UPDATES` when it expands the `::signature::` token (see Page Footer below).
 
 ## Page Footer (Signature) & Update Dates
 
 Every content page ends its Brewdown body with a single `::signature::` line instead of a hand-written footer. Brewdown expands it into the Author / Source / Contact / License / Last Updated block.
 
 Two central config files drive this, both loaded before `brewdown.js`:
-- **`assets/js/update.js`** (`window.UPDATES`) — the single source of truth for every page's `{ title, date }`, keyed by href. Feeds BOTH the footer's "Last Updated" AND the sidebar's ✨ "recently updated" badge (within 28 days).
-- **`assets/js/signature.js`** (`window.SIGNATURE`) — shared footer fields only: author, contact, license, domain.
+- **`assets/js/update.js`** (`window.UPDATES`) - the single source of truth for every page's `{ title, date }`, keyed by href. Feeds BOTH the footer's "Last Updated" AND the sidebar's ✨ "recently updated" badge (within 28 days).
+- **`assets/js/signature.js`** (`window.SIGNATURE`) - shared footer fields only: author, contact, license, domain.
 
-- **To bump a page's "Last Updated" date:** edit that page's entry in `assets/js/update.js`. One edit updates both the footer and the sidebar. Do NOT hand-edit footers — there's only the one `::signature::` token now.
+- **To bump a page's "Last Updated" date:** edit that page's entry in `assets/js/update.js`. One edit updates both the footer and the sidebar. Do NOT hand-edit footers - there's only the one `::signature::` token now.
 - Author / Contact / License / domain: change once in `signature.js`, applies everywhere.
 - Source and "Last Updated" are derived automatically from the current filename + the date map.
 
@@ -173,7 +173,7 @@ Layout uses CSS Grid: `grid-template-columns: 300px 1fr` (sidebar + content).
 
 - GitHub Pages site at coffeebyte.dev (CNAME configured)
 - Push to main branch deploys automatically
-- No build step — all static HTML/CSS/JS
+- No build step - all static HTML/CSS/JS
 
 ## Important Dates (tracked in scripts.js)
 - 2026-01-04: Premium host expiration

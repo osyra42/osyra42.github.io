@@ -1,8 +1,8 @@
 # Chapter 8 - Shark Attack
 
-The tension in the gymnasium had settled into a fragile, watchful stalemate over the past week. The mockery had died, choked off by the rumor of the "super-soldier" and by her own deliberate silence. She perfected the hateful stare—a flat, unblinking look that made her unnatural red eyes seem less like a flaw and more like a targeting laser. She'd aim it at anyone who lingered too long, and they'd find something else to look at.
+The tension in the gymnasium had settled into a fragile, watchful stalemate over the past week. The mockery had died, choked off by the rumor of the "super-soldier" and by her own deliberate silence. She perfected the hateful stare-a flat, unblinking look that made her unnatural red eyes seem less like a flaw and more like a targeting laser. She'd aim it at anyone who lingered too long, and they'd find something else to look at.
 
-Processing was a blur of more custom fittings, psych evals, and endless waiting. On the second day, they'd issued the uniform: standard Titan Reach fatigues, a digital grey-green, but hers had been subtly altered. The shirt collar was widened, the back of the trousers reinforced with a gusset of tougher material at the base of her spine. Wearing it felt strange—less like putting on clothes and more like being fitted for a new, official kind of skin. The message was clear: she was being standardized, but she was apart.
+Processing was a blur of more custom fittings, psych evals, and endless waiting. On the second day, they'd issued the uniform: standard Titan Reach fatigues, a digital grey-green, but hers had been subtly altered. The shirt collar was widened, the back of the trousers reinforced with a gusset of tougher material at the base of her spine. Wearing it felt strange-less like putting on clothes and more like being fitted for a new, official kind of skin. The message was clear: she was being standardized, but she was apart.
 
 The day of transport to the main training barracks arrived, and the distinction became a public spectacle. They were herded into a cold, pre-dawn formation in the yard outside the bunker. About fifty of them, a ragged, shivering line of recruits in identical fatigues, clutching duffels of standard-issue gear. There was no discipline yet, just a jostling, anxious crowd.
 
@@ -20,7 +20,7 @@ Every head in uniform turned. The hateful stare wasn't enough here; she could fe
 
 One by one, the last names were barked, and recruits filed onto the bus. She watched them go, her own duffel at her feet. Finally, the sergeant barked, "Renaya! Forward!"
 
-She walked the gauntlet of uniformed faces in the bus windows—curious, hostile, afraid. She climbed the steps. The interior was silent, the air thick with anticipation. And there, at the very back, was a single seat, its cracked vinyl marked with a glaring 'X' of red duct tape. An island.
+She walked the gauntlet of uniformed faces in the bus windows-curious, hostile, afraid. She climbed the steps. The interior was silent, the air thick with anticipation. And there, at the very back, was a single seat, its cracked vinyl marked with a glaring 'X' of red duct tape. An island.
 
 "Sit!" the sergeant yelled from outside.
 
@@ -50,12 +50,12 @@ The Shark Attack lasted the entire final half-hour of the journey. By the time t
 
 Recruits stumbled into the aisle, their uniforms rumpled, their movements jerky with residual fear. She waited, as instructed, until the bus was nearly empty. Then she stood, adjusting her cap, slinging her duffel, clutching the metal case.
 
-She was the last one down the steps. The scene on the yard was one of shell-shocked recruits trying to form lines under the blistering shouts of three drill instructors. One of them, a mountain of a man with a shaved scalp and the same voice that had led the Shark Attack, saw her. His eyes, taking in the uniform, the case, her position, held no personal malice—only the flat, assessing glare he'd give any piece of irregular equipment on his manifest.
+She was the last one down the steps. The scene on the yard was one of shell-shocked recruits trying to form lines under the blistering shouts of three drill instructors. One of them, a mountain of a man with a shaved scalp and the same voice that had led the Shark Attack, saw her. His eyes, taking in the uniform, the case, her position, held no personal malice-only the flat, assessing glare he'd give any piece of irregular equipment on his manifest.
 
 "RENAYA!" he bellowed. Not a taunt, a designation. "The attachment! You don't get in line! You stand there!" He pointed to a spot ten feet to the left of the ragged formation, his gesture as precise as a surveyor's. "You are a shadow! You follow all training, but you are not of this platoon! Understood?"
 
 "Understood, Drill Sergeant!" she shouted, the words raw in her throat. She marched to the spot, dropped her duffel, snapped to attention, the metal case held rigidly at her side. The stiff fabric of her trousers felt taut across her back.
 
-He gave her one final, impersonal glance—a commander confirming a logistical detail—then turned his full, terrifying focus back to the main platoon. "WHAT ARE YOU STARING AT, MAGGOTS? YOUR JOB IS TO LEARN, NOT GAPE! EYES FRONT!"
+He gave her one final, impersonal glance-a commander confirming a logistical detail-then turned his full, terrifying focus back to the main platoon. "WHAT ARE YOU STARING AT, MAGGOTS? YOUR JOB IS TO LEARN, NOT GAPE! EYES FRONT!"
 
 She stared straight ahead, over the heads of the identically dressed recruits, at the stark, grey wall of the nearest barracks building. The cool metal of the case bit into her palm through her uniform glove. The Shark Attack's adrenaline was still buzzing in her veins, mixing uneasily with the pill's artificial calm.

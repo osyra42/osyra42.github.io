@@ -44,4 +44,4 @@ She typed her name.
 
 The screen refreshed. Coordinates. A time: 04:30. **Pack Light.**
 
-She looked at the pills. She took one, ensuring the fog—and the poor decisions it bred—would stay far away. Then she went to find a bag. The only thing she needed to pack was the resolve not to be a mistake again.
+She looked at the pills. She took one, ensuring the fog-and the poor decisions it bred-would stay far away. Then she went to find a bag. The only thing she needed to pack was the resolve not to be a mistake again.

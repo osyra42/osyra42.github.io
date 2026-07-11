@@ -20,7 +20,7 @@ The lean recruit shook his head slowly, a faint, almost awed smile touching his 
 
 He took a step closer, his eyes locked on her as if she were a fascinating blueprint. "Look at the base of the spine. Perfect for balance and kinetic transfer. The auricular mobility? 360-degree audio surveillance, no tech required. The ocular pigmentation? That's for low-light and thermal tracking." He was inventing it on the spot, but his conviction was magnetic. "They didn't make a pet. They built a super-soldier. And you're calling it names."
 
-The silence in their corner of the gym was absolute. Stumps's bluster deflated, replaced by a dawning, uncertain fear. The other recruits stared at her with new eyes—not seeing a monster, but a weapon. The mockery was gone, replaced by wary, calculating distance.
+The silence in their corner of the gym was absolute. Stumps's bluster deflated, replaced by a dawning, uncertain fear. The other recruits stared at her with new eyes-not seeing a monster, but a weapon. The mockery was gone, replaced by wary, calculating distance.
 
 The lean recruit held her gaze for a moment longer. In his grey eyes, there was no pity, no kindness. Just the cool, approving gleam of a fanatic recognizing a superior piece of engineering. He gave her a slight, almost imperceptible nod.
 
@@ -32,6 +32,6 @@ The stares were different now. No longer mocking, but wary. Calculating. The big
 
 She pulled her hood tighter. The pill's calm held firm, a lake of ice over a deep, dark sea. But beneath that ice, a new, pragmatic thought crystallized.
 
-It was an interesting idea. To roleplay as a super-soldier. To lean into the rumor, to wear their awed fear like a cloak. They wanted to see a weapon? Fine. Let them. It was better than being a pet, a freak, a "Fido." Maybe, within these walls, performance was everything. Maybe she could get some type of respect—or at least, a safer distance—by pretending to be exactly the monster they'd already decided she was.
+It was an interesting idea. To roleplay as a super-soldier. To lean into the rumor, to wear their awed fear like a cloak. They wanted to see a weapon? Fine. Let them. It was better than being a pet, a freak, a "Fido." Maybe, within these walls, performance was everything. Maybe she could get some type of respect-or at least, a safer distance-by pretending to be exactly the monster they'd already decided she was.
 
 The boot camp hadn't officially begun, and she was already alone in a room full of people. But now, at least, she had a role to play.

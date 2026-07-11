@@ -12,11 +12,11 @@ One by one, they filed into the thick, hazy air inside. Even with the mask on, h
 
 She pulled the mask from her face.
 
-The world dissolved into instant, agonizing fire. It was like inhaling crushed glass and hornets. Her lungs seized, a raw, scraping cough tearing from her throat. Her eyes flooded, vision blurring into a smear of grey walls and green uniforms. It was exactly as bad as it was for everyone else in the room—no worse, no special weakness the lab had built into her, just the same chemical hell democratically applied. If anything it sat in her sinuses and the back of her throat a little longer, her sharper senses slower to stop screaming about it. But it was the great equalizer: in here, she was just one more body drowning in its own mucus.
+The world dissolved into instant, agonizing fire. It was like inhaling crushed glass and hornets. Her lungs seized, a raw, scraping cough tearing from her throat. Her eyes flooded, vision blurring into a smear of grey walls and green uniforms. It was exactly as bad as it was for everyone else in the room-no worse, no special weakness the lab had built into her, just the same chemical hell democratically applied. If anything it sat in her sinuses and the back of her throat a little longer, her sharper senses slower to stop screaming about it. But it was the great equalizer: in here, she was just one more body drowning in its own mucus.
 
 "NAME AND RANK!" Hale bellowed from somewhere in the burning fog.
 
-She tried to suck in air to speak, and got a mouthful of fire. "RENAYA—!" she choked out, her voice a strangled rasp before a coughing fit doubled her over. Snot poured from her nose, thick and uncontrollable. All around her, the sounds were the same: retching, gagging, the wet, desperate hacking of fifty people drowning in their own mucus. The mysterious respiratory plague that had haunted the bay was instantly, violently cured. No one was congested anymore; every passage was ruthlessly, painfully clear.
+She tried to suck in air to speak, and got a mouthful of fire. "RENAYA-!" she choked out, her voice a strangled rasp before a coughing fit doubled her over. Snot poured from her nose, thick and uncontrollable. All around her, the sounds were the same: retching, gagging, the wet, desperate hacking of fifty people drowning in their own mucus. The mysterious respiratory plague that had haunted the bay was instantly, violently cured. No one was congested anymore; every passage was ruthlessly, painfully clear.
 
 "SEAL YOUR MASK!"
 
@@ -24,7 +24,7 @@ She fumbled the rubber back over her face, her fingers slick with tears and snot
 
 ***
 
-Night ops came a week later. They were issued night-vision goggles—heavy, bulky units that turned the world into a ghostly green landscape of vague shapes and halos. They practiced moving in squads, communicating in whispers, the gear hissing and whining in their ears.
+Night ops came a week later. They were issued night-vision goggles-heavy, bulky units that turned the world into a ghostly green landscape of vague shapes and halos. They practiced moving in squads, communicating in whispers, the gear hissing and whining in their ears.
 
 She tried to use them. She really did. But the amplified light was overwhelming, washing out details, and the limited field of view felt like looking through two foggy soda bottles. It was harder to see with them than without.
 

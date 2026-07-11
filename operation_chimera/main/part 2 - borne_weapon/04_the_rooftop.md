@@ -2,7 +2,7 @@
 
 A week passed. The couriered package arrived: a blister pack of pills and a clinical-grade basal thermometer. She left it on her kitchen counter, untouched. A tiny rebellion. Every itch, every heightened smell, she monitored with a dread that curdled into a perverse defiance. *This is still mine.*
 
-The drive window came two weeks after the exam, right on the calendar she'd never needed to write down. It wasn't a surprise; it was an ambush she'd chosen. The restlessness she'd carried for days sharpened, by dusk, into something with claws—a wire pulled taut, a pull she couldn't sit still under. Her apartment was a torture chamber of amplified sensation—the fridge motor a jackhammer, the scent of her own skin sour and overwhelming. The courier's pills gleamed mockingly from the counter. Taking them felt like letting them win. Not taking them felt like insanity.
+The drive window came two weeks after the exam, right on the calendar she'd never needed to write down. It wasn't a surprise; it was an ambush she'd chosen. The restlessness she'd carried for days sharpened, by dusk, into something with claws-a wire pulled taut, a pull she couldn't sit still under. Her apartment was a torture chamber of amplified sensation-the fridge motor a jackhammer, the scent of her own skin sour and overwhelming. The courier's pills gleamed mockingly from the counter. Taking them felt like letting them win. Not taking them felt like insanity.
 
 The restlessness was a live wire. She couldn't be contained. She fled to the only space left: the roof.
 
@@ -10,11 +10,11 @@ The night air was cool against skin that ran too hot and too aware. The city spr
 
 That was when she caught his scent.
 
-It cut through the chemical haze of the city—clean soap, fresh linen, and underneath, something warm and vital. Human, but… distinct. Compelling. Her head snapped up. He was at the far end of the roof, leaning against the parapet, looking out at the skyline. Just a silhouette.
+It cut through the chemical haze of the city-clean soap, fresh linen, and underneath, something warm and vital. Human, but… distinct. Compelling. Her head snapped up. He was at the far end of the roof, leaning against the parapet, looking out at the skyline. Just a silhouette.
 
 Her body moved before her mind could catch up. The need focused, honed in on that scent like a beacon. She was across the roof without deciding to go, the gravel crunching under her boots.
 
-He turned as she approached. He was tall, with kind eyes that widened in surprise, then cautious curiosity as he took her in—the hood, the ears visible in the moonlight, the agitated tail. Most people ran. Or screamed. He just… watched.
+He turned as she approached. He was tall, with kind eyes that widened in surprise, then cautious curiosity as he took her in-the hood, the ears visible in the moonlight, the agitated tail. Most people ran. Or screamed. He just… watched.
 
 His eyes moved from her pinned ears to her glassy, too-bright gaze, and his expression shifted from curiosity to a dawning, careful comprehension. He didn't look at her ears like they were costumes, but like they were… symptoms. "You're… in some kind of trouble," he stated softly. It wasn't a question about what she was, but about the state she was in.
 

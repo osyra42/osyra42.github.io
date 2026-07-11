@@ -1,10 +1,10 @@
 # Chapter 2 - The Verification
 
-She didn't sleep much. The kind of tired that sits behind the eyes and hums in the bones. Her ears kept tuning into the wrong things—the drip of a tap, the scuttle of something in the walls, the low-frequency thrum of the city that never stops. When she did drift off, it wasn't into dreams, but into a replay of sensations: the cold press of a stethoscope, the bite of a needle, a scientist's voice noting observations in a flat, delighted tone. She woke before her alarm, the grey dawn light seeping around the edges of her blinds. Her hood was still up.
+She didn't sleep much. The kind of tired that sits behind the eyes and hums in the bones. Her ears kept tuning into the wrong things-the drip of a tap, the scuttle of something in the walls, the low-frequency thrum of the city that never stops. When she did drift off, it wasn't into dreams, but into a replay of sensations: the cold press of a stethoscope, the bite of a needle, a scientist's voice noting observations in a flat, delighted tone. She woke before her alarm, the grey dawn light seeping around the edges of her blinds. Her hood was still up.
 
 At 08:55, she was back in her chair. The dark room. The computer's glow. She had cleared her desk, leaving only the monitor and the camera. She clicked the link.
 
-The Zoom window opened. It was just her in a small square, and a larger, empty black square labeled 'Dr. Vasquez – Titan Reach.' No picture. No voice. For a full minute, there was nothing. Then her square lit up.
+The Zoom window opened. It was just her in a small square, and a larger, empty black square labeled 'Dr. Vasquez - Titan Reach.' No picture. No voice. For a full minute, there was nothing. Then her square lit up.
 
 She was not what Osyra had expected. Younger. Sharp features, dark hair pulled into a severe bun, glasses that reflected the light of her own screen so her eyes were invisible. She wore a white lab coat over a black turtleneck. Her background was a blur of sleek, grey office.
 

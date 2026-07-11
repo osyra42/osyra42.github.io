@@ -1,4 +1,4 @@
-# Operation Chimera — Brainstorm
+# Operation Chimera - Brainstorm
 
 *Scratch file for story ideas not yet canon. Not reader-facing. When an idea is settled and merged into the codex or a book, strike it from here.*
 
@@ -32,27 +32,27 @@
 
 **Open:** how public is this? Does the Agency know cryptids can be ex-human and suppress it, or is it a discovery Osyra makes in the field? (Suppression = another layer of the Agency's rot.)
 
-## Osyra — romance exploration
+## Osyra - romance exploration
 
 *Moved to its own mini-book: `side/red_light/` (`_notes.md` + the "Red Light District" seed). No longer tracked here.*
 
 ---
 
-## The Chimera Vaccine — plot seeds
+## The Chimera Vaccine - plot seeds
 
 *Worldbuilding for the vaccine is now canon - see [The Chimera Vaccine](operation_chimera/lore/con_vaccine.md) and the World Lore entry (virus mechanism, Chimera-9 survival-vs-humanity tradeoff, war-hybrid origin). What follows is unused plot/scenario material.*
 
 ### Tense-decision scenarios
 
-**A. The dying child** — A terminal kid, weeks left. Parents beg for the strain. It might save her - and turn her into the exact kind of creature the Agency exists to track, and that civilians fear. **Save her into a hunted life, or let her die human?** Worse: the only person who can administer it competently is a survivor who swore never to make another one.
+**A. The dying child** - A terminal kid, weeks left. Parents beg for the strain. It might save her - and turn her into the exact kind of creature the Agency exists to track, and that civilians fear. **Save her into a hunted life, or let her die human?** Worse: the only person who can administer it competently is a survivor who swore never to make another one.
 
-**B. The teammate on the table** — Korval (or another Operator) is dying in the field from a wound nothing normal can fix. Osyra is carrying a dose - maybe the only thing that reaches him in time. To save him she has to *make him like her*, without consent, the exact violation done to her at sixteen. **Let a friend die intact, or save him by doing to him the thing she's never forgiven?**
+**B. The teammate on the table** - Korval (or another Operator) is dying in the field from a wound nothing normal can fix. Osyra is carrying a dose - maybe the only thing that reaches him in time. To save him she has to *make him like her*, without consent, the exact violation done to her at sixteen. **Let a friend die intact, or save him by doing to him the thing she's never forgiven?**
 
-**C. The unstable variant** — Someone injected with a failed variant is dissolving, in agony, with hours left. Stable Chimera-9 strain could halt it - converting a dying unstable subject into a stable Chimeran. Not a cure. A trade of one cage for a livable one. **Is overwriting someone's death with someone else's design an act of mercy or of arrogance?**
+**C. The unstable variant** - Someone injected with a failed variant is dissolving, in agony, with hours left. Stable Chimera-9 strain could halt it - converting a dying unstable subject into a stable Chimeran. Not a cure. A trade of one cage for a livable one. **Is overwriting someone's death with someone else's design an act of mercy or of arrogance?**
 
-**D. The cure that legitimizes the cage** — The lab's owner - alive, the one Osyra saw watching from the observation deck - resurfaces offering the vaccine *legitimately*, through a clinic, saving real people. Genuinely curing the dying. Every saved life is also a brick in the argument that the experiments were justified. **Do you shut down the only thing saving these patients, knowing the man behind it is the man who made you?**
+**D. The cure that legitimizes the cage** - The lab's owner - alive, the one Osyra saw watching from the observation deck - resurfaces offering the vaccine *legitimately*, through a clinic, saving real people. Genuinely curing the dying. Every saved life is also a brick in the argument that the experiments were justified. **Do you shut down the only thing saving these patients, knowing the man behind it is the man who made you?**
 
-**E. The self-question** — Osyra finds a way to *reverse* her own strain - to be human again - but the same research, weaponized, could strip every Chimeran of what keeps them alive, or be forced on them against their will. A cure for her is a genocide tool for everyone like her. **Does she get to be human if the price is a weapon against her own kind?**
+**E. The self-question** - Osyra finds a way to *reverse* her own strain - to be human again - but the same research, weaponized, could strip every Chimeran of what keeps them alive, or be forced on them against their will. A cure for her is a genocide tool for everyone like her. **Does she get to be human if the price is a weapon against her own kind?**
 
 ### My read
 

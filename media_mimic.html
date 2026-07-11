@@ -64,7 +64,7 @@
 > **License:** Free & Open Source
 > **Created:** November 2024
 
-Media Mimic is a desktop media library interface I built with PySide6 to browse and play video content organized by categories. It scans a media directory you point it at and lays everything out in a visual grid, and now pulls real IMDb data — ratings, episode lists, runtime, and posters — for every title.
+Media Mimic is a desktop media library interface I built with PySide6 to browse and play video content organized by categories. It scans a media directory you point it at and lays everything out in a visual grid, and now pulls real IMDb data - ratings, episode lists, runtime, and posters - for every title.
 
 ## Features
 
@@ -76,13 +76,13 @@ Media Mimic is a desktop media library interface I built with PySide6 to browse 
 ### IMDb Enrichment (new)
 Media Mimic now enriches your library with real IMDb data via the [OMDb API](https://www.omdbapi.com/). Responses are cached to a local JSON file so repeated runs don't burn the free-tier request limit, and a cached run can render the whole library with no network calls.
 
-- **Episode lists** — pulls the full episode list from IMDb for each show
-- **Missing-episode audit** — compares IMDb's episode count against the video files on disk and flags how many appear to be missing (count-based, so it survives libraries numbered differently than IMDb)
-- **IMDb ratings** — records the IMDb rating per title
-- **Watch-time estimate** — runtime for a movie, or per-episode runtime × episodes on disk for a series, formatted as `Xh Ym`
-- **Poster download** — grabs the IMDb poster for each title, with a force-refresh option
-- **Standalone enrich tool** — `enrich.py` runs all of the above across the whole library (or one title) and writes a `report.json`
-- **Title matching** — cleans release-folder cruft (`(2005)`, `[1080p]`, codecs) off folder names, with a `title_overrides` map for names Windows folders can't represent (`Law & Order: SVU`, etc.)
+- **Episode lists** - pulls the full episode list from IMDb for each show
+- **Missing-episode audit** - compares IMDb's episode count against the video files on disk and flags how many appear to be missing (count-based, so it survives libraries numbered differently than IMDb)
+- **IMDb ratings** - records the IMDb rating per title
+- **Watch-time estimate** - runtime for a movie, or per-episode runtime × episodes on disk for a series, formatted as `Xh Ym`
+- **Poster download** - grabs the IMDb poster for each title, with a force-refresh option
+- **Standalone enrich tool** - `enrich.py` runs all of the above across the whole library (or one title) and writes a `report.json`
+- **Title matching** - cleans release-folder cruft (`(2005)`, `[1080p]`, codecs) off folder names, with a `title_overrides` map for names Windows folders can't represent (`Law & Order: SVU`, etc.)
 
 ### Visual Interface
 - Creates category headers with grid layouts of buttons
@@ -97,7 +97,7 @@ Media Mimic now enriches your library with real IMDb data via the [OMDb API](htt
 - Uses subprocess commands with recursive playlist-enqueue options
 - Displays warning messages if VLC isn't detected
 - Shows error dialogs if video folder opening fails
-- **VLC fix** — corrected the enqueue/launch handling so folders reliably open in the running VLC instance
+- **VLC fix** - corrected the enqueue/launch handling so folders reliably open in the running VLC instance
 
 ### Dynamic Layout
 - Responsively recalculates grid columns on window resize
@@ -105,8 +105,8 @@ Media Mimic now enriches your library with real IMDb data via the [OMDb API](htt
 - Missing poster images default to a configured placeholder
 
 ### Settings & Startup
-- **In-app settings persistence** — edits are written back into `settings.py` in place, preserving comments, ordering, and blank lines
-- **Sleep launcher** — `zzz_launcher.bat` verifies the project venv exists and dependencies are consistent (`pip check`), then launches windowless and detached so no console lingers behind the app
+- **In-app settings persistence** - edits are written back into `settings.py` in place, preserving comments, ordering, and blank lines
+- **Sleep launcher** - `zzz_launcher.bat` verifies the project venv exists and dependencies are consistent (`pip check`), then launches windowless and detached so no console lingers behind the app
 - Sets the Windows AppUserModelID before any window is created so the taskbar icon groups correctly
 
 ## Requirements

@@ -22,7 +22,7 @@ From there, it was the coordination room. A different nurse, younger, with Dr. V
 
 "Now," Vasquez said, her voice cutting through the quiet. "Jump. From a standing start. As high as you can."
 
-Osyra bent her knees and pushed off. The ceiling tiles rushed at her face. She came down heavy, knees folding to take the load—a solid, audible *thud* that you felt through the platform. Not graceful. A big frame coming back to earth and the floor knowing about it.
+Osyra bent her knees and pushed off. The ceiling tiles rushed at her face. She came down heavy, knees folding to take the load-a solid, audible *thud* that you felt through the platform. Not graceful. A big frame coming back to earth and the floor knowing about it.
 
 "Ground reaction force must be exceptional," the young nurse breathed.
 
@@ -54,21 +54,21 @@ Chen left, and a moment later, a woman in her forties entered. She had a calm, c
 
 The dread was immediate and cold. This was the part their notes had been most feverish about. *Cyclical stability. Hormonal integration.*
 
-She began with a standard physical exam—heart rate, palpation of the abdomen. Her hands were professional, but when she pressed near Osyra's ovaries, a jolt went through her, a deep internal resonance. She paused, her gaze sharpening. "Interesting."
+She began with a standard physical exam-heart rate, palpation of the abdomen. Her hands were professional, but when she pressed near Osyra's ovaries, a jolt went through her, a deep internal resonance. She paused, her gaze sharpening. "Interesting."
 
-The internal ultrasound was next. The cold gel, the intrusive probe. Osyra stared at a crack in the ceiling tile. On the screen, grey shapes swirled—her own insides, looking alien.
+The internal ultrasound was next. The cold gel, the intrusive probe. Osyra stared at a crack in the ceiling tile. On the screen, grey shapes swirled-her own insides, looking alien.
 
 "Uterine structure appears normal," Dr. Ellen said quietly. "Ovarian activity is… significant. Follicular development is advanced."
 
 She removed the probe and sat on a stool, facing her. Her expression was neutral, open. "Osyra, I need you to describe your reproductive cycle for me. In your own words. What do you experience?"
 
-The question was a blade. Osyra had never had to say it out loud. "It's not a period," she started, the distinction clawing its way out. "It runs on a different clock. Once a year, in the fall—same stretch every time. I can mark it on a calendar. And it comes in stages."
+The question was a blade. Osyra had never had to say it out loud. "It's not a period," she started, the distinction clawing its way out. "It runs on a different clock. Once a year, in the fall-same stretch every time. I can mark it on a calendar. And it comes in stages."
 
 "Walk me through them."
 
-She kept her voice flat, like reading a report off a screen. "First I can't settle. Don't sleep. Everything gets too loud, too bright, too much—my own skin feels like it's listening. I get short with people. There's some bleeding, early on, a few days of it." A muscle moved in her jaw. "Then it sharpens into a pull. Toward—" She stopped. Made herself finish. "Toward closeness. Contact. For a few days I want it badly enough that I don't trust myself with it. Then it breaks and I crash—wrung out for a week. After that it's gone for another year."
+She kept her voice flat, like reading a report off a screen. "First I can't settle. Don't sleep. Everything gets too loud, too bright, too much-my own skin feels like it's listening. I get short with people. There's some bleeding, early on, a few days of it." A muscle moved in her jaw. "Then it sharpens into a pull. Toward-" She stopped. Made herself finish. "Toward closeness. Contact. For a few days I want it badly enough that I don't trust myself with it. Then it breaks and I crash-wrung out for a week. After that it's gone for another year."
 
-She nodded, typing. "A seasonal estrous cycle. Photoperiod-triggered—your body reads the shortening daylight and runs the program on schedule. Textbook canid, grafted onto a human frame. The serum rewired your hypothalamic-pituitary axis." She leaned forward slightly. "Predictable, at least. That helps. But that drive window is a profound liability in the field if it isn't managed."
+She nodded, typing. "A seasonal estrous cycle. Photoperiod-triggered-your body reads the shortening daylight and runs the program on schedule. Textbook canid, grafted onto a human frame. The serum rewired your hypothalamic-pituitary axis." She leaned forward slightly. "Predictable, at least. That helps. But that drive window is a profound liability in the field if it isn't managed."
 
 She wasn't judging. She was assessing a flawed asset. "Given Titan Reach's operational parameters, we will provide a regimen of hormonal regulators. Non-negotiable for field readiness. The prescription and a monitoring kit will be couriered to you."
 

@@ -6,15 +6,15 @@ She held up a piece of paper. It bleached the screen, a stark rectangle in the d
 
 "I'm told someone put my name forward," she said. "That you already know the broad strokes, and you'd rather hear the rest from me. Fine."
 
-"I was given up as a baby. My parents had nothing—I was one mouth too many. An aunt took me in and raised me until she died, and after that it was foster care, one house after another. Until I was sixteen. Then the man who was supposed to be keeping me sold me to a facility."
+"I was given up as a baby. My parents had nothing-I was one mouth too many. An aunt took me in and raised me until she died, and after that it was foster care, one house after another. Until I was sixteen. Then the man who was supposed to be keeping me sold me to a facility."
 
 She paused for a long moment. She looked down, a sweep of dark hair falling past her glasses, then back into the lens, her expression flat.
 
-"They ran illegal experiments. Hybridization—splicing animal into human and seeing what lived. I was a line item. A body nobody who mattered would come looking for."
+"They ran illegal experiments. Hybridization-splicing animal into human and seeing what lived. I was a line item. A body nobody who mattered would come looking for."
 
-"They had charts of my development, my reflexes, my cellular response. Most of the others didn't survive what they were given. I did. When the place burned down I walked out, and I lived like an animal for the better part of two years—started in the woods, ended up on the street—taking what I needed, answering to no one. Long enough to learn I could."
+"They had charts of my development, my reflexes, my cellular response. Most of the others didn't survive what they were given. I did. When the place burned down I walked out, and I lived like an animal for the better part of two years-started in the woods, ended up on the street-taking what I needed, answering to no one. Long enough to learn I could."
 
-She took a slow, steadying breath, her eyes—a sharp, unnatural red even in the low light—locked on the camera. Her hands, which had been resting on the desk, came up. They grasped the sides of the hood of her brown jacket.
+She took a slow, steadying breath, her eyes-a sharp, unnatural red even in the low light-locked on the camera. Her hands, which had been resting on the desk, came up. They grasped the sides of the hood of her brown jacket.
 
 "This is what they made."
 
@@ -44,7 +44,7 @@ Your submission has been received and reviewed.
 
 The nature of the presented physiological claims necessitates a preliminary verification to rule out digital or practical artifice before formal consideration can proceed.
 
-You are required to attend a brief, live video conference at 09:00 tomorrow (your local time). You must present yourself exactly as you appeared in your submitted recording—same environment, same attire. You will be asked to perform simple visual confirmations at my direction.
+You are required to attend a brief, live video conference at 09:00 tomorrow (your local time). You must present yourself exactly as you appeared in your submitted recording-same environment, same attire. You will be asked to perform simple visual confirmations at my direction.
 
 Confirmation of your attendance is required within the hour.
 
