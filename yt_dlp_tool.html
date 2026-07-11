@@ -93,9 +93,9 @@ Paste a **playlist** link and, unless playlist mode is on, it asks before grabbi
 
 ---
 
-## The Doctor - Setup That Fixes Itself
+## The Doctor - Vanity, Setup That Fixes Itself
 
-The part I'm proudest of: you don't really "install" anything. The tool carries a built-in **doctor** that checks whether Python, the virtual environment, `deno.exe`, and `ffmpeg.exe` are all present and working - and offers to fix whatever isn't. It can create the environment, install yt-dlp, and download the correct build of deno and ffmpeg for your specific computer.
+The part I'm proudest of: you don't really "install" anything. The tool carries a built-in **doctor** - this is [Vanity](vanity.html), the assistant and repair tech behind my projects, doing what she does. When something's broken or missing, she shows up and fixes it. The doctor checks whether Python, the virtual environment, `deno.exe`, and `ffmpeg.exe` are all present and working - and offers to fix whatever isn't. It can create the environment, install yt-dlp, and download the correct build of deno and ffmpeg for your specific computer.
 
 That last bit matters more than it sounds: `deno.exe` and `ffmpeg.exe` aren't interchangeable between CPU types (an Intel/AMD build won't run on an ARM machine). If one fails because it's the wrong kind, the doctor notices and can fetch the right one. This is exactly the "fix it, don't just report it" idea from the Sleep Launcher page, taken all the way - the tool heals its own setup instead of handing you a checklist.
 
