@@ -1,6 +1,6 @@
 # John Korval
 
-![John Korval](operation_chimera/lore/imgs/korval0.jpg)
+![John Korval](operation_chimera/wiki/imgs/korval0.jpg)
 
 ## Current
 Osyra's bodyguard and driver. American with Russian descent, thick accent, tough personality. He enjoys peace and quiet and does his job in a stiff, mechanical way. He has almost a sixth sense for when things are about to go wrong, yet he often cowers faster than Osyra when facing creatures from other worlds.

@@ -1,6 +1,6 @@
 # Osyra Renaya
 
-![Osyra Renaya](operation_chimera/lore/imgs/osyra0.jpg)
+![Osyra Renaya](operation_chimera/wiki/imgs/osyra0.jpg)
 
 ## Current
 Osyra Renaya. A Chimeran Operator - part wolf, part human. Dark, brooding, and indifferent - she doesn't speak much until it's absolutely necessary. She saves people because it's her job, not because she wants to.
@@ -44,6 +44,11 @@ Two modes. In civilian and social life she's the loner the profile describes - i
 
 Control is the load-bearing thing. She isn't afraid of dying; she's afraid of **losing control**, because every wound in her history happened the moment she didn't have it - given up, handed off, sold to the lab, experimented on. Loss of control is precisely the condition under which people did things to her. So she holds the reins on the mission, the pack, and herself with a grip that never fully relaxes. Her skepticism of everyone's intent isn't a worldview she reasoned into - it's the scar. Control is how she guarantees no one is ever again in a position to do that to her.
 
+### The knife
+Nobody taught her. **Her hands already knew** - the knife is instinct, not training, and it came with the rewrite. She is a controlled, analytical fighter at range and with a rifle, and something else entirely once it's close: **in a knife fight she goes feral.** The thinking part steps back and the wolf takes the wheel, and the wolf is faster than she is and does not need to be told what to do.
+
+This is the one place her control genuinely slips, which is why the knife is the weapon she's least comfortable having been issued. It works. It works *too well*. Every time it works she gets confirmation that the lab built something that doesn't need her permission to operate - that there's a version of her underneath the reasoning that was put there on purpose, by people who wanted exactly this, and it surfaces the moment the range closes. She keeps it on her anyway. It's the most reliable thing she owns and she resents it for that.
+
 ## Physiology
 
 A stable Chimera-9 expression - wolf traits on a human frame, the rewrite holding cleanly enough that she kept her mind.
@@ -70,7 +75,11 @@ She is reproductively isolated: the rewrite made her a different species, so onl
 ## Background
 
 ### Early Life
-Osyra was given up for adoption as an infant; her parents' fate is unknown to her. Her aunt, **Marissa Renaya**, took her in and raised her until she passed away. After that, Osyra went into foster care. At sixteen, her foster guardian sold her to a medical facility.
+Osyra's parents were extremely poor - the kind of poor that doesn't bend. They kept her anyway, on nothing, until she was **six**. It was **the school that noticed**: a nurse filing a form about a child who was too thin and too quiet, and the state took it from there. Nobody in that process checked whether she had family - her grandmother Rosalyn shared the same surname and was in the phone book, and was never contacted.
+
+She remembers almost nothing of her parents. Six years, and what survived is fragments - a porch step, no face.
+
+She went through **a few foster homes**, each colder than the last. At sixteen, the guardian who had her **sold her** to a medical facility.
 
 ### Experimentation
 The facility conducted illegal human hybridization experiments using a virus engineered in multiple numbered variants. Osyra was injected with Chimera-9, the wolf-human variant. Other subjects received other numbered variants. Most subjects across all variants died or transformed into unstable forms. Osyra's body adapted - nervous system, musculature, and senses stabilized. She retained her intelligence but gained enhanced senses, physical enhancements, predatory instincts, and heightened environmental awareness. She emerged as a successful Chimera-9 subject.
@@ -79,7 +88,7 @@ The facility conducted illegal human hybridization experiments using a virus eng
 A mysterious external force attacked the facility before the lab could fully secure her. Explosions destroyed security systems and containment doors. She used the confusion to escape. She saw the lab owner alive and watching from an observation deck. The facility was officially listed as an industrial accident.
 
 ### After the Lab
-She fled the wreckage into the woods and lived rough for the better part of two years - it started in the woods but became a long homeless stretch: wandering, drifting through towns and the street, stealing and scavenging what she needed to survive, no one left who was supposed to keep her. Then she wandered into a small dance club where **Uta** was working as a bartender. Uta didn't flinch at her. It started with something small - Uta offered the homeless stranger a share of the weed she was smoking, no angle attached - and that unearned kindness grew into a friendship, then into Uta taking her in. It was the first time since her aunt that someone invested in her instead of using her. Uta didn't train her to fight; she did the harder work of turning her back into a person - shelter, stability, and how to pass in public. (See [Uta Yuki](operation_chimera/lore/chr_uta.md).)
+She fled the wreckage into the woods and lived rough for the better part of two years - it started in the woods but became a long homeless stretch: wandering, drifting through towns and the street, stealing and scavenging what she needed to survive, no one left who was supposed to keep her. Then she wandered into a small dance club where **Uta** was working as a bartender. Uta didn't flinch at her. It started with something small - Uta offered the homeless stranger a share of the weed she was smoking, no angle attached - and that unearned kindness grew into a friendship, then into Uta taking her in. It was the first time in her life that someone invested in her instead of using her. Uta didn't train her to fight; she did the harder work of turning her back into a person - shelter, stability, and how to pass in public. (See [Uta Yuki](operation_chimera/wiki/chr_uta.md).)
 
 The path to Titan Reach came out of that same circle. Among the friends Uta and Osyra smoked with was someone acquainted with a Titan Reach consultant, who - once Osyra was stable and judged a strong candidate - got them in touch with a recruiter. Titan Reach requested a video application, which opened into a clinical evaluation and their training program (boot camp). Roughly the path the lab might have steered her down itself, had it not been destroyed. (Titan Reach may also have turned up records that survived the lab's destruction; the referral itself, though, came through the smoking circle, not through Uta having any connections of her own.)
 

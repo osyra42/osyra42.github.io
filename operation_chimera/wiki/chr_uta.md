@@ -1,6 +1,6 @@
 # Uta Yuki
 
-![Uta Yuki](operation_chimera/lore/imgs/uta0.jpg)
+![Uta Yuki](operation_chimera/wiki/imgs/uta0.jpg)
 
 ## Current
 She owns a nightclub called **Aurora Pulse** that Osyra often hangs out at. She used to be the primary DJ there and eventually bought the place from the previous owner. She still DJs just because it's fun. More of a lifestyle character than a combat one. Into music and tech.

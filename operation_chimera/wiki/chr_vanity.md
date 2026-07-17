@@ -1,6 +1,6 @@
 # Vanity
 
-![Vanity](operation_chimera/lore/imgs/vanity0.jpg)
+![Vanity](operation_chimera/wiki/imgs/vanity0.jpg)
 
 ## Current
 An AI-powered Android. Codename **Wiki** - because she keeps the record on everything. Vanity is a **Handler** - she runs Operators from headquarters, takes their debriefs, dispatches them, holds their files. Osyra is one of hers. So are others. She collects data by any means - moral, immoral, or otherwise. She does not acknowledge authority.

@@ -1,6 +1,6 @@
 # Aurora Pulse
 
-![Aurora Pulse](operation_chimera/lore/imgs/aurora0.png)
+![Aurora Pulse](operation_chimera/wiki/imgs/aurora0.png)
 
 ## Current
 Uta Yuki's nightclub. A place where young adults go to dance, drink, eat, and hang out. Owner and occasional DJ: Uta Yuki.
@@ -8,7 +8,7 @@ Uta Yuki's nightclub. A place where young adults go to dance, drink, eat, and ha
 ## History
 The building was originally a factory warehouse, decommissioned years before Uta picked it up. Its size and industrial bones made the conversion easy - the wide open floor became the dance area, the side rooms became the games room and kitchen, and the high ceilings had no trouble accommodating hanging speaker poles and camera rigs.
 
-Aurora Pulse isn't where Uta started. In an earlier era she tended bar at a smaller dance club - the same era she first crossed paths with a homeless Osyra and took her in (see [Uta Yuki](operation_chimera/lore/chr_uta.md)). Traces of that time carry over here, like the **Shattered Cue Ball** mocktail on the menu.
+Aurora Pulse isn't where Uta started. In an earlier era she tended bar at a smaller dance club - the same era she first crossed paths with a homeless Osyra and took her in (see [Uta Yuki](operation_chimera/wiki/chr_uta.md)). Traces of that time carry over here, like the **Shattered Cue Ball** mocktail on the menu.
 
 ## Layout
 

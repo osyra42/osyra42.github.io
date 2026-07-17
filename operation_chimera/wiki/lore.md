@@ -10,7 +10,7 @@ The project did not begin as medicine. Its first purpose was **military** - to e
 ### The Virus
 The virus does not add a costume on top of a person - it rewrites DNA at the cellular level and forces the body to rebuild around a new template. That is why most subjects died: the body could not survive the rewrite. The survivors are the ones whose systems - nervous system, musculature, senses - re-stabilized on the new code.
 
-Because it can overwrite a whole genome, the same agent can in principle overwrite a genome that is broken - which is what lets it be reframed as a cure. See [The Chimera Vaccine](operation_chimera/lore/con_vaccine.md).
+Because it can overwrite a whole genome, the same agent can in principle overwrite a genome that is broken - which is what lets it be reframed as a cure. See [The Chimera Vaccine](operation_chimera/wiki/con_vaccine.md).
 
 ### Chimerans
 Humans altered by the Chimeran virus. The virus always gives red eyes. The specific animal traits depend on which numbered variant was administered - Chimera-9 produces wolf traits, other variants produce others. Any enhanced abilities depend on those traits. Their appearance causes problems in civilian life, so they conceal themselves using contacts, hats, and clothing.
