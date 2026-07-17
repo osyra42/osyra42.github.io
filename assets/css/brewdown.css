@@ -174,6 +174,39 @@ main hr {
   text-decoration: underline;
 }
 
+/* Tooltip — the site's single tooltip system, driven by [data-tooltip] on any element
+   (runtime in brewdown.js). Used by the ??text|tip?? token and by hand-authored markup
+   like the sidebar theme swatches. Instant, themed, prettier than the native title. */
+.tooltip {
+  position: absolute;
+  z-index: 2000;  /* above mobile sidebar/menubar/back-to-top (1001-1005) */
+  pointer-events: none;
+  background: var(--dark-mocha);
+  color: var(--light-cream);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 6px 11px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  max-width: min(320px, calc(100vw - 24px));
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.tooltip.tooltip--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The ??text|tip?? term itself — just the affordance. A link inside keeps its own
+   color; bare term text inherits body color. */
+.tooltip-term {
+  border-bottom: 1px dotted var(--accent);
+  cursor: help;
+}
+
 /* Collapsible (>>> / <<<) */
 main details {
   margin: 0.3em 0;
