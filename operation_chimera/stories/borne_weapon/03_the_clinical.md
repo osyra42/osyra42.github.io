@@ -66,7 +66,7 @@ I chased the dot. I'm aware of what that means. I chased it well.
 
 Chen approached with a handheld scanner. "May I?" he asked, hovering near my ears. I nodded stiffly. He scanned. "Dense cartilage, fully integrated." He produced a clicker. *Click.* Behind me. My left ear swiveled back instantly. *Click.* To the side. Both ears pinned the location.
 
-That is not something I can stop. I want to be clear about that, because it's the only part of the afternoon I'd take back. Everything else I did on command. That one I did because a man clicked a clicker in a room and my body answered him.
+That is not something I can stop. Understand that, because it's the only part of the afternoon I'd take back. Everything else I did on command. That one I did because a man clicked a clicker in a room and my body answered him.
 
 "Auditory range is significantly extended," Chen reported.
 
@@ -114,7 +114,7 @@ She wasn't judging. That's what she was doing instead: assessing a flawed asset.
 
 A chemical leash for the biological one.
 
-And I sat there and turned it over and could not find the objection. That's what I want on the record. It *is* a liability. She's right. There are three days a year I would not trust myself with a weapon and a door, and I have known that since the first fall, and I have never once had a solution for it, and a stranger solved it in ninety seconds with a courier.
+And I sat there and turned it over and could not find the objection. That's what I want on the record. It *is* a liability. She's right. There are three days a year I would not trust myself with a weapon and a door, and I have known that since the first fall, and I have never had a solution for it, and a stranger solved it in ninety seconds with a courier.
 
 The help and the leash were the same object. There was no version where I got one without the other. There has never been a version where I got one without the other - that's the whole architecture of my life, and Titan Reach didn't build it, they just read the schematic and priced it out.
 
@@ -132,6 +132,6 @@ Passed.
 
 I'd graduated from the lab to a bigger, better-funded cage. The tests were over. Somebody had looked at every part of me and written *valid* next to it.
 
-Somehow that was the worst possible outcome, and it took me a long time to be able to say why: because I wanted it. Because when she said *you have passed* something in me sat up. Eighteen years of being a line item and I still went warm at a stranger telling me I'd measured up.
+Somehow that was the worst possible outcome, and it took me a long time to be able to say why: because I wanted it. Because when she said *you have passed* something in me sat up. Twelve years of being a line item - foster paperwork, then lab charts - and I still went warm at a stranger telling me I'd measured up.
 
 They didn't have to break me. They just had to grade me.

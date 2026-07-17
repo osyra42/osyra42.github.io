@@ -30,7 +30,7 @@ Long ears. Long tail. Red eyes catching the lamplight in a way no human eye does
 
 I looked like myself.
 
-There's a version of this where I say I hated how much I'd missed it, and that would be tidy, and it isn't accurate. What I hated was the arithmetic. Twelve hours in the costume and I come out of it feeling like a person - which means the eighteen years I've spent calling the costume *practical* were eighteen years of paying a bill I told myself I wasn't paying. I'd rather have not known the number.
+There's a version of this where I say I hated how much I'd missed it, and that would be tidy, and it isn't accurate. What I hated was the arithmetic. Twelve hours in the costume and I come out of it feeling like a person - which means the thirteen years I've spent calling the costume *practical* were thirteen years of paying a bill I told myself I wasn't paying. I'd rather have not known the number.
 
 ---
 
@@ -44,7 +44,7 @@ And then I did the thing I only do when nobody can see me.
 
 I shook. Head, ears, the whole frame of me - one hard sharp shake, the way a dog does coming out of a lake. Water went everywhere. The mirror got it. The wall got it. A spray hit the ceiling and came back down in slow fat drops.
 
-I didn't have to do that. That's the part. I could have stood perfectly still; there is not one twitch in my body I can't override, and I have spent my life proving it in rooms where the proving mattered. The shake isn't a thing I can't help. It's a thing I pick. Every time. Because it feels good every time, and in eighteen years of running the numbers on what I let myself have, this is what survived the cut - eleven seconds of being an animal on a bathroom floor with the door shut.
+I didn't have to do that. That's the part. I could have stood perfectly still; there is not one twitch in my body I can't override, and I have spent my life proving it in rooms where the proving mattered. The shake isn't a thing I can't help. It's a thing I pick. Every time. Because it feels good every time, and in thirteen years of running the numbers on what I let myself have, this is what survived the cut - eleven seconds of being an animal on a bathroom floor with the door shut.
 
 I shook again. Smaller. Just to feel the ears whip.
 
@@ -76,7 +76,7 @@ I watched her see it. Her hand tightened on the blanket. Her chin came up an inc
 
 Here it was. This part I know.
 
-Not from her - from receptionists, landlords, a doctor or two. The face going polite like a curtain coming down. The excuse to step into another room. The phone call to my driver ten minutes later: *something's come up, I'm so sorry.* The goodbye that means *please don't come back*, dressed up nice. I know every beat of it. I've gotten good at making the leaving easy on the person doing it, which is a skill I acquired on purpose and have never once been thanked for.
+Not from her - from receptionists, landlords, a doctor or two. The face going polite like a curtain coming down. The excuse to step into another room. The phone call to my driver ten minutes later: *something's come up, I'm so sorry.* The goodbye that means *please don't come back*, dressed up nice. I know every beat of it. I've gotten good at making the leaving easy on the person doing it, which is a skill I acquired on purpose and have not been thanked for.
 
 I just hadn't expected to need the practice on my grandmother.
 
@@ -102,7 +102,7 @@ I went over. My body did it before my head caught up, and I'd like to know what 
 
 Something in my chest went loose a half-turn.
 
-The look on her face had a name now. That was all it was. I'd read clinical worry as revulsion because I have never once in eighteen years had cause to build a category for a person who looks at me that way and wants to *help*. Not a stranger reaching. Not morbid curiosity. A doctor finding where it hurts.
+The look on her face had a name now. That was all it was. I'd read clinical worry as revulsion because I have never once in thirteen years had cause to build a category for a person who looks at me that way and wants to *help*. Not a stranger reaching. Not morbid curiosity. A doctor finding where it hurts.
 
 I nodded.
 
@@ -138,7 +138,7 @@ I nearly lost it there.
 
 I moved it once, slow, side to side. Then stopped it dead.
 
-"All right." She let go of my ear and stepped back half a step to take stock of the whole of me, the way you take stock of a kid's full report once they've finished crying.
+"All right." She let go of my ear and stepped back to take stock of the whole of me, the way you take stock of a kid's full report once they've finished crying.
 
 And then her face did a thing.
 

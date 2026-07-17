@@ -136,7 +136,7 @@ They didn't have to tell me to think that. They just had to make thinking it fee
 
 I never took a second one. I want that on the record, because it matters to what comes after and because I have never told anyone.
 
-One pill. That's all it took. The bottle sat on that counter for two weeks and I didn't touch it again - I didn't need to. The heat broke on its own schedule, the way it always does, and by then the thing the pill had done to my memory of the roof was permanent. You don't have to keep taking something that only had to work once.
+One pill. That's all it took. The pack sat on that counter for two weeks and I didn't touch it again - I didn't need to. The heat broke on its own schedule, the way it always does, and by then the thing the pill had done to my memory of the roof was permanent. You don't have to keep taking something that only had to work once.
 
 The placid, emotionless days that followed were a relief, and they were mine. No chemistry in them. That's the part I couldn't see: I'd swallowed one tablet as an eraser and then spent a fortnight doing the erasing myself, for free, and calling it clarity.
 

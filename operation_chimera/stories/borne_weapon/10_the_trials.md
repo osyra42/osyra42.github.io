@@ -122,7 +122,7 @@ They never blamed me for being different. Not once, in a month. They only ever b
 
 That simple consistent reinforcement was a balm I hadn't known I needed. My existence was not the problem. Their lack of focus was.
 
-Eighteen years. That's how long I'd waited for someone in authority to look at a room and locate the problem somewhere other than my body. It took a defense contractor with a training schedule to do it, and they did it for the wrong reasons, and it worked anyway. I don't know what to do with that. I still don't.
+Twelve years. That's how long I'd waited for someone in authority to look at a room and locate the problem somewhere other than my body. It took a defense contractor with a training schedule to do it, and they did it for the wrong reasons, and it worked anyway. I don't know what to do with that. I still don't.
 
 We did ruck marches that felt like they'd never end, the Mk 13 an old familiar enemy on my shoulder. Hand-to-hand in the gritty pits, where my reach and speed became assets I learned to control instead of flail. Parade drills until the movements were autonomic, tail held in a tight still curl against my leg. A form of camping they called bivouacking, which was mostly lying in a cold damp hole trying not to shiver, listening to a forest with ears that catch every rustle and snap.
 
@@ -140,7 +140,7 @@ I noticed the shape of that at the time and let it go by, and I'd like to pick i
 
 On the roof, that thing wanted a person, and I called it a malfunction and swallowed something to make it stop. Here it wanted fifty people, and they gave it a rifle and a rank and told me it was leadership.
 
-It isn't that they cured me. Nobody cured anything - the bottle sat on a counter two hundred miles away the whole time I was in that forest. They found the appetite the lab installed and pointed it at a mission, and that was all it took. And it *worked*. That's the part I can't get around even now. I was less alone in that hole in the ground than I'd been in eighteen years, and every bit of it was issued to me.
+It isn't that they cured me. Nobody cured anything - the pack sat on a counter two hundred miles away the whole time I was in that forest. They found the appetite the lab installed and pointed it at a mission, and that was all it took. And it *worked*. That's the part I can't get around even now. I was less alone in that hole in the ground than I'd been since I was six, and every bit of it was issued to me.
 
 A different kind of cage. But for the first time in my life the walls weren't only there to contain me.
 

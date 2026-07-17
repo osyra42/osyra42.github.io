@@ -16,7 +16,7 @@ It came out small. The last word cracked.
 
 She didn't say anything. She got up. Came around the table. Put a hand on my shoulder.
 
-And that was it. That was all it took, and I want to be honest about how little it was: a hand, on a shoulder, from a woman who'd known me for nineteen hours.
+And that was it. That was all it took, and I'll be honest about how little it was: a hand, on a shoulder, from a woman who'd known me for nineteen hours.
 
 I have been braced for so long that bracing stopped registering as an activity. It's not something I do. It's the shape I am. I built the disguise, and the silence, and the whole catalogue of polite goodbyes for after people see what I am, and every piece of that was engineering - deliberate, tested, load-rated. It works. It has never failed.
 
@@ -24,7 +24,7 @@ Nothing in it was built for a hand on my shoulder that meant it.
 
 I broke.
 
-It was short and hard and I couldn't stop it, and I want to record that I *tried* - that I did the thing I do, went for the tension, went to take hold of my own breathing the way I've done in worse rooms than this one, and there was nothing there to take hold of. The controls were not connected to anything. I have never once in my adult life not been able to do that.
+It was short and hard and I couldn't stop it, and I did try - I want that much down - that I did the thing I do, went for the tension, went to take hold of my own breathing the way I've done in worse rooms than this one, and there was nothing there to take hold of. The controls were not connected to anything. I have never once in my adult life not been able to do that.
 
 She was worried. She asked if she'd done something wrong. She hadn't. I couldn't get my voice to work well enough to tell her, which meant for about forty seconds my grandmother sat there believing she'd hurt me, and I couldn't fix it, and that made it worse, which made it longer.
 

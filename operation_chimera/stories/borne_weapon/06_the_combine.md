@@ -4,7 +4,7 @@ Transport was a black SUV with tinted windows and a driver who didn't speak. It 
 
 The coordinates led to a private airstrip where a twin-prop, unmarked and utilitarian, swallowed me and two other recruits - a wiry man who kept cracking his knuckles and a woman with a thousand-yard stare who looked at nothing at all. We flew in silence, the drone of the engines a physical pressure in my ears.
 
-The bottle was still on my kitchen counter, two hundred miles behind me. I'd looked at it on the way out and left it there.
+The pack was still on my kitchen counter, two hundred miles behind me. I'd looked at it on the way out and left it there.
 
 We landed on a dusty strip carved into dense evergreen forest. The air was thin and cold and smelled of pine resin and damp earth. A concrete bunker squatted at the tree line. A sign over the heavy double doors: **TITAN REACH - ASSESSMENT & ACCLIMATIZATION FACILITY.**
 
@@ -67,7 +67,7 @@ Each time I came back to the gym the hostility had crystallized a degree further
 
 Two dozen people in that room were terrified. Every one of them had signed something they didn't fully read to come to a bunker in a forest to be tested at something they might fail. That fear has to go somewhere. It cannot go up the chain - the chain is what they're afraid of. So it goes sideways, and it lands on whatever's furthest from the middle, and in that gymnasium the furthest thing from the middle was six foot four with ears.
 
-I was doing them a service. That's the part that sits badly. Every joke about the dog was a man moving his fear off his own back and onto mine, and it worked - I could see it working, I could see the shoulders come down after - and none of them will ever know they used me for it.
+I was doing them a service. That's what sits badly. Every joke about the dog was a man moving his fear off his own back and onto mine, and it worked - I could see it working, I could see the shoulders come down after - and none of them will ever know they used me for it.
 
 "Hey, Mutant," the big one - Stumps - called as I came back from medical with my arm throbbing. "They giving you your rabies shot? Should be mandatory."
 

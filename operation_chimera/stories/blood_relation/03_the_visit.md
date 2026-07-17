@@ -32,7 +32,9 @@ It was a warm day. The sun was out. In the window glass I looked like somebody's
 
 The house was covered in ivy and looked a little overgrown, in the way of a place tended by someone who has decided which battles are worth it. A small stone path led to the front door. When we parked, an old lady walked out.
 
-"Osyra. You're Rosalyn, right? My grandmother?"
+"Osyra?"
+
+"You're Rosalyn, right? My grandmother?"
 
 "Ah yes, I got a phone call saying that you would be around soon."
 
@@ -44,11 +46,11 @@ The house was covered in ivy and looked a little overgrown, in the way of a plac
 
 "Well, that means he cares about you, honey. We can talk about it inside. Does your driver want to come in too?"
 
-Osyra side-eyed Korval. "No. He prefers the quiet."
+I side-eyed Korval. "No. He prefers the quiet."
 
 Korval said nothing. He just nodded slightly, then walked to the front of the car and sat on the hood. His sunglasses reflecting.
 
-"He'll head to a hotel when it gets dark. Back in the morning," Osyra explained.
+"He'll head to a hotel when it gets dark. Back in the morning," I said.
 
 "All right then, sweetheart." Rosalyn turned around and walked inside.
 
@@ -56,7 +58,7 @@ I looked back at Korval for a second, nodded, and followed my grandmother in.
 
 Once inside I took a seat close to the door.
 
-I told myself it was manners - that I didn't want to wander into a stranger's home uninvited. That held up for about four seconds. It was the door. It's always the door. I have never once sat down in a room without knowing the count of exits, and I was doing it here, in an ivy-covered house belonging to a sixty-eight-year-old pediatrician, against the possibility that I would need to leave her living room at speed. I considered getting up and moving to the couch, just to prove I could.
+I told myself it was manners - that I didn't want to wander into a stranger's home uninvited. That held up for about four seconds. It was the door. It's always the door. I do not sit down in a room without knowing the count of exits, and I was doing it here, in an ivy-covered house belonging to a sixty-eight-year-old pediatrician, against the possibility that I would need to leave her living room at speed. I considered getting up and moving to the couch, just to prove I could.
 
 I didn't. I stayed where I was and let myself have the door, and told myself I'd move later, which is what I always tell myself.
 
@@ -96,7 +98,7 @@ She drifted toward the kitchen, murmuring about the kettle. I stayed in the chai
 
 I'd call Vanity tonight, the way I'd been told. Once a day, so somebody at headquarters knew I was still breathing. Just my voice down the line, and Vanity on the other end taking down whatever I felt like saying, patient, keeping it for the record.
 
-She brought in tea eventually. I had trouble paying attention. The chair was pulling me under, my body slowing the way it never slows, and I kept waiting for the tea to fix it and it didn't. I'd been running so long I hadn't noticed I was tired. That's not a figure of speech. I had no idea. The instrument doesn't point inward, and it had been reading *fine* for years while the answer was *no*.
+She brought in tea eventually. I had trouble paying attention. The chair was pulling me under, my body slowing the way it never slows, and I kept waiting for the tea to fix it and it didn't. I'd been running so long I hadn't noticed I was tired. I mean that plainly. I had no idea. The instrument doesn't point inward, and it had been reading *fine* for years while the answer was *no*.
 
 I took the cup almost greedily. Anything to stay awake for this. Spiced chai. One of my favorites, which she had no way of knowing and which I decided not to examine.
 
@@ -126,11 +128,11 @@ A young woman, sitting on the steps of a porch. Thin. Tired in a way that didn't
 
 I knew the porch.
 
-That's the part that got me. Not the woman. The porch - the paint coming off the third step in a shape like a bird. I have put my hand on that step. I couldn't tell you when or why, but the knowing came up out of my body without asking permission, the way a smell does, and it was certain, and it was worth nothing.
+That's what got me. Not the woman. The porch - the paint coming off the third step in a shape like a bird. I have put my hand on that step. I couldn't tell you when or why, but the knowing came up out of my body without asking permission, the way a smell does, and it was certain, and it was worth nothing.
 
 I looked at the face and got nothing back. Six years of a person and all I kept was a step.
 
-I've been told this is normal, at various points, by various people paid to tell me things. That nobody keeps much from before seven. That the mind is still deciding what it is. It has never once helped to be told, and it doesn't now, and I have never understood why people offer the explanation as though it were the same thing as the memory.
+I've been told this is normal, at various points, by various people paid to tell me things. That nobody keeps much from before seven. That the mind is still deciding what it is. It has not once helped to be told, and it doesn't now, and I have never understood why people offer the explanation as though it were the same thing as the memory.
 
 "How old was she?" I asked.
 
@@ -142,7 +144,7 @@ I took another sip of the tea.
 
 She didn't turn the page. She sat with her hand flat on it, the way you hold a door you haven't decided to open.
 
-"They wouldn't let me near you," she said. "That's the part I've never gotten all the way around. I knew you were born. I knew where. She'd answer the phone maybe one time in five, and she was always about to call me back." Her thumb moved once against the paper. "I think she couldn't stand for me to see it. The state of things. She'd have rather starved than had her mother-in-law standing in that kitchen counting what wasn't in it. And I let her have that. Six years, I let her have her pride, because I kept telling myself I'd get one more chance to ask."
+"They wouldn't let me near you," she said. "That's the bit I've never gotten all the way around. I knew you were born. I knew where. She'd answer the phone maybe one time in five, and she was always about to call me back." Her thumb moved once against the paper. "I think she couldn't stand for me to see it. The state of things. She'd have rather starved than had her mother-in-law standing in that kitchen counting what wasn't in it. And I let her have that. Six years, I let her have her pride, because I kept telling myself I'd get one more chance to ask."
 
 She said it evenly, which was worse than if she hadn't.
 

@@ -4,13 +4,17 @@ The tension in the gymnasium settled into a fragile watchful stalemate over the 
 
 I perfected the stare. A flat unblinking look that makes red eyes read less like a flaw and more like a targeting laser. I'd aim it at anyone who lingered and they'd find something else to look at.
 
-It works. That's the part I'd underestimated. I'd spent eighteen years trying to be smaller and it turns out the whole time there was a lever right there marked *be worse* and it works instantly and costs nothing up front.
+It works. That's what I'd underestimated. I'd spent my whole life trying to be smaller and it turns out the whole time there was a lever right there marked *be worse* and it works instantly and costs nothing up front.
 
 Processing was a blur of custom fittings, psych evals, endless waiting. On the second day they issued the uniform: standard Titan Reach fatigues, digital grey-green, but mine had been subtly altered. Collar widened. Trousers reinforced with a gusset of tougher material at the base of the spine.
 
 Wearing it felt strange. Less like clothes. More like being fitted for a new and official kind of skin.
 
 The message was clear, and it was two messages at once, which I think is the most honest thing that building ever said to me: *you are standardized* and *you are apart.* Same garment. They had to build a special version of the uniform that makes everyone the same.
+
+The helmet came the same day, in its own hard case, because it couldn't go in a duffel with the standard kit - wrong shape, wrong shell, two channels moulded into the crown that no other helmet on the manifest has. The technician handed it to me like it was ordinary.
+
+Everyone else's helmet went in the bag. Mine came with luggage.
 
 ---
 
@@ -64,7 +68,7 @@ The Shark Attack. The deliberate overwhelming verbal assault built to erase indi
 
 "NO LOOKING! EYES ON YOUR BOOTS OR THE DECK! YOU LOOK AT ME, I'LL PERSONALLY PEEL YOUR EYELIDS BACK! SHUT UP! THE ONLY SOUND I WANT IS YOUR WEAK LITTLE HEARTS TRYING NOT TO GIVE OUT!"
 
-I followed the order, forehead against the cool metal of the optic case in my hands, the stiff brim of my cap digging into my wrist. My ears, pinned flat under it, rang with the volume. Every shout a physical slap.
+I followed the order, forehead against the hard shell of the helmet case in my hands, the stiff brim of my cap digging into my wrist. My ears, pinned flat under it, rang with the volume. Every shout a physical slap.
 
 He did not single me out.
 
@@ -82,7 +86,7 @@ It was the best I had felt in two years.
 
 That's all it took. That's the entire price of admission to the human race, as far as I can tell: find someone who hates everyone equally.
 
-I hugged a duffel between my knees with my forehead on an optic case and my ears bleeding sound, and I was so grateful I could have laughed.
+I hugged a duffel between my knees with my forehead on a helmet case and my ears bleeding sound, and I was so grateful I could have laughed.
 
 The Shark Attack ran the whole final half hour. By the time the bus crunched onto gravel, the silence that replaced the shouting was hollow and ringing. My neck ached. My hands were numb from gripping the case.
 

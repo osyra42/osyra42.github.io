@@ -102,7 +102,7 @@ Rosalyn's voice again. *You don't ever do that in this house.*
 
 But this wasn't Rosalyn's house. This was a door I'd never knocked on, held shut by two people who gave me away because the world didn't leave them another choice, and I did not know - standing in the ruts with a bag of salt in each hand - whether they'd open it to the careful stranger, or to what was under the hat, or at all.
 
-Here is what I had: no plan. Nineteen hours ago I'd have called that impossible. I don't move without a plan; the plan is the thing that keeps the room from happening to me. I had run every version of this on the drive and every version required knowing what I wanted, and I didn't, and I still don't, and I got out of the car anyway.
+Here is what I had: no plan. Two days ago I'd have called that impossible. I don't move without a plan; the plan is the thing that keeps the room from happening to me. I had run every version of this on the drive and every version required knowing what I wanted, and I didn't, and I still don't, and I got out of the car anyway.
 
 I made myself walk.
 

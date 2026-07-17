@@ -74,7 +74,7 @@ On a march, someone stumbling behind me would gawk at the rifle on my shoulder o
 
 The DIs never mocked me for being looked at. They mocked the others for looking.
 
-It took me a while to see it whole, and when I did I had to admire it, the way you admire a trap that's already closed on you. They never once had to say *don't call her a dog.* They never issued a rule about it. They simply made looking at me expensive, and the men stopped looking, and the discipline they were building got built out of the material I was standing there being.
+It took me a while to see it whole, and when I did I had to admire it, the way you admire a trap that's already closed on you. They never had to say *don't call her a dog.* They never issued a rule about it. They simply made looking at me expensive, and the men stopped looking, and the discipline they were building got built out of the material I was standing there being.
 
 My difference wasn't a source of personal humiliation anymore. It was a test for everyone else. A distraction to be overcome. A temptation to fail. Every head that turned my way was an excuse for a DI to pounce, punish, reinforce the only thing that mattered: the task.
 

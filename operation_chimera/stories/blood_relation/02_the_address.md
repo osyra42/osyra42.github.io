@@ -32,15 +32,15 @@ I opened it.
 
 A color photograph paper-clipped to the corner: an older woman in a sun hat, in a garden, smiling at someone off-camera.
 
-It was the face from the photograph in my coat, thirty years later.
+It was the face from the photograph in my coat, forty years later.
 
 It was my own face, forty years older.
 
-I want to record that I handled this well. I sat there and did arithmetic on a stranger's cheekbones, and the arithmetic kept coming out the same, and I made no sound at all.
+I handled it well, which I mention because nobody was there to see. I sat there and did arithmetic on a stranger's cheekbones, and the arithmetic kept coming out the same, and I made no sound at all.
 
 "Dr. Rosalyn Renaya," Vanity said. "Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995, a few towns from where you were born. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law - your biological parents, per the foster paperwork on you - left the area when you were small. Their records thin out after that and don't come back. Her record on you ends at the foster system."
 
-I read the address. It's a normal address. That's the part I couldn't get past - that it had been a normal address this whole time, printable, two hours away, sitting in a file that took Vanity an afternoon.
+I read the address. It's a normal address. That's what I couldn't get past - that it had been a normal address this whole time, printable, two hours away, sitting in a file that took Vanity an afternoon.
 
 "She's alive."
 
@@ -64,7 +64,7 @@ I closed the folder. Put both hands flat on it.
 
 "Not yet. I wanted to ask you first."
 
-I looked at her. She could have called. She had the number before she had the folder, and she'd sat on it, because there is a difference between having a thing done to you and choosing it, and she is the only person alive who has never once needed that explained.
+I looked at her. She could have called. She had the number before she had the folder, and she'd sat on it, because there is a difference between having a thing done to you and choosing it, and she is the only person alive who has never needed that explained.
 
 "Call her."
 

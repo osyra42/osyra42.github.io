@@ -114,7 +114,7 @@ I had not, in fact, fallen apart.
 
 Nothing in me was bracing. I went looking for it the way your tongue goes to a tooth that's gone, and it wasn't there, and I was still here.
 
-I'd always assumed the bracing was load-bearing. That it was the thing holding the rest up. It had come off and nothing had fallen down, and I lay in the dark with that, not liking it as much as I should have. It's a specific feeling, finding an error in your own work. If I was wrong about that, I'd been wrong about it every day, in every room, for eighteen years.
+I'd always assumed the bracing was load-bearing. That it was the thing holding the rest up. It had come off and nothing had fallen down, and I lay in the dark with that, not liking it as much as I should have. It's a specific feeling, finding an error in your own work. If I was wrong about that, I'd been wrong about it every day, in every room, since I was six years old.
 
 The house creaked. Settled. Somewhere down the hall, a kettle clicked off.
 

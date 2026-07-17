@@ -34,7 +34,7 @@ I smiled. There wasn't anything in it.
 
 Then I stopped recording, and watched the whole thing back, because I wasn't going to send a thing I hadn't inspected.
 
-The final frame held on the screen a moment before it let go: red eyes staring out of the dark, black fur stark against black hair, a face I have spent eighteen years making sure nobody sees. It looked exactly like what it was. I made myself sit through it twice.
+The final frame held on the screen a moment before it let go: red eyes staring out of the dark, black fur stark against black hair, a face I have spent two years making sure nobody sees. It looked exactly like what it was. I made myself sit through it twice.
 
 Then: UPLOAD COMPLETE. Two words on a black background.
 
