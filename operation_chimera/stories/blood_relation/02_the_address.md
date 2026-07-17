@@ -28,6 +28,8 @@ I sat. She moved to the chair opposite, deliberately a half-beat slow - the andr
 
 "That's the woman in your photograph."
 
+I hadn't given her a name to work with. I didn't have one. I'd handed her a cracked frame off a wall in a dead house and she'd given me back a person, and I knew how - she'd have run the face, the same as she'd run a plate - but knowing the method doesn't do much for you when the output is a stranger who has your bones.
+
 I opened it.
 
 A color photograph paper-clipped to the corner: an older woman in a sun hat, in a garden, smiling at someone off-camera.
@@ -38,7 +40,21 @@ It was my own face, forty years older.
 
 I handled it well, which I mention because nobody was there to see. I sat there and did arithmetic on a stranger's cheekbones, and the arithmetic kept coming out the same, and I made no sound at all.
 
-"Dr. Rosalyn Renaya," Vanity said. "Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995, a few towns from where you were born. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law - your biological parents, per the foster paperwork on you - left the area when you were small. Their records thin out after that and don't come back. Her record on you ends at the foster system."
+"Dr. Rosalyn Renaya," Vanity said.
+
+She let the surname sit there. Didn't lean on it. Didn't pause for me to catch up, which she could have, and which I'd have hated.
+
+Renaya is mine off my father, and my father is a man I have never met and never wondered about out loud, because a name on foster paperwork isn't a person, it's a field. I've carried his name the way you carry a coat somebody left in your car. It had never occurred to me it came from anywhere - that there was a woman it came *through*, who was alive, and had a garden.
+
+"Sixty-eight. Lives alone, two hours from here. Kindergarten teacher 1985 through 1995, a few towns from where you were born. Went back to medical school in her late thirties. Pediatrician now. Doesn't lead with the title. Widowed. No other children of record. Her son and daughter-in-law - your biological parents, per the foster paperwork on you - left the area when you were small. Their records thin out after that and don't come back. Her record on you ends at the foster system."
+
+"The house you took it out of," I said. "The one on the job."
+
+"Four miles from the school she taught at." She said it the way she says everything, which is without any weight on it at all. "The town had people in it once. Whoever lived in that hallway knew her well enough to hang her on a wall. A cousin. A colleague. A friend from church. I can find out. It'll take a week and it will not be interesting."
+
+Somebody in that hallway had known a young schoolteacher well enough to put her behind glass. Then they'd died, or left, and the glass went on hanging in the dark for twenty years.
+
+"It's not a coincidence," Vanity said, reading me the way she does. "It's a small county. You were born in it. Everything in that county is four miles from everything else. The coincidence is that you were the one who took it off the wall, and I can't run a file on that."
 
 I read the address. It's a normal address. That's what I couldn't get past - that it had been a normal address this whole time, printable, two hours away, sitting in a file that took Vanity an afternoon.
 
