@@ -140,7 +140,7 @@ I noticed the shape of that at the time and let it go by, and I'd like to pick i
 
 On the roof, that thing wanted a person, and I called it a malfunction and swallowed something to make it stop. Here it wanted fifty people, and they gave it a rifle and a rank and told me it was leadership.
 
-It isn't that they cured me. Nobody cured anything - the pack sat on a counter two hundred miles away the whole time I was in that forest. They found the appetite the lab installed and pointed it at a mission, and that was all it took. And it *worked*. That's the part I can't get around even now. I was less alone in that hole in the ground than I'd been since I was six, and every bit of it was issued to me.
+It isn't that they cured me. Nobody cured anything, and nobody medicated me either - I'd taken exactly one tablet in my life and that was two months and two hundred miles ago. They found the appetite the lab installed and pointed it at a mission, and that was all it took. And it *worked*. That's the part I can't get around even now. I was less alone in that hole in the ground than I'd been since I was six, and every bit of it was issued to me.
 
 A different kind of cage. But for the first time in my life the walls weren't only there to contain me.
 

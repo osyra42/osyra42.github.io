@@ -78,7 +78,7 @@ She got up slow and went down the hall. Past the room I'd slept in. To a door at
 
 Hinges complained. A drawer opened. Papers moved. Something heavier - a box - scraped across a wood floor. The sound a person makes when they're not sure where the thing is, only that it's in there.
 
-I stayed at the table. Drank my coffee. Looked at the photo on the fridge so I wasn't looking at nothing.
+I stayed at the table. Drank what was left of mine. Looked at the photo on the fridge so I wasn't looking at nothing.
 
 After a while she came back. Slower than she went. An envelope in one hand and a small folded paper in the other.
 

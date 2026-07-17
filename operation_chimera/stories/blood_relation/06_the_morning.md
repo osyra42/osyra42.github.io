@@ -84,9 +84,13 @@ Six years, maybe seven, since I made breakfast for anyone but myself. Korval doe
 
 This was the same.
 
-The coffee finished. I poured two mugs and set one at the far end of the counter, near the doorway from the hall. The kitchen filled up with butter and eggs and dark roast.
+The coffee finished. I poured hers and set it at the far end of the counter, near the doorway from the hall. The kitchen filled up with butter and eggs and dark roast.
 
 That'd do it, I figured. The coffee, at least.
+
+The chamomile was in the cupboard over the sink, second shelf, in a tin with a hinged lid. I'd found it while I was looking for the pan and I'd stood there with the lid open longer than a person needs to.
+
+I made myself a cup. It's what I drink. It has been what I drink for years, in my own kitchen, where nobody has ever once handed it to me.
 
 Somewhere down the hall, floorboards.
 
@@ -102,7 +106,7 @@ Her hand came up slow and rested on the doorframe. She looked at the photo a lon
 
 "Well," she said. "Look at that."
 
-"Coffee's there." I tilted my head at the second mug.
+"Coffee's there." I tilted my head at the mug by the door.
 
 "Bless you." She crossed the kitchen and picked it up with both hands, the way old people hold coffee on a cold morning. Long sip. Eyes closed.
 
@@ -154,9 +158,15 @@ She set it down carefully, face up. "Bossy."
 
 We ate.
 
-She asked things between bites. Did I cook often. Where had I learned. Did the eggs come out the way I liked them. What about coffee - black at home, or did I let myself add things. Small questions. The kind you ask to keep somebody talking.
+She asked things between bites. Did I cook often. Where had I learned. Did the eggs come out the way I liked them. Small questions. The kind you ask to keep somebody talking.
 
 I answered. Not many words to most of it. Enough.
+
+Then, not looking up from her plate: "You made a whole pot and you're not drinking any of it."
+
+"It doesn't sit right."
+
+"Mm." She let that be the end of it, which I hadn't expected. There was no follow-up. No *is that a wolf thing.* She ate another forkful and I watched her decide not to ask, and I understood that she'd file it and it would simply be true from now on - that in that house, going forward, there would be chamomile, and nobody would ever say why.
 
 After a while she set her fork down, picked her mug up, and said, "What happened to you after that place came down."
 
@@ -168,7 +178,7 @@ I set my fork down too. "Someone from the people I work for now found me. They h
 
 "Mm. I won't ask."
 
-I took a sip of the coffee. "He brought me a sandwich before he asked me anything else. That part stuck."
+I took a sip. "He brought me a sandwich before he asked me anything else. That part stuck."
 
 She smiled faintly. "Mm. They trained you, after."
 

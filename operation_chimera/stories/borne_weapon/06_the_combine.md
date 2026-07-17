@@ -4,8 +4,6 @@ Transport was a black SUV with tinted windows and a driver who didn't speak. It 
 
 The coordinates led to a private airstrip where a twin-prop, unmarked and utilitarian, swallowed me and two other recruits - a wiry man who kept cracking his knuckles and a woman with a thousand-yard stare who looked at nothing at all. We flew in silence, the drone of the engines a physical pressure in my ears.
 
-The pack was still on my kitchen counter, two hundred miles behind me. I'd looked at it on the way out and left it there.
-
 We landed on a dusty strip carved into dense evergreen forest. The air was thin and cold and smelled of pine resin and damp earth. A concrete bunker squatted at the tree line. A sign over the heavy double doors: **TITAN REACH - ASSESSMENT & ACCLIMATIZATION FACILITY.**
 
 Inside was harsh fluorescence and echoing linoleum. A bored sergeant at a kiosk took my name, scanned my retina, slapped a plastic wristband on me. "Welcome to the Combine, cadet. Follow the green line. Don't wander. Don't touch anything."

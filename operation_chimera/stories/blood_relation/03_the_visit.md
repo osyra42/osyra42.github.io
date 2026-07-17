@@ -32,9 +32,7 @@ It was a warm day. The sun was out. In the window glass I looked like somebody's
 
 The house was covered in ivy and looked a little overgrown, in the way of a place tended by someone who has decided which battles are worth it. A small stone path led to the front door. When we parked, an old lady walked out.
 
-"Osyra?"
-
-"You're Rosalyn, right? My grandmother?"
+"I'm Osyra, and you're Rosalyn, right? My grandmother?"
 
 "Ah yes, I got a phone call saying that you would be around soon."
 
@@ -46,7 +44,7 @@ The house was covered in ivy and looked a little overgrown, in the way of a plac
 
 "Well, that means he cares about you, honey. We can talk about it inside. Does your driver want to come in too?"
 
-I side-eyed Korval. "No. He prefers the quiet."
+I gave Korval a subconscious side eye. "No. He prefers the quiet."
 
 Korval said nothing. He just nodded slightly, then walked to the front of the car and sat on the hood. His sunglasses reflecting.
 
@@ -100,7 +98,17 @@ I'd call Vanity tonight, the way I'd been told. Once a day, so somebody at headq
 
 She brought in tea eventually. I had trouble paying attention. The chair was pulling me under, my body slowing the way it never slows, and I kept waiting for the tea to fix it and it didn't. I'd been running so long I hadn't noticed I was tired. I mean that plainly. I had no idea. The instrument doesn't point inward, and it had been reading *fine* for years while the answer was *no*.
 
-I took the cup almost greedily. Anything to stay awake for this. Spiced chai. One of my favorites, which she had no way of knowing and which I decided not to examine.
+I took the cup almost greedily. Anything to stay awake for this.
+
+Chamomile.
+
+I got about half of it down before the joke landed on me. She hadn't brought me anything to stay awake on. There was nothing in that cup but hot water and a flower, and I'd been drinking it like a stimulant and waiting to be fixed by it.
+
+Which was fine. Coffee costs me an hour of my stomach arguing, and tea's the same at half the price - it's a canine thing, one of the small ones, an annoyance rather than a problem, and it is not the sort of annoyance a person mentions to a host. I'd have drunk whatever she handed me and paid for it later and said nothing, the way I always do.
+
+She hadn't asked. I want to be careful here, because I have watched people be kind at me for twenty-nine years and I know what it looks like when someone has done their homework and wants credit for it. That wasn't this. There was no glance to see if I'd noticed. She'd looked at a woman who'd driven two hours and hadn't slept and was sitting in her front room with her hands wrong, and she'd gone and boiled the thing you give somebody who needs to come down.
+
+Forty years of small frightened people, and it comes out of her hands automatically, and she doesn't know she's doing it.
 
 She watched me drink for a moment. Then she set her own cup down on the side table and went to the bookshelf at the far end of the room. Her fingers ran along the spines until they stopped on something thick and softbound. She pulled it out with both hands.
 
