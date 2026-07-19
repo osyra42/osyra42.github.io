@@ -1,4 +1,17 @@
 # 🤖 Vanity
+<pre class="brewdown-toc"><strong>TABLE OF CONTENTS</strong>
+<a href="#lettus-update">Lettus Update</a>
+<a href="#kale-update">Kale Update</a>
+<a href="#jicama-update">Jicama Update</a>
+<a href="#ivy-update">Ivy Update</a>
+<a href="#honeynut-update">Honeynut Update</a>
+<a href="#garlic-update">Garlic Update</a>
+<a href="#fennel-update">Fennel Update</a>
+<a href="#eggplant-update">Eggplant Update</a>
+<a href="#diakon-update">Diakon Update</a>
+<a href="#carrot-update">Carrot Update</a>
+<a href="#broccoli-update">Broccoli Update</a>
+<a href="#asparagus-update">Asparagus Update</a></pre>
 
 [Vanity's Legal Stuff](vanity_legal.html)
 

@@ -23,11 +23,11 @@ sidebar h1 {
   text-align: center;
   font-family: 'Satisfy', cursive, sans-serif;
   color: var(--accent);
-  font-size: 2em;
+  font-size: 2.4em;
 }
 
 sidebar h3 {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   color: var(--accent);
   margin-bottom: 0px;
   flex-shrink: 0;
@@ -89,59 +89,11 @@ sidebar nav a {
   display: inline-block;
   margin: 4px 0;
   font-weight: 500;
+  font-size: 1.15rem;
 }
 
 sidebar nav a:hover {
   color: var(--accent-light);
-}
-
-/* Archive dropdown */
-sidebar .nav-dropdown {
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
-
-sidebar .nav-dropdown-toggle {
-    cursor: pointer;
-    user-select: none;
-    color: var(--half-and-half);
-    font-weight: 500;
-    display: inline-block;
-    margin: 4px 0;
-}
-
-sidebar .dropdown-arrow {
-    font-size: 16px;
-    margin-left: 4px;
-    transition: transform 0.2s;
-    display: inline-block;
-}
-
-sidebar .nav-dropdown.open .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-sidebar .nav-dropdown-menu {
-    display: none;
-    padding-left: 24px;
-}
-
-sidebar .nav-dropdown.open .nav-dropdown-menu {
-    display: block;
-}
-
-sidebar .nav-dropdown-item {
-    display: block;
-    color: var(--light-cream);
-    text-decoration: none;
-    padding: 2px 0;
-    margin: 4px 0;
-    font-weight: 500;
-}
-
-sidebar .nav-dropdown-item:hover {
-    color: var(--accent-light);
 }
 
 sidebar div {
@@ -156,7 +108,7 @@ sidebar div a {
   transition: color 0.2s;
   display: inline-block;
   margin-bottom: 4px;
-  font-size: 16px;
+  font-size: 1.15rem;
 }
 
 sidebar div a:hover {
@@ -169,12 +121,12 @@ sidebar > div:first-child {
 }
 
 sidebar .avatar-container {
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   overflow: hidden;
   margin: 20px auto;
-  border: 4px solid var(--half-and-half);
+  border: 5px solid var(--half-and-half);
 }
 
 sidebar .avatar-container img {
@@ -184,13 +136,13 @@ sidebar .avatar-container img {
 }
 
 sidebar h2 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   color: var(--half-and-half);
   background-color: var(--dark-mocha);
   border-radius: 8px;
   text-align: center;
-  height: 40px;
-  line-height: 36px;
+  height: 48px;
+  line-height: 44px;
   border: var(--half-and-half) 2px solid;
 }
 
@@ -199,19 +151,19 @@ sidebar h2 {
 .theme-menu {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 12px auto 0;
+  gap: 14px;
+  margin: 16px auto 0;
   width: fit-content;
-  padding: 8px 12px;
+  padding: 12px 18px;
   background-color: var(--dark-mocha);
   border: 2px solid var(--toasted-almond);
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
 }
 
 .theme-menu-label {
   font-family: Arial, sans-serif;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -220,7 +172,7 @@ sidebar h2 {
   transform: rotate(180deg);
   text-align: center;
   line-height: 1;
-  padding-left: 4px;
+  padding-left: 6px;
   border-left: 1px solid var(--toasted-almond);
 }
 
@@ -237,18 +189,21 @@ sidebar h2 {
 .theme-row {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   margin: 0;          /* override sidebar div { margin-bottom: 8px } */
 }
 
 /* Nudge staggered rows right by half a swatch for a subtle offset. */
 .theme-row--offset {
-  margin-left: 4px;
+  margin-left: 5px;
 }
 
+/* Each swatch carries data-tooltip-color="<its color>", so the shared tooltip runtime
+   (brewdown.js) tints the hover bubble to that flavor's color — a sidebar-only flourish the
+   plain ??tip?? tooltips in main don't get. See the .tooltip note in brewdown.css. */
 .theme-swatch {
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   border-radius: 50%;
   border: 2px solid var(--coffee-bean);

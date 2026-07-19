@@ -5,8 +5,11 @@ main h1 {
   color: var(--accent);
   font-size: 2.5em;
   margin-bottom: 0.3em;
-  border-bottom: 4px solid var(--accent);
-  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.2em;
+  /* Only H1 clears the floated TOC — a longer TOC pushes the next top-level section down
+     instead of sitting beside it. Sub-headings (h2+) may still wrap alongside a tall TOC. */
+  clear: right;
 }
 
 main h2 {
@@ -14,7 +17,7 @@ main h2 {
   font-size: 1.8em;
   margin-top: 0;
   margin-bottom: 0.5em;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
   padding-bottom: 0.3em;
 }
 
@@ -35,7 +38,7 @@ main h4 {
 /* Text */
 main p {
   margin-bottom: 0;
-  text-align: justify;
+  text-align: left;
 }
 
 main p.indent {
@@ -46,16 +49,26 @@ main p.no-indent {
   text-indent: 0;
 }
 
-/* Links */
+/* Links. Visited state is shown via decoration COLOR only: browsers hard-block
+   adding/removing an underline on :visited (privacy), so every link gets a permanent dotted
+   underline, and :visited repaints it to the page background (--espresso) so it blends away.
+   Result: unvisited = dotted underline, visited = looks clean. */
 main a {
   color: var(--accent);
-  text-decoration: none;
+  text-decoration: underline dotted;
+  text-decoration-color: currentColor;
+  text-underline-offset: 2px;
   transition: color 0.3s;
+}
+
+main a:visited {
+  text-decoration-color: var(--espresso);   /* == main bg → blends away (only allowed change) */
 }
 
 main a:hover {
   color: var(--light-cream);
-  text-decoration: underline;
+  text-decoration: underline dotted;
+  text-decoration-color: currentColor;
 }
 
 /* Lists */
@@ -138,6 +151,32 @@ main blockquote {
   margin: 1.5em 0;
 }
 
+/* Table of Contents box (::toc:: renders a <pre class="brewdown-toc">). Floated to the
+   right so the prose wraps up its left side, magazine/Wikipedia style. Safety rails keep
+   it from ever getting ugly: a min-width floor so it never collapses to a sliver, a max
+   so it never eats the column, and wrapping so long entries can't blow out the box. */
+main .brewdown-toc {
+  float: right;
+  clear: right;
+  min-width: 14em;
+  max-width: min(45%, 24em);
+  background: var(--dark-mocha);
+  border: 1px solid var(--coffee-bean);
+  border-radius: 4px;
+  padding: 0.6em 1.4em 0.9em;
+  margin: 0.3em 0 1em 1.5em;   /* left margin gives the wrapping text breathing room */
+  white-space: pre-wrap;       /* long TOC entries wrap instead of overflowing */
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+main .brewdown-toc strong {
+  display: block;
+  text-align: center;
+  color: var(--accent-light);
+  margin-bottom: 0.4em;
+}
+
 /* Horizontal rule */
 main hr {
   border: none;
@@ -148,7 +187,7 @@ main hr {
 }
 
 /* Spoiler */
-.spoiler {
+main .spoiler {
   background-color: var(--coffee-bean);
   color: var(--coffee-bean);
   cursor: pointer;
@@ -157,26 +196,29 @@ main hr {
   transition: color 0.3s;
 }
 
-.spoiler.revealed {
+main .spoiler.revealed {
   color: var(--steamed-milk);
 }
 
 /* Click-to-copy — styled like an <a> link */
-.copy-text {
+main .copy-text {
   color: var(--accent);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s;
 }
 
-.copy-text:hover {
+main .copy-text:hover {
   color: var(--light-cream);
   text-decoration: underline;
 }
 
 /* Tooltip — the site's single tooltip system, driven by [data-tooltip] on any element
-   (runtime in brewdown.js). Used by the ??text|tip?? token and by hand-authored markup
-   like the sidebar theme swatches. Instant, themed, prettier than the native title. */
+   (runtime in brewdown.js). EXCEPTION to the "brewdown.css only styles main" rule: the
+   tooltip runtime lives in brewdown.js and is shared — the ??text|tip?? token uses it in
+   main, and the sidebar theme swatches use it too (and the popup element is appended to
+   <body>, outside main). So these three .tooltip* rules are intentionally unscoped. The
+   sidebar gives its swatch tooltips a distinct colored look; see sidebar.css. */
 .tooltip {
   position: absolute;
   z-index: 2000;  /* above mobile sidebar/menubar/back-to-top (1001-1005) */

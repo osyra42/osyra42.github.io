@@ -566,6 +566,11 @@ const Brewdown = (function() {
             if (!text) return;
             const t = getTip();
             t.textContent = text;
+            // Optional per-element tint (e.g. sidebar theme swatches color their tooltip to
+            // the swatch being hovered). Bare ??tip?? tooltips leave this unset → default look.
+            const color = el.getAttribute('data-tooltip-color');
+            t.style.borderColor = color || '';
+            t.style.color = color || '';
             // Measure first (made displayable via .tooltip styles), then position.
             const r = el.getBoundingClientRect();
             const tr = t.getBoundingClientRect();

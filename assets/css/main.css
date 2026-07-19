@@ -6,7 +6,6 @@ main {
   font-family: Georgia, 'Times New Roman', serif;
   background-color: var(--espresso);
   color: var(--steamed-milk);
-  line-height: 1.8;
   width: 100%;
   padding: 0;
   display: block;
@@ -30,7 +29,11 @@ main p {
 main,
 main * {
   font-family: Georgia, 'Times New Roman', serif;
-  line-height: 1.8;
+  line-height: 1.7;
+  /* Base content size. The site's `rem` values are rooted to <html> (16px), so we set the
+     base in px here; headings scale off it in `em` (defined in brewdown.css). One number
+     drives all body text. */
+  font-size: 20px;
 }
 
 main code,
@@ -42,7 +45,7 @@ main pre * {
 
 /* Constrain content but not the download bar */
 main > *:not(.download-bar) {
-  max-width: 794px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;

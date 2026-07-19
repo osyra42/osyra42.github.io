@@ -177,6 +177,14 @@
     max-width: 100% !important;
   }
 
+  /* TOC un-floats to a full-width inline block on mobile (no wrapping beside it). */
+  main .brewdown-toc {
+    float: none !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 1em 0 !important;
+  }
+
   #back-to-top {
     top: 0.5rem !important;
     left: 0.5rem !important;

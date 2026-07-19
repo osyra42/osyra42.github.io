@@ -39,7 +39,7 @@ body {
   margin: 0;
   overflow-y: hidden;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 340px 1fr;
   min-height: 100vh;
 }
 

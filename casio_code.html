@@ -52,15 +52,15 @@
 
     <script type="text/markdown" data-brewdown>
 # 🔢 Casio Code
-
-# Preface
+::toc::
+## Preface
 Most of these are written for the Casio fx-9750 G PLUS. A few things worth knowing before you dig in:
 
-## Technical Specifications
+### Technical Specifications
 - **User memory capacity:** 28,000 bytes
 - **Transfer speed:** 9600 bits/sec = 1.2 KB/s
 
-## Memory Usage
+### Memory Usage
 - Each character = 1 byte
 - Each command = 2 bytes
 - Each List/Matrix cell = 10 bytes
@@ -69,7 +69,7 @@ Most of these are written for the Casio fx-9750 G PLUS. A few things worth knowi
 
 The carriage return isn't counted here - it sits at the end of every line.
 
-## Memory Numbers
+### Memory Numbers
 - **First number:** Memory required to program it
 - **Second number:** Additional memory used when running the program
 
@@ -77,67 +77,21 @@ All variables are assumed to be pre-filled.
 
 ★ This program can be found somewhere in this document.
 
-## Placeholder Names
+### Placeholder Names
 - **Skribble** (also written as "sCrib6le") is used as a fake company name
 
-## Program Controls
+### Program Controls
 - **AutoPlay** is an AI program
   - Press [shift] to activate
   - Press [alpha] to deactivate
 
 An ' symbol inside a program marks a note - it won't display or affect anything when the program runs.
 
-page i
----
-# Table of Contents
-| page | program | notes | memory |
-| 1-4 | Timers | based on pbs | 50-200|
-| 4-8 | Screen "Savers" | w/speed control | 40-330|
-| 9-10 | Pong | basic/extended | 270-1080|
-| 11-12 | Sudoku Matrix | | 405a 1858 |
-MATH HELP 
-| page | program | notes | memory |
-| 13 | Prime Factor | --- | 175-210 |
-| 14-15 | Simplifiers | --- | 190-440 |
-| 16 | Mixing #s | --- | 185 |
-GAMES
-| page | program | notes | memory |
-| 9-10 | Pong | 270-1080 | |
-| 11-12 | Sudoku | matrix mem 4050 | 1858 |
-| 17 | Pick a # | | 135 |
-| 18 | Deck of Cards | List mem 1040 | 440 |
-| 18-19 | Catch Game | | 430-660 |
-| 20 | Speed Game | | 570 |
-| 20 | Running Man | | 465 |
-SMALL RANDOM
-| page | program | notes | memory |
-| 22 | Identify Pixels | | 120 |
-| 22 | Reverse Pixels | | 45 |
-| 22 | Roll Playing Dice Damage | | 190 |
-| 23 | Controlled Arrow Flight | | 75 |
-| 23 | π Pi Calculation | | 50 |
-| 23 | Get Key Identification | | 30 |
-| 23 | Bank Menu Screen | | 190 |
-| 23 | Pointer | | 135 |
-TYPING
-| page | program | notes | memory |
-| 25 | ABC | | 1335 |
-| 26 | Typing | Matrix mem 1470 | 335 |
-| 266 | Read | | 100 |
-| 27 | ASK | Matrix mem 420 | 900 |
-| 28 | Answer | | 135 |
-| 26 | KEYPAD | | 60 |
-| 29 | Hangman | | 425 |
-| 17 | You Think of a Number | | 300 |
-| 30 | Bubbles| Complex Game | 4293 |
-UTILITIES
-| page | program | notes | memory |
-| 31 | 1 minute timer | | 110 |
 
-page ii
----
+## Timers
+**Memory:** 50-200 | **Notes:** based on pbs
 
-## Timer Version 2.0
+**Timer Version 2.0**
 ```vbnet
 "HOW MANY MINUTES"? → C
 ClrGraph
@@ -159,10 +113,8 @@ Then Stop
 Cls
 Else Goto 1
 ```
-page 1
----
 
-## Timer Version 3.1
+**Timer Version 3.1**
 
 ```vbnet
 ClrText
@@ -181,7 +133,7 @@ Locate 1,2, M
 Goto l
 ```
 
-## Timer Version 4.2
+**Timer Version 4.2**
 ```vbnet
 ClrText
 0 → T
@@ -196,10 +148,8 @@ Locate 1,1,Int S
 Locate 1,2,Int M
 Goto 1
 ```
-page 1
 
----
-## Timer Version 5.7 (Scribble)
+**Timer Version 5.7 (Scribble)**
 ```vbnet
 ClrText
 0 → S
@@ -214,7 +164,7 @@ Goto 0
 'The display is in sexagesimal
 ```
 
-## Timer Version 6.2
+**Timer Version 6.2**
 ```vbnet
 ClrText
 "SET TIME"
@@ -228,7 +178,7 @@ Locate 1,1,S
 Next
 ```
 
-## Timer Version 7.0
+**Timer Version 7.0**
 ```vbnet
 ClrText
 "SET TIME"
@@ -242,28 +192,27 @@ Locate 1,1,S
 Next
 ClrText
 ```
-page 2
----
 
-## Timer Version 8.1 (mem 51)
+**Timer Version 8.1 (mem 51)**
 ```vbnet
 For 0 → S To 1 Step 0.00001844533
 Locate 1,1,S
 Next
 ```
 
-## Timer Version 8.2 (mem 51)
+**Timer Version 8.2 (mem 51)**
 ```vbnet
 For 0 → S To 1 Step 0.00001838150
 Locate 1,1,S
 Next
 ```
 
-page 3
----
 
-## Screen Saver I (output blip)
-### Version 1.4
+## Screen Savers
+**Memory:** 40-330 | **Notes:** w/speed control
+
+### Screen Saver I (output blip)
+**Version 1.4**
 ```vbnet
 Lbl 1
 ClrText
@@ -272,7 +221,7 @@ For 1 → A To 100
 Next
 Goto 1
 ```
-### Version 2.2
+**Version 2.2**
 ```vbnet
 Do
 "SPEED"? → C
@@ -287,10 +236,8 @@ For 1 → D To C
 Next
 Goto 1
 ```
-page 4
----
-## Screen Saver III (Text blip)
-### Version 1.2
+### Screen Saver III (Text blip)
+**Version 1.2**
 ```vbnet
 Lbl 1
 ClrGraph
@@ -299,7 +246,7 @@ For 1 → A To 100
 Next
 Goto 1
 ```
-### Version 2.1
+**Version 2.1**
 ```vbnet
 Do
 "SPEED"? → C
@@ -314,10 +261,8 @@ For 1 → D To C
 Next
 Goto 1
 ```
-page 4
----
-## Screen Saver II (slide tort)
-### Version 2.3
+### Screen Saver II (slide tort)
+**Version 2.3**
 ```vbnet
 "SPEED"? → C
 LpWhile C<0 Or C>10
@@ -329,10 +274,8 @@ Text R,A,"□□□SAMPLE TEXT"
 Next
 Goto 1
 ```
-page 5
----
-## Screen Saver IV (bouncing word)
-### Version 1.0
+### Screen Saver IV (bouncing word)
+**Version 1.0**
 ```vbnet
 Int 17 Ran#+1 → A
 Int 7 Ran#+1 → B
@@ -351,8 +294,8 @@ ClrText
 Locate A,B,"CASIO"
 Goto 1
 ```
-## Screen Saver V (like pipes)
-### Version 1.6
+### Screen Saver V (like pipes)
+**Version 1.6**
 ```vbnet
 Int 21 Ran#+1 → X
 Int 7 Ran#+1 → Y
@@ -372,7 +315,7 @@ Y<1 ⇒ 7 → Y
 Next
 Goto 1
 ```
-### Version 2.2
+**Version 2.2**
 ```vbnet
 Do
 "SPEED"? → C
@@ -397,7 +340,7 @@ Next
 Goto 1
 ```
 
-### Version 3.1 (interactive)
+**Version 3.1 (interactive)**
 ```vbnet
 Do
 "SPEED"? → C
@@ -423,9 +366,7 @@ Locate X,Y,"O"
 Next
 Goto 1
 ```
-page 6
----
-## Screen Saver IV (3 bouncing balls)
+### Screen Saver IV (3 bouncing balls)
 ```vbnet
 Int 2 Ran# → A
 Int 2 Ran# → B
@@ -469,10 +410,9 @@ Locate V,W,"O"
 Locate T,U,"O"
 LpWhile 1
 ```
-page 7
----
-## Pong
-### Version 3.1
+### Pong
+**Memory:** 270-1080 | **Notes:** basic/extended
+**Version 3.1**
 ```vbnet
 9 → A: 7 → B: 8 → C: 0 → E: 0 → S
 Int 2 Ran# → D
@@ -504,9 +444,7 @@ Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
-page 8
----
-### Extended Version 4.3 (autoplay)
+**Extended Version 4.3 (autoplay)**
 ```vbnet
 ClrText
 Locate 6,4,"Version 4.3"
@@ -583,12 +521,11 @@ Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
-page 9
----
 
-# SUDOKU
+## SUDOKU
+**Memory:** 1858 | **Notes:** Matrix mem 4050
 Run NEWSUDOK to set up a new game, then SUDOKU to play it.
-## NEWSUDOK (version 3.2)
+**NEWSUDOK (version 3.2)**
 ```vbnet
 Do
 ClrText
@@ -620,7 +557,7 @@ Next
 Prog "SUDOKU"
 ```
 
-### SUDOKU (version 3.2)
+**SUDOKU (version 3.2)**
 ```vbnet
 ClrGraph
 ViewWindow 1,15,1,1,10,1
@@ -687,11 +624,10 @@ Mat G → Mat J
 Mat G → Mat K
 ClrText
 ```
-page 11
----
 
-# Prime Factor (List Form)
-## Version 2.0
+## Prime Factor (List Form)
+**Memory:** 175-210
+**Version 2.0**
 ```vbnet
 ClrText
 10 → Dim List 1
@@ -711,7 +647,7 @@ Lbl 8: A → List 1[D]
 Lbl 9: List 1
 ```
 
-## Version 1.0 (non-list)
+**Version 1.0 (non-list)**
 ```vbnet
 ClrText
 "PRIME FACTOR"? → A
@@ -728,10 +664,9 @@ A ÷ B → A: Goto 3
 Lbl 8: A◢
 Lbl 9: "DONE"
 ```
-page 13
----
-# Radical simplify
-## Version 4.5
+## Radical simplify
+**Memory:** 190-440
+**Version 4.5**
 ```vbnet
 ClrText
 "□"
@@ -755,8 +690,8 @@ Locate 1,5,"Ans"
 Locate 1,6,√N
 ```
 
-# Rationalizer (Scribble)
-## version 1.9
+## Rationalizer (Scribble)
+**version 1.9**
 ```vbnet
 1 → A~D
 ClrText
@@ -799,11 +734,9 @@ Locate 6,5,X
 Locate 1,6,"Ans="
 (√Y)²
 ```
-page 14
----
 
-# Rational
-## Version 1.0
+## Rational
+**Version 1.0**
 ```vbnet
 1 → A~D
 ClrText
@@ -847,8 +780,9 @@ Locate 6,5,X
 Locate 1,6,"Ans="
 (√Y)²
 ```
-# Mixing
-## Version 1.3
+## Mixing
+**Memory:** 185
+**Version 1.3**
 ```vbnet
 2 → F
 ClrText
@@ -871,8 +805,9 @@ Next
 Next
 List 2
 ```
-# Prog "AAA"
-## Version 1.0
+## Prog "AAA"
+**Memory:** 300
+**Version 1.0**
 
 ```vbnet
 Think of a number
@@ -896,11 +831,10 @@ D = higher ⇒ C → A
 D = yes ⇒ "I win!"
 D = lower or higher ⇒ Goto 1
 ```
-page 16
----
 
-# Pick a number
-## Version 4.0
+## Pick a number
+**Memory:** 135
+**Version 4.0**
 ```vbnet
 ClrText
 0 → A
@@ -916,11 +850,10 @@ U≠N ⇒ Goto 1
 U = N "CORRECT"
 U=N ⇒ "TRIES": A
 ```
-page 17
----
 
-# Deck of Cards
-## version 4.1
+## Deck of Cards
+**Memory:** 440 | **Notes:** List mem 1040
+**version 4.1**
 ```vbnet
 Lbl 0
 ClrText
@@ -966,8 +899,9 @@ Next
 Goto 0
 ```
 
-# Catch Game
-## Version 3.1
+## Catch Game
+**Memory:** 430-660
+**Version 3.1**
 ```vbnet
 0 → S: 4 → D: 21 → C
 ClrText
@@ -990,11 +924,10 @@ Locate 7,5,"SCORE: "
 Locate 13,5,S
 Stop
 ```
-page 18
----
 
-# Running Man
-## Version 1.3
+## Running Man
+**Memory:** 465
+**Version 1.3**
 ```vbnet
 1 → A: 4 → B: 21 → X: 4 → Y: -1 → S: 0 → G
 ClrText
@@ -1030,8 +963,9 @@ Locate 13,5,S
 Stop
 ```
 
-# Speed Game
-## Version 1.5
+## Speed Game
+**Memory:** 570
+**Version 1.5**
 ```vbnet
 ClrText
 "□": "□": "□": "□": "□"
@@ -1077,13 +1011,10 @@ Locate 13,5,100-D
 Stop
 ```
 
-Page 19
----
-Page 20
----
 
-# Identify Pixels
-## Version 2.1
+## Identify Pixels
+**Memory:** 120
+**Version 2.1**
 ```vbnet
 ClrGraph
 RclPict 1
@@ -1101,8 +1032,9 @@ Next
 Stop
 ```
 
-# Reverse Pixels
-## Version 2.0
+## Reverse Pixels
+**Memory:** 45
+**Version 2.0**
 ```vbnet
 ClrGraph
 RclPict 1
@@ -1113,11 +1045,9 @@ Next
 Next
 Stop
 ```
-Page 21
----
-
-# Roll Playing Dice Damage
-## Version 2.2
+## Roll Playing Dice Damage
+**Memory:** 190
+**Version 2.2**
 ```vbnet
 0 → A: 0 → T
 "Number of sides"? → S
@@ -1136,8 +1066,9 @@ Stop
 Else Goto 1
 ```
 
-# Controlled Arrow Flight
-## Version 2.3
+## Controlled Arrow Flight
+**Memory:** 75
+**Version 2.3**
 ```vbnet
 Int 7 Ran#+1 → R
 For 1 → A To 20
@@ -1149,7 +1080,8 @@ G=37 ⇒ Dsz R
 Next
 ```
 
-# Pi (π) Calculations
+## Pi (π) Calculations
+**Memory:** 50
 ```vbnet
 4Σ(((-1)^(x-1))÷(2x-1),X,1,∞,1)
 ```
@@ -1166,17 +1098,17 @@ Locate 1,1,Ax4
 Goto 1
 ```
 
-# GetKey Identification
+## GetKey Identification
+**Memory:** 30
 ```vbnet
 "READY 1, 2, 3"
 GetKey → G
 Locate 1,1,G
 ```
-page 22
----
 
-# Bank Menu Screen
-## Version 4.1
+## Bank Menu Screen
+**Memory:** 190
+**Version 4.1**
 ```vbnet
 1 → θ
 Do
@@ -1193,8 +1125,9 @@ LpWhile G≠31
 Return
 ```
 
-# Pointer
-## Version 1.1
+## Pointer
+**Memory:** 135
+**Version 1.1**
 ```vbnet
 1 → A ~ B
 ClrText
@@ -1213,11 +1146,9 @@ A<1 ⇒ 1 → A
 G ≠ 0 ⇒ Locate C,D,"□"
 Goto 1
 ```
-page 23
----
 
-# Blank Menu Screen
-## Version 5.1
+## Blank Menu Screen
+**Version 5.1**
 ```vbnet
 1 → Y
 For 1 → A To 100
@@ -1235,11 +1166,10 @@ G=37 ⇒ Locate 1,Y-1,"□"
 Goto 1
 ```
 
-page 24
----
 
-# ABC
-## Version 2.1
+## ABC
+**Memory:** 1335
+**Version 2.1**
 ```vbnet
 H=1 ⇒ Goto 1
 G=25 ⇒ Locate A,B,"L"
@@ -1322,8 +1252,9 @@ Lbl 9
 Return
 ```
 
-# Typing
-## Version 2.9
+## Typing
+**Memory:** 335 | **Notes:** Matrix mem 1470
+**Version 2.9**
 ```vbnet
 H=1 ⇒ Locate A,B,"→□"
 GetKey → G
@@ -1356,11 +1287,10 @@ A>21 ⇒ Isz B
 A>21 ⇒ 1 → A
 Goto 1
 ```
-page 25
----
 
-# Read
-## Version 1.0
+## Read
+**Memory:** 100
+**Version 1.0**
 ```vbnet
 2 → H
 ClrText
@@ -1376,8 +1306,9 @@ Lbl 1
 Locate 21,7,"□"
 Return
 ```
-# Keypad
-## Version 1.0
+## Keypad
+**Memory:** 60
+**Version 1.0**
 ```vbnet
 Lbl 1
 GetKey → G
@@ -1388,8 +1319,9 @@ G>0 ⇒ 1 → Z
 Return
 ```
 
-# Ask (like ask Judd.com)
-## Version 1.2
+## Ask (like ask Judd.com)
+**Memory:** 900 | **Notes:** Matrix mem 420
+**Version 1.2**
 ```vbnet
 ClrText
 "□": "□": "□": "□": "□": "□"
@@ -1467,8 +1399,9 @@ Next
 Next
 ```
 
-# Answer
-## Version 1.1
+## Answer
+**Memory:** 135
+**Version 1.1**
 ```vbnet
 Mat Q[2,1] → Q
 Not Q ⇒ "No Reply"
@@ -1485,10 +1418,9 @@ Lbl 1
 Locate 1,6,"□"
 Stop
 ```
-page 27
 
-# ABC
-## Version 3.2
+## ABC
+**Version 3.2**
 ```vbnet
 G → N
 N = 0 ⇒ Return
@@ -1549,8 +1481,8 @@ Lbl 9
 Return
 ```
 
-# Type
-## Version 3.2
+## Type
+**Version 3.2**
 ```vbnet
 H>0 ⇒ Locate A,B,"→□"
 GetKey → G
@@ -1582,10 +1514,10 @@ A>21 ⇒ Isz B
 A>21 ⇒ 1 → A
 Goto 1
 ```
-page 28
 
-# Hangman
-## Version 1.3
+## Hangman
+**Memory:** 425
+**Version 1.3**
 ### needs programs ABC and READ and TYPE to use
 ```vbnet
 7 → J

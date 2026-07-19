@@ -29,7 +29,7 @@ const THEME_ROWS = 3;
 
 function themePickerRows() {
     const swatch = t =>
-        `<button class="theme-swatch" type="button" data-theme-id="${t.id}" data-tooltip="${t.label}" aria-label="${t.label} theme" style="background:${t.color}"></button>`;
+        `<button class="theme-swatch" type="button" data-theme-id="${t.id}" data-tooltip="${t.label}" data-tooltip-color="${t.color}" aria-label="${t.label} theme" style="background:${t.color}"></button>`;
 
     // Row sizes: spread evenly, then hand any remainder to the OUTER rows first
     // (top, bottom, then inward) so the layout stays symmetric — e.g. 17 -> 6,5,6.

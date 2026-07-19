@@ -71,6 +71,18 @@ Two central config files drive this, both loaded before `brewdown.js`:
 
 ## Brewdown Content
 
+### Table of Contents convention
+
+When a page has a `::toc::`, put it on the line **directly after the page's H1** with NO blank lines around it - the H1, then `::toc::`, then the next content butts right up against it:
+
+```
+# 🎮 3D Pixel Game
+::toc::
+A low-poly 3D platformer with pixel-art textures...
+```
+
+This holds even when the page has an italic subtitle - `::toc::` goes right after the H1, and the subtitle follows it. Keeps the TOC in the same spot on every page. The TOC floats right (prose wraps its left side; only H1 clears it). `::toc::` collects H1/H2/H3 only - NOT `>>>` collapsibles. On collapsible-driven pages (e.g. `recommendations.html`), put a real `##` header above each `>>>` block (header carries the section name; the collapsible summary is a short "View list") and demote any sub-headings inside a collapsible to `####` so they stay out of the TOC. To keep version/date lines out of a TOC while still showing them, make them **bold** body lines instead of headings (see `casio_code.html`).
+
 `brewdown.js` supports two ways to embed Brewdown content in pages:
 
 ### 1. `<div class="brewdown">` (preferred for most pages)
