@@ -1,6 +1,6 @@
 # Chapter 1 - The Hunting Lodge
 
-The lodge smelled like cedar and old smoke. It always does. The agency picked it for me on purpose - a hunting lodge at the dead end of a logging road, the kind of place where a tall woman who comes and goes at strange hours and brings back strange cargo is just a hunter. Nothing more. A hunter living in a hunting lodge. Nobody looks twice. That is the entire point of it, and I have never decided whether I resent how well it works.
+The lodge smelled like cedar and old smoke. The agency picked it for me on purpose - a hunting lodge at the dead end of a logging road, the kind of place where a tall woman who comes and goes at strange hours and brings back strange cargo is just a hunter. Nothing more. A hunter living in a hunting lodge. Nobody looks twice. That is the entire point of it, and I have never decided whether I resent how well it works.
 
 The walls are cedar gone honey-dark with age. Taxidermy everywhere - a whitetail buck over the cold fireplace, a brace of pheasants frozen mid-flush, a bobcat on a shelf with glass eyes that catch the light better than the real ones ever did. An antler chandelier hangs over the main room, a dozen sheds wired together into something meant to read as rustic luxury, which mostly reads as a lot of dead animals over your head while you eat. I didn't choose a single piece of it. The agency dressed the set before I moved in. I've only added to it, here and there, when a job left me something worth keeping.
 

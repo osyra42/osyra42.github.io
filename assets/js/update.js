@@ -28,7 +28,7 @@ window.UPDATES = {
     "3d_pixel_game.html":        { title: "3D Pixel Game",        date: "2026.07.04" },
     "sipsip.html":               { title: "Sip Sip",              date: "2026.07.04" },
     "urbex_safety.html":         { title: "Urbex Safety",         date: "2026.06.20" },
-    "vtuber_guide.html":         { title: "VTuber Guide",         date: "2026.06.26" },
+    "vtuber_guide.html":         { title: "VTuber Guide",         date: "2026.07.21" },
     "how_magnets_work.html":     { title: "How Magnets Work",     date: "2026.05.08" },
     "worksheets.html":           { title: "Worksheets",           date: "2026.06.20" },
     "better_for_free.html":      { title: "Better for Free",      date: "2026.07.04" },
@@ -41,7 +41,7 @@ window.UPDATES = {
     "vanity.html":               { title: "Vanity Bot",           date: "2026.07.14" },
     "casio_code.html":           { title: "Casio Code",           date: "2026.04.27" },
     "code_resources.html":       { title: "Code Resources",       date: "2026.03.07" },
-    "3d_prints.html":            { title: "3D Prints",            date: "2026.07.04" },
+    "3d_prints.html":            { title: "3D Prints",            date: "2026.07.21" },
     "media_mimic.html":          { title: "Media Mimic",          date: "2026.07.09" },
     "clutter.html":              { title: "Clutter",              date: "2026.02.19" },
     "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.07.04" }
