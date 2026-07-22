@@ -126,6 +126,19 @@
     padding-top: 0 !important;
   }
 
+  /* Desktop bumped the body base to 20px via `main *` (main.css); mobile keeps the pre-bump 16px.
+     Scope to text-bearing elements so headings keep their em scaling from brewdown.css. */
+  main p,
+  main li,
+  main td,
+  main th,
+  main dd,
+  main dt,
+  main blockquote,
+  main figcaption {
+    font-size: 16px !important;
+  }
+
   main .toc ul,
   main .characters ul {
     columns: 1;
