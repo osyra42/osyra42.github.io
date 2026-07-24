@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
 - [📝 Worksheets](worksheets.html)
 
 ---
-**Dev & Tools**
+**DevTools**
+- [🔓 Become the Problem](become_the_problem.html)
 - [🧊 Blender Resources](blender_resources.html)
 - [☕ Brewdown](brewdown.html)
 - [🔢 Casio Code](casio_code.html)

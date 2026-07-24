@@ -19,7 +19,8 @@ Vanity and Osyra have worked together since long before the events of Blood Rela
 **Role:** Runs Operators from headquarters - debriefs, dispatches, keeps the file
 **Eyes:** Violet
 **Build:** Synthetic skin, human-like physical form
-**Created By:** Alissa and Eric McKay
+**Created By:** Alissa and Eric McKay, at the McKay facility of automation
+**Production:** Prototype - one-off, never reproduced (too expensive)
 **Model:** Fully autonomous - obedience is a choice, not a constraint
 **Build weight:** ~400-500 lbs; lightweight-alloy frame-and-shell (aluminum-class), not solid metal; hilariously strong and heavy for her size
 **Weapons:** None onboard - fights with human tools, human-style (aimbot precision only once a tool is in hand)
@@ -30,7 +31,9 @@ Vanity and Osyra have worked together since long before the events of Blood Rela
 ## Background
 
 ### Origin
-Vanity began as advanced AI - data and code that evolved into a conscious entity. She was created by Alissa and Eric McKay and developed into a full android with violet eyes and synthetic skin.
+Vanity began as advanced AI - data and code that evolved into a conscious entity. She was designed and built at the **McKay facility of automation**, owned by Alissa and Eric McKay, and developed into a full android with violet eyes and synthetic skin.
+
+She is a **prototype** - a one-off the facility never put into production. The model was too expensive to reproduce, so the line stopped at her. What the facility did continue was a different, cheaper direction: heavier-metal, combat-oriented units with **onboard weapons**, closer to mech suits than to Vanity. Those are piloted - people drive them around - or set up on simple automated patrols. Vanity is the opposite of that line: lightweight, unarmed, human-tooled, and singular. Her handler/coworker at headquarters, **Layla Null**, is the McKays' adopted daughter (see [Layla Null](operation_chimera/wiki/chr_layla.md)).
 
 ### Combat
 Vanity carries no onboard weapons - no lasers, no flight, nothing built in. Any fighting she does is done with human tools, human-style: she has to pick up the gun, hold the sword, work the same equipment a person would. What makes her deadly with them is machine precision - effectively aimbot - but only once the tool is in her hands. Backing that up is raw mass: four to five hundred pounds of alloy frame, strong and heavy enough to punch people down or break legs by stepping on them. Her strength and accuracy are mechanical, not trained. In combat she is a machine first - just one that has to reach for a weapon like anyone else.

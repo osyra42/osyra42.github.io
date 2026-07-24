@@ -43,6 +43,7 @@ window.UPDATES = {
     "code_resources.html":       { title: "Code Resources",       date: "2026.03.07" },
     "3d_prints.html":            { title: "3D Prints",            date: "2026.07.24" },
     "media_mimic.html":          { title: "Media Mimic",          date: "2026.07.09" },
+    "become_the_problem.html":   { title: "Become the Problem",   date: "2026.07.24" },
     "clutter.html":              { title: "Clutter",              date: "2026.02.19" },
     "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.07.04" }
 };

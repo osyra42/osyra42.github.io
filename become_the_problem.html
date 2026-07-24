@@ -1,0 +1,169 @@
+<!-- become_the_problem.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Become the Problem - Coffee Byte Dev</title>
+  <meta charset="utf-8" />
+  <link rel="shortcut icon" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Meta Tags -->
+  <meta name="description" content="Become the Problem - a plain-language look at the security devices that expose weak access control, and how to defend against them. Awareness, not instructions." />
+  <meta name="keywords" content="osyra42, Coffee Byte Dev, security, RFID, access control, iCopy X, physical security, defense" />
+  <meta name="author" content="osyra42" />
+  <meta property="og:title" content="Become the Problem - Coffee Byte Dev" />
+  <meta property="og:description" content="A plain-language look at the security devices that expose weak access control, and how to defend against them." />
+  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+  <meta property="og:url" content="https://coffeebyte.dev/become_the_problem.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Become the Problem - Coffee Byte Dev" />
+  <meta name="twitter:description" content="A plain-language look at the security devices that expose weak access control, and how to defend against them." />
+  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+
+  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <script src="assets/highlight/highlight.min.js" defer></script>
+  <script src="assets/js/signature.js" defer></script>
+  <script src="assets/js/update.js" defer></script>
+  <script src="assets/js/brewdown.js" defer></script>
+  <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/scripts.js" defer></script>
+  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/js/back-to-top.js" defer></script>
+
+  <script>
+    image = "become_the_problem.jpg";
+    title = "Become the Problem";
+  </script>
+
+</head>
+<body>
+
+  <sidebar>
+    <!-- Placeholder for dynamic sidebar content -->
+  </sidebar>
+  <!-- Main Content -->
+  <main>
+
+    <div class="download-bar">
+      <h1>Become the Problem</h1>
+      <button class="download-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+
+    <div class="brewdown">
+# 🔓 Become the Problem
+::toc::
+*A plain-language series on the security tools that quietly prove your locks don't work - and what to do about it.*
+
+> ⚠️ **This is awareness, not a how-to.** No walkthroughs, no recipes - just what these tools are, what they expose, and how to defend. Only touch systems you own or are authorized to test.
+
+## 📖 What This Series Is
+
+Physical security runs on a comfortable lie: the badge on your hip, the fob on your keyring, the card that beeps the door open. It *feels* secure because it's a small plastic rectangle and there's a satisfying click.
+
+A lot of it isn't. Whole categories of access-control hardware still in daily use were designed decades ago, before anyone treated the wireless part as something an attacker could listen to. The tools that expose this aren't exotic - they're commercial products you can buy, built for locksmiths, red-teamers, and researchers.
+
+I want to talk about these devices the way I'd talk about a lockpick set: openly, because understanding how something fails is the first step to demanding better. Each entry covers **what a device is, what class of weakness it reveals, and what actually fixes it.** Never the recipe.
+
+Everything here is about **physical bypass**, and every single one of these tools has the same built-in speed bump: you have to touch grass. Not one of them works from a chair. There's no malware here, no software exploit, no sitting at a keyboard doing nothing until a building falls open. You have to buy a device, hold it in your hand, and physically stand in front of the door, the reader, or the port. That barrier is exactly why physical security gets ignored - it *feels* solid because getting past it means actually showing up - and exactly why it's worth understanding.
+
+> ℹ️ **Why "Become the Problem"?**
+> Because the most useful mindset in security isn't "how do I stay safe" - it's "what would someone who wanted in actually do, and does my defense survive that?" You learn to think like the whole problem so you can build something that answers it.
+
+## 🗝️ Lock Picks
+
+Lockpicking is the oldest tool in this series, and the least mysterious once you see the parts. A pin-tumbler lock opens when its internal pins line up at a shear line; a normal key just pushes them there all at once. Everything below is a way to reach that same line without the key, and every piece works alongside a **tension wrench** - the little L-shaped tool that holds a light turning pressure on the plug while the other hand does the work.
+
+- **Picks** - single-pin tools that set one pin at a time, the slow and precise approach
+- **Rakes** - shaped to scrub across all the pins at once and catch them on the fly, fast and noisy
+- **Combs** - push the pin stacks up past the shear line together, used on certain lock styles
+- **Lishi 2-in-1 sets** - keyway-specific tools that pick the lock and *decode* the cuts at the same time, so you read the key as it opens
+- **Bump keys** - a specially cut key that, tapped sharply, snaps the pins to the shear line for an instant
+- **Shims** - thin metal strips that slip past a padlock shackle or a spring latch and release it without touching the pins at all
+- **Under-door tools** - a rod-and-hook that reaches under or through the gap around a door and works the handle or lever from the wrong side
+- **Slapping / tapping** - not a tool but a technique: a sharp knock to the right spot pops a cheap padlock or shackle open with nothing fancy at all, which is its own kind of embarrassing for the lock
+
+Those last two point at something important: half the time the lock is never the weak part. A shim or an under-door tool ignores the cylinder entirely and defeats the *latch* or the *gap* instead. A great lock on a door with a big undercut, an exposed latch, or a lever you can reach is still a wide-open door.
+
+The thing worth internalizing: none of this defeats a *good* setup, it defeats a *cheap* one. Most builder-grade padlocks and door hardware have loose tolerances, no security pins, and gaps you could mail a letter through. The fix is boring and real - buy locks rated against picking and bumping (look for a real security rating rather than a marketing sticker), close the gaps a bypass tool would use, and remember a lock is a delay, not a wall. Layers around it (lighting, sightlines, a latch that can't be shimmed) matter more than the cylinder alone.
+
+Because in the end, a lock only keeps out an honest person. Anyone who's decided to get in will - the only question your setup answers is how long it takes and how loud it is. That's not a reason to give up on locks; it's the reason to stop treating them as the whole plan.
+
+One practical note: possession laws vary. In most of the US owning picks is perfectly legal, but a few states and plenty of other countries restrict them or treat carrying them as evidence of intent. If you're curious about the hobby, check your local laws first - it's a two-minute search and worth doing.
+
+> **Point of reference:** [Covert Instruments](https://www.covertinstruments.com/) - vendor and learning resource, for identification only.
+
+## 🐬 Flipper Zero
+
+The **Flipper Zero** is the famous one - a small orange multi-tool that pulls a dozen separate hobby projects into one pocket device. RFID, NFC, sub-GHz radio (garage doors, gates, some remotes), infrared, and a few wired protocols all live behind one screen and a directional pad. It got popular because it's cheap, playful, and does a little of everything, which is also exactly why it's a good teacher: it shows just how many "wireless" conveniences never expected anyone to be listening.
+
+What it exposes isn't one weakness, it's a category. A shocking amount of everyday radio - the gate remote, the cheap fob, the "smart" gadget - was designed for a world where nobody had a $200 tool that could listen and repeat. The Flipper doesn't break good crypto; it walks straight through things that never had any. The defense is the same story every time: assume the wireless part is observable, prefer devices that use real rolling-code or encrypted signals, and treat "it's on a radio, nobody can reach it" as the assumption to test, not trust.
+
+> **Point of reference:** [Flipper Zero](https://flipperzero.one/) - product page, for identification only.
+
+## 📟 iCopy X
+
+The **iCopy X** is a self-contained, handheld RFID tool - a specialized pocket device with a touchscreen, built around reading and working with the low- and high-frequency cards that run most badge-access systems. It's the friendlier, standalone cousin of the older research boards that used to need a laptop and a cable. The point worth remembering isn't the device itself: it's that this kind of capability now fits in a pocket and takes a few taps.
+
+What it really exposes is the cards, not the box. A lot of deployed badges broadcast a fixed identifier that was never designed to resist being listened to - "it has a chip" is not the same as "it is encrypted." The device is a mirror. It shows you which doors were quietly trusting that nobody would ever bother to look. The fix lives on the defender's side: modern credentials with real cryptography, a second factor at the doors that matter, and actually revisiting a card system that was chosen years ago and never questioned since.
+
+> **Point of reference:** [iCopy X on Hacker Warehouse](https://hackerwarehouse.com/product/icopy-x/) - product page, for identification only.
+
+## 🔬 Proxmark3
+
+The **Proxmark3** is the serious end of the RFID bench - the research tool the iCopy X was built to make friendlier. Where the iCopy X hides everything behind a touchscreen, the Proxmark expects a laptop, a command line, and someone who wants to see the raw protocol underneath. It's what security researchers and locksmiths reach for when they need to characterize *exactly* how a card system behaves, not just work with it.
+
+It exposes the same lesson as the iCopy X, one level deeper: the weakness was never the reader, it was the credential. Cards that broadcast a static number, or lean on crypto that was broken years ago, don't get any stronger because the door still opens. The Proxmark is how that gets proven in a lab, and the fix is identical - modern credentials with current cryptography, and a second factor on the doors that actually matter.
+
+> **Point of reference:** [Proxmark3 on Hacker Warehouse](https://hackerwarehouse.com/product/proxmark3-rdv4/) - product page, for identification only.
+
+## 🐰 Bash Bunny
+
+The **Bash Bunny** is a small USB device that isn't the storage stick it looks like. When plugged in, it can announce itself to the computer as something trusted instead - a keyboard, a network adapter, a serial device - and the machine believes it, because that's how USB was designed to work. The reason it matters isn't the gadget: it's that "I plugged something into a USB port" is still treated as a harmless act by most people and a lot of computers.
+
+What it exposes is trust, not a bug. A machine generally can't tell a real keyboard from a thing *pretending* to be one, and it will happily act on whatever that "keyboard" types - fast, in seconds, before anyone reacts. The defense isn't a better cable. It's the boring, effective stuff: don't plug in USB devices you didn't buy or can't account for, lock your screen when you step away, and on managed machines restrict which USB device types are even allowed. The found-in-the-parking-lot flash drive is the whole lesson in one image.
+
+> **Point of reference:** [Bash Bunny on Hak5](https://shop.hak5.org/products/bash-bunny) - product page, for identification only.
+
+## 🔌 O.MG Cable
+
+The **O.MG Cable** takes the Bash Bunny's idea and hides it somewhere worse: inside a charging cable that actually charges. It looks like a normal USB or Lightning cable, works like one, and survives a visual inspection - because it *is* a real cable, with an implant tucked in the connector. That's the whole unsettling point. The thing people hand each other without a second thought turns out to be the thing you can't trust.
+
+What it exposes is the last shred of "well, it's just a cable" thinking. If the wire itself can act like a keyboard or phone home over its own radio, then borrowing a charger, grabbing the loose cable at a conference table, or using the one already plugged into a public port is a decision, not a nothing. The defense is refreshingly low-tech: use your own cables, don't plug into chargers or ports you don't control, and for the truly cautious, data-blocking adapters that pass power but not data.
+
+> **Point of reference:** [O.MG Cable on Hak5](https://shop.hak5.org/products/omg-cable) - product page, for identification only.
+
+## 📡 WiFi Pineapple
+
+The **WiFi Pineapple** is the classic rogue-access-point tool. It stands up a Wi-Fi network that *looks* like one your phone already trusts, and because devices are eager to reconnect to familiar names automatically, they walk right onto it. From there it sits in the middle of the traffic. It's a staple of authorized network testing precisely because it demonstrates how little it takes to get a device to trust the wrong network.
+
+What it exposes is the convenience baked into every phone and laptop: the auto-rejoin that means you never have to re-type a coffee-shop password. That same helpfulness is the weakness. The defense is mostly habit - forget networks you don't need, be skeptical of open Wi-Fi, and let a VPN carry the sensitive stuff so that even a network in the middle sees only noise.
+
+> **Point of reference:** [WiFi Pineapple on Hak5](https://shop.hak5.org/products/wifi-pineapple) - product page, for identification only.
+
+## 🐢 LAN Turtle
+
+The **LAN Turtle** is a network implant disguised as a boring USB-to-Ethernet adapter - the kind of thing already hanging off a hundred office machines. Plugged into a wired jack, it quietly bridges onto the network and can hold a foothold for a long time without drawing attention. Its whole value is looking like it belongs.
+
+What it exposes is trust in the wired side of the wall. A lot of security assumes "if it's plugged into our network, it's supposed to be here," and a device built to blend in walks straight through that. The defense lives in the network, not the gadget: control which devices are allowed on a port, segment the network so one jack doesn't reach everything, and treat an unexpected adapter as worth a second look rather than furniture.
+
+> **Point of reference:** [LAN Turtle on Hak5](https://shop.hak5.org/products/lan-turtle) - product page, for identification only.
+
+## 📻 HackRF One
+
+The **HackRF One** is a software-defined radio - it doesn't target one system, it lets a computer listen to, and transmit across, a huge sweep of the radio spectrum. It's less mainstream than the rest of this list, and it's here for exactly that reason: it's a reminder of how much of the invisible world around us is just *radio*, and how much of that radio was never protected because nobody expected a general-purpose tool to reach it.
+
+What it exposes is the broadest lesson on the page: the airwaves are a shared, listenable medium, and "you'd need special equipment" stopped being much of a barrier. The defense isn't something you buy so much as something you assume - if a signal matters, it should be encrypted, because the spectrum itself was never private to begin with.
+
+> **Point of reference:** [HackRF One on Great Scott Gadgets](https://greatscottgadgets.com/hackrf/one/) - product page, for identification only.
+
+---
+
+::signature::
+    </div>
+
+    <button id="back-to-top">Back to Top</button>
+  </main>
+
+</body>
+</html>
