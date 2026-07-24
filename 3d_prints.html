@@ -53,24 +53,58 @@
     <div class="brewdown">
 # 🖨️ 3D Prints
 ::toc::
-Custom objects I've designed and printed in-house, from concept to finished part. This is a showcase of the kinds of things I've made over the years.
+How I take an object from a file on my screen to a finished, painted part in my hands. This is the workflow I actually use - an Ender 3 V2 and Cura - written so you can follow it from zero to your first successful print, plus the deeper steps for making your own models.
 
-```
-WHAT I'VE MADE
-├─ Replacement parts ─── fixes for broken or obsolete items
-├─ Containers ─────────── custom storage solutions
-├─ Nametags & badges ─── personalized identifiers
-└─ Figurines ──────────── low-detail decorative models
+**My setup:** Ender 3 V2 printer, Cura slicer, white PLA (paintable).
 
-MATERIALS & PROCESS
-├─ Standard material: white PLA (paintable)
-├─ Basic hand-painting on finished pieces
-└─ Designed from concept to print
-```
+## 1. Getting a model
 
----
+Everything starts with an **STL file** - that's the standard 3D model format your slicer reads. You have two paths:
 
-![3D Printed Mewtwo](assets/images/shop/3d_prints/3dprint_mewtwo.png)
+**Download one.** There are many sites that host printable models, free and paid. For free, [Thingiverse](https://www.thingiverse.com) is a solid starting point - huge library, no cost. Look for an STL, download it, and you're ready to slice. Paid marketplaces exist too if you want higher-detail or commercial-license models.
+
+**Make it yourself.** If you want something unique - or desirable in a way you can't find online - model it in Blender and export an STL. If you're new to Blender, my [Blender Resources](blender_resources.html) page is a good place to start.
+
+## 2. Check the mesh (for models you make)
+
+A downloaded STL from a good source is usually print-ready. A model you built yourself is not guaranteed to be - it can have holes, flipped faces, or non-manifold geometry that will confuse the slicer and cause print errors.
+
+Blender has a built-in **3D Print Toolbox** add-on for exactly this. Enable it, and it will:
+
+- **Check your mesh** for non-manifold edges and other problems
+- **Repair** many of those issues automatically where possible
+
+Run it before you export. Catching a bad mesh here means no surprises when you go to slice and print - the geometry is clean before it ever reaches Cura.
+
+## 3. Slice
+
+Open the STL in Cura. Slicing turns the model into the layer-by-layer instructions (G-code) your Ender 3 V2 prints from.
+
+**⚠️ Check your scale before you hit Slice.** This is the easiest thing to get wrong. Scaling in the slicer can be deceiving - a model can look right in the editor and still be half the size you wanted, or too big to fit the build plate. Confirm the object's dimensions match what you actually intend before slicing. It's a five-second check that saves you a wasted print.
+
+Once the scale is right, slice and save the G-code to the SD card for the printer.
+
+## 4. Print
+
+My Ender 3 V2 isn't connected to a computer or the internet - I slice on my PC and carry the G-code over on the SD card. If your printer is networked, your settings and workflow may differ from mine.
+
+There's no auto bed leveler on my machine, so I level by hand. My trick: I use an **M3 sticky note as a feeler gauge** to set the right nozzle height - when the nozzle just drags the paper across the bed at each corner, the gap is right. I'm specific about the M3 brand on purpose: the paper thickness *is* the measurement, and different sticky notes have different tolerances, so swapping brands changes the gap you're setting.
+
+For adhesion on larger or more complex builds, I run a **purple glue stick** across the bed so the first layer grips and the print doesn't lift. When the print's done and I want to clean the leftover glue off, **isopropyl alcohol** wipes it right up.
+
+Beyond that, it really isn't complicated - it's pretty much what it says on the manufacturer's label. Get the first layer down clean and the rest tends to take care of itself.
+
+## 5. Finish
+
+For painting, use **acrylic paint** - it sits on the surface and doesn't bleed into the plastic the way some paints do. The brand matters less than making sure it's acrylic; I use **Apple Barrel**, which you can grab at Walmart for a dollar or two a color.
+
+I print in white so painting over it is easy, but the color is up to you. The filament I keep coming back to is **Overture White PLA Plus** - I buy white specifically because it takes paint cleanly, but black or any other color works, and you're not locked to one brand. For the Ender 3 V2 you want **1.75 mm** filament, usually sold by the kilogram. The exact spool I keep re-buying is [Overture White PLA Plus, 1.75 mm](https://www.amazon.com/dp/B07PGZNM34), currently around $17.
+
+## Gallery
+
+Here's what this workflow produces - a mix of replacement parts, containers, nametags, badges, and figurines, all designed or sourced, sliced, and printed in-house.
+
+![3D Printed Mewtwo](assets/images/shop/3d_prints/3dprint_mewtwo.jpg)
 ![3D Printed Badge](assets/images/shop/3d_prints/3dprint_badge.jpg)
 ![3D Printed Nametag](assets/images/shop/3d_prints/3dprint_nametags.jpg)
 ![3D Printed Engineer](assets/images/shop/3d_prints/3dprint_engineer.jpg)

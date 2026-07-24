@@ -72,7 +72,7 @@ I followed the order, forehead against the hard shell of the helmet case in my h
 
 He did not single me out.
 
-His boots crunched past the red-taped seat without pause. I was just another recruit in fatigues with her head down, obeying.
+His boots crunched past the red-taped seat without pause. I was just another recruit in fatigues with my head down, obeying.
 
 "YOU ARE NOTHING! YOU ARE WORTHLESS! YOU WILL DO WHAT YOU ARE TOLD, WHEN YOU ARE TOLD, HOW YOU ARE TOLD! YOUR GEAR IS YOUR ONLY FRIEND! GET IT BETWEEN YOUR LEGS! HUG IT! LOVE IT! IT'S THE ONLY THING THAT MIGHT SAVE YOUR MISERABLE LIFE!"
 

@@ -41,7 +41,7 @@ window.UPDATES = {
     "vanity.html":               { title: "Vanity Bot",           date: "2026.07.14" },
     "casio_code.html":           { title: "Casio Code",           date: "2026.04.27" },
     "code_resources.html":       { title: "Code Resources",       date: "2026.03.07" },
-    "3d_prints.html":            { title: "3D Prints",            date: "2026.07.21" },
+    "3d_prints.html":            { title: "3D Prints",            date: "2026.07.24" },
     "media_mimic.html":          { title: "Media Mimic",          date: "2026.07.09" },
     "clutter.html":              { title: "Clutter",              date: "2026.02.19" },
     "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.07.04" }

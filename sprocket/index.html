@@ -1,0 +1,65 @@
+<!-- sprocket/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sprocket Toolbox</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="sprocket.png" />
+
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="sprocket.css" />
+  <script src="parser.js" defer></script>
+  <script src="sprocket.js" defer></script>
+</head>
+<body>
+
+  <main>
+    <div class="sprocket-header">
+      <img src="sprocket.png" alt="Sprocket Toolbox">
+      <h1>Sprocket Toolbox</h1>
+      <button id="copy-all" class="clear-btn" type="button">📋 Copy</button>
+      <button id="clear-all" class="clear-btn" type="button">🗑 Clear</button>
+    </div>
+    <details>
+      <summary>Maintenance</summary>
+      <script data-brewdown="instructions/maintenance/bathroom-route.md"></script>
+      <script data-brewdown="instructions/maintenance/scrubber-route.md"></script>
+      <script data-brewdown="instructions/maintenance/outside-route.md"></script>
+      <script data-brewdown="instructions/maintenance/grocery-route.md"></script>
+    </details>
+    <details>
+      <summary>Stocking</summary>
+      <script data-brewdown="instructions/stocking/departments.md"></script>
+      <script data-brewdown="instructions/stocking/deptID.md"></script>
+      <script data-brewdown="instructions/stocking/grocery.md"></script>
+    </details>
+
+    <footer class="site-footer">
+      <details>
+        <summary>🔗 information</summary>
+        <div class="info-block">
+          <p class="info-about">
+            Sprocket Toolbox is work notes. Information for completing the job.
+          </p>
+          <div class="qr-block">
+            <img class="qr-code"
+                 src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=8&data=https%3A%2F%2Fcoffeebyte.dev%2Fsprocket%2F"
+                 alt="QR code linking to coffeebyte.dev/sprocket/"
+                 width="240" height="240" />
+            <a class="qr-link"
+               href="https://coffeebyte.dev/sprocket/"
+               target="_blank" rel="noopener">
+              https://coffeebyte.dev/sprocket/
+            </a>
+          </div>
+          <p class="info-credit">
+            By <a href="https://github.com/osyra42" target="_blank" rel="noopener">osyra42</a>
+          </p>
+        </div>
+      </details>
+    </footer>
+  </main>
+
+</body>
+</html>

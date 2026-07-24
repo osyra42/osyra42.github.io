@@ -69,7 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sidebar navigation as one brewdown document.
     // Per-page dates are NOT written here - they come from assets/js/update.js (window.UPDATES),
     // matched by each link's href. The post-process below adds a ✨ badge to any link whose
-    // update date is within 4 weeks (28 days) of today.
+    // update date is within 2 weeks (14 days) of today.
+    // Entries within each category are ordered ALPHABETICALLY by visible label
+    // (ignore the leading emoji), EXCEPT the Site group, which stays in its
+    // deliberate manual order below.
     const navMarkdown = `
 **Site**
 - [🏠 Home Page](index.html)
@@ -80,42 +83,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ---
 **Books**
-- [📖 Operation Chimera](operation_chimera.html)
 - [💎 Ever Diamond](ever_diamond.html)
-- [⚔️ Infinite Devastation](infinite_devastation.html)
 - [⚡ Glitched](glitched.html)
+- [⚔️ Infinite Devastation](infinite_devastation.html)
+- [📖 Operation Chimera](operation_chimera.html)
 
 ---
 **Games**
-- [🕹️ Blank Pixel Game](blank_pixel_game.html)
 - [🎮 3D Pixel Game](3d_pixel_game.html)
+- [🕹️ Blank Pixel Game](blank_pixel_game.html)
+- [🎄 Clutter](clutter.html)
 - [🧋 Sip Sip](sipsip.html)
 
 ---
 **Guides & How-Tos**
-- [🏚️ Urbex Safety](urbex_safety.html)
-- [🎭 VTuber Guide](vtuber_guide.html)
-- [🧲 How Magnets Work](how_magnets_work.html)
-- [📝 Worksheets](worksheets.html)
+- [🖨️ 3D Prints](3d_prints.html)
 - [💡 Better for Free](better_for_free.html)
 - [🎨 ComfyUI Guide](comfyui_guide.html)
+- [🧲 How Magnets Work](how_magnets_work.html)
 - [🎬 How to Edit Videos](video_editing.html)
+- [🏚️ Urbex Safety](urbex_safety.html)
+- [🎭 VTuber Guide](vtuber_guide.html)
+- [📝 Worksheets](worksheets.html)
 
 ---
 **Dev & Tools**
-- [☕ Brewdown](brewdown.html)
 - [🧊 Blender Resources](blender_resources.html)
-- [🚀 Sleep Launcher](zzz_launcher.html)
-- [🎬 yt-dlp Tool](yt_dlp_tool.html)
-- [🤖 Vanity Bot](vanity.html)
+- [☕ Brewdown](brewdown.html)
 - [🔢 Casio Code](casio_code.html)
 - [🐍 Code Resources](code_resources.html)
-
----
-**Creations**
-- [🖨️ 3D Prints](3d_prints.html)
 - [🎬 Media Mimic](media_mimic.html)
-- [🎄 Clutter](clutter.html)
+- [😴 Sleep Launcher](zzz_launcher.html)
+- [🤖 Vanity Bot](vanity.html)
+- [🎬 yt-dlp Tool](yt_dlp_tool.html)
 `;
 
     // Set the header HTML directly, render nav through brewdown
@@ -153,10 +153,10 @@ ${themePickerRows()}
     navEl.innerHTML = Brewdown.brewdown(navMarkdown);
 
     // Sidebar ✨ badge: look up each nav link's href in window.UPDATES (assets/js/update.js).
-    // If that page's update date is within 4 weeks (28 days) of today, append a ✨ after the link.
+    // If that page's update date is within 2 weeks (14 days) of today, append a ✨ after the link.
     // This transform is scoped to the sidebar — do not generalize it to other brewdown output.
     const updates = (typeof window !== 'undefined' && window.UPDATES) ? window.UPDATES : {};
-    const cutoff = Date.now() - 28 * 24 * 60 * 60 * 1000;
+    const cutoff = Date.now() - 14 * 24 * 60 * 60 * 1000;
     navEl.querySelectorAll('a[href]').forEach(a => {
         const rec = updates[a.getAttribute('href')];
         if (!rec || !rec.date) return;
