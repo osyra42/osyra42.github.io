@@ -10,10 +10,10 @@
 // Keys are the page's href exactly as used in the sidebar (e.g. "sipsip/index.html").
 window.UPDATES = {
     "index.html":                { title: "Home Page",            date: "2026.07.18" },
-    "minecraft.html":            { title: "Minecraft Server",     date: "2026.07.04" },
+    "minecraft.html":            { title: "Minecraft Server",     date: "2026.07.28" },
     "recommendations.html":      { title: "Recommendations",      date: "2026.07.08" },
     "support_me.html":           { title: "Support Me",           date: "2026.07.04" },
-    "operation_chimera.html":    { title: "Operation Chimera",    date: "2026.07.08" },
+    "operation_chimera.html":    { title: "Operation Chimera",    date: "2026.07.27" },
     "oc_out_of_the_fray.html":   { title: "Out of the Fray",      date: "2026.07.17" },
     "oc_borne_weapon.html":      { title: "Borne Weapon",         date: "2026.07.05" },
     "oc_blood_relation.html":    { title: "Blood Relation",       date: "2026.06.29" },
@@ -45,5 +45,5 @@ window.UPDATES = {
     "media_mimic.html":          { title: "Media Mimic",          date: "2026.07.09" },
     "become_the_problem.html":   { title: "Become the Problem",   date: "2026.07.24" },
     "clutter.html":              { title: "Clutter",              date: "2026.02.19" },
-    "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.07.04" }
+    "mcupdates.html":            { title: "Minecraft Updates",    date: "2026.07.28" }
 };

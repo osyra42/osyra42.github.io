@@ -1,31 +1,55 @@
-# Chapter 9 - Let the Mob Win
+# Chapter 9 - The Buoys
 
-*Never win the argument. A mob you defeat comes back armed. A mob you defuse walks home. Just make sure you watch where it walks.*
+Gullcliff is a fishing shelf on the northern coast, forty minutes up a switchback road that a truck can take at nine miles an hour and nothing faster. By the time I got to the square there were maybe forty of them standing between the cannery lights and the seawall, and they had the drake cornered.
 
-The town was called Gullcliff, a fishing shelf clinging to a cliff on the northern coast, and by the time I climbed the switchback road there were forty of them in the square with the lights of the cannery behind them. They had the creature cornered against the seawall. A brood-drake - juvenile, wing-lame, the size of a plow horse, one of ours that had slipped a containment barge two counties east. It was bleeding from a harpoon still lodged under its jaw and it was making a sound I have only heard from things that are dying and know it.
+Juvenile. Wing-lame. Off a containment barge two counties east that had lost it eleven days earlier and filed the loss as equipment. Somebody had put a harpoon under its jaw and left it there, and it was making the noise they make at the end.
 
-They had it. That was the problem. They didn't need me to kill it. They needed to kill it themselves, with their own hands, because three days earlier it had taken a boy off the pier and they had found what was left of him wrapped in kelp at the low tide line - the small ribcage picked clean, the vertebrae still strung together, a shoe. So they had come with gaff hooks and filleting knives and a man at the front with a nail gun, and they were not going to make it quick, and they were going to be different people when it was over. I have seen what a crowd does to itself after it does that. It does not go back.
+They didn't need me. That was the situation. They had it pinned and they had gaff hooks and filleting knives and a man at the front with a nail gun, and they had decided they were going to do it themselves and take their time.
 
-You are trained to countermand. To step in, badge the authority, tell them stand down, this is a federal recovery, disperse. Do that here and you lose. You cannot argue a mob out of a thing it has already decided. Argue and you become the second enemy, and forty people who wanted one death now want two, and the second one is you.
+Three days before, it had taken a boy off the pier.
 
-So you don't argue. You agree.
+Here is what I did, and I want it in order, because the order is the whole thing.
 
-I put myself between them and the drake - my back to the wall, the thing rasping at my spine - and I did not tell them to stop. I told them they were right. I told them what it did to the boy was the worst thing I could imagine and that I had seen the tide line too. I told them the creature deserved worse than they could give it. I told them the only reason to let me do it was that I could make it last longer than they could, that I knew where the pain lived in a thing like this, that I would take it apart in an order they didn't have the anatomy for. I made myself the sharpest knife in the square. I did not fight the current. I got in front of it and let it push me exactly where it was already going.
+I looked first. That took about four minutes and it is the only part of this I'd do the same way again. Four minutes standing at the mouth of the square with my hands where they could see them, listening to what they said to each other, because a crowd tells you everything in the first four minutes if you let it. What I got was this: nobody had organized them. They had not posted a watch, they had not moved the children off the shelf, they had not called it in. They found the drake on their own, they cornered it on their own, and they had done a genuinely competent job of it - the seawall at its back, three lines of approach, the lame wing to the open side. That's a good box. Nobody taught them that. They know how to corner a thing that swims because they corner things that swim for a living.
 
-The man with the nail gun lowered it. Not because I threatened him. Because I had said out loud the thing he was afraid to want, and hearing a monster say it made it survivable to feel. They gave me the drake. I put a bolt through its skull and it stopped rasping and the square let out a breath like one animal. No one got hurt. No filleting knives went into anything with a heartbeat. I had walked into forty people about to cross a line and I had walked them back across it, and if you want the textbook version of the principle working, that is it. Clean. Bloodless, in the way they'd remember.
+I said so. Before anything else, and I meant it. I told them the box was correct and that a trained team would have set it the same way and that it was the reason nobody in the square was dead. It landed the way a true thing does when the person hearing it wasn't expecting one. Two of them stood up straighter. The man with the nail gun looked at me for the first time.
 
-I stayed the night to file the recovery. I left at first light.
+Then I took the drake off them, and I did it by agreeing with them out loud - that it deserved worse, that I could make it last longer than they could, that I knew where the pain sits in a thing like this. All of which bought me the kill, and none of which was true, and I put a bolt through its skull the second they gave me the space. It stopped rasping. Forty people let out the same breath at once.
 
-I got the call from Vanity two weeks later because the county had flagged it and she pulls anything with the callsign attached. Gullcliff had come apart. Not slowly. The nail-gun man's cousin had said, in the tavern, that the boy had been out past the buoys where he wasn't allowed, that his mother knew and let him fish there anyway. Just a thing said in grief. But there was no drake in the square anymore to hate, and a town that has been welded into one furnace by a shared enemy has to burn something when the enemy is gone. So it burned inward. The mother's boat was cut loose in the night and lost on the rocks. The cousin was beaten in the cannery lot and lost the eye. By the time the county came up the switchback there were two factions and a fire in the net shed and a man in the water who did not get pulled out in time.
+No knives went into anything with a heartbeat. That was the objective and I met it.
 
-I sat with that a while. Vanity read me the report flat, the way she reads everything, and did not editorialize, and I was grateful for it.
+And then I asked about the boy.
 
-Here is what I had not understood, and what I am telling you so you understand it before it costs you the way it cost them. I thought I had defused a mob. I had not. I had been the thing the mob needed to point at, and while I stood in that square I was the largest, ugliest, most obviously wrong thing in it, and they were decent to each other in my shadow because a person is never so kind to his neighbor as when there is a monster in the room to make them both human by comparison. I did not calm them. I organized them. Around me. And then I left, and I took the organizing principle with me on the switchback road, and forty people who had been briefly, beautifully united looked around for the monster and could not find one, so they made each other into it.
+I asked because it was in the report I had to file and because the barge was going to want to know whether the drake had been hunting the shelf or scavenging it, and those are different animals with different containment tiers, and the answer was in where he'd been standing when it took him.
 
-I keep coming back to the old bargain. If I had just let the drake come - not killed it, not led them, just let a shared threat stand in the square forever - they would have stayed one animal, decent, breathing together. I said this to Vanity. She said what she always says. That is not our job. Our job is to remove the thing in the room. I do it every time, and every time the room turns on itself the moment I'm gone, and I have started to think that the peace I make is only ever the length of my own shadow.
+He'd been past the buoys.
 
-So defuse them. It works. You will save the life in front of you.
+I want you to understand what the buoys are at Gullcliff. They are not decoration. There is a line of them across the mouth of the inlet where the shelf drops and the current turns, and every child on that coast learns before they can read that you do not fish past the buoys. Two of the men in the square told me that within a minute of each other, in the same words, like a thing recited. His mother knew he went out there. She had known for a year. She let him, because he was thirteen and it was where the fish were, and she had decided that a rule everyone breaks is not a rule.
 
-Just know you were never the medicine. You were the disease they all agreed to survive, and the cure walks out on the switchback road with you, and behind you they go looking for the next sick thing to be well against, and if you left nothing else in that square, you left them that hunger. Do it anyway.
+So I said it. In the square, in front of them, with the drake still cooling twenty feet away and his mother eight feet from me.
 
-That's the job.
+I said the drake was scavenging, not hunting, and it had been in the inlet eleven days without touching anyone inside the line. I said that the line existed for exactly this and that it had worked for everyone who stayed behind it. I said that a rule nobody enforces is a rule you have decided not to have, and that they had decided, collectively, over about a year, not to have this one, and that this is what it cost.
+
+I was right. Every part of it is in the file and every part of it is correct and the barge tiered the animal off my read.
+
+His mother was standing right there.
+
+I have gone over this more times than is useful. Not whether I was right - I was right, that's not the open question. The open question is what I thought was going to happen. I think I believed that if somebody finally said the thing plainly, the buoys would mean something again, and the next thirteen-year-old on that shelf would stay inside the line, and that would be worth one bad night for one woman.
+
+That's not what a square full of people three days into grief is for. I know that now in the way you know a thing you can't use.
+
+What I actually did was hand them a sentence.
+
+I got the call from Vanity two weeks later, because the county had flagged it and she pulls anything with the callsign on it. Gullcliff had come apart. The nail-gun man's cousin had repeated it in the tavern - *past the buoys, and she knew* - except by then it wasn't a finding out of a federal report, it was a thing to say about a woman. There was no drake left in the square to be angry at. So they used what I gave them. Her boat was cut loose in the night and lost on the rocks. The cousin was beaten in the cannery lot and lost the eye. By the time the county came up the switchback there were two factions, a fire in the net shed, and a man in the water they didn't get to in time.
+
+Vanity read it flat and did not editorialize. I asked her to read the part about the boat twice.
+
+So here is what I have for you, and it isn't a technique.
+
+Look before you judge. Four minutes, hands visible, let them talk. Most of the time you will find people who did something stupid and nobody has told them, and you should tell them, and I am not going to take that back - I have watched a town keep doing the stupid thing for years because every official who came through was too polite to name it.
+
+But know what the room is for before you open your mouth in it. I got the assessment right and I got the room wrong, and the assessment doesn't survive contact with a room that isn't for assessments. It goes in as a finding and it comes out as a knife, and they don't use it on themselves. They use it on whoever's already closest to the floor.
+
+I'd have filed the same read. It was true and the barge needed it.
+
+I'd have filed it. Not said it. Not there.

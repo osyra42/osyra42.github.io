@@ -1,27 +1,27 @@
 # Preface - For the Next Operator
 
-For the next operator.
+You've done two years of aftermath by now. Boxes to the vault, verification runs on towns where nothing happened, statements off people who'd already decided what they saw. You've stood in sites the Janitors were erasing and written the report they told you to write. So you've seen a lot of cleaned floors and you have opinions.
 
-Whenever you read this, I hope you learn a few lessons. I won't be there to teach them the way they were taught to me, which was badly, in the field, with the cost already paid before I understood what I'd bought. So I'm writing them down. Consider it the manual they don't issue.
+Keep them. You'll need something to be wrong with.
 
-You'll get the other one - the real binder, the one with the callsign protocols and the containment grids and the number to call when a hunt goes sideways. Read that too. It'll keep you alive. This won't. This is the other half, the part no one puts in writing because it doesn't fit in a procedure: what the job does to the way you see people.
+This isn't the binder. The binder has the containment grids and the number to call and it will keep you alive, so read it. This is the other thing. I have nine years of notes that don't fit in a field report and nowhere to file them, and *for the next operator* is a better reason than no reason.
 
-Because that's the thing no one warned me about. It was never the monsters. The monsters are simple. They come, you track them, you put them down, you go home. You will get good at that faster than you think, and it will trouble you less than you expect. What troubles you is the people. The ones you save. You will bleed to pull them out of the dark, and then you will watch what they do in the daylight, to each other, to you, and some nights that is the thing you can't put down.
+Here is the only thing I'll tell you flat, before the rest.
 
-So most of what follows looks like advice for handling people. Be kind. Learn their names. Let them keep their dignity. It's good advice - it works, every word of it works. I used all of it and I was better at people than the people were with each other. I'm giving it to you straight because it's true and because it's useful and because you should be good at this.
+You arrive after. That's the shape of the work. Something has already happened by the time the plane is on the ground, and your job is to walk into a room where people made decisions for two days without you and determine what they did. Not what they say they did. What they did.
 
-But I'm going to tell you what each lesson cost, too. What the person did after the kindness worked. Because if I only gave you the lesson, you'd learn it the way a recruit learns it - as a trick that pays off - and then the first time it didn't pay off you'd stop believing in it, and you'd get cold, and cold gets people killed. I want you to keep doing the decent thing after you stop expecting anything back for it. That's the whole job. That's the only part of it I'm proud of.
+So you look first. You do not come through the door with a verdict. Some of the time these people have been doing something sensible and nobody has told them so. I met a woman who tracked a den for three weeks off brownouts and which nights the dogs wouldn't cross the yard. She handed me the notebook apologizing for it. Every entry was correct. Somebody should have said so years earlier.
 
-One more thing before the lessons, because it's the one that matters most and I almost didn't write it down.
+I said so. That is rare, and I want you to understand how rare before you go looking for it. Once a year, maybe twice, somebody makes four decisions in a row and all four are efficient and intelligent under pressure. The rest of the time you will find a man who went back into a burning house for a photo album. A barricade that worked out who to feed through the fire door. A boy fishing past the buoys because nobody enforced the buoys.
 
-Stay in control. Of the mission, of your squad, of yourself. Not because control makes you strong - because the day you lose it is the day this work does to you what it did to everyone who wasn't holding on. I know that better than anyone breathing. Every wound I carry, I took in a moment when someone else had the reins and I didn't. So keep them. Keep your people close and keep them behind you and don't let one of them get out ahead where you can't reach. It'll read as harsh. Let it.
+When that's what you find, say so. Out loud, to their face, while there is still something to be done about it.
 
-And there's a thought you're going to have. Sooner than you'd like. It goes like this: *if I just let the monster come - if I stood aside one time - these people would finally stand together. A shared thing to fear is the only thing that ever makes them kind to each other. I could give them that. I could save the part of them worth saving, and all it would cost is the job.*
+It won't land. I've never once watched it land. Say it anyway, because the alternative is standing in the room agreeing that nothing could have been done, and something could always have been done, and I'm not going to be one more person telling them otherwise.
 
-You'll have that thought a hundred times. Here is the only answer I ever found for it, and I need you to have it ready before you need it:
+They will hate you for it. That is the cost and I'm not going to dress it up. You will pull people out of a hole and they will tell the inquest you were the thing in the hole. You'll have to carry both of those at once.
 
-*That's not our job.*
+One more.
 
-Learn the lessons. Pay attention to what they cost. And keep the reins.
+Stay in control. Of the mission, of the pack, of yourself. Everything that has ever been done to me happened in a moment when somebody else had the reins. Keep them. Nobody goes out ahead of you and nobody leaves.
 
 - Chimera One, retiring
