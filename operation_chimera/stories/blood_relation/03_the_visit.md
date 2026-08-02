@@ -104,7 +104,7 @@ Chamomile.
 
 I got about half of it down before the joke landed on me. She hadn't brought me anything to stay awake on. There was nothing in that cup but hot water and a flower, and I'd been drinking it like a stimulant and waiting to be fixed by it.
 
-Which was fine. Coffee costs me an hour of my stomach arguing, and tea's the same at half the price - it's a canine thing, one of the small ones, an annoyance rather than a problem, and it is not the sort of annoyance a person mentions to a host. I'd have drunk whatever she handed me and paid for it later and said nothing, the way I always do.
+Which was fine. There were two cans in the truck and I knew exactly where, and I'd have got up for one at any point in the last hour and hadn't, because getting up meant leaving the room. I sat there and went without and said nothing about it.
 
 She hadn't asked. I want to be careful here, because I have watched people be kind at me for twenty-nine years and I know what it looks like when someone has done their homework and wants credit for it. That wasn't this. There was no glance to see if I'd noticed. She'd looked at a woman who'd driven two hours and hadn't slept and was sitting in her front room with her hands wrong, and she'd gone and boiled the thing you give somebody who needs to come down.
 

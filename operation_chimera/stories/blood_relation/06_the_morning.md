@@ -90,7 +90,7 @@ That'd do it, I figured. The coffee, at least.
 
 The chamomile was in the cupboard over the sink, second shelf, in a tin with a hinged lid. I'd found it while I was looking for the pan and I'd stood there with the lid open longer than a person needs to.
 
-I made myself a cup. It's what I drink. It has been what I drink for years, in my own kitchen, where nobody has ever once handed it to me.
+I made myself a cup. There was a whole pot of the real thing four feet away and a can in my bag besides, and I made myself a cup of hot water and a flower, because she'd handed me one two nights ago and I'd been thinking about it since. Nobody has ever once handed it to me. Not in my own kitchen, not anywhere.
 
 Somewhere down the hall, floorboards.
 

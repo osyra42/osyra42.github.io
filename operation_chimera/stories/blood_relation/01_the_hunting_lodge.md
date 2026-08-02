@@ -10,6 +10,8 @@ The disguise is the house. The house is good. I live inside a costume that is al
 
 I got back near dawn. The job was done and bagged - routine, contained, nothing I'd lose sleep over. The thing I pulled out of it sat by the door in a vault box, sealed, quiet now that the lid was shut. I'd run it to headquarters in the morning and not think about it again.
 
+I put a can in the fridge and took the cold one already in there. Four left on the shelf. I have never once been surprised by that number.
+
 So I told myself.
 
 It wasn't the box I kept circling back to.

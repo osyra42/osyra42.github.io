@@ -19,7 +19,9 @@ Body and disguise details that must stay consistent across drafts.
 - Dark, brooding; doesn't speak much until necessary; rarely sociable; haunted by her past, rarely discusses it. A voluntary open confessional is a stretch and needs in-story motivation.
 
 ## Drinks
-- Chamomile, NOT coffee. Rosalyn instinctively makes chamomile for her; notes/accepts the coffee-avoidance without asking why (Blood Relation ch3, ch6).
+- **Caffeine addict.** Energy drinks and canned coffee, and it has to be a **can** - never a bottle, mug, or paper cup. Always has a supply in her pack and knows exactly how many are left. Real dependency: headachy and short-tempered without it. No biological cost - chocolate and caffeine do nothing to her.
+- **Chamomile** is the exception, and it's sentimental, not dietary. Rosalyn handed her a cup in Blood Relation ch3 without being asked; she makes it for herself in ch6 with a full pot of coffee four feet away. It means *she gave me this*, not *I can't have the other thing*.
+- **Xylitol** is the only genuine food poison - fast, dangerous hypoglycemia. She reads labels.
 
 ## Open questions (confirm from canon, don't invent)
 - Exact eye shape (slit vs round)

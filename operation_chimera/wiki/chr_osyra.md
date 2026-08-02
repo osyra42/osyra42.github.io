@@ -44,6 +44,11 @@ Two modes. In civilian and social life she's the loner the profile describes - i
 
 Control is the load-bearing thing. She isn't afraid of dying; she's afraid of **losing control**, because every wound in her history happened the moment she didn't have it - given up, handed off, sold to the lab, experimented on. Loss of control is precisely the condition under which people did things to her. So she holds the reins on the mission, the pack, and herself with a grip that never fully relaxes. Her skepticism of everyone's intent isn't a worldview she reasoned into - it's the scar. Control is how she guarantees no one is ever again in a position to do that to her.
 
+### Caffeine
+She's an addict and doesn't pretend otherwise. Her pack always carries a supply - **energy drinks and canned coffee, and it has to be a can.** Bottles and cups don't count. A can seals, it stacks, it survives a pack, it doesn't slosh or leak or announce itself, and it's finished in one sitting: nothing left open, nothing to come back to. She'll pass on a fresh-brewed pot to crack a lukewarm can instead, and gets funny about it if anyone points that out.
+
+The dependency is real. Without it she's headachy and shorter-tempered than usual, and she plans resupply around it more carefully than she plans some of her own gear. It's the one appetite she doesn't manage, which makes it the one thing about her that runs on something other than her own grip - a small, sanctioned crack in the control, and she'd rather have it than not.
+
 ### The knife
 Nobody taught her. **Her hands already knew** - the knife is instinct, not training, and it came with the rewrite. She is a controlled, analytical fighter at range and with a rifle, and something else entirely once it's close: **in a knife fight she goes feral.** The thinking part steps back and the wolf takes the wheel, and the wolf is faster than she is and does not need to be told what to do.
 
@@ -62,7 +67,7 @@ A stable Chimera-9 expression - wolf traits on a human frame, the rewrite holdin
 
 **Costs**
 - **Sensory overload:** the sharp hearing and smell cut both ways - loud noise and strong or foul odors hit harder and distract her.
-- **Dog-toxic foods:** her wolf biology carries canine vulnerabilities. **Xylitol** is a genuine poison to her - fast, dangerous hypoglycemia. **Chocolate and caffeine** only upset her stomach: a running annoyance, not a threat.
+- **Xylitol:** the one canine vulnerability that carried over intact - a genuine poison to her, fast and dangerous hypoglycemia. She reads labels. Chocolate and caffeine do nothing to her; she's human enough to metabolize both without trouble.
 - No special chemical frailty otherwise - tear gas hits her about like anyone else (it just lingers a little longer in sharper senses).
 
 **Heat cycle** *(specific to Osyra so far)*
