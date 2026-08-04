@@ -44,11 +44,9 @@ I got the call from Vanity two weeks later, because the county had flagged it an
 
 Vanity read it flat and did not editorialize. I asked her to read the part about the boat twice.
 
-So here is what I have for you, and it isn't a technique.
+A square three days into grief is not a room for findings. What I put into it was true and what came out of it two weeks later was a woman's boat on the rocks, and those are the same sentence; it just passed through forty people on the way.
 
-Look before you judge. Four minutes, hands visible, let them talk. Most of the time you will find people who did something stupid and nobody has told them, and you should tell them, and I am not going to take that back - I have watched a town keep doing the stupid thing for years because every official who came through was too polite to name it.
-
-But know what the room is for before you open your mouth in it. I got the assessment right and I got the room wrong, and the assessment doesn't survive contact with a room that isn't for assessments. It goes in as a finding and it comes out as a knife, and they don't use it on themselves. They use it on whoever's already closest to the floor.
+And they didn't use it on themselves. That's the part I'd underline if I underlined things. Not one of them turned it inward, not the men who recited the buoy rule at me like scripture and had watched that boy go out past it for a year without once walking down to the pier. It went straight to the mother. It always goes to whoever is already closest to the floor, because a sentence like that has to land somewhere, and grief picks the target that can't hit back.
 
 I'd have filed the same read. It was true and the barge needed it.
 

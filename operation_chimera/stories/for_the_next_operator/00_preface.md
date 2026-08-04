@@ -4,7 +4,15 @@ You've done two years of aftermath by now. Boxes to the vault, verification runs
 
 Keep them. You'll need something to be wrong with.
 
-This isn't the binder. The binder has the containment grids and the number to call and it will keep you alive, so read it. This is the other thing. I have nine years of notes that don't fit in a field report and nowhere to file them, and *for the next operator* is a better reason than no reason.
+This isn't the binder. The binder has the containment grids and the number to call and it will keep you alive, so read it. The binder will never tell you what the people you save are like.
+
+I should say plainly that I don't know why I'm writing this down. I've started it four times in nine years. The first three had no one's name on them and I burned two.
+
+What I can tell you is that these stay in me whether I write them or not, and putting them on paper does not get them out - I've tested that, it doesn't work, I still have every one. So the writing isn't for me. And it can't be for them, because most of them would rather I didn't exist and the rest are dead.
+
+That leaves you. You're not the reason. You're just who was standing there when I finally finished it, and a stack of paper with nobody's name on the front is the kind of thing a person burns.
+
+So: for the next operator. It's a better reason than no reason, and I've been through the alternatives.
 
 Here is the only thing I'll tell you flat, before the rest.
 

@@ -1,8 +1,6 @@
 # Chapter 4 - Her Name Was
 
-*Remember the name. It's the oldest one and the truest - the sweetest sound a person owns is their own name in someone else's mouth. Learn theirs, use it, and watch them come back from wherever they'd gone. Then carry it, because you're going to be the one who keeps it after.*
-
-This is the one I built the whole rest of the book around, so I'm going to make you read it before you're ready, the way I had to live it before I was.
+Her name was Ellie.
 
 A burrower came up through the floor of a daycare. Four minutes, start to finish, before I put it down - four minutes is nothing, four minutes is a held breath, and in four minutes it had killed three of the adults and opened up the morning like a can. You'll learn the smell of a room where that's happened. Under the blood there's crayon and juice and the powder they put on the little ones, and your brain refuses to file those two categories in the same room, and it has to, and something in you goes quiet that doesn't come back.
 
@@ -34,9 +32,9 @@ She asked, once, near the doors, what the toy would be.
 
 She was gone before the parking lot. It's quiet when it happens, after all that; the holding-on just stops, the small grip opens, and you're carrying weight that isn't arguing anymore.
 
-I want to tell you the lesson now, flat, because flat is the only way it survives being said. I did everything right. I remembered the name and the name worked. I built the later and the later worked. Every principle I own performed to specification and not one of them reached far enough to matter, and here is why, and this is the thing the whole manual is really about: none of it was ever out there in the world to begin with. The worth, the comfort, the *someone-is-here* - I carried all of it in myself and pressed it into a child, and the world did not agree to keep even the smallest part of the bargain, because the world never signed it. Only I did. I was the only one at that table assigning anything any value at all, and value does not outlive the person you spend it on.
+Flat is the only way this survives being said, so: I did everything right. I remembered the name and the name worked. I built the later and the later worked. Everything I know how to do performed to specification and not one bit of it reached far enough to matter.
 
-You are going to be the source of the meaning, recruit. Not the finder of it - the source. There's a difference and it's the difference that will either keep you standing or take you apart. Nothing out there is going to meet you halfway. The kindness is real and it comes entirely from you and it stops at the edge of whoever you spent it on, and then you carry what's left.
+None of it was out there to begin with. The worth, the comfort, the someone-is-here - I carried all of it in myself and pressed it into a child, and the world did not keep the smallest part of the bargain, because the world was never in the bargain. Only I was.
 
 Her name was Ellie. I kept it. Nobody else would; the parents, when they came, did not want it in my mouth, wanted me and my kind erased from the worst morning of their lives, and I understand that, and I kept the name anyway, one more entry in the long private ledger of the ones I said softly and correctly and to no ultimate end.
 
@@ -50,4 +48,6 @@ But that's not the job. The job is not to save humanity. The job is to save the 
 
 So I bought the Legos. The biggest set they had, the one with a little race car on the box, because if she'd been given the run of the shelf that's the one she'd have carried to the register. I sat at my own kitchen table in civilian clothes with the contacts still in and I built the whole thing myself, every bag, followed the little book step by step because I wanted it right, wanted it to be the one she'd have made, and it took me most of a night and my hands are not made for pieces that small. Then I drove out to where they'd put her and I set it on the stone. A finished Lego race car on a child's grave, built by the thing her parents wanted erased from the story. Nobody saw me do it. Nobody was ever going to. That's the part you have to understand about all of this - I keep the promises, I build the sets, I carry the names, and it is done for no one, witnessed by no one, credited to no one. I am the only one who will ever know that Ellie got her Legos.
 
-That's the job. Learn the name. Keep the promise you can. Build the set and drive it out to the stone. And know, going in, that you are the only one who will ever bring anything to the table, the only one who will ever know you brought it - and that some nights the table takes the living child and gives you back a name to carry and a box of Legos to build alone.
+Her parents wanted me out of the story. They said so, to the Agency, in writing - that the operator's involvement was not to be part of any account given to the family's community. I understand it. I have never held it against them. They needed the morning to have been a monster and a daycare and their daughter, and a second monster carrying her across the parking lot is one too many for a person to hold.
+
+So there's no version of that day anywhere that has the name in it. Except this one. Her mother doesn't know I know it.

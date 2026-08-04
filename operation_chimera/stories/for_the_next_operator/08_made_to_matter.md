@@ -1,7 +1,5 @@
 # Chapter 8 - Made to Matter
 
-*Tell someone they matter and they will become more than they were. What they become is not yours to choose.*
-
 There was a man in Ostwick named Ezren who swept the floor of the meeting hall. That was all anyone let him do. He was slow in the way that made people impatient - words came to him late, and his hands shook, and the town had decided a long time ago that he was furniture. When we rolled in on the Ostwick contract they didn't even mention him in the briefing. He was standing in the corner with his broom while the councilmen talked over each other about the thing in the mine.
 
 The thing was a burrower. A blind, wet, segmented cryptid the length of a bus that had come up under the eastern grazing land and was pulling livestock and, by then, three people down into the dark. It hunted by vibration. Sound and footfall. You did not want to be the loudest thing standing on that ground.
@@ -20,12 +18,14 @@ He'd worked out that the drifter would do anything to be allowed to stay. So he 
 
 I broke it up. I put Ezren against the wall by his collar and I let him see the ears and the teeth, let him remember what I am, and for a second he was furniture again. Then I let go, because that's not the job, and the job doesn't have a line item for a man's soul.
 
-Here is the lesson, recruit, and it is the coldest one in this book.
+I had it backwards, and it cost me a year of thinking I understood people.
 
-Worth is not a gift with strings. When you make someone matter, you hand them a currency and you do not get to say what they buy. You think a person who has been ground down will be gentle with the next one down, because they know. They don't know. Some of them, most of them, they only learned that being on the bottom is unbearable - and the fix for that, the fastest one, is to put someone under you. You didn't give Ezren dignity. You gave him a floor. What he built on it was his.
+I assumed a man who'd been ground down would be gentle with the next one down. He *knows*. He's got the map of it, he knows exactly where it hurts. And that's true - Ezren did know exactly where it hurt, and that turned out to be the problem, because knowing where it hurts is not a reason to avoid the spot. It's an instruction.
 
-If you're built like me you'll want to keep score. You'll want the worth you assign to compound into decency out in the world, so the ledger comes out clean and the nights you crouched down to a broken man's eye line meant something. It doesn't compound. It doesn't transfer. You are the only one at that table assigning value, and everyone else is spending it on whatever they want, and some of them want to hurt.
+Twenty years of being furniture didn't teach Ezren that humiliation is wrong. It taught him that there are two positions in a room and he'd been in the wrong one. That was the entire content of the lesson. When I crouched to his eye line and told him the town's safety ran through what he remembered, I didn't hand him dignity - I have never once managed to hand anybody dignity, it doesn't move between people. I moved him to the other position. And a man who has spent twenty years underneath does not experience the top as *relief*, he experiences it as *unsteady*, because he has seen from underneath exactly how fast you can be put back. So he nailed it down. He found the slowest man in Ostwick and put a boot on his neck in front of the council, and every time that drifter ate off the floor, Ezren was a little more certain the floor was somewhere he no longer lived.
 
-Do it anyway. Give the man the map. Let him be the most important person in the room for the one night it saves lives.
+He was not being cruel for its own sake. He was making himself safe. That's the part I can't get around, because it means he'll never stop, because it never works - you can't get certain that way, you can only get another night of it.
 
-Just don't stay to see what he does with it.
+I gave him a floor and he needed somebody under it to be sure it was there.
+
+The drifter had no name in the file. I asked. Nobody in Ostwick had thought to get one, including Ezren, who had been furniture with a name for twenty years and did not think to ask the next one what his was.
