@@ -247,4 +247,66 @@
   .burger-btn.active .burger-line:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg) !important;
   }
+
+  /* Flavor picker ("Menu" card).
+     On desktop the card is width: fit-content and sizes itself to the widest
+     swatch row (~306px). The mobile sidebar is only calc(100% - 100px) wide —
+     200-292px depending on the phone — so the card overflowed and the sidebar's
+     overflow-x: hidden clipped its right edge instead of wrapping it.
+     Here the card fills the sidebar and the swatches wrap freely, so the row
+     count follows the screen rather than the fixed 3 rows sidebar.js emits. */
+  .theme-menu {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 16px 8px 0 !important;
+    padding: 12px !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .theme-menu-label {
+    /* vertical-rl can render inconsistently on mobile WebKit; lay the label
+       flat above the swatches where it always reads correctly */
+    writing-mode: horizontal-tb !important;
+    transform: none !important;
+    border-left: none !important;
+    border-bottom: 1px solid var(--toasted-almond) !important;
+    padding-left: 0 !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 2px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* sidebar.js hard-codes three .theme-row divs. Letting each wrap on its own
+     leaves orphan rows (4,2,4,1,4,2). display: contents drops the row boxes so
+     all 17 swatches wrap as a single group and fill each line evenly. */
+  .theme-picker {
+    width: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  .theme-row {
+    display: contents !important;
+  }
+
+  /* The staggered offset reads as a misalignment once rows wrap. */
+  .theme-row--offset {
+    margin-left: 0 !important;
+  }
+
+  /* Bigger tap targets - 26px dots are under the ~44px touch guideline. */
+  .theme-swatch {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* No hover on touch; the scale transform sticks after a tap. */
+  .theme-swatch:hover {
+    transform: none !important;
+  }
 }
