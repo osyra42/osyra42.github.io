@@ -9,8 +9,9 @@
 // To bump a page's date, edit it HERE - one place updates both the footer and the sidebar.
 // Keys are the page's href exactly as used in the sidebar (e.g. "sipsip/index.html").
 window.UPDATES = {
-    "index.html":                { title: "Home Page",            date: "2026.07.18" },
-    "minecraft.html":            { title: "Minecraft Server",     date: "2026.07.28" },
+    "index.html":                { title: "Home Page",            date: "2026.08.11" },
+    "about_me.html":             { title: "About Me",             date: "2026.08.11" },
+    "minecraft.html":            { title: "Minecraft Server",     date: "2026.08.11" },
     "recommendations.html":      { title: "Recommendations",      date: "2026.07.08" },
     "support_me.html":           { title: "Support Me",           date: "2026.07.04" },
     "operation_chimera.html":    { title: "Operation Chimera",    date: "2026.08.06" },
