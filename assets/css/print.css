@@ -22,15 +22,40 @@
     filter: grayscale(100%) !important;
   }
 
-  /* Chrome that shouldn't print. */
+  /* Kill every entry animation. `both` fill-mode holds the FROM state (opacity 0)
+     until an animation runs; if the print snapshot is taken before they finish -
+     or if the browser suppresses animation while printing - the page would come
+     out faded or blank. Forcing them off guarantees a fully-rendered sheet. */
+  *, *::before, *::after {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Chrome that shouldn't print.
+     The tooltip bubbles are appended to <body>, not to the element that
+     triggered them, so hiding the sidebar does NOT take them with it - a
+     flavour tooltip left open when Save as PDF is clicked would print on the
+     page. Both runtimes are listed: .tooltip (content, brewdown.js) and
+     .tooltip-chrome (sidebar, tooltip.js). */
   sidebar, .mobile-banner, .overlay,
-  #back-to-top, .download-bar, .brewdown-toc { display: none !important; }
+  #back-to-top, .download-bar, .brewdown-toc,
+  .tooltip, .tooltip-chrome { display: none !important; }
+
+  /* Corner brackets are screen framing. The blanket rule above only recolours
+     them, so they would still print as gray corner marks - hide them. */
+  body::before, body::after { display: none !important; }
 
   main {
     height: auto !important;
     overflow: visible !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
+    /* <main> paints a blueprint grid and the sheet paints a ruled texture,
+       both via background-image. The blanket `background: transparent` above
+       resets them, but be explicit: a printed page supplies its own paper and
+       should carry neither the grid nor the grain. */
+    background-image: none !important;
   }
 
   main > *:not(.download-bar) {
@@ -39,11 +64,29 @@
     padding-right: 0;
   }
 
+  /* Cut corners and drop-shadows are screen treatment. clip-path would slice
+     content off the printed page, and the blanket `box-shadow: none` above does
+     not touch a filter-based shadow.
+
+     The wildcard covers the sheet AND every cut-corner box inside it (quotes,
+     TOC, info/warning/tip boxes) - each carries its own clip-path. */
+  main .brewdown,
+  main .brewdown-rendered {
+    padding: 0 !important;
+  }
+
+  main, main *,
+  main *::before,
+  main *::after {
+    clip-path: none !important;
+    filter: none !important;
+  }
+
+  main .brewdown-rendered::before { display: none !important; }
+
   /* Keep code/quotes/tables legible with light borders instead of fills. */
   blockquote { border-left: 3px solid #999 !important; }
   hr { background-color: #999 !important; height: 1px !important; }
-  main .warning-box,
-  main .info-box { border: 1px solid #999 !important; }
   main th, main td { border: 1px solid #ccc !important; }
   main code,
   main pre,

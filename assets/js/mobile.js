@@ -1,12 +1,21 @@
 //mobile.js
-// Create and inject mobile banner + overlay, CSS handles when to show them
+// Create and inject mobile banner + overlay, CSS handles when to show them.
+//
+// Order: variables, then functions, then execution (site convention).
+
+// Read at call time rather than declaring another SITE_NAME - a top-level
+// const would collide with sidebar.js, which shares the same global scope.
+function siteName() {
+    return (window.SIGNATURE && window.SIGNATURE.site) || 'Coffee Byte Dev';
+}
+
 function initMobile() {
     if (document.querySelector('.mobile-banner')) return;
 
     const mobileBanner = document.createElement('div');
     mobileBanner.className = 'mobile-banner';
     mobileBanner.innerHTML = `
-        <h1>Coffee Byte Dev</h1>
+        <h1>${siteName()}</h1>
         <div class="burger-btn" id="burgerBtn">
             <div class="burger-line"></div>
             <div class="burger-line"></div>

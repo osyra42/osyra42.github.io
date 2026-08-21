@@ -2,6 +2,10 @@
 .claude/*
 codebase.md
 
+# Python
+__pycache__/
+*.pyc
+
 # Editor / sync metadata
 .obsidian/
 .stfolder/

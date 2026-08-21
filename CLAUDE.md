@@ -38,15 +38,17 @@ All main site pages follow this structure:
   <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/js/signature.js" defer></script>
+  <script src="assets/js/manifest.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
-  <!-- IMPORTANT: Define image/title BEFORE sidebar.js loads -->
+  <!-- IMPORTANT: Define these BEFORE sidebar.js loads -->
   <script>
-    image = "page-image.jpg";  // Profile image filename (in assets/images/profiles/)
-    title = "Page Title";       // Sidebar heading
+    title   = "Page Title";        // Sidebar heading
+    icon    = "🧲";             // Emoji shown beside the sidebar link
+    section = "Guides & How-Tos";  // Sidebar group
   </script>
 </head>
 <body>
@@ -55,17 +57,17 @@ All main site pages follow this structure:
 </body>
 ```
 
-**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` calls `hljs.highlightAll()` if hljs is available - if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later. `signature.js` and `update.js` MUST also come before `brewdown.js` - brewdown reads `window.SIGNATURE` and `window.UPDATES` when it expands the `::signature::` token (see Page Footer below).
+**Load order matters:** `highlight.min.js` MUST come before `brewdown.js`. Brewdown's `processAll()` highlights code blocks inside `<main>` if hljs is available - if highlight.js loads after brewdown, the check fails and code blocks render without syntax coloring. Highlight.js is loaded on every page (even ones without code blocks) so this never becomes a problem when adding code to a page later. `signature.js` and `manifest.js` MUST also come before `brewdown.js` - brewdown reads `window.SIGNATURE` and `window.MANIFEST` when it expands the `::signature::` token (see Page Footer below). `manifest.js` must also precede `sidebar.js`, which builds the whole nav from it.
 
 ## Page Footer (Signature) & Update Dates
 
 Every content page ends its Brewdown body with a single `::signature::` line instead of a hand-written footer. Brewdown expands it into the Author / Source / Contact / License / Last Updated block.
 
 Two central config files drive this, both loaded before `brewdown.js`:
-- **`assets/js/update.js`** (`window.UPDATES`) - the single source of truth for every page's `{ title, date }`, keyed by href. Feeds BOTH the footer's "Last Updated" AND the sidebar's ✨ "recently updated" badge (within 28 days).
+- **`assets/js/manifest.js`** (`window.MANIFEST`) - the single source of truth for every page's `{ title, icon, section, date, words, minutes }`, keyed by href. Feeds the footer's "Last Updated", the whole sidebar nav, and the ✨ "recently updated" badge (within 14 days).
 - **`assets/js/signature.js`** (`window.SIGNATURE`) - shared footer fields only: author, contact, license, domain.
 
-- **To bump a page's "Last Updated" date:** edit that page's entry in `assets/js/update.js`. One edit updates both the footer and the sidebar. Do NOT hand-edit footers - there's only the one `::signature::` token now.
+- **To bump a page's "Last Updated" date:** edit that page's entry in `assets/js/manifest.js`. One edit updates both the footer and the sidebar. Do NOT hand-edit footers - there's only the one `::signature::` token now.
 - Author / Contact / License / domain: change once in `signature.js`, applies everywhere.
 - Source and "Last Updated" are derived automatically from the current filename + the date map.
 
@@ -82,6 +84,10 @@ A low-poly 3D platformer with pixel-art textures...
 ```
 
 This holds even when the page has an italic subtitle - `::toc::` goes right after the H1, and the subtitle follows it. Keeps the TOC in the same spot on every page. The TOC floats right (prose wraps its left side; only H1 clears it). `::toc::` collects H1/H2/H3 only - NOT `>>>` collapsibles. On collapsible-driven pages (e.g. `recommendations.html`), put a real `##` header above each `>>>` block (header carries the section name; the collapsible summary is a short "View list") and demote any sub-headings inside a collapsible to `####` so they stay out of the TOC. To keep version/date lines out of a TOC while still showing them, make them **bold** body lines instead of headings (see `casio_code.html`).
+
+**Scope:** brewdown only processes content inside `<main>`. The sidebar is built
+by `sidebar.js` from `window.MANIFEST` and contains no Brewdown, so blocks placed
+outside `<main>` will not render. Syntax highlighting is scoped the same way.
 
 `brewdown.js` supports two ways to embed Brewdown content in pages:
 
@@ -125,24 +131,27 @@ Long-form document pages use `<main class="archive">` with dedicated styling in 
 
 ## Sidebar System
 
-The sidebar is dynamically generated by `sidebar.js` using markdown-formatted link lists:
+The sidebar is generated by `sidebar.js` directly from `window.MANIFEST`
+(`assets/js/manifest.js`). There is NO nav list in `sidebar.js` to edit - it
+groups manifest entries by their `section` field, ordered by `window.SECTIONS`.
+
+**To add a page to the sidebar**, add its manifest entry:
 ```javascript
-const nav = {
-    Navigation: `
-- [🏠 Home Page](index.html)
-- [📰 Changelog](changelog.html)`,
-    Projects: `
-- [🐍 Code Resources](code_resources.html)`,
-    Support: `
-- [☕ Support Me](support_me.html)`,
-    Legal: `
-- [📜 Website Legal](website_legal.html)`
-};
+"how_magnets_work.html": { title: "How Magnets Work", icon: "🧲",
+    section: "Guides & How-Tos", date: "2026.07.18", words: 623, minutes: 3 },
 ```
 
-Archive links are in a separate `archives` variable and rendered as a dropdown.
+Run `python tools/inspect_page.py <page>` to get a ready-to-paste line with the
+word count and read time already computed. The tool writes nothing - the
+manifest stays hand-maintained.
 
-To add a sidebar link, edit the `nav` object or `archives` string in `sidebar.js`.
+- Every manifest entry appears in the sidebar. To keep a page out, give it no
+  entry at all - `mcupdates.html` (a rolling list linked from `minecraft.html`)
+  and the two legal pages (which keep their own legal formatting rather than a
+  `::signature::` footer) are the only ones currently unindexed.
+- Each page declares its own `icon` and `section` in the `<head>` script block
+  alongside `title`; `inspect_page.py` reads them from there.
+- Sidebar links carry a `title` tooltip showing read time and update date.
 
 ## CSS Organization
 
@@ -192,6 +201,5 @@ Layout uses CSS Grid: `grid-template-columns: 300px 1fr` (sidebar + content).
 - 2026-09-19: Website domain renewal
 
 ## File Locations
-- Profile images: `assets/images/profiles/`
 - Shop images: `assets/images/shop/` (e.g. `3d_prints/`, `vtubers/`)
 - Legal documents: `assets/legal/`

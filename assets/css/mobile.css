@@ -1,5 +1,13 @@
 /* mobile.css */
 
+/* Narrow-screen sheet entry - a short vertical rise instead of the desktop
+   slide-and-rotate. Defined outside the media query because @keyframes are
+   resolved by name globally; the rule that USES it is inside the query. */
+@keyframes sheet-in-sm {
+  0%   { opacity: 0; transform: translateY(16px) scale(.985); }
+  100% { opacity: 1; transform: none; }
+}
+
 /* Hide mobile elements on desktop */
 .mobile-banner {
   display: none;
@@ -41,10 +49,13 @@
   .mobile-banner h1 {
     color: var(--accent) !important;
     margin: 0 !important;
-    font-size: 18px !important;
+    /* OCR-A, matching the desktop site title. This carried the Satisfy script
+       face until that font was removed. */
+    font-family: 'OCR-A', var(--mono) !important;
+    font-size: 16px !important;
+    letter-spacing: 0.02em !important;
     flex: 1 !important;
     text-align: center !important;
-    font-family: 'Satisfy', cursive, sans-serif !important;
   }
 
   sidebar {
@@ -64,10 +75,10 @@
     padding-bottom: 80px !important;
   }
 
+  /* Sidebar brand follows the tactical treatment on mobile too. */
   sidebar h1 {
     margin-left: 0 !important;
-    text-align: center !important;
-    font-family: 'Satisfy', cursive, sans-serif !important;
+    text-align: left !important;
   }
 
   sidebar.active {
@@ -101,8 +112,11 @@
     font-family: Arial, sans-serif !important;
   }
 
-  sidebar h1, .mobile-banner h1 {
-    font-family: 'Satisfy', cursive, sans-serif !important;
+  /* The sidebar-wide Arial rule above uses !important, so the site title needs
+     to restate OCR-A to keep it on mobile. */
+  sidebar h1 {
+    font-family: 'OCR-A', var(--mono) !important;
+    font-size: 1.35rem !important;
   }
 
   main {
@@ -126,45 +140,55 @@
     padding-top: 0 !important;
   }
 
-  /* Desktop bumped the body base to 20px via `main *` (main.css); mobile keeps the pre-bump 16px.
-     Scope to text-bearing elements so headings keep their em scaling from brewdown.css. */
-  main p,
-  main li,
-  main td,
-  main th,
-  main dd,
-  main dt,
-  main blockquote,
-  main figcaption {
-    font-size: 16px !important;
+  /* Sidebar hover metadata is hidden on touch: hover never fires, so the rows
+     would either never open or (for the current page) sit permanently expanded
+     and bloat the nav. The same values remain on the link's title attribute. */
+  sidebar nav li .nav-meta {
+    display: none !important;
   }
+
+  /* Desktop and mobile now share the same 16px base (main.css), so there is no
+     size override here any more - only the heading tightening below. */
 
   main .toc ul,
   main .characters ul {
     columns: 1;
   }
 
-  main h1 { font-size: 1.8em; }
+  /* Beta drops the sheet H1 on narrow screens; 1.55em is that proportion
+     against the shared 16px base. */
+  main h1 { font-size: 1.55em; }
 
   main .download-bar {
     flex-wrap: nowrap !important;
     padding: 4px 10px !important;
     margin-bottom: 10px !important;
-    gap: 0 !important;
+    gap: 8px !important;
+    min-height: 38px !important;
   }
 
   main .download-bar h1 {
-    font-size: 1em !important;
+    font-size: 0.68rem !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     min-width: 0 !important;
   }
 
+  /* Breadcrumb keeps only the page title on narrow screens - the section and
+     separator are the first things to go when space is tight. */
+  main .download-bar .crumb { min-width: 0 !important; }
+  main .download-bar .crumb-sec,
+  main .download-bar .crumb .sep { display: none !important; }
+
+  /* Word/read-time metadata is desktop-only; it is the least critical value in
+     the bar and the same numbers are on the page footer. */
+  main .download-bar .bar-meta { display: none !important; }
+
   main .download-btn {
     flex-shrink: 0 !important;
-    padding: 6px 12px !important;
-    font-size: 0.85em !important;
+    padding: 5px 9px !important;
+    font-size: 0.56rem !important;
     z-index: 1 !important;
   }
 
@@ -172,6 +196,46 @@
     padding-left: 15px;
     padding-right: 15px;
     max-width: 100% !important;
+  }
+
+  /* The paper sheet (main.css) runs full-bleed on mobile - no floating edge,
+     no shadow. Its desktop padding is replaced by the 15px above. */
+  main .brewdown,
+  main .brewdown-rendered {
+    padding: 20px 15px 30px;
+    margin: 0 !important;
+    box-shadow: none;
+    filter: none;
+    clip-path: none;
+  }
+
+  main .brewdown-rendered::before { display: none; }
+
+  /* The desktop entry slides in from -170px with a rotation; on a phone that
+     would swing off-screen and fight the narrow viewport. Beta swaps to a short
+     vertical rise, so this does the same. The sweep is dropped - it reads as a
+     glare artifact at this width.
+
+     A SEPARATE keyframe name, not a redefinition of sheet-in: @keyframes are
+     resolved by name globally, so redefining one inside a media query can win
+     outside that query in some engines. */
+  main .brewdown-rendered {
+    animation: sheet-in-sm 0.34s cubic-bezier(.22, .61, .36, 1) both;
+  }
+
+  main .brewdown-rendered::after { display: none; }
+
+  /* This rule re-declares `animation`, so it would override main.css's
+     reduced-motion guard. Restate it here. */
+  @media (prefers-reduced-motion: reduce) {
+    main .brewdown-rendered { animation: none; }
+  }
+
+  /* Drop the blueprint grid on mobile. The sheet is full-bleed here so none
+     of it would show anyway, and `background-attachment: fixed` is a known
+     source of scroll jank on iOS and Android. */
+  main {
+    background-image: none;
   }
 
   main .table-wrap {
@@ -204,8 +268,10 @@
     bottom: auto !important;
     right: auto !important;
     z-index: 1002 !important; /* back-to-top */
-    padding: 0.4rem 0.8rem !important;
-    font-size: 0.85rem !important;
+    padding: 0.4rem 0.7rem !important;
+    /* Slightly larger than desktop's 0.58rem for a usable tap target, but still
+       on the mono scale - the old 0.85rem was sized for the filled pill. */
+    font-size: 0.6rem !important;
   }
 
   /* Burger menu button */
@@ -248,64 +314,15 @@
     transform: translateY(-8px) rotate(-45deg) !important;
   }
 
-  /* Flavor picker ("Menu" card).
-     On desktop the card is width: fit-content and sizes itself to the widest
-     swatch row (~306px). The mobile sidebar is only calc(100% - 100px) wide —
-     200-292px depending on the phone — so the card overflowed and the sidebar's
-     overflow-x: hidden clipped its right edge instead of wrapping it.
-     Here the card fills the sidebar and the swatches wrap freely, so the row
-     count follows the screen rather than the fixed 3 rows sidebar.js emits. */
+  /* Flavour picker. The cells flex-fill on their own, so mobile only needs a
+     larger preferred size for touch targets. */
   .theme-menu {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    width: auto !important;
-    max-width: 100% !important;
-    margin: 16px 8px 0 !important;
-    padding: 12px !important;
-    gap: 10px !important;
-    box-sizing: border-box !important;
+    --sw-size: 38px;
+    --sw-gap: 8px;
+    margin: 16px 0 0 !important;
   }
 
-  .theme-menu-label {
-    /* vertical-rl can render inconsistently on mobile WebKit; lay the label
-       flat above the swatches where it always reads correctly */
-    writing-mode: horizontal-tb !important;
-    transform: none !important;
-    border-left: none !important;
-    border-bottom: 1px solid var(--toasted-almond) !important;
-    padding-left: 0 !important;
-    padding-bottom: 6px !important;
-    margin-bottom: 2px !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-
-  /* sidebar.js hard-codes three .theme-row divs. Letting each wrap on its own
-     leaves orphan rows (4,2,4,1,4,2). display: contents drops the row boxes so
-     all 17 swatches wrap as a single group and fill each line evenly. */
-  .theme-picker {
-    width: 100% !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    gap: 12px !important;
-  }
-
-  .theme-row {
-    display: contents !important;
-  }
-
-  /* The staggered offset reads as a misalignment once rows wrap. */
-  .theme-row--offset {
-    margin-left: 0 !important;
-  }
-
-  /* Bigger tap targets - 26px dots are under the ~44px touch guideline. */
-  .theme-swatch {
-    width: 30px !important;
-    height: 30px !important;
-  }
-
-  /* No hover on touch; the scale transform sticks after a tap. */
+  /* No hover on touch; the lift transform would stick after a tap. */
   .theme-swatch:hover {
     transform: none !important;
   }

@@ -1,19 +1,75 @@
-/* styles.css */
-@import url('theme.css');
+/* styles.css — the entry stylesheet and the site's global layer.
+ *
+ * Loads every partial below, then defines what is genuinely global: the
+ * palette variables, the font faces, bare element styling, and the two
+ * page-wide widgets (tooltips, back-to-top).
+ *
+ * Order within this file, and within every partial:
+ *   :root  ->  elements  ->  classes  ->  ids
+ * with anything nested kept beside its parent.
+ *
+ * Partials, in cascade order:
+ *   sidebar.css   the <sidebar> column
+ *   main.css      the <main> column and the paper sheet
+ *   brewdown.css  rendered markdown inside the sheet
+ *   mobile.css    all 768px overrides
+ *   print.css     the "Save as PDF" pass
+ *
+ * Flavor colours are NOT here - assets/js/themes.js derives every accent and
+ * paper value from one hex per flavor and writes them onto :root at load.
+ */
 @import url('sidebar.css');
 @import url('main.css');
 @import url('brewdown.css');
 @import url('mobile.css');
 @import url('print.css');
 
+/* ===========================================================================
+   ROOT - the values that do NOT change with the flavor
+   =========================================================================== */
+:root {
+  /* Coffee Base */
+  --espresso: #1e1610;
+  --dark-mocha: #2a1e14;
+  --coffee-bean: #453024;
+
+  /* Cream & Milk */
+  --steamed-milk: #f5f5dc;
+  --light-cream: #f8e5c8;
+  --half-and-half: #d2b48c;
+
+  /* Darker Syrups */
+  --dark-caramel: #38271e;
+  --toasted-almond: #5c4937;
+  --dark-chocolate: #120d08;
+
+  /* Monospace stack for technical type: section headings, metadata, code.
+     Used across the sheet and the sidebar chrome. */
+  --mono: ui-monospace, "Cascadia Mono", "Consolas", monospace;
+}
+
+/* ===========================================================================
+   FONTS
+   =========================================================================== */
+/* OCR-A - the optical-character-recognition face. Used for the site title, where
+   its machine-readable look suits the archive framing. woff first (half the
+   size), ttf as the fallback. */
 @font-face {
-  font-family: 'Satisfy';
-  src: url('../satisfy.regular.ttf') format('truetype');
+  font-family: 'OCR-A';
+  /* ttf first: the "OCR-A Regular" woff in this folder has a malformed cmap
+     table (OTS rejects it with "Range glyph reference too high") and the
+     browser silently falls back to a default face. The ocr-aregular pair
+     below parses cleanly. */
+  src: url('../fonts/ocr-a/ocr-aregular.ttf') format('truetype'),
+       url('../fonts/ocr-a/ocr-aregular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
+/* ===========================================================================
+   ELEMENTS - global resets and bare tag styling
+   =========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -51,31 +107,92 @@ pre {
   white-space: pre-wrap;
 }
 
+/* ===========================================================================
+   CLASSES
+   =========================================================================== */
+
+/* Chrome tooltips - the sidebar flavour swatches. Deliberately separate from
+   the CONTENT tooltips in brewdown.css:
+     .tooltip         content, inside <main>, monochrome on paper
+     .tooltip-chrome  chrome, outside <main>, themed and colour-tinted
+   Neither runtime fires for the other's triggers, so the two never collide.
+   The swatches carry [data-tooltip-color], which the runtime writes onto the
+   bubble - that tint is the whole point of keeping this separate. */
+.tooltip-chrome {
+  position: absolute;
+  z-index: 2000;  /* above mobile sidebar/menubar/back-to-top (1001-1005) */
+  pointer-events: none;
+  background: var(--dark-mocha);
+  color: var(--light-cream);
+  border: 1px solid var(--accent);
+  border-radius: 0;
+  padding: 6px 11px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  max-width: min(320px, calc(100vw - 24px));
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.tooltip-chrome.tooltip-chrome--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================================================================
+   IDS
+   =========================================================================== */
+/* Back to top. Outlined mono, matching the header bar's Save as PDF button -
+   a utility control, not a primary action. The leading ^ is drawn in CSS so
+   every page's markup stays a plain <button>Back to Top</button>. */
 #back-to-top {
   display: none;
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--accent-light);
-  color: var(--espresso);
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 13, 8, .82);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color: var(--half-and-half);
+  border: 1px solid var(--toasted-almond);
+  border-radius: 0;
+  padding: 7px 12px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color 0.16s, color 0.16s;
   z-index: 999;
 }
 
+/* back-to-top.js adds .is-visible past the scroll threshold. */
+#back-to-top.is-visible {
+  display: inline-flex;
+}
+
+#back-to-top::before {
+  content: "\2191";           /* ↑ */
+  font-size: 0.72rem;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.16s;
+}
+
 #back-to-top:hover {
-  background: var(--accent);
+  background: rgba(18, 13, 8, .92);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-#changelog span {
-  white-space: pre-wrap;
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 0.9;
-  display: inline-block;
+#back-to-top:hover::before {
+  transform: translateY(-2px);
 }
 
+/* Changelog styles live in changelog.html - it is the only page with a look
+   of its own, so they are not carried in the global stylesheet. */

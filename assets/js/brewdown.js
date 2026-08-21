@@ -49,13 +49,12 @@ const Brewdown = (function() {
     function renderSignature() {
         const sig = (typeof window !== 'undefined' && window.SIGNATURE) ? window.SIGNATURE : null;
         if (!sig) return '<p>[signature unavailable — signature.js not loaded]</p>';
-        let file = (location.pathname.split('/').pop() || 'index.html');
-        if (!file) file = 'index.html';
+        const file = currentPage();   // util.js - one definition site-wide
         const domain = sig.domain || 'coffeebyte.dev';
-        // Date comes from the central update.js map (window.UPDATES); fall back to any legacy
-        // sig.updated entry just in case update.js didn't load.
-        const rec = (typeof window !== 'undefined' && window.UPDATES) ? window.UPDATES[file] : null;
-        const date = (rec && rec.date) || (sig.updated && sig.updated[file]);
+        // Date comes from the central manifest (window.MANIFEST, assets/js/manifest.js),
+        // which also drives the sidebar. manifest.js must load before brewdown.js.
+        const rec = (typeof window !== 'undefined' && window.MANIFEST) ? window.MANIFEST[file] : null;
+        const date = rec && rec.date;
         let dateHtml = 'Unlisted';
         if (date) {
             const p = date.split('.');
@@ -110,7 +109,7 @@ const Brewdown = (function() {
         });
 
         // Tooltip: ??text|tip?? → hover (or tap) for a short definition. Emits [data-tooltip],
-        // driven by the shared bubble in scripts.js. The text half is left raw so later rules
+        // driven by the shared bubble in tooltip.js. The text half is left raw so later rules
         // still see it — ??[label](url)|tip?? renders a working link inside the tooltip, giving
         // hover-for-definition plus click-to-navigate from one token.
         text = text.replace(/\?\?([^?|]+?)\|([^?]+?)\?\?/g, function(_, content, tip) {
@@ -158,13 +157,13 @@ const Brewdown = (function() {
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, function(_, alt, url) {
             const ext = url.split('.').pop().split(/[?#]/)[0].toLowerCase();
             if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'avif'].includes(ext)) {
-                return `<a href="${url}" target="_blank" class="media-link" title="Click to open"><img src="${url}" alt="${alt}"></a>`;
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="media-link" title="Click to open"><img src="${url}" alt="${alt}"></a>`;
             }
             if (['mp4', 'webm', 'ogg', 'mov'].includes(ext)) {
-                return `<a href="${url}" target="_blank" class="media-link" title="Click to open"><video controls src="${url}" title="${alt}"></video></a>`;
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="media-link" title="Click to open"><video controls src="${url}" title="${alt}"></video></a>`;
             }
             if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
-                return `<a href="${url}" target="_blank" class="media-link" title="Click to open"><audio controls src="${url}" title="${alt}"></audio></a>`;
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="media-link" title="Click to open"><audio controls src="${url}" title="${alt}"></audio></a>`;
             }
             const isMagnet = url.startsWith('magnet:');
             const isZip = /\.zip(\?|#|$)/i.test(url);
@@ -173,7 +172,7 @@ const Brewdown = (function() {
             let titleAttr = '';
             if (isZip) titleAttr = ' title="Click to save"';
             else if (!isMagnet) titleAttr = ' title="Click to follow external link"';
-            return `<a href="${url}" target="_blank"${titleAttr}>${badge}${alt || url}</a>`;
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer"${titleAttr}>${badge}${alt || url}</a>`;
         });
 
         // Links: [text](url) — external links open in new tab and get 🔗 prefix (except magnet:); .zip links get 💾 prefix
@@ -188,7 +187,7 @@ const Brewdown = (function() {
             if (isZip) titleAttr = ' title="Click to save"';
             else if (external && !isMagnet) titleAttr = ' title="Click to follow external link"';
             if (external || isZip) {
-                return `<a href="${url}" target="_blank"${titleAttr}>${badge}${linkText}</a>`;
+                return `<a href="${url}" target="_blank" rel="noopener noreferrer"${titleAttr}>${badge}${linkText}</a>`;
             }
             return `<a href="${url}">${linkText}</a>`;
         });
@@ -202,7 +201,7 @@ const Brewdown = (function() {
             let titleAttr = '';
             if (isZip) titleAttr = ' title="Click to save"';
             else if (!isMagnet) titleAttr = ' title="Click to follow external link"';
-            return `${ws}<a href="${url}" target="_blank"${titleAttr}>${badge}${url}</a>`;
+            return `${ws}<a href="${url}" target="_blank" rel="noopener noreferrer"${titleAttr}>${badge}${url}</a>`;
         });
 
         // Template variables: {{name}} → <span id="name">default text</span>
@@ -446,9 +445,12 @@ const Brewdown = (function() {
     }
 
     // Auto-execute function to process script tags
-    function processScriptTags() {
-        // Find all script tags with the data-brewdown attribute
-        const scripts = document.querySelectorAll('script[data-brewdown]');
+    function processScriptTags(root) {
+        // Find all script tags with the data-brewdown attribute.
+        // Scoped to `root` (defaults to <main>) so brewdown never touches the
+        // sidebar or other chrome — see processAll().
+        const scope = root || document.querySelector('main') || document;
+        const scripts = scope.querySelectorAll('script[data-brewdown]');
 
         scripts.forEach(script => {
             const markdownFile = script.getAttribute('data-brewdown');
@@ -510,8 +512,10 @@ const Brewdown = (function() {
     // as a placeholder element that passes through brewdown as HTML, then restored to the
     // original script's outerHTML before the div is updated. A second pass of
     // processScriptTags() in processAll() then handles those preserved scripts.
-    function processBrewdownDivs() {
-        const divs = document.querySelectorAll('div.brewdown');
+    function processBrewdownDivs(root) {
+        // Scoped to `root` (defaults to <main>) — see processAll().
+        const scope = root || document.querySelector('main') || document;
+        const divs = scope.querySelectorAll('div.brewdown');
 
         divs.forEach(div => {
             const scripts = [];
@@ -543,11 +547,18 @@ const Brewdown = (function() {
         });
     }
 
-    // Tooltip runtime — the site's single tooltip system. Any element with [data-tooltip]
-    // shows a styled bubble on hover/focus, whether it came from the ??text|tip?? token or
-    // was authored directly in HTML/JS (e.g. sidebar theme swatches). Instant (no native
-    // title delay) and works for elements added later (event delegation). Styling lives in
-    // brewdown.css (.tooltip / .tooltip-term).
+    // Tooltip runtime for CONTENT — the ??text|tip?? token, scoped to <main>.
+    //
+    // Deliberately separate from tooltip.js, which handles chrome (the sidebar)
+    // outside <main>. Brewdown renders only onto the paper sheet, so its tooltip
+    // system stays there too; neither runtime reaches across the boundary.
+    //
+    // The popup is appended to <body> rather than into the sheet: the sheet has
+    // a clip-path notch and a drop-shadow filter, either of which would clip or
+    // re-anchor a child bubble. Positioning is viewport-based, so living in
+    // <body> is correct — only the TRIGGER has to be inside <main>.
+    //
+    // Styling lives in brewdown.css (.tooltip / .tooltip-term).
     (function () {
         let tip = null;
 
@@ -561,16 +572,18 @@ const Brewdown = (function() {
             return tip;
         }
 
+        // Only trigger for [data-tooltip] elements INSIDE <main>.
+        function contentTarget(node) {
+            const el = node.closest('[data-tooltip]');
+            if (!el || !el.closest('main')) return null;
+            return el;
+        }
+
         function show(el) {
             const text = el.getAttribute('data-tooltip');
             if (!text) return;
             const t = getTip();
             t.textContent = text;
-            // Optional per-element tint (e.g. sidebar theme swatches color their tooltip to
-            // the swatch being hovered). Bare ??tip?? tooltips leave this unset → default look.
-            const color = el.getAttribute('data-tooltip-color');
-            t.style.borderColor = color || '';
-            t.style.color = color || '';
             // Measure first (made displayable via .tooltip styles), then position.
             const r = el.getBoundingClientRect();
             const tr = t.getBoundingClientRect();
@@ -588,14 +601,14 @@ const Brewdown = (function() {
         }
 
         document.addEventListener('mouseover', e => {
-            const el = e.target.closest('[data-tooltip]');
+            const el = contentTarget(e.target);
             if (el) show(el);
         });
         document.addEventListener('mouseout', e => {
-            if (e.target.closest('[data-tooltip]')) hide();
+            if (contentTarget(e.target)) hide();
         });
         document.addEventListener('focusin', e => {
-            const el = e.target.closest('[data-tooltip]');
+            const el = contentTarget(e.target);
             if (el) show(el);
         });
         document.addEventListener('focusout', hide);
@@ -603,14 +616,25 @@ const Brewdown = (function() {
     })();
 
     // Process all Brewdown sources when DOM is ready.
+    //
+    // SCOPE: everything runs inside <main> only. The sidebar is built by
+    // sidebar.js from window.MANIFEST and contains no Brewdown, so there is
+    // nothing to render outside <main> — keeping brewdown out of the rest of
+    // the document avoids it touching chrome it does not own.
+    //
     // Order matters: divs first so embedded <script data-brewdown> tags become live DOM nodes
     // via innerHTML; then processScriptTags() picks them up alongside top-level scripts.
     function processAll() {
-        processBrewdownDivs();
-        processScriptTags();
-        // Apply syntax highlighting if highlight.js is loaded
+        const root = document.querySelector('main');
+        if (!root) return;
+
+        processBrewdownDivs(root);
+        processScriptTags(root);
+
+        // Apply syntax highlighting if highlight.js is loaded. Scoped to <main>
+        // for the same reason; highlightAll() would scan the whole document.
         if (typeof hljs !== 'undefined') {
-            hljs.highlightAll();
+            root.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
         }
     }
 

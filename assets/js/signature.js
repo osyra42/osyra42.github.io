@@ -4,9 +4,11 @@
 // Each page ends its content with a single `::signature::` line; brewdown expands it into the
 // footer using the shared fields below.
 //
-// NOTE: per-page "Last Updated" dates live in assets/js/update.js (window.UPDATES), NOT here -
-// that one map feeds both this footer and the sidebar's ✨ badge.
+// NOTE: per-page "Last Updated" dates live in assets/js/manifest.js (window.MANIFEST), NOT here -
+// that one map feeds this footer, the sidebar nav, and the ✨ badge.
 window.SIGNATURE = {
+    site: "Coffee Byte Dev",     // the site's display name - used by the sidebar
+                                 // brand block and the mobile banner too
     domain: "coffeebyte.dev",
     author: "osyra42",
     contact: "coffeebytedev@proton.me",

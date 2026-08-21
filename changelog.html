@@ -21,51 +21,101 @@
   <meta name="twitter:description" content="Website changelog - track updates, new features, and bug fixes for Coffee Byte Dev" />
   <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
-  <link rel="stylesheet" href="assets/highlight/styles/kimbie-dark.min.css" />
+  <link rel="stylesheet" href="assets/highlight/styles/base16/atelier-dune-light.min.css" />
+  <!-- Changelog-only styling. This is the one page with a look of its own, so
+       it lives here rather than in the global stylesheet. -->
+  <style>
+  /* The whole sheet becomes a translucent black wash - the same idea as
+     Minecraft's chat box, which is black at ~50% alpha so the § colours stay
+     readable over any world behind it. Ours sits at .8 because the paper
+     beneath is far lighter than a game world: at .5 only two of the eight
+     bright colours clear 4.5:1, at .8 all of them do.
+
+     Painted as a background LAYER, not on a pseudo-element - ::before is the
+     notch hairline and ::after is the entry sweep (main.css), so borrowing
+     either would break an existing effect. */
+  main .brewdown-rendered {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)),
+      repeating-linear-gradient(180deg,
+        transparent 0 31px, rgba(70, 62, 52, .06) 31px 32px),
+      linear-gradient(var(--paper), var(--paper));
+  }
+
+  /* Divider rows. The listing writes ". ...." lines; rather than repeat a dot
+     200 times and clip the overflow, they render as a real hairline. */
+  #changelog .cl-rule {
+    display: block;
+    height: 1px;
+    margin: 1.1em 0;
+    background: rgba(255, 255, 255, .22);
+  }
+
+  #changelog {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    color: #FFFFFF;
+  }
+
+  /* `main *` in main.css sets Georgia on every descendant, which outranks
+     #changelog alone - so the terminal face has to be restated on the spans the
+     script generates, not just on the container. */
+  #changelog,
+  #changelog span {
+    font-family: 'OCR-A', var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+  </style>
   <script src="assets/highlight/highlight.min.js" defer></script>
-  <script src="assets/js/update.js" defer></script>
+  <script src="assets/js/mc-colors.js" defer></script>
+  <script src="assets/js/util.js" defer></script>
+  <script src="assets/js/manifest.js" defer></script>
+  <script src="assets/js/themes.js" defer></script>
   <script src="assets/js/brewdown.js" defer></script>
   <script src="assets/js/sidebar.js" defer></script>
+  <script src="assets/js/tooltip.js" defer></script>
+  <script src="assets/js/topbar.js" defer></script>
   <script src="assets/js/scripts.js" defer></script>
   <script src="assets/js/mobile.js" defer></script>
   <script src="assets/js/back-to-top.js" defer></script>
   <script>
-    image = "changelog.jpg";
-    title = "Changelog";
+    title   = "Changelog";
+    icon    = "📰";
+    section = "Site";
   </script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
       const changelog = document.getElementById('changelog');
       if (changelog) {
-          // Kimbie Dark palette
-          const chalk = {
-              bg: "221a0f",
-              cream: "d3af86",
-              orange: "f79a32",
-              green: "889b4a",
-              red: "dc3958",
-              rose: "98676a",
-              burnt: "f06431",
-              beige: "d6baad",
-              muted: "362712"
+          // Legend symbol -> Minecraft colour name. The palette itself lives
+          // in assets/js/mc-colors.js (all 16, by their real names).
+          //
+          // The bright half of the palette, on a translucent black panel - the
+          // same idea as Minecraft's chat box, which is black at ~50% alpha so
+          // the § colours stay readable over any world behind them. Ours sits
+          // at 0.8 because the paper beneath is much lighter than a game world.
+          const LEGEND = {
+              "# ": "yellow",        // timestamps
+              "@ ": "light_purple",  // project
+              "+ ": "green",         // added
+              "- ": "red",           // removed
+              "> ": "aqua",          // description
+              "$ ": "gold",          // bugs / fixed
+              "  ": "white",         // indented body
           };
 
           let coloredContent = '';
           changelog.textContent.split('\n').forEach(line => {
-              let color;
-              switch (true) {
-                  case line.startsWith('# '): color = chalk.cream; break;
-                  case line.startsWith('- '): color = chalk.red; break;
-                  case line.startsWith('+ '): color = chalk.green; break;
-                  case line.startsWith('@ '): color = chalk.orange; break;
-                  case line.startsWith('$ '): color = chalk.burnt; break;
-                  case line.startsWith('> '): color = chalk.rose; break;
-                  case line.startsWith('  '): color = chalk.beige; break;
-                  case line.startsWith('. '):
-                      coloredContent += `<span style="display:block;overflow:hidden;white-space:nowrap;color:#${chalk.muted};letter-spacing:0.3em;">${'·'.repeat(200)}</span>\n`;
-                      return;
+              if (line.startsWith('. ')) {
+                  coloredContent += '<span class="cl-rule"></span>';
+                  return;
               }
-              coloredContent += color ? `<span style="color: #${color};">${line}</span>\n` : line + '\n';
+              const key = Object.keys(LEGEND).find(k => line.startsWith(k));
+              coloredContent += key
+                  ? `<span style="color: ${mcHex(LEGEND[key])};">${line}</span>\n`
+                  : line + '\n';
           });
 
           changelog.innerHTML = coloredContent;
@@ -87,15 +137,66 @@
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <pre id="changelog" style="background:#221a0f; padding:20px; border-radius:5px;">
+    <div class="brewdown-rendered">
+    <div id="changelog">
 . ............................
-LEGEND (Kimbie Dark)
-# cream: timestamps
-@ orange: project
-+ green: added
-- red: removed
-> rose: description
-$ burnt: bugs/fixed
+LEGEND
+# timestamp
+@ project
++ added
+- removed
+> description
+$ bugs/fixed
+. ............................
+# 2026 AUG 21
+@ website
++ themes.js - one hex per flavor, every shade derived in OKLCH
++ paper, ink, grid lines and row states now tint with the chosen flavor
++ seasonal default theme, set by hand; a saved choice always wins
++ OCR-A on the site title
++ mc-colors.js - the 16 Minecraft chat colours, by name
++ changelog uses Minecraft chat colours, drawn onto the paper
+- the 17 hardcoded theme blocks in theme.css
+- kimbie-dark code blocks; now atelier dune light on the sheet
+> link colour darkens itself until it clears contrast on any flavor
+> changelog sits on the paper sheet like every other page
+$ fixed - inline code styling was overriding every syntax theme
+$ fixed - tooltips printed onto the page when saving a PDF
+$ fixed - selected row highlight stayed orange under every flavor
+$ fixed - connector line was off-centre on the active row
+
+. ............................
+# 2026 AUG 20
+@ website
++ manifest.js - single source of truth for sidebar, footers and dates
++ per-page word counts and read times
++ tools/inspect_page.py - inspect a page, print a manifest line
++ icon and section vars in every page head
++ paper sheet - content sits on newsprint instead of a dark panel
++ blueprint grid behind the sheet
++ corner brackets framing the content area
++ clipped top-right corner on the sheet
++ cut corners on quotes, callouts and the table of contents
++ topbar.js - download bar is now a breadcrumb and metadata strip
++ tooltip.js - separate tooltip system for sidebar chrome
++ sidebar brand block - archive id, doc count, word total, index date
++ document index numbers and page counts in the sidebar
++ hover metadata on sidebar links - words, read time, last updated
++ accent edge and hover nudge on sidebar links; current page is marked
++ sidebar ruler ticks and diagonal hatch behind the brand block
++ sidebar rows and the sheet settle in on load; respects reduced motion
+- update.js - replaced by manifest.js
+- navMarkdown - sidebar now builds from the manifest
+- profile pictures - sidebar avatar, image vars, and 34 image files
+- rounded corners everywhere; boxes are outlined and square
+- page title badge from the sidebar; the breadcrumb above the sheet has it
+- sidebar group separators; section headers draw their own rule now
+- 3D Pixel Game - removed the dead placeholder page
+> type scale matches the beta - 16px base, mono uppercase sub-headings
+> back to top restyled to match; outlined mono with an arrow
+> alignment normalized to left
+> brewdown now only renders inside main
+> brewdown tooltips are black and white; flavor swatches keep their color
 
 . ............................
 # 2026 AUG 11
@@ -396,7 +497,7 @@ $ fixed VLC enqueue/launch so folders reliably open in the running instance
 > replaced all em-dashes with hyphens site-wide; they rendered poorly
 + ::signature:: brewdown token - footer now pulls from one central config
 > migrated all 22 page footers to ::signature::
-+ assets/js/update.js - one page-to-date map feeding both the footer and the sidebar ✨ badge
++ assets/js/manifest.js - one page-to-date map feeding both the footer and the sidebar ✨ badge
 > sidebar dates now read from update.js; fixed several stale sidebar dates that had drifted from footers
 > normalized prose voice across guides, landing, and main pages to match the index; facts/structure unchanged, fiction left alone
 + ComfyUI guide - linked checkpoint, LoRAs, and upscale model to their downloads
@@ -1508,7 +1609,8 @@ $ emojis are broken
 > website url was changed to rebrand and to mark a server downgrade
 $ website flashes white on fast reload
 $ page title is missing
-    </pre>
+    </div>
+    </div>
 
     <button id="back-to-top">Back to Top</button>
   </main>

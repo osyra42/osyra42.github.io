@@ -6,6 +6,18 @@ sidebar {
   background-color: var(--dark-caramel);
   border-right: 2px solid var(--toasted-almond);
   padding: 12px;
+  /* Ruler ticks down the right edge - a repeating gradient rather than an
+     element, so it costs nothing and scales with the sidebar's full height.
+     Painted as a background (not a pseudo-element) because <sidebar> is a
+     scroll container: a ::after would be clipped to the padding box and, being
+     absolutely positioned, would scroll away with the content. As a background
+     with `local` attachment it tracks the scroll naturally. */
+  background-image: repeating-linear-gradient(180deg,
+    var(--tick-line) 0 1px, transparent 1px 13px);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 7px 100%;
+  background-attachment: local;
   height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -19,19 +31,73 @@ sidebar {
   -webkit-overflow-scrolling: touch;
 }
 
-sidebar h1 {
-  text-align: center;
-  font-family: 'Satisfy', cursive, sans-serif;
+/* Brand block, following tactical-v2: a mono ID line, the site name, then a
+   stats line derived from the manifest. Left-aligned - the centred script
+   treatment read as a masthead, which fought the technical nav below it. */
+sidebar .brand-id {
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--accent);
-  font-size: 2.4em;
 }
 
+sidebar h1 {
+  text-align: left;
+  /* OCR-A (styles.css) - the machine-readable face suits the archive framing.
+     It is a monospace design, so the tracking is pulled in slightly; at its
+     natural spacing the title runs wide. */
+  font-family: 'OCR-A', var(--mono);
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--steamed-milk);
+  margin-top: 5px;
+  line-height: 1.15;
+}
+
+sidebar .brand-sub {
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  letter-spacing: 0.1em;
+  color: var(--toasted-almond);
+  margin-top: 4px;
+}
+
+/* Section headers (Site / Books / Games / ...). Mono uppercase with wide
+   tracking, following the beta prototype - they read as labels for the group
+   below rather than as headings competing with the page links. */
 sidebar h3 {
-  font-size: 1.6rem;
-  color: var(--accent);
-  margin-bottom: 0px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--half-and-half);
+  margin: 18px 0 6px;
   flex-shrink: 0;
-  margin-top: 0px;;
+}
+
+/* Hairline running from the label out toward the count, as in the beta. */
+sidebar h3 .sec-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--toasted-almond);
+}
+
+/* Page count for the group, in a bordered chip. The value is group.pages.length
+   from sidebar.js, so it cannot drift from the links rendered below it. */
+sidebar h3 .sec-count {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  color: var(--toasted-almond);
+  border: 1px solid var(--toasted-almond);
+  padding: 1px 5px;
+  line-height: 1.4;
 }
 
 sidebar hr {
@@ -61,7 +127,7 @@ sidebar p {
   position: relative;
   font-size: 8px;
   color: var(--accent-light);
-  text-align: center;
+  text-align: left;
   margin: 0;
   padding: 0;
 }
@@ -82,14 +148,228 @@ sidebar nav {
   color: var(--accent-dark);
 }
 
+/* Nav rows are laid out as [index] [link] [✨], so the list loses its default
+   bullets and indent and each row becomes a flex line. */
+/* ---------------------------------------------------------------------------
+   Nav entry stagger.
+
+   Unlike the beta prototype - where this ran ONCE, because navigation was an
+   SPA swap - main loads a fresh page per click, so this animation replays every
+   single time. It is therefore deliberately short: 0.16s per row, the last row
+   starting at 0.09s, so the whole nav has settled inside ~250ms. Beta's ~700ms
+   would feel like waiting.
+
+   Delays are assigned with nth-child in CSS rather than inline styles so
+   sidebar.js keeps emitting plain markup, and the whole effect can be removed
+   by deleting this block.
+   --------------------------------------------------------------------------- */
+@keyframes nav-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+sidebar nav h3,
+sidebar nav li {
+  animation: nav-in 0.16s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+/* Rows are dealt out in pairs - a per-row delay across 30 links would run long
+   past the budget, and pairs still read as a cascade. Capped at 0.09s so a
+   long nav never delays its tail. */
+sidebar nav li:nth-child(-n+2)  { animation-delay: 0.015s; }
+sidebar nav li:nth-child(n+3)   { animation-delay: 0.03s; }
+sidebar nav li:nth-child(n+5)   { animation-delay: 0.045s; }
+sidebar nav li:nth-child(n+7)   { animation-delay: 0.06s; }
+sidebar nav li:nth-child(n+9)   { animation-delay: 0.075s; }
+sidebar nav li:nth-child(n+11)  { animation-delay: 0.09s; }
+
+/* No motion: everything is present immediately. */
+@media (prefers-reduced-motion: reduce) {
+  sidebar nav h3,
+  sidebar nav li {
+    animation: none;
+  }
+}
+
+sidebar nav ul {
+  list-style: none;
+  margin: 0;
+  /* Pulled left by the row's border (2px) + padding (10px) so the link text
+     lines up with the section header above it, while the hover wash still
+     bleeds to the sidebar's own edge. */
+  padding: 0;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+/* Section headers sit at the sidebar's padding, so nudge them to match the
+   text column the rows create. */
+sidebar nav h3 {
+  padding-left: 0;
+}
+
+/* Each row is a column: the link line, then a metadata line that expands on
+   hover.
+
+   The accent edge and hover nudge live on the <li>, not the <a>: in the beta
+   prototype the whole row WAS the button, so the treatment covered the full
+   row. Here the <a> is only the click target, so styling it would leave the
+   index number and ✨ badge outside the highlight. */
+sidebar nav li {
+  --nav-pad: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-left: 2px solid transparent;
+  padding: 3px var(--nav-pad);
+  transition: background 0.18s, border-color 0.18s, padding-left 0.18s;
+}
+
+sidebar nav li .row-top {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+}
+
+/* Hover: accent edge lights, row nudges right, background washes in from the
+   left and fades out before the right edge. */
+sidebar nav li:hover,
+sidebar nav li:focus-within {
+  background: linear-gradient(90deg, var(--row-hover), transparent 92%);
+  border-left-color: var(--accent-light);
+  padding-left: calc(var(--nav-pad) + 6px);
+}
+
+/* Current page: stronger wash, solid accent edge. Styled from the <a>'s
+   aria-current, which sidebar.js already emits - no extra class needed.
+
+   The row-level treatment needs :has() (supported everywhere current, but not
+   in older browsers). This direct rule needs no :has() and marks the active
+   link on its own, so the current page is always identifiable even where the
+   row highlight does not paint. */
+sidebar nav a[aria-current="page"] {
+  color: #fff;
+  font-weight: 700;
+}
+
+sidebar nav li:has(a[aria-current="page"]) {
+  background: linear-gradient(90deg, var(--row-active), transparent 96%);
+  border-left-color: var(--accent);
+}
+
+sidebar nav li:has(a[aria-current="page"]) > .row-top > a {
+  color: #fff;
+}
+
+/* Connector: a short accent line running off the active row's right edge
+   toward the sheet, tying the selection to the content beside it. Sits above
+   the ruler ticks painted on <sidebar>'s background.
+
+   Anchored to the row's first line rather than its centre - the active row also
+   shows its metadata, so a 50% offset would drift below the title.
+
+   right: 0 keeps it INSIDE the row. <sidebar> sets overflow-x: hidden, so a
+   negative offset would be clipped away entirely and never render. */
+sidebar nav li:has(a[aria-current="page"]) > .row-top {
+  position: relative;
+}
+
+sidebar nav li:has(a[aria-current="page"]) > .row-top::after {
+  content: "";
+  position: absolute;
+  /* Anchored to the LINK LINE, not the row: the active row also shows its
+     metadata, so measuring from the row top needed a magic number that drifted
+     whenever the line height changed. Centring on .row-top tracks the title
+     automatically. */
+  top: 50%;
+  transform: translateY(-50%);
+  /* right: 0 puts it at the row's padding edge; -10px pulls it out to the
+     sidebar's own edge, which is as far as overflow-x: hidden allows. */
+  right: -10px;
+  width: 14px;
+  height: 1px;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-glow);
+  pointer-events: none;
+}
+
+/* Hover metadata (words · read time · updated).
+   grid-template-rows 0fr -> 1fr animates the height open without needing a
+   hardcoded pixel value, so rows that wrap to two lines still work. The inner
+   span must carry overflow: hidden for the 0fr collapse to clip it. */
+sidebar nav li .nav-meta {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.22s cubic-bezier(.22, .61, .36, 1),
+              opacity 0.18s ease;
+}
+
+sidebar nav li .nav-meta > span {
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.09em;
+  line-height: 1.9;
+  /* --toasted-almond was a dark brown on a dark sidebar: 1.67:1 at rest and
+     as low as 1.00:1 once the accent wash sat behind it. White at 90% clears
+     4.5:1 under every flavour while staying visibly secondary to the link
+     above it - a cream tint costs contrast the light flavours cannot spare. */
+  color: rgba(255, 255, 255, .9);
+  /* Align under the title, clearing the index column (0.61rem mono + 9px gap). */
+  padding-left: 30px;
+}
+
+sidebar nav li:hover .nav-meta,
+sidebar nav li:focus-within .nav-meta {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+/* The current page keeps its metadata open - it is the one row where the
+   information is worth showing without asking for it. */
+sidebar nav li:has(a[aria-current="page"]) .nav-meta {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+/* The active row's metadata was --accent-dark: the DARKEST shade of the flavor
+   on an already-dark sidebar, which made it the least readable text on the
+   page. Brighten toward the accent instead - the row is the current page, so
+   its metadata should read more clearly than the rest, not less. */
+sidebar nav li:has(a[aria-current="page"]) .nav-meta > span {
+  color: #fff;
+}
+
+/* Document index (01, 02, ...) — generated in sidebar.js from the manifest's
+   order, continuous across the whole nav. Monospace and tabular so the column
+   stays aligned regardless of which digits appear. */
+.nav-idx {
+  flex: none;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.61rem;
+  letter-spacing: 0.08em;
+  color: var(--toasted-almond);
+  transition: color 0.2s;
+}
+
+sidebar nav li:hover .nav-idx,
+sidebar nav li:focus-within .nav-idx {
+  color: var(--accent-light);
+}
+
+sidebar nav li:has(a[aria-current="page"]) .nav-idx {
+  color: var(--accent);
+}
+
 sidebar nav a {
   color: var(--light-cream);
   text-decoration: none;
   transition: color 0.2s;
   display: inline-block;
-  margin: 4px 0;
+  margin: 3px 0;
   font-weight: 500;
-  font-size: 1.15rem;
+  font-size: 0.92rem;
 }
 
 sidebar nav a:hover {
@@ -108,116 +388,194 @@ sidebar div a {
   transition: color 0.2s;
   display: inline-block;
   margin-bottom: 4px;
-  font-size: 1.15rem;
+  font-size: 0.92rem;
 }
 
 sidebar div a:hover {
   color: var(--accent-light);
 }
 
+/* Brand block (ID line, site name, stats, page badge, flavour picker).
+   Left-aligned per tactical-v2; the class is still .text-center because
+   sidebar.js emits it, but the tactical treatment overrides that. */
 sidebar > div:first-child {
+  position: relative;
   flex-shrink: 0;
-  text-align: center;
-}
-
-sidebar .avatar-container {
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
+  text-align: left;
+  padding: 0 8px 14px;
+  border-bottom: 1px solid var(--toasted-almond);
   overflow: hidden;
-  margin: 20px auto;
-  border: 5px solid var(--half-and-half);
 }
 
-sidebar .avatar-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* The site name links home; strip the anchor's own layout so the two lines
+   inside it stack tightly. */
+sidebar > div:first-child > a {
+  display: block;
+  text-decoration: none;
 }
 
-sidebar h2 {
-  font-size: 1.5rem;
-  color: var(--half-and-half);
-  background-color: var(--dark-mocha);
-  border-radius: 8px;
-  text-align: center;
-  height: 48px;
-  line-height: 44px;
-  border: var(--half-and-half) 2px solid;
+/* Diagonal hatch in the TOP-RIGHT corner of the brand block, as in the beta.
+
+   It is anchored right and capped at 120px wide, with the mask fading it OUT
+   toward the left, so it never runs under the site name or the flavour
+   swatches. The earlier version spanned the full width with the mask reversed,
+   which dragged the stripes across the picker.
+
+   z-index: 0 with the block's children at 1 keeps it behind everything. */
+sidebar > div:first-child::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 72px;
+  background: repeating-linear-gradient(45deg,
+    var(--hatch-line) 0 2px, transparent 2px 7px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+  mask-image: linear-gradient(90deg, transparent, #000);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* "Ordering menu" card: a vertical cursive "Menu" label down the side,
-   with the flavor swatches stacked beside it inside a bordered box. */
+/* Keep the brand content above the hatch. */
+sidebar > div:first-child > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Flavour picker - a game-style colour grid.
+
+   --sw-size is the preferred cell width and --sw-gap the spacing; cells flex to
+   fill whatever width the sidebar gives them, so the column count follows the
+   viewport and the length of the THEMES list on its own. */
 .theme-menu {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: 16px auto 0;
-  width: fit-content;
-  padding: 12px 18px;
-  background-color: var(--dark-mocha);
-  border: 2px solid var(--toasted-almond);
-  border-radius: 12px;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+  --sw-size: 26px;
+  --sw-gap: 6px;
+  margin: 16px 0 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
 }
 
 .theme-menu-label {
-  font-family: Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--accent);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  text-align: center;
-  line-height: 1;
-  padding-left: 6px;
-  border-left: 1px solid var(--toasted-almond);
-}
-
-.theme-picker {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin: 0;          /* override sidebar div { margin-bottom: 8px } */
-  padding: 2px;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: 0.59rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--half-and-half);
+  margin-bottom: 7px;
+  /* Reset the old vertical-text treatment. */
+  writing-mode: horizontal-tb;
+  transform: none;
+  text-align: left;
+  border-left: 0;
+  padding-left: 0;
+  line-height: 1.4;
 }
 
-.theme-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 0;          /* override sidebar div { margin-bottom: 8px } */
+/* Hairline out to the edge, matching the nav section headers. */
+.theme-menu-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--toasted-almond);
 }
 
-/* Nudge staggered rows right by half a swatch for a subtle offset. */
-.theme-row--offset {
-  margin-left: 5px;
-}
+/* Fixed grid. Flex with space-between spread each row independently, so a full
+   row and a part-full row ended up with different gaps and the columns did not
+   line up. A grid puts every chip on a shared column track instead.
 
-/* Each swatch carries data-tooltip-color="<its color>", so the shared tooltip runtime
-   (brewdown.js) tints the hover bubble to that flavor's color — a sidebar-only flourish the
-   plain ??tip?? tooltips in main don't get. See the .tooltip note in brewdown.css. */
-.theme-swatch {
-  width: 26px;
-  height: 26px;
+   auto-fill derives the column count from --sw-size, so the list length and the
+   sidebar width decide the layout - nothing here is hardcoded. */
+.theme-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--sw-size));
+  justify-content: space-between;
+  gap: var(--sw-gap);
+  margin: 0;
   padding: 0;
-  border-radius: 50%;
-  border: 2px solid var(--coffee-bean);
+}
+
+/* Game-style colour picker: solid filled cells, tight grid, hard selection
+   state. --sw is set per-button by sidebar.js. */
+/* Very dark flavours (espresso, double espresso) sit close to the sidebar's own
+   background, so the chip alone is nearly invisible. A hairline border keeps
+   every swatch legible as a chip regardless of how dark its colour is. */
+.theme-swatch {
+  outline: 1px solid rgba(255, 255, 255, .22);
+  outline-offset: -1px;
+}
+
+.theme-swatch {
+  position: relative;
+  /* Fixed square, never stretched - a colour picker wants uniform chips, and
+     the grid track is already exactly --sw-size wide. */
+  width: var(--sw-size);
+  height: var(--sw-size);
+  padding: 0;
+  background: var(--sw);
+  border: 1px solid rgba(0, 0, 0, .45);
+  border-radius: 0;
   cursor: pointer;
-  transition: transform 0.12s ease, border-color 0.12s ease;
+  /* Inner bevel: a light top-left edge and a dark bottom-right, so each cell
+     reads as a physical key rather than a flat rectangle. */
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, .28),
+    inset -1px -1px 0 rgba(0, 0, 0, .32);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  clip-path: polygon(0 0, calc(100% - 7px) 0, 100% 7px, 100% 100%, 0 100%);
+}
+
+/* Reset swatch. White with a "no entry" glyph so it reads as an action rather
+   than as another colour to choose. It never takes the .active state - after a
+   click, the swatch for DEFAULT_THEME lights up instead. */
+.theme-swatch--reset {
+  display: grid;
+  place-items: center;
+  /* Sized off the swatch so it scales with --sw-size, including the larger
+     mobile cells. Emoji carry their own colour, so no `color` here. */
+  font-size: calc(var(--sw-size) * 0.7);
+  line-height: 1;
+}
+
+.theme-swatch--reset span {
+  display: block;
 }
 
 .theme-swatch:hover {
-  transform: scale(1.15);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, .45),
+    inset -1px -1px 0 rgba(0, 0, 0, .32),
+    0 3px 8px rgba(0, 0, 0, .5);
+  z-index: 1;
 }
 
+/* Selected: a bright ring drawn OUTSIDE the cell plus a checkmark, the way an
+   equipped item reads in a game menu. box-shadow rather than an outline so the
+   ring follows the clipped corner. */
 .theme-swatch.active {
-  border-color: var(--steamed-milk);
-  box-shadow: 0 0 0 2px var(--dark-mocha), 0 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    inset 0 0 0 2px var(--dark-caramel),
+    inset 0 0 0 3px var(--steamed-milk);
+}
+
+.theme-swatch.active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 5px;
+  height: 9px;
+  border: solid var(--steamed-milk);
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8));
 }
 
 @media print {
