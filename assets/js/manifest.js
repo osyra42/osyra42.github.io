@@ -20,7 +20,7 @@ window.MANIFEST = {
     "index.html":                { title: "Welcome",                icon: "🏠", section: "Site",             date: "2026.08.11", words:   292, minutes:  2 },
     "about_me.html":             { title: "About Me",               icon: "👋", section: "Site",             date: "2026.08.11", words:   591, minutes:  3 },
     "changelog.html":            { title: "Changelog",              icon: "📰", section: "Site",             date: "2026.08.11", words:  7950, minutes: 37 },
-    "minecraft.html":            { title: "Minecraft Server",       icon: "⛏️", section: "Site",             date: "2026.08.11", words:  1064, minutes:  5 },
+    "minecraft.html":            { title: "Minecraft Server",       icon: "⛏️", section: "Site",             date: "2026.08.22", words:  1159, minutes:  6 },
     "recommendations.html":      { title: "Recommendations",        icon: "⭐", section: "Site",             date: "2026.07.18", words:  1024, minutes:  5 },
     "support_me.html":           { title: "Support Me",             icon: "☕", section: "Site",             date: "2026.07.18", words:   286, minutes:  2 },
     "ever_diamond.html":         { title: "Ever Diamond",           icon: "💎", section: "Books",            date: "2026.07.18", words: 12951, minutes: 59 },
