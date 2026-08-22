@@ -149,6 +149,22 @@ LEGEND
 $ bugs/fixed
 . ............................
 # 2026 AUG 22
+@ operation chimera
++ stories/ and notes/ - the docx exported back out to markdown
++ every book, chapter and codex entry as its own file
++ all of it loaded onto operation_chimera.html with a table of contents
+> stories split by book, notes split into codex and story bible
+> pdf and docx still linked for offline reading
+
+@ website
++ ::toc:: now picks up headings from included markdown files
+> table of contents rebuilds once data-brewdown includes finish loading
+> hand-written tables of contents are left alone
+> included markdown now flows into the page instead of its own wrapper
+> blockquotes get their own formatting context
+$ included text sat under the toc and its background covered it
+$ blockquote background ran under the toc while its text wrapped beside it
+
 @ minecraft
 + OWDP - private whitelisted server, owned by Trinkbell
 + OWDP update check block

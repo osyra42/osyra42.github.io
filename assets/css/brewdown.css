@@ -152,6 +152,9 @@ main blockquote {
   border-left: 4px solid var(--accent);
   padding: 1em 1.5em;
   margin: 1.5em 0;
+  /* Own formatting context so the filled box sits BESIDE a floated ::toc:: instead
+     of running its background under it while only the text wraps. */
+  overflow: hidden;
 }
 
 /* Table of Contents box (::toc:: renders a <pre class="brewdown-toc">). Floated to the
