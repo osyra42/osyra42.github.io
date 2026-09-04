@@ -1,2 +1,0 @@
-## For the Next Operator
-

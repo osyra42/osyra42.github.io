@@ -26,7 +26,7 @@ window.MANIFEST = {
     "ever_diamond.html":         { title: "Ever Diamond",           icon: "💎", section: "Books",            date: "2026.07.18", words: 12951, minutes: 59 },
     "glitched.html":             { title: "Glitched",               icon: "⚡", section: "Books",            date: "2026.07.18", words:  9603, minutes: 44 },
     "infinite_devastation.html": { title: "Infinite Devastation",   icon: "⚔️", section: "Books",            date: "2026.07.18", words:  7196, minutes: 33 },
-    "operation_chimera.html":    { title: "Operation Chimera",      icon: "📖", section: "Books",            date: "2026.08.22", words: 63068, minutes: 287 },
+    "operation_chimera.html":    { title: "Operation Chimera",      icon: "📖", section: "Books",            date: "2026.09.04", words: 63068, minutes: 287},
     "blank_pixel_game.html":     { title: "Blank Pixel Game",       icon: "🕹️", section: "Games",            date: "2026.07.18", words:  1535, minutes:  7 },
     "clutter.html":              { title: "Clutter",                icon: "🎄", section: "Games",            date: "2026.07.18", words:   427, minutes:  2 },
     "sipsip.html":               { title: "Sip Sip",                icon: "🧋", section: "Games",            date: "2026.07.24", words:   230, minutes:  2 },

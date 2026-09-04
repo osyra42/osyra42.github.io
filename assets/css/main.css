@@ -170,6 +170,7 @@ main .toc {
   border-radius: 0;
   padding: 25px;
   margin-bottom: 40px;
+  z-index: 99;
 }
 
 main .toc h2 {
@@ -248,35 +249,6 @@ main .footer p {
   text-indent: 0;
 }
 
-/* ===========================================================================
-   PAPER SHEET
-   ---------------------------------------------------------------------------
-   The rendered content sits on a sheet of warm off-white stock, floating on
-   the dark espresso background. <main> itself stays DARK - it is the surface
-   the sheet rests on, and the dark margin either side of the sheet is what
-   makes it read as paper rather than as a white page.
-
-   The sheet is the brewdown container:
-     .brewdown           - authoring class, present before JS runs
-     .brewdown-rendered  - what brewdown.js swaps to after rendering, and what
-                           script-mode pages (casio_code, the legal pages) get
-   Both are styled so the sheet does not flash dark before JS runs.
-
-   Everything above this block was written against a dark background, so this
-   section re-points those surfaces at the paper palette (--paper*, defined in
-   styles.css) rather than editing each rule in place. Delete from this banner
-   to the end of the file to remove the treatment entirely.
-   =========================================================================== */
-
-/* Grid on the stage the sheet rests on.
-   ONE scale, ONE alpha - matching the beta prototype. A second finer grid with
-   heavier major lines reads as graph paper (a surface for doing maths on);
-   a single wide grid reads as a technical overlay, which is the intent.
-
-   `fixed` attachment pins it to the viewport so it stays put while the sheet
-   scrolls over it - a surface, not a pattern printed on the content.
-
-   Tuning: --grid-line for intensity, --grid-cell for spacing. */
 main {
   /* --grid-line is derived per flavor by themes.js; only the spacing is local. */
   --grid-cell: 64px;
@@ -288,39 +260,6 @@ main {
   background-attachment: fixed;
 }
 
-/* Corner brackets framing the content area. Two L-shaped boxes - top-left and
-   bottom-right - each showing only two of its four borders.
-
-   ATTACHED TO <body>, NOT <main>. <main> is a scroll container
-   (overflow-y: auto), and a scroll container CLIPS its own pseudo-elements to
-   its padding box - even `position: fixed` ones. Putting them on <main> renders
-   them and then immediately cuts them off, so nothing appears. <body> sets no
-   overflow, so it does not clip.
-
-   `fixed` pins them to the viewport, so the frame belongs to the window and
-   stays put while content scrolls past.
-
-   The left offset clears the 340px sidebar (see styles.css grid). z-index sits
-   above content but below the sticky download bar (10), mobile chrome
-   (1000-1005) and tooltips (2000).
-
-   pointer-events: none so they never intercept a click. */
-/* Corner brackets framing the STAGE - the area below the download bar where
-   the sheet sits. Two L-shaped boxes, each showing only two of its borders.
-
-   In the beta prototype the stage was its own element sitting below a separate
-   topbar, so the brackets could be absolutely positioned inside it. Main has
-   no such element: the download bar lives INSIDE <main> as its first child.
-   Rather than restructure every page, the brackets are drawn on <body> and the
-   top one is inset past the bar's height.
-
-   Why <body> and not <main>: <main> is a scroll container (overflow-y: auto),
-   and a scroll container clips its own pseudo-elements to its padding box -
-   even `position: fixed` ones. Drawn on <main> they render and are immediately
-   cut off. <body> sets no overflow, so it does not clip.
-
-   --bar-h tracks the download bar: 8px padding, a 1.5em h1 on the 20px base,
-   and its 2px bottom border. Change it here if the bar's padding changes. */
 body::before,
 body::after {
   content: "";
@@ -374,17 +313,6 @@ main .brewdown-rendered {
     100% 100%,
     0 100%);
 
-  /* drop-shadow, NOT box-shadow. box-shadow is painted from the element's BOX
-     and ignores clip-path entirely, so it redraws the square corner and leaves
-     a ghost triangle floating in the notch. filter is applied AFTER clipping,
-     so drop-shadow traces the actual clipped silhouette.
-
-     Two passes = a tight contact shadow plus a soft ambient one, matching what
-     the old box-shadow pair did.
-
-     Safe here because the sheet contains no fixed/absolute descendants that
-     `filter` would trap - the tooltip popup is appended to <body>, outside
-     <main> (see brewdown.css). */
   filter:
     drop-shadow(0 1px 2px rgba(0, 0, 0, .3))
     drop-shadow(0 12px 24px rgba(0, 0, 0, .38));
@@ -395,20 +323,6 @@ main {
   --notch: 26px;
 }
 
-/* ---------------------------------------------------------------------------
-   Sheet entry — the beta prototype's motion, ported as-is.
-
-   The sheet slides in from the left with a slight rotation and scale, settling
-   into place over 0.5s, while a band of light sweeps across it. Content blocks
-   rise behind the sheet as it lands.
-
-   In beta this animated an SPA page TRANSITION. Here it runs on page load
-   instead, so the effect is the same but the trigger differs: the page deals
-   itself onto the stage rather than swapping.
-
-   transform-origin sits left-of-centre so the rotation pivots near where the
-   sheet enters from, rather than spinning about its middle.
-   --------------------------------------------------------------------------- */
 @keyframes sheet-in {
   0%   { opacity: 0; transform: translateX(-170px) rotate(-6deg) scale(.95); }
   60%  { opacity: 1; }
@@ -431,11 +345,6 @@ main .brewdown-rendered {
   animation: sheet-in 0.5s cubic-bezier(.22, .61, .36, 1) both;
 }
 
-/* Light sweeping across the sheet as it lands. Clipped to the same notch as the
-   sheet - an unclipped overlay would light up the cut corner and momentarily
-   re-square the shape mid-animation.
-
-   ::before is already taken by the notch hairline, so this rides on ::after. */
 main .brewdown-rendered::after {
   content: "";
   position: absolute;
@@ -453,9 +362,6 @@ main .brewdown-rendered::after {
   z-index: 3;
 }
 
-/* Blocks rise as the sheet settles, staggered behind it. Beyond the fifth they
-   share one delay - a per-block cascade down a long page would still be
-   arriving well after the reader started. */
 main .brewdown-rendered > * {
   animation: block-rise 0.38s cubic-bezier(.22, .61, .36, 1) both;
 }
@@ -474,9 +380,6 @@ main .brewdown-rendered > *:nth-child(n+5) { animation-delay: 0.36s; }
   main .brewdown-rendered::after { display: none; }
 }
 
-/* Hairline along the cut edge so the notch reads as a deliberate paper cut
-   rather than a missing chunk. The gradient draws a 1.5px line along the
-   diagonal and leaves the rest transparent. */
 main .brewdown-rendered {
   position: relative;
 }
@@ -517,77 +420,38 @@ main .brewdown-rendered h6 {
 main .brewdown-rendered strong { color: var(--paper-ink); }
 main .brewdown-rendered hr { border-color: var(--paper-edge); }
 
-/* ---- Links -------------------------------------------------------------
-   brewdown.css gives links a permanent dotted underline and repaints the
-   decoration on :visited to match the page background so it blends away.
-   On the sheet that background is paper, so :visited must follow or visited
-   links keep a visible dark dotted line. */
 main .brewdown-rendered a { color: var(--paper-link); }
 main .brewdown-rendered a:visited { text-decoration-color: var(--paper); }
 main .brewdown-rendered a:hover { color: var(--accent-dark); }
 
-/* ---- Code --------------------------------------------------------------
-   Code blocks stay dark: highlight.js ships a dark theme (kimbie-dark) and
-   inverting it would mean restyling every token colour. A dark listing inset
-   into paper is conventional and reads well. */
-/* INLINE code only - `:not(pre code)` keeps this off code blocks. Without the
-   exclusion this rule also matched code.hljs, and being more specific than the
-   syntax theme's own .hljs rule it repainted every block in paper colours -
-   which is why swapping themes appeared to do nothing. */
 main .brewdown-rendered :not(pre) > code {
   background-color: var(--paper-shade);
   border: 1px solid var(--paper-edge);
   color: #4a3a26;
 }
 
-/* The syntax theme (assets/highlight/styles/*.min.css) owns the code block's
-   background and token colours. These rules previously forced --dark-chocolate
-   and --steamed-milk, which overrode the theme entirely - every language looked
-   the same dim brown regardless of which theme was loaded.
-
-   Only the accent edge and the frame are ours now. Code blocks that highlight.js
-   did NOT touch (no language set) fall back to the dark chocolate, so an
-   unhighlighted block still reads as an inset listing. */
 main .brewdown-rendered pre {
   background-color: var(--dark-chocolate);
   border-left: 3px solid var(--accent);
 }
 
-/* Un-highlighted code (no language set) keeps the frame's own background. The
-   :not() is what lets the syntax theme win on highlighted blocks - a bare
-   `pre code { background: none }` is more specific than the theme's `.hljs`
-   rule and was silently overriding every theme we loaded. */
 main .brewdown-rendered pre code:not(.hljs) {
   background: none;
   border: 0;
   color: var(--steamed-milk);
 }
 
-/* Highlighted blocks: .hljs brings its own background and token colours from
-   assets/highlight/styles/*.min.css (stackoverflow-light - a light theme, so it
-   reads as a printed listing on the sheet rather than a terminal punched into
-   it). The <pre> goes transparent and loses its padding so the theme's block is
-   what you see, edge to edge. */
 main .brewdown-rendered pre:has(code.hljs) {
   background-color: transparent;
   padding: 0;
   border-left: 0;
 }
 
-/* A light block on light paper needs an edge to read as a box. The accent bar
-   on the left matches the callouts; the hairline closes the other three sides. */
 main .brewdown-rendered pre code.hljs {
   border: 1px solid var(--paper-edge);
   border-left: 3px solid var(--accent);
 }
 
-/* ---- Raised blocks on the sheet ----------------------------------------
-   Outlined boxes with a cut top-right corner, echoing the sheet itself. No
-   rounding anywhere - the soft radii read as friendly, which fights the
-   technical framing around them.
-
-   The notch is a clip-path, so these use a hairline border rather than a fill
-   that would get sliced at the cut. --cut is defined at the top of this file. */
 main .brewdown-rendered blockquote,
 main .brewdown-rendered .toc,
 main .brewdown-rendered .brewdown-toc,
@@ -616,17 +480,10 @@ main .brewdown-rendered table td {
   border-color: var(--paper-edge);
 }
 
-/* Striped rows. brewdown.css shades these with a dark brown at 50% opacity,
-   which was right on the old dark background but lands as a heavy dark band on
-   paper. A light wash of the ink colour gives the same alternation without the
-   stripe fighting the text sitting on it. */
 main .brewdown-rendered table tr:nth-child(even) {
   background-color: color-mix(in srgb, var(--paper-ink) 5%, transparent);
 }
 
-/* ---- Spoilers ----------------------------------------------------------
-   A spoiler hides text by matching it to its own background, so both halves
-   must move to paper values or the hidden text stays legible. */
 main .brewdown-rendered .spoiler {
   background-color: var(--paper-ink-soft);
   color: var(--paper-ink-soft);
@@ -647,18 +504,11 @@ main .brewdown-rendered .footer {
   border-color: var(--paper-edge);
 }
 
-/* ---- Narrow screens ----------------------------------------------------
-   Below the sheet's own width the dark margin would be a sliver, which looks
-   like a rendering fault rather than a deliberate edge. Drop the float and
-   let the sheet run full-bleed. The 768px mobile layout is handled in
-   mobile.css; this covers the gap between the two. */
 @media (max-width: 1000px) {
   main .brewdown,
   main .brewdown-rendered {
     margin-bottom: 0;
     padding: 32px 28px 40px;
-    /* Full-bleed from here down: no floating edge, so no shadow and no notch.
-       A cut corner on a full-width sheet reads as a rendering fault. */
     box-shadow: none;
     filter: none;
     clip-path: none;
@@ -666,9 +516,6 @@ main .brewdown-rendered .footer {
 
   main .brewdown-rendered::before { display: none; }
 
-  /* Sheet is full-bleed from here down, so there is no stage left for the
-     grid to sit on, and the corner brackets would land on top of the paper
-     instead of framing it. */
   main {
     background-image: none;
   }
