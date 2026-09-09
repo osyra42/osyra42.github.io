@@ -1,4 +1,4 @@
-/*! `kotlin` grammar compiled for Highlight.js 11.11.1 */
+/*! `kotlin` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -165,7 +165,9 @@ var hljsGrammar = (function () {
       name: 'Kotlin',
       aliases: [
         'kt',
-        'kts'
+        'kts',
+        'ktm',
+        'ktx'
       ],
       keywords: KEYWORDS,
       contains: [

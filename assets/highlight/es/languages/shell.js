@@ -1,4 +1,4 @@
-/*! `shell` grammar compiled for Highlight.js 11.11.1 */
+/*! `shell` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -24,7 +24,7 @@ var hljsGrammar = (function () {
           // We cannot add \s (spaces) in the regular expression otherwise it will be too broad and produce unexpected result.
           // For instance, in the following example, it would match "echo /path/to/home >" as a prompt:
           // echo /path/to/home > t.exe
-          begin: /^\s{0,3}[/~\w\d[\]()@-]*[>%$#][ ]?/,
+          begin: /^\s{0,3}[./~\w\d[\]()@-]*[>%$#][ ]?/,
           starts: {
             end: /[^\\](?=\s*$)/,
             subLanguage: 'bash'

@@ -1,4 +1,4 @@
-/*! `ada` grammar compiled for Highlight.js 11.11.1 */
+/*! `ada` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -12,7 +12,7 @@
                the newest standard being Ada2012.
   */
 
-  // We try to support full Ada2012
+  // We try to support full Ada 2022
   //
   // We highlight all appearances of types, keywords, literals (string, char, number, bool)
   // and titles (user defined function/procedure/package)
@@ -42,7 +42,7 @@
     const ID_REGEX = '[A-Za-z](_?[A-Za-z0-9.])*';
 
     // bad chars, only allowed in literals
-    const BAD_CHARS = `[]\\{\\}%#'"`;
+    const BAD_CHARS = `\\{\\}%#'"`;
 
     // Ada doesn't have block comments, only line comments
     const COMMENTS = hljs.COMMENT('--', '$');
@@ -151,7 +151,8 @@
       "do",
       "mod",
       "requeue",
-      "xor"
+      "xor",
+      "parallel"
     ];
 
     return {

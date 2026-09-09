@@ -1,4 +1,4 @@
-/*! `lisp` grammar compiled for Highlight.js 11.11.1 */
+/*! `lisp` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -39,8 +39,8 @@ var hljsGrammar = (function () {
       { relevance: 0 }
     );
     const VARIABLE = {
-      begin: '\\*',
-      end: '\\*'
+      scope: 'variable',
+      match: /\*[^\s()*]+\*/
     };
     const KEYWORD = {
       className: 'symbol',

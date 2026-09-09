@@ -1,4 +1,4 @@
-/*! `oxygene` grammar compiled for Highlight.js 11.11.1 */
+/*! `oxygene` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';

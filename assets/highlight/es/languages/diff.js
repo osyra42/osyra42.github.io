@@ -1,4 +1,4 @@
-/*! `diff` grammar compiled for Highlight.js 11.11.1 */
+/*! `diff` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -21,7 +21,10 @@ var hljsGrammar = (function () {
           className: 'meta',
           relevance: 10,
           match: regex.either(
-            /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/,
+            /^@@ +-\d+,\d+ +\+\d+,\d+ +@@/, // @@ -1,2 +1,2 @@
+            /^@@ +-\d+ +\+\d+,\d+ +@@/,     // @@ -1 +1,2 @@
+            /^@@ +-\d+,\d+ +\+\d+ +@@/,     // @@ -1,2 +1 @@
+            /^@@ +-\d+ +\+\d+ +@@/,         // @@ -1 +1 @@
             /^\*\*\* +\d+,\d+ +\*\*\*\*$/,
             /^--- +\d+,\d+ +----$/
           )

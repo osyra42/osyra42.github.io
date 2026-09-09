@@ -1,4 +1,4 @@
-/*! `llvm` grammar compiled for Highlight.js 11.11.1 */
+/*! `llvm` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -115,6 +115,7 @@ var hljsGrammar = (function () {
         // another language than an actual comment
         hljs.COMMENT(/;\s*$/, null, { relevance: 0 }),
         hljs.COMMENT(/;/, /$/),
+        hljs.C_BLOCK_COMMENT_MODE,
         {
           className: 'string',
           begin: /"/,

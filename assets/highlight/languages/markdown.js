@@ -1,4 +1,4 @@
-/*! `markdown` grammar compiled for Highlight.js 11.11.1 */
+/*! `markdown` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -19,10 +19,10 @@
       subLanguage: 'xml',
       relevance: 0
     };
-    const HORIZONTAL_RULE = {
-      begin: '^[-\\*]{3,}',
-      end: '$'
-    };
+    // https://spec.commonmark.org/0.31.2/#thematic-breaks
+    // three or more `-`, `*` or `_`, all the same character, optionally
+    // separated and followed by spaces or tabs, and nothing else on the line
+    const HORIZONTAL_RULE = { match: /^ {0,3}([-*_])[ \t]*(?:\1[ \t]*){2,}$/ };
     const CODE = {
       className: 'code',
       variants: [
@@ -238,11 +238,13 @@
         HEADER,
         INLINE_HTML,
         LIST,
+        // must come before BOLD/ITALIC so that a `***` or `___` thematic break
+        // isn't mistaken for the start of bold text
+        HORIZONTAL_RULE,
         BOLD,
         ITALIC,
         BLOCKQUOTE,
         CODE,
-        HORIZONTAL_RULE,
         LINK,
         LINK_REFERENCE,
         ENTITY

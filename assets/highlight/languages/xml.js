@@ -1,4 +1,4 @@
-/*! `xml` grammar compiled for Highlight.js 11.11.1 */
+/*! `xml` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -166,10 +166,7 @@
           starts: {
             end: /<\/style>/,
             returnEnd: true,
-            subLanguage: [
-              'css',
-              'xml'
-            ]
+            subLanguage: 'css'
           }
         },
         {
@@ -182,11 +179,7 @@
           starts: {
             end: /<\/script>/,
             returnEnd: true,
-            subLanguage: [
-              'javascript',
-              'handlebars',
-              'xml'
-            ]
+            subLanguage: 'javascript'
           }
         },
         // we need this for now for jSX

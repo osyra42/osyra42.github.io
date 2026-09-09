@@ -1,4 +1,4 @@
-/*! `csp` grammar compiled for Highlight.js 11.11.1 */
+/*! `csp` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -19,6 +19,7 @@ var hljsGrammar = (function () {
       "child-src",
       "connect-src",
       "default-src",
+      "fenced-frame-src",
       "font-src",
       "form-action",
       "frame-ancestors",
@@ -28,10 +29,16 @@ var hljsGrammar = (function () {
       "media-src",
       "object-src",
       "plugin-types",
+      "report-to",
       "report-uri",
+      "require-trusted-types-for",
       "sandbox",
       "script-src",
+      "script-src-attr",
+      "script-src-elem",
       "style-src",
+      "style-src-attr",
+      "style-src-elem",
       "trusted-types",
       "unsafe-hashes",
       "worker-src"

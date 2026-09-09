@@ -1,9 +1,10 @@
-/*! `typescript` grammar compiled for Highlight.js 11.11.1 */
+/*! `typescript` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
 
   const IDENT_RE = '[A-Za-z$_][0-9A-Za-z$_]*';
+
   const KEYWORDS = [
     "as", // for exports
     "in",
@@ -154,6 +155,7 @@
     "localStorage",
     "sessionStorage",
     "module",
+    "self",
     "global" // Node.js
   ];
 
@@ -551,7 +553,8 @@
         noneOf([
           ...BUILT_IN_GLOBALS,
           "super",
-          "import"
+          "import",
+          "await",
         ].map(x => `${x}\\s*\\(`)),
         IDENT_RE$1, regex.lookahead(/\s*\(/)),
       className: "title.function",
@@ -620,7 +623,7 @@
       keywords: KEYWORDS$1,
       // this will be extended by TypeScript
       exports: { PARAMS_CONTAINS, CLASS_REFERENCE },
-      illegal: /#(?![$_A-z])/,
+      illegal: /#(?![$_A-Za-z])/,
       contains: [
         hljs.SHEBANG({
           label: "shebang",

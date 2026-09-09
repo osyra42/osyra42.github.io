@@ -1,4 +1,4 @@
-/*! `fsharp` grammar compiled for Highlight.js 11.11.1 */
+/*! `fsharp` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -70,6 +70,18 @@ var hljsGrammar = (function () {
       + args.map((x) => source(x)).join("|") + ")";
     return joined;
   }
+
+  // BACKREF_RE matches an open parenthesis or backreference. To avoid an
+  // incorrect parse, it also matches the constructs where the meaning of
+  // parentheses, escapes, or capture counting changes.
+  new RegExp(either(
+    /\[(?:[^\\\]]|\\.)*\]/, // a character class, inside which ( and \ lose their meaning
+    /\(\?<(?![=!])[^>]+>/, // a named capture group `(?<name>` (not a lookbehind `(?<=` / `(?<!`)
+    /\(\?'[^']+'/, // a named capture group `(?'name'`
+    /\(\??/, // an opening parenthesis, capturing or non-capturing / lookahead
+    /\\([1-9][0-9]*)/, // a backreference like `\1`
+    /\\./ // any other escape sequence
+  ));
 
   /*
   Language: F#

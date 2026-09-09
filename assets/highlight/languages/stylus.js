@@ -1,4 +1,4 @@
-/*! `stylus` grammar compiled for Highlight.js 11.11.1 */
+/*! `stylus` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -13,6 +13,10 @@
       HEXCOLOR: {
         scope: 'number',
         begin: /#(([0-9a-fA-F]{3,4})|(([0-9a-fA-F]{2}){3,4}))\b/
+      },
+      UNICODE_RANGE: {
+        scope: 'number',
+        begin: /\b[Uu]\+[0-9A-Fa-f][0-9A-Fa-f?]{0,5}(-[0-9A-Fa-f][0-9A-Fa-f]{0,5})?/
       },
       FUNCTION_DISPATCH: {
         className: "built_in",
@@ -447,6 +451,11 @@
     'container-type',
     'content',
     'content-visibility',
+    'corner-bottom-left-shape',
+    'corner-bottom-right-shape',
+    'corner-shape',
+    'corner-top-left-shape',
+    'corner-top-right-shape',
     'counter-increment',
     'counter-reset',
     'counter-set',
@@ -782,6 +791,7 @@
     'transition-timing-function',
     'translate',
     'unicode-bidi',
+    'unicode-range',
     'user-modify',
     'user-select',
     'vector-effect',
@@ -964,6 +974,7 @@
                 VARIABLE,
                 hljs.APOS_STRING_MODE,
                 modes.CSS_NUMBER_MODE,
+                modes.UNICODE_RANGE,
                 hljs.QUOTE_STRING_MODE
               ]
             }

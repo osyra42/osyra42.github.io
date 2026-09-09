@@ -1,0 +1,340 @@
+# Better for Free
+::toc::
+*A guide to free software and service alternatives*
+*Archived Research Document*
+
+## Introduction
+
+### The Power of Free: Why Choose Open-Source and Free Alternatives
+
+Commercial software usually means recurring costs and vendor lock-in. The good news is there's a huge, growing pile of free and open-source software (FOSS) and free-tier services that do the same jobs - often better. This guide collects a lot of those options, so you can get comparable or better functionality without paying for it.
+
+Cost isn't the only win. Open-source code is usually out in the open, which makes it easier to trust and audit. Community-driven projects tend to move fast on fixes and features instead of waiting on a corporate roadmap. And a lot of these tools are more flexible - you can bend them to fit what you actually need.
+
+"Free" isn't always charity, either. Plenty of companies build on open-source foundations and offer a solid free version to pull people in, with advanced features or support behind a paid tier [1]. Tools like WPS Office and PDF-XChange Editor [2] are good examples of that freemium model. That's worth knowing - it means a lot of free options are backed by real money and aren't going to vanish next year.
+
+### How to Use This Guide
+
+It's split into major categories. Each section lists the paid product on one side and the free alternative on the other, with a direct download link for every option.
+
+Skip to whatever section you need. Before you commit to something, check the system requirements against your hardware, and skim the license if you're using it commercially - some free tools have strings attached. The goal here is just to give you enough to make a good call and move over without much fuss.
+
+## I. Essential Desktop & Productivity Tools
+
+*The everyday stuff - productivity apps, personal organization, and basic system utilities, with direct swaps for the popular paid ones.*
+
+### Office Suites (Word Processing, Spreadsheets, Presentations)
+
+Most days come down to a word processor, a spreadsheet, and slides. Microsoft 365, Google Workspace, and Apple iWork all charge for that on repeat. The free options here cover the same ground for most tasks.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Microsoft 365, Google Workspace, Apple iWork | LibreOffice | Comprehensive suite: word processor, spreadsheet, presentations, vector diagrams, math, database. Free for commercial use. [2] | [LibreOffice](https://www.libreoffice.org/download/download-libreoffice/) |
+| Microsoft 365, Google Workspace | Microsoft 365 Free Apps (Web) | Web-based Word, Excel, PowerPoint for free. Ideal for basic tasks and collaboration. [2] | [Microsoft 365 Free](https://www.microsoft.com/en-us/microsoft-365/free-online-for-everyone) |
+| Microsoft 365, Google Workspace | WPS Office (Freemium) | Slick suite with word processor, spreadsheet, presentations, and free PDF reader. Paid version adds PDF editing. [2] | [WPS Office](https://www.wps.com/download/) |
+
+LibreOffice is the full kit - word processor, spreadsheet, presentations, plus extras for vector diagrams, math, and databases. It reads Microsoft 365 formats, and it's free for commercial use, which is the real selling point. [2]
+
+Microsoft also gives away web versions of Word, Excel, and PowerPoint. You lose some of the heavier tools like pivot tables, but for basic work and full document compatibility they're a fine swap. [2]
+
+WPS Office is the freemium pick - a slick interface covering the basics plus a free PDF reader. [2]
+
+### PDF Management
+
+Viewing, light editing, and signing PDFs comes up constantly, and Adobe Acrobat charges a lot for it.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Adobe Acrobat | PDF-XChange Editor | Many common editing functions like adding digital signatures, without the complexity of Acrobat. [2] | [PDF-XChange Editor](https://www.tracker-software.com/product/pdf-xchange-editor/download) |
+
+PDF-XChange Editor handles most of the common editing jobs, signatures included, with a simpler interface than Acrobat. [2]
+
+### Password Management
+
+A real password manager isn't optional anymore. 1Password and LastPass do the job but charge a subscription for it.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| 1Password, LastPass | Bitwarden | Highly recommended open-source password manager for individuals and teams, emphasizing strong security. [2] | [Bitwarden](https://bitwarden.com/download/) |
+| 1Password | Padloc | Password manager for teams and individuals. [1] | [Padloc](https://padloc.app/) |
+| 1Password | Passbolt | Password manager specifically designed for teams and individuals. [1] | [Passbolt](https://www.passbolt.com/) |
+| Commercial Password Managers | KeePass | Handy password generator and credential storage with two-factor authentication and portability. [3] | [KeePass](https://keepass.info/) |
+
+Bitwarden is the one I'd point most people to - open-source, solid for individuals and teams. Generate a unique password for every service and a single breach stops being a chain reaction. [2]
+
+### Writing & Grammar Assistance
+
+Writing that reads clean matters, which is why people reach for Grammarly or ProWritingAid.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Grammarly, ProWritingAid | LanguageTool | Browser extension that proofreads text for grammar and spelling, supporting over 30 languages. [2] | [LanguageTool](https://languagetool.org/) |
+
+LanguageTool is a browser extension that proofreads grammar and spelling, and it covers over 30 languages - most checkers only handle a handful. [2]
+
+### File Compression & Archiving
+
+Zipping and unzipping is routine, and WinZip or WinRAR will nag you to pay for it.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| WinZip, WinRAR | 7-Zip | Powerful and easy-to-use archiving program that integrates with Windows and supports numerous file types. [2] | [7-Zip](https://www.7-zip.org/download.html) |
+
+7-Zip drops straight into the Windows right-click menu, runs faster than the built-in ZIP, and handles far more file types. [2]
+
+### Developer & Code Editors
+
+A code editor is the tool you live in all day. Some of the popular ones cost money or ship telemetry you might not want.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| VS Code (telemetry), Sublime Text | VSCodium | Fully-featured code editor based on VS Code, without Microsoft's tracking and telemetry. [2] | [VSCodium](https://vscodium.com/) |
+| Vim | Neovim | A hyperextensible Vim-based text editor. [6] | [Neovim](https://neovim.io/) |
+| GitHub, GitLab | Gitea | Open-source code hosting and collaboration platform. [6] | [Gitea](https://gitea.io/) |
+
+VSCodium is basically VS Code - same core editor - just built without Microsoft's tracking and telemetry. [2]
+
+## II. Creative & Multimedia Solutions
+
+*Creative tools - video editing, graphic design, audio production. You can put out good work without paying for expensive licenses.*
+
+### Video Production & Streaming
+
+Editing video and going live used to mean paying for Adobe Premiere Pro, Final Cut Pro, or a streaming suite.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Adobe Premiere Pro, Final Cut Pro | DaVinci Resolve (Freemium) | Incredibly robust tools for video editing, color correction, visual effects, and audio post-production. | [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/) |
+| Paid streaming software | OBS Studio | Leading free and open-source software for video recording and live streaming. [2] | [OBS Studio](https://obsproject.com/) |
+| Twitch | Glimesh | A live streaming platform. [1] | [Glimesh](https://glimesh.tv/) |
+| Adobe Premiere Pro, Final Cut Pro | Shotcut | Free, open-source video editing software supporting multiple formats with an intuitive interface. [3] | [Shotcut](https://shotcut.org/) |
+
+DaVinci Resolve is a full professional suite - editing, color, VFX, audio post. The free version is genuinely powerful and holds its own against paid apps.
+
+OBS Studio is what most people stream and record with, and for good reason - it's free, open-source, and you can customize it as deep as you want. [2]
+
+### Graphic Design & Image Editing
+
+Adobe Illustrator and Photoshop are the defaults for design work, but there are solid free options that do the same jobs.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Adobe Illustrator | Inkscape | Powerful open-source vector graphics editor for scalable designs, illustrations, logos, and web graphics. | [Inkscape](https://inkscape.org/) |
+| Adobe Photoshop | GIMP | Versatile raster graphics editor for photo retouching, image composition, and image authoring. Supports layers, filters, and plugins. [3] | [GIMP](https://www.gimp.org/) |
+| Figma | Penpot | A design and prototyping platform. [1] | [Penpot](https://penpot.app/) |
+
+Inkscape is the open-source stand-in for Illustrator on the vector side. GIMP (GNU Image Manipulation Program) covers the Photoshop side for raster work. [3]
+
+### Audio Production
+
+Recording, editing, and mixing audio usually means a paid DAW like Adobe Audition, Logic Pro, or FL Studio.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Adobe Audition, Logic Pro, FL Studio | Audacity | Widely used, free, open-source digital audio editor and recording application with support for plugins. [3] | [Audacity](https://www.audacityteam.org/) |
+
+Audacity is the go-to free, open-source audio editor and recorder. It's straightforward and handles podcasting, music, and cleanup work well. [3]
+
+### 3D Modeling & CAD
+
+3D modeling and CAD are core tools for engineers, designers, and hobbyists alike. AutoCAD, SolidWorks, and SketchUp Pro all carry steep price tags.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| AutoCAD, SolidWorks | FreeCAD | Open-source parametric 3D modeler for designing real-life objects of any size. Multiplatform, many open file formats. [7] | [FreeCAD](https://www.freecad.org/downloads.php) |
+| Autodesk Maya, 3ds Max | Blender | Complete free and open-source 3D modeling software popular for animation and video. Cross-platform. [8] | [Blender](https://www.blender.org/download/) |
+| Commercial 3D Modeling | OpenSCAD | Free, open-source 3D software for creating solid 3D models using a script-based approach. [8] | [OpenSCAD](https://openscad.org/downloads.html) |
+| SketchUp Pro | Sketchup Free | Simplified, browser-only version of SketchUp, easy to use for various projects. [8] | [Sketchup Free](https://app.sketchup.com/app) |
+
+FreeCAD is an open-source parametric modeler aimed at real-world objects. Blender is the all-in-one free 3D suite, big in animation and video. I use it myself. [8]
+
+### Game Development Engines
+
+A game engine is the framework you build a game on top of.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Unity, Unreal Engine | Godot Engine | 2D and 3D free game development engine that allows developers to create games from scratch. [6] | [Godot Engine](https://godotengine.org/) |
+| Commercial 2D Game Engines | Cocos2D-X | Open-source game engine written in C++ for publishing games on desktop and mobile devices. [9] | [Cocos2D-X](https://www.cocos2d-x.org/download) |
+
+Godot is a free 2D and 3D engine you can build a whole game in without reaching for other tools. [6]
+
+### Web Browsers
+
+The browser is where you spend most of your day, and a lot of the big ones collect more than you'd like.
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Google Chrome, Microsoft Edge | Mozilla Firefox | Secure, customizable open-source browser with excellent privacy features. [4] | [Mozilla Firefox](https://www.mozilla.org/firefox/) |
+| Google Chrome, Safari | Brave | Privacy-focused open-source browser that automatically disables trackers with built-in ad-blocker. [3] | [Brave](https://brave.com/download/) |
+
+Firefox is the well-known open-source browser - secure, customizable, and good on privacy. [4] Brave is another open-source pick that blocks trackers by default and ships an ad-blocker built in. [3]
+
+### Media Players
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Windows Media Player, QuickTime | VLC Media Player | Lightweight, open-source media player that can play virtually anything. Runs well on old hardware. [3] | [VLC Media Player](https://www.videolan.org/vlc/) |
+
+VLC is a lightweight open-source player that plays just about any file you throw at it, even on old hardware. [3]
+
+### Operating Systems
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Microsoft Windows, macOS | Linux | Iconic open-source operating system, chosen for strong security, rich features, and growing accessibility. [3] | [Linux](https://www.linux.org/) |
+
+Linux is the open-source OS more people and companies keep moving to, for the security and the depth of what it can do. [3]
+
+### Personal Finance Software
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Quicken, Mint | GnuCash | Personal and small-business financial-accounting software. Supports double-entry accounting. [10] | [GnuCash](https://www.gnucash.org/) |
+| YNAB (You Need A Budget) | Actual Budget | Super fast and privacy-focused app for managing finances using Envelope Budgeting. [11] | [Actual Budget](https://actualbudget.org/docs/getting-started/installation/) |
+
+GnuCash is free, open-source accounting for personal and small-business use. [10] Actual Budget is a fast, privacy-focused app for managing your own money. [11]
+
+### Virtualization Software
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| VMware Workstation Pro, Parallels | Oracle VirtualBox | Free, open-source virtualization tool supporting Windows, Linux, Mac, and Solaris. [12] | [Oracle VirtualBox](https://www.virtualbox.org/wiki/Downloads) |
+| Commercial Hypervisors | KVM | Open-source virtualization solution built into the Linux kernel. [12] | [KVM](https://www.linux-kvm.org/) |
+| Commercial Virtualization | Proxmox VE | Open-source server virtualization management combining KVM and LXC containers. [12] | [Proxmox VE](https://www.proxmox.com/) |
+
+Oracle VirtualBox is a free, open-source virtualization tool that runs on most host platforms. [12] KVM is open-source virtualization baked right into the Linux kernel. [12]
+
+## III. Business & Enterprise Alternatives
+
+*The big one - free and open-source swaps for business-critical software, much of it standing in for pricey SaaS.*
+
+### Backend as a Service (BaaS)
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Firebase | Supabase | Backend server with REST APIs to manage core backend needs. [1] | [Supabase](https://supabase.io/) |
+| Firebase | Appwrite | Backend server with REST APIs to manage core backend needs. [1] | [Appwrite](https://appwrite.io/) |
+| Firebase | PocketBase | Backend server with built-in auth, real-time database, file storage, and no-code admin interface. [1] | [PocketBase](https://pocketbase.io/) |
+
+### Authentication & Single Sign-On (SSO)
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Okta, Auth0 | Keycloak | User authentication and session management framework. [1] | [Keycloak](https://www.keycloak.org/) |
+| Okta, Auth0 | Supertokens | User authentication and session management framework. [1] | [Supertokens](https://supertokens.io/) |
+
+### Business Intelligence & Data Visualization
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Tableau, Power BI, DataStudio | Metabase | Business intelligence software. [1] | [Metabase](https://www.metabase.com/) |
+| Tableau, Power BI, DataStudio | Apache Superset | Data Visualization and Exploration platform. [6] | [Apache Superset](https://superset.apache.org/) |
+
+### Content Management Systems (CMS)
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Contentful | Strapi | Node.js Headless CMS to build customisable APIs. [1] | [Strapi](https://strapi.io/) |
+| Medium, Substack | Ghost | Headless Node.js publishing platform. [1] | [Ghost](https://ghost.org/) |
+| Commercial CMS | WordPress | Highly popular open-source content management system used by over 60 million people. [5] | [WordPress](https://wordpress.org/) |
+
+### Communication & Collaboration Tools
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Slack | Mattermost | Enterprise communication platform for developers. [1] | [Mattermost](https://mattermost.com/) |
+| Slack | Rocket.chat | Enterprise communication platform, highly customizable and secure. [1] | [Rocket.chat](https://rocket.chat/) |
+| Slack, Microsoft Teams | Zulip | Open-source team chat platform with topic-based threading. [1] | [Zulip](https://zulip.com/) |
+| Zoom, Webex, Google Meet | Jitsi Meet | Fully encrypted, open-source video conferencing solution. [5] | [Jitsi Meet](https://jitsi.org/) |
+
+### Cloud Storage & File Hosting
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Amazon S3 | Minio | S3 compatible object storage. [1] | [Minio](https://min.io/) |
+| Dropbox, Google Drive | Nextcloud | A personal cloud which runs on your own server. [1] | [Nextcloud](https://nextcloud.com/) |
+| Dropbox, Google Drive | Owncloud | A personal cloud which runs on your own server. [1] | [Owncloud](https://owncloud.com/) |
+
+### Customer Data & Engagement Platforms
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Segment | Rudderstack | Customer data platform for developers. [1] | [Rudderstack](https://rudderstack.com/) |
+| Intercom, Zendesk | Chatwoot | Live chat widget. [1] | [Chatwoot](https://www.chatwoot.com/) |
+| Salesforce, Odoo | SuiteCRM | Comprehensive CRM package with open-source code. [5] | [SuiteCRM](https://suitecrm.com/) |
+
+### E-commerce Platforms
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Shopify, Ecwid | Medusa | Headless e-commerce platform. [1] | [Medusa](https://medusajs.com/) |
+| Shopify | Spree | Open-source e-commerce platform built with Ruby on Rails. [13] | [Spree](https://spreecommerce.org/) |
+| Commercial E-commerce | WooCommerce | Popular open-source e-commerce plugin for WordPress. [6] | [WooCommerce](https://woocommerce.com/) |
+
+### Data Integration (ETL/ELT)
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Fivetran | Airbyte | Data integration platform. [1] | [Airbyte](https://airbyte.com/) |
+| Fivetran | Dagster | Orchestration platform for data assets. [1] | [Dagster](https://dagster.io/) |
+
+### Database Management
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| TigerGraph, Amazon Neptune | Neo4j | Graph database platform. [1] | [Neo4j](https://neo4j.com/) |
+| Kdb+ | InfluxDB | Database designed to process time series data. [1] | [InfluxDB](https://www.influxdata.com/) |
+| AirTable | NocoDB | No-code database and Airtable alternative. [1] | [NocoDB](https://www.nocodb.com/) |
+
+### Enterprise Search Engines
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Algolia | Meilisearch | Typo tolerant search engine. [1] | [Meilisearch](https://www.meilisearch.com/) |
+| Algolia | TypeSense | Typo tolerant fuzzy search engine. [1] | [TypeSense](https://typesense.org/) |
+
+### Digital Signature Solutions
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| DocuSign | DocuSeal | Digital Signing Infrastructure. [1] | [DocuSeal](https://docuseal.co) |
+| DocuSign | Documenso | Digital Signing Infrastructure. [1] | [Documenso](https://documenso.com) |
+
+### Internal Tools & Low-Code Development
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| Retool | AppSmith | Low-code platform for internal tools. [1] | [AppSmith](https://www.appsmith.com/) |
+| Retool | Tooljet | Low-code framework for internal tools. [1] | [Tooljet](https://tooljet.io/) |
+
+### Cybersecurity & IT Operations
+
+| Replaces | Free Alternative | Description | Link |
+|---|---|---|---|
+| GreyNoise | CrowdSec | Collaborative IPS able to analyze visitor behavior. [1] | [CrowdSec](http://crowdsec.net/) |
+| Splunk, Elastic Cloud | Matano | Open source cloud-native security lake platform (SIEM alternative). [1] | [Matano](https://www.matano.dev/) |
+| Tailscale, OpenVPN | NetBird | Zero Configuration Mesh VPN for Business. [1] | [NetBird](https://netbird.io) |
+
+---
+
+### Works Cited
+
+1. RunaCapital/awesome-oss-alternatives - GitHub, https://github.com/RunaCapital/awesome-oss-alternatives
+2. 24 of the best free alternatives to the most popular paid software, https://www.xda-developers.com/x-best-free-alternatives-to-the-most-popular-paid-software/
+3. Best open source software of 2025 | TechRadar, https://www.techradar.com/best/best-open-source-software
+4. List of open source alternatives - Hendricks Foundation, https://hendricks-foundation.org/Open-Source
+5. The ultimate list of 15 best open-source software in 2024 - Rocket.Chat, https://www.rocket.chat/blog/open-source-software-list
+6. Open Source Alternatives To Proprietary Software, https://www.opensourcealternative.to/
+7. FreeCAD: Your own 3D parametric modeler, https://www.freecad.org/
+8. The Top Free 3D Modeling Software for 3D Printing in 2025, https://www.3dnatives.com/en/10-free-modeling-software-210720204/
+9. Best Free Game Development Engines | Melior Games, https://meliorgames.com/game-development/best-free-game-development-engines/
+10. GnuCash: Free Accounting Software, https://www.gnucash.org/
+11. Actual | Actual Budget Documentation, https://actualbudget.org/
+12. 10 Best Free Online Virtual Machine Platforms in 2025 | BrowserStack, https://www.browserstack.com/guide/online-virtual-machine-free
+13. 16 Open-Source Alternatives to Popular SaaS Tools, https://hackernoon.com/16-open-source-alternatives-to-popular-saas-tools-cost-effective-and-customizable-solutions
+14. Awesome Free / Open Source Alternatives for Business Use - GitHub, https://github.com/sfermigier/awesome-foss-alternatives
+
+---
+
+::signature::

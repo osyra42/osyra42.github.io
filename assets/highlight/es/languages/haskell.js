@@ -1,4 +1,4 @@
-/*! `haskell` grammar compiled for Highlight.js 11.11.1 */
+/*! `haskell` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -145,7 +145,7 @@ var hljsGrammar = (function () {
           className: 'class',
           begin: '\\b(data|(new)?type)\\b',
           end: '$',
-          keywords: 'data family type newtype deriving',
+          keywords: 'data family type newtype deriving where',
           contains: [
             PRAGMA,
             CONSTRUCTOR,

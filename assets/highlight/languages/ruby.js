@@ -1,4 +1,4 @@
-/*! `ruby` grammar compiled for Highlight.js 11.11.1 */
+/*! `ruby` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -330,8 +330,9 @@
       CLASS_REFERENCE,
       METHOD_DEFINITION,
       {
-        // swallow namespace qualifiers before symbols
-        begin: hljs.IDENT_RE + '::' },
+        // swallow the scope resolution operator so `::` is not read as a symbol
+        begin: '::'
+      },
       {
         className: 'symbol',
         begin: hljs.UNDERSCORE_IDENT_RE + '(!|\\?)?:',

@@ -1,4 +1,4 @@
-/*! `nsis` grammar compiled for Highlight.js 11.11.1 */
+/*! `nsis` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -10,7 +10,6 @@
   Website: https://nsis.sourceforge.io/Main_Page
   Category: scripting
   */
-
 
   function nsis(hljs) {
     const regex = hljs.regex;
@@ -69,8 +68,13 @@
       "FILE_ATTRIBUTE_READONLY",
       "FILE_ATTRIBUTE_SYSTEM",
       "FILE_ATTRIBUTE_TEMPORARY",
+      "HKCC",
       "HKCR",
+      "HKCR32",
+      "HKCR64",
       "HKCU",
+      "HKCU32",
+      "HKCU64",
       "HKDD",
       "HKEY_CLASSES_ROOT",
       "HKEY_CURRENT_CONFIG",
@@ -80,6 +84,8 @@
       "HKEY_PERFORMANCE_DATA",
       "HKEY_USERS",
       "HKLM",
+      "HKLM32",
+      "HKLM64",
       "HKPD",
       "HKU",
       "IDABORT",
@@ -107,24 +113,34 @@
       "MB_TOPMOST",
       "MB_USERICON",
       "MB_YESNO",
-      "NORMAL",
+      "MB_YESNOCANCEL",
       "OFFLINE",
       "READONLY",
       "SHCTX",
       "SHELL_CONTEXT",
-      "SYSTEM|TEMPORARY",
+      "SW_HIDE",
+      "SW_SHOW",
+      "SW_SHOWMAXIMIZED",
+      "SW_SHOWMINIMIZED",
+      "SW_SHOWNORMAL",
     ];
 
     const COMPILER_FLAGS = [
       "addincludedir",
       "addplugindir",
       "appendfile",
+      "appendmemfile",
       "assert",
       "cd",
       "define",
       "delfile",
       "echo",
       "else",
+      "elseif",
+      "elseifdef",
+      "elseifmacrodef",
+      "elseifmacrondef",
+      "elseifndef",
       "endif",
       "error",
       "execute",
@@ -140,8 +156,10 @@
       "insertmacro",
       "macro",
       "macroend",
+      "macroundef",
       "makensis",
       "packhdr",
+      "pragma",
       "searchparse",
       "searchreplace",
       "system",
@@ -179,7 +197,10 @@
     const PARAMETERS = {
       // command parameters
       className: 'params',
-      begin: regex.either(...PARAM_NAMES)
+      begin: regex.concat(
+        regex.either(...PARAM_NAMES),
+        /\b/
+      )
     };
 
     const COMPILER = {
@@ -187,7 +208,8 @@
       className: 'keyword',
       begin: regex.concat(
         /!/,
-        regex.either(...COMPILER_FLAGS)
+        regex.either(...COMPILER_FLAGS),
+        /\b/
       )
     };
 
@@ -249,6 +271,7 @@
       "CompletedText",
       "ComponentText",
       "CopyFiles",
+      "CPU",
       "CRCCheck",
       "CreateDirectory",
       "CreateFont",
@@ -304,12 +327,15 @@
       "GetInstDirError",
       "GetKnownFolderPath",
       "GetLabelAddress",
+      "GetRegView",
+      "GetShellVarContext",
       "GetTempFileName",
       "GetWinVer",
       "Goto",
       "HideWindow",
       "Icon",
       "IfAbort",
+      "IfAltRegView",
       "IfErrors",
       "IfFileExists",
       "IfRebootFlag",
@@ -347,7 +373,11 @@
       "LockWindow",
       "LogSet",
       "LogText",
+      "ManifestAppendCustomString",
+      "ManifestDisableWindowFiltering",
       "ManifestDPIAware",
+      "ManifestDPIAwareness",
+      "ManifestGdiScaling",
       "ManifestLongPathAware",
       "ManifestMaxVersionTested",
       "ManifestSupportedOS",
@@ -367,6 +397,7 @@
       "Quit",
       "ReadEnvStr",
       "ReadINIStr",
+      "ReadMemory",
       "ReadRegDWORD",
       "ReadRegStr",
       "Reboot",
@@ -392,6 +423,7 @@
       "SetCompress",
       "SetCompressor",
       "SetCompressorDictSize",
+      "SetCompressionLevel",
       "SetCtlColors",
       "SetCurInstType",
       "SetDatablockOptimize",
@@ -420,7 +452,9 @@
       "StrCpy",
       "StrLen",
       "SubCaption",
+      "Target",
       "Unicode",
+      "UnsafeStrCpy",
       "UninstallButtonText",
       "UninstallCaption",
       "UninstallIcon",
@@ -546,7 +580,7 @@
         ),
         VARIABLE_DEFINITION,
         FUNCTION_DEFINITION,
-        { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd', },
+        { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd PageExEnd SectionEnd SectionGroupEnd', },
         STRING,
         COMPILER,
         DEFINES,
@@ -554,7 +588,7 @@
         LANGUAGES,
         PARAMETERS,
         PLUGINS,
-        hljs.NUMBER_MODE
+        hljs.C_NUMBER_MODE
       ]
     };
   }

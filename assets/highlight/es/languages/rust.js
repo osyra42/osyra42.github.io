@@ -1,4 +1,4 @@
-/*! `rust` grammar compiled for Highlight.js 11.11.1 */
+/*! `rust` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -21,15 +21,15 @@ var hljsGrammar = (function () {
     const IDENT_RE = regex.concat(RAW_IDENTIFIER, hljs.IDENT_RE);
     // ============================================
     const FUNCTION_INVOKE = {
-      className: "title.function.invoke",
+      scope: "title.function.invoke",
       relevance: 0,
       begin: regex.concat(
         /\b/,
-        /(?!let|for|while|if|else|match\b)/,
+        /(?!(?:let|for|while|if|else|match)\b)/,
         IDENT_RE,
         regex.lookahead(/\s*\(/))
     };
-    const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(32|64))\?';
+    const NUMBER_SUFFIX = '([ui](8|16|32|64|128|size)|f(16|32|64|128))\?';
     const KEYWORDS = [
       "abstract",
       "as",
@@ -63,6 +63,7 @@ var hljsGrammar = (function () {
       "override",
       "priv",
       "pub",
+      "raw",
       "ref",
       "return",
       "self",
@@ -173,8 +174,10 @@ var hljsGrammar = (function () {
       "u64",
       "u128",
       "usize",
+      "f16",
       "f32",
       "f64",
+      "f128",
       "str",
       "char",
       "bool",
@@ -203,7 +206,7 @@ var hljsGrammar = (function () {
           illegal: null
         }),
         {
-          className: 'symbol',
+          scope: 'symbol',
           // negative lookahead to avoid matching `'`
           begin: /'[a-zA-Z_][a-zA-Z0-9_]*(?!')/
         },
@@ -217,14 +220,14 @@ var hljsGrammar = (function () {
               contains: [
                 {
                   scope: "char.escape",
-                  match: /\\('|\w|x\w{2}|u\w{4}|U\w{8})/
+                  match: /\\('|"|\\|\w|x\w{2}|u\w{4}|U\w{8})/
                 }
               ]
             }
           ]
         },
         {
-          className: 'number',
+          scope: 'number',
           variants: [
             { begin: '\\b0b([01_]+)' + NUMBER_SUFFIX },
             { begin: '\\b0o([0-7_]+)' + NUMBER_SUFFIX },
@@ -236,22 +239,33 @@ var hljsGrammar = (function () {
         },
         {
           begin: [
+            /\bsafe/,
+            /\s+/,
+            /extern/,
+          ],
+          scope: {
+            1: "keyword",
+            3: "keyword",
+          }
+        },
+        {
+          begin: [
             /fn/,
             /\s+/,
             UNDERSCORE_IDENT_RE
           ],
-          className: {
+          scope: {
             1: "keyword",
             3: "title.function"
           }
         },
         {
-          className: 'meta',
+          scope: 'meta',
           begin: '#!?\\[',
           end: '\\]',
           contains: [
             {
-              className: 'string',
+              scope: 'string',
               begin: /"/,
               end: /"/,
               contains: [
@@ -267,7 +281,7 @@ var hljsGrammar = (function () {
             /(?:mut\s+)?/,
             UNDERSCORE_IDENT_RE
           ],
-          className: {
+          scope: {
             1: "keyword",
             3: "keyword",
             4: "variable"
@@ -282,7 +296,7 @@ var hljsGrammar = (function () {
             /\s+/,
             /in/
           ],
-          className: {
+          scope: {
             1: "keyword",
             3: "variable",
             5: "keyword"
@@ -294,7 +308,7 @@ var hljsGrammar = (function () {
             /\s+/,
             UNDERSCORE_IDENT_RE
           ],
-          className: {
+          scope: {
             1: "keyword",
             3: "title.class"
           }
@@ -305,7 +319,7 @@ var hljsGrammar = (function () {
             /\s+/,
             UNDERSCORE_IDENT_RE
           ],
-          className: {
+          scope: {
             1: "keyword",
             3: "title.class"
           }
@@ -319,7 +333,7 @@ var hljsGrammar = (function () {
           }
         },
         {
-          className: "punctuation",
+          scope: "punctuation",
           begin: '->'
         },
         FUNCTION_INVOKE

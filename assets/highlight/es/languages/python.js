@@ -1,4 +1,4 @@
-/*! `python` grammar compiled for Highlight.js 11.11.1 */
+/*! `python` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -36,6 +36,7 @@ var hljsGrammar = (function () {
       'in',
       'is',
       'lambda',
+      'lazy',
       'match',
       'nonlocal|10',
       'not',
@@ -52,7 +53,9 @@ var hljsGrammar = (function () {
     const BUILT_INS = [
       '__import__',
       'abs',
+      'aiter',
       'all',
+      'anext',
       'any',
       'ascii',
       'bin',
@@ -75,6 +78,7 @@ var hljsGrammar = (function () {
       'filter',
       'float',
       'format',
+      'frozendict',
       'frozenset',
       'getattr',
       'globals',
@@ -107,6 +111,7 @@ var hljsGrammar = (function () {
       'repr',
       'reversed',
       'round',
+      'sentinel',
       'set',
       'setattr',
       'slice',
@@ -198,7 +203,7 @@ var hljsGrammar = (function () {
           relevance: 10
         },
         {
-          begin: /([fF][rR]|[rR][fF]|[fF])'''/,
+          begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'''/,
           end: /'''/,
           contains: [
             hljs.BACKSLASH_ESCAPE,
@@ -208,7 +213,7 @@ var hljsGrammar = (function () {
           ]
         },
         {
-          begin: /([fF][rR]|[rR][fF]|[fF])"""/,
+          begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"""/,
           end: /"""/,
           contains: [
             hljs.BACKSLASH_ESCAPE,
@@ -236,7 +241,7 @@ var hljsGrammar = (function () {
           end: /"/
         },
         {
-          begin: /([fF][rR]|[rR][fF]|[fF])'/,
+          begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])'/,
           end: /'/,
           contains: [
             hljs.BACKSLASH_ESCAPE,
@@ -245,7 +250,7 @@ var hljsGrammar = (function () {
           ]
         },
         {
-          begin: /([fF][rR]|[rR][fF]|[fF])"/,
+          begin: /([fFtT][rR]|[rR][fFtT]|[fFtT])"/,
           end: /"/,
           contains: [
             hljs.BACKSLASH_ESCAPE,

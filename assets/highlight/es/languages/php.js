@@ -1,4 +1,4 @@
-/*! `php` grammar compiled for Highlight.js 11.11.1 */
+/*! `php` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -7,6 +7,10 @@ var hljsGrammar = (function () {
   Author: Victor Karamzin <Victor.Karamzin@enterra-inc.com>
   Contributors: Evgeny Stepanischev <imbolk@gmail.com>, Ivan Sagalaev <maniac@softwaremaniacs.org>
   Website: https://www.php.net
+  Description: Use this for plain PHP code, i.e. code that does not include the
+               surrounding `<?php ... ?>` tags. If your snippet mixes PHP with
+               HTML markup and the opening/closing tags, use `php-template`
+               instead.
   Category: common
   */
 
@@ -418,6 +422,8 @@ var hljsGrammar = (function () {
         VARIABLE,
         LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
         hljs.C_BLOCK_COMMENT_MODE,
+        hljs.C_LINE_COMMENT_MODE,
+        hljs.HASH_COMMENT_MODE,
         STRING,
         NUMBER,
         CONSTRUCTOR_CALL,
@@ -442,6 +448,8 @@ var hljsGrammar = (function () {
       NAMED_ARGUMENT,
       LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
       hljs.C_BLOCK_COMMENT_MODE,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.HASH_COMMENT_MODE,
       STRING,
       NUMBER,
       CONSTRUCTOR_CALL,
@@ -570,6 +578,8 @@ var hljsGrammar = (function () {
                 VARIABLE,
                 LEFT_AND_RIGHT_SIDE_OF_DOUBLE_COLON,
                 hljs.C_BLOCK_COMMENT_MODE,
+                hljs.C_LINE_COMMENT_MODE,
+                hljs.HASH_COMMENT_MODE,
                 STRING,
                 NUMBER
               ]

@@ -1,4 +1,4 @@
-/*! `leaf` grammar compiled for Highlight.js 11.11.1 */
+/*! `leaf` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -11,6 +11,7 @@
   */
 
   function leaf(hljs) {
+    const regex = hljs.regex;
     const IDENT = /([A-Za-z_][A-Za-z_0-9]*)?/;
     const LITERALS = [
       'true',
@@ -31,7 +32,7 @@
         },
         {
           scope: 'keyword',
-          match: LITERALS.join("|"),
+          match: `\\b${regex.either(...LITERALS)}\\b`,
         },
         {
           scope: 'variable',

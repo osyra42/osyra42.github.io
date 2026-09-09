@@ -1,7 +1,42 @@
-/*! `groovy` grammar compiled for Highlight.js 11.11.1 */
+/*! `groovy` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
+
+  // https://docs.oracle.com/javase/specs/jls/se15/html/jls-3.html#jls-3.10
+  var decimalDigits = '[0-9](_*[0-9])*';
+  var frac = `\\.(${decimalDigits})`;
+  var hexDigits = '[0-9a-fA-F](_*[0-9a-fA-F])*';
+  var NUMERIC = {
+    className: 'number',
+    variants: [
+      // DecimalFloatingPointLiteral
+      // including ExponentPart
+      { begin: `(\\b(${decimalDigits})((${frac})|\\.)?|(${frac}))` +
+        `[eE][+-]?(${decimalDigits})[fFdD]?\\b` },
+      // excluding ExponentPart
+      { begin: `\\b(${decimalDigits})((${frac})[fFdD]?\\b|\\.([fFdD]\\b)?)` },
+      { begin: `(${frac})[fFdD]?\\b` },
+      { begin: `\\b(${decimalDigits})[fFdD]\\b` },
+
+      // HexadecimalFloatingPointLiteral
+      { begin: `\\b0[xX]((${hexDigits})\\.?|(${hexDigits})?\\.(${hexDigits}))` +
+        `[pP][+-]?(${decimalDigits})[fFdD]?\\b` },
+
+      // DecimalIntegerLiteral
+      { begin: '\\b(0|[1-9](_*[0-9])*)[lL]?\\b' },
+
+      // HexIntegerLiteral
+      { begin: `\\b0[xX](${hexDigits})[lL]?\\b` },
+
+      // OctalIntegerLiteral
+      { begin: '\\b0(_*[0-7])*[lL]?\\b' },
+
+      // BinaryIntegerLiteral
+      { begin: '\\b0[bB][01](_*[01])*[lL]?\\b' },
+    ],
+    relevance: 0
+  };
 
   /*
    Language: Groovy
@@ -10,6 +45,7 @@
    Website: https://groovy-lang.org
    Category: system
    */
+
 
   function variants(variants, obj = {}) {
     obj.variants = variants;
@@ -46,10 +82,9 @@
       begin: /~?\/[^\/\n]+\//,
       contains: [ hljs.BACKSLASH_ESCAPE ]
     };
-    const NUMBER = variants([
-      hljs.BINARY_NUMBER_MODE,
-      hljs.C_NUMBER_MODE
-    ]);
+    // Groovy uses the same numeric literal grammar as Java, including
+    // underscores as digit separators (e.g. 1_000, 0xFF_EC, 0b1010_0101).
+    const NUMBER = NUMERIC;
     const STRING = variants([
       {
         begin: /"""/,

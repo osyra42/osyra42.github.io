@@ -1,4 +1,4 @@
-/*! `dart` grammar compiled for Highlight.js 11.11.1 */
+/*! `dart` grammar compiled for Highlight.js 11.12.0 */
   (function(){
     var hljsGrammar = (function () {
   'use strict';
@@ -14,6 +14,9 @@
 
   /** @type LanguageFn */
   function dart(hljs) {
+
+    const regex = hljs.regex;
+
     const SUBST = {
       className: 'subst',
       variants: [ { begin: '\\$[A-Za-z0-9_]+' } ]
@@ -226,6 +229,25 @@
       $pattern: /[A-Za-z][A-Za-z0-9_]*\??/
     };
 
+    const CLASS_NAME_RE = regex.concat(
+      /\b_?/,
+      regex.either(
+        /(?:[A-Z]+[a-z0-9]+)+/,
+        /(?:[A-Z]+[a-z0-9]+)+[A-Z]+/
+      ),
+      /(?![A-Za-z0-9_])/
+    );
+
+    const CLASS_REFERENCE = {
+      match: CLASS_NAME_RE,
+      scope: "title.class"
+    };
+
+    const FUNCTION_REFERENCE = {
+      match: /\b(?!(?:assert|catch|for|if|switch|while)\b)[a-z_][A-Za-z0-9_]*(?=\()/,
+      scope: "title.function"
+    };
+
     return {
       name: 'Dart',
       keywords: KEYWORDS,
@@ -262,12 +284,12 @@
             hljs.UNDERSCORE_TITLE_MODE
           ]
         },
+        CLASS_REFERENCE,
+        FUNCTION_REFERENCE,
         NUMBER,
         {
           className: 'meta',
           begin: '@[A-Za-z]+'
-        },
-        { begin: '=>' // No markup, just a relevance booster
         }
       ]
     };

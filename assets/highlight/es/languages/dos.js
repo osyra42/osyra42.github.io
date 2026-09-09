@@ -1,4 +1,4 @@
-/*! `dos` grammar compiled for Highlight.js 11.11.1 */
+/*! `dos` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -17,10 +17,7 @@ var hljsGrammar = (function () {
       { relevance: 10 }
     );
     const LABEL = {
-      className: 'symbol',
-      begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
-      relevance: 0
-    };
+      begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)'};
     const KEYWORDS = [
       "if",
       "else",
@@ -136,6 +133,7 @@ var hljsGrammar = (function () {
       name: 'Batch file (DOS)',
       aliases: [
         'bat',
+        'batch',
         'cmd'
       ],
       case_insensitive: true,

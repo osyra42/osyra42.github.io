@@ -1,4 +1,4 @@
-/*! `go` grammar compiled for Highlight.js 11.11.1 */
+/*! `go` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -122,6 +122,10 @@ var hljsGrammar = (function () {
             },
             {
               match: /-?\b0[oO](_?[0-7])*i?/, // leading 0o octal
+              relevance: 0
+            },
+            {
+              match: /-?\b0[bB](_?[01])*i?/, // leading 0b binary
               relevance: 0
             },
             {

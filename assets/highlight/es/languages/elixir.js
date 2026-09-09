@@ -1,4 +1,4 @@
-/*! `elixir` grammar compiled for Highlight.js 11.11.1 */
+/*! `elixir` grammar compiled for Highlight.js 11.12.0 */
 var hljsGrammar = (function () {
   'use strict';
 
@@ -24,6 +24,7 @@ var hljsGrammar = (function () {
       "cond",
       "defstruct",
       "defguard",
+      "defguardp",
       "do",
       "else",
       "end",
@@ -232,7 +233,13 @@ var hljsGrammar = (function () {
       beginKeywords: 'defimpl defmodule defprotocol defrecord',
       end: /\bdo\b|$|;/
     });
+    const CHAR_LITERAL = {
+      scope: 'string',
+      match: /\?'/,
+      relevance: 0
+    };
     const ELIXIR_DEFAULT_CONTAINS = [
+      CHAR_LITERAL,
       STRING,
       REGEX_SIGIL,
       UPCASE_SIGIL,
