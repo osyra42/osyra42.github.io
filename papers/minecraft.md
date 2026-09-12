@@ -128,47 +128,6 @@ java:   "Version 25 (bundled with the launcher)"
 
 ---
 
-# ⛏️ SF5 (End of Life)
-
-| Server Info | |
-|---|---|
-| **Server Name** | Coffee Block (Modded) |
-| **IP and Port** | ^^modded.coffeeblock.xyz^^ |
-| **Status** | {{server2-status}} |
-| **Players** | {{server2-players}} |
-| **Version** | {{server2-version}} |
-| **Staff** | osyra42 👑 🗝️ |
-| **Rules** | 1-7 apply |
-
-Modded Minecraft on SkyFactory 5 - around 270 mods. The server won't let a vanilla client in, so install the modpack first.
-
->>> ⚙️ Minimum Requirements
-```yaml
-CPU:    "4+ cores at 3.0+ GHz (single-thread speed matters most)"
-GPU:    "GTX 1050 Ti / 4 GB VRAM or better"
-RAM:    "16 GB+ system; allocate 6 GB to Minecraft, 8 GB recommended"
-SSD:    "any SSD - HDD causes very long load times"
-disk:   "15 GB+ free for modpack files"
-java:   "Version 17"
-```
-<<<
-
->>> 🔌 How to Connect
-> 1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us)
-> 2. Download and install the [CurseForge App](https://www.curseforge.com/download/app)
-> 3. In CurseForge, search for **SkyFactory 5** and install it
-> 4. In the modpack settings, allocate at least **6 GB of RAM** or it won't launch (8 GB if you have it)
-> 5. Launch the modpack from CurseForge
-> 6. From the main menu, click **Multiplayer**
-> 7. Click **Add Server**
-> 8. Enter the IP: `modded.coffeeblock.xyz`
-> 9. Join and play!
-
-📦 [Download SF5 from CurseForge](https://www.curseforge.com/minecraft/modpacks/skyfactory-5/files/all?page=1&pageSize=20&showAlphaFiles=hide)
-<<<
-
----
-
 # ⛏️ HCVP
 
 | Server Info | |
