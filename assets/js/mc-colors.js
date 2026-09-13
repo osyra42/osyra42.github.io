@@ -1,17 +1,3 @@
-// mc-colors.js - the 16 Minecraft chat colours, by their real names.
-//
-// These are the § codes you type in Minecraft chat (§a for green, §c for red,
-// and so on). All 16 are here whether or not a given page uses them, so any can
-// be swapped in later without looking values up again.
-//
-// Used by changelog.html as an easter egg: the game's own conventions already
-// match the changelog legend's meanings, so green really does mean added and
-// red really does mean removed.
-//
-// `light` and `dark` group them by which background they are built for. The
-// bright eight are designed for Minecraft's black chat box and wash out badly
-// on a light surface; the dark eight are the ones legible on paper.
-
 window.MC_COLORS = {
     black:        { code: '0', hex: '000000', group: 'dark'  },
     dark_blue:    { code: '1', hex: '0000AA', group: 'dark'  },
@@ -31,7 +17,7 @@ window.MC_COLORS = {
     white:        { code: 'f', hex: 'FFFFFF', group: 'light' },
 };
 
-// Look a colour up by name and get its hex, with a leading #.
+// Look a color up by name and get its hex, with a leading #.
 window.mcHex = name => {
     const c = window.MC_COLORS[name];
     return c ? '#' + c.hex : '#000000';

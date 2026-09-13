@@ -1,16 +1,4 @@
-// util.js - the few helpers more than one script needs.
-//
-// Small on purpose. Things live here only when a SECOND consumer appears -
-// otherwise they stay in the file that uses them.
-//
-// Load first: sidebar.js, topbar.js and brewdown.js all call into it.
 
-// ---------------------------------------------------------------------------
-// Functions
-// ---------------------------------------------------------------------------
-
-// Escape text before it goes into an innerHTML string. Used by anything that
-// builds markup from manifest values.
 window.escapeHtml = function (s) {
     return String(s).replace(/[&<>"']/g, c => (
         { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]

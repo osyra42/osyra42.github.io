@@ -1,34 +1,7 @@
-// sidebar.js - builds the sidebar from window.MANIFEST (assets/js/manifest.js),
-// the single source of truth for every page's title, icon, section, date and
-// word count.
-//
-// To add a page to the sidebar: add its entry to manifest.js. There is no nav
-// list here to edit. Run `python tools/inspect_page.py <page>` to get a
-// ready-to-paste manifest line with the word count already computed.
-//
-// Depends on: util.js, manifest.js, signature.js, themes.js - all load first.
-//
-// Order: variables, then functions, then execution (site convention).
-
-// ---------------------------------------------------------------------------
-// Variables
-// ---------------------------------------------------------------------------
-
-// A page is flagged ✨ in the sidebar if its manifest date is within this many
-// days of today.
 const FRESH_DAYS = 14;
 
-// Site name comes from signature.js so it is written once, not repeated in the
-// sidebar, the footer and the mobile banner.
 const SITE_NAME = (window.SIGNATURE && window.SIGNATURE.site) || 'Coffee Byte Dev';
 
-// ---------------------------------------------------------------------------
-// Functions
-// ---------------------------------------------------------------------------
-
-// Swatches are a flat list. The CSS wraps them and each cell keeps a fixed
-// size, so the layout follows the roster on its own - add colours to themes.js
-// and they lay themselves out. No row logic anywhere.
 function themePickerSwatches() {
     const flavors = Themes.FLAVORS.map(t =>
         `<button class="theme-swatch" type="button" data-theme-id="${t.id}"`
@@ -205,9 +178,5 @@ ${renderNav(manifest, sections, thisPage)}
         });
     });
 }
-
-// ---------------------------------------------------------------------------
-// Execution
-// ---------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', initSidebar);

@@ -1,35 +1,5 @@
-// themes.js — flavor themes, derived from a single hex each.
-//
-// Add a flavor by adding ONE hex to FLAVORS. Every other shade it needs — the
-// lighter and darker accents, the paper tint, the ink, the grid lines — is
-// calculated from that hex at load. There are no per-theme colour blocks in
-// theme.css any more; this file is the only place colour is defined.
-//
-// WHY OKLCH: HSL's "lightness" is a maths midpoint, not a measure of how bright
-// something looks — L 54% yellow reads far brighter than L 54% purple. So a
-// fixed HSL step lands differently on every hue and needs hand-correcting per
-// theme. OKLCH's lightness is perceptually uniform, so one L step looks like
-// the same step on all 17 flavors. Hex in, hex out; OKLCH is only the space the
-// maths happens in.
-//
-// WHAT IS NOT DERIVED: the espresso / mocha / chocolate backgrounds. This is a
-// coffee site — flavor is a tint applied over a coffee base, not a replacement
-// for it. Warning red and tip mint also stay fixed, because they carry meaning.
-//
-// Load order: before sidebar.js (which calls Themes.resolve() and Themes.apply).
-
 const Themes = (function () {
 
-    // -----------------------------------------------------------------------
-    // The roster. One hex per flavor - that is the whole definition.
-    // -----------------------------------------------------------------------
-    // Ordered red -> purple like a rainbow, then the browns as their own run.
-    // Hand-ordered: a new flavor goes wherever it belongs by eye.
-    //
-    // Brown is just a dark, desaturated orange, so on a pure hue sort chai,
-    // mocha and espresso land between peach and caramel and the rainbow falls
-    // apart. They get their own run at the end instead - fitting for a coffee
-    // site, where those three are the house colours.
     const FLAVORS = [
         { id: 'cherry',       label: 'Cherry',        hex: '#d63030' },
         { id: 'blood_orange', label: 'Blood Orange',  hex: '#e0561f' },
@@ -59,9 +29,6 @@ const Themes = (function () {
         { id: 'double_espresso', label: 'Double Espresso', hex: '#120a06' },
     ];
 
-    // Shown to anyone who has never picked a flavor. Change by hand for the
-    // season. A visitor's own choice is kept in localStorage and always wins -
-    // this never overwrites it.
     const DEFAULT_THEME = 'pumpkin';
 
     // -----------------------------------------------------------------------

@@ -1,10 +1,3 @@
-//mobile.js
-// Create and inject mobile banner + overlay, CSS handles when to show them.
-//
-// Order: variables, then functions, then execution (site convention).
-
-// Read at call time rather than declaring another SITE_NAME - a top-level
-// const would collide with sidebar.js, which shares the same global scope.
 function siteName() {
     return (window.SIGNATURE && window.SIGNATURE.site) || 'Coffee Byte Dev';
 }

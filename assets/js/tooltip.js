@@ -1,19 +1,3 @@
-// tooltip.js — tooltips for site CHROME (the sidebar).
-//
-// Scope: everything OUTSIDE <main>. Brewdown has its own tooltip runtime for
-// content on the paper sheet (see brewdown.js) — the two are deliberately
-// separate so neither reaches across the chrome/content boundary.
-//
-// Driven by [data-tooltip] on any element outside <main>; today that is the
-// sidebar theme swatches, which also carry [data-tooltip-color] to tint the
-// bubble to the flavour being hovered.
-//
-// The popup is appended to <body> on first use so it can never be clipped by an
-// ancestor's overflow (the sidebar is a scroll container).
-//
-// Styling lives in assets/css/tooltip.css (.tooltip-chrome).
-// No load-order requirement — it binds to document and needs nothing else.
-
 (function () {
     let tip = null;
 

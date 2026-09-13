@@ -1,11 +1,10 @@
 # ⭐ Recommendations
 ::toc::
-Some of my favorite media, sorted by category. Each one stuck with me - if you haven't gotten to them yet, give them a shot.
+> This is some of my favorite media, sorted by category. Each one stuck with me - if you haven't gotten to them yet, give them a shot.
 
 ---
 
 ## 📺 TV Series
->>> View list
 
 #### 🎥 Live Action
 
@@ -13,6 +12,8 @@ Some of my favorite media, sorted by category. Each one stuck with me - if you h
 |---|-------|----------|------|
 | 1 | [Mythbusters](https://www.imdb.com/title/tt0383126) | s15e13 | 2003 |
 | 2 | [Squid Game](https://www.imdb.com/title/tt10919420) | s03e06 | 2021 |
+| 3 | [House](https://www.imdb.com/title/tt0412142) | s08e23 | 2004 |
+| 4 | [How It's Made](https://www.imdb.com/title/tt0835010) | s32e13 | 2001 |
 
 #### 🎨 Animated
 
@@ -37,10 +38,8 @@ Some of my favorite media, sorted by category. Each one stuck with me - if you h
 | 17 | [Superjail!](https://www.imdb.com/title/tt1031283) | s04e06 | 2007 |
 | 18 | [The Midnight Gospel](https://www.imdb.com/title/tt11639414) | s01e08 | 2020 |
 | 19 | [Trigun](https://www.imdb.com/title/tt0251439) | s01e26 | 1998 |
-<<<
 
 ## 🎬 Movies
->>> View list
 
 #### 🎥 Live Action
 
@@ -100,10 +99,8 @@ Some of my favorite media, sorted by category. Each one stuck with me - if you h
 | 19 | [The Wild Robot](https://www.imdb.com/title/tt29623480) | 2024 |
 | 20 | [Wolf Children](https://www.imdb.com/title/tt2140203) | 2012 |
 | 21 | [Your Name](https://www.imdb.com/title/tt5311514) | 2016 |
-<<<
 
 ## 🎵 Music
->>> View list
 
 | # | Song | Listen |
 |---|------|--------|
@@ -133,10 +130,8 @@ Some of my favorite media, sorted by category. Each one stuck with me - if you h
 | 24 | Until We Bleed - Kleerup | [YouTube](https://www.youtube.com/watch?v=7vDv20fxhck) or [Spotify](https://open.spotify.com/track/2ARRUWucLhpPnODCdbsN4j) |
 | 25 | Yand3re - Projekt Melody | [YouTube](https://www.youtube.com/watch?v=GoUYfoT7tOs) or [Spotify](https://open.spotify.com/track/7gwAWRiIInrrN3Aic815SJ) |
 | 26 | Yuusha (勇者) - Yoasobi | [YouTube](https://www.youtube.com/watch?v=OIBODIPC_8Y) or [Spotify](https://open.spotify.com/track/4LjIQmt1t6NjpM0tpttzjo) |
-<<<
 
 ## 🎮 Games
->>> View list
 
 | # | Title | Year |
 |---|-------|------|
@@ -168,52 +163,28 @@ Some of my favorite media, sorted by category. Each one stuck with me - if you h
 | 26 | [Terraria](https://store.steampowered.com/app/105600) | 2011 |
 | 27 | [Undertale](https://store.steampowered.com/app/391540) | 2015 |
 | 28 | [Unpacking](https://store.steampowered.com/app/1135690) | 2021 |
-<<<
 
 ## 👻 Nosleep
->>> View list
 
-#### 🌑 The Dark Somnium
-
-| # | Title | Length |
-|---|-------|--------|
-| 1 | [Borrasca](https://www.youtube.com/watch?v=mHGzSwBckiY) | 2:26:11 |
-| 2 | Glenmont Metro [part 1](https://www.youtube.com/watch?v=6VHhGO4ATj4) [part 2](https://www.youtube.com/watch?v=9eAOXG7jom0) | 1:36:41 |
-| 3 | [How I became a God](https://www.youtube.com/watch?v=LOm_Uw9Ck9c) | 0:33:08 |
-| 4 | [How to Survive in Hell](https://www.youtube.com/watch?v=MpB9ijQM4kk) | 0:35:19 |
-| 5 | [I Have a Strange Job, These Are Some Of My Clients](https://www.youtube.com/watch?v=GYlsgxLb-0I) | 1:20:05 |
-| 6 | [I'm a Criminal Profiler](https://www.youtube.com/watch?v=SN6yC5QhhqI) | 1:27:57 |
-| 7 | [Mrs Willison's Homemade Jam](https://www.youtube.com/watch?v=MNhsL9zy0jw) | 0:21:15 |
-| 8 | [My Sleep Paralysis Demon](https://www.youtube.com/watch?v=5-92UflakOw) | 0:27:02 |
-| 9 | [The God Experiment](https://www.youtube.com/watch?v=P524MmTY55c) | 0:36:38 |
-| 10 | [The Spaces Between](https://www.youtube.com/watch?v=ijkk_XKoTTs) | 2:40:11 |
-
-#### 🕷️ Mr.Creeps
-
-| # | Title | Length |
-|---|-------|--------|
-| 1 | [I Used To Work As A Park Ranger, Now I'm A Cryptid Hunter](https://www.youtube.com/watch?v=JP5gPItuKsU) | 1:47:42 |
-| 2 | [I'm A Monster Created By The Government](https://www.youtube.com/watch?v=Hu3eyCO592U) | 6:10:53 |
-| 3 | [My Grandpa Sent Me Recordings Of His Visits To The Underworld](https://www.youtube.com/watch?v=JQQzZDGN6Tk) | 1:30:30 |
-| 4 | [What Happens When You Write A Letter To Satan Instead Of Santa](https://www.youtube.com/watch?v=w4G5NTzMi1I) | 0:53:35 |
-
-#### 💀 Corpse Husband
-
-| # | Title | Length |
-|---|-------|--------|
-| 1 | [Horrifying Search and Rescue Stories](https://www.youtube.com/watch?v=nhkgXOUDetc) | 2:20:00 |
-
-#### 🏚️ Lighthouse Horror
-
-| # | Title | Length |
-|---|-------|--------|
-| 1 | [Half Priced Voodoo Shop](https://www.youtube.com/watch?v=BFm0fLhxLCM&list=PLX1Mvt_Ale1vAWCC_oyO4lPUrRqg2KlxN) | 2:20:14+ |
-| 2 | [I Own A Motel And I Think I've Been Renting A Room To A Family Of VAMPIRES](https://www.youtube.com/watch?v=OKgHnuQpoCQ) | 2:41:58 |
-<<<
+| # | Title | Length | Reader |
+|---|-------|--------|--------|
+| 1 | [Borrasca](https://www.youtube.com/watch?v=mHGzSwBckiY) | 2:26:11 | The Dark Somnium |
+| 2 | [I Have a Strange Job, These Are Some Of My Clients](https://www.youtube.com/watch?v=GYlsgxLb-0I) | 1:20:05 | The Dark Somnium |
+| 3 | [My Sleep Paralysis Demon](https://www.youtube.com/watch?v=5-92UflakOw) | 0:27:02 | The Dark Somnium |
+| 4 | [Half Priced Voodoo Shop](https://www.youtube.com/watch?v=BFm0fLhxLCM&list=PLX1Mvt_Ale1vAWCC_oyO4lPUrRqg2KlxN) | 2:20:14+ | Lighthouse Horror |
+| 5 | [My Grandpa Sent Me Recordings Of His Visits To The Underworld](https://www.youtube.com/watch?v=JQQzZDGN6Tk) | 1:30:30 | Mr.Creeps |
+| 6 | [How I became a God](https://www.youtube.com/watch?v=LOm_Uw9Ck9c) | 0:33:08 | The Dark Somnium |
+| 7 | [I'm a Criminal Profiler](https://www.youtube.com/watch?v=SN6yC5QhhqI) | 1:27:57 | The Dark Somnium |
+| 8 | [Horrifying Search and Rescue Stories](https://www.youtube.com/watch?v=nhkgXOUDetc) | 2:20:00 | Corpse Husband |
+| 9 | [What Happens When You Write A Letter To Satan Instead Of Santa](https://www.youtube.com/watch?v=w4G5NTzMi1I) | 0:53:35 | Mr.Creeps |
+| 10 | [I Used To Work As A Park Ranger, Now I'm A Cryptid Hunter](https://www.youtube.com/watch?v=JP5gPItuKsU) |  1:47:42 | Mr.Creeps |
+| 11 | [I'm A Monster Created By The Government](https://www.youtube.com/watch?v=Hu3eyCO592U) | 6:10:53 | Mr.Creeps |
+| 12 | [Mrs Willison's Homemade Jam](https://www.youtube.com/watch?v=MNhsL9zy0jw) | 0:21:15 | The Dark Somnium |
+| 13 | [How to Survive in Hell](https://www.youtube.com/watch?v=MpB9ijQM4kk) | 0:35:19 | The Dark Somnium |
+| 14 | [The God Experiment](https://www.youtube.com/watch?v=P524MmTY55c) | 0:36:38 | The Dark Somnium |
+| 15 | [The Spaces Between](https://www.youtube.com/watch?v=ijkk_XKoTTs) | 2:40:11 | The Dark Somnium |
 
 ## 🛒 Products
->>> View list
-
 > Some products I personally use and recommend.
 
 | # | Name | Price | Product |
@@ -228,7 +199,6 @@ Some of my favorite media, sorted by category. Each one stuck with me - if you h
 | 8 | [Sprocket Fidget](https://www.amazon.com/dp/B08R717M3S) | $22 | Sprocket Fidget Bike Chain |
 | 9 | [The Filament I Use](https://www.amazon.com/dp/B07PGZNM34) or [Black](https://www.amazon.com/dp/B07PGY2JP1) | $17 | White / Black Filament |
 | 10 | [Magic Soap](https://www.amazon.com/dp/B00028EYJ8) | $17 | Dr. Bronner's Pure-Castile Magic Liquid Soap |
-<<<
 
 ---
 

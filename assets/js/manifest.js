@@ -1,27 +1,11 @@
-// manifest.js - the single source of truth for the sidebar, page footers,
-// and per-page stats. HAND-MAINTAINED - edit it directly.
-//
-// Fields:
-//   title    shown in the sidebar and the ::signature:: footer
-//   icon     emoji shown before the title
-//   section  sidebar group; order controlled by window.SECTIONS below
-//   date     "Last Updated" in the footer; drives the sidebar's 14-day ✨ badge
-//   words    prose word count (code blocks and markup excluded)
-//   minutes  read time at 220 wpm, shown as a tooltip on sidebar links
-//
-// To add a page: run `python tools/inspect_page.py <page>` and paste the line
-// it prints. That tool only reads - it never writes this file.
-//
-// Pages absent from this map are simply not indexed (mcupdates.html and the
-// legal pages). MUST load before brewdown.js and sidebar.js.
 window.SECTIONS = ["Site", "Books", "Games", "Guides & How-Tos", "DevTools"];
 
 window.MANIFEST = {
-    "index.html":                { title: "Welcome",                icon: "🏠", section: "Site",             date: "2026.08.11", words:   292, minutes:  2 },
+    "index.html":                { title: "Welcome",                icon: "🏠", section: "Site",             date: "2026.09.12", words:   397, minutes:  2 },
     "about_me.html":             { title: "About Me",               icon: "👋", section: "Site",             date: "2026.08.11", words:   591, minutes:  3 },
     "changelog.html":            { title: "Changelog",              icon: "📰", section: "Site",             date: "2026.08.11", words:  7950, minutes: 37 },
     "minecraft.html":            { title: "Minecraft Server",       icon: "⛏️", section: "Site",             date: "2026.08.22", words:  1159, minutes:  6 },
-    "recommendations.html":      { title: "Recommendations",        icon: "⭐", section: "Site",             date: "2026.07.18", words:  1024, minutes:  5 },
+    "recommendations.html":      { title: "Recommendations",        icon: "⭐", section: "Site",             date: "2026.09.13", words:  1023, minutes:  5 },
     "support_me.html":           { title: "Support Me",             icon: "☕", section: "Site",             date: "2026.07.18", words:   286, minutes:  2 },
     "ever_diamond.html":         { title: "Ever Diamond",           icon: "💎", section: "Books",            date: "2026.07.18", words: 12951, minutes: 59 },
     "glitched.html":             { title: "Glitched",               icon: "⚡", section: "Books",            date: "2026.07.18", words:  9603, minutes: 44 },
