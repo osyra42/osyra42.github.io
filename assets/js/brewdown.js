@@ -70,6 +70,27 @@ const Brewdown = (function() {
             + '<p>Always check ' + escapeHtml(domain) + ' for the current version.</p>';
     }
 
+    // Reads the first line of a markdown file and, if it's "# <emoji> <Title>",
+    // sets document.title, the page <h1>, and window.icon / window.title.
+    // Returns the markdown with that first line removed.
+    function consumeTitle(markdownText) {
+        const lines = markdownText.split(/\r?\n/);
+        const first = lines[0] || '';
+        const match = first.match(/^#\s+(\S+)\s+(.+?)\s*$/);
+        if (!match) return markdownText;
+
+        const [, icon, title] = match;
+        window.icon  = icon;
+        window.title = title;
+        document.title = title + ' - Coffee Byte Dev';
+
+        const h1 = document.querySelector('.download-bar h1');
+        if (h1) h1.textContent = title;
+
+        return markdownText;
+    }
+
+
     function parseTimestamp(match, yyyy, mm, dd, hh, min) {
         const date = new Date(parseInt(yyyy), parseInt(mm) - 1, parseInt(dd),
             hh ? parseInt(hh) : 0, min ? parseInt(min) : 0);
@@ -473,6 +494,7 @@ const Brewdown = (function() {
                         return response.text();
                     })
                     .then(data => {
+                        consumeTitle(data);
                         const htmlContent = brewdown(data, {
                             wrapInContainer: wrapInContainer,
                             containerClass: containerClass
