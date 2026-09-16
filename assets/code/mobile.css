@@ -1,8 +1,5 @@
 /* mobile.css */
 
-/* Narrow-screen sheet entry - a short vertical rise instead of the desktop
-   slide-and-rotate. Defined outside the media query because @keyframes are
-   resolved by name globally; the rule that USES it is inside the query. */
 @keyframes sheet-in-sm {
   0%   { opacity: 0; transform: translateY(16px) scale(.985); }
   100% { opacity: 1; transform: none; }
@@ -49,8 +46,6 @@
   .mobile-banner h1 {
     color: var(--accent) !important;
     margin: 0 !important;
-    /* OCR-A, matching the desktop site title. This carried the Satisfy script
-       face until that font was removed. */
     font-family: 'OCR-A', var(--mono) !important;
     font-size: 16px !important;
     letter-spacing: 0.02em !important;
@@ -112,8 +107,6 @@
     font-family: Arial, sans-serif !important;
   }
 
-  /* The sidebar-wide Arial rule above uses !important, so the site title needs
-     to restate OCR-A to keep it on mobile. */
   sidebar h1 {
     font-family: 'OCR-A', var(--mono) !important;
     font-size: 1.35rem !important;
@@ -140,23 +133,15 @@
     padding-top: 0 !important;
   }
 
-  /* Sidebar hover metadata is hidden on touch: hover never fires, so the rows
-     would either never open or (for the current page) sit permanently expanded
-     and bloat the nav. The same values remain on the link's title attribute. */
   sidebar nav li .nav-meta {
     display: none !important;
   }
-
-  /* Desktop and mobile now share the same 16px base (main.css), so there is no
-     size override here any more - only the heading tightening below. */
 
   main .toc ul,
   main .characters ul {
     columns: 1;
   }
 
-  /* Beta drops the sheet H1 on narrow screens; 1.55em is that proportion
-     against the shared 16px base. */
   main h1 { font-size: 1.55em; }
 
   main .download-bar {
@@ -175,14 +160,10 @@
     min-width: 0 !important;
   }
 
-  /* Breadcrumb keeps only the page title on narrow screens - the section and
-     separator are the first things to go when space is tight. */
   main .download-bar .crumb { min-width: 0 !important; }
   main .download-bar .crumb-sec,
   main .download-bar .crumb .sep { display: none !important; }
 
-  /* Word/read-time metadata is desktop-only; it is the least critical value in
-     the bar and the same numbers are on the page footer. */
   main .download-bar .bar-meta { display: none !important; }
 
   main .download-btn {
@@ -198,8 +179,6 @@
     max-width: 100% !important;
   }
 
-  /* The paper sheet (main.css) runs full-bleed on mobile - no floating edge,
-     no shadow. Its desktop padding is replaced by the 15px above. */
   main .brewdown,
   main .brewdown-rendered {
     padding: 20px 15px 30px;
@@ -211,29 +190,16 @@
 
   main .brewdown-rendered::before { display: none; }
 
-  /* The desktop entry slides in from -170px with a rotation; on a phone that
-     would swing off-screen and fight the narrow viewport. Beta swaps to a short
-     vertical rise, so this does the same. The sweep is dropped - it reads as a
-     glare artifact at this width.
-
-     A SEPARATE keyframe name, not a redefinition of sheet-in: @keyframes are
-     resolved by name globally, so redefining one inside a media query can win
-     outside that query in some engines. */
   main .brewdown-rendered {
     animation: sheet-in-sm 0.34s cubic-bezier(.22, .61, .36, 1) both;
   }
 
   main .brewdown-rendered::after { display: none; }
 
-  /* This rule re-declares `animation`, so it would override main.css's
-     reduced-motion guard. Restate it here. */
   @media (prefers-reduced-motion: reduce) {
     main .brewdown-rendered { animation: none; }
   }
 
-  /* Drop the blueprint grid on mobile. The sheet is full-bleed here so none
-     of it would show anyway, and `background-attachment: fixed` is a known
-     source of scroll jank on iOS and Android. */
   main {
     background-image: none;
   }
@@ -269,8 +235,6 @@
     right: auto !important;
     z-index: 1002 !important; /* back-to-top */
     padding: 0.4rem 0.7rem !important;
-    /* Slightly larger than desktop's 0.58rem for a usable tap target, but still
-       on the mono scale - the old 0.85rem was sized for the filled pill. */
     font-size: 0.6rem !important;
   }
 
@@ -314,8 +278,6 @@
     transform: translateY(-8px) rotate(-45deg) !important;
   }
 
-  /* Flavour picker. The cells flex-fill on their own, so mobile only needs a
-     larger preferred size for touch targets. */
   .theme-menu {
     --sw-size: 38px;
     --sw-gap: 8px;

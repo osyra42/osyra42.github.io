@@ -26,7 +26,14 @@ function initMobile() {
 
     if (!sidebar || !burgerBtn) return;
 
-    burgerBtn.addEventListener('click', function(event) {
+    function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('sidebar-open');
+        burgerBtn.classList.remove('active');
+    }
+
+    burgerBtn.addEventListener('click', function (event) {
         sidebar.classList.toggle('active');
         overlay.classList.toggle('active');
         document.body.classList.toggle('sidebar-open');
@@ -34,19 +41,11 @@ function initMobile() {
         event.stopPropagation();
     });
 
-    overlay.addEventListener('click', function() {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.classList.remove('sidebar-open');
-        burgerBtn.classList.remove('active');
-    });
+    overlay.addEventListener('click', closeSidebar);
 
-    document.addEventListener('click', function(event) {
-        if (sidebar.classList.contains('active') && event.target.matches('nav a')) {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.classList.remove('sidebar-open');
-            burgerBtn.classList.remove('active');
+    document.addEventListener('click', function (event) {
+        if (sidebar.classList.contains('active') && event.target.closest('nav a')) {
+            closeSidebar();
         }
     });
 }

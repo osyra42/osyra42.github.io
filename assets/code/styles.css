@@ -1,25 +1,6 @@
-/* styles.css — the entry stylesheet and the site's global layer.
- *
- * Loads every partial below, then defines what is genuinely global: the
- * palette variables, the font faces, bare element styling, and the two
- * page-wide widgets (tooltips, back-to-top).
- *
- * Order within this file, and within every partial:
- *   :root  ->  elements  ->  classes  ->  ids
- * with anything nested kept beside its parent.
- *
- * Partials, in cascade order:
- *   sidebar.css   the <sidebar> column
- *   main.css      the <main> column and the paper sheet
- *   brewdown.css  rendered markdown inside the sheet
- *   mobile.css    all 768px overrides
- *   print.css     the "Save as PDF" pass
- *
- * Flavor colours are NOT here - assets/js/themes.js derives every accent and
- * paper value from one hex per flavor and writes them onto :root at load.
- */
+/* styles.css */
+
 @import url('sidebar.css');
-@import url('main.css');
 @import url('brewdown.css');
 @import url('mobile.css');
 @import url('print.css');
@@ -43,23 +24,18 @@
   --toasted-almond: #5c4937;
   --dark-chocolate: #120d08;
 
-  /* Monospace stack for technical type: section headings, metadata, code.
-     Used across the sheet and the sidebar chrome. */
+  /* Monospace stack for technical type: section headings, metadata, code. */
   --mono: ui-monospace, "Cascadia Mono", "Consolas", monospace;
+
+  /* Paper sheet */
+  --notch: 26px;
 }
 
 /* ===========================================================================
    FONTS
    =========================================================================== */
-/* OCR-A - the optical-character-recognition face. Used for the site title, where
-   its machine-readable look suits the archive framing. woff first (half the
-   size), ttf as the fallback. */
 @font-face {
   font-family: 'OCR-A';
-  /* ttf first: the "OCR-A Regular" woff in this folder has a malformed cmap
-     table (OTS rejects it with "Range glyph reference too high") and the
-     browser silently falls back to a default face. The ocr-aregular pair
-     below parses cleanly. */
   src: url('../code/fonts/ocr-aregular.ttf') format('truetype'),
        url('../code/fonts/ocr-aregular.woff') format('woff');
   font-weight: normal;
@@ -108,19 +84,15 @@ pre {
 }
 
 /* ===========================================================================
-   CLASSES
+   PAGE CHROME - widgets that live outside <main>
    =========================================================================== */
 
 /* Chrome tooltips - the sidebar flavour swatches. Deliberately separate from
-   the CONTENT tooltips in brewdown.css:
-     .tooltip         content, inside <main>, monochrome on paper
-     .tooltip-chrome  chrome, outside <main>, themed and colour-tinted
-   Neither runtime fires for the other's triggers, so the two never collide.
-   The swatches carry [data-tooltip-color], which the runtime writes onto the
-   bubble - that tint is the whole point of keeping this separate. */
+   any content tooltips (there are none anymore): this one styles bubbles
+   for [data-tooltip] elements OUTSIDE <main>. */
 .tooltip-chrome {
   position: absolute;
-  z-index: 2000;  /* above mobile sidebar/menubar/back-to-top (1001-1005) */
+  z-index: 2000;
   pointer-events: none;
   background: var(--dark-mocha);
   color: var(--light-cream);
@@ -141,9 +113,6 @@ pre {
   transform: translateY(0);
 }
 
-/* ===========================================================================
-   IDS
-   =========================================================================== */
 /* Back to top. Outlined mono, matching the header bar's Save as PDF button -
    a utility control, not a primary action. The leading ^ is drawn in CSS so
    every page's markup stays a plain <button>Back to Top</button>. */
@@ -171,13 +140,12 @@ pre {
   z-index: 999;
 }
 
-/* back-to-top.js adds .is-visible past the scroll threshold. */
 #back-to-top.is-visible {
   display: inline-flex;
 }
 
 #back-to-top::before {
-  content: "\2191";           /* ↑ */
+  content: "\2191";
   font-size: 0.72rem;
   line-height: 1;
   color: var(--accent);
@@ -194,5 +162,414 @@ pre {
   transform: translateY(-2px);
 }
 
-/* Changelog styles live in changelog.html - it is the only page with a look
-   of its own, so they are not carried in the global stylesheet. */
+/* ===========================================================================
+   MAIN - merged from main.css
+   =========================================================================== */
+
+main {
+  font-family: Georgia, 'Times New Roman', serif;
+  background-color: var(--espresso);
+  color: var(--steamed-milk);
+  width: 100%;
+  padding: 0;
+  display: block;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-light) var(--dark-chocolate);
+  -ms-overflow-style: none;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+  -webkit-overflow-scrolling: touch;
+
+  /* Blueprint grid behind the sheet */
+  --grid-cell: 64px;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid-cell) var(--grid-cell);
+  background-attachment: fixed;
+}
+
+main p {
+  margin-bottom: 12px;
+}
+
+main,
+main * {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.72;
+  font-size: 16px;
+}
+
+main code,
+main pre,
+main code *,
+main pre * {
+  font-family: var(--mono);
+  font-size: 0.88em;
+}
+
+/* Constrain content but not the download bar */
+main > *:not(.download-bar) {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Download bar */
+main .download-bar {
+  background-color: rgba(18, 13, 8, .82);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  color: var(--half-and-half);
+  padding: 0 22px;
+  min-height: 44px;
+  margin: 0 0 34px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  border-bottom: 1px solid var(--toasted-almond);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+main .download-bar h1 {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light-cream);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+main .download-bar .crumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+main .download-bar .crumb-sec {
+  color: color-mix(in srgb, var(--accent-light) 40%, var(--half-and-half));
+}
+
+main .download-bar .crumb .sep {
+  color: var(--coffee-bean);
+}
+
+main .download-bar .crumb-doc {
+  color: var(--light-cream);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+main .download-bar .bar-grow {
+  flex: 1;
+}
+
+main .download-bar .bar-meta {
+  color: color-mix(in srgb, var(--accent-light) 40%, var(--half-and-half));
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+/* Outlined, not filled - it is a utility, not the page's primary action. */
+main .download-btn {
+  background: none;
+  color: var(--half-and-half);
+  border: 1px solid var(--toasted-almond);
+  border-radius: 0;
+  padding: 4px 10px;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color 0.16s, color 0.16s;
+}
+
+main .download-btn:hover {
+  background: none;
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Corner brackets - viewport-level, drawn on <body>. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 34px;
+  height: 34px;
+  border: 4px solid var(--accent);
+  opacity: .75;
+  pointer-events: none;
+  z-index: 5;
+}
+
+body::before {
+  --bar-h: 70px;
+  top: calc(var(--bar-h) + 18px);
+  left: calc(340px + 22px);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+/* Bottom-right: viewport corner. */
+body::after {
+  bottom: 18px;
+  right: 22px;
+  border-left: 0;
+  border-top: 0;
+}
+
+/* ===========================================================================
+   PAPER SHEET - the container brewdown renders inside
+   =========================================================================== */
+
+main .brewdown,
+main .brewdown-rendered {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 56px 64px 64px;
+  background-color: var(--paper);
+  color: var(--paper-ink);
+
+  background-image:
+    linear-gradient(var(--paper), var(--paper)),
+    repeating-linear-gradient(180deg,
+      transparent 0 31px, rgba(70, 62, 52, .06) 31px 32px);
+
+  /* Clipped top-right corner - a cut sheet of paper rather than a rectangle. */
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    0 100%);
+
+  filter:
+    drop-shadow(0 1px 2px rgba(0, 0, 0, .3))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, .38));
+
+  position: relative;
+}
+
+@keyframes sheet-in {
+  0%   { opacity: 0; transform: translateX(-170px) rotate(-6deg) scale(.95); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: translateX(0) rotate(0) scale(1); }
+}
+
+@keyframes sheet-sweep {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes block-rise {
+  from { opacity: 0; transform: translateY(9px); }
+  to   { opacity: 1; transform: none; }
+}
+
+main .brewdown-rendered {
+  transform-origin: 12% 50%;
+  animation: sheet-in 0.5s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+main .brewdown-rendered::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+    transparent 38%, rgba(255, 252, 245, .45) 50%, transparent 62%);
+  clip-path: polygon(
+    0 0,
+    calc(100% - var(--notch)) 0,
+    100% var(--notch),
+    100% 100%,
+    0 100%);
+  animation: sheet-sweep 0.62s ease-out 0.1s both;
+  pointer-events: none;
+  z-index: 3;
+}
+
+main .brewdown-rendered > * {
+  animation: block-rise 0.38s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+main .brewdown-rendered > *:nth-child(1) { animation-delay: 0.16s; }
+main .brewdown-rendered > *:nth-child(2) { animation-delay: 0.21s; }
+main .brewdown-rendered > *:nth-child(3) { animation-delay: 0.26s; }
+main .brewdown-rendered > *:nth-child(4) { animation-delay: 0.31s; }
+main .brewdown-rendered > *:nth-child(n+5) { animation-delay: 0.36s; }
+
+@media (prefers-reduced-motion: reduce) {
+  main .brewdown-rendered,
+  main .brewdown-rendered > * {
+    animation: none;
+  }
+  main .brewdown-rendered::after { display: none; }
+}
+
+main .brewdown-rendered::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--notch);
+  height: var(--notch);
+  background: linear-gradient(225deg,
+    var(--paper-edge) 0 1.5px, transparent 1.5px);
+  pointer-events: none;
+}
+
+/* Body copy and table cells inherit ink. */
+main .brewdown-rendered p,
+main .brewdown-rendered li,
+main .brewdown-rendered td,
+main .brewdown-rendered dd,
+main .brewdown-rendered dt {
+  color: var(--paper-ink);
+}
+
+main .brewdown-rendered h1,
+main .brewdown-rendered h2,
+main .brewdown-rendered h3,
+main .brewdown-rendered h4,
+main .brewdown-rendered h5,
+main .brewdown-rendered h6 {
+  color: var(--accent-dark);
+  border-bottom-color: var(--paper-edge);
+}
+
+main .brewdown-rendered strong { color: var(--paper-ink); }
+main .brewdown-rendered hr { border-color: var(--paper-edge); }
+
+main .brewdown-rendered a { color: var(--paper-link); }
+main .brewdown-rendered a:visited { text-decoration-color: var(--paper); }
+main .brewdown-rendered a:hover { color: var(--accent-dark); }
+
+main .brewdown-rendered :not(pre) > code {
+  background-color: var(--paper-shade);
+  border: 1px solid var(--paper-edge);
+  color: #4a3a26;
+}
+
+main .brewdown-rendered pre {
+  background-color: var(--dark-chocolate);
+  border-left: 3px solid var(--accent);
+}
+
+main .brewdown-rendered pre code:not(.hljs) {
+  background: none;
+  border: 0;
+  color: var(--steamed-milk);
+}
+
+main .brewdown-rendered pre:has(code.hljs) {
+  background-color: transparent;
+  padding: 0;
+  border-left: 0;
+}
+
+main .brewdown-rendered pre code.hljs {
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--accent);
+}
+
+main .brewdown-rendered blockquote,
+main .brewdown-rendered .toc,
+main .brewdown-rendered .brewdown-toc,
+main .brewdown-rendered .characters {
+  background-color: var(--paper-shade);
+  border-color: var(--paper-edge);
+  color: var(--paper-ink);
+}
+
+main .brewdown-rendered .toc h2,
+main .brewdown-rendered .brewdown-toc strong,
+main .brewdown-rendered .characters h2 {
+  color: var(--accent-dark);
+}
+
+main .brewdown-rendered .toc a { color: var(--paper-link); }
+main .brewdown-rendered .toc a:hover { color: var(--accent-dark); }
+
+/* Tables */
+main .brewdown-rendered table th {
+  background-color: var(--paper-shade);
+  color: var(--paper-ink);
+}
+main .brewdown-rendered table th,
+main .brewdown-rendered table td {
+  border-color: var(--paper-edge);
+}
+
+main .brewdown-rendered table tr:nth-child(even) {
+  background-color: color-mix(in srgb, var(--paper-ink) 5%, transparent);
+}
+
+main .brewdown-rendered .spoiler {
+  background-color: var(--paper-ink-soft);
+  color: var(--paper-ink-soft);
+}
+main .brewdown-rendered .spoiler.revealed { color: var(--paper); }
+
+/* Click-to-copy */
+main .brewdown-rendered .copy-text { color: var(--paper-link); }
+main .brewdown-rendered .copy-text:hover { color: var(--accent-dark); }
+
+/* Muted text */
+main .brewdown-rendered .footer,
+main .brewdown-rendered .footer p {
+  color: var(--paper-ink-soft);
+}
+
+main .brewdown-rendered .footer {
+  border-color: var(--paper-edge);
+}
+
+/* ===========================================================================
+   RESPONSIVE - collapse the paper sheet and background on narrow screens
+   =========================================================================== */
+@media (max-width: 1000px) {
+  main .brewdown,
+  main .brewdown-rendered {
+    margin-bottom: 0;
+    padding: 32px 28px 40px;
+    box-shadow: none;
+    filter: none;
+    clip-path: none;
+  }
+
+  main .brewdown-rendered::before { display: none; }
+
+  main {
+    background-image: none;
+  }
+
+  body::before,
+  body::after {
+    display: none;
+  }
+}

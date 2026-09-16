@@ -119,7 +119,7 @@
       <ul>
         <li><a href="?paper=become_the_problem" data-date="2026.07.24" data-words="2231" data-minutes="11">🔓 Become the Problem</a></li>
         <li><a href="?paper=blender_resources"  data-date="2026.07.18" data-words="268"  data-minutes="2">🧊 Blender Resources</a></li>
-        <li><a href="?paper=brewdown" data-date="2026.06.27" data-words="16" data-minutes="1">☕ Brewdown</a></li>
+        <li><a href="?paper=brewdown" data-date="2026.06.27" data-words="16" data-minutes="1">☕ Brewdown ⚠️</a></li>
                <li><a href="?paper=casio_code" data-date="2026.09.09" data-words="543" data-minutes="3">🔢 Casio Code</a></li>
         <li><a href="?paper=code_resources"     data-date="2026.07.18" data-words="172"  data-minutes="1">🐍 Code Resources</a></li>
         <li><a href="?paper=media_mimic"        data-date="2026.07.18" data-words="668"  data-minutes="4">🎬 Media Mimic</a></li>
@@ -138,11 +138,11 @@
     <hr/>
     <p class="sidebar-footer">
       Contact: CoffeeByteDev@proton.me
-      <br>
-      Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
       <a href="https://librecounter.org/referer/show" target="_blank" rel="noopener noreferrer">
         <img src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
       </a>
+      <br>
+      Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
     </p>
   </sidebar>
 
@@ -178,8 +178,6 @@
       const [, icon, title] = match;
       window.icon  = icon;
       window.title = title;
-      document.title = title + " - Coffee Byte Dev";
-      const h1 = document.getElementById("page-title");
       if (h1) h1.textContent = title;
     })();
 

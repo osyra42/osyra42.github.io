@@ -6,34 +6,20 @@
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-
-  <!-- Meta Tags -->
-  <meta name="description" content="Brewdown - the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
-  <meta name="keywords" content="brewdown, markdown, html, converter, library, javascript, coffee byte dev, osyra42" />
-  <meta name="author" content="osyra42" />
-  <meta property="og:title" content="Brewdown - Coffee Byte Dev" />
-  <meta property="og:description" content="Brewdown - the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
-  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev/brewdown.html" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Brewdown - Coffee Byte Dev" />
-  <meta name="twitter:description" content="Brewdown - the markdown converter that powers Coffee Byte Dev. Reference for the extended syntax used across this site and how the converter works." />
-  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+  <link rel="stylesheet" href="assets/code/styles.css" />
 
   <link rel="stylesheet" href="assets/highlight/styles/base16/atelier-dune-light.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
-  <script src="assets/js/themes.js" defer></script>
-  <script src="assets/js/scripts.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
+  <script src="assets/code/themes.js" defer></script>
+  <script src="assets/code/scripts.js" defer></script>
+  <script src="assets/code/mobile.js" defer></script>
 </head>
 <body>
 
   <sidebar>
-    <!-- Placeholder for dynamic sidebar content -->
+    <!-- Filled by scripts.js from the static nav in index.html -->
   </sidebar>
 
-  <!-- Main Content -->
   <main>
 
     <div class="download-bar">
@@ -42,30 +28,14 @@
     </div>
 
     <h1>Brewdown</h1>
-    <p>Brewdown is the markdown converter I built to run this site. It's plain Markdown with extras I kept wanting - media embedding, spoilers, collapsible sections, fill-in fields, timestamps, and template variables. This page is the reference: the syntax I use across Coffee Byte Dev and what the converter does with each piece.</p>
+    <p>Brewdown is the markdown converter I built to run this site. It's plain Markdown with the extras I kept reaching for - media embedding, spoilers, click-to-copy, collapsible sections, and a table of contents. This page is the reference: the syntax I use across Coffee Byte Dev and what the converter does with each piece.</p>
 
     <hr>
 
     <h2>How It Works</h2>
-    <p>Every page on this site loads <code>brewdown.js</code> in its <code>&lt;head&gt;</code> with the <code>defer</code> attribute. On page load, the script scans the DOM for two patterns and rewrites them to HTML in place:</p>
+    <p>Every paper is a markdown file in <code>papers/</code>. The page fetches the file, hands the text to <code>Brewdown.brewdown()</code>, and inserts the resulting HTML into the paper sheet. <code>brewdown.js</code> itself does no fetching - the caller owns that.</p>
 
-    <p><strong>1. A <code>&lt;div class="brewdown"&gt;</code> with markdown inside it.</strong> The div's text content is converted; the div gets the additional class <code>brewdown-rendered</code> after processing.</p>
-    <pre><code class="language-html">&lt;div class="brewdown"&gt;
-# Hello World
-This is **Brewdown** in action.
-&lt;/div&gt;</code></pre>
-
-    <p><strong>2. A <code>&lt;script&gt;</code> tag with a <code>data-brewdown</code> attribute.</strong> Used either with inline markdown or to load an external <code>.md</code> file. The script tag is replaced with a div containing the rendered HTML.</p>
-    <pre><code class="language-html">&lt;script type="text/markdown" data-brewdown&gt;
-# Hello World
-This is **Brewdown** in action.
-&lt;/script&gt;
-
-&lt;script data-brewdown="path/to/file.md"&gt;&lt;/script&gt;</code></pre>
-
-    <p><code>&lt;script data-brewdown&gt;</code> tags also work <em>inside</em> a <code>&lt;div class="brewdown"&gt;</code>. The script is preserved through the parent div's render pass and processed in a second pass - useful for embedding external chapter files inside a collapsible (<code>&gt;&gt;&gt;</code>) block.</p>
-
-    <p>If <code>highlight.js</code> is also on the page, Brewdown calls <code>hljs.highlightAll()</code> after rendering so code blocks pick up syntax colors. This is why <code>highlight.min.js</code> must load before <code>brewdown.js</code> - if it loads after, the check fails and code blocks render plain.</p>
+    <p>If a <code>highlight.js</code> build is on the page, Brewdown calls <code>hljs.highlightElement()</code> on each fenced block after rendering so code picks up syntax colors. <code>highlight.min.js</code> must load before <code>brewdown.js</code>, or the check fails and code blocks render plain.</p>
 
     <hr>
 
@@ -74,13 +44,9 @@ This is **Brewdown** in action.
 *italic*
 ~~strikethrough~~
 __underline__
-`inline code`</code></pre>
-
-    <h3>Escape Characters</h3>
-    <p>Use <code>\</code> before any character to prevent Brewdown from processing it.</p>
-    <pre><code>\*not italic\*
-\[not a link\](url)</code></pre>
-    <p>Inside code blocks, a backslash before a backtick escapes it so it displays literally.</p>
+`inline code`
+!!spoiler, click to reveal!!
+^^click to copy^^</code></pre>
 
     <hr>
 
@@ -91,19 +57,19 @@ __underline__
 #### Heading 4
 ##### Heading 5
 ###### Heading 6</code></pre>
+    <p>H1 through H3 auto-collect into the table of contents. Every heading gets an <code>id</code> auto-slugified from its text, so links can scroll to it.</p>
 
     <hr>
 
     <h2>Links</h2>
     <pre><code>[Link Text](https://example.com)</code></pre>
-    <p>External links (http/https, magnet, .pdf) automatically open in a new tab. http/https and .pdf links also get a 🔗 indicator prepended; magnet links do not.</p>
-    <p>Any link whose URL ends in <code>.zip</code> also gets a 💾 indicator prepended (regardless of whether it's external or local). This is independent of 🔗 - an external <code>.zip</code> URL gets both.</p>
-    <p>External links carry <code>title="Click to follow external link"</code> and .zip links carry <code>title="Click to save"</code> as a hover tooltip. Magnet and internal links carry no title.</p>
+    <p>External links (http/https, or any URL ending in <code>.pdf</code>) open in a new tab and get a 🔗 indicator prepended. Links whose URL ends in <code>.zip</code> get a 💾 indicator, whether or not they're external.</p>
+    <p>Internal links stay in the same tab and carry no indicator. Bare URLs are <em>not</em> auto-linked - if you want a link, write one.</p>
 
     <hr>
 
     <h2>Media Embedding</h2>
-    <p>Use the image syntax for everything - Brewdown reads the file extension and picks the right HTML element for you.</p>
+    <p>Use the image syntax for everything - Brewdown reads the file extension and picks the right HTML element.</p>
     <pre><code>![alt text](photo.jpg)        -&gt; &lt;img&gt;
 ![alt text](video.mp4)        -&gt; &lt;video controls&gt;
 ![alt text](song.mp3)         -&gt; &lt;audio controls&gt;
@@ -111,7 +77,8 @@ __underline__
     <p><strong>Image:</strong> jpg, jpeg, png, gif, webp, svg, bmp, ico, avif</p>
     <p><strong>Video:</strong> mp4, webm, ogg, mov</p>
     <p><strong>Audio:</strong> mp3, wav, flac, aac, m4a</p>
-    <p><strong>Other:</strong> opens in a new tab (browser renders or downloads)</p>
+    <p><strong>Anything else:</strong> opens in a new tab.</p>
+    <p>Consecutive media-only lines are gathered into a flex gallery.</p>
 
     <hr>
 
@@ -121,7 +88,8 @@ function hello() {
     console.log("Hello, world!");
 }
 ```</code></pre>
-    <p>Works with highlight.js if loaded on the page.</p>
+    <p>The language tag drives highlight.js. Without one, the block renders plain.</p>
+    <p>To color the changelog, fence the block as <code>changelog</code> and prefix lines with <code>#</code>, <code>@</code>, <code>+</code>, <code>-</code>, <code>&gt;</code>, or <code>$</code>. Each prefix gets its own color, injected at load by <code>scripts.js</code>.</p>
 
     <hr>
 
@@ -136,6 +104,7 @@ function hello() {
 |--------|--------|
 | Alice  | Admin  |
 | Bob    | User   |</code></pre>
+    <p>A first column header of <code>#</code> makes that column a narrow index column.</p>
 
     <hr>
 
@@ -145,49 +114,32 @@ function hello() {
 
     <hr>
 
-    <h2>Fill-in Blanks</h2>
-    <p>Three or more underscores create a text input field. An optional placeholder follows the underscores with no spaces; underscores inside the placeholder render as spaces.</p>
-    <pre><code>___                     -&gt; blank input
-___hello                -&gt; input with placeholder "hello"
-___help_me              -&gt; input with placeholder "help me"
-___for_example_here     -&gt; input with placeholder "for example here"</code></pre>
-    <p>Note: a literal space in the markdown terminates the placeholder. Use underscores to insert spaces.</p>
-
-    <hr>
-
     <h2>Horizontal Rules</h2>
     <pre><code>---</code></pre>
-
-    <hr>
-
-    <h2>Timestamps</h2>
-    <p>Converts a date to the user's local format with a semantic <code>&lt;time&gt;</code> element.</p>
-    <pre><code>@@2026.03.28@@              -&gt; March 28, 2026
-@@2026.03.28.14.30@@        -&gt; March 28, 2026 at 2:30 PM</code></pre>
 
     <hr>
 
     <h2>Spoilers</h2>
     <p>Click-to-reveal hidden text.</p>
     <pre><code>!!This text is hidden until clicked.!!</code></pre>
-    <p>Wrapped in <code>&lt;span class="spoiler" title="Click to reveal"&gt;</code>. Requires CSS for the <code>.spoiler</code> and <code>.spoiler.revealed</code> classes.</p>
+    <p>Renders as <code>&lt;span class="spoiler"&gt;</code> with a click handler that toggles the <code>revealed</code> class.</p>
 
     <hr>
 
     <h2>Click-to-Copy</h2>
-    <p>Click the rendered text to copy its content to the clipboard. A 📋 indicator is prepended automatically.</p>
+    <p>Click the rendered text to copy its content to the clipboard. A 📋 indicator is prepended.</p>
     <pre><code>^^npm install foo^^</code></pre>
-    <p>Wraps content in <code>&lt;span class="copy-text" title="Click to copy this text"&gt;</code> with a click handler that writes <code>data-copy</code> to the clipboard via <code>navigator.clipboard.writeText</code>.</p>
+    <p>Renders as <code>&lt;span class="copy-text"&gt;</code> with a click handler that writes <code>data-copy</code> to the clipboard via <code>navigator.clipboard.writeText</code>.</p>
 
     <hr>
 
     <h2>Collapsible Sections</h2>
-    <p>Wraps content in a <code>&lt;details&gt;/&lt;summary&gt;</code> element. The <code>&lt;details&gt;</code> element gets an <code>id</code> auto-slugified from its title, and the title is auto-added to the table of contents (unless the title is empty).</p>
+    <p>Wraps content in a <code>&lt;details&gt;/&lt;summary&gt;</code> pair. The <code>&lt;details&gt;</code> gets an <code>id</code> auto-slugified from its title, so links can scroll to it - but collapsibles are <em>not</em> auto-listed in the TOC.</p>
     <pre><code>&gt;&gt;&gt; Click to expand
 Content goes here.
 More content.
 &lt;&lt;&lt;</code></pre>
-    <p>Supports nesting:</p>
+    <p>Nesting works:</p>
     <pre><code>&gt;&gt;&gt; Outer
 &gt;&gt;&gt; Inner
 Nested content.
@@ -197,7 +149,7 @@ Nested content.
     <hr>
 
     <h2>Table of Contents</h2>
-    <p>H1, H2, and H3 headers automatically collect into a table of contents, but the TOC is only rendered when you explicitly write <code>::toc::</code> in the source - opt-in, not automatic, so pages with lots of incidental headers (like the changelog) don't sprout unwanted TOCs. Every header (H1-H6) and every <code>&gt;&gt;&gt;</code> collapsible gets an <code>id="..."</code> attribute auto-slugified from its text, so links can scroll to them - but <code>&gt;&gt;&gt;</code> collapsibles are NOT auto-listed in the TOC (use a header or <code>::label::</code> above the collapsible if you want a TOC entry that scrolls to it).</p>
+    <p>Write <code>::toc::</code> on its own line to place a table of contents. H1 through H3 auto-collect as sections are scanned.</p>
     <pre><code>::toc::
 
 ## First Section
@@ -205,29 +157,14 @@ Content here.
 
 ## Second Section
 More content.</code></pre>
-    <p>For non-header anchors, wrap any inline label in <code>::label::</code> markers. The label gets a span with an ID and is added to the TOC.</p>
-    <pre><code>Some prose with ::a special anchor:: inline.</code></pre>
-    <p>Renders TOC as <code>&lt;pre class="brewdown-toc"&gt;</code> with a bold <strong>TABLE OF CONTENTS</strong> header followed by one anchor per line. H3 and <code>&gt;&gt;&gt;</code> entries are indented two spaces under their parent H2. Clicking any link scrolls to the anchor via native browser behavior.</p>
-
-    <hr>
-
-    <h2>Template Variables</h2>
-    <p>Placeholders that render as <code>&lt;span&gt;</code> elements with IDs for JavaScript to target.</p>
-    <pre><code>Server status: {{server-status}}</code></pre>
-    <p>Set the default text <em>before</em> brewdown.js loads (since brewdown.js is deferred, an inline <code>Brewdown.defaultVar = …</code> in the head would run before <code>Brewdown</code> exists). Use the <code>window.brewdownDefaultVar</code> stash instead - brewdown.js reads it at init:</p>
-    <pre><code class="language-html">&lt;script&gt;window.brewdownDefaultVar = 'Loading...';&lt;/script&gt;</code></pre>
-    <p>After brewdown loads, <code>Brewdown.defaultVar = 'text'</code> works as expected from any non-deferred code (e.g. DOMContentLoaded handlers, button clicks).</p>
-
-    <hr>
-
-    <h2>HTML Passthrough</h2>
-    <p>Raw HTML lines are passed through as-is.</p>
+    <p>Renders as <code>&lt;pre class="brewdown-toc"&gt;</code> with a bold <strong>TABLE OF CONTENTS</strong> header. Indentation follows heading depth. Clicking a link scrolls via native browser behavior.</p>
+    <p>When a paper includes other markdown via <code>&lt;script data-brewdown&gt;</code>, the TOC is rebuilt after those includes land, so their headings appear too.</p>
 
     <hr>
 
     <h2>API</h2>
-    <p>Brewdown exposes these methods on the global <code>Brewdown</code> object for code that needs to call it directly (rather than relying on the automatic page-load processing):</p>
-    <pre><code class="language-javascript">// Convert markdown string to HTML
+    <p>The global <code>Brewdown</code> object exposes:</p>
+    <pre><code class="language-javascript">// Convert a markdown string to HTML
 const html = Brewdown.brewdown(markdownText);
 
 // With options
@@ -236,15 +173,14 @@ const html = Brewdown.brewdown(markdownText, {
     containerClass: 'my-class'
 });
 
-// Parse inline formatting only
-const html = Brewdown.parseInlineFormatting(text);
-
-// Re-process script tags or brewdown divs
+// Process &lt;script data-brewdown&gt; tags already in the DOM
 Brewdown.processScriptTags();
+
+// Process &lt;div class="brewdown"&gt; blocks
 Brewdown.processBrewdownDivs();
 
-// Set default text for template variables
-Brewdown.defaultVar = 'Loading...';</code></pre>
+// Rebuild any ::toc:: after late includes land
+Brewdown.rebuildToc();</code></pre>
 
     <hr>
 
