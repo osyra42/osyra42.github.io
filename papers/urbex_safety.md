@@ -100,5 +100,3 @@ Be smart, be quick, and be gone before anyone notices. Then come home.
 ---
 
 > ⚖️ *The boring footnote: entering property that isn't yours is trespassing just about everywhere, and "it looked abandoned" is not a legal defense. Forcing entry, taking anything, or wrecking the place turns a slap on the wrist into real charges. Whether you go is your call - this guide is only about not getting hurt. Take only photos, leave only footprints.*
-
-::signature::

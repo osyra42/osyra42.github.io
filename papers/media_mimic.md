@@ -1,6 +1,5 @@
-# Media Mimic
+# 🎬 Media Mimic
 ::toc::
-*Archived Project Documentation*
 
 ## Project Overview
 
@@ -106,7 +105,3 @@ Settings are defined in `settings.py` (copy from `settings.py.example`):
 ## Links
 
 **GitHub Repository:** https://github.com/osyra42/media_mimic
-
----
-
-::signature::

@@ -2,63 +2,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Coffee Byte Dev</title>
-  <meta charset="utf-8" />
-  <link rel="shortcut icon" href="favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Coffee Byte Dev</title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/code/styles.css" />
 
-  <!-- Meta Tags -->
-  <meta name="description" content="What osyra42 is actively working on - Operation Chimera, the Vanity bot, the Minecraft server, and whatever else is in progress right now" />
-  <meta name="keywords" content="osyra42, Coffee Byte Dev, VTuber, streamer, Discord, game development, creative writing, 3D, AI, Minecraft" />
-  <meta name="author" content="osyra42" />
-  <meta property="og:title" content="Coffee Byte Dev" />
-  <meta property="og:description" content="What osyra42 is actively working on - Operation Chimera, the Vanity bot, the Minecraft server, and whatever else is in progress right now" />
-  <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
-  <meta property="og:url" content="https://coffeebyte.dev" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Coffee Byte Dev" />
-  <meta name="twitter:description" content="What osyra42 is actively working on - Operation Chimera, the Vanity bot, the Minecraft server, and whatever else is in progress right now" />
-  <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
+    <!-- Meta Tags -->
+    <meta name="description" content="Coffee Byte Dev - projects, guides, and notes by osyra42." />
+    <meta name="keywords" content="osyra42, Coffee Byte Dev" />
+    <meta name="author" content="osyra42" />
+    <meta property="og:title" content="Coffee Byte Dev" />
+    <meta property="og:description" content="Coffee Byte Dev - projects, guides, and notes by osyra42." />
+    <meta property="og:image" content="https://coffeebyte.dev/favicon.png" />
+    <meta property="og:url" content="https://coffeebyte.dev/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Coffee Byte Dev" />
+    <meta name="twitter:description" content="Coffee Byte Dev - projects, guides, and notes by osyra42." />
+    <meta name="twitter:image" content="https://coffeebyte.dev/favicon.png" />
 
-  <link rel="stylesheet" href="assets/highlight/styles/base16/atelier-dune-light.min.css" />
-  <script src="assets/highlight/highlight.min.js" defer></script>
-  <script src="assets/js/signature.js" defer></script>
-  <script src="assets/js/util.js" defer></script>
-  <script src="assets/js/manifest.js" defer></script>
-  <script src="assets/js/themes.js" defer></script>
-  <script src="assets/js/brewdown.js" defer></script>
-  <script src="assets/js/sidebar.js" defer></script>
-  <script src="assets/js/tooltip.js" defer></script>
-  <script src="assets/js/topbar.js" defer></script>
-  <script src="assets/js/scripts.js" defer></script>
-  <script src="assets/js/mobile.js" defer></script>
-  <script src="assets/js/back-to-top.js" defer></script>
-
-  <script>
-    title   = "Welcome";
-    icon    = "🏠";
-    section = "Site";
-  </script>
+    <link rel="stylesheet" href="assets/highlight/styles/base16/atelier-dune-light.min.css" />
+    <script src="assets/highlight/highlight.min.js" defer></script>
+    <script src="assets/code/themes.js" defer></script>
+    <script src="assets/code/scripts.js" defer></script>
+    <script src="assets/code/brewdown.js" defer></script>
+    <script src="assets/code/mobile.js" defer></script>
 </head>
 <body>
 
   <sidebar>
-    <!-- Placeholder for dynamic sidebar content -->
+    <div class="text-center">
+      <a href="?paper=index">
+        <div class="brand-id">CBD // ARCHIVE</div>
+        <h1>Coffee Byte Dev</h1>
+      </a>
+      <div class="brand-sub">43 DOCS · 200K WORDS · IDX 2026.09</div>
+      <div class="theme-menu">
+        <span class="theme-menu-label">Flavors</span>
+        <div class="theme-picker" role="group" aria-label="Color theme">
+          <button class="theme-swatch theme-swatch--reset" type="button"
+                  data-theme-reset data-tooltip="Reset to default"
+                  aria-label="Reset theme to the site default" style="--sw:#ffffff">
+            <span aria-hidden="true">🚫</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <h3><span class="sec-name">Site</span><span class="sec-rule"></span><span class="sec-count">06</span></h3>
+      <ul>
+        <li><a href="?paper=index" data-date="2026.09.12" data-words="397" data-minutes="2">🏠 Welcome</a></li>
+        <li><a href="?paper=about_me"          data-date="2026.08.11" data-words="591"   data-minutes="3">👋 About Me</a></li>
+        <li><a href="?paper=changelog"         data-date="2026.09.16" data-words="8661 "  data-minutes="37">⌚ Changelog</a></li>
+        <li><a href="?paper=minecraft"         data-date="2026.09.16" data-words="1090"  data-minutes="5">⛏️ Minecraft Server</a></li>
+        <li><a href="?paper=recommendations"   data-date="2026.09.13" data-words="1023"  data-minutes="5">⭐ Recommendations</a></li>
+        <li><a href="?paper=support_me"        data-date="2026.07.18" data-words="286"   data-minutes="2">💜 Support Me</a></li>
+      </ul>
+
+      <h3><span class="sec-name">Books</span><span class="sec-rule"></span><span class="sec-count">04</span></h3>
+      <ul>
+        <li><a href="?paper=operation_chimera"    data-date="2026.09.16" data-words="368" data-minutes="2">📖 Operation Chimera</a></li>
+        <li><a href="?paper=glitched"             data-date="2026.07.18" data-words="9574"  data-minutes="44">⚡ Glitched</a></li>
+        <li><a href="?paper=infinite_devastation" data-date="2026.07.18" data-words="7166"  data-minutes="33">⚔️ Infinite Devastation</a></li>
+        <li><a href="?paper=ever_diamond"         data-date="2026.07.18" data-words="12921" data-minutes="59">💎 Ever Diamond</a></li>
+      </ul>
+
+      <h3><span class="sec-name">Games</span><span class="sec-rule"></span><span class="sec-count">03</span></h3>
+      <ul>
+        <li><a href="?paper=blank_pixel_game" data-date="2026.07.18" data-words="1535" data-minutes="7">🕹️ Blank Pixel Game</a></li>
+        <li><a href="?paper=clutter"          data-date="2026.07.18" data-words="427"  data-minutes="2">🍂 Clutter</a></li>
+        <li><a href="?paper=sipsip"           data-date="2026.07.24" data-words="230"  data-minutes="2">🧋 Sip Sip</a></li>
+      </ul>
+
+      <h3><span class="sec-name">Guides</span><span class="sec-rule"></span><span class="sec-count">08</span></h3>
+      <ul>
+        <li><a href="?paper=3d_prints"        data-date="2026.07.24" data-words="744"  data-minutes="4">🖨️ 3D Prints</a></li>
+        <li><a href="?paper=better_for_free"  data-date="2026.07.18" data-words="2564" data-minutes="12">💡 Better for Free</a></li>
+        <li><a href="?paper=comfyui_guide"    data-date="2026.07.18" data-words="955"  data-minutes="5">🎨 How to Use ComfyUI</a></li>
+        <li><a href="?paper=how_magnets_work" data-date="2026.09.16" data-words="623"  data-minutes="3">🧲 How Magnets Work</a></li>
+        <li><a href="?paper=video_editing"    data-date="2026.07.24" data-words="516"  data-minutes="3">🎬 How to Edit Videos</a></li>
+        <li><a href="?paper=urbex_safety"     data-date="2026.07.18" data-words="1054" data-minutes="5">🏚️ How to Urbex Safely</a></li>
+        <li><a href="?paper=vtuber_guide"     data-date="2026.07.21" data-words="1092" data-minutes="5">🎭 How to Become a VTuber</a></li>
+        <li><a href="?paper=worksheets"       data-date="2026.07.18" data-words="395"  data-minutes="2">📝 Homeschool Worksheets</a></li>
+      </ul>
+
+      <h3><span class="sec-name">DevTools</span><span class="sec-rule"></span><span class="sec-count">9</span></h3>
+      <ul>
+        <li><a href="?paper=become_the_problem" data-date="2026.07.24" data-words="2231" data-minutes="11">🔓 Become the Problem</a></li>
+        <li><a href="?paper=blender_resources"  data-date="2026.07.18" data-words="268"  data-minutes="2">🧊 Blender Resources</a></li>
+        <li><a href="?paper=brewdown" data-date="2026.06.27" data-words="16" data-minutes="1">☕ Brewdown</a></li>
+               <li><a href="?paper=casio_code" data-date="2026.09.09" data-words="543" data-minutes="3">🔢 Casio Code</a></li>
+        <li><a href="?paper=code_resources"     data-date="2026.07.18" data-words="172"  data-minutes="1">🐍 Code Resources</a></li>
+        <li><a href="?paper=media_mimic"        data-date="2026.07.18" data-words="668"  data-minutes="4">🎬 Media Mimic</a></li>
+        <li><a href="?paper=vanity" data-date="2026.09.16" data-words="4133" data-minutes="19">🤖 Vanity</a></li>
+        <li><a href="?paper=yt_dlp_tool"        data-date="2026.07.24" data-words="635"  data-minutes="3">🎬 yt-dlp Tool</a></li>
+        <li><a href="?paper=zzz_launcher"       data-date="2026.09.16" data-words="1770" data-minutes="9">😴 Sleep Launcher</a></li>
+      </ul>
+
+      <h3><span class="sec-name">Legal</span><span class="sec-rule"></span><span class="sec-count">2</span></h3>
+      <ul>
+        <li><a href="?paper=website_legal" data-date="2026.09.16" data-words="847" data-minutes="4">⚖️ Website Legal</a></li>
+        <li><a href="?paper=vanity_legal"  data-date="2026.09.16" data-words="1278"  data-minutes="6">⚖️ Vanity Legal</a></li>
+      </ul>
+    </nav>
+
+    <hr/>
+    <p class="sidebar-footer">
+      Contact: CoffeeByteDev@proton.me
+      <br>
+      Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
+      <a href="https://librecounter.org/referer/show" target="_blank" rel="noopener noreferrer">
+        <img src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+      </a>
+    </p>
   </sidebar>
 
   <!-- Main Content -->
   <main>
 
     <div class="download-bar">
-      <h1>Welcome</h1>
+      <h1 id="page-title">Loading…</h1>
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <script data-brewdown="papers/index.md"></script>
+    <script data-brewdown=""></script>
 
     <button id="back-to-top">Back to Top</button>
   </main>
 
+  <script>
+    // Read ?paper= once. Everything below uses this.
+    const PAPER = new URLSearchParams(location.search).get('paper') || 'index';
+
+    // 1) Router: point the brewdown placeholder at the right markdown file.
+    //    Must happen BEFORE scripts.js runs processAll() on DOMContentLoaded.
+    document.querySelector('script[data-brewdown]')
+            .setAttribute('data-brewdown', `papers/${PAPER}.md`);
+
+    // 2) First-line reader: set <h1>, document.title, window.icon/title.
+    (async () => {
+      const md = await (await fetch(`papers/${PAPER}.md`)).text();
+      const firstLine = md.split('\n')[0];
+      const match = firstLine.match(/^#\s+(\S+)\s+(.+?)\s*$/);
+      if (!match) return;
+
+      const [, icon, title] = match;
+      window.icon  = icon;
+      window.title = title;
+      document.title = title + " - Coffee Byte Dev";
+      const h1 = document.getElementById("page-title");
+      if (h1) h1.textContent = title;
+    })();
+
+    // 3) Sidebar: mark current page, add ✨ to fresh ones, build hover meta.
+    (function () {
+      const FRESH_DAYS = 14;
+      const cutoff = Date.now() - FRESH_DAYS * 86400000;
+
+      document.querySelectorAll('.sidebar-nav a').forEach(a => {
+        const href = a.getAttribute('href');            // "?paper=changelog"
+        const linkPaper = new URLSearchParams(href.split('?')[1]).get('paper');
+        if (linkPaper === PAPER) a.setAttribute('aria-current', 'page');
+
+        const date = a.dataset.date;
+        if (date) {
+          const dt = Date.parse(date.replace(/\./g, '-'));
+          if (Number.isFinite(dt) && dt >= cutoff) {
+            a.insertAdjacentHTML('beforeend', ' <span class="sidebar-new">✨</span>');
+          }
+        }
+
+        const parts = [];
+        if (a.dataset.words)   parts.push(`${(+a.dataset.words).toLocaleString()} WORDS`);
+        if (a.dataset.minutes) parts.push(`${a.dataset.minutes} MIN`);
+        if (date)              parts.push(`UPD ${date}`);
+        if (parts.length) {
+          const meta = parts.join(' · ');
+          a.title = meta.replace(/·/g, '-');
+          a.closest('li').insertAdjacentHTML('beforeend',
+            `<span class="nav-meta"><span>${meta}</span></span>`);
+        }
+      });
+    })();
+
+    // 4) Fill the theme picker. Wrapped in DOMContentLoaded so Themes exists.
+    document.addEventListener('DOMContentLoaded', () => {
+      const picker = document.querySelector('.theme-picker');
+      if (!picker || typeof Themes === 'undefined') return;
+
+      Themes.FLAVORS.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'theme-swatch';
+        btn.type = 'button';
+        btn.dataset.themeId = t.id;
+        btn.dataset.tooltip = t.label;
+        btn.dataset.tooltipColor = t.hex;
+        btn.setAttribute('aria-label', t.label + ' theme');
+        btn.style.setProperty('--sw', t.hex);
+        picker.appendChild(btn);
+      });
+
+      const swatches = picker.querySelectorAll('.theme-swatch');
+      const markActive = id => swatches.forEach(b =>
+        b.classList.toggle('active', b.dataset.themeId === id));
+
+      markActive(Themes.resolve());
+
+      swatches.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if ('themeReset' in btn.dataset) {
+            markActive(Themes.clear().id);
+            return;
+          }
+          Themes.save(btn.dataset.themeId);
+          markActive(btn.dataset.themeId);
+        });
+      });
+    });
+  </script>
 </body>
 </html>

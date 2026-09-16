@@ -51,7 +51,3 @@ You don't need to be polite about it - blunt is better. Send it however's easies
 ## 🙏 Thank You
 
 Whatever route you take - donation, gift, share, or just using what I've built - thank you. It keeps the lights on and the projects moving. - osyra42
-
----
-
-::signature::

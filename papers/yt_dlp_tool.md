@@ -10,7 +10,7 @@ It's a friendly front end for [yt-dlp](https://github.com/yt-dlp/yt-dlp), the we
 
 ## How to Use It
 
-Double-click **`zzz_launcher.bat`** (it ships with the same [Sleep Launcher](zzz_launcher.html) pattern I put on everything). It checks the environment, warns about anything missing, and drops you at a prompt:
+Double-click **`zzz_launcher.bat`** (it ships with the same [Sleep Launcher](?paper=zzz_launcher) pattern I put on everything). It checks the environment, warns about anything missing, and drops you at a prompt:
 
 ```
 [mp3] URL or command:
@@ -65,7 +65,3 @@ Everything lives beside the program in its own folder - the binaries, the downlo
 ## A Note on Fair Use
 
 Use this for content you actually have the right to download - "no copyright" music (like NCS tracks), your own uploads, or short reference clips. Respect creators' licenses and YouTube's Terms of Service.
-
----
-
-::signature::

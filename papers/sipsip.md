@@ -31,5 +31,3 @@ Each deck is a different flavor of prompt, so you can tune the night to the room
 - **Code** - a dev-flavored deck for the programmers
 
 > ⚠️ **Grown-ups only:** the **Buzzed** and **Sex** decks lean adult. Leave them off for family or mixed groups.
-
-::signature::

@@ -135,26 +135,26 @@ Click **Start Virtual Camera** in the bottom-right of OBS. This creates a virtua
 
 Here are some VRM avatars I've built using this exact workflow - a range of styles to show what's achievable with VRoid Studio and a bit of customization.
 
-![VTuber Model](assets/images/shop/vtubers/vtuber_4chan.jpg)
-![VTuber Model](assets/images/shop/vtubers/vtuber_bigred.jpg)
-![VTuber Model](assets/images/shop/vtubers/vtuber_bunny.jpg)
-![VTuber Model](assets/images/shop/vtubers/vtuber_catgirl.jpg)
-![VTuber Model](assets/images/shop/vtubers/vtuber_clover.jpg)
-![VTuber Model](assets/images/shop/vtubers/vtuber_custom.jpg)
-![VTuber Model](assets/images/shop/vtubers/vtuber_pnkpur.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_4chan.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_bigred.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_bunny.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_catgirl.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_clover.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_custom.jpg)
+![VTuber Model](assets/images/vtubers/vtuber_pnkpur.jpg)
 
 ## 📥 Downloadable Models
 
 Models I've made available to download and use. Each pack includes the editable VRoid Studio project plus VRM exports in both formats, so you can use the avatar right away or open it up and make it your own.
 
-![USA Girl](assets/images/shop/vtubers/usa_girl.jpg)
+![USA Girl](assets/images/vtubers/usa_girl.jpg)
 
 **USA Girl** - [Download (.zip)](assets/downloads/[osyra42]%20usa_girl.zip)
 - `usa_girl.vroid` - editable VRoid Studio project file
 - VRM 1.0 export - for newer software that supports the VRM 1.0 spec
 - VRM 0.0 export - for older software still on VRM 0.x
 
-![Belle](assets/images/shop/vtubers/belle.jpg)
+![Belle](assets/images/vtubers/belle.jpg)
 
 **Belle** - [Download (.zip)](assets/downloads/[osyra42]%20belle.zip)
 - `belle.vroid` - editable VRoid Studio project file
@@ -176,7 +176,3 @@ Making a VTuber avatar is easier than it's ever been - there are free tools for 
 - [r/VirtualYoutubers](https://www.reddit.com/r/VirtualYoutubers/) - Reddit community for VTuber discussion and help
 - [Booth.pm](https://booth.pm/) - Marketplace for additional avatar assets
 - [VRoid Hub](https://hub.vroid.com/) - Share and discover VRoid models
-
----
-
-::signature::

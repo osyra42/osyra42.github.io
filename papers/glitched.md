@@ -1,4 +1,4 @@
-# Glitched
+# ⚡ Glitched
 ::toc::
 *A Science Fiction Story*
 *Written in 2014*
@@ -464,10 +464,3 @@ Turning to Nancy she asks, "Do you think he can make it?" "Oh, there's no tellin
 **Glitched** by osyra42
 Originally written in 2014
 This book has been discontinued and is archived here for preservation.
-
-Source: coffeebyte.dev/glitched.html
-Contact: coffeebytedev@proton.me
-License: © 2026 Coffee Byte Dev - personal use, please don't redistribute
-Last Updated: @@2026.07.04@@
-
-Always check coffeebyte.dev for the current version.

@@ -206,7 +206,3 @@ A complete pass on the character sprites with a real animation set - idle, walki
 
         #### ✨ Enchantment Particles
         Once gear is visible on the character, enchantments get their own particle effects - glints, auras, and trails on enchanted weapons and armor so a magic item reads at a glance. This sits last because it builds directly on customization putting your gear on the sprite in the first place.
-
----
-
-::signature::

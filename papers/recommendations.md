@@ -199,7 +199,3 @@
 | 8 | [Sprocket Fidget](https://www.amazon.com/dp/B08R717M3S) | $22 | Sprocket Fidget Bike Chain |
 | 9 | [The Filament I Use](https://www.amazon.com/dp/B07PGZNM34) or [Black](https://www.amazon.com/dp/B07PGY2JP1) | $17 | White / Black Filament |
 | 10 | [Magic Soap](https://www.amazon.com/dp/B00028EYJ8) | $17 | Dr. Bronner's Pure-Castile Magic Liquid Soap |
-
----
-
-::signature::

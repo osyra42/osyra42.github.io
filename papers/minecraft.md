@@ -1,4 +1,4 @@
-# ☕ Coffee Block Community
+# ⛏️ Minecraft Server
 ::toc::
 Hey - welcome to Coffee Block. It's my small collection of Minecraft servers - a few public, sometimes a private one too. They're free, Java Edition only, and run 24/7. Come and go as you like.
 
@@ -98,13 +98,13 @@ NET: "180 Mbps down / 40 Mbps up / 20 ms ping"
 |---|---|
 | **Server Name** | Coffee Block (Vanilla) |
 | **IP and Port** | ^^play.coffeeblock.xyz^^ |
-| **Status** | {{server1-status}} |
-| **Players** | {{server1-players}} |
-| **Version** | {{server1-version}} |
+| **Version** | 26.2 |
 | **Staff** | osyra42 👑 🗝️, enderwolf_22 🛡️ |
 | **Rules** | 1-7 apply |
 
 Vanilla Minecraft on Paper - no mods, no modpacks, nothing extra to install. Just connect and play.
+
+> Minecraft 26.3 upcomming soon, look here for stable releases. [Paper 26.3](https://fill-ui.papermc.io/projects/paper/version/26.3)
 
 >>> ⚙️ Minimum Requirements
 ```yaml
@@ -128,15 +128,13 @@ java:   "Version 25 (bundled with the launcher)"
 
 ---
 
-# ⛏️ HCVP
+# ⛏️ HCVP (End of Life)
 
 | Server Info | |
 |---|---|
 | **Server Name** | The Fox Den |
 | **IP and Port** | Private |
-| **Status** | {{server3-status}} |
-| **Players** | {{server3-players}} |
-| **Version** | {{server3-version}} |
+| **Version** | ?.??.? |
 | **Staff** | Shindi13 👑, osyra42 🗝️ |
 | **Rules** | 1-6 apply (no hacks) |
 
@@ -144,7 +142,7 @@ Private whitelisted server hosted for an adult content creator's community. Rule
 
 >>> 🔌 How to Join
 > This one isn't open to the public. To get on the whitelist:
-> 1. Watch Shindi13's content on Joystick
+> 1. Watch Shindi13's content on Joystick (18+)
 > 2. Join their Discord
 > 3. Ask for permission to be whitelisted
 >
@@ -159,9 +157,7 @@ Private whitelisted server hosted for an adult content creator's community. Rule
 |---|---|
 | **Server Name** | Coffee Block (Otherworld) |
 | **IP and Port** | Private |
-| **Status** | {{server4-status}} |
-| **Players** | {{server4-players}} |
-| **Version** | {{server4-version}} |
+| **Version** | 1.20.1 |
 | **Staff** | Trinkbell 👑, osyra42 🗝️ |
 | **Rules** | 1-6 apply (no hacks) |
 
@@ -170,16 +166,12 @@ Private whitelisted server running a modded D&D-flavoured fantasy pack for an ad
 >>> 🔌 How to Join
 > This one isn't open to the public. To get on the whitelist:
 > 1. Know Trinkbell or someone already on the server
-> 2. Join their Discord
-> 3. Ask for permission to be whitelisted
+> 2. Join their Discord (18+)
+> 3. Do no distress the server staff
 >
 > The modpack, IP, and setup steps are given out after you're approved.
 <<<
 
 ---
 
-::signature::
-
----
-
-[Check for updates?](mcupdates.html)
+[Check for updates?](?paper=mcupdates)

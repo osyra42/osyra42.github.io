@@ -1,4 +1,4 @@
-# Code Resources
+# 🐍 Code Resources
 ::toc::
 🎯 Don't learn a language just to learn it - **have a purpose.** When you have something you want to build, practice comes naturally and expertise follows.
 
@@ -71,7 +71,3 @@ There's no single best way to learn, but here are the resources that have helped
 
 - [Sololearn: Introduction to SQL](https://www.sololearn.com/en/learn/courses/sql-introduction)
 - [Sololearn: SQL Intermediate](https://www.sololearn.com/en/learn/courses/sql-intermediate)
-
----
-
-::signature::

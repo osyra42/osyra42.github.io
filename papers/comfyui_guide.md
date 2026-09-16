@@ -204,7 +204,3 @@ sad, depressed,
 - [add-detail-xl](https://huggingface.co/LyliaEngine/add-detail-xl/tree/main) - LoRA
 - [RealESRGAN_x4plus_anime](https://civitai.com/models/147821/realesrganx4plus-anime-6b) - Upscale model
 - [sdxl_vae](https://huggingface.co/stabilityai/sdxl-vae/tree/main) - VAE
-
----
-
-::signature::

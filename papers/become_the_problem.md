@@ -103,7 +103,3 @@ The **HackRF One** is a software-defined radio - it doesn't target one system, i
 What it exposes is the broadest lesson on the page: the airwaves are a shared, listenable medium, and "you'd need special equipment" stopped being much of a barrier. The defense isn't something you buy so much as something you assume - if a signal matters, it should be encrypted, because the spectrum itself was never private to begin with.
 
 > **Point of reference:** [HackRF One on Great Scott Gadgets](https://greatscottgadgets.com/hackrf/one/) - product page, for identification only.
-
----
-
-::signature::

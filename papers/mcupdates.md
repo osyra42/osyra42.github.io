@@ -1,15 +1,18 @@
 # 🔧 Minecraft Update Checks
 ::toc::
 ### ⛏️ LOG26
-- [Paper](https://fill-ui.papermc.io/projects/paper/version/26.2)
-- [Discord SRV](https://modrinth.com/plugin/discordsrv/versions)
-- [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion/versions)
-- [ViaBackwards](https://hangar.papermc.io/ViaVersion/ViaBackwards/versions)
-- [World Edit](https://modrinth.com/plugin/worldedit/versions)
-- [InvSee++](https://modrinth.com/plugin/invsee++/versions)
-- [Backuper](https://modrinth.com/plugin/backuper/versions#all-versions)
-- [CoreProtect](https://modrinth.com/plugin/coreprotect/versions)
-- [Player Heads](https://modrinth.com/plugin/player-heads/versions)
+Required
+- OK [Paper](https://fill-ui.papermc.io/projects/paper/version/26.2)
+- NO [Discord SRV](https://modrinth.com/plugin/discordsrv/versions)
+- NO [Backuper](https://modrinth.com/plugin/backuper/versions#all-versions)
+
+Optional
+- NO [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion/versions)
+- NO [ViaBackwards](https://hangar.papermc.io/ViaVersion/ViaBackwards/versions)
+- NO [World Edit](https://modrinth.com/plugin/worldedit/versions)
+- NO [InvSee++](https://modrinth.com/plugin/invsee++/versions)
+- NO [CoreProtect](https://modrinth.com/plugin/coreprotect/versions)
+- NO [Player Heads](https://modrinth.com/plugin/player-heads/versions)
 
 ---
 
@@ -46,7 +49,3 @@ Backups, a Discord bridge, and block logging go on every server I host. Same job
 
 **Block Logging**
 - [CoreProtect](https://modrinth.com/plugin/coreprotect/versions) - paper / spigot / purpur
-
-No forge equivalent exists, so modded forge servers run without block logging. Grief disputes there fall back to backups.
-
-::signature::

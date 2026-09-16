@@ -39,10 +39,10 @@ The site is the archive - the finished, catalogued version of the work. [Twitch]
 I stream on [Discord](https://discord.gg/Xc9TrxtuuE), [Twitch](https://twitch.tv/osyra42), and [YouTube](https://www.youtube.com/@osyra42) - come watch me build, write, or break things live. New videos land on YouTube between streams.
 
 ### Support My Work
-If something here was worth your time and you want to throw some back, the [support page](support_me.html) lists the ways - none of them required. It keeps the lights on and the projects moving.
+If something here was worth your time and you want to throw some back, the [support page](?paper=support_me) lists the ways - none of them required. It keeps the lights on and the projects moving.
 
 ### Explore My Work
-If you want a feel for what I'm into, start with my [recommendations](recommendations.html). Otherwise just browse - the sidebar has everything from projects and archives to games and stories. Most pages have a "Save as PDF" button if you want a copy.
+If you want a feel for what I'm into, start with my [recommendations](?paper=recommendations). Otherwise just browse - the sidebar has everything from projects and archives to games and stories. Most pages have a "Save as PDF" button if you want a copy.
 
 ---
 
@@ -62,7 +62,3 @@ If you want a feel for what I'm into, start with my [recommendations](recommenda
 > 📦 **Content Notice**
 >
 > Pages come and go - some stuff does get removed over time. If there's something here you want to keep, every page has a "Save as PDF" button. Grab a copy while it's up.
-
----
-
-::signature::

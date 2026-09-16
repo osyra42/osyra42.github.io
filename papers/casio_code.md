@@ -1511,7 +1511,3 @@ Goto 3
 
 
 > Some parts of the original document may be incomplete due to damage.
-
----
-
-::signature::

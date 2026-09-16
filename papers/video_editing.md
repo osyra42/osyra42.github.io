@@ -50,5 +50,3 @@ These are industry-grade editors. Both are **much larger and heavier** than Shot
 | **Adobe Premiere Pro** | Industry-standard pro workflows | 🏋️ Heavy |
 
 Start with Shotcut. Reach for a pro suite when you hit a wall Shotcut can't get you past. And only edit in Blender if Blender's already home.
-
-::signature::

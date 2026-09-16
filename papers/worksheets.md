@@ -79,7 +79,3 @@ It all runs in your browser. Download the zip, extract it, and double-click the 
 The **Definitions** worksheet needs an internet connection to fetch word definitions from a free dictionary API. All other worksheets work fully offline.
 
 The cursive handwriting worksheet uses the Dancing Script font, which is bundled in the download - no internet needed.
-
----
-
-::signature::

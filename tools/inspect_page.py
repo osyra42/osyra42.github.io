@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 """
-inspect_page.py - inspect one page and print a manifest entry you can copy.
+inspect_paper.py - inspect one paper, check for sidebar drift, rebuild the nav.
 
-This tool WRITES NOTHING. manifest.js stays hand-maintained; this just does the
-tedious part (counting prose, working out read time) and hands you a formatted
-line to paste in.
+This tool WRITES NOTHING. index.html stays hand-maintained; this prints the
+things you'd otherwise compute by hand.
 
 USAGE
-    python tools/inspect_page.py                  # pick from a menu
-    python tools/inspect_page.py how_magnets_work # inspect directly
-    python tools/inspect_page.py --all            # every page, one line each
+    python tools/inspect_paper.py                  # pick from a menu
+    python tools/inspect_paper.py urbex_safety     # inspect directly
+    python tools/inspect_paper.py /hi              # alias for index
+    python tools/inspect_paper.py --all            # every paper, one sidebar line each
+    python tools/inspect_paper.py --drift          # only papers whose sidebar entry is stale
+    python tools/inspect_paper.py --build          # rebuild the whole <nav> block
+    python tools/inspect_paper.py /drift           # same as --drift
+    python tools/inspect_paper.py /build           # same as --build
 
-The menu accepts a number, a filename, or a partial name ("magnet" finds
-how_magnets_work.html). Blank input or 'q' quits.
+Slash commands are plain strings starting with "/" - see SLASH_COMMANDS below.
+
+The menu accepts a number, a slug, a slash command, or a partial name
+("magnet" finds how_magnets_work directly). Blank input or 'q' quits.
 """
 
 from __future__ import annotations
@@ -22,15 +28,28 @@ import html
 import re
 import subprocess
 import sys
+from datetime import date as _date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-MANIFEST_JS = ROOT / "assets" / "js" / "manifest.js"
+PAPERS_DIR = ROOT / "papers"
+INDEX_HTML = ROOT / "index.html"
 
 WORDS_PER_MINUTE = 220
 
-# Pages that exist but are never listed in the sidebar.
-HIDDEN = {"mcupdates.html", "changelog.html", "vanity_legal.html", "website_legal.html"}
+# Papers that exist in papers/ but are intentionally not linked in the sidebar.
+# The drift report ignores them.
+HIDDEN: set[str] = {"mcupdates", "vanitys_personality"}
+
+# Slash commands accepted by resolve(). A value that looks like a slug is
+# returned as-is and inspected. A value wrapped in __x__ is a sentinel the
+# caller handles specially (a mode, not a paper).
+SLASH_COMMANDS: dict[str, str] = {
+    "/hi":    "index",
+    "/home":  "index",
+    "/drift": "__drift__",
+    "/build": "__build__",
+}
 
 
 # ---------------------------------------------------------------------------
@@ -54,63 +73,82 @@ def rule(char: str = "-", width: int = 74) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Reading a page
+# Reading the sidebar in index.html
 # ---------------------------------------------------------------------------
 
-def js_var(raw: str, name: str) -> str | None:
-    m = re.search(rf'\b{name}\s*=\s*"([^"]*)"\s*;', raw)
+SIDEBAR_LINK_RE = re.compile(
+    r'<a\s+href="\?paper=(?P<slug>[a-z0-9_]+)"'
+    r'(?P<attrs>[^>]*)>'
+    r'(?P<text>.*?)'
+    r'</a>',
+    re.IGNORECASE | re.DOTALL,
+)
+
+SECTION_RE = re.compile(
+    r'<h3>\s*<span class="sec-name">(?P<name>[^<]*)</span>.*?</h3>\s*'
+    r'<ul>(?P<body>.*?)</ul>',
+    re.DOTALL,
+)
+
+LI_RE = re.compile(r'<li>\s*(?P<inner>.*?)\s*</li>', re.DOTALL)
+
+
+def attr(attrs: str, name: str) -> str | None:
+    m = re.search(rf'\b{name}\s*=\s*"([^"]*)"', attrs)
     return m.group(1) if m else None
 
 
-DIV_RE = re.compile(
-    r'<div\s[^>]*class="[^"]*\bbrewdown\b[^"]*"[^>]*>(.*?)</div>',
-    re.DOTALL | re.IGNORECASE,
-)
-SCRIPT_RE = re.compile(
-    r'<script\s[^>]*data-brewdown[^>]*>(.*?)</script>',
-    re.DOTALL | re.IGNORECASE,
-)
-SCRIPT_SRC_RE = re.compile(
-    r'<script\s[^>]*data-brewdown\s*=\s*"([^"]+\.md)"[^>]*>\s*</script>',
-    re.IGNORECASE,
-)
+def load_sidebar() -> dict[str, dict]:
+    """
+    Parse index.html and return {slug: {date, words, minutes, text, icon, title}}.
+
+    The text inside the <a> is "ICON TITLE" (e.g. "🏚️ How to Urbex Safely").
+    We split it into the first token (icon) and the rest (title).
+    """
+    if not INDEX_HTML.is_file():
+        return {}
+
+    raw = INDEX_HTML.read_text(encoding="utf-8", errors="replace")
+    nav = re.search(r"<nav\b[^>]*\bsidebar-nav\b[^>]*>(.*?)</nav>",
+                    raw, re.DOTALL | re.IGNORECASE)
+    if not nav:
+        return {}
+
+    out: dict[str, dict] = {}
+    for m in SIDEBAR_LINK_RE.finditer(nav.group(1)):
+        slug = m.group("slug")
+        attrs = m.group("attrs") or ""
+        text = re.sub(r"\s+", " ", m.group("text")).strip()
+
+        parts = text.split(" ", 1)
+        icon = parts[0] if parts else ""
+        title = parts[1] if len(parts) > 1 else ""
+
+        out[slug] = {
+            "date":    attr(attrs, "data-date"),
+            "words":   attr(attrs, "data-words"),
+            "minutes": attr(attrs, "data-minutes"),
+            "text":    text,
+            "icon":    icon,
+            "title":   title,
+        }
+    return out
 
 
-def extract_brewdown(page: Path, raw: str) -> tuple[str, list[str]]:
-    """Return (markdown, notes). Handles div-mode, script-mode, and both."""
-    parts: list[str] = []
-    notes: list[str] = []
+# ---------------------------------------------------------------------------
+# Reading a paper
+# ---------------------------------------------------------------------------
 
-    divs = DIV_RE.findall(raw)
-    scripts = [m for m in SCRIPT_RE.findall(raw) if m.strip()]
-    parts.extend(divs)
-    parts.extend(scripts)
+FIRST_LINE_RE = re.compile(r"^#\s+(\S+)\s+(.+?)\s*$")
 
-    if divs and scripts:
-        notes.append("uses BOTH div and script blocks (concatenated)")
-    elif scripts:
-        notes.append("uses <script data-brewdown> mode")
 
-    for rel in SCRIPT_SRC_RE.findall(raw):
-        target = (page.parent / rel).resolve()
-        if target.is_file():
-            parts.append(target.read_text(encoding="utf-8", errors="replace"))
-            notes.append(f"pulled external markdown: {rel}")
-        else:
-            notes.append(f"MISSING external markdown: {rel}")
-
-    md = "\n\n".join(parts)
-
-    # Some pages (brewdown.html) are hand-written HTML with only a tiny trailing
-    # <div class="brewdown">::signature::</div>. Counting that gives 0 words and
-    # a useless read time, so fall back to the rendered <main> body instead.
-    if len(md.strip()) < 200:
-        body = re.search(r"<main\b[^>]*>(.*?)</main>", raw, re.DOTALL | re.IGNORECASE)
-        if body:
-            md = body.group(1)
-            notes.append("hand-written HTML page - counted rendered <main> body")
-
-    return md, notes
+def parse_first_line(md: str) -> tuple[str, str] | None:
+    """Return (icon, title) from the paper's first "# <emoji> <Title>" line."""
+    first = md.split("\n", 1)[0]
+    m = FIRST_LINE_RE.match(first)
+    if not m:
+        return None
+    return m.group(1), m.group(2)
 
 
 # ---------------------------------------------------------------------------
@@ -133,10 +171,17 @@ EMPHASIS_RE = re.compile(r"[*_~]{1,3}")
 WORD_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9'’-]*")
 
 
-def count_words(md: str) -> int:
-    """Prose words only - code blocks, markup and ::tokens:: are stripped."""
+def count_words(md: str, is_changelog: bool = False) -> int:
     t = html.unescape(md)
-    t = FENCED_CODE_RE.sub(" ", t)
+
+    if is_changelog:
+        # Unwrap fenced blocks: drop the ``` fences and language tags, keep
+        # the content. Then INLINE_CODE_RE won't chew the fences apart.
+        t = re.sub(r"^```[^\n]*\n", "", t, flags=re.MULTILINE)  # opening fence line
+        t = re.sub(r"^```\s*$", "", t, flags=re.MULTILINE)      # closing fence line
+    else:
+        t = FENCED_CODE_RE.sub(" ", t)
+
     t = INLINE_CODE_RE.sub(" ", t)
     t = IMAGE_RE.sub(" ", t)
     t = LINK_RE.sub(r"\1", t)
@@ -156,14 +201,13 @@ def read_minutes(words: int) -> int:
 
 
 def _today() -> str:
-    from datetime import date as _d
-    return _d.today().strftime("%Y.%m.%d")
+    return _date.today().strftime("%Y.%m.%d")
 
 
-def git_date(name: str) -> str | None:
+def git_date(slug: str) -> str | None:
     try:
         out = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", "--", name],
+            ["git", "log", "-1", "--format=%cs", "--", f"papers/{slug}.md"],
             cwd=ROOT, capture_output=True, text=True, check=True, encoding="utf-8",
         ).stdout.strip()
         return out.replace("-", ".") if out else None
@@ -171,62 +215,33 @@ def git_date(name: str) -> str | None:
         return None
 
 
-def manifest_entry(name: str) -> dict[str, str] | None:
-    """Read the page's CURRENT manifest.js entry, if it has one."""
-    if not MANIFEST_JS.is_file():
-        return None
-    raw = MANIFEST_JS.read_text(encoding="utf-8")
-    m = re.search(rf'"{re.escape(name)}"\s*:\s*\{{(.*?)\}}', raw, re.DOTALL)
-    if not m:
-        return None
-    body = m.group(1)
-    out = {}
-    for k in ("title", "icon", "section", "date"):
-        v = re.search(rf'\b{k}\s*:\s*"([^"]*)"', body)
-        if v:
-            out[k] = v.group(1)
-    for k in ("words", "minutes"):
-        v = re.search(rf'\b{k}\s*:\s*(\d+)', body)
-        if v:
-            out[k] = v.group(1)
-    return out
-
-
 # ---------------------------------------------------------------------------
-# Report
+# Report: one paper
 # ---------------------------------------------------------------------------
 
-def inspect(page: Path, quiet: bool = False) -> str:
-    """Print a full report for one page. Returns the manifest line."""
-    raw = page.read_text(encoding="utf-8", errors="replace")
-    name = page.name
+def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
+    """Print a full report for one paper. Returns the sidebar line to copy."""
+    path = PAPERS_DIR / f"{slug}.md"
+    md = path.read_text(encoding="utf-8", errors="replace")
+    md_first_line = parse_first_line(md)
+    md_icon, md_title = md_first_line if md_first_line else ("(no first line)", "(no title)")
 
-    title = js_var(raw, "title") or "(no title var)"
-    icon = js_var(raw, "icon") or "📄"
-    section = js_var(raw, "section") or "(no section var)"
-    image = js_var(raw, "image") or "(none)"
+    entry = sidebar.get(slug)
 
-    md, notes = extract_brewdown(page, raw)
-    words = count_words(md)
+    words = count_words(md, is_changelog=(slug == "changelog"))
     mins = read_minutes(words)
     headings = HEADING_RE.findall(md)
     images = len(IMAGE_RE.findall(md))
     code = len(FENCED_CODE_RE.findall(md))
-    gdate = git_date(name)
-    existing = manifest_entry(name)
+    gdate = git_date(slug)
 
-    # Date for the copy line, in order of preference:
-    #   1. whatever manifest.js already says (hand-set values win - git dates
-    #      drift when a site-wide sweep touches every file)
-    #   2. the git last-commit date, for a page that has one
-    #   3. today, for a brand-new untracked page
-    date = (existing or {}).get("date") or gdate or _today()
+    date = (entry or {}).get("date") or gdate or _today()
 
-    # The line to copy. Field order matches the existing manifest.js format.
     line = (
-        f'    "{name}": {{ title: "{title}", icon: "{icon}", '
-        f'section: "{section}", date: "{date}", '
-        f'words: {words}, minutes: {mins} }},'
+        f'        <li><a href="?paper={slug}"'
+        f'{" " + "data-date=\"" + date + "\"" if date else ""}'
+        f' data-words="{words}" data-minutes="{mins}">'
+        f'{md_icon} {md_title}</a></li>'
     )
 
     if quiet:
@@ -234,55 +249,60 @@ def inspect(page: Path, quiet: bool = False) -> str:
 
     print()
     print(rule("="))
-    print(f"{C.BOLD}{icon}  {title}{C.OFF}   {C.DIM}{name}{C.OFF}")
+    print(f"{C.BOLD}{md_icon}  {md_title}{C.OFF}   {C.DIM}papers/{slug}.md{C.OFF}")
     print(rule("="))
 
-    print(f"\n{C.CYAN}DECLARED IN PAGE{C.OFF}")
-    print(f"  title    {title}")
-    print(f"  icon     {icon}")
-    print(f"  section  {section}")
-    print(f"  image    {image}")
+    print(f"\n{C.CYAN}DECLARED IN PAPER (first line){C.OFF}")
+    print(f"  icon     {md_icon}")
+    print(f"  title    {md_title}")
+
+    if entry:
+        print(f"\n{C.CYAN}DECLARED IN SIDEBAR{C.OFF}")
+        print(f"  icon     {entry['icon']}")
+        print(f"  title    {entry['title']}")
+        print(f"  date     {entry['date'] or '(none)'}")
+        print(f"  words    {entry['words'] or '(none)'}")
+        print(f"  minutes  {entry['minutes'] or '(none)'}")
+    else:
+        print(f"\n{C.RED}NO SIDEBAR ENTRY for '{slug}'{C.OFF}")
 
     print(f"\n{C.CYAN}COUNTED FROM CONTENT{C.OFF}")
-    print(f"  words    {C.BOLD}{words:,}{C.OFF}   {C.DIM}(prose only; code blocks excluded){C.OFF}")
+    note = "(entire paper counted - changelog)" if slug == "changelog" \
+           else "(prose only; code blocks excluded)"
+    print(f"  words    {C.BOLD}{words:,}{C.OFF}   {C.DIM}{note}{C.OFF}")
     print(f"  minutes  {C.BOLD}{mins}{C.OFF}   {C.DIM}at {WORDS_PER_MINUTE} wpm{C.OFF}")
     print(f"  headings {len(headings)}   {C.DIM}H1-H6{C.OFF}")
     print(f"  images   {images}")
     print(f"  code     {code} block(s)")
-    print(f"  source   {len(md):,} chars of brewdown")
+    print(f"  source   {len(md):,} chars of markdown")
 
     print(f"\n{C.CYAN}DATES{C.OFF}")
     print(f"  git last commit   {gdate or '(untracked)'}")
-    if existing and existing.get("date"):
-        cur = existing["date"]
-        flag = ""
-        if gdate and cur != gdate:
-            flag = f"   {C.DIM}(differs from git){C.OFF}"
-        print(f"  manifest.js       {cur}{flag}")
+    if entry and entry.get("date"):
+        cur = entry["date"]
+        flag = f"   {C.DIM}(differs from git){C.OFF}" if (gdate and cur != gdate) else ""
+        print(f"  sidebar           {cur}{flag}")
     else:
-        print(f"  manifest.js       {C.DIM}(no entry yet){C.OFF}")
-        src = "git" if gdate else "today - page is untracked"
+        print(f"  sidebar           {C.DIM}(none){C.OFF}")
+        src = "git" if gdate else "today - paper is untracked"
         print(f"  using             {C.BOLD}{date}{C.OFF}   {C.DIM}({src}){C.OFF}")
 
-    if existing:
-        deltas = []
-        if existing.get("words") and int(existing["words"]) != words:
-            deltas.append(f"words {existing['words']} -> {words}")
-        if existing.get("minutes") and int(existing["minutes"]) != mins:
-            deltas.append(f"minutes {existing['minutes']} -> {mins}")
-        if existing.get("title") and existing["title"] != title:
-            deltas.append(f"title \"{existing['title']}\" -> \"{title}\"")
+    if entry:
+        deltas: list[str] = []
+        if entry.get("icon") and entry["icon"] != md_icon:
+            deltas.append(f'icon     "{entry["icon"]}" -> "{md_icon}"')
+        if entry.get("title") and entry["title"] != md_title:
+            deltas.append(f'title    "{entry["title"]}" -> "{md_title}"')
+        if entry.get("words") and int(entry["words"]) != words:
+            deltas.append(f'words    {entry["words"]} -> {words}')
+        if entry.get("minutes") and int(entry["minutes"]) != mins:
+            deltas.append(f'minutes  {entry["minutes"]} -> {mins}')
         if deltas:
-            print(f"\n{C.ORANGE}CHANGED SINCE MANIFEST{C.OFF}")
+            print(f"\n{C.ORANGE}DRIFT (sidebar vs. paper){C.OFF}")
             for d in deltas:
                 print(f"  {d}")
         else:
-            print(f"\n{C.GREEN}manifest.js is up to date for this page{C.OFF}")
-
-    if notes:
-        print(f"\n{C.ORANGE}NOTES{C.OFF}")
-        for n in notes:
-            print(f"  - {n}")
+            print(f"\n{C.GREEN}sidebar is up to date for this paper{C.OFF}")
 
     if headings:
         print(f"\n{C.CYAN}OUTLINE{C.OFF}")
@@ -293,7 +313,7 @@ def inspect(page: Path, quiet: bool = False) -> str:
         if len(headings) > 14:
             print(f"  {C.DIM}... {len(headings) - 14} more{C.OFF}")
 
-    print(f"\n{C.CYAN}MANIFEST LINE{C.OFF}  {C.DIM}(copy below){C.OFF}")
+    print(f"\n{C.CYAN}SIDEBAR LINE{C.OFF}  {C.DIM}(copy below){C.OFF}")
     print(rule())
     print(line)
     print(rule())
@@ -301,95 +321,310 @@ def inspect(page: Path, quiet: bool = False) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Page selection
+# Report: drift across all papers
 # ---------------------------------------------------------------------------
 
-def all_pages() -> list[Path]:
-    return sorted(p for p in ROOT.glob("*.html") if p.name not in HIDDEN)
+def orphans(slugs: list[str], sidebar: dict[str, dict]) -> tuple[list[str], list[str]]:
+    """Return (papers not in sidebar, sidebar links not in papers).
+    Papers in HIDDEN are excluded from the 'missing' side."""
+    md_set = set(slugs) - HIDDEN
+    sb_set = set(sidebar.keys())
+    return sorted(md_set - sb_set), sorted(sb_set - md_set)
 
 
-def resolve(query: str, pages: list[Path]) -> Path | None:
+def drift_report(slugs: list[str], sidebar: dict[str, dict]) -> int:
+    """
+    Walk every paper, compare against the sidebar, and print only the ones
+    that disagree. Returns the number of problems (0 = all clean).
+    """
+    missing, extra = orphans(slugs, sidebar)
+    drift_count = 0
+
+    for slug in slugs:
+        path = PAPERS_DIR / f"{slug}.md"
+        md = path.read_text(encoding="utf-8", errors="replace")
+        parsed = parse_first_line(md)
+        entry = sidebar.get(slug)
+
+        if not entry:
+            continue  # already reported by orphans() (or in HIDDEN)
+
+        if not parsed:
+            print(f"\n{C.RED}{slug}{C.OFF}  {C.DIM}(no first line in papers/{slug}.md){C.OFF}")
+            drift_count += 1
+            continue
+
+        md_icon, md_title = parsed
+        words = count_words(md, is_changelog=(slug == "changelog"))
+        mins = read_minutes(words)
+
+        deltas: list[str] = []
+        if entry.get("icon") and entry["icon"] != md_icon:
+            deltas.append(f'  icon     sidebar "{entry["icon"]}"  ->  paper "{md_icon}"')
+        if entry.get("title") and entry["title"] != md_title:
+            deltas.append(f'  title    sidebar "{entry["title"]}"  ->  paper "{md_title}"')
+        if entry.get("words") and int(entry["words"]) != words:
+            deltas.append(f'  words    sidebar {entry["words"]}  ->  paper {words}')
+        if entry.get("minutes") and int(entry["minutes"]) != mins:
+            deltas.append(f'  minutes  sidebar {entry["minutes"]}  ->  paper {mins}')
+
+        if deltas:
+            print(f"\n{C.ORANGE}{slug}{C.OFF}")
+            for d in deltas:
+                print(d)
+            drift_count += 1
+
+    print()
+    print(rule("="))
+    if missing:
+        print(f"{C.RED}PAPERS WITHOUT A SIDEBAR ENTRY ({len(missing)}){C.OFF}")
+        for s in missing:
+            print(f"  {s}")
+    if extra:
+        print(f"{C.RED}SIDEBAR LINKS WITHOUT A PAPER ({len(extra)}){C.OFF}")
+        for s in extra:
+            print(f"  {s}")
+    if not (missing or extra or drift_count):
+        print(f"{C.GREEN}clean: no drift, no orphans{C.OFF}")
+    else:
+        print(f"{C.ORANGE}{drift_count} drifted, "
+              f"{len(missing)} missing, {len(extra)} orphaned{C.OFF}")
+    print(rule("="))
+
+    return drift_count + len(missing) + len(extra)
+
+
+# ---------------------------------------------------------------------------
+# Report: rebuild the whole <nav> block
+# ---------------------------------------------------------------------------
+
+def build_nav(sidebar: dict[str, dict]) -> str:
+    """
+    Rebuild the whole <nav class="sidebar-nav"> block.
+
+    Section order and paper order come from the current sidebar in index.html,
+    so nothing is reordered - only the numbers, dates and icon/title are
+    refreshed from each paper's markdown.
+    """
+    if not INDEX_HTML.is_file():
+        return ""
+
+    raw = INDEX_HTML.read_text(encoding="utf-8", errors="replace")
+    nav_match = re.search(
+        r'(<nav\b[^>]*\bsidebar-nav\b[^>]*>)(.*?)(</nav>)',
+        raw, re.DOTALL | re.IGNORECASE,
+    )
+    if not nav_match:
+        return ""
+    nav_open, nav_body, nav_close = nav_match.groups()
+
+    out_lines: list[str] = [nav_open]
+
+    for sec in SECTION_RE.finditer(nav_body):
+        name = sec.group("name")
+        body = sec.group("body")
+
+        slugs_in_order: list[str] = []
+        for li in LI_RE.finditer(body):
+            href = re.search(r'href="\?paper=([a-z0-9_]+)"', li.group("inner"))
+            if href:
+                slugs_in_order.append(href.group(1))
+
+        new_items: list[str] = []
+        for slug in slugs_in_order:
+            path = PAPERS_DIR / f"{slug}.md"
+            if not path.is_file():
+                new_items.append(
+                    f'        <li><a href="?paper={slug}" '
+                    f'data-date="?" data-words="0" data-minutes="0">'
+                    f'(missing) {slug}</a></li>'
+                )
+                continue
+
+            md = path.read_text(encoding="utf-8", errors="replace")
+            parsed = parse_first_line(md)
+            icon, title = parsed if parsed else ("📄", slug)
+            words = count_words(md, is_changelog=(slug == "changelog"))
+            mins = read_minutes(words)
+
+            # Date preference: git last-commit on the paper, else the old
+            # sidebar value, else today. --build refreshes dates too.
+            gdate = git_date(slug)
+            date = gdate or (sidebar.get(slug) or {}).get("date") or _today()
+
+            new_items.append(
+                f'        <li><a href="?paper={slug}" '
+                f'data-date="{date}" '
+                f'data-words="{words}" '
+                f'data-minutes="{mins}">'
+                f'{icon} {title}</a></li>'
+            )
+
+        count = f"{len(new_items):02d}"
+        out_lines.append(
+            f'      <h3><span class="sec-name">{name}</span>'
+            f'<span class="sec-rule"></span>'
+            f'<span class="sec-count">{count}</span></h3>'
+        )
+        out_lines.append('      <ul>')
+        out_lines.extend(new_items)
+        out_lines.append('      </ul>')
+
+    out_lines.append('    ' + nav_close)
+    return '\n'.join(out_lines)
+
+
+def build_report(sidebar: dict[str, dict], slugs: list[str]) -> int:
+    """Print the rebuilt <nav> block. Returns 0 on success, 1 on failure."""
+    block = build_nav(sidebar)
+    if not block:
+        print(f'{C.RED}could not find a <nav class="sidebar-nav"> in index.html{C.OFF}')
+        return 1
+
+    missing, extra = orphans(slugs, sidebar)
+    if missing or extra:
+        print(f"\n{C.ORANGE}note:{C.OFF}")
+        if missing:
+            print(f"  {len(missing)} paper(s) with no sidebar entry: {', '.join(missing)}")
+        if extra:
+            print(f"  {len(extra)} sidebar link(s) with no paper: {', '.join(extra)}")
+        print(f"{C.DIM}  the built nav only includes papers currently linked in index.html{C.OFF}")
+
+    print()
+    print(rule("="))
+    print(f"{C.CYAN}REBUILT <nav> BLOCK{C.OFF}  {C.DIM}(paste over the old one in index.html){C.OFF}")
+    print(rule("="))
+    print(block)
+    print(rule("="))
+    return 0
+
+
+# ---------------------------------------------------------------------------
+# Paper selection
+# ---------------------------------------------------------------------------
+
+def all_slugs() -> list[str]:
+    return sorted(p.stem for p in PAPERS_DIR.glob("*.md"))
+
+
+def resolve(query: str, slugs: list[str]) -> str | None:
+    """
+    Turn a user query into a slug. Handles numbers, slugs, partial matches,
+    and slash commands. Returns a slug, a sentinel string, or None.
+    """
     q = query.strip().lower()
     if not q:
         return None
 
+    if q.startswith("/"):
+        if q in SLASH_COMMANDS:
+            return SLASH_COMMANDS[q]
+        print(f"\n{C.RED}unknown command '{query}'{C.OFF}")
+        print(f"{C.DIM}available: {', '.join(sorted(SLASH_COMMANDS))}{C.OFF}")
+        return None
+
     if q.isdigit():
         i = int(q) - 1
-        return pages[i] if 0 <= i < len(pages) else None
+        return slugs[i] if 0 <= i < len(slugs) else None
 
-    if not q.endswith(".html"):
-        q_html = q + ".html"
-    else:
-        q_html = q
+    if q in slugs:
+        return q
 
-    for p in pages:
-        if p.name.lower() == q_html:
-            return p
-
-    matches = [p for p in pages if q.replace(".html", "") in p.stem.lower()]
+    matches = [s for s in slugs if q in s]
     if len(matches) == 1:
         return matches[0]
     if len(matches) > 1:
-        print(f"\n{C.ORANGE}'{query}' matches {len(matches)} pages:{C.OFF}")
-        for p in matches:
-            print(f"  {p.name}")
+        print(f"\n{C.ORANGE}'{query}' matches {len(matches)} papers:{C.OFF}")
+        for s in matches:
+            print(f"  {s}")
         return None
 
-    print(f"\n{C.RED}no page matching '{query}'{C.OFF}")
+    print(f"\n{C.RED}no paper matching '{query}'{C.OFF}")
     return None
 
 
-def show_menu(pages: list[Path]) -> None:
-    print(f"\n{C.BOLD}PAGES{C.OFF}  {C.DIM}({len(pages)} total){C.OFF}")
+def show_menu(slugs: list[str]) -> None:
+    print(f"\n{C.BOLD}PAPERS{C.OFF}  {C.DIM}({len(slugs)} total){C.OFF}")
     print(rule())
-    half = (len(pages) + 1) // 2
+    half = (len(slugs) + 1) // 2
     for i in range(half):
-        left = f"{C.DIM}{i+1:>2}{C.OFF} {pages[i].stem}"
-        pad = " " * max(0, 34 - len(pages[i].stem))
-        if i + half < len(pages):
+        left = f"{C.DIM}{i+1:>2}{C.OFF} {slugs[i]}"
+        pad = " " * max(0, 34 - len(slugs[i]))
+        if i + half < len(slugs):
             j = i + half
-            right = f"{C.DIM}{j+1:>2}{C.OFF} {pages[j].stem}"
+            right = f"{C.DIM}{j+1:>2}{C.OFF} {slugs[j]}"
             print(f"  {left}{pad}{right}")
         else:
             print(f"  {left}")
     print(rule())
+    print(f"{C.DIM}commands: {', '.join(sorted(SLASH_COMMANDS))}{C.OFF}")
 
+
+# ---------------------------------------------------------------------------
+# Entry point
+# ---------------------------------------------------------------------------
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Inspect a page and print a manifest entry.")
-    ap.add_argument("page", nargs="?", help="page name or partial match")
-    ap.add_argument("--all", action="store_true", help="print a manifest line for every page")
+    ap = argparse.ArgumentParser(
+        description="Inspect a paper, check for sidebar drift, or rebuild the nav."
+    )
+    ap.add_argument("paper", nargs="?", help="paper slug, /command, or partial match")
+    ap.add_argument("--all", action="store_true",
+                    help="print a sidebar line for every paper")
+    ap.add_argument("--drift", action="store_true",
+                    help="report only papers with drift")
+    ap.add_argument("--build", action="store_true",
+                    help="rebuild the whole sidebar <nav> block with fresh numbers")
     args = ap.parse_args()
 
     for s in (sys.stdout, sys.stderr):
         if hasattr(s, "reconfigure"):
             s.reconfigure(encoding="utf-8", errors="replace")
 
-    pages = all_pages()
-    if not pages:
-        print("no .html pages found", file=sys.stderr)
+    slugs = all_slugs()
+    if not slugs:
+        print("no .md papers found in papers/", file=sys.stderr)
         return 1
 
+    sidebar = load_sidebar()
+    if not sidebar:
+        print(f"{C.RED}warning: no sidebar entries found in index.html{C.OFF}",
+              file=sys.stderr)
+
     if args.all:
-        print("window.MANIFEST = {")
-        for p in pages:
-            print(inspect(p, quiet=True))
-        print("};")
+        print("<!-- sidebar entries -->")
+        for s in slugs:
+            print(inspect(s, sidebar, quiet=True))
         return 0
 
-    if args.page:
-        page = resolve(args.page, pages)
-        if not page:
+    if args.drift:
+        return 1 if drift_report(slugs, sidebar) else 0
+
+    if args.build:
+        return build_report(sidebar, slugs)
+
+    if args.paper:
+        target = resolve(args.paper, slugs)
+        if not target:
             return 1
-        inspect(page)
-        input(f"\n{C.DIM}press Enter to exit{C.OFF} ")
+        if target == "__drift__":
+            return 1 if drift_report(slugs, sidebar) else 0
+        if target == "__build__":
+            return build_report(sidebar, slugs)
+        inspect(target, sidebar)
+        try:
+            input(f"\n{C.DIM}press Enter to exit{C.OFF} ")
+        except (EOFError, KeyboardInterrupt):
+            print()
         return 0
 
     # Interactive loop.
     while True:
-        show_menu(pages)
+        show_menu(slugs)
         try:
-            choice = input(f"{C.ORANGE}page{C.OFF} {C.DIM}(number, name, or q to quit){C.OFF} > ")
+            choice = input(
+                f"{C.ORANGE}paper{C.OFF} {C.DIM}(number, slug, /command, or q to quit){C.OFF} > "
+            )
         except (EOFError, KeyboardInterrupt):
             print()
             return 0
@@ -397,14 +632,22 @@ def main() -> int:
         if choice.strip().lower() in ("q", "quit", "exit", ""):
             return 0
 
-        page = resolve(choice, pages)
-        if page:
-            inspect(page)
-            try:
-                input(f"\n{C.DIM}press Enter for the menu, Ctrl+C to quit{C.OFF} ")
-            except (EOFError, KeyboardInterrupt):
-                print()
-                return 0
+        target = resolve(choice, slugs)
+        if not target:
+            continue
+
+        if target == "__drift__":
+            drift_report(slugs, sidebar)
+        elif target == "__build__":
+            build_report(sidebar, slugs)
+        else:
+            inspect(target, sidebar)
+
+        try:
+            input(f"\n{C.DIM}press Enter for the menu, Ctrl+C to quit{C.OFF} ")
+        except (EOFError, KeyboardInterrupt):
+            print()
+            return 0
 
 
 if __name__ == "__main__":

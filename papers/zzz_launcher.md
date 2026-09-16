@@ -1,4 +1,4 @@
-# 🚀 Sleep Launcher
+# 😴 Sleep Launcher
 ::toc::
 Sleep Launcher is a small script that sits next to a program and runs a quick sanity check before starting it. Nothing fancy - it just makes sure the thing will actually run before it tries to.
 
@@ -178,7 +178,9 @@ fi
 
 **Step 5 - Is the entry file where it should be?**
 
-Two small things save a lot of confusion: run from the launcher's own directory so relative paths resolve, and confirm the entry file is actually there before trying to run it. `cd` to the script's folder - `%~dp0` on Windows, `dirname "$0"` on Unix - both resolve to where the script lives, not wherever the user launched it from. Quote every path (`"%ENTRY%"`, `"$ENTRY"`, `"%~dp0"`) so a space in a parent folder name doesn't break the command.
+Two small things save a lot of confusion: run from the launcher's own directory so relative paths resolve, and confirm the entry file is actually there before trying to run it.
+
+On Unix, `dirname "$0"` resolves to where the script lives, not wherever the user launched it from. Note the quote placement - `"$(dirname "$0")"`, not `$(dirname "$0")` - so a space in a parent folder name doesn't break the `cd`:
 
 ```sh
 cd "$(dirname "$0")"
@@ -188,11 +190,29 @@ if [ ! -f "$ENTRY" ]; then
 fi
 ```
 
+On Windows, `%~dp0` gives the launcher's folder with a trailing backslash. Use `pushd` rather than `cd /d` here: `cd /d` fails on UNC paths (`\\server\share\...`) and silently drops the user into `C:\Windows`, while `pushd` maps a temporary drive letter and handles both local and network paths. Pair it with `popd` at the end to restore the original directory and release the mapping:
+
+```bat
+pushd "%~dp0"
+if not exist "%ENTRY%" (
+    echo Cannot find %ENTRY% next to the launcher.
+    pause & popd & exit /b 1
+)
+```
+
 ---
 
 **Step 6 - Launch.**
 
 Only after the gate passes, run the entry file with the detected runtime and the configured args. Set the terminal title first so the window is named. On Windows, `pause` at the very end so the window stays open long enough to read any error; on Mac/Linux the calling terminal stays open on its own.
+
+One Windows-specific trap: if the entry file is itself a `.bat` or `.cmd`, invoking it normally **transfers control** - the parent script ends the moment the child starts, and anything after it (including `pause`) never runs. Prefix with `call` to run the child and return:
+
+```bat
+call "%ENTRY%" %ARGS%
+```
+
+Without `call`, a `.bat` entry file would close the window before the user could read a failure. The reference template below applies `call` only when the entry is a `.bat`/`.cmd` - for `.py`, `.js`, `.jar`, and the rest it makes no difference, but it's harmless either way.
 
 ### Fixing Failures, Not Just Reporting Them
 
@@ -257,6 +277,7 @@ The launch line pairs the runtime with the entry file. Where the runtime was det
 | `.jar` | `java -jar "%ENTRY%" %ARGS%` | `java -jar "$ENTRY" $ARGS` |
 | `.dll` (.NET) | `dotnet "%ENTRY%" %ARGS%` | `dotnet "$ENTRY" $ARGS` |
 | `.sh` | `bash "%ENTRY%" %ARGS%` | `bash "$ENTRY" $ARGS` |
+| `.bat` / `.cmd` | `call "%ENTRY%" %ARGS%` | (n/a) |
 | compiled binary | `"%ENTRY%" %ARGS%` | `./"$ENTRY" $ARGS` |
 
 ### Reference Templates
@@ -298,10 +319,10 @@ if %ERRORLEVEL% NEQ 0 (
 )
 
 REM === Step 5: entry file present, run from launcher's folder ===
-cd /d "%~dp0"
+pushd "%~dp0"
 if not exist "%ENTRY%" (
     echo Cannot find %ENTRY% next to the launcher.
-    pause & exit /b 1
+    pause & popd & exit /b 1
 )
 
 REM === Step 6: launch ===
@@ -309,6 +330,7 @@ title %TITLE%
 %RUNTIME% "%ENTRY%" %ARGS%
 
 pause
+popd
 ```
 
 Mac and Linux (`zzz_launcher.sh`) - save with LF line endings, not CRLF:
@@ -355,7 +377,3 @@ fi
 printf '\033]0;%s\007' "$TITLE"
 "$RUNTIME" "$ENTRY" $ARGS
 ```
-
----
-
-::signature::

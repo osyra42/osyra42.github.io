@@ -1,4 +1,4 @@
-# Ever Diamond
+# 💎 Ever Diamond
 ::toc::
 *A Fantasy Adventure*
 *Written in 2007*
@@ -991,10 +991,3 @@ They came upon the dragon within the next hour. The wasteland had a desert clima
 **Ever Diamond** by osyra42
 Originally written in 2007
 This book has been discontinued and is archived here for preservation.
-
-Source: coffeebyte.dev/ever_diamond.html
-Contact: coffeebytedev@proton.me
-License: © 2026 Coffee Byte Dev - personal use, please don't redistribute
-Last Updated: @@2026.07.04@@
-
-Always check coffeebyte.dev for the current version.

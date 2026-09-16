@@ -64,7 +64,3 @@ The donut tutorial is the starting point everyone points to - by the time you fi
 - [Blender Artists Forum](https://blenderartists.org/) - long-running community
 - [r/blender](https://www.reddit.com/r/blender/) - subreddit, lots of WIP threads and feedback
 - [BlenderNation](https://www.blendernation.com/) - news and tutorials roundup
-
----
-
-::signature::

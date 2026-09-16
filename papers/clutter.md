@@ -1,4 +1,4 @@
-# Clutter
+# 🍂 Clutter
 ::toc::
 *A Chrome Extension for Festive Seasonal Decorations*
 *December 2025*
@@ -55,9 +55,10 @@ The falling decorations react to your mouse with proper bounce physics:
 ## Installation
 
 **Install from the Chrome Web Store:**
-https://chromewebstore.google.com/detail/clutter-seasonal-decorati/jbckomhpiopbloalfhdhjihnnnokhbfh
+[https://chromewebstore.google.com/detail/clutter-seasonal-decorati/jbckomhpiopbloalfhdhjihnnnokhbfh](https://chromewebstore.google.com/detail/clutter-seasonal-decorati/jbckomhpiopbloalfhdhjihnnnokhbfh)
 
 **Or install manually:**
+**GitHub Repository:** [https://github.com/osyra42/clutter](https://github.com/osyra42/clutter)
 1. Download or clone the repository from GitHub
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" in the top right corner
@@ -95,9 +96,3 @@ clutter/
 ## License
 
 Clutter is free and open source, released under the MIT License.
-
-**GitHub Repository:** https://github.com/osyra42/clutter
-
----
-
-::signature::

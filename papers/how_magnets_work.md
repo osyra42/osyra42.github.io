@@ -6,13 +6,13 @@
 
 A magnet link is a hyperlink that lets you download files over the BitTorrent protocol without a traditional .torrent file. Instead of pointing to a file location, it carries a unique hash identifier that tells your torrent client exactly which file to find on the peer-to-peer network.
 
-Magnet links start with `magnet:?xt=urn:btih:` followed by a hash and additional parameters like the file name, size, and tracker URLs. Here's a real example - a magnet link for [Kali Linux 2026.1](https://www.kali.org/) (a Linux distribution that officially encourages torrent downloads):
+Magnet links start with `magnet:?xt=urn:btih:` followed by a hash and additional parameters like the file name, size, and tracker URLs. Here's a real example - a magnet link for [Kali Linux 2026.2](https://www.kali.org/) (a Linux distribution that officially encourages torrent downloads):
 
-```
-magnet:?xt=urn:btih:bdf02398ee623b20d6afc7a3915b752979a2546e&dn=kali-linux-2026.1-installer-amd64.iso&xl=4728471552&tr=udp%3A%2F%2Fbittorrent.kali.org%3A6969&tr=https%3A%2F%2Fbittorrent.kali.org%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%2Fannounce&ws=http://cdimage.kali.org/kali-2026.1/kali-linux-2026.1-installer-amd64.iso&ws=https://kali.download/base-images/kali-2026.1/kali-linux-2026.1-installer-amd64.iso
+```txt
+magnet:?xt=urn:btih:83f92aecfa3d92d3df79a5661ad8efb57282b48b&dn=kali-linux-2026.2-installer-amd64.iso&xl=4802531328&tr=udp%3A%2F%2Fbittorrent.kali.org%3A6969&tr=https%3A%2F%2Fbittorrent.kali.org%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%2Fannounce&ws=http://cdimage.kali.org/kali-2026.2/kali-linux-2026.2-installer-amd64.iso&ws=https://kali.download/base-images/kali-2026.2/kali-linux-2026.2-installer-amd64.iso
 ```
 
-Lots of sites use the [🧲](magnet:?xt=urn:btih:bdf02398ee623b20d6afc7a3915b752979a2546e&dn=kali-linux-2026.1-installer-amd64.iso&xl=4728471552&tr=udp%3A%2F%2Fbittorrent.kali.org%3A6969&tr=https%3A%2F%2Fbittorrent.kali.org%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%2Fannounce&ws=http://cdimage.kali.org/kali-2026.1/kali-linux-2026.1-installer-amd64.iso&ws=https://kali.download/base-images/kali-2026.1/kali-linux-2026.1-installer-amd64.iso) magnet emoji as a clickable link. Click it next to a download and it opens the magnet straight in your torrent client. Give it a try.
+Lots of sites use the [🧲](magnet:?xt=urn:btih:83f92aecfa3d92d3df79a5661ad8efb57282b48b&dn=kali-linux-2026.2-installer-amd64.iso&xl=4802531328&tr=udp%3A%2F%2Fbittorrent.kali.org%3A6969&tr=https%3A%2F%2Fbittorrent.kali.org%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%3A6969%2Fannounce&tr=http%3A%2F%2Fbittorrent.kali.org%2Fannounce&ws=http://cdimage.kali.org/kali-2026.2/kali-linux-2026.2-installer-amd64.iso&ws=https://kali.download/base-images/kali-2026.2/kali-linux-2026.2-installer-amd64.iso) magnet emoji as a clickable link. Click it next to a download and it opens the magnet straight in your torrent client. Give it a try.
 
 **✅ Why use magnet links?**
 
@@ -85,7 +85,3 @@ The downside is you end up with extra .torrent files cluttering your downloads f
 - **Read carefully** - Always verify what the magnet is for before clicking
 - **Don't trust everything** - Always verify the source of the magnet link
 - **Don't be desperate** - Sometimes the best way to get a file is to wait
-
----
-
-::signature::

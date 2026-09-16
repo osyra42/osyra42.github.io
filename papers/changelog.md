@@ -1,0 +1,1623 @@
+# ⌚ Changelog
+
+# 2026 SEP 16
+```changelog
+@ website 
++ updated magnet links
++ Changelog now uses custom highlighting syntax.
++ Merged all of Vanity's files into one file. 
+- Claude, it was making a mess of the code.
+- Remove signature. It was disturbingly more complex than it seemed. 
+- mclog Was used for change log colouring. It's now been removed.
+> Complete website rewrite. The website now actually loads markdown files into an HTML file. This will break all URLs.
+$ Fix the long term issue with clicking links in the table of contents. 
+Please report any errors that you see, including broken links and misspellings. 
+```
+
+# 2026 SEP 13
+```changelog
+@ recommendations
+> Reformatted how the no sleep table works. 
++ added House and How It's Made
+```
+
+# 2026 SEP 04
+```changelog
+@ operation chimera
++ added the start of Rev4 Outline
+```
+
+# 2026 SEP 12
+```changelog
+@ website
++ Started using markdown files on the back end for the papers. 
++ Adding the second anniversary celebration of Coffee Byte Dev. 
+```
+
+
+# 2026 AUG 22
+```changelog
+@ operation chimera
++ stories/ and notes/ - the docx exported back out to markdown
++ every book, chapter and codex entry as its own file
++ all of it loaded onto operation_chimera.html with a table of contents
+> stories split by book, notes split into codex and story bible
+> pdf and docx still linked for offline reading
+
+@ website
++ toc now picks up headings from included markdown files
+> table of contents rebuilds once data-brewdown includes finish loading
+> hand-written tables of contents are left alone
+> included markdown now flows into the page instead of its own wrapper
+> blockquotes get their own formatting context
+$ included text sat under the toc and its background covered it
+$ blockquote background ran under the toc while its text wrapped beside it
+
+@ minecraft
++ OWDP - private whitelisted server, owned by Trinkbell
++ OWDP update check block
+> owdp update links pinned to 1.20.1 forge, alpha files shown
++ dev role 🗝️ on every server
++ staff roles in the reporting block - what 👑 owner, 🛡️ mod and 🗝️ dev each handle
+> OWDP listed as private; no ip, pack, mods, or connect steps published
+> whitelist requests go to Trinkbell
+> noted that forge has no block logger; backups cover grief disputes
+```
+
+# 2026 AUG 21
+```changelog
+@ website
++ themes.js - one hex per flavor, every shade derived in OKLCH
++ paper, ink, grid lines and row states now tint with the chosen flavor
++ seasonal default theme, set by hand; a saved choice always wins
++ OCR-A on the site title
++ mc-colors.js - the 16 Minecraft chat colours, by name
++ changelog uses Minecraft chat colours, drawn onto the paper
+- the 17 hardcoded theme blocks in theme.css
+- kimbie-dark code blocks; now atelier dune light on the sheet
+> link colour darkens itself until it clears contrast on any flavor
+> changelog sits on the paper sheet like every other page
+$ fixed - inline code styling was overriding every syntax theme
+$ fixed - tooltips printed onto the page when saving a PDF
+$ fixed - selected row highlight stayed orange under every flavor
+$ fixed - connector line was off-centre on the active row
+```
+
+# 2026 AUG 20
+```changelog
+@ website
++ manifest.js - single source of truth for sidebar, footers and dates
++ per-page word counts and read times
++ tools/inspect_page.py - inspect a page, print a manifest line
++ icon and section vars in every page head
++ paper sheet - content sits on newsprint instead of a dark panel
++ blueprint grid behind the sheet
++ corner brackets framing the content area
++ clipped top-right corner on the sheet
++ cut corners on quotes, callouts and the table of contents
++ topbar.js - download bar is now a breadcrumb and metadata strip
++ tooltip.js - separate tooltip system for sidebar chrome
++ sidebar brand block - archive id, doc count, word total, index date
++ document index numbers and page counts in the sidebar
++ hover metadata on sidebar links - words, read time, last updated
++ accent edge and hover nudge on sidebar links; current page is marked
++ sidebar ruler ticks and diagonal hatch behind the brand block
++ sidebar rows and the sheet settle in on load; respects reduced motion
+- update.js - replaced by manifest.js
+- navMarkdown - sidebar now builds from the manifest
+- profile pictures - sidebar avatar, image vars, and 34 image files
+- rounded corners everywhere; boxes are outlined and square
+- page title badge from the sidebar; the breadcrumb above the sheet has it
+- sidebar group separators; section headers draw their own rule now
+- 3D Pixel Game - removed the dead placeholder page
+> type scale matches the beta - 16px base, mono uppercase sub-headings
+> back to top restyled to match; outlined mono with an arrow
+> alignment normalized to left
+> brewdown now only renders inside main
+> brewdown tooltips are black and white; flavor swatches keep their color
+```
+
+# 2026 AUG 11
+```changelog
+@ website
++ About Me page, split out of the home page
++ sidebar link under Site
+> home page is now current work only
+> bio, skills, approach and contact moved to About Me
+```
+
+# 2026 AUG 11
+```changelog
+@ minecraft
++ Security Policy section
+> chat logging, backups, per-mod vetting
+> untrusted mods rejected; use well-known packs
+```
+
+# 2026 AUG 08
+```changelog
+@ minecraft
++ Player Heads to the LOG26 update checks
+```
+
+# 2026 AUG 06
+```changelog
+@ operation chimera
++ the whole series as a PDF, opens in a new tab
++ OC Notes PDF - codex, story bible, unwritten books
++ linked table of contents in both
++ About the Series - who Osyra is and where the OC comes from
++ content warning and about section now open the book
+- "Save as PDF" button on the hub, replaced by the book link
+- the seven oc_ story pages; the book is the PDF now
+- the markdown source; the docx is where the writing happens
+> one file for reading offline or in print
+> every story in the book, in reading order; notes hold the wiki and bible
+> content warning written straight into the page
+```
+
+# 2026 AUG 06
+```changelog
+@ website
+$ fixed - flavor picker ran off the edge of the sidebar on phones
+> swatches wrap to fit, Flavors label sits flat, bigger tap targets
+```
+
+# 2026 AUG 05
+```changelog
+@ vanity
++ Lettus - one shared brain across Minecraft and Discord
++ Lettus - online/local model race, backs off when the PC is busy
++ Lettus - reads the whole Minecraft wiki before answering
++ Lettus - /minecraft button panel and server picker
++ Lettus - code-based account linking, Discord to in-game
++ Lettus - live dashboard, 30+ test files
+> rebuilt out of small skills and checks; her job is a list now
+> plainer wording throughout
+```
+
+# 2026 AUG 03
+```changelog
+@ operation chimera
++ Osyra is a caffeine addict - cans only, always in her pack
++ FTNO ch1 - plants the can habit early
+- Osyra's chocolate/caffeine intolerance; only xylitol is toxic now
+> FTNO - ch1-16 are pure recollection now; no technique intros or closing lessons
+> FTNO - all reflection consolidated into ch17
+> FTNO - preface reframed; she doesn't know why she's writing it down
+> Blood Relation ch3, ch6 - chamomile is sentimental now, not dietary
+> wiki + bible updated to match
+```
+
+# 2026 JUL 28
+```changelog
+@ website
++ HCVP - whitelist join steps, and noted it's hosted for an adult creator
++ mcupdates.html - Security section; backups, discord, and block logging per platform
+> minecraft.html - SF5 connect steps said All the Mods 10, now SkyFactory 5
+> SF5 java bumped to 17 and RAM clarified - 6 GB minimum, 8 GB recommended
+> HCVP rules line now spells out that hacks aren't allowed
+> mcupdates.html - The Fox Den section renamed HCVP to match the server id
+> mcupdates.html - HCVP now tracks Simple Backup (fabric) alongside DC Integration
+$ SF5 requirements contradicted the connect steps on RAM
+```
+
+# 2026 JUL 27
+```changelog
+@ operation chimera
++ ::toc:: on the hub page
+- dropped the separate Wiki section
+> story list now sorted in story order; reading in order is the recommendation
+> wiki folded in as the first entry; Stories section renamed The Content
+```
+
+# 2026 JUL 24
+```changelog
+@ website
++ become_the_problem.html - security-awareness series, first entry on the iCopy X
++ become_the_problem.html - added Bash Bunny entry
++ become_the_problem.html - added Lock Picks entry
++ become_the_problem.html - added shims + under-door bypass to Lock Picks
++ become_the_problem.html - added slapping/tapping technique to Lock Picks
++ become_the_problem.html - "a lock only keeps out an honest person" close + local-law note
++ profile images for yt-dlp Tool, Sip Sip, How to Edit Videos, 3D Prints, Minecraft Updates, 3D Pixel Game
++ become_the_problem.html - added Flipper Zero, Proxmark3, O.MG Cable, WiFi Pineapple, LAN Turtle, HackRF One
+> become_the_problem.html - scoped page to physical bypass; devices ordered by popularity
+> renamed sidebar Dev & Tools to DevTools; moved Become the Problem there
++ 3d_prints.html reworked from a showcase into a full how-to guide (model sourcing, mesh check, slicing, printing, painting)
++ added Sprocket Toolbox (unlisted) at /sprocket/ - work-notes checklist tool
++ Sprocket: copy-visible-content-as-text button, with v/> markers for open/collapsed sections
+> reorganized sidebar - Clutter to Games, Media Mimic to Dev & Tools, 3D Prints to Guides & How-Tos
+> sidebar entries now alphabetical within each category (Site stays manual)
+> sidebar ✨ badge window shortened to 14 days
+- dropped the empty Creations section
+```
+
+# 2026 JUL 21
+```changelog
+@ website
++ Belle VTuber model - public domain, VRoid + VRM + image in the pack
++ Mewtwo added to the 3D prints gallery
+> vtuber_guide.html now lists Belle in Downloadable Models
+```
+
+# 2026 JUL 18
+```changelog
+@ website
++ dotted underline on links, clears once visited
+- retired the dead archive-dropdown sidebar styles
+> bumped base size to 20px and widened content to 1100px
+> body text left-aligned instead of justified
+> bigger sidebar - wider column, larger heading and link text
+> lighter section-heading rules, styled the ::toc:: box
+```
+
+# 2026 JUL 17
+```changelog
+@ website
++ brewdown tooltips - ??text|tip??
++ tooltips wrap links, so hover defines and click navigates
+> brewdown now owns the one tooltip system, moved out of scripts.js
+> long definitions wrap instead of running off screen
+@ operation chimera
++ wiki/history.md - full chronology in order, no dates yet
++ history linked from the wiki index
+- retired the main/side split - every book is a story now
+- cut the aunt from canon; no more Marissa
+- dropped Out of the Fray ch1 and ch2
+> new origin - parents keep her until six, the school notices, the state takes her
+> rewrote Rosalyn's album scene; her guilt is six years of being polite now
+> Out of the Fray is now the foster homes and the sale
+> restructured the backend into stories/ and wiki/
+> oc_part1.html is now oc_out_of_the_fray.html
+> oc_lore.html is now oc_wiki.html
+$ fixed every dead lore/ path after the rename
+```
+
+# 2026 JUL 14
+```changelog
+@ operation chimera
++ Out of the Fray ch2 - The List
++ content warning and chapter list on Part 1
+> retitled Part 1 page to Out of the Fray
+> rewrote ch1 - Marissa's cheer now has objects, seeds her decline
+> split the childhood - one chapter per person and place
+@ vanity
+> moved meta files to vanity/meta/, dropped the underscore prefix
+```
+
+# 2026 JUL 11
+```changelog
+@ vanity
++ reusable Vanity personality prompt (vanity/_personality.md)
+> established as the mascot/repair tech across my tools
+> folded the Minecraft bot into the Lettus build; merged their descriptions
+- standalone Vanity Minecraft as its own product entry
+@ yt-dlp tool
+> doctor framed as Vanity showing up to repair the setup
+@ website
+- bounty program (bounties page + sidebar link); no discovery
+$ every em/en dash across the site replaced with a plain hyphen
+```
+
+# 2026 JUL 09
+```changelog
+@ vanity
++ full version history split into per-version files
+> rebuilt every version description from the source code
+$ corrected Kale (agent, not VTuber), Garlic model, Honeynut/Ivy AI backends
+@ sleep launcher
++ verify gate spec: line endings, exec bit, runtime version, auto-fix downloads
+> rewrote runtime-neutral; renamed from zen launcher
+@ yt-dlp tool
++ new page for the YouTube to MP3/MP4 downloader
+```
+
+# 2026 JUL 08
+```changelog
+@ operation chimera
++ Save as PDF button on the hub, Part 1, and Lore pages
+@ website
++ MiSide to game recommendations
+```
+
+# 2026 JUL 05
+```changelog
+@ operation chimera
+> moved Borne Weapon into the main story as Part 2 (files now under main/)
+> renamed main-story "sections" to "parts" throughout; oc_section01.html is now oc_part1.html
+```
+
+# 2026 JUL 04
+```changelog
+@ minecraft
+> moved the update-check link to the very bottom of the page
+$ fixed the vanilla connect steps and repaired the mcupdates comment
+@ operation chimera
+> gave the hub page a proper title tag
+> reworded Borne Weapon meta so it no longer calls itself a side story
+> renamed the Saving Humans side story to For the Next Operator (oc_for_the_next_operator.html); reframed as a retiring operator's field manual
+@ video editing
++ video_editing.html - guide covering Blender VSE, Shotcut, DaVinci Resolve and Premiere
+> added to the sidebar under Guides & How-Tos
+@ sip sip
++ sipsip.html - intro page so the sidebar link no longer drops straight into the app
+> Log Out now returns to the intro page; sidebar points here instead of the game
+@ archived books
+> Ever Diamond, Infinite Devastation and Glitched now note they're discontinued instead of "to be continued"
+> gave Glitched a "written in 2014" line to match the other two
+@ website
+- retired the defunct commissions profile image
+> renamed page images to match their page names (donate, do_it_better_for_free)
+> pages without their own image now use default_profile.jpg (3d prints, 3d pixel game, bounties, mcupdates)
+```
+
+# 2026 JUL 03
+```changelog
+@ website
++ bounties.html - Bounties board; open tasks people can help with, each loads via URL hash
+- retired the standalone dev notes hub (dev/ folder, dev.css, dev.js)
+> moved dev/notes to bounties/ at root; added Bounties to the sidebar under Site
+@ 3d pixel game
++ 3d_pixel_game.html - project page for a low-poly, pixel-textured Godot platformer
++ browser build slot staged ("coming soon") for the first Godot HTML5 export
+> added to the sidebar under Games
+@ minecraft
+- retired the CFML server (Cisco's Fantasy Medieval Adventure RPG)
+> renamed the vanilla server ID from VAN26 to LOG26
+> bumped the LOG26 Paper update link to 26.2
+@ media mimic
++ IMDb enrichment via OMDb - episode lists, missing-episode audit, ratings, watch time, posters
++ enrich.py - standalone tool that enriches the whole library and writes a report
++ cached OMDb responses so repeat runs skip the network; force-refresh option
++ in-app settings persistence - writes settings.py back in place, comments intact
++ zen_launcher.bat - venv + dependency checks, launches windowless and detached
+> refreshed the project doc for build v2026.07.03 - new features, core/ layout, PySide6 6.11
+$ fixed VLC enqueue/launch so folders reliably open in the running instance
+@ operation chimera
++ oc_saving_humans.html - Saving Humans side story (in progress)
++ oc_red_light.html - Red Light side story, first seed posted (in progress)
+> both linked from the Operation Chimera hub under Side Stories
+> promoted Borne Weapon from a side story to Main Story Section 02
+> canonized Uta as the bartender who took homeless Osyra in - the weed bond that started it
+> Osyra's post-lab origin rewritten: Uta takes her in, Titan Reach referral comes through their smoking circle
+> Aurora Pulse gains the earlier-era bartender through-line; cross-linked Uta, Osyra, and Aurora Pulse
+```
+
+# 2026 JUN 29
+```changelog
+@ website
++ flavor themes - sidebar color picker with 17 muted coffee palettes
++ flavor themes - swatches in three staggered rows, accent-only swaps, choice saved per browser
++ flavor themes - styled as a "menu" card with a sideways label
++ tooltips - reusable [data-tooltip] bubbles, instant and themed; flavor dots use them
+> mobile - swapped hardcoded colors for theme vars; banner title now follows the flavor
+> print - ink-saving grayscale: black on white, no filled boxes, images and emojis desaturated
+> theme - renamed accent vars to --accent/--accent-light/--accent-dark so flavor and slot aren't conflated
++ comfyui guide - Getting Started: portable build, folder layout, ComfyUI Manager, VRAM flags
++ comfyui guide - Basic Workflow walkthrough and Troubleshooting section
++ comfyui guide - LoRA strengths, VAE source, confidence % explained, model links in Resources
++ comfyui guide - table of contents
+@ operation chimera
++ oc_borne_weapon.html - Borne Weapon side story, recovered from an old draft revision
++ Borne Weapon ch1 - The Interview
++ Borne Weapon ch2 - Processing
+> converted the recovered draft from first-person to third-person omniscient
++ lore: The Chimera Vaccine - the virus reframed as a cure, its own codex entry
++ lore: the virus mechanism, Chimera-9 survival-vs-humanity tradeoff, and war-hybrid origin
+> merged the Chimera vaccine brainstorm into canon; plot seeds moved to brainstorm.md, temp file dissolved
+> navigation rebuild marked done; leftover polish ideas moved to brainstorm.md, plan file dissolved
+> Osyra romance exploration folded into brainstorm.md; temp file dissolved
+> lore: Osyra's post-lab timeline - woods survival, a mentor, Titan Reach recruitment, then Agency placement
+> Borne Weapon ch1-2 reconciled with canon: origin (sold to the lab, not rich parents), physiology, and a reworked annual heat cycle
+> Borne Weapon - split the two long chapters into ten shorter ones
++ lore: Osyra Physiology section - enhancements, costs, dog-toxin sensitivities, and her seasonal heat cycle
+> Blood Relation - expanded the summary blurb
+```
+
+# 2026 JUN 28
+```changelog
+@ operation chimera
++ restructured into a hub: Main Story, Side Stories, and Lore
++ oc_blood_relation.html - Blood Relation now its own page with a chapter TOC
++ oc_mireheart.html - Mireheart side story on its own page
++ oc_section01.html - placeholder for the main story, The Chimera Incident
++ oc_lore.html - the wiki moved to its own codex page
+> hub no longer stacks every chapter behind nested dropdowns
++ lore: The Hunting Lodge - Osyra's Agency-set cover home
++ Blood Relation ch1 - The Hunting Lodge
+- the schoolhouse setting; reworked the inciting find as a derelict-house job
+
+@ minecraft
++ ATM10 modpack version - All the Mods 10 7.1, noted on the server card
+```
+
+# 2026 JUN 27
+```changelog
+@ website
+> replaced all em-dashes with hyphens site-wide; they rendered poorly
++ ::signature:: brewdown token - footer now pulls from one central config
+> migrated all 22 page footers to ::signature::
++ assets/js/manifest.js - one page-to-date map feeding both the footer and the sidebar ✨ badge
+> sidebar dates now read from update.js; fixed several stale sidebar dates that had drifted from footers
+> normalized prose voice across guides, landing, and main pages to match the index; facts/structure unchanged, fiction left alone
++ ComfyUI guide - linked checkpoint, LoRAs, and upscale model to their downloads
+
+@ minecraft
++ dormant server policy - 2 months idle to shutdown, 4-month grace to recover world or restart
+> reworded intro and server blurbs to match the index voice
+```
+
+# 2026 JUN 26
+```changelog
+@ website
+> rewrote index.html welcome in a more natural, plain-spoken voice
+> dropped the dead archive reference from the content notice
+> content notice now warns pages can be removed - save a PDF to keep a copy
+- Amazon affiliate links on recommendations - no longer an associate
+> swapped product links to plain Amazon URLs, kept all products listed
+> updated privacy policy and terms for VTuber/streaming/Minecraft scope
+> rewrote terms of service in plain English - no duty to update outdated guides
+> rewrote privacy policy in plain English to match
+> rewrote Vanity's privacy policy and terms in plain English too
+> pointed "hang out" Discord links to the fandom server invite; kept profile link for direct contact
+
+@ vtuber_guide
+$ fixed USA Girl download - link pointed to a filename that didn't exist
+```
+
+# 2026 JUN 22
+```changelog
+@ operation_chimera
++ Blood Relation ch9 "The People Up North" - Osyra drives north to find her parents, ends at their door
++ daily check-in calls to Vanity while Osyra is on leave
+> reframed the Rosalyn trip as personal leave, not a mission
+> ch8 retitled "The Road North" - cut the HQ debrief, the next-book hook, and the record-keeper meta ending
+- second-book teaser at the end of Blood Relation
+```
+
+# 2026 JUN 20
+```changelog
+@ website
+> aligned page title, sidebar label, and header on guide pages
+> renamed do_it_better_for_free.html to better_for_free.html, retitled "Better for Free"
+```
+
+# 2026 JUN 19
+```changelog
+@ vtuber_guide
++ Downloadable Models section
++ USA Girl avatar download - VRoid Studio project plus VRM 1.0 and VRM 0.0 exports
++ auto-generated clickable table of contents (::toc::)
+- static hand-written Contents list, replaced by the live TOC
+```
+
+# 2026 JUN 18
+```changelog
+@ blank_pixel_game
++ download archive reorganized into per-release date folders (2026.03.11 through 2026.06.06)
+> every download link on the page repointed to its new dated path; all builds verified reachable
+@ website
++ .gitignore rules for editor/sync metadata (.obsidian, .stfolder, .stversions)
+- Obsidian and Syncthing metadata removed from version control (kept on disk)
+@ CLAUDE.md
+> refreshed to match the current tree: documented the six-file CSS @import chain, corrected the subsection list (operation_chimera, blank_pixel_game, sipsip), and dropped the stale school/ worksheet and icons references
+@ website
++ richer page-footer signature across all 25 content pages, aimed at saved-PDF readers (Author, Source, Contact, License, Last Updated, plus a "check the site for the latest" note)
+> Source is each page's own URL; license attributed to the Coffee Byte Dev brand; signatures now plain text instead of bold labels
+> archived-story pages keep their preservation header above the new block
+@ website_legal
+- commission references from the Privacy Policy and Terms of Service (no longer offering commissions)
++ Donations clause to the Terms covering voluntary third-party support
+> updated both docs to reflect current content (research, guides, creative writing, projects, games); Last Updated bumped to June 18, 2026
+@ vanity_legal
++ Discord as a named space where the public may encounter Vanity (Privacy + Terms)
++ reactive-behavior coverage: Vanity may perceive and react to environmental conditions, automatic and operator-only
+> clarified the public only meets her directly on Minecraft or Discord; aligned the policy's canonical URL; Last Updated bumped to June 18, 2026
+```
+
+# 2026 JUN 17
+```changelog
+@ support_me
++ expanded Feedback with channels (Discord, stream, email)
+> split dense lines into shorter paragraphs for cleaner spacing
+@ recommendations
++ 14 games to the list (Pragmata, Schedule I, Onirism, Terraria, Necesse, Helldivers 2, Unpacking, Megabonk, Divinity Original Sin 2, Stray, High on Life, Undertale, How to Survive, Diablo)
++ Rayman 2 The Great Escape (GOG)
+> Diablo and Rayman 2 link to GOG (not on Steam)
+@ urbex_safety
++ rewritten as a tight safety guide in my voice (gear, getting in/out, occupied buildings)
+- academic history, legality, and ethics sections
+> legal note kept as a footnote; re-credited to me (was KastienDev)
+```
+
+# 2026 JUN 16
+```changelog
+@ index
+- empty Home Repair and Ranching placeholders
+@ donate
+- Commission Me section (no longer taking commissions)
+@ 3d_prints
++ new page showcasing in-house 3D prints
+@ vtuber_guide
++ Example Models gallery (VRM avatars built with the workflow)
+@ commissions
+- page dissolved; 3D prints and VTuber examples rehomed
+@ all_about_ai
+- page removed
+@ sidebar
++ regrouped into subcategories (Site, Books, Games, Guides, Dev & Tools, Creations)
++ each group sorted newest to oldest
+- Archives dropdown dissolved into the new groups
+> Donate renamed to Support Me
+@ support_me
++ renamed from donate.html to match the page name
++ Follow & Engage (Twitch, YouTube, Discord) under Other Ways to Support
+- duplicate Ko-fi callout; flattened the Direct Donations section
+```
+
+# 2026 JUN 13
+```changelog
+@ blank_pixel_game
++ roadmap section with tiered, dependency-tabbed features
++ table of contents at the top of the page
+```
+
+# 2026 JUN 06
+```changelog
+@ blank_pixel_game
++ minimap (top-right) showing tiles, enemies, loot, and the ladder
++ item rarity tiers (Common to Unique) with color coding
++ version display in the HUD (lower-right)
+> tooltips now show rarity color, rarity tier, and description
+> floor counter moved up beside the minimap
+$ spawn putting the player inside a pot or enemy on a fresh floor
+$ loot from one enemy piling on a single tile
+```
+
+# 2026 JUN 01
+```changelog
+@ operation_chimera
+> The Debrief now closes as Vanity's record of Osyra's account
+> The Visit trimmed of its recap and origin dump
+> Korval no longer called Russian (American, per the wiki)
+```
+
+# 2026 MAY 31
+```changelog
+@ blank_pixel_game
++ pause menu (ESC) with controls and Resume/Quit
+- controls list on the page (now shown in pause menu)
+$ phantom attack when resuming or moving inventory items
+$ crash from swinging the sword during pause
+```
+
+# 2026 MAY 30
+```changelog
+@ blank_pixel_game
++ tooltips on items (name and description)
+```
+
+# 2026 MAY 24
+```changelog
+@ operation_chimera
++ four new Blood Relation chapters
++ The Agency wiki entry
+> Blood Relation rewritten in third person
+> agency rank ladder finalized
+> Book of Maru renamed Mireheart
+```
+
+# 2026 MAY 23
+```changelog
+@ operation_chimera
+> chapters and wiki collapsed by default
+> table of contents at the top
+> wiki files reorganized
+$ wiki entries open inline again (timing bug)
+> chapters use the same box style as wiki entries
+
+@ brewdown
++ table of contents
+
+@ minecraft
+$ server status display
+
+@ website
+> table of contents hidden when saving as PDF
+```
+
+# 2026 MAY 18
+```changelog
+@ minecraft
++ Simple Backups mod (ATM10, CFML)
++ DC Integration mod (ATM10, CFML)
+- "Last checked" date stamps
+- public Admin sections
+
+@ blank_pixel_game
+> downloads grouped per release; latest open by default
+
+@ brewdown
++ hover tooltips on links
++ fill-in blanks support placeholders
++ table of contents
+- unused form blocks
+
+@ operation_chimera
++ The Book of Maru - new story
+- Earlier Revisions section
+> Blood Relation split into 4 chapters
+> Rosalyn promoted to Dr. Renaya
+> ch04 morning trimmed for op-sec
+> ch04 thank-you scene reworked
+```
+
+# 2026 MAY 16
+```changelog
+@ operation_chimera
+> Corporal Ryan renamed to Corporal Bennett
+> reworked the Vanity-no-surname beat for natural voice
+> Osyra softens her work reveal: lost-phone errands instead of cryptids, with a dodgier edge
+> Rosalyn parental-gaze beat added after the work reveal
+> trimmed ch01 ending: cut Osyra's "Thank you" and elongated interior, kept her on-guard
+
+@ website
+> sidebar new-badge updated
+```
+
+# 2026 MAY 15
+```changelog
+@ blank_pixel_game
++ breakable pots (150 per dungeon)
++ floor progression with ladder and counter
++ seed and floor in HUD
++ ESC closes open menus
+> closest-only item pickup
+> chat counts enemies and announces ladder
+> chat fades; no longer locked open
+> debug overlay (F3) shows tile outlines, origins, activation regions
+> features list trimmed to player-facing items
+```
+
+# 2026 MAY 14
+```changelog
+@ minecraft
++ LogBlock to VAN26 update-check list
+> plugin links point to /versions pages
+> all three servers rechecked
+
+@ operation_chimera
+> ch01 military last-name pass; added Vanity-no-surname beat
+```
+
+# 2026 MAY 13
+```changelog
+@ operation_chimera
+> reworked layout: latest chapter auto-loads at top
+```
+
+# 2026 MAY 12
+```changelog
+@ blank_pixel_game
++ debug menu (F3 toggle)
+- breakable pottery
+
+@ brewdown
+> link, copy, and download indicators moved to the front
+
+@ minecraft
+> rechecked plugin versions
+
+@ sipsip
++ Log Out button (top-left)
+
+@ website
++ Sip Sip in sidebar
++ sidebar new-badge auto-fades after 7 days
+```
+
+# 2026 MAY 11
+```changelog
+@ website
+> moved VTuber Guide to Archives
+
+@ operation_chimera
++ ch01 bedtime reveal scene
+```
+
+# 2026 MAY 08
+```changelog
+@ minecraft
++ ViaBackwards plugin link
++ InvSee++ plugin link
+
+@ blank_pixel_game
+> downloads converted to .zip (link text [EXE] / [AppImage] kept)
+
+@ blender resources
++ created Blender Resources page (parallel to Code Resources)
++ Blender 5.1.1 version note; donut tutorial linked to specific video
+
+@ zen launcher
++ Inputs table and Dependency Check Patterns
++ ARGS variable in templates
+> reference templates cover every stage
+
+@ brewdown
++ click-to-copy text
++ indicator on external links
++ indicator on downloads
+> "Copied!" flash on copy
+
+@ website
+> link indicators swapped for topic-fit emojis
+> How Magnets Work step 1 updated
+```
+
+# 2026 MAY 07
+```changelog
+@ zen launcher
++ "How to Make One" section with bat/sh templates
+- Why It Exists section
+> sections reordered (I Use It first)
+> folder layout merged into "How to Use It"
+```
+
+# 2026 MAY 06
+```changelog
+@ recommendations
+- product subcategory subheadings
+> merged product subtables into one
+> swapped Product/Note columns; renamed headers to Name/Product
+```
+
+# 2026 MAY 05
+```changelog
+@ website
++ "3D & Animation" and "Mixed Multimedia" sections on index
++ expansion notice and visual-work mention on index
+- Amazon Affiliate notices, Google Play warning, affiliate disclosure
+- affiliate disclosure document
+> reordered What I Build sections by recent activity
+> moved Donate to Navigation; Legal links to sidebar footer
+> consolidated sidebar footer to one line
+
+@ how magnets work
+> updated Kali example to Kali Linux 2026.1
+
+@ donate
++ markdown H1, Ko-fi tip callout, Author line
+- marketing fluff and link indicators
+> nested Steam Wishlist under Wishlists; tightened language
+
+@ zen launcher
++ "Why It Exists", "How It Looks", "How I Use It" sections
+- generator form and supporting JS/CSS
+> reframed from generator into concept reference
+> standardized filenames to zen_launcher.bat / zen_launcher.sh
+
+@ vanity
++ Vanity Minecraft section (autonomous fishing bot)
++ intro announcing two-product split
+- Minecraft Automation bullet from Kale
+- marketing-speak boilerplate from older entries
+> standardized dates, separators, voice, and meta description
+
+@ brewdown
++ "How It Works" section
+- Quick Start, CDN Links, "free to use" line, "library" framing
+> reframed from drop-in tutorial into how-it-works reference
+
+@ commissions
++ examples.html merged in (image references retained)
++ per-service rate card ("Starting at $20") and "How to Commission" section
+- 4-step form, preview/download buttons, supporting JS/CSS
+- examples.html
+```
+
+# 2026 APR 28
+```changelog
+@ minecraft
++ per-server minimum requirements YAML blocks (VAN26, ATM10)
+> rewrote intro paragraph as friendly invite
+> "New to Minecraft?" reduced to short welcome
+> hardware block converted to YAML
+> ATM10 minimums rephrased as floors
+```
+
+# 2026 APR 27
+```changelog
+@ website
++ markdown H1 on all content pages for printed PDF titles
+
+@ casio code
++ # Casio Code H1 above Preface
+> swapped basic code blocks to vbnet for better hljs highlighting
+
+@ website
++ highlight.js + Kimbie Dark CSS on every page
+> normalized all_about_ai.html highlight.js loading
+$ highlight.js script-order fix (highlight before brewdown)
+$ brewdown.js timing regression breaking Minecraft ping variables
+
+@ brewdown
++ renamed processMarkdownDivs -> processBrewdownDivs API
+> renamed class="markdown" -> class="brewdown"
+> updated docs and comments to use "Brewdown" not "markdown"
+
+@ vtuber guide
++ Contents section
+- "Archived Tutorial Document" subtitle
+- Section X numbering on headings
+> flattened h4 sub-headers into bold inline labels
+> single-tool tables -> bullet blocks
+> moved to Projects in sidebar; Zen Launcher to Archives
+```
+
+# 2026 APR 26
+```changelog
+@ vtuber guide
+- VSeeFace recommendations (no longer maintained)
+- VSeeFace row from Workflow Summary table
+> VMagicMirror now the only suggested 3D tool
+```
+
+# 2026 APR 25
+```changelog
+@ blank_pixel_game
++ 2026.04.25 build (HTML5, EXE, WINZIP, AppImage)
++ off-screen culling for entities outside camera view
++ HTML5-specific optimizations
+```
+
+# 2026 APR 24
+```changelog
+@ operation chimera
++ expanded Aurora Pulse wiki
+- "Dr." title and PI profession from Osyra
+- forensic / engineering education from Osyra
+> rewrote Blood Relation backstory (adopted as infant, raised by aunt, sold at 16)
+> reworked Osyra wiki to match Rev 03 canon
+> preserved tense-shift foreshadowing in Blood Relation
+
+@ minecraft
++ Rules row on every Server Info table
++ GPU spec to server hardware block
++ ATM10 minimum requirements section
+> reformatted hardware block with 3-letter acronyms
+> tightened intro paragraphs
+> split CurseForge install / modpack download into two steps
+> rewrote per-server descriptions
+$ ATM10 disk requirement (2 GB -> 15 GB)
+$ ATM10 CPU minimum (3.8 GHz -> 3.0 GHz / 4 cores)
+
+@ zen launcher
++ generated scripts restructured into labeled sections
++ TITLE / ENTRY / ARGS variables defined and referenced
+> launch commands reference %ENTRY% / $ENTRY instead of inline filenames
+
+@ brewdown
+- top margins from h2, h3, h4 (flush headers)
+```
+
+# 2026 APR 18
+```changelog
+@ recommendations
++ added Movies section with Live Action and Animated subsections
++ renamed Anime to TV Series (Live Action + Animated)
++ renamed Horror Audio Books to Nosleep
++ added # index column to all tables for easy referencing
++ added many new entries across music, TV, and movies
+- removed rating column from all tables
+> switched music links from emoji to text labels (YouTube / Spotify)
+> sorted all tables alphabetically and added episode tracking format (s01e64)
+
+@ brewdown
++ "#" header columns auto-narrow to 24px
+
+@ operation chimera
++ Aurora Pulse location wiki page (Uta Yuki's nightclub)
++ Alissa McKay and Eric McKay character profiles
++ wiki subfolders: char/, locs/, imgs/
++ nested wiki sections (Lore, Characters, Locations)
+- old rev01/rev02 Osyra character reference docs
+- broken links to deleted files
+> images folder renamed to imgs (4-letter convention)
+$ R15 -> AR-15 in Osyra's weapons list
+```
+
+# 2026 APR 17
+```changelog
+@ blank_pixel_game
++ 2026.04.17 build (HTML5, EXE, WINZIP)
++ coin colors match realistic metals (copper -> rhodium)
++ coin values (1 / 5 / 20 / 100 / 500 / 2500 / 10000)
++ coin rarity bell curve
+- coin merger (increased lag)
+> loot multiplier kept at x100
+$ armored dummies HP fixed
+```
+
+# 2026 APR 16
+```changelog
+@ zen launcher
++ created Zen Launcher (.bat / .sh script generator)
++ runtime checks for 10 environments
++ cd to script directory for invocation-path independence
++ persistent terminal/CMD title support
++ preview panes split by file type
++ added to sidebar under Projects
+
+@ donate
++ swapped PayPal link for Ko-fi
+
+@ minecraft
++ CFML (Fox Den) private server (thefoxden.live)
++ update checks for all three servers
++ "stealing" added to Player Consent examples
+- rules 8 (Vote Ban) and 9 (Changes) - admin-governed
+> vanilla server updated to 21.1.2
+> modded server IP -> modded.coffeeblock.xyz (SRV record)
+> reorganized rules by priority
+> clarified rule scope per server (1-7 public, 1-6 private)
+> reordered sections (connect first, admin updates last)
+> ping function supports hostname-only SRV lookups
+
+@ brewdown
+> 30% first column for key-value tables
+```
+
+# 2026 APR 12
+```changelog
+@ operation chimera
++ character wiki with lore page and 6 character profiles
++ media gallery support to Brewdown (flexbox, click for full size)
++ wiki images folder
+- renamed revisions 00/01/02 -> 01/02/03
+- stale nomenclature note from page footer
+> chapter list with collapsible sections
+> extracted character info from revision files into wiki
+> separated canon from revision history in wiki entries
+
+@ brewdown
++ consecutive images auto-grouped in flex gallery
++ media wrapped in clickable links (full size in new tab)
++ max media size capped at 256px
+> tables wrapped in scrollable container for mobile overflow
+$ word-break breaking words mid-character in pre blocks (break-all -> break-word)
+```
+
+# 2026 APR 11
+```changelog
+@ minecraft
++ reset plugin/mod update checklists
++ ATM10 updated to v6.6
+- hardcoded version numbers from server descriptions
+> server info tables -> vertical layout with live API data
+
+@ operation chimera
++ characters file to rev 02 chapter list
++ chapter 02 placeholder
+> cleaned up chapter 01 Blood Relation
+> refined character profiles
+> Osyra's dialogue: shorter, more military
+> Rosalyn's dialogue: warmer, more present
+```
+
+# 2026 APR 08
+```changelog
+@ operation chimera
++ chapter list moved into inline script[data-brewdown] block
++ chapter-link selectors drop obsolete main.archive prefix
++ Revision 02 (2026) section with "Blood Relation" entry
++ Osyra character dossier linked under Revision 00
++ restored Chapters 33-40 links in Part 2
++ renamed all files to rev@_ch@_title pattern via git mv
++ moved revision_01 top-level files into revision_01/
++ Chapter 32 subtitle "Deep Clean"
++ nomenclature note in page footer
++ flattened revision_00 into single folder
++ subtitles for Chapters 33-39
++ aligned all Rev 00 H1 headings with filenames
++ revision-agnostic content warning auto-loaded at top
+- JS adding .chapter-link class (now CSS attribute selector)
+- redundant CSS on .chapter-content
+- "Operation Chimera -" prefix from revision headings
+- struck through Chapters 33-40 in Revision 00
+- empty stub files
+> page uses modern brewdown patterns
+> tightened intro blurb
+> rebuilt Rev 00 section to match new paths and titles
+$ bogus "Part 0 - Random Things" entry pointing to same file as Chapter -1
+$ dual "# Chapter 39 / # Chapter 40" headings in merged ch39 file
+```
+
+# 2026 APR 07
+```changelog
+@ book
++ renamed Osyra's Tale to Operation Chimera (ensemble retitle)
++ updated meta tags, page header, sidebar link, and index page reference
++ renamed osyras_tale folder/file/image to operation_chimera
+
+@ minecraft
++ added suggested client-side mods section under server rules (applies to all servers)
++ added severity legend (client-side, advantage, hack, extra client)
++ listed Sodium, AppleSkin, Light Overlay, MiniHUD, Inventory Sorter, JourneyMap, Litematica, Freecam, Gamma Utils, Chest Tracker, SeedCracker, Advanced XRay, Baritone
+```
+
+# 2026 APR 06
+```changelog
+@ minecraft
++ updated vanilla server to Minecraft 26.1.1 (baby animals!)
++ updated modded server ATM10 to v6.4
++ added suggested client-side mods section to vanilla server (XRay, JourneyMap, Inventory Sorter)
+- removed pending 26.1 update notice from vanilla server
+```
+
+# 2026 APR 04
+```changelog
+@ blank_pixel_game
++ added scrolling chat log
++ objects have unique identity colors in chat
++ dungeon seed displayed on game start
++ added 16 positional wall tiles
+```
+
+# 2026 MAR 31
+```changelog
+@ brewdown
++ added escape character support (backslash prevents formatting)
++ added inline code HTML escaping (tags render as text)
++ added triple-tick inline code variant
++ added backtick escape inside fenced code blocks
++ added base indent stripping for code blocks in divs
++ moved Brewdown docs to external .md file (clean markdown, no HTML entity hacks)
++ added highlight.js support for externally loaded markdown files
++ reordered documentation for better readability
+$ fixed inline code padding inside pre blocks
+$ fixed escape characters consuming inline code backticks
+
+@ website
++ added print support for dropdowns (auto-expand on print)
+$ fixed pre code padding doubling inside code blocks
+```
+
+# 2026 MAR 28
+```changelog
+@ website
++ added Amazon Affiliate and Google Play warnings on index page
++ dropdowns now expand automatically when printing/saving as PDF
++ renamed game downloads from @PLATFORM-DATE to @DATE-PLATFORM format
++ renamed WIND to WINDOWS and LINU to LINUX in download filenames
+$ fixed changelog printing dark background (ink waste)
+
+@ brewdown
++ added Brewdown documentation page with quick start, syntax reference, and CDN links
++ added media embedding (video, audio, images, downloads) by file extension
++ fixed checkbox/link conflict (checkboxes now parsed before links)
+
+@ blank_pixel_game
++ added random dungeon generation (drunkard's walk algorithm, 64x64 tile grid)
++ added wall tiles that block player movement
++ safe spawning - player and enemies only placed on floor tiles, no shared tiles
++ items snap to floor tiles and don't stack
++ added controller input mapping
++ added GUI scaling matched to camera view
++ added debug system (outlines and messages)
+> downloads moved to blank_pixel_game/ subfolder with HTML5, WINZIP, EXE, and AppImage formats
+```
+
+# 2026 MAR 27
+```changelog
+@ vanity
++ Kale Update - Vanity is now a full AI agent
++ added voice recognition and voice output
++ added agent architecture with tools
++ added Minecraft automation (autonomous assistant)
++ added note taking and file editing
++ added online research
+> still functions as a generic chatbot
+
+@ minecraft
++ added connection instructions, system requirements, and Discord invite
++ expanded all 9 rules with detailed explanations
++ added live server status pings
+- removed standalone server status table (merged into connection tables)
+
+@ brewdown
++ renamed md2html.js to brewdown.js
++ added collapsible sections (>>>), template variables ({{}}), and form blocks (::)
++ added whitespace preservation and updated timestamp/fill-in syntax
+
+@ website
++ rebuilt commissions page with universal step-by-step request form
++ rewrote commission policy for clarity (paid vs free paths)
++ added collapsible policy and technical skills sections
++ refactored CSS into theme.css, print.css, brewdown.css
++ sidebar now renders through Brewdown
+- removed separate commission .md forms and redundant CSS
+> swapped Vanity Bot above Osyra's Tale in sidebar
+> CSS architecture: theme.css -> sidebar.css -> main.css -> brewdown.css -> mobile.css -> print.css
+> all 26 pages updated with refactored styles
+```
+
+# 2026 MAR 21
+```changelog
+@ blank_pixel_game
++ added inventory system (Phase 2 step 1)
++ enemies now drop gifts at 25% chance per gift per enemy
++ pick up gifts with E (interact) into proper inventory slots
++ inventory overflow prevention
++ added inventory sorting and equipment management
++ added experimental chat log (tells the player what's happening)
+> beginning of Phase 2: Inventory System
+
+@ minecraft
++ added Java Edition notice at top of page
++ added ATM10 modded server (modded.coffeeblock.xyz:25566)
++ added CurseForge download link for ATM10 modpack
++ added pending 26.1 update notice for VAN21 (spoiler tag)
+- deprecated seasons from server history
+> VAN21 runs Paper server on Minecraft 1.21.1
+> ATM10 requires modpack install before connecting
+```
+
+# 2026 MAR 20
+```changelog
+@ blank_pixel_game
++ added development roadmap (A Sundered Gem)
+> 8-phase plan from core mechanics through endgame with story outline
+
+@ website
++ rewrote index page About Me and What I Build in a more casual voice
++ added Game Development section to index page (A Sundered Gem)
++ split Minecraft Server into its own section on index page
++ added links throughout index page (worksheets, Osyra's Tale, code resources, commissions, donate)
++ updated Technical Skills block with AI APIs, tools, and game dev specifics
++ rewrote Minecraft page (rules table, intro, Paper server, staff formatting)
++ changed timestamp format from DD.MM.YYYY to YYYY.MM.DD across all pages
++ updated md2html.js to parse new timestamp format
++ added Osyra's Tale character dossier and background links
++ added footer timestamps to Osyra's Tale and Casio Code
++ switched highlight.js theme from Monokai to Kimbie Dark on Casio Code
++ updated changelog colors to Kimbie Dark palette
+- removed stale new emoji from Recommendations, Worksheets, Changelog, and Casio Code
+> index page origin story: started as a crayon drawing mocked up in Photoshop
+> Minecraft intro now covers free hosting, 14 years experience, and private server offer
+> all 23 pages updated with new YYYY.MM.DD timestamp format
+```
+
+# 2026 MAR 14
+```changelog
+@ blank_pixel_game
++ added lucky coin (displays green when value exceeds the loot pool)
++ added coin blend rendering (less taxing on PC)
++ rebalanced coin distribution
++ adjusted HUD layout
+
+@ website
++ added Blank Pixel Game page with download table and feature list
++ archived Code Resources and Worksheets to sidebar Archives dropdown
+- removed Fishing Mini Game from sidebar (replaced by Blank Pixel Game)
+> sidebar Projects now sorted by latest updated (top to bottom)
+```
+
+# 2026 MAR 13
+```changelog
+@ blank_pixel_game
++ added Blank Pixel Game page with browser play and Windows download links
++ added coins with various values and GUI money counter
++ added floating +money text and coin collect sound effect
++ added commas to all numbers for readability
++ added attack action
++ added walk and run with speed-based animation differences
++ added dummy enemies with health and floating damage values
++ added coin drops thrown from enemies on death
+> smooth 4-directional and diagonal movement with consistent speed
+> made in GameMaker Studio 2
+$ fixed player animation (walk/run speed mismatch)
+$ fixed diagonal movement speed consistency
+
+@ website
++ added Osyra's Tale character dossier and background links
+- removed stale new emoji from Recommendations, Worksheets, and Changelog sidebar links
+```
+
+# 2026 MAR 07
+```changelog
+@ website
++ added Casio Code page (Casio fx-9750 G PLUS calculator programs archive)
++ renamed Python Lessons to Code Resources (now multi-language)
++ added curated learning resources for 8 languages (Python, JS, Rust, Java, C#, C/C++, PHP, SQL)
+- removed casio_program PDF and DOCX files
+- removed jail folder (all PDF files are dead)
+> transcribed from original handwritten notebook with 28+ programs
+> includes Table of Contents, program controls, and memory usage notes
+$ fixed keyword typos in Casio code (Lvl, Lb1, CIrGraph, Inz, Rand#)
+$ fixed logic bugs in Casio code (T=7 to T=21, Dsz D to Dsz C)
+$ fixed Casio code formatting (Locate casing, arrow syntax, spacing)
+$ restored missing Casio code sections (Blank Menu Screen, Typing v2.9, Type v3.2)
+$ fixed meta tag spacing on Casio Code page (og:title, https://)
+
+@ mobile
++ compact download bar (title left, button right, single row)
++ tables use full width with text wrapping instead of horizontal scroll
++ moved all archive mobile styles from main.css to mobile.css
+$ fixed archive pages not scrolling vertically
+$ mobile banner and overlay hidden when printing
+$ print now shows all pages instead of only one
+```
+
+# 2026 FEB 27
+```changelog
+@ website
++ added Worksheets download page with subject descriptions and feature list
++ packaged homeschool worksheets as standalone zip with launcher scripts
++ added zlauncher.bat (Windows) and zlauncher.sh (Mac/Linux) to worksheets package
++ bundled Dancing Script font locally in worksheets package (offline cursive support)
++ sorted sidebar Archives dropdown alphabetically
++ updated recommendations: converted Music section from Spotify to YouTube links
++ added new recommendations to Horror Audio Books and Music sections
++ added Personal Care subsection to Products (Amazon)
++ sorted all recommendation tables by rating
++ fixed mobile menu not always loading on page navigation
++ external links now open in new tab
+- removed librecounter visitor tracking from all school pages
+- removed unnecessary security hardening (CSP, lockdown, URL blocking)
+> worksheets package is fully offline except Definitions (needs dictionary API)
+> worksheets moved from Projects to Archives in sidebar
+```
+
+# 2026 FEB 19
+```changelog
+@ website
++ added Python Lessons page with Chapter 01 (5 lessons + review quiz)
++ lessons expand inline when clicked (same pattern as Osyra's Tale)
++ added Python Lessons to sidebar navigation under Projects
++ updated VTuber Guide: VMagicMirror is now primary tool, VSeeFace marked deprecated
++ added Discord virtual camera setup steps to VTuber Guide
++ added character prompts to ComfyUI Guide (Osyra 97%, Vanity 93%, Layla 92%)
++ standardized footers across all root pages (markdown with timestamps)
++ updated md2html.js timestamp format to $$DD.MM.YYYY$$ with dot separators
++ assigned unique profile images to all pages
++ updated index page bio for accuracy
+- removed Stack Overflow from contact methods
+- removed HTML footer divs (replaced by markdown footers)
+> VTuber Guide: VMagicMirror works with or without webcam, $20 donation unlocks hand tracking
+> all_about_ai and urbex_safety credited to KastienDev
+> Python lesson markdown files cleaned up from damaged Sololearn exports
+$ mobile menu not always loading on page navigation
+```
+
+# 2026 FEB 19
+```changelog
+@ website
++ moved mobile CSS from injected JS to its own file (mobile.css)
++ styles.css now imports mobile.css via @import
++ rewrote sidebar.js to define links in markdown format
++ added archive dropdown links in markdown format
++ fixed mobile scrolling (overflow-x/overflow-y mixed value bug)
++ added duplicate guard to mobile banner creation
++ fixed broken periodic table print function
++ fixed favicon path in school pages
++ fixed Osyra's Tale chapter 02 file reference (bootcamp -> processing)
++ added emoji to page headers (index, donate, recommendations, commissions, how magnets work, vtuber guide, comfyui guide)
+- removed emoji from formal pages (urbex safety, all about AI)
++ removed table stripes and server-id styling from minecraft server status
++ hidden server status table from print view
+- removed NEW badge system from sidebar (updateDate, shouldBeNew, CSS)
+- removed unused commissions.js
+- removed unused archive.css (duplicate of main.css styles)
+- removed admin test files (theme.css, theme_testing.html)
+- removed 8 Flash .swf files from downloads (Flash is EOL)
+- removed school.zip (unreferenced)
+- removed unused CSS classes (.new, .disclaimer, .contact-table, .price, .required, .nav-icon, .flex)
+- removed clutter-toggle dead code from scripts.js
+- removed console.log calls from mobile.js
+- removed hard-coded [NEW] labels from school index
+- removed broken fitness-exercise4kids.html link from school index
+> mobile.js now only handles DOM creation and event listeners, no CSS injection
+> sidebar links use markdown syntax: - [text](url)
+> fixed CSS spec issue where mixed overflow-x/overflow-y caused scroll to break on mobile
+```
+
+# 2026 FEB 16
+```changelog
+@ website
++ added "Back to Top" button to all pages (appears after scrolling)
++ added back-to-top.js shared script for scroll-based button visibility
++ split styles.css into three files for maintainability
++ added sidebar.css (all sidebar styles)
++ added main.css (all main content and archive styles)
++ styles.css now contains only global styles and imports sidebar.css and main.css
++ added inline chapter viewer to Osyra's Tale (content loads below each link)
++ chapters toggle open/close independently (multiple can be open at once)
++ added print-friendly styles for chapter content (white background, black text)
+- removed fixed content viewer from Osyra's Tale (replaced by inline expansion)
+> CSS architecture: styles.css imports sidebar.css and main.css via @import
+> no HTML link changes needed, all pages still reference styles.css
+> Back to Top button uses main element scroll (not window) to match site layout
+> Back to Top button hidden during print
+@ minecraft
++ added moderator tool to help with inventory
+```
+
+# 2026 FEB 15
+```changelog
+@ website
++ converted all archive pages from static HTML to markdown-based rendering
++ pages now write content in markdown and md2html.js converts it to HTML on load
++ added highlight.js library for syntax-highlighted code blocks in archive pages
++ enhanced md2html.js with strikethrough, image, auto-linking, code blocks, and table support
++ added archive dropdown menu to sidebar for archived documents
++ added archive CSS styles (main.archive) with print-friendly layout
++ added All About AI page with syntax-highlighted code examples
++ moved archived HTML files out of assets/jail/ back to root as live pages
+- removed archived.html (replaced by sidebar archives dropdown)
+- removed static HTML copies from assets/jail/
+- removed sidebar nav icons (replaced with dash-prefixed text links)
+- removed underscore-based bold/italic from md2html.js (asterisk-only now)
+> all content pages now use md2html.js instead of hand-written HTML
+> md2html.js processes inline code before bold/italic to protect code content
+> sidebar links changed from icon-based to text-based for simplicity
+```
+
+# 2026 JAN 31
+```changelog
+@ website
++ added How Magnets Work page (magnet link and torrenting guide)
++ added ComfyUI Guide page (AI image generation with node-based workflows)
++ converted Glitched, Infinite Devastation, and Ever Diamond to HTML archive format
++ added table of contents with chapter links to all story archives
++ added character sections with descriptions to all story archives
++ renamed pdf_files.html to archived.html
++ added Clutter Chrome Extension to archives
+- removed Clutter from active website (seasonal decorations no longer display)
+> How Magnets Work includes qBittorrent and Windscribe VPN recommendations
+> ComfyUI Guide includes default settings, negative prompts, and Osyra character example
+> stories now have consistent styling with CSS variables and print-friendly layouts
+> HTML archives include "Save as PDF" button for offline reading
+> Clutter extension still available on GitHub for users who want it
+```
+
+# 2026 JAN 26
+```changelog
+@ website
++ added raspberry color to design system
++ added Media Mimic archive to PDF files page
++ updated commissions policy box with clearer rules
++ styled required field asterisks with raspberry color
++ added commission status banner (open/closed indicator)
++ updated VTuber guide to recommend VMagicMirror over VSeeFace
++ reorganized Urbex Safety guide to focus on dangers and countermeasures
++ renamed shop.html to examples.html (portfolio examples page)
++ modernized examples.html to outline format
++ modernized Do It Better for Free page to outline format
++ added Handy speech-to-text tool to Do It Better for Free
++ reordered sidebar projects list
+- archived Media Mimic project page
+- removed My Books from sidebar navigation
+- removed Glimesh from free software guide (platform shut down)
+> VSeeFace has not been updated in years; VMagicMirror is now the recommended option
+```
+
+# 2026 JAN 23
+```changelog
+@ lil_fishy_game
++ added roll state
++ added attack state
++ added trees and bushes with collision
++ added instruction glyphs on the ground to help players
+> tiled background grass for seamless terrain
+```
+
+# 2026 JAN 21
+```changelog
+@ website
++ added My Books page back to sidebar navigation
++ added Vanity bot disclaimer to Minecraft server page
++ updated meta descriptions for all root pages (SEO improvement)
+> each page now has a unique description instead of generic text
+```
+
+# 2026 JAN 05
+```changelog
+@ book
++ completed Osyra's Tale Revision 01 Chapter 01 - Interview
+> beginning fresh rewrite of Osyra's Tale for 2025/2026
+
+@ minecraft
++ started Season 8 - Vanilla Minecraft
+```
+
+# 2025 DEC 27
+```changelog
+@ website
++ added Do It Better for Free page (free software alternatives guide)
++ added VTuber Guide page
++ added Urbex Safety page
++ added Media Mimic page
++ added PDF Files page
++ added Clutter Extension page
++ added Amazon affiliate disclosure to Website Legal
++ added new sidebar icons (puzzle-piece, masks-theater, road-barrier, piggy-bank, compact-disc, file-pdf)
++ added new profile images for new pages
+- removed my_creations.html (content moved to dedicated pages)
+- removed docx source files from repository
+- removed swf flash game files
+- removed old Osyra's Tale markdown files (moved to revision folders)
+> sidebar now sorts projects by date (newest first)
+> sidebar linksData reorganized alphabetically by section
+> Osyra's Tale restructured with revision_00 (2024) and resision_01 (2025)
+> PDF files relocated to assets/jail/
+$ dead link to my_creations.html on index page
+```
+
+# 2025 DEC 05
+```changelog
+@ website
++ added Kelvin support to temperature conversion worksheet
++ added periodic table quiz with multi-page support
++ added periodic table chart infographic page
++ added name the shape worksheet
++ added plotting coordinates worksheet
++ added spelling test worksheet
++ added cursive handwriting practice worksheet
+- removed All about AI from My Creations
+> temperature worksheet now supports all 6 conversion types (°C/°F/K)
+> periodic table chart has color-coded element categories
+$ extra link on temperature worksheet
+
+@ clutter
++ added spring theme (4 images)
++ added summer theme (4 images)
++ added easter theme with dynamic date calculation
++ added halloween theme (14 images)
++ added july 4th theme (4 images)
++ added leap day theme (6 images)
++ added new years theme (4 images)
++ added st patricks day theme (7 images)
++ added valentines day theme (4 images)
+> uses Anonymous Gregorian algorithm for easter date
+> 54+ unique decoration images across all themes
+```
+
+# 2025 NOV 27
+```changelog
+@ website
++ added Fishing Mini Game to Projects
++ added Clutter Chrome Extension to My Creations
+> fishing mini game with procedural terrain, merchant trading, minimap, and character customization
+> seasonal decorations extension with interactive physics
+```
+
+# 2025 NOV 25
+```changelog
+@ website
++ added vocabulary definitions matching worksheet
++ added word scramble worksheet
++ updated Vanity legal documents
++ fixed mobile sidebar scrolling issue
+> uses dictionary API to fetch definitions
+```
+
+# 2025 NOV 21
+```changelog
+> I forgot to update the changelog
+@ website
++ changed how changelog is handled
++ added Home School
++ added arithmetic worksheets
++ added measurement worksheets
++ added currency worksheets
++ added fractions worksheets
++ added decimal to fraction worksheets
++ added anonymous tracking to improve website
++ added back and logout buttons to homeschool pages
++ experimented with jsCanvas to draw the worksheets
++ added image to My Creations
++ added recommendations page
++ added donate page
++ merged about me with index page
++ enhanced skills section with professional terminology
++ added a way for changelog to work with CORS
++ added changelogData to changelog.js
++ updated commissions.html to include free policies
+- removed changelog.txt
+- removed form folder (replaced by new commissions system)
+- removed form/form.html
+- removed form/form.css
+- removed form/3d_prints.html
+- removed form/discord_bot.html
+- removed form/vtuber_models.html
+- removed form/code_help.html
+- removed form/other.html
+> old form system replaced by JSON-based commissions.html
+> adjusted wording on many pages
+> click on the red eye to see the tracking data
+```
+
+# 2025 OCT 24
+```changelog
+@ website
+- removed the redundant pages my_research.html and my_projects.html
+- removed request_form.html
++ added my_creations.html
++ added commissions.html
+  adjusted the about me bio
+> this update is for simplifying projects, fixed encoding
+```
+
+# 2025 OCT 19
+```changelog
+@ website
+- most class tags were redundant
++ minimized the html
++ fixed mobile view (scroll fix and menu fix)
+> this update is best for maintaining the website
+$ wrong encoding on osyra's tale files
+```
+
+# 2025 OCT 18
+```changelog
+@ website
+- head.js
++ repaired form
++ utf-8 encoding to fix emoji
+> simplified files for faster loading
+$ mobile view is broken, requires scroll fix and menu fix
+```
+
+# 2025 OCT 16
+```changelog
+@ website
+- head.html
+- discord links
++ head.js
++ sidebar "NEW" tag is automatic
++ lang="en"
+> fixed flash on load and meta data missing
+$ wrong encoding
+```
+
+# 2025 OCT 07
+```changelog
+@ website
+@ book
+@ clutter
++ added back clutter
++ added clutter toggle
++ transferred all chapters to @website
+> moved about 40 chapters to be readable
+$ wrong encoding
+$ meta data missing
+```
+
+# 2025 OCT 03
+```changelog
+@ website
+- jQuery
+- mobile.css
+- mobile.html
++ mobile.js (as library)
++ sidebar.js (as library)
++ changelog.html
+> this website now uses vanilla JS and has a changelog (here) for all users to view
+> mobile view is now functional, the page title has been restored
+$ website still flashes white on fast reload
+$ icons in the about me page are white
+$ emojis are broken
+```
+
+# 2025 SEP 26
+```changelog
+@ website
+- burgerbytestudio.com
+- php
++ coffeebyte.dev
++ html (with jQuery)
+> website url was changed to rebrand and to mark a server downgrade
+$ website flashes white on fast reload
+$ page title is missing
+```
