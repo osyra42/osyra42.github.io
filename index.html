@@ -30,6 +30,34 @@
 </head>
 <body>
 
+<!-- Anniversary Alert -->
+<script>
+(function () {
+  const KEY = 'cbd_anniversary_alert';
+  const THREE_DAYS = 3 * 24 * 60 * 60 * 1000;   // ms
+
+  let last = 0;
+  try {
+    last = parseInt(localStorage.getItem(KEY) || '0', 10) || 0;
+  } catch (e) {
+    // localStorage can throw in some privacy modes; fall through and skip the alert
+    return;
+  }
+
+  const now = Date.now();
+  if (now - last < THREE_DAYS) return;
+
+  alert("Happy 2nd year of Coffee Byte Dev! 🎉 🎉 🎉");
+
+  try {
+    localStorage.setItem(KEY, String(now));
+  } catch (e) {
+    // ignore
+  }
+})();
+</script>
+
+
   <sidebar>
     <div class="text-center">
       <a href="?paper=index">
