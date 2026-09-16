@@ -51,10 +51,10 @@ I print in white so painting over it is easy, but the color is up to you. The fi
 
 Here's what this workflow produces - a mix of replacement parts, containers, nametags, badges, and figurines, all designed or sourced, sliced, and printed in-house.
 
-![3D Printed Mewtwo](assets/images/shop/3d_prints/3dprint_mewtwo.jpg)
-![3D Printed Badge](assets/images/shop/3d_prints/3dprint_badge.jpg)
-![3D Printed Nametag](assets/images/shop/3d_prints/3dprint_nametags.jpg)
-![3D Printed Engineer](assets/images/shop/3d_prints/3dprint_engineer.jpg)
-![3D Printed Replacement](assets/images/shop/3d_prints/3dprint_replacement.jpg)
-![3D Printed Mesh Box](assets/images/shop/3d_prints/3dprint_meshbox.jpg)
-![3D Printed Statue](assets/images/shop/3d_prints/3dprint_statue.jpg)
+![3D Printed Mewtwo](assets/images/3d_prints/3dprint_mewtwo.jpg)
+![3D Printed Badge](assets/images/3d_prints/3dprint_badge.jpg)
+![3D Printed Nametag](assets/images/3d_prints/3dprint_nametags.jpg)
+![3D Printed Engineer](assets/images/3d_prints/3dprint_engineer.jpg)
+![3D Printed Replacement](assets/images/3d_prints/3dprint_replacement.jpg)
+![3D Printed Mesh Box](assets/images/3d_prints/3dprint_meshbox.jpg)
+![3D Printed Statue](assets/images/3d_prints/3dprint_statue.jpg)

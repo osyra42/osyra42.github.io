@@ -176,7 +176,8 @@ function initTopbar() {
 
   const rec = currentRecord();
   if (!rec) return;
-  const title = (window.title || rec.title).replace(/^\S+\s+/, '');
+
+  const title = window.title || rec.title.replace(/^\S+\s+/, '');
 
   document.title = title + ' - Coffee Byte Dev';
 

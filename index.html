@@ -178,6 +178,7 @@
       const [, icon, title] = match;
       window.icon  = icon;
       window.title = title;
+      const h1 = document.querySelector('.download-bar h1');
       if (h1) h1.textContent = title;
     })();
 
