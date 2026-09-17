@@ -53,7 +53,7 @@ The client connects to the tracker servers and finds other users (peers) who hav
 
 ---
 
-## 📁 Are you missing a magnet?
+## 📁 Don't have a magnet?
 
 If a magnet link isn't available, some sites offer `.torrent` files instead. I don't recommend this - it's messier and less convenient - but it works as a fallback.
 
@@ -71,11 +71,11 @@ The downside is you end up with extra .torrent files cluttering your downloads f
 
 **Example .torrent file:**
 
-[kali-linux-2026.1-installer-amd64.iso.torrent](https://cdimage.kali.org/kali-2026.1/kali-linux-2026.1-installer-amd64.iso.torrent) (same Kali Linux 2026.1 version as the magnet example above)
+[kali-linux-2026.2-installer-amd64.iso.torrent](https://cdimage.kali.org/kali-2026.2/kali-linux-2026.2-installer-amd64.iso.torrent) (same Kali Linux 2026.2 version as the magnet example above)
 
 ---
 
-## 💡 More magnet tips. 
+## 💡 More about magnets. 
 
 - **Seed after downloading** - Keep the torrent running to help others download
 - **Check the number of seeders** - More seeders means faster downloads

@@ -1,5 +1,7 @@
 # 🏠 Welcome
 ::toc::
+> ⚠️ This website has recently undergone a massive update. Please report any and all errors that you notice. This can be from strangely worded things to broken links. 
+
 **Coffee Byte Dev is the personal site of osyra42 - a one-person operation spanning game development, creative writing, 3D art, AI tinkering, and a Minecraft server.** No team, no studio, just me and about twelve years of teaching myself things out of stubbornness. To learn more about the developer, check out the [about me](about_me.html) page. Congratulations, chat. This is year two of Coffee Byte Dev. See below for short history. 
 
 ---

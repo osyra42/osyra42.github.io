@@ -1,5 +1,14 @@
 # ⌚ Changelog
 
+# 2026 SEP 17
+```changelog
+@ website 
++ Updated the Cali Linux magnet link on how magnets work. 
++ Updated the phrasing on how magnets work. 
++ Changed how the sidebar is generated.
++ Correcting the document numbers. 
+```
+
 # 2026 SEP 16
 ```changelog
 @ website 
