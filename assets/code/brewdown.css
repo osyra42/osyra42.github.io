@@ -140,18 +140,6 @@ main pre code {
   background: none;
 }
 
-/* Changelog fenced blocks. highlight.js emits class="language-changelog hljs"
-   on the <code>, and "hljs-chg-*" on the inner spans. */
-code.language-changelog {
-  display: block;
-  background: var(--espresso);
-  color: #d0d0d0;
-  padding: 1em 1.25em;
-  border-radius: 0;
-  font-size: 0.9em;
-  line-height: 1.5;
-}
-
 code.language-changelog .hljs-chg-timestamp { color: #888888; }
 code.language-changelog .hljs-chg-project   { color: #AA00FF; }
 code.language-changelog .hljs-chg-add       { color: #00AA00; }
