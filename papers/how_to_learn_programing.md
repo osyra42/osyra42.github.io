@@ -1,4 +1,4 @@
-# 🐍 Code Resources
+# 🐍 How to Learn Programming
 ::toc::
 🎯 Don't learn a language just to learn it - **have a purpose.** When you have something you want to build, practice comes naturally and expertise follows.
 

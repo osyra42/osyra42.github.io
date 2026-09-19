@@ -1,19 +1,18 @@
-#!/usr/bin/env python3
 """
-inspect_paper.py - inspect one paper, check for sidebar drift, rebuild the nav.
+inspect_paper.py - inspect one paper, check for CSV metadata drift, rebuild CSV rows.
 
-This tool WRITES NOTHING. index.html stays hand-maintained; this prints the
-things you'd otherwise compute by hand.
+This tool WRITES NOTHING. site_navigation.csv stays hand-maintained; this
+prints the things you'd otherwise compute by hand.
 
 USAGE
-    python tools/inspect_paper.py                  # pick from a menu
-    python tools/inspect_paper.py urbex_safety     # inspect directly
-    python tools/inspect_paper.py /hi              # alias for index
-    python tools/inspect_paper.py --all            # every paper, one sidebar line each
-    python tools/inspect_paper.py --drift          # only papers whose sidebar entry is stale
-    python tools/inspect_paper.py --build          # rebuild the whole <nav> block
-    python tools/inspect_paper.py /drift           # same as --drift
-    python tools/inspect_paper.py /build           # same as --build
+    python tools/inspect_paper.py                     # pick from a menu
+    python tools/inspect_paper.py urbex_safety        # inspect directly
+    python tools/inspect_paper.py /hi                 # alias for index
+    python tools/inspect_paper.py --all               # every paper, one CSV row each
+    python tools/inspect_paper.py --drift             # only papers whose CSV entry is stale
+    python tools/inspect_paper.py --build             # rebuild the whole CSV
+    python tools/inspect_paper.py /drift              # same as --drift
+    python tools/inspect_paper.py /build              # same as --build
 
 Slash commands are plain strings starting with "/" - see SLASH_COMMANDS below.
 
@@ -21,25 +20,33 @@ The menu accepts a number, a slug, a slash command, or a partial name
 ("magnet" finds how_magnets_work directly). Blank input or 'q' quits.
 """
 
+
 from __future__ import annotations
 
+
 import argparse
+import csv
 import html
 import re
 import subprocess
 import sys
 from datetime import date as _date
+from io import StringIO
 from pathlib import Path
+
 
 ROOT = Path(__file__).resolve().parent.parent
 PAPERS_DIR = ROOT / "papers"
-INDEX_HTML = ROOT / "index.html"
+SITE_NAVIGATION_CSV = ROOT / "site_navigation.csv"
+
 
 WORDS_PER_MINUTE = 220
 
-# Papers that exist in papers/ but are intentionally not linked in the sidebar.
+
+# Papers that exist in papers/ but are intentionally not listed in the CSV.
 # The drift report ignores them.
 HIDDEN: set[str] = {"mcupdates", "vanitys_personality"}
+
 
 # Slash commands accepted by resolve(). A value that looks like a slug is
 # returned as-is and inspected. A value wrapped in __x__ is a sentinel the
@@ -55,6 +62,7 @@ SLASH_COMMANDS: dict[str, str] = {
 # ---------------------------------------------------------------------------
 # Terminal helpers
 # ---------------------------------------------------------------------------
+
 
 class C:
     """ANSI colours. Disabled automatically when output is piped."""
@@ -73,71 +81,119 @@ def rule(char: str = "-", width: int = 74) -> str:
 
 
 # ---------------------------------------------------------------------------
-# Reading the sidebar in index.html
+# Reading site_navigation.csv
 # ---------------------------------------------------------------------------
 
-SIDEBAR_LINK_RE = re.compile(
-    r'<a\s+href="\?paper=(?P<slug>[a-z0-9_]+)"'
-    r'(?P<attrs>[^>]*)>'
-    r'(?P<text>.*?)'
-    r'</a>',
-    re.IGNORECASE | re.DOTALL,
-)
 
-SECTION_RE = re.compile(
-    r'<h3>\s*<span class="sec-name">(?P<name>[^<]*)</span>.*?</h3>\s*'
-    r'<ul>(?P<body>.*?)</ul>',
-    re.DOTALL,
-)
-
-LI_RE = re.compile(r'<li>\s*(?P<inner>.*?)\s*</li>', re.DOTALL)
+CSV_FIELDS = {
+    "category",
+    "icon",
+    "title",
+    "href",
+    "paper",
+    "date",
+    "words",
+    "minutes",
+}
 
 
-def attr(attrs: str, name: str) -> str | None:
-    m = re.search(rf'\b{name}\s*=\s*"([^"]*)"', attrs)
-    return m.group(1) if m else None
+def clean(value: str | None) -> str:
+    """Normalize values and tolerate padding in manually formatted CSV rows."""
+    return (value or "").strip()
 
 
-def load_sidebar() -> dict[str, dict]:
+def csv_int(value: str | None) -> int | None:
+    """Return a numeric CSV value, or None when blank or malformed."""
+    try:
+        return int(clean(value))
+    except (TypeError, ValueError):
+        return None
+
+
+def csv_row(values: list[str]) -> str:
+    """Return one correctly escaped CSV row."""
+    buffer = StringIO()
+    writer = csv.writer(buffer, lineterminator="")
+    writer.writerow(values)
+    return buffer.getvalue()
+
+
+def load_sidebar() -> dict[str, dict[str, str]]:
     """
-    Parse index.html and return {slug: {date, words, minutes, text, icon, title}}.
+    Read site_navigation.csv and return {paper_slug: row_data}.
 
-    The text inside the <a> is "ICON TITLE" (e.g. "🏚️ How to Urbex Safely").
-    We split it into the first token (icon) and the rest (title).
+    The function retains its old name so the reporting code remains concise;
+    "sidebar" now means the navigation CSV rather than a <nav> HTML element.
     """
-    if not INDEX_HTML.is_file():
+    if not SITE_NAVIGATION_CSV.is_file():
         return {}
 
-    raw = INDEX_HTML.read_text(encoding="utf-8", errors="replace")
-    nav = re.search(r"<nav\b[^>]*\bsidebar-nav\b[^>]*>(.*?)</nav>",
-                    raw, re.DOTALL | re.IGNORECASE)
-    if not nav:
-        return {}
+    with SITE_NAVIGATION_CSV.open(
+        encoding="utf-8-sig",
+        newline="",
+    ) as file:
+        reader = csv.DictReader(file, skipinitialspace=True)
 
-    out: dict[str, dict] = {}
-    for m in SIDEBAR_LINK_RE.finditer(nav.group(1)):
-        slug = m.group("slug")
-        attrs = m.group("attrs") or ""
-        text = re.sub(r"\s+", " ", m.group("text")).strip()
-
-        parts = text.split(" ", 1)
-        icon = parts[0] if parts else ""
-        title = parts[1] if len(parts) > 1 else ""
-
-        out[slug] = {
-            "date":    attr(attrs, "data-date"),
-            "words":   attr(attrs, "data-words"),
-            "minutes": attr(attrs, "data-minutes"),
-            "text":    text,
-            "icon":    icon,
-            "title":   title,
+        fieldnames = {
+            clean(name).lower()
+            for name in (reader.fieldnames or [])
+            if name
         }
+        missing = CSV_FIELDS - fieldnames
+        if missing:
+            expected = ", ".join(sorted(CSV_FIELDS))
+            found = ", ".join(sorted(fieldnames)) or "(none)"
+            raise ValueError(
+                f"{SITE_NAVIGATION_CSV.name} is missing column(s): "
+                f"{', '.join(sorted(missing))}. "
+                f"Expected: {expected}. Found: {found}."
+            )
+
+        out: dict[str, dict[str, str]] = {}
+
+        for line_number, raw_row in enumerate(reader, start=2):
+            row = {
+                clean(key).lower(): clean(value)
+                for key, value in raw_row.items()
+                if key is not None
+            }
+
+            slug = row["paper"]
+            if not slug:
+                print(
+                    f"{C.ORANGE}warning:{C.OFF} "
+                    f"{SITE_NAVIGATION_CSV.name}:{line_number} "
+                    f"has no paper slug; skipping",
+                    file=sys.stderr,
+                )
+                continue
+
+            if slug in out:
+                print(
+                    f"{C.ORANGE}warning:{C.OFF} duplicate paper slug "
+                    f"'{slug}' in {SITE_NAVIGATION_CSV.name}:{line_number}; "
+                    f"using the later row",
+                    file=sys.stderr,
+                )
+
+            out[slug] = {
+                "category": row["category"],
+                "icon": row["icon"],
+                "title": row["title"],
+                "href": row["href"],
+                "paper": slug,
+                "date": row["date"],
+                "words": row["words"],
+                "minutes": row["minutes"],
+            }
+
     return out
 
 
 # ---------------------------------------------------------------------------
 # Reading a paper
 # ---------------------------------------------------------------------------
+
 
 FIRST_LINE_RE = re.compile(r"^#\s+(\S+)\s+(.+?)\s*$")
 
@@ -154,6 +210,7 @@ def parse_first_line(md: str) -> tuple[str, str] | None:
 # ---------------------------------------------------------------------------
 # Counting
 # ---------------------------------------------------------------------------
+
 
 FENCED_CODE_RE = re.compile(r"```.*?```", re.DOTALL)
 INLINE_CODE_RE = re.compile(r"`[^`]*`")
@@ -177,8 +234,8 @@ def count_words(md: str, is_changelog: bool = False) -> int:
     if is_changelog:
         # Unwrap fenced blocks: drop the ``` fences and language tags, keep
         # the content. Then INLINE_CODE_RE won't chew the fences apart.
-        t = re.sub(r"^```[^\n]*\n", "", t, flags=re.MULTILINE)  # opening fence line
-        t = re.sub(r"^```\s*$", "", t, flags=re.MULTILINE)      # closing fence line
+        t = re.sub(r"^```[^\n]*\n", "", t, flags=re.MULTILINE)
+        t = re.sub(r"^```\s*$", "", t, flags=re.MULTILINE)
     else:
         t = FENCED_CODE_RE.sub(" ", t)
 
@@ -208,7 +265,11 @@ def git_date(slug: str) -> str | None:
     try:
         out = subprocess.run(
             ["git", "log", "-1", "--format=%cs", "--", f"papers/{slug}.md"],
-            cwd=ROOT, capture_output=True, text=True, check=True, encoding="utf-8",
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+            encoding="utf-8",
         ).stdout.strip()
         return out.replace("-", ".") if out else None
     except (subprocess.CalledProcessError, FileNotFoundError):
@@ -219,12 +280,17 @@ def git_date(slug: str) -> str | None:
 # Report: one paper
 # ---------------------------------------------------------------------------
 
+
 def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
-    """Print a full report for one paper. Returns the sidebar line to copy."""
+    """Print a full report for one paper. Returns the CSV row to copy."""
     path = PAPERS_DIR / f"{slug}.md"
     md = path.read_text(encoding="utf-8", errors="replace")
     md_first_line = parse_first_line(md)
-    md_icon, md_title = md_first_line if md_first_line else ("(no first line)", "(no title)")
+    md_icon, md_title = (
+        md_first_line
+        if md_first_line
+        else ("(no first line)", "(no title)")
+    )
 
     entry = sidebar.get(slug)
 
@@ -235,14 +301,20 @@ def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
     code = len(FENCED_CODE_RE.findall(md))
     gdate = git_date(slug)
 
-    date = (entry or {}).get("date") or gdate or _today()
+    paper_date = (entry or {}).get("date") or gdate or _today()
+    category = (entry or {}).get("category", "")
+    href = (entry or {}).get("href") or f"?paper={slug}"
 
-    line = (
-        f'        <li><a href="?paper={slug}"'
-        f'{" " + "data-date=\"" + date + "\"" if date else ""}'
-        f' data-words="{words}" data-minutes="{mins}">'
-        f'{md_icon} {md_title}</a></li>'
-    )
+    line = csv_row([
+        category,
+        md_icon,
+        md_title,
+        href,
+        slug,
+        paper_date,
+        str(words),
+        str(mins),
+    ])
 
     if quiet:
         return line
@@ -257,18 +329,23 @@ def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
     print(f"  title    {md_title}")
 
     if entry:
-        print(f"\n{C.CYAN}DECLARED IN SIDEBAR{C.OFF}")
+        print(f"\n{C.CYAN}DECLARED IN CSV{C.OFF}")
+        print(f"  category {entry['category'] or '(none)'}")
         print(f"  icon     {entry['icon']}")
         print(f"  title    {entry['title']}")
+        print(f"  href     {entry['href']}")
         print(f"  date     {entry['date'] or '(none)'}")
         print(f"  words    {entry['words'] or '(none)'}")
         print(f"  minutes  {entry['minutes'] or '(none)'}")
     else:
-        print(f"\n{C.RED}NO SIDEBAR ENTRY for '{slug}'{C.OFF}")
+        print(f"\n{C.RED}NO CSV ENTRY for '{slug}'{C.OFF}")
 
     print(f"\n{C.CYAN}COUNTED FROM CONTENT{C.OFF}")
-    note = "(entire paper counted - changelog)" if slug == "changelog" \
-           else "(prose only; code blocks excluded)"
+    note = (
+        "(entire paper counted - changelog)"
+        if slug == "changelog"
+        else "(prose only; code blocks excluded)"
+    )
     print(f"  words    {C.BOLD}{words:,}{C.OFF}   {C.DIM}{note}{C.OFF}")
     print(f"  minutes  {C.BOLD}{mins}{C.OFF}   {C.DIM}at {WORDS_PER_MINUTE} wpm{C.OFF}")
     print(f"  headings {len(headings)}   {C.DIM}H1-H6{C.OFF}")
@@ -279,30 +356,49 @@ def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
     print(f"\n{C.CYAN}DATES{C.OFF}")
     print(f"  git last commit   {gdate or '(untracked)'}")
     if entry and entry.get("date"):
-        cur = entry["date"]
-        flag = f"   {C.DIM}(differs from git){C.OFF}" if (gdate and cur != gdate) else ""
-        print(f"  sidebar           {cur}{flag}")
+        current = entry["date"]
+        flag = (
+            f"   {C.DIM}(differs from git){C.OFF}"
+            if gdate and current != gdate
+            else ""
+        )
+        print(f"  CSV               {current}{flag}")
     else:
-        print(f"  sidebar           {C.DIM}(none){C.OFF}")
-        src = "git" if gdate else "today - paper is untracked"
-        print(f"  using             {C.BOLD}{date}{C.OFF}   {C.DIM}({src}){C.OFF}")
+        print(f"  CSV               {C.DIM}(none){C.OFF}")
+        source = "git" if gdate else "today - paper is untracked"
+        print(f"  using             {C.BOLD}{paper_date}{C.OFF}   {C.DIM}({source}){C.OFF}")
 
     if entry:
         deltas: list[str] = []
+        entry_words = csv_int(entry.get("words"))
+        entry_minutes = csv_int(entry.get("minutes"))
+
         if entry.get("icon") and entry["icon"] != md_icon:
             deltas.append(f'icon     "{entry["icon"]}" -> "{md_icon}"')
+
         if entry.get("title") and entry["title"] != md_title:
             deltas.append(f'title    "{entry["title"]}" -> "{md_title}"')
-        if entry.get("words") and int(entry["words"]) != words:
-            deltas.append(f'words    {entry["words"]} -> {words}')
-        if entry.get("minutes") and int(entry["minutes"]) != mins:
-            deltas.append(f'minutes  {entry["minutes"]} -> {mins}')
+
+        if entry_words is None:
+            deltas.append(
+                f'words    "{entry.get("words") or "(blank)"}" -> {words}'
+            )
+        elif entry_words != words:
+            deltas.append(f"words    {entry_words} -> {words}")
+
+        if entry_minutes is None:
+            deltas.append(
+                f'minutes  "{entry.get("minutes") or "(blank)"}" -> {mins}'
+            )
+        elif entry_minutes != mins:
+            deltas.append(f"minutes  {entry_minutes} -> {mins}")
+
         if deltas:
-            print(f"\n{C.ORANGE}DRIFT (sidebar vs. paper){C.OFF}")
-            for d in deltas:
-                print(f"  {d}")
+            print(f"\n{C.ORANGE}DRIFT (CSV vs. paper){C.OFF}")
+            for delta in deltas:
+                print(f"  {delta}")
         else:
-            print(f"\n{C.GREEN}sidebar is up to date for this paper{C.OFF}")
+            print(f"\n{C.GREEN}CSV entry is up to date for this paper{C.OFF}")
 
     if headings:
         print(f"\n{C.CYAN}OUTLINE{C.OFF}")
@@ -313,7 +409,7 @@ def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
         if len(headings) > 14:
             print(f"  {C.DIM}... {len(headings) - 14} more{C.OFF}")
 
-    print(f"\n{C.CYAN}SIDEBAR LINE{C.OFF}  {C.DIM}(copy below){C.OFF}")
+    print(f"\n{C.CYAN}CSV ROW{C.OFF}  {C.DIM}(copy below){C.OFF}")
     print(rule())
     print(line)
     print(rule())
@@ -324,18 +420,21 @@ def inspect(slug: str, sidebar: dict[str, dict], quiet: bool = False) -> str:
 # Report: drift across all papers
 # ---------------------------------------------------------------------------
 
+
 def orphans(slugs: list[str], sidebar: dict[str, dict]) -> tuple[list[str], list[str]]:
-    """Return (papers not in sidebar, sidebar links not in papers).
-    Papers in HIDDEN are excluded from the 'missing' side."""
+    """Return (papers not in CSV, CSV rows without papers).
+
+    Papers in HIDDEN are excluded from the missing side.
+    """
     md_set = set(slugs) - HIDDEN
-    sb_set = set(sidebar.keys())
-    return sorted(md_set - sb_set), sorted(sb_set - md_set)
+    csv_set = set(sidebar.keys())
+    return sorted(md_set - csv_set), sorted(csv_set - md_set)
 
 
 def drift_report(slugs: list[str], sidebar: dict[str, dict]) -> int:
     """
-    Walk every paper, compare against the sidebar, and print only the ones
-    that disagree. Returns the number of problems (0 = all clean).
+    Walk every paper, compare against the CSV, and print only disagreements.
+    Returns the number of problems (0 = all clean).
     """
     missing, extra = orphans(slugs, sidebar)
     drift_count = 0
@@ -347,10 +446,13 @@ def drift_report(slugs: list[str], sidebar: dict[str, dict]) -> int:
         entry = sidebar.get(slug)
 
         if not entry:
-            continue  # already reported by orphans() (or in HIDDEN)
+            continue
 
         if not parsed:
-            print(f"\n{C.RED}{slug}{C.OFF}  {C.DIM}(no first line in papers/{slug}.md){C.OFF}")
+            print(
+                f"\n{C.RED}{slug}{C.OFF}  "
+                f"{C.DIM}(no first line in papers/{slug}.md){C.OFF}"
+            )
             drift_count += 1
             continue
 
@@ -359,140 +461,188 @@ def drift_report(slugs: list[str], sidebar: dict[str, dict]) -> int:
         mins = read_minutes(words)
 
         deltas: list[str] = []
+        entry_words = csv_int(entry.get("words"))
+        entry_minutes = csv_int(entry.get("minutes"))
+
         if entry.get("icon") and entry["icon"] != md_icon:
-            deltas.append(f'  icon     sidebar "{entry["icon"]}"  ->  paper "{md_icon}"')
+            deltas.append(
+                f'  icon     CSV "{entry["icon"]}"  ->  paper "{md_icon}"'
+            )
+
         if entry.get("title") and entry["title"] != md_title:
-            deltas.append(f'  title    sidebar "{entry["title"]}"  ->  paper "{md_title}"')
-        if entry.get("words") and int(entry["words"]) != words:
-            deltas.append(f'  words    sidebar {entry["words"]}  ->  paper {words}')
-        if entry.get("minutes") and int(entry["minutes"]) != mins:
-            deltas.append(f'  minutes  sidebar {entry["minutes"]}  ->  paper {mins}')
+            deltas.append(
+                f'  title    CSV "{entry["title"]}"  ->  paper "{md_title}"'
+            )
+
+        if entry_words is None:
+            deltas.append(
+                f'  words    CSV "{entry.get("words") or "(blank)"}"  '
+                f"->  paper {words}"
+            )
+        elif entry_words != words:
+            deltas.append(f"  words    CSV {entry_words}  ->  paper {words}")
+
+        if entry_minutes is None:
+            deltas.append(
+                f'  minutes  CSV "{entry.get("minutes") or "(blank)"}"  '
+                f"->  paper {mins}"
+            )
+        elif entry_minutes != mins:
+            deltas.append(f"  minutes  CSV {entry_minutes}  ->  paper {mins}")
 
         if deltas:
             print(f"\n{C.ORANGE}{slug}{C.OFF}")
-            for d in deltas:
-                print(d)
+            for delta in deltas:
+                print(delta)
             drift_count += 1
 
     print()
     print(rule("="))
+
     if missing:
-        print(f"{C.RED}PAPERS WITHOUT A SIDEBAR ENTRY ({len(missing)}){C.OFF}")
-        for s in missing:
-            print(f"  {s}")
+        print(f"{C.RED}PAPERS WITHOUT A CSV ENTRY ({len(missing)}){C.OFF}")
+        for slug in missing:
+            print(f"  {slug}")
+
     if extra:
-        print(f"{C.RED}SIDEBAR LINKS WITHOUT A PAPER ({len(extra)}){C.OFF}")
-        for s in extra:
-            print(f"  {s}")
+        print(f"{C.RED}CSV ROWS WITHOUT A PAPER ({len(extra)}){C.OFF}")
+        for slug in extra:
+            print(f"  {slug}")
+
     if not (missing or extra or drift_count):
         print(f"{C.GREEN}clean: no drift, no orphans{C.OFF}")
     else:
-        print(f"{C.ORANGE}{drift_count} drifted, "
-              f"{len(missing)} missing, {len(extra)} orphaned{C.OFF}")
-    print(rule("="))
+        print(
+            f"{C.ORANGE}{drift_count} drifted, "
+            f"{len(missing)} missing, {len(extra)} orphaned{C.OFF}"
+        )
 
+    print(rule("="))
     return drift_count + len(missing) + len(extra)
 
 
 # ---------------------------------------------------------------------------
-# Report: rebuild the whole <nav> block
+# Report: rebuild the whole CSV
 # ---------------------------------------------------------------------------
 
-def build_nav(sidebar: dict[str, dict]) -> str:
-    """
-    Rebuild the whole <nav class="sidebar-nav"> block.
 
-    Section order and paper order come from the current sidebar in index.html,
-    so nothing is reordered - only the numbers, dates and icon/title are
-    refreshed from each paper's markdown.
+def build_csv(sidebar: dict[str, dict[str, str]]) -> str:
     """
-    if not INDEX_HTML.is_file():
+    Rebuild the whole site_navigation.csv content.
+
+    Category and row order come from the current CSV, so nothing is reordered.
+    Icon, title, date, words, and minutes are refreshed from paper markdown.
+    """
+    if not SITE_NAVIGATION_CSV.is_file():
         return ""
 
-    raw = INDEX_HTML.read_text(encoding="utf-8", errors="replace")
-    nav_match = re.search(
-        r'(<nav\b[^>]*\bsidebar-nav\b[^>]*>)(.*?)(</nav>)',
-        raw, re.DOTALL | re.IGNORECASE,
-    )
-    if not nav_match:
-        return ""
-    nav_open, nav_body, nav_close = nav_match.groups()
+    with SITE_NAVIGATION_CSV.open(
+        encoding="utf-8-sig",
+        newline="",
+    ) as file:
+        reader = csv.DictReader(file, skipinitialspace=True)
 
-    out_lines: list[str] = [nav_open]
+        rows = [
+            {
+                clean(key).lower(): clean(value)
+                for key, value in raw_row.items()
+                if key is not None
+            }
+            for raw_row in reader
+        ]
 
-    for sec in SECTION_RE.finditer(nav_body):
-        name = sec.group("name")
-        body = sec.group("body")
+    lines = [
+        csv_row([
+            "category",
+            "icon",
+            "title",
+            "href",
+            "paper",
+            "date",
+            "words",
+            "minutes",
+        ])
+    ]
 
-        slugs_in_order: list[str] = []
-        for li in LI_RE.finditer(body):
-            href = re.search(r'href="\?paper=([a-z0-9_]+)"', li.group("inner"))
-            if href:
-                slugs_in_order.append(href.group(1))
+    for row in rows:
+        slug = row.get("paper", "")
+        path = PAPERS_DIR / f"{slug}.md"
 
-        new_items: list[str] = []
-        for slug in slugs_in_order:
-            path = PAPERS_DIR / f"{slug}.md"
-            if not path.is_file():
-                new_items.append(
-                    f'        <li><a href="?paper={slug}" '
-                    f'data-date="?" data-words="0" data-minutes="0">'
-                    f'(missing) {slug}</a></li>'
-                )
-                continue
+        category = row.get("category", "")
+        href = row.get("href") or f"?paper={slug}"
 
-            md = path.read_text(encoding="utf-8", errors="replace")
-            parsed = parse_first_line(md)
-            icon, title = parsed if parsed else ("📄", slug)
-            words = count_words(md, is_changelog=(slug == "changelog"))
-            mins = read_minutes(words)
+        if not slug or not path.is_file():
+            lines.append(csv_row([
+                category,
+                row.get("icon", ""),
+                row.get("title", ""),
+                href,
+                slug,
+                row.get("date", "?"),
+                row.get("words", "0"),
+                row.get("minutes", "0"),
+            ]))
+            continue
 
-            # Date preference: git last-commit on the paper, else the old
-            # sidebar value, else today. --build refreshes dates too.
-            gdate = git_date(slug)
-            date = gdate or (sidebar.get(slug) or {}).get("date") or _today()
+        md = path.read_text(encoding="utf-8", errors="replace")
+        parsed = parse_first_line(md)
+        icon, title = parsed if parsed else ("📄", slug)
 
-            new_items.append(
-                f'        <li><a href="?paper={slug}" '
-                f'data-date="{date}" '
-                f'data-words="{words}" '
-                f'data-minutes="{mins}">'
-                f'{icon} {title}</a></li>'
-            )
+        words = count_words(md, is_changelog=(slug == "changelog"))
+        mins = read_minutes(words)
+        gdate = git_date(slug)
+        old_entry = sidebar.get(slug) or {}
+        paper_date = gdate or old_entry.get("date") or _today()
 
-        count = f"{len(new_items):02d}"
-        out_lines.append(
-            f'      <h3><span class="sec-name">{name}</span>'
-            f'<span class="sec-rule"></span>'
-            f'<span class="sec-count">{count}</span></h3>'
-        )
-        out_lines.append('      <ul>')
-        out_lines.extend(new_items)
-        out_lines.append('      </ul>')
+        lines.append(csv_row([
+            category,
+            icon,
+            title,
+            href,
+            slug,
+            paper_date,
+            str(words),
+            str(mins),
+        ]))
 
-    out_lines.append('    ' + nav_close)
-    return '\n'.join(out_lines)
+    return "\n".join(lines)
 
 
 def build_report(sidebar: dict[str, dict], slugs: list[str]) -> int:
-    """Print the rebuilt <nav> block. Returns 0 on success, 1 on failure."""
-    block = build_nav(sidebar)
+    """Print rebuilt CSV content. Returns 0 on success, 1 on failure."""
+    block = build_csv(sidebar)
     if not block:
-        print(f'{C.RED}could not find a <nav class="sidebar-nav"> in index.html{C.OFF}')
+        print(f"{C.RED}could not find {SITE_NAVIGATION_CSV.name}{C.OFF}")
         return 1
 
     missing, extra = orphans(slugs, sidebar)
+
     if missing or extra:
         print(f"\n{C.ORANGE}note:{C.OFF}")
+
         if missing:
-            print(f"  {len(missing)} paper(s) with no sidebar entry: {', '.join(missing)}")
+            print(
+                f"  {len(missing)} paper(s) with no CSV entry: "
+                f"{', '.join(missing)}"
+            )
+
         if extra:
-            print(f"  {len(extra)} sidebar link(s) with no paper: {', '.join(extra)}")
-        print(f"{C.DIM}  the built nav only includes papers currently linked in index.html{C.OFF}")
+            print(
+                f"  {len(extra)} CSV row(s) with no paper: "
+                f"{', '.join(extra)}"
+            )
+
+        print(
+            f"{C.DIM}  the rebuilt CSV only includes papers currently "
+            f"listed in {SITE_NAVIGATION_CSV.name}{C.OFF}"
+        )
 
     print()
     print(rule("="))
-    print(f"{C.CYAN}REBUILT <nav> BLOCK{C.OFF}  {C.DIM}(paste over the old one in index.html){C.OFF}")
+    print(
+        f"{C.CYAN}REBUILT CSV{C.OFF}  "
+        f"{C.DIM}(paste over {SITE_NAVIGATION_CSV.name}){C.OFF}"
+    )
     print(rule("="))
     print(block)
     print(rule("="))
@@ -503,8 +653,9 @@ def build_report(sidebar: dict[str, dict], slugs: list[str]) -> int:
 # Paper selection
 # ---------------------------------------------------------------------------
 
+
 def all_slugs() -> list[str]:
-    return sorted(p.stem for p in PAPERS_DIR.glob("*.md"))
+    return sorted(path.stem for path in PAPERS_DIR.glob("*.md"))
 
 
 def resolve(query: str, slugs: list[str]) -> str | None:
@@ -519,24 +670,27 @@ def resolve(query: str, slugs: list[str]) -> str | None:
     if q.startswith("/"):
         if q in SLASH_COMMANDS:
             return SLASH_COMMANDS[q]
+
         print(f"\n{C.RED}unknown command '{query}'{C.OFF}")
         print(f"{C.DIM}available: {', '.join(sorted(SLASH_COMMANDS))}{C.OFF}")
         return None
 
     if q.isdigit():
-        i = int(q) - 1
-        return slugs[i] if 0 <= i < len(slugs) else None
+        index = int(q) - 1
+        return slugs[index] if 0 <= index < len(slugs) else None
 
     if q in slugs:
         return q
 
-    matches = [s for s in slugs if q in s]
+    matches = [slug for slug in slugs if q in slug]
+
     if len(matches) == 1:
         return matches[0]
+
     if len(matches) > 1:
         print(f"\n{C.ORANGE}'{query}' matches {len(matches)} papers:{C.OFF}")
-        for s in matches:
-            print(f"  {s}")
+        for slug in matches:
+            print(f"  {slug}")
         return None
 
     print(f"\n{C.RED}no paper matching '{query}'{C.OFF}")
@@ -546,16 +700,20 @@ def resolve(query: str, slugs: list[str]) -> str | None:
 def show_menu(slugs: list[str]) -> None:
     print(f"\n{C.BOLD}PAPERS{C.OFF}  {C.DIM}({len(slugs)} total){C.OFF}")
     print(rule())
+
     half = (len(slugs) + 1) // 2
-    for i in range(half):
-        left = f"{C.DIM}{i+1:>2}{C.OFF} {slugs[i]}"
-        pad = " " * max(0, 34 - len(slugs[i]))
-        if i + half < len(slugs):
-            j = i + half
-            right = f"{C.DIM}{j+1:>2}{C.OFF} {slugs[j]}"
-            print(f"  {left}{pad}{right}")
+
+    for index in range(half):
+        left = f"{C.DIM}{index + 1:>2}{C.OFF} {slugs[index]}"
+        padding = " " * max(0, 34 - len(slugs[index]))
+
+        if index + half < len(slugs):
+            right_index = index + half
+            right = f"{C.DIM}{right_index + 1:>2}{C.OFF} {slugs[right_index]}"
+            print(f"  {left}{padding}{right}")
         else:
             print(f"  {left}")
+
     print(rule())
     print(f"{C.DIM}commands: {', '.join(sorted(SLASH_COMMANDS))}{C.OFF}")
 
@@ -564,37 +722,59 @@ def show_menu(slugs: list[str]) -> None:
 # Entry point
 # ---------------------------------------------------------------------------
 
+
 def main() -> int:
     ap = argparse.ArgumentParser(
-        description="Inspect a paper, check for sidebar drift, or rebuild the nav."
+        description="Inspect a paper, check CSV drift, or rebuild CSV metadata."
     )
-    ap.add_argument("paper", nargs="?", help="paper slug, /command, or partial match")
-    ap.add_argument("--all", action="store_true",
-                    help="print a sidebar line for every paper")
-    ap.add_argument("--drift", action="store_true",
-                    help="report only papers with drift")
-    ap.add_argument("--build", action="store_true",
-                    help="rebuild the whole sidebar <nav> block with fresh numbers")
+    ap.add_argument(
+        "paper",
+        nargs="?",
+        help="paper slug, /command, or partial match",
+    )
+    ap.add_argument(
+        "--all",
+        action="store_true",
+        help="print a CSV row for every paper",
+    )
+    ap.add_argument(
+        "--drift",
+        action="store_true",
+        help="report only papers with CSV metadata drift",
+    )
+    ap.add_argument(
+        "--build",
+        action="store_true",
+        help="rebuild the whole CSV with fresh metadata",
+    )
     args = ap.parse_args()
 
-    for s in (sys.stdout, sys.stderr):
-        if hasattr(s, "reconfigure"):
-            s.reconfigure(encoding="utf-8", errors="replace")
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
 
     slugs = all_slugs()
     if not slugs:
         print("no .md papers found in papers/", file=sys.stderr)
         return 1
 
-    sidebar = load_sidebar()
+    try:
+        sidebar = load_sidebar()
+    except ValueError as error:
+        print(f"{C.RED}error: {error}{C.OFF}", file=sys.stderr)
+        return 1
+
     if not sidebar:
-        print(f"{C.RED}warning: no sidebar entries found in index.html{C.OFF}",
-              file=sys.stderr)
+        print(
+            f"{C.RED}warning: no entries found in "
+            f"{SITE_NAVIGATION_CSV.name}{C.OFF}",
+            file=sys.stderr,
+        )
 
     if args.all:
-        print("<!-- sidebar entries -->")
-        for s in slugs:
-            print(inspect(s, sidebar, quiet=True))
+        print("category,icon,title,href,paper,date,words,minutes")
+        for slug in slugs:
+            print(inspect(slug, sidebar, quiet=True))
         return 0
 
     if args.drift:
@@ -607,23 +787,30 @@ def main() -> int:
         target = resolve(args.paper, slugs)
         if not target:
             return 1
+
         if target == "__drift__":
             return 1 if drift_report(slugs, sidebar) else 0
+
         if target == "__build__":
             return build_report(sidebar, slugs)
+
         inspect(target, sidebar)
+
         try:
             input(f"\n{C.DIM}press Enter to exit{C.OFF} ")
         except (EOFError, KeyboardInterrupt):
             print()
+
         return 0
 
     # Interactive loop.
     while True:
         show_menu(slugs)
+
         try:
             choice = input(
-                f"{C.ORANGE}paper{C.OFF} {C.DIM}(number, slug, /command, or q to quit){C.OFF} > "
+                f"{C.ORANGE}paper{C.OFF} "
+                f"{C.DIM}(number, slug, /command, or q to quit){C.OFF} > "
             )
         except (EOFError, KeyboardInterrupt):
             print()

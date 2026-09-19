@@ -1,4 +1,4 @@
-# 🖨️ 3D Prints
+# 🖨️ How to Use a 3D Printer
 ::toc::
 How I take an object from a file on my screen to a finished, painted part in my hands. This is the workflow I actually use - an Ender 3 V2 and Cura - written so you can follow it from zero to your first successful print, plus the deeper steps for making your own models.
 

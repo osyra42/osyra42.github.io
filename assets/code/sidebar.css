@@ -333,6 +333,26 @@ sidebar nav li:has(a[aria-current="page"]) .nav-idx {
   color: var(--accent);
 }
 
+/* Sidebar document index: counts every paper continuously across sections. */
+.sidebar-nav {
+  counter-reset: paper-index;
+}
+
+.sidebar-nav li {
+  counter-increment: paper-index;
+}
+
+.sidebar-nav li > a::before {
+  content: counter(paper-index, decimal-leading-zero);
+  display: inline-block;
+  min-width: 1em;
+  color: var(--accent-light);
+  font-family: var(--mono);
+  font-size: 0.7em;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
 /* ---------------------------------------------------------------------------
    Footer
    --------------------------------------------------------------------------- */

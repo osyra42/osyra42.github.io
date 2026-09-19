@@ -1,4 +1,4 @@
-# 💡 Better for Free
+# 💡 How to Do It for Free
 ::toc::
 *A guide to free software and service alternatives*
 *Archived Research Document*

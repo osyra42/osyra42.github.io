@@ -1,5 +1,14 @@
 # ⌚ Changelog
 
+# 2026 SEP 19
+```changelog
+@ website
++ Added Cheat Engine to the Guides section
++ Added How to Burn a DVD to the Guides section
+$ Fixed several bugs related to the sidebar. 
+> Cheat Engine is a free, open-source memory scanner and debugger for Windows.
+```
+
 # 2026 SEP 17
 ```changelog
 @ website 
@@ -7,6 +16,7 @@
 + Updated the phrasing on how magnets work. 
 + Changed how the sidebar is generated.
 + Correcting the document numbers. 
++ Added a background tool for drift inspection on all of the paperwork. So it's consistent across all pages. 
 ```
 
 # 2026 SEP 16

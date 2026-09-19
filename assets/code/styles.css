@@ -264,12 +264,16 @@ main .download-bar .crumb {
   min-width: 0;
 }
 
+main .crumb-site {
+  opacity: 0.65;
+}
+
 main .download-bar .crumb-sec {
   color: color-mix(in srgb, var(--accent-light) 40%, var(--half-and-half));
 }
 
 main .download-bar .crumb .sep {
-  color: var(--coffee-bean);
+  color: var(--toasted-almond);
 }
 
 main .download-bar .crumb-doc {

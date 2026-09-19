@@ -28,6 +28,231 @@ if (typeof hljs !== 'undefined') {
   document.head.appendChild(style);
 }
 
+    // 2) TOPBAR FIRST LINE
+    (async () => {
+      const md = await (await fetch(`papers/${PAPER}.md`)).text();
+      const firstLine = md.split('\n')[0];
+      const match = firstLine.match(/^#\s+(\S+)\s+(.+?)\s*$/);
+      if (!match) return;
+
+      const [, icon, title] = match;
+      window.icon  = icon;
+      window.title = title;
+      const h1 = document.querySelector('.download-bar h1');
+      if (h1) h1.textContent = title;
+    })();
+
+    // BUID SIDEBAR
+    async function loadNavigation() {
+    const response = await fetch("./site_navigation.csv");
+
+    if (!response.ok) {
+      throw new Error("Could not load navigation CSV.");
+    }
+
+    const csv = await response.text();
+
+    // Ignore blank lines and whole-line comments beginning with #.
+    // Comments may appear before the header or between navigation sections.
+    const lines = csv
+      .split(/\r?\n/)
+      .filter(line => {
+        const trimmed = line.trim();
+        return trimmed && !trimmed.startsWith('#');
+      });
+
+    // First remaining non-comment line is the CSV header.
+    const rows = lines.slice(1).map(parseCsvLine);
+
+    const nav = document.getElementById("sidebar-nav");
+    const categories = new Map();
+
+    for (const row of rows) {
+      const [category, icon, title, href, paper, date, words, minutes] = row;
+
+      if (!categories.has(category)) {
+        categories.set(category, []);
+      }
+
+      categories.get(category).push({
+        icon,
+        title,
+        href,
+        paper,
+        date,
+        words,
+        minutes,
+      });
+    }
+
+    nav.innerHTML = [...categories.entries()].map(([category, pages]) => `
+      <h3>
+        <span class="sec-name">${escapeHtml(category)}</span>
+        <span class="sec-rule"></span>
+        <span class="sec-count">${String(pages.length).padStart(2, "0")}</span>
+      </h3>
+      <ul>
+        ${pages.map(page => `
+          <li>
+            <a href="${escapeHtml(page.href)}"
+              data-date="${escapeHtml(page.date)}"
+              data-words="${escapeHtml(page.words)}"
+              data-minutes="${escapeHtml(page.minutes)}">
+              ${escapeHtml(page.icon)} ${escapeHtml(page.title)}
+            </a>
+          </li>
+        `).join("")}
+      </ul>
+    `).join("");
+  }
+
+    function parseCsvLine(line) {
+      const values = [];
+      let current = "";
+      let quoted = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const char = line[i];
+
+        if (char === '"') {
+          if (quoted && line[i + 1] === '"') {
+            current += '"';
+            i++;
+          } else {
+            quoted = !quoted;
+          }
+        } else if (char === "," && !quoted) {
+          values.push(current.trim());
+          current = "";
+        } else {
+          current += char;
+        }
+      }
+
+      values.push(current.trim());
+      return values;
+    }
+
+    function escapeHtml(value) {
+      const node = document.createElement("span");
+      node.textContent = value;
+      return node.innerHTML;
+    }
+
+   // SIDEBAR ✨, current page marker, and hover metadata.
+  // This is a function rather than an immediately-run block because it must
+  // run only after loadNavigation() has rendered the CSV rows into the DOM.
+  function initSidebarNavigation() {
+    const FRESH_DAYS = 14;
+    const cutoff = Date.now() - FRESH_DAYS * 86400000;
+
+    document.querySelectorAll('.sidebar-nav a').forEach(a => {
+      const href = (a.getAttribute('href') || '').trim();
+      const query = href.includes('?') ? href.split('?')[1] : '';
+      const linkPaper = new URLSearchParams(query).get('paper');
+
+      if (linkPaper === PAPER) {
+        a.setAttribute('aria-current', 'page');
+      }
+
+      const date = (a.dataset.date || '').trim();
+
+      if (date) {
+        const dt = Date.parse(date.replace(/\./g, '-'));
+
+        if (
+          Number.isFinite(dt)
+          && dt >= cutoff
+          && !a.querySelector('.sidebar-new')
+        ) {
+          a.insertAdjacentHTML(
+            'beforeend',
+            ' <span class="sidebar-new">✨</span>',
+          );
+        }
+      }
+
+      const words = (a.dataset.words || '').trim();
+      const minutes = (a.dataset.minutes || '').trim();
+      const parts = [];
+
+      if (words) {
+        parts.push(`${Number(words).toLocaleString()} WORDS`);
+      }
+
+      if (minutes) {
+        parts.push(`${minutes} MIN`);
+      }
+
+      if (date) {
+        parts.push(`UPD ${date}`);
+      }
+
+      if (parts.length) {
+        const meta = parts.join(' · ');
+        a.title = meta.replace(/·/g, '-');
+
+        const li = a.closest('li');
+
+        if (li && !li.querySelector('.nav-meta')) {
+          li.insertAdjacentHTML(
+            'beforeend',
+            `<span class="nav-meta"><span>${meta}</span></span>`,
+          );
+        }
+      }
+    });
+  }
+
+
+  // Load CSV navigation first. Only after it has populated #sidebar-nav can
+  // sidebar links be marked, decorated, and given hover metadata.
+  // Load CSV navigation first. Everything that reads sidebar links must happen
+// only after loadNavigation() has rendered those links into #sidebar-nav.
+loadNavigation()
+  .then(() => {
+    initSidebarNavigation();
+    initTopbar();
+  })
+  .catch(console.error);
+
+    // 4) Fill the theme picker. Wrapped in DOMContentLoaded so Themes exists.
+    document.addEventListener('DOMContentLoaded', () => {
+      const picker = document.querySelector('.theme-picker');
+      if (!picker || typeof Themes === 'undefined') return;
+
+      Themes.FLAVORS.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'theme-swatch';
+        btn.type = 'button';
+        btn.dataset.themeId = t.id;
+        btn.dataset.tooltip = t.label;
+        btn.dataset.tooltipColor = t.hex;
+        btn.setAttribute('aria-label', t.label + ' theme');
+        btn.style.setProperty('--sw', t.hex);
+        picker.appendChild(btn);
+      });
+
+      const swatches = picker.querySelectorAll('.theme-swatch');
+      const markActive = id => swatches.forEach(b =>
+        b.classList.toggle('active', b.dataset.themeId === id));
+
+      markActive(Themes.resolve());
+
+      swatches.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if ('themeReset' in btn.dataset) {
+            markActive(Themes.clear().id);
+            return;
+          }
+          Themes.save(btn.dataset.themeId);
+          markActive(btn.dataset.themeId);
+        });
+      });
+    });
+
+
+
 // PRINTS
 const PRINT_OPENED = 'printOpened';
 
@@ -74,7 +299,7 @@ function initBackToTop() {
 
 document.addEventListener('DOMContentLoaded', initBackToTop);
 
-// TOOLTIP — chrome only, for [data-tooltip] elements outside <main>.
+// TOOLTIP
 (function () {
   let tip = null;
 
@@ -187,6 +412,8 @@ function initTopbar() {
 
   bar.innerHTML =
     '<span class="crumb">'
+     + '<span class="crumb-site">CBD</span>'
+     + '<span class="sep">/</span>'
     + `<span class="crumb-sec">${escapeHtml(rec.section || TOPBAR_FALLBACK_SECTION)}</span>`
     + '<span class="sep">/</span>'
     + `<b class="crumb-doc">${escapeHtml(title)}</b>`
@@ -195,5 +422,3 @@ function initTopbar() {
     + (meta ? `<span class="bar-meta">${escapeHtml(meta)}</span>` : '')
     + btnHtml;
 }
-
-document.addEventListener('DOMContentLoaded', initTopbar);
