@@ -33,7 +33,7 @@ across all revisions, including:
    to you, please skip this series.
 ```
 
-# Rev4 Outline
+# Rev4
 **Outline (First-Person Past Tense):**
 
 I was born to poor parents
@@ -62,8 +62,31 @@ I started recruiting Chimeran members
 - Welcome to Operation Kaleidoscope.
 
 # Rev3
-## 📕 Read Offline
-
-Rev3 has been compressed to a PDF and we'll be archived for a little while. . 
-- [📕 Operation Chimera](operation_chimera/Operation_Chimera.pdf) - the collected stories, with a linked table of contents
-- [📓 OC Notes](operation_chimera/OC_Notes.pdf) - the in-world codex and the story bible behind it
+Here's a list of the chapters that are available for rev3. This will no longer be worked on, see [Rev4](#rev4).
+## Part 1: Out of the Fray
+ - [Chapter 0: Notes](?paper=../operation_chimera/rev3/part1-out_of_the_fray/ch0-notes)
+## Part 2: Borne Weapon
+ - [Chapter 1: The Application](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch1-the_application)
+ - [Chapter 2: The Verification](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch2-the_verification)
+ - [Chapter 3: The Clinical](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch3-the_clinical)
+ - [Chapter 4: The Rooftop](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch4-the_rooftop)
+ - [Chapter 5: The Offer](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch5-the_offer)
+ - [Chapter 6: The Combine](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch6-the_combine)
+ - [Chapter 7: The Prototype](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch7-the_prototype)
+ - [Chapter 8: Shark Attack](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch8-shark_attack)
+ - [Chapter 9: Broken Down](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch9-broken_down)
+ - [Chapter 10: The Trials](?paper=../operation_chimera/rev3/part2-bourne_weapon/ch10-the_trials)
+## Part 3: Blood Relation
+ - [Chapter 1: The Hunting Lodge](?paper=../operation_chimera/rev3/part3-blood_relation/ch1-the_hunting_lodge)
+ - [Chapter 2: The Address](?paper=../operation_chimera/rev3/part3-blood_relation/ch2-the_address)
+ - [Chapter 3: The Visit](?paper=../operation_chimera/rev3/part3-blood_relation/ch3-the_visit)
+ - [Chapter 4: The Reveal](?paper=../operation_chimera/rev3/part3-blood_relation/ch4-the_reveal)
+ - [Chapter 5: Letting Go](?paper=../operation_chimera/rev3/part3-blood_relation/ch5-letting_go)
+ - [Chapter 6: The Morning](?paper=../operation_chimera/rev3/part3-blood_relation/ch6-the_morning)
+ - [Chapter 7: The Letter](?paper=../operation_chimera/rev3/part3-blood_relation/ch7-the_letter)
+ - [Chapter 8: The Road North](?paper=../operation_chimera/rev3/part3-blood_relation/ch8-the_road_north)
+ - [Chapter 9: The People Up North](?paper=../operation_chimera/rev3/part3-blood_relation/ch9-the_people_up_north)
+## Part 4: Mireheart
+ - [Chapter 0: Notes](?paper=../operation_chimera/rev3/part4-mireheart/ch0-notes)
+## Part 5: Red Light
+ - [Chapter 0: Notes](?paper=../operation_chimera/rev3/part5-redlight/ch0-notes)
