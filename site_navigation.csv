@@ -1,12 +1,12 @@
 ﻿category, icon, title                        , href                           , paper                   , date      , words, minutes
-Main    , 🏠  , Welcome                      , ?paper=index                   , index                   , 2026.09.12,   424,       2
+Main    , 🏠  , Welcome                      , ?paper=index                   , index                   , 2026.09.12,   433,       2
 Main    , 👋  , About Me                     , ?paper=about_me                , about_me                , 2026.08.11,   591,       3
 Main    , ⌚   , Changelog                    , ?paper=changelog               , changelog               , 2026.09.16,  8750,      40
 Main    , ⛏️   , Minecraft Server             , ?paper=minecraft               , minecraft               , 2026.09.16,  1090,       5
 Main    , ⭐   , Recommendations              , ?paper=recommendations         , recommendations         , 2026.09.13,  1023,       5
 Main    , 💜  , Support Me                   , ?paper=support_me              , support_me              , 2026.07.18,   286,       2
 
-Books   , 📖  , Operation Chimera            , ?paper=operation_chimera       , operation_chimera       , 2026.09.16,   368,       2
+Books   , 📖  , Operation Chimera            , ?paper=operation_chimera       , operation_chimera       , 2026.09.22,   525,       3
 Books   , ⚡   , Glitched                     , ?paper=glitched                , glitched                , 2026.07.18,  9574,      44
 Books   , ⚔️   , Infinite Devastation         , ?paper=infinite_devastation    , infinite_devastation    , 2026.07.18,  7166,      33
 Books   , 💎  , Ever Diamond                 , ?paper=ever_diamond            , ever_diamond            , 2026.07.18, 12921,      59
