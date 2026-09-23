@@ -29,6 +29,7 @@ Coffee Byte Dev is two years old, but it's not the first thing I've built. A few
 
 - **Coffee Byte Dev** - The current title. Seems popular. I'd call it success. 
 - **Burger Byte Studio** - The name sounded strange, not everybody could relate to it. 
+- **ZippoCat** - There are some serious legal issues with this. 
 - **A Pixel of Hope** - This sounded like more of a charity than anything else. 
 - **???** - 
 - **Lano Project** - In the very beginning, this is what the projects were called. 
