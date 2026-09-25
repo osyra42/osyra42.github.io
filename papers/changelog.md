@@ -8,6 +8,9 @@
 > Updated the version of Minecraft from 26.2 to 26.3. 
 > Updated brew down, so styling is independent of each other. We are now using classes instead of elements. 
 $ If you see any changes visually, let me know. This update should not affect how it renders on the page, just how it's designed in the backend. 
+
+@ operation kaleidoscope
+> changed book name
 ```
 
 # 2026 SEP 23
