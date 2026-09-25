@@ -1,29 +1,18 @@
 # 🔧 Minecraft Update Checks
 ::toc::
-### ⛏️ LOG26
-Required
-- OK [Paper](https://fill-ui.papermc.io/projects/paper/version/26.2)
-- NO [Discord SRV](https://modrinth.com/plugin/discordsrv/versions)
-- NO [Backuper](https://modrinth.com/plugin/backuper/versions#all-versions)
-
-Optional
-- NO [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion/versions)
-- NO [ViaBackwards](https://hangar.papermc.io/ViaVersion/ViaBackwards/versions)
-- NO [World Edit](https://modrinth.com/plugin/worldedit/versions)
-- NO [InvSee++](https://modrinth.com/plugin/invsee++/versions)
-- NO [CoreProtect](https://modrinth.com/plugin/coreprotect/versions)
-- NO [Player Heads](https://modrinth.com/plugin/player-heads/versions)
+## ⛏️ FROG26
+- [Paper](https://fill-ui.papermc.io/projects/paper/version/26.3)
+- [Discord SRV](https://modrinth.com/plugin/discordsrv/versions)
+- [Backuper](https://modrinth.com/plugin/backuper/versions#all-versions)
+- [ViaVersion](https://hangar.papermc.io/ViaVersion/ViaVersion/versions)
+- [ViaBackwards](https://hangar.papermc.io/ViaVersion/ViaBackwards/versions)
+- [World Edit](https://modrinth.com/plugin/worldedit/versions)
+- [InvSee++](https://modrinth.com/plugin/invsee++/versions)
+- [CoreProtect](https://modrinth.com/plugin/coreprotect/versions)
 
 ---
 
-### ⛏️ HCVP
-- [Main Files](https://www.curseforge.com/minecraft/share/ziz6JoYa)
-- [Simple Backup](https://modrinth.com/mod/simple-backup/versions)
-- [DC Integration](https://modrinth.com/plugin/dcintegration/versions)
-
----
-
-### ⛏️ OWDP
+## ⛏️ OWDP
 - [Otherworld: D&D Files](https://www.curseforge.com/minecraft/modpacks/otherworld-dnd/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
 - [Lootr](https://www.curseforge.com/minecraft/mc-mods/lootr/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
 - [Better Days](https://www.curseforge.com/minecraft/mc-mods/betterdays/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
@@ -34,7 +23,7 @@ Optional
 
 ---
 
-### 🔒 Security
+## 🔒 Security
 
 Backups, a Discord bridge, and block logging go on every server I host. Same job, different pick depending on the platform - grab the one that matches.
 

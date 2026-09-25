@@ -1,5 +1,23 @@
 # ⌚ Changelog
 
+# 2026 SEP 25
+```changelog
+@ website
+- cleaned up the downloads directory
+- removed worksheets from the sidebar, also the downloads related to this page
+> Updated the version of Minecraft from 26.2 to 26.3. 
+> Updated brew down, so styling is independent of each other. We are now using classes instead of elements. 
+$ If you see any changes visually, let me know. This update should not affect how it renders on the page, just how it's designed in the backend. 
+```
+
+# 2026 SEP 23
+```changelog
++ Added a sub tool that we'll count how many words are in each page. 
++ 96,678 words
+> Went back in time and found all of the revisions for Operation Chimera. 
+You can now read revision one, two, and wait for me to continue on revision three. 
+```
+
 # 2026 SEP 19
 ```changelog
 @ website

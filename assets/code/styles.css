@@ -499,6 +499,7 @@ main .brewdown-rendered pre:has(code.hljs) {
 main .brewdown-rendered pre code.hljs {
   border: 1px solid var(--paper-edge);
   border-left: 3px solid var(--accent);
+  padding-left: 1em;
 }
 
 main .brewdown-rendered blockquote,

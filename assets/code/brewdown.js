@@ -1,10 +1,43 @@
 // brewdown.js
-// A small Markdown-to-HTML converter for Coffee Byte Dev.
-
+// Markdown-to-HTML converter for Coffee Byte Dev.
+//
+// ============================================================================
+// Emit Contract
+// ----------------------------------------------------------------------------
+// 1. Block tags carry semantic meaning: <h1>–<h6>, <p>, <blockquote>, <pre>,
+//    <details>, <hr>. A heading is never emitted as <p>.
+//
+// 2. Every block also carries a class describing its role: "header",
+//    "paragraph", "blank", "blockquote", "code", "collapsible", "media-gallery".
+//    CSS targets classes first, tags second.
+//
+// 3. Every element with class="header" MUST have an id. The id is the slug
+//    of the heading text, generated at emit time, deduplicated. There is no
+//    code path that emits class="header" without an id.
+//
+// 4. Inline formatting emits <span> elements with classes (bold, italic,
+//    strike, underline, spoiler, copy, link, code, ...). Inline formatting
+//    never mutates the enclosing block's tag or classes.
+//
+// 5. Attributes that carry state (data-copy, data-href, data-src,
+//    data-checked) live on spans. Behavior is hydrated after render.
+//
+// 6. Blank lines emit <p class="blank"></p>. Whitespace is structural.
+//
+// 7. Whitespace is preserved verbatim. Trailing spaces, consecutive blank
+//    lines, and indentation in the source are emitted as-is. The parser
+//    never trims, collapses, or normalizes whitespace. If the rendered
+//    output has odd spacing, the source has odd spacing.
+// ============================================================================
 
 const Brewdown = (function () {
 
     let _tocEntries = null;
+    let _usedSlugs = null;
+
+    // ------------------------------------------------------------------------
+    // Utilities
+    // ------------------------------------------------------------------------
 
     function isExternalUrl(url) {
         return /^https?:\/\//i.test(url) || url.endsWith('.pdf');
@@ -17,99 +50,81 @@ const Brewdown = (function () {
     }
 
     function slugify(text) {
-        return text.toLowerCase()
+        return String(text).toLowerCase()
             .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '');
+            .replace(/^-+|-+$/g, '') || 'section';
     }
 
-    function renderToc(entries) {
-        if (!entries || entries.length === 0) return '';
-
-        const lines = entries.map(e => {
-            const indent = e.level === 0 ? '' : '  '.repeat(Math.max(0, e.level - 1));
-            return `${indent}<a href="#${e.slug}">${escapeHtml(e.text)}</a>`;
-        });
-
-        return `<pre class="brewdown-toc" data-brewdown-toc><strong>TABLE OF CONTENTS</strong>\n\n${lines.join('\n')}</pre>`;
+    function uniqueSlug(base) {
+        let slug = base;
+        let n = 2;
+        while (_usedSlugs.has(slug)) {
+            slug = `${base}-${n++}`;
+        }
+        _usedSlugs.add(slug);
+        return slug;
     }
 
-    function consumeTitle(markdownText) {
-        const lines = markdownText.split(/\r?\n/);
-        const first = lines[0] || '';
-        const match = first.match(/^#\s+(\S+)\s+(.+?)\s*$/);
-        if (!match) return markdownText;
-
-        const [, icon, title] = match;
-        window.icon  = icon;
-        window.title = title;
-        document.title = title + ' - Coffee Byte Dev';
-
-        const h1 = document.querySelector('.download-bar h1');
-        if (h1) h1.textContent = title;
-
-        return markdownText;
-    }
+    // ------------------------------------------------------------------------
+    // Inline formatting
+    // ------------------------------------------------------------------------
+    // Each format emits a <span> with classes/attributes. No format ever
+    // touches the enclosing block. Inline code is protected first.
 
     function parseInlineFormatting(text) {
-        // Inline code: `code` (protect content from later rules)
+        // Protect inline code
         const codeBlocks = [];
         text = text.replace(/`([^`]+?)`/g, function (_, code) {
-            codeBlocks.push('<code>' + escapeHtml(code) + '</code>');
+            codeBlocks.push('<span class="code">' + escapeHtml(code) + '</span>');
             return `\x00CODE${codeBlocks.length - 1}\x00`;
         });
 
-        // Click-to-copy: ^^text^^
-        text = text.replace(/\^\^(.*?)\^\^/g, function (_, content) {
-            const handler = "var e=this,o=e.innerHTML;navigator.clipboard.writeText(e.dataset.copy);e.innerHTML='Copied!';setTimeout(function(){e.innerHTML=o},500)";
-            return '<span class="copy-text" title="Click to copy this text" data-copy="' + escapeHtml(content) + '" onclick="' + handler + '">📋 ' + content + '</span>';
+        // Styling formats
+        text = text.replace(/\*\*(.+?)\*\*/g, '<span class="bold">$1</span>');
+        text = text.replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g,
+                            '<span class="italic">$1</span>');
+        text = text.replace(/__(.+?)__/g, '<span class="underline">$1</span>');
+        text = text.replace(/~~(.+?)~~/g, '<span class="strike">$1</span>');
+
+        // Stateful formats
+        text = text.replace(/!!(.+?)!!/g,
+            '<span class="spoiler" onclick="this.classList.toggle(\'revealed\')">$1</span>');
+        text = text.replace(/\^\^(.+?)\^\^/g, function (_, content) {
+            const safe = escapeHtml(content);
+            return `<span class="copy" data-copy="${safe}" onclick="navigator.clipboard.writeText(this.dataset.copy);var e=this,o=e.textContent;e.textContent='Copied!';setTimeout(function(){e.textContent=o},500)">${safe}</span>`;
         });
 
-        // Spoiler: !!text!!
-        text = text.replace(/!!(.*?)!!/g,
-            '<span class="spoiler" title="Click to reveal" onclick="this.classList.toggle(\'revealed\')">$1</span>');
+        // Checkboxes
+        text = text.replace(/\[x\]/gi, '<span class="checkbox" data-checked="true"></span>');
+        text = text.replace(/\[ \]/g, '<span class="checkbox" data-checked="false"></span>');
 
-        // Bold, italic, strikethrough, underline
-        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
-        text = text.replace(/~~(.*?)~~/g, '<del>$1</del>');
-        text = text.replace(/__([^_]+?)__/g, '<u>$1</u>');
-
-        // Checkboxes (before links)
-        text = text.replace(/\[x\]/gi, '<input type="checkbox" checked>');
-        text = text.replace(/\[ \]/g, '<input type="checkbox">');
-
-        // Media: ![alt](url)
+        // Media
         text = text.replace(/!\[(.*?)\]\((.*?)\)/g, function (_, alt, url) {
             const ext = url.split('.').pop().split(/[?#]/)[0].toLowerCase();
-            if (['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp', 'ico', 'avif'].includes(ext)) {
-                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="media-link" title="Click to open"><img src="${url}" alt="${alt}"></a>`;
-            }
-            if (['mp4', 'webm', 'ogg', 'mov'].includes(ext)) {
-                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="media-link" title="Click to open"><video controls src="${url}" title="${alt}"></video></a>`;
-            }
-            if (['mp3', 'wav', 'flac', 'aac', 'm4a'].includes(ext)) {
-                return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="media-link" title="Click to open"><audio controls src="${url}" title="${alt}"></audio></a>`;
-            }
+            const img = ['jpg','jpeg','png','gif','webp','svg','bmp','ico','avif'];
+            const vid = ['mp4','webm','ogg','mov'];
+            const aud = ['mp3','wav','flac','aac','m4a'];
+            const safeAlt = escapeHtml(alt);
+            if (img.includes(ext))
+                return `<span class="media" data-type="image" data-src="${url}" data-alt="${safeAlt}"></span>`;
+            if (vid.includes(ext))
+                return `<span class="media" data-type="video" data-src="${url}" data-alt="${safeAlt}"></span>`;
+            if (aud.includes(ext))
+                return `<span class="media" data-type="audio" data-src="${url}" data-alt="${safeAlt}"></span>`;
             const isZip = /\.zip(\?|#|$)/i.test(url);
             const badge = isZip ? '💾 ' : '🔗 ';
-            const titleAttr = isZip ? ' title="Click to save"' : ' title="Click to follow external link"';
-            return `<a href="${url}" target="_blank" rel="noopener noreferrer"${titleAttr}>${badge}${alt || url}</a>`;
+            return `<span class="file" data-href="${url}">${badge}${safeAlt || url}</span>`;
         });
 
-        // Links: [text](url)
+        // Links
         text = text.replace(/\[(.*?)\]\((.*?)\)/g, function (_, linkText, url) {
             const external = isExternalUrl(url);
             const isZip = /\.zip(\?|#|$)/i.test(url);
             let badge = '';
             if (external) badge += '🔗 ';
             if (isZip) badge += '💾 ';
-            let titleAttr = '';
-            if (isZip) titleAttr = ' title="Click to save"';
-            else if (external) titleAttr = ' title="Click to follow external link"';
-            if (external || isZip) {
-                return `<a href="${url}" target="_blank" rel="noopener noreferrer"${titleAttr}>${badge}${linkText}</a>`;
-            }
-            return `<a href="${url}">${linkText}</a>`;
+            const cls = 'link' + (external ? ' external' : '') + (isZip ? ' zip' : '');
+            return `<span class="${cls}" data-href="${url}">${badge}${linkText}</span>`;
         });
 
         // Restore inline code
@@ -120,6 +135,41 @@ const Brewdown = (function () {
         return text;
     }
 
+    // ------------------------------------------------------------------------
+    // TOC
+    // ------------------------------------------------------------------------
+
+    function renderToc(entries) {
+        if (!entries || entries.length === 0) return '';
+        const lines = entries.map(e => {
+            const indent = e.level <= 1 ? '' : '  '.repeat(e.level - 1);
+            return `${indent}<a href="#${e.slug}">${escapeHtml(e.text)}</a>`;
+        });
+        return `<pre class="brewdown-toc" data-brewdown-toc><strong>TABLE OF CONTENTS</strong>\n\n${lines.join('\n')}</pre>`;
+    }
+
+    // ------------------------------------------------------------------------
+    // Title consumption
+    // ------------------------------------------------------------------------
+
+    function consumeTitle(markdownText) {
+        const lines = markdownText.split(/\r?\n/);
+        const first = lines[0] || '';
+        const match = first.match(/^#\s+(\S+)\s+(.+?)\s*$/);
+        if (!match) return markdownText;
+        const [, icon, title] = match;
+        window.icon = icon;
+        window.title = title;
+        document.title = title + ' - Coffee Byte Dev';
+        const h1 = document.querySelector('.download-bar h1');
+        if (h1) h1.textContent = title;
+        return markdownText;
+    }
+
+    // ------------------------------------------------------------------------
+    // Main parser
+    // ------------------------------------------------------------------------
+
     function brewdown(markdownText, options = {}) {
         const {
             wrapInContainer = false,
@@ -127,8 +177,10 @@ const Brewdown = (function () {
         } = options;
 
         _tocEntries = [];
+        _usedSlugs = new Set();
         let htmlContent = '';
         const lines = markdownText.trim().split(/\r?\n/);
+
         let inBlockquote = false;
         let inCodeBlock = false;
         let codeBlockContent = '';
@@ -146,8 +198,8 @@ const Brewdown = (function () {
         }
 
         function flushTable() {
-            if (tableRows.length === 0) return;
-            let html = '<div class="table-wrap"><table>\n';
+            if (tableRows.length === 0) { inTable = false; return; }
+            let html = '<div class="table-wrap"><table class="table">\n';
             const indexCols = new Set();
             tableRows.forEach((row, i) => {
                 const cells = row.split('|').slice(1, -1);
@@ -169,11 +221,10 @@ const Brewdown = (function () {
         }
 
         lines.forEach(rawLine => {
-            let processedLine = '';
             const indent = inCodeBlock ? 0 : rawLine.match(/^(\s*)/)[1].length;
             const line = inCodeBlock ? rawLine.replace(baseIndentRe, '') : rawLine.trimStart();
 
-            // Fenced code blocks
+            // ---- Fenced code blocks ----------------------------------------
             if (line.startsWith('```')) {
                 if (!inCodeBlock) {
                     closeOpenBlocks();
@@ -183,13 +234,11 @@ const Brewdown = (function () {
                     baseIndentRe = /^/;
                 } else {
                     const langClass = codeBlockLang ? ` class="language-${codeBlockLang}"` : '';
-                    processedLine = `<pre><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>`;
+                    htmlContent += `<pre class="code-block"><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>\n`;
                     inCodeBlock = false;
                     codeBlockContent = '';
                     codeBlockLang = '';
                 }
-                if (inCodeBlock) return;
-                htmlContent += processedLine + '\n';
                 return;
             }
 
@@ -202,121 +251,194 @@ const Brewdown = (function () {
                 return;
             }
 
-            // Tables
+            // ---- Tables -----------------------------------------------------
             if (line.startsWith('|') && line.endsWith('|')) {
-                if (!inTable) {
-                    closeOpenBlocks();
-                    inTable = true;
-                }
+                if (!inTable) { closeOpenBlocks(); inTable = true; }
                 tableRows.push(line);
                 return;
             } else if (inTable) {
                 flushTable();
             }
 
-            // Collapsibles
+            // ---- Collapsibles ----------------------------------------------
             if (line.startsWith('>>>')) {
                 closeOpenBlocks();
                 const title = line.substring(3).trim() || 'Details';
-                const slug = slugify(title);
-                processedLine = `<details id="${slug}"><summary>${parseInlineFormatting(title)}</summary>`;
+                const slug = uniqueSlug(slugify(title));
+                htmlContent += `<details class="collapsible" id="${slug}"><summary>${parseInlineFormatting(title)}</summary>\n`;
                 detailsDepth++;
-                htmlContent += processedLine + '\n';
                 return;
             }
             if (line === '<<<') {
                 closeOpenBlocks();
                 if (detailsDepth > 0) {
-                    processedLine = '</details>';
+                    htmlContent += '</details>\n';
                     detailsDepth--;
-                    htmlContent += processedLine + '\n';
                 }
                 return;
             }
 
-            // TOC marker on its own line
+            // ---- TOC marker -------------------------------------------------
             if (line.trim() === '::toc::') {
                 closeOpenBlocks();
                 htmlContent += '\x00BREWDOWN_TOC\x00\n';
                 return;
             }
 
-            // Headings
+            // ---- Headings ---------------------------------------------------
             const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
             if (headerMatch) {
                 closeOpenBlocks();
                 const level = headerMatch[1].length;
                 const headerText = headerMatch[2];
-                const slug = slugify(headerText);
+                const id = uniqueSlug(slugify(headerText));
+                const inner = parseInlineFormatting(headerText);
+                htmlContent += `<h${level} class="header" id="${id}">${inner}</h${level}>\n`;
                 if (_tocEntries && level >= 1 && level <= 3) {
-                    _tocEntries.push({ level, text: headerText, slug });
+                    _tocEntries.push({ level, text: headerText, slug: id });
                 }
-                processedLine = `<h${level} id="${slug}">${parseInlineFormatting(headerText)}</h${level}>`;
+                return;
             }
-            // Blockquotes
-            else if (line.startsWith('> ') || line === '>') {
+
+            // ---- Blockquotes ------------------------------------------------
+            if (line.startsWith('> ') || line === '>') {
                 const content = line === '>' ? '' : line.substring(2);
                 if (!inBlockquote) {
-                    processedLine = content
-                        ? `<blockquote><p>${parseInlineFormatting(content)}</p>`
-                        : '<blockquote>';
+                    htmlContent += '<blockquote class="blockquote">\n';
                     inBlockquote = true;
-                } else if (content) {
-                    processedLine = `<p>${parseInlineFormatting(content)}</p>`;
                 }
+                if (content) {
+                    htmlContent += `<p class="paragraph">${parseInlineFormatting(content)}</p>\n`;
+                }
+                return;
             }
-            // Horizontal rule
-            else if (line.match(/^[-*]{3,}$/)) {
+
+            // ---- Horizontal rule --------------------------------------------
+            if (line.match(/^[-*]{3,}$/)) {
                 closeOpenBlocks();
-                processedLine = '<hr>';
+                htmlContent += '<hr class="divider">\n';
+                return;
             }
-            // Empty line
-            else if (rawLine.trim() === '') {
+
+            // ---- Blank line -------------------------------------------------
+            if (rawLine.trim() === '') {
                 if (inBlockquote) {
-                    processedLine = '</blockquote>';
+                    htmlContent += '</blockquote>\n';
                     inBlockquote = false;
                 } else {
-                    processedLine = '<br>';
+                    htmlContent += '<p class="blank"></p>\n';
                 }
+                return;
             }
-            // Media-only line
-            else if (line.match(/^!\[.*?\]\(.*?\)$/)) {
+
+            // ---- Media-only line (gallery) ---------------------------------
+            if (line.match(/^!\[.*?\]\(.*?\)$/)) {
                 if (!inGallery) {
                     htmlContent += '<div class="media-gallery">\n';
                     inGallery = true;
                 }
-                processedLine = parseInlineFormatting(line);
-            }
-            // Paragraph
-            else {
-                closeOpenBlocks();
-                processedLine = `<p>${parseInlineFormatting(line)}</p>`;
+                htmlContent += parseInlineFormatting(line) + '\n';
+                return;
             }
 
-            if (indent > 0 && processedLine) {
-                processedLine = processedLine.replace(/^(<\w+)/, `$1 style="margin-left:${indent}ch"`);
-            }
-            htmlContent += processedLine + '\n';
+            // ---- Paragraph --------------------------------------------------
+            closeOpenBlocks();
+            const rendered = parseInlineFormatting(line);
+            const cls = indent > 0 ? 'paragraph indented' : 'paragraph';
+            const style = indent > 0 ? ` style="margin-left:${indent}ch"` : '';
+            htmlContent += `<p class="${cls}"${style}>${rendered}</p>\n`;
         });
 
+        // Close anything left open
         if (inCodeBlock) {
             const langClass = codeBlockLang ? ` class="language-${codeBlockLang}"` : '';
-            htmlContent += `<pre><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>`;
+            htmlContent += `<pre class="code-block"><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>\n`;
         }
-        if (inBlockquote) htmlContent += '</blockquote>';
+        if (inBlockquote) htmlContent += '</blockquote>\n';
         if (inTable) flushTable();
         while (detailsDepth > 0) { htmlContent += '</details>\n'; detailsDepth--; }
 
+        // Inject TOC
         const tocHtml = renderToc(_tocEntries);
         htmlContent = htmlContent.replace(/\x00BREWDOWN_TOC\x00/g, tocHtml);
         _tocEntries = null;
+        _usedSlugs = null;
 
         if (wrapInContainer) {
             return `<div class="${containerClass}">${htmlContent}</div>`;
         }
-
         return htmlContent;
     }
+
+    // ------------------------------------------------------------------------
+    // Hydration — spans → real elements
+    // ------------------------------------------------------------------------
+
+    function hydrateSpans(root) {
+        // Links
+        root.querySelectorAll('span.link').forEach(span => {
+            const a = document.createElement('a');
+            a.href = span.dataset.href;
+            if (span.classList.contains('external') || span.classList.contains('zip')) {
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+            }
+            if (span.classList.contains('zip')) a.title = 'Click to save';
+            else if (span.classList.contains('external')) a.title = 'Click to follow external link';
+            while (span.firstChild) a.appendChild(span.firstChild);
+            span.replaceWith(a);
+        });
+
+        // Files
+        root.querySelectorAll('span.file').forEach(span => {
+            const a = document.createElement('a');
+            a.href = span.dataset.href;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.title = 'Click to save';
+            while (span.firstChild) a.appendChild(span.firstChild);
+            span.replaceWith(a);
+        });
+
+        // Media
+        root.querySelectorAll('span.media').forEach(span => {
+            const type = span.dataset.type;
+            const src = span.dataset.src;
+            const alt = span.dataset.alt || '';
+            const a = document.createElement('a');
+            a.href = src;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.className = 'media-link';
+            a.title = 'Click to open';
+
+            let el;
+            if (type === 'image') {
+                el = document.createElement('img');
+                el.src = src; el.alt = alt;
+            } else if (type === 'video') {
+                el = document.createElement('video');
+                el.src = src; el.controls = true; el.title = alt;
+            } else {
+                el = document.createElement('audio');
+                el.src = src; el.controls = true; el.title = alt;
+            }
+            a.appendChild(el);
+            span.replaceWith(a);
+        });
+
+        // Checkboxes
+        root.querySelectorAll('span.checkbox').forEach(span => {
+            const input = document.createElement('input');
+            input.type = 'checkbox';
+            input.checked = span.dataset.checked === 'true';
+            span.replaceWith(input);
+        });
+    }
+
+    // ------------------------------------------------------------------------
+    // DOM integration
+    // ------------------------------------------------------------------------
 
     function processScriptTags(root) {
         const scope = root || document.querySelector('main') || document;
@@ -331,34 +453,20 @@ const Brewdown = (function () {
             if (markdownFile) {
                 pending.push(fetch(markdownFile)
                     .then(response => {
-                        if (!response.ok) {
-                            throw new Error(`Failed to load markdown file: ${markdownFile}`);
-                        }
+                        if (!response.ok) throw new Error(`Failed to load markdown file: ${markdownFile}`);
                         return response.text();
                     })
                     .then(data => {
                         consumeTitle(data);
-                        const htmlContent = brewdown(data, {
-                            wrapInContainer: wrapInContainer,
-                            containerClass: containerClass
-                        });
-
+                        const htmlContent = brewdown(data, { wrapInContainer, containerClass });
                         const container = document.createElement('div');
                         container.className = 'brewdown-rendered';
                         container.innerHTML = htmlContent;
-
+                        hydrateSpans(container);
                         if (typeof hljs !== 'undefined') {
-                            container.querySelectorAll('pre code[class]').forEach(block => hljs.highlightElement(block));
+                            container.querySelectorAll('pre code[class]').forEach(b => hljs.highlightElement(b));
                         }
-
-                        if (script.parentNode.closest('.brewdown-rendered')) {
-                            script.parentNode.replaceChild(
-                                document.createRange().createContextualFragment(container.innerHTML),
-                                script
-                            );
-                        } else {
-                            script.parentNode.replaceChild(container, script);
-                        }
+                        script.parentNode.replaceChild(container, script);
                     })
                     .catch(error => {
                         console.error('Error loading markdown:', error);
@@ -370,13 +478,11 @@ const Brewdown = (function () {
             } else {
                 const inlineMarkdown = script.textContent;
                 if (inlineMarkdown.trim()) {
-                    const htmlContent = brewdown(inlineMarkdown, {
-                        wrapInContainer: wrapInContainer,
-                        containerClass: containerClass
-                    });
+                    const htmlContent = brewdown(inlineMarkdown, { wrapInContainer, containerClass });
                     const container = document.createElement('div');
                     container.className = 'brewdown-rendered';
                     container.innerHTML = htmlContent;
+                    hydrateSpans(container);
                     script.parentNode.replaceChild(container, script);
                 }
             }
@@ -411,45 +517,39 @@ const Brewdown = (function () {
                 html = html.replace(/<brewdown-embed-placeholder data-i="(\d+)"><\/brewdown-embed-placeholder>/g,
                     (_, i) => scripts[parseInt(i)]);
                 div.innerHTML = html;
+                hydrateSpans(div);
                 div.classList.remove('brewdown');
                 div.classList.add('brewdown-rendered');
             }
         });
     }
 
-    function processAll() {
-        const root = document.querySelector('main');
-        if (!root) return;
-
-        processBrewdownDivs(root);
-        const included = processScriptTags(root);
-
-        if (typeof hljs !== 'undefined') {
-            root.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block));
-        }
-
-        included.then(() => rebuildToc(root));
-    }
-
     function rebuildToc(root) {
         const scope = root || document.querySelector('main');
         if (!scope) return;
-
         const toc = scope.querySelector('pre.brewdown-toc[data-brewdown-toc]');
         if (!toc) return;
 
         const entries = [];
-        scope.querySelectorAll('h1[id], h2[id], h3[id]').forEach(el => {
+        scope.querySelectorAll('.header[id]').forEach(el => {
             if (toc.contains(el)) return;
-            entries.push({
-                level: parseInt(el.tagName[1]),
-                text: el.textContent.trim(),
-                slug: el.id
-            });
+            const level = parseInt(el.tagName[1]) || 1;
+            entries.push({ level, text: el.textContent.trim(), slug: el.id });
         });
 
         const html = renderToc(entries);
         if (html) toc.outerHTML = html;
+    }
+
+    function processAll() {
+        const root = document.querySelector('main');
+        if (!root) return;
+        processBrewdownDivs(root);
+        const included = processScriptTags(root);
+        if (typeof hljs !== 'undefined') {
+            root.querySelectorAll('pre code').forEach(b => hljs.highlightElement(b));
+        }
+        included.then(() => rebuildToc(root));
     }
 
     if (document.readyState === 'loading') {
@@ -458,5 +558,5 @@ const Brewdown = (function () {
         processAll();
     }
 
-    return { brewdown, processScriptTags, processBrewdownDivs, rebuildToc };
+    return { brewdown, processScriptTags, processBrewdownDivs, rebuildToc, hydrateSpans };
 })();

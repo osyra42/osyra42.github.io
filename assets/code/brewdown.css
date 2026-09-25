@@ -1,17 +1,22 @@
-/* brewdown.css — styles for Brewdown's rendered output only. */
+/* brewdown.css — styles for Brewdown's rendered output.
+   Targets classes first, tags second, per the Emit Contract. */
 
-/* Headings */
-main h1 {
+/* ============================================================================
+   Headings — <h1>–<h6> with class="header" and always an id
+   ========================================================================== */
+
+main h1.header {
   color: var(--accent);
   font-size: 1.95em;
   letter-spacing: -0.01em;
-  margin-bottom: 0.5em;
   border-bottom: 2px solid var(--accent);
   padding-bottom: 0.35em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
   clear: right;
 }
 
-main h2 {
+main h2.header {
   color: var(--accent);
   font-family: var(--mono);
   font-size: 0.82em;
@@ -24,7 +29,7 @@ main h2 {
   padding-bottom: 0.55em;
 }
 
-main h3 {
+main h3.header {
   color: var(--accent-light);
   font-family: var(--mono);
   font-size: 0.74em;
@@ -35,20 +40,34 @@ main h3 {
   margin-bottom: 0.7em;
 }
 
-main h4 {
+main h4.header,
+main h5.header,
+main h6.header {
   color: var(--accent-light);
   font-size: 1.2em;
-  margin-top: 0;
+  margin-top: 1.4em;
   margin-bottom: 0.4em;
 }
 
-/* Paragraphs */
-main p {
-  margin-bottom: 0;
+/* ============================================================================
+   Paragraphs — <p class="paragraph">, <p class="blank">, <p class="indented">
+   ========================================================================== */
+
+main p.paragraph {
+  margin: 0 0 0.5em 0;
   text-align: left;
 }
 
-/* Links */
+main p.blank {
+  height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================================================
+   Links — hydrated from <span class="link"> to <a>
+   ========================================================================== */
+
 main a {
   color: var(--accent);
   text-decoration: underline dotted;
@@ -63,93 +82,73 @@ main a:visited {
 
 main a:hover {
   color: var(--light-cream);
-  text-decoration: underline dotted;
-  text-decoration-color: currentColor;
 }
 
-/* Lists — emitted by markdown ul/ol if you ever enable them, and by the
-   indented-line handling in brewdown() that adds margin-left inline. */
-main ul,
-main ol {
-  margin: 1em 0 1em 2em;
-}
+/* ============================================================================
+   Inline spans — emitted directly by parseInlineFormatting
+   ========================================================================== */
 
-main li {
-  margin-bottom: 0.5em;
-}
+main .bold      { font-weight: 700; }
+main .italic    { font-style: italic; }
+main .underline { text-decoration: underline; }
+main .strike    { text-decoration: line-through; }
 
-/* Tables */
-main table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5em 0;
-  font-size: 0.9em;
-}
-
-main th,
-main td {
-  border: 1px solid var(--coffee-bean);
-  padding: 0.75em;
-  text-align: left;
-  vertical-align: top;
-}
-
-main th {
-  background-color: var(--dark-mocha);
-  color: var(--accent-light);
-  font-weight: bold;
-}
-
-main th:first-child,
-main td:first-child {
-  width: 30%;
-}
-
-main th.col-index,
-main td.col-index {
-  width: 24px;
-  text-align: center;
-}
-
-main tr:nth-child(even) {
-  background-color: rgba(42, 30, 20, 0.5);
-}
-
-/* Code — inline `code` and fenced blocks */
-main code {
+main .code {
   background: var(--dark-mocha);
-  padding: 0.2em 0.4em;
-  border-radius: 0;
+  padding: 0.15em 0.4em;
   font-family: 'Courier New', Consolas, monospace;
   font-size: 0.9em;
   color: var(--accent-light);
 }
 
-main pre {
-  background: var(--dark-mocha);
-  padding: 1em;
-  border-radius: 0;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
-  margin: 1em 0;
+main .spoiler {
+  background-color: var(--coffee-bean);
+  color: var(--coffee-bean);
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.3s;
 }
 
-main pre code {
-  padding: 0;
-  background: none;
+main .spoiler.revealed {
+  color: var(--steamed-milk);
 }
 
-code.language-changelog .hljs-chg-timestamp { color: #888888; }
-code.language-changelog .hljs-chg-project   { color: #AA00FF; }
-code.language-changelog .hljs-chg-add       { color: #00AA00; }
-code.language-changelog .hljs-chg-del       { color: #AA0000; }
-code.language-changelog .hljs-chg-note      { color: #00AAFF; }
-code.language-changelog .hljs-chg-fix       { color: #FFAA00; }
+main .copy {
+  color: var(--accent);
+  cursor: pointer;
+  transition: color 0.3s;
+}
 
-/* Blockquote — the overflow:hidden gives it its own formatting context so a
-   floated ::toc:: sits beside the box instead of running under it. */
-main blockquote {
+main .copy:hover {
+  color: var(--light-cream);
+  text-decoration: underline;
+}
+
+main .checkbox {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-right: 0.35em;
+  vertical-align: -0.1em;
+  border: 1px solid var(--coffee-bean);
+  background: transparent;
+  cursor: pointer;
+}
+
+main .checkbox[data-checked="true"]::after {
+  content: "✔";
+  display: block;
+  text-align: center;
+  line-height: 0.9em;
+  font-size: 0.7em;
+  color: var(--accent);
+}
+
+/* ============================================================================
+   Blockquotes — <blockquote class="blockquote">
+   ========================================================================== */
+
+main blockquote.blockquote {
   background: var(--dark-mocha);
   border-left: 4px solid var(--accent);
   padding: 1em 1.5em;
@@ -157,8 +156,111 @@ main blockquote {
   overflow: hidden;
 }
 
-/* Table of contents — ::toc:: renders a <pre class="brewdown-toc">.
-   Floated right, positioned so z-index works against following paragraphs. */
+main blockquote.blockquote p.paragraph {
+  margin-bottom: 0.5em;
+}
+
+main blockquote.blockquote p.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================================
+   Code blocks — <pre class="code-block"><code class="language-x">
+   ========================================================================== */
+
+main pre.code-block {
+  background: var(--dark-mocha);
+  padding: 1em;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 1em 0;
+}
+
+main pre.code-block code {
+  padding: 0;
+  background: none;
+  font-family: 'Courier New', Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--paper-ink);
+}
+
+/* Changelog highlighting hooks */
+code.language-changelog .hljs-chg-timestamp { color: #888888; }
+code.language-changelog .hljs-chg-project   { color: #AA00FF; }
+code.language-changelog .hljs-chg-add       { color: #00AA00; }
+code.language-changelog .hljs-chg-del       { color: #AA0000; }
+code.language-changelog .hljs-chg-note      { color: #00AAFF; }
+code.language-changelog .hljs-chg-fix       { color: #FFAA00; }
+
+/* ============================================================================
+   Tables — <div class="table-wrap"><table class="table">
+   ========================================================================== */
+
+main .table-wrap {
+  margin: 1.5em 0;
+  overflow-x: auto;
+}
+
+main table.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+main table.table th,
+main table.table td {
+  border: 1px solid var(--coffee-bean);
+  padding: 0.75em;
+  text-align: left;
+  vertical-align: top;
+}
+
+main table.table th {
+  background-color: var(--dark-mocha);
+  color: var(--accent-light);
+  font-weight: bold;
+}
+
+main table.table th:first-child,
+main table.table td:first-child {
+  width: 30%;
+}
+
+main table.table th.col-index,
+main table.table td.col-index {
+  width: 24px;
+  text-align: center;
+}
+
+main table.table tr:nth-child(even) {
+  background-color: rgba(42, 30, 20, 0.5);
+}
+
+/* ============================================================================
+   Collapsible — <details class="collapsible">
+   ========================================================================== */
+
+main details.collapsible {
+  margin: 0.3em 0;
+}
+
+main details.collapsible summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: bold;
+  padding: 0.25em 0;
+  transition: color 0.3s;
+}
+
+main details.collapsible summary:hover {
+  color: var(--light-cream);
+}
+
+/* ============================================================================
+   Table of contents — <pre class="brewdown-toc">
+   ========================================================================== */
+
 main .brewdown-toc {
   position: relative;
   float: right;
@@ -167,7 +269,6 @@ main .brewdown-toc {
   max-width: min(45%, 24em);
   background: var(--dark-mocha);
   border: 1px solid var(--coffee-bean);
-  border-radius: 0;
   padding: 0.6em 1.4em 0.9em;
   margin: 0.3em 0 1em 1.5em;
   white-space: pre-wrap;
@@ -183,8 +284,21 @@ main .brewdown-toc strong {
   margin-bottom: 0.4em;
 }
 
-/* Horizontal rule — emitted by --- and *** lines */
-main hr {
+main .brewdown-toc a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+main .brewdown-toc a:hover {
+  color: var(--light-cream);
+  text-decoration: underline;
+}
+
+/* ============================================================================
+   Horizontal rule — <hr class="divider">
+   ========================================================================== */
+
+main hr.divider {
   border: none;
   border-top: 1px solid var(--coffee-bean);
   margin: 2em 0;
@@ -192,51 +306,10 @@ main hr {
   background-color: transparent;
 }
 
-/* Spoiler — !!text!! token */
-main .spoiler {
-  background-color: var(--coffee-bean);
-  color: var(--coffee-bean);
-  cursor: pointer;
-  border-radius: 0;
-  padding: 0 4px;
-  transition: color 0.3s;
-}
+/* ============================================================================
+   Media — hydrated from <span class="media"> to <a class="media-link">
+   ========================================================================== */
 
-main .spoiler.revealed {
-  color: var(--steamed-milk);
-}
-
-/* Click-to-copy — ^^text^^ token */
-main .copy-text {
-  color: var(--accent);
-  text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-main .copy-text:hover {
-  color: var(--light-cream);
-  text-decoration: underline;
-}
-
-/* Collapsible — >>> / <<< tokens */
-main details {
-  margin: 0.3em 0;
-}
-
-main details summary {
-  cursor: pointer;
-  color: var(--accent);
-  font-weight: bold;
-  padding: 0.25em 0;
-  transition: color 0.3s;
-}
-
-main details summary:hover {
-  color: var(--light-cream);
-}
-
-/* Media — ![alt](url) tokens */
 main .media-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -252,12 +325,21 @@ main .media-link img,
 main .media-link video {
   max-width: 256px;
   max-height: 256px;
-  border-radius: 0;
   object-fit: cover;
 }
 
-/* Dialogue — a class brewdown output can carry from raw HTML in a paper */
+/* ============================================================================
+   Miscellaneous
+   ========================================================================== */
+
 main .dialogue {
   margin: 1em 0;
   text-indent: 0;
+}
+
+main .brewdown-error {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 1em;
+  margin: 1em 0;
 }

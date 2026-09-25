@@ -84,7 +84,7 @@ Anything I can't verify gets rejected. That includes unknown authors, reuploads,
 # 🖥️ Server Hardware
 CPU: "Intel i7-6700K 4.0 GHz (Skylake, 4C/8T)"
 RAM: "Corsair Vengeance 32 GB DDR4-3200"
-SSD: "T-Force Vulcan 512 GB (500 MB/s read)"
+SSD: "T-Force Vulcan 512 GB (550 MB/s read)"
 GPU: "NVIDIA GeForce GTX 1060 6 GB"
 PSU: "EVGA 500 B1 (500 W, 80+ Bronze)"
 NET: "180 Mbps down / 40 Mbps up / 20 ms ping"
@@ -92,19 +92,17 @@ NET: "180 Mbps down / 40 Mbps up / 20 ms ping"
 
 ---
 
-# ⛏️ LOG26
+# ⛏️ FROG26
 
 | Server Info | |
 |---|---|
 | **Server Name** | Coffee Block (Vanilla) |
 | **IP and Port** | ^^play.coffeeblock.xyz^^ |
-| **Version** | 26.2 |
-| **Staff** | osyra42 👑 🗝️, enderwolf_22 🛡️ |
+| **Version** | 26.3 |
+| **Staff** | osyra42 👑 🗝️, jmu1, enderwolf_22 🛡️ |
 | **Rules** | 1-7 apply |
 
 Vanilla Minecraft on Paper - no mods, no modpacks, nothing extra to install. Just connect and play.
-
-> Minecraft 26.3 upcomming soon, look here for stable releases. [Paper 26.3](https://fill-ui.papermc.io/projects/paper/version/26.3)
 
 >>> ⚙️ Minimum Requirements
 ```yaml
@@ -119,34 +117,11 @@ java:   "Version 25 (bundled with the launcher)"
 >>> 🔌 How to Connect
 > 1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us)
 > 2. Open the Minecraft Launcher
-> 3. Make sure you're on the **latest release** and hit **Play**
+> 3. Make sure you're on **26.3** and hit **Play**
 > 4. From the main menu, click **Multiplayer**
 > 5. Click **Add Server**
 > 6. Enter the IP: `play.coffeeblock.xyz`
 > 7. Join and play!
-<<<
-
----
-
-# ⛏️ HCVP (End of Life)
-
-| Server Info | |
-|---|---|
-| **Server Name** | The Fox Den |
-| **IP and Port** | Private |
-| **Version** | ?.??.? |
-| **Staff** | Shindi13 👑, osyra42 🗝️ |
-| **Rules** | 1-6 apply (no hacks) |
-
-Private whitelisted server hosted for an adult content creator's community. Rule 7 does not apply here - client hacks are not permitted.
-
->>> 🔌 How to Join
-> This one isn't open to the public. To get on the whitelist:
-> 1. Watch Shindi13's content on Joystick (18+)
-> 2. Join their Discord
-> 3. Ask for permission to be whitelisted
->
-> The IP is given out after you're approved.
 <<<
 
 ---
