@@ -33,11 +33,12 @@ across all revisions, including:
    to you, please skip this series.
 ```
 
-# Rev3
+# Rev3 - 170 words
 This is the outline for the next version. 
- - [Outline](?paper=../operation_chimera/rev3/outline)
+ # Outline
+  - [Outline](?paper=../operation_chimera/rev3/outline)
 
-# Rev2 - 40976 words
+# Rev2 - 40049 words
 Here's a list of the chapters that are available for rev2. This will no longer be worked on, see [Rev3](#rev3).
 ## Part 1: Out of the Fray
  - [Chapter 0: Notes](?paper=../operation_chimera/rev2/part1-out_of_the_fray/ch0-notes)
@@ -67,7 +68,7 @@ Here's a list of the chapters that are available for rev2. This will no longer b
 ## Part 5: Red Light
  - [Chapter 0: Notes](?paper=../operation_chimera/rev2/part5-redlight/ch0-notes)
 
-# Rev1 - 55702 words
+# Rev1 - 55797 words
 Here's a list of all the documents that were related to revision one. The roughest rough draft. 
 ## Part 0: Not Added
  - [Chapter 0: In and Alley](?paper=../operation_chimera/rev1/part0-not_added/ch00-in_an_alley)
