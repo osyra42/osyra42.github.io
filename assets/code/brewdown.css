@@ -1,4 +1,20 @@
-/* brewdown.css — styles for Brewdown's rendered output.
+/* brewdown.css — styles for Brewdown's rendered output: everything that
+   styles content *inside* the paper sheet.
+   
+   This file owns:
+     - structural styling for emitted element classes (.header, .paragraph,
+       .code-block, .table, .brewdown-toc, .collapsible, .blockquote, …)
+     - color styling for those classes, using the paper-scoped variables
+       (--paper-ink, --paper-edge, --paper-shade, --paper-link, --accent-dark)
+       supplied at runtime by Themes.js.
+   
+   This file does NOT own:
+     - the paper sheet container itself (frame, clip-path, shadow, animation)
+       — that lives in styles.css under `main .brewdown-rendered`.
+     - site chrome, download bar, sidebar, dark <main> background.
+     - the .brewdown-error state, which renders on the dark background
+       outside the sheet — also in styles.css.
+   
    Targets classes first, tags second, per the Emit Contract. */
 
 /* ============================================================================
@@ -6,10 +22,10 @@
    ========================================================================== */
 
 main h1.header {
-  color: var(--accent);
+  color: var(--accent-dark);
   font-size: 1.95em;
   letter-spacing: -0.01em;
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid var(--paper-edge);
   padding-bottom: 0.35em;
   margin-top: 0;
   margin-bottom: 0.5em;
@@ -17,7 +33,7 @@ main h1.header {
 }
 
 main h2.header {
-  color: var(--accent);
+  color: var(--accent-dark);
   font-family: var(--mono);
   font-size: 0.82em;
   font-weight: 700;
@@ -25,12 +41,12 @@ main h2.header {
   text-transform: uppercase;
   margin-top: 2em;
   margin-bottom: 0.9em;
-  border-bottom: 1px solid var(--accent);
+  border-bottom: 1px solid var(--paper-edge);
   padding-bottom: 0.55em;
 }
 
 main h3.header {
-  color: var(--accent-light);
+  color: var(--accent-dark);
   font-family: var(--mono);
   font-size: 0.74em;
   font-weight: 700;
@@ -43,7 +59,7 @@ main h3.header {
 main h4.header,
 main h5.header,
 main h6.header {
-  color: var(--accent-light);
+  color: var(--accent-dark);
   font-size: 1.2em;
   margin-top: 1.4em;
   margin-bottom: 0.4em;
@@ -54,6 +70,7 @@ main h6.header {
    ========================================================================== */
 
 main p.paragraph {
+  color: var(--paper-ink);
   margin: 0 0 0.5em 0;
   text-align: left;
 }
@@ -69,19 +86,18 @@ main p.blank {
    ========================================================================== */
 
 main a {
-  color: var(--accent);
+  color: var(--paper-link);
   text-decoration: underline dotted;
-  text-decoration-color: currentColor;
   text-underline-offset: 2px;
   transition: color 0.3s;
 }
 
 main a:visited {
-  text-decoration-color: var(--espresso);
+  text-decoration-color: var(--paper-ink-soft);
 }
 
 main a:hover {
-  color: var(--light-cream);
+  color: var(--accent-dark);
 }
 
 /* ============================================================================
@@ -94,33 +110,34 @@ main .underline { text-decoration: underline; }
 main .strike    { text-decoration: line-through; }
 
 main .code {
-  background: var(--dark-mocha);
+  background: var(--paper-shade);
+  border: 1px solid var(--paper-edge);
+  color: var(--paper-ink);
   padding: 0.15em 0.4em;
-  font-family: 'Courier New', Consolas, monospace;
+  font-family: var(--mono);
   font-size: 0.9em;
-  color: var(--accent-light);
 }
 
 main .spoiler {
-  background-color: var(--coffee-bean);
-  color: var(--coffee-bean);
+  background-color: var(--paper-ink-soft);
+  color: var(--paper-ink-soft);
   cursor: pointer;
   padding: 0 4px;
   transition: color 0.3s;
 }
 
 main .spoiler.revealed {
-  color: var(--steamed-milk);
+  color: var(--paper-ink);
 }
 
 main .copy {
-  color: var(--accent);
+  color: var(--paper-link);
   cursor: pointer;
   transition: color 0.3s;
 }
 
 main .copy:hover {
-  color: var(--light-cream);
+  color: var(--accent-dark);
   text-decoration: underline;
 }
 
@@ -130,7 +147,7 @@ main .checkbox {
   height: 0.9em;
   margin-right: 0.35em;
   vertical-align: -0.1em;
-  border: 1px solid var(--coffee-bean);
+  border: 1px solid var(--paper-edge);
   background: transparent;
   cursor: pointer;
 }
@@ -141,7 +158,7 @@ main .checkbox[data-checked="true"]::after {
   text-align: center;
   line-height: 0.9em;
   font-size: 0.7em;
-  color: var(--accent);
+  color: var(--accent-dark);
 }
 
 /* ============================================================================
@@ -149,8 +166,8 @@ main .checkbox[data-checked="true"]::after {
    ========================================================================== */
 
 main blockquote.blockquote {
-  background: var(--dark-mocha);
-  border-left: 4px solid var(--accent);
+  background: var(--paper-shade);
+  border-left: 4px solid var(--accent-dark);
   padding: 1em 1.5em;
   margin: 1.5em 0;
   overflow: hidden;
@@ -169,7 +186,7 @@ main blockquote.blockquote p.paragraph:last-child {
    ========================================================================== */
 
 main pre.code-block {
-  background: var(--dark-mocha);
+  background: var(--paper-shade);
   padding: 1em;
   overflow-x: auto;
   white-space: pre-wrap;
@@ -180,18 +197,31 @@ main pre.code-block {
 main pre.code-block code {
   padding: 0;
   background: none;
-  font-family: 'Courier New', Consolas, monospace;
+  font-family: var(--mono);
   font-size: 0.9em;
   color: var(--paper-ink);
 }
 
-/* Changelog highlighting hooks */
-code.language-changelog .hljs-chg-timestamp { color: #888888; }
-code.language-changelog .hljs-chg-project   { color: #AA00FF; }
-code.language-changelog .hljs-chg-add       { color: #00AA00; }
-code.language-changelog .hljs-chg-del       { color: #AA0000; }
-code.language-changelog .hljs-chg-note      { color: #00AAFF; }
-code.language-changelog .hljs-chg-fix       { color: #FFAA00; }
+/* hljs-rendered code keeps the paper border treatment from styles.css.
+   Non-hljs code inherits paper-ink from the rule above. */
+main pre:has(code.hljs) {
+  background-color: transparent;
+  padding: 0;
+}
+
+main pre code.hljs {
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--accent);
+  padding-left: 1em;
+}
+
+/* Changelog highlighting hooks — paper-safe palette. */
+main code.language-changelog .hljs-chg-timestamp { color: #6b6b6b; }
+main code.language-changelog .hljs-chg-project   { color: #7a1fa0; }
+main code.language-changelog .hljs-chg-add       { color: #1a7a1a; }
+main code.language-changelog .hljs-chg-del       { color: #a01a1a; }
+main code.language-changelog .hljs-chg-note      { color: #1a6aa0; }
+main code.language-changelog .hljs-chg-fix       { color: #a06a1a; }
 
 /* ============================================================================
    Tables — <div class="table-wrap"><table class="table">
@@ -210,15 +240,16 @@ main table.table {
 
 main table.table th,
 main table.table td {
-  border: 1px solid var(--coffee-bean);
+  border: 1px solid var(--paper-edge);
   padding: 0.75em;
   text-align: left;
   vertical-align: top;
+  color: var(--paper-ink);
 }
 
 main table.table th {
-  background-color: var(--dark-mocha);
-  color: var(--accent-light);
+  background-color: var(--paper-shade);
+  color: var(--paper-ink);
   font-weight: bold;
 }
 
@@ -234,7 +265,7 @@ main table.table td.col-index {
 }
 
 main table.table tr:nth-child(even) {
-  background-color: rgba(42, 30, 20, 0.5);
+  background-color: color-mix(in srgb, var(--paper-ink) 5%, transparent);
 }
 
 /* ============================================================================
@@ -247,14 +278,14 @@ main details.collapsible {
 
 main details.collapsible summary {
   cursor: pointer;
-  color: var(--accent);
+  color: var(--accent-dark);
   font-weight: bold;
   padding: 0.25em 0;
   transition: color 0.3s;
 }
 
 main details.collapsible summary:hover {
-  color: var(--light-cream);
+  color: var(--paper-ink);
 }
 
 /* ============================================================================
@@ -267,8 +298,8 @@ main .brewdown-toc {
   clear: right;
   min-width: 14em;
   max-width: min(45%, 24em);
-  background: var(--dark-mocha);
-  border: 1px solid var(--coffee-bean);
+  background: var(--paper-shade);
+  border: 1px solid var(--paper-edge);
   padding: 0.6em 1.4em 0.9em;
   margin: 0.3em 0 1em 1.5em;
   white-space: pre-wrap;
@@ -280,17 +311,16 @@ main .brewdown-toc {
 main .brewdown-toc strong {
   display: block;
   text-align: left;
-  color: var(--accent-light);
-  margin-bottom: 0.4em;
+  color: var(--accent-dark);
 }
 
 main .brewdown-toc a {
   text-decoration: none;
-  color: var(--accent);
+  color: var(--paper-link);
 }
 
 main .brewdown-toc a:hover {
-  color: var(--light-cream);
+  color: var(--accent-dark);
   text-decoration: underline;
 }
 
@@ -300,7 +330,7 @@ main .brewdown-toc a:hover {
 
 main hr.divider {
   border: none;
-  border-top: 1px solid var(--coffee-bean);
+  border-top: 1px solid var(--paper-edge);
   margin: 2em 0;
   height: auto;
   background-color: transparent;
@@ -329,7 +359,7 @@ main .media-link video {
 }
 
 /* ============================================================================
-   Miscellaneous
+   Utility classes emitted or expected inside the sheet
    ========================================================================== */
 
 main .dialogue {
@@ -337,9 +367,12 @@ main .dialogue {
   text-indent: 0;
 }
 
-main .brewdown-error {
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  padding: 1em;
-  margin: 1em 0;
+main .toc ul,
+main .characters ul {
+  /* presentational hook — overridden at mobile breakpoint */
+}
+
+main .footer,
+main .footer p {
+  color: var(--paper-ink-soft);
 }

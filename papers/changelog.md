@@ -1,5 +1,15 @@
 # ⌚ Changelog
 
+# 2026 SEP 26
+```changelog
+@ website
+> Reordered the sidebar to be more popular items first
+> Cleaned up the brewdown documentation. 
+$ Fixed the table of contents having too much white space. 
+$ Fix the bug where hashing would not let you scroll to that section. You can now click on headers in the table of contents and share the link with the header. 
+$ Fix the bug where you can no longer leave the brewdown documentation. 
+```
+
 # 2026 SEP 25
 ```changelog
 @ website

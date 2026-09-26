@@ -1,4 +1,4 @@
-# 📖 Operation Keleidoscope
+# 📖 Operation Kaleidoscope
 ::toc::
 ## About Operation Kaleidoscope
 > If you have ever seen me do VTubing, my character model I use is based off of the main character of this book. 

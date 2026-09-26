@@ -145,25 +145,7 @@ const Brewdown = (function () {
             const indent = e.level <= 1 ? '' : '  '.repeat(e.level - 1);
             return `${indent}<a href="#${e.slug}">${escapeHtml(e.text)}</a>`;
         });
-        return `<pre class="brewdown-toc" data-brewdown-toc><strong>TABLE OF CONTENTS</strong>\n\n${lines.join('\n')}</pre>`;
-    }
-
-    // ------------------------------------------------------------------------
-    // Title consumption
-    // ------------------------------------------------------------------------
-
-    function consumeTitle(markdownText) {
-        const lines = markdownText.split(/\r?\n/);
-        const first = lines[0] || '';
-        const match = first.match(/^#\s+(\S+)\s+(.+?)\s*$/);
-        if (!match) return markdownText;
-        const [, icon, title] = match;
-        window.icon = icon;
-        window.title = title;
-        document.title = title + ' - Coffee Byte Dev';
-        const h1 = document.querySelector('.download-bar h1');
-        if (h1) h1.textContent = title;
-        return markdownText;
+        return `<pre class="brewdown-toc" data-brewdown-toc><strong>TABLE OF CONTENTS</strong><hr>${lines.join('\n')}</pre>`;
     }
 
     // ------------------------------------------------------------------------
@@ -457,7 +439,6 @@ const Brewdown = (function () {
                         return response.text();
                     })
                     .then(data => {
-                        consumeTitle(data);
                         const htmlContent = brewdown(data, { wrapInContainer, containerClass });
                         const container = document.createElement('div');
                         container.className = 'brewdown-rendered';

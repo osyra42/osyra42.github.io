@@ -102,7 +102,7 @@
 
   h2, h3, h4, h5, h6,
   nav, .btn, .button,
-  header, footer, .header, .footer,
+  header, footer,
   sidebar, sidebar * {
     font-family: Arial, sans-serif !important;
   }

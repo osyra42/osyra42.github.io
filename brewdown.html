@@ -8,39 +8,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/code/styles.css" />
 
+  <!-- Meta Tags -->
+  <meta name="description" content="Brewdown - the Markdown-flavored converter used by Coffee Byte Dev. Syntax reference and behavior notes." />
+  <meta name="keywords" content="brewdown, markdown, coffee byte dev" />
+  <meta name="author" content="osyra42" />
+
   <link rel="stylesheet" href="assets/highlight/styles/base16/atelier-dune-light.min.css" />
   <script src="assets/highlight/highlight.min.js" defer></script>
   <script src="assets/code/themes.js" defer></script>
   <script src="assets/code/scripts.js" defer></script>
   <script src="assets/code/mobile.js" defer></script>
+
+  <!--
+    This page is static: its content is hand-written HTML, not a Brewdown paper.
+    It still participates in the site by declaring a PAPER id so scripts.js can
+    populate the sidebar, topbar, and theme picker like any other page. The id
+    resolves to a metadata-only markdown file (papers/brewdown-html.md) whose
+    first line supplies the page title and icon. The visible content below is
+    never converted by brewdown.js — that script is not loaded here.
+  -->
+  <script>const PAPER = 'brewdown-html';</script>
 </head>
 <body>
-
   <sidebar>
-    <!-- Filled by scripts.js from the static nav in index.html -->
+    <div class="text-center">
+      <a href="?paper=index">
+        <div class="brand-id">CBD // ARCHIVE</div>
+        <h1>Coffee Byte Dev</h1>
+      </a>
+      <div class="brand-sub">43 DOCS · 200K WORDS · IDX 2026.09</div>
+      <div class="theme-menu">
+        <span class="theme-menu-label">Flavors</span>
+        <div class="theme-picker" role="group" aria-label="Color theme">
+          <button class="theme-swatch theme-swatch--reset" type="button"
+                  data-theme-reset data-tooltip="Reset to default"
+                  aria-label="Reset theme to the site default" style="--sw:#ffffff">
+            <span aria-hidden="true">🚫</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+
+    <hr/>
+    <p class="sidebar-footer">
+      Contact: CoffeeByteDev@proton.me
+      <a href="https://librecounter.org/referer/show" target="_blank" rel="noopener noreferrer">
+        <img src="https://librecounter.org/outline-orange.svg" referrerPolicy="unsafe-url" />
+      </a>
+      <br>
+      Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
+    </p>
   </sidebar>
 
   <main>
 
     <div class="download-bar">
-      <h1>Brewdown</h1>
+      <h1 id="page-title">Brewdown</h1>
       <button class="download-btn" onclick="window.print()">Save as PDF</button>
     </div>
 
-    <h1>Brewdown</h1>
-    <p>Brewdown is the markdown converter I built to run this site. It's plain Markdown with the extras I kept reaching for - media embedding, spoilers, click-to-copy, collapsible sections, and a table of contents. This page is the reference: the syntax I use across Coffee Byte Dev and what the converter does with each piece.</p>
+    <div class="brewdown-rendered">
 
-    <hr>
+      <h1 class="header" id="brewdown">☕ Brewdown</h1>
 
-    <h2>How It Works</h2>
-    <p>Every paper is a markdown file in <code>papers/</code>. The page fetches the file, hands the text to <code>Brewdown.brewdown()</code>, and inserts the resulting HTML into the paper sheet. <code>brewdown.js</code> itself does no fetching - the caller owns that.</p>
+      <p class="paragraph">Brewdown is the Markdown-flavored converter used across Coffee Byte Dev. It's plain Markdown with the extensions this site kept needing — media embedding, spoilers, click-to-copy, collapsible sections, and a table of contents.</p>
 
-    <p>If a <code>highlight.js</code> build is on the page, Brewdown calls <code>hljs.highlightElement()</code> on each fenced block after rendering so code picks up syntax colors. <code>highlight.min.js</code> must load before <code>brewdown.js</code>, or the check fails and code blocks render plain.</p>
+      <p class="paragraph">This page is the reference. It's written as static HTML rather than as a Brewdown paper, because a Brewdown paper cannot document Brewdown — showing raw syntax would trigger the converter. So this page shows the syntax in code blocks and describes what each one does.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Text Formatting</h2>
-    <pre><code>**bold**
+      <h2 class="header" id="how-it-works">How It Works</h2>
+      <p class="paragraph">Every paper is a markdown file in <code class="code">papers/</code>. The page fetches the file, hands the text to <code class="code">Brewdown.brewdown()</code>, and inserts the resulting HTML into the paper sheet. <code class="code">brewdown.js</code> itself does no fetching — the caller owns that.</p>
+      <p class="paragraph">If a <code class="code">highlight.js</code> build is on the page, Brewdown calls <code class="code">hljs.highlightElement()</code> on each fenced block after rendering so code picks up syntax colors. <code class="code">highlight.min.js</code> must load before <code class="code">brewdown.js</code>, or the check fails and code blocks render plain.</p>
+
+      <hr class="divider">
+
+      <h2 class="header" id="text-formatting">Text Formatting</h2>
+      <pre class="code-block"><code>**bold**
 *italic*
 ~~strikethrough~~
 __underline__
@@ -48,123 +94,121 @@ __underline__
 !!spoiler, click to reveal!!
 ^^click to copy^^</code></pre>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Headings</h2>
-    <pre><code># Heading 1
+      <h2 class="header" id="headings">Headings</h2>
+      <pre class="code-block"><code># Heading 1
 ## Heading 2
 ### Heading 3
 #### Heading 4
 ##### Heading 5
 ###### Heading 6</code></pre>
-    <p>H1 through H3 auto-collect into the table of contents. Every heading gets an <code>id</code> auto-slugified from its text, so links can scroll to it.</p>
+      <p class="paragraph">H1 through H3 auto-collect into the table of contents. Every heading gets an <code class="code">id</code> auto-slugified from its text, so links can scroll to it.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Links</h2>
-    <pre><code>[Link Text](https://example.com)</code></pre>
-    <p>External links (http/https, or any URL ending in <code>.pdf</code>) open in a new tab and get a 🔗 indicator prepended. Links whose URL ends in <code>.zip</code> get a 💾 indicator, whether or not they're external.</p>
-    <p>Internal links stay in the same tab and carry no indicator. Bare URLs are <em>not</em> auto-linked - if you want a link, write one.</p>
+      <h2 class="header" id="links">Links</h2>
+      <pre class="code-block"><code>[Link Text](https://example.com)</code></pre>
+      <p class="paragraph">External links (http/https, or any URL ending in <code class="code">.pdf</code>) open in a new tab and get a 🔗 indicator prepended. Links whose URL ends in <code class="code">.zip</code> get a 💾 indicator, whether or not they're external.</p>
+      <p class="paragraph">Internal links stay in the same tab and carry no indicator. Bare URLs are <em>not</em> auto-linked — if you want a link, write one.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Media Embedding</h2>
-    <p>Use the image syntax for everything - Brewdown reads the file extension and picks the right HTML element.</p>
-    <pre><code>![alt text](photo.jpg)        -&gt; &lt;img&gt;
+      <h2 class="header" id="media-embedding">Media Embedding</h2>
+      <p class="paragraph">Use the image syntax for everything — Brewdown reads the file extension and picks the right HTML element.</p>
+      <pre class="code-block"><code>![alt text](photo.jpg)        -&gt; &lt;img&gt;
 ![alt text](video.mp4)        -&gt; &lt;video controls&gt;
 ![alt text](song.mp3)         -&gt; &lt;audio controls&gt;
 ![alt text](document.pdf)     -&gt; opens in new tab</code></pre>
-    <p><strong>Image:</strong> jpg, jpeg, png, gif, webp, svg, bmp, ico, avif</p>
-    <p><strong>Video:</strong> mp4, webm, ogg, mov</p>
-    <p><strong>Audio:</strong> mp3, wav, flac, aac, m4a</p>
-    <p><strong>Anything else:</strong> opens in a new tab.</p>
-    <p>Consecutive media-only lines are gathered into a flex gallery.</p>
+      <p class="paragraph"><strong>Image:</strong> jpg, jpeg, png, gif, webp, svg, bmp, ico, avif</p>
+      <p class="paragraph"><strong>Video:</strong> mp4, webm, ogg, mov</p>
+      <p class="paragraph"><strong>Audio:</strong> mp3, wav, flac, aac, m4a</p>
+      <p class="paragraph"><strong>Anything else:</strong> opens in a new tab.</p>
+      <p class="paragraph">Consecutive media-only lines are gathered into a flex gallery.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Code Blocks</h2>
-    <pre><code>```javascript
-function hello() {
+      <h2 class="header" id="code-blocks">Code Blocks</h2>
+      <pre class="code-block"><code class="language-javascript">function hello() {
     console.log("Hello, world!");
-}
-```</code></pre>
-    <p>The language tag drives highlight.js. Without one, the block renders plain.</p>
-    <p>To color the changelog, fence the block as <code>changelog</code> and prefix lines with <code>#</code>, <code>@</code>, <code>+</code>, <code>-</code>, <code>&gt;</code>, or <code>$</code>. Each prefix gets its own color, injected at load by <code>scripts.js</code>.</p>
+}</code></pre>
+      <p class="paragraph">The language tag drives highlight.js. Without one, the block renders plain.</p>
+      <p class="paragraph">To color the changelog, fence the block as <code class="code">changelog</code> and prefix lines with <code class="code">#</code>, <code class="code">@</code>, <code class="code">+</code>, <code class="code">-</code>, <code class="code">&gt;</code>, or <code class="code">$</code>. Each prefix gets its own color, injected at load by <code class="code">scripts.js</code>.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Blockquotes</h2>
-    <pre><code>&gt; This is a blockquote.
+      <h2 class="header" id="blockquotes">Blockquotes</h2>
+      <pre class="code-block"><code>&gt; This is a blockquote.
 &gt; It can span multiple lines.</code></pre>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Tables</h2>
-    <pre><code>| Name   | Role   |
+      <h2 class="header" id="tables">Tables</h2>
+      <pre class="code-block"><code>| Name   | Role   |
 |--------|--------|
 | Alice  | Admin  |
 | Bob    | User   |</code></pre>
-    <p>A first column header of <code>#</code> makes that column a narrow index column.</p>
+      <p class="paragraph">A first column header of <code class="code">#</code> makes that column a narrow index column.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Checkboxes</h2>
-    <pre><code>[ ] Unchecked
+      <h2 class="header" id="checkboxes">Checkboxes</h2>
+      <pre class="code-block"><code>[ ] Unchecked
 [x] Checked</code></pre>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Horizontal Rules</h2>
-    <pre><code>---</code></pre>
+      <h2 class="header" id="horizontal-rules">Horizontal Rules</h2>
+      <pre class="code-block"><code>---</code></pre>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Spoilers</h2>
-    <p>Click-to-reveal hidden text.</p>
-    <pre><code>!!This text is hidden until clicked.!!</code></pre>
-    <p>Renders as <code>&lt;span class="spoiler"&gt;</code> with a click handler that toggles the <code>revealed</code> class.</p>
+      <h2 class="header" id="spoilers">Spoilers</h2>
+      <p class="paragraph">Click-to-reveal hidden text.</p>
+      <pre class="code-block"><code>!!This text is hidden until clicked.!!</code></pre>
+      <p class="paragraph">Renders as <code class="code">&lt;span class="spoiler"&gt;</code> with a click handler that toggles the <code class="code">revealed</code> class.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Click-to-Copy</h2>
-    <p>Click the rendered text to copy its content to the clipboard. A 📋 indicator is prepended.</p>
-    <pre><code>^^npm install foo^^</code></pre>
-    <p>Renders as <code>&lt;span class="copy-text"&gt;</code> with a click handler that writes <code>data-copy</code> to the clipboard via <code>navigator.clipboard.writeText</code>.</p>
+      <h2 class="header" id="click-to-copy">Click-to-Copy</h2>
+      <p class="paragraph">Click the rendered text to copy its content to the clipboard.</p>
+      <pre class="code-block"><code>^^npm install foo^^</code></pre>
+      <p class="paragraph">Renders as <code class="code">&lt;span class="copy"&gt;</code> with a click handler that writes <code class="code">data-copy</code> to the clipboard via <code class="code">navigator.clipboard.writeText</code>.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Collapsible Sections</h2>
-    <p>Wraps content in a <code>&lt;details&gt;/&lt;summary&gt;</code> pair. The <code>&lt;details&gt;</code> gets an <code>id</code> auto-slugified from its title, so links can scroll to it - but collapsibles are <em>not</em> auto-listed in the TOC.</p>
-    <pre><code>&gt;&gt;&gt; Click to expand
+      <h2 class="header" id="collapsible-sections">Collapsible Sections</h2>
+      <p class="paragraph">Wraps content in a <code class="code">&lt;details&gt;/&lt;summary&gt;</code> pair. The <code class="code">&lt;details&gt;</code> gets an <code class="code">id</code> auto-slugified from its title, so links can scroll to it — but collapsibles are <em>not</em> auto-listed in the TOC.</p>
+      <pre class="code-block"><code>&gt;&gt;&gt; Click to expand
 Content goes here.
 More content.
 &lt;&lt;&lt;</code></pre>
-    <p>Nesting works:</p>
-    <pre><code>&gt;&gt;&gt; Outer
+      <p class="paragraph">Nesting works:</p>
+      <pre class="code-block"><code>&gt;&gt;&gt; Outer
 &gt;&gt;&gt; Inner
 Nested content.
 &lt;&lt;&lt;
 &lt;&lt;&lt;</code></pre>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>Table of Contents</h2>
-    <p>Write <code>::toc::</code> on its own line to place a table of contents. H1 through H3 auto-collect as sections are scanned.</p>
-    <pre><code>::toc::
+      <h2 class="header" id="table-of-contents">Table of Contents</h2>
+      <p class="paragraph">Write <code class="code">::toc::</code> on its own line to place a table of contents. H1 through H3 auto-collect as sections are scanned.</p>
+      <pre class="code-block"><code>::toc::
 
 ## First Section
 Content here.
 
 ## Second Section
 More content.</code></pre>
-    <p>Renders as <code>&lt;pre class="brewdown-toc"&gt;</code> with a bold <strong>TABLE OF CONTENTS</strong> header. Indentation follows heading depth. Clicking a link scrolls via native browser behavior.</p>
-    <p>When a paper includes other markdown via <code>&lt;script data-brewdown&gt;</code>, the TOC is rebuilt after those includes land, so their headings appear too.</p>
+      <p class="paragraph">Renders as <code class="code">&lt;pre class="brewdown-toc"&gt;</code> with a bold <strong>TABLE OF CONTENTS</strong> header. Indentation follows heading depth. Clicking a link scrolls via native browser behavior.</p>
+      <p class="paragraph">When a paper includes other markdown via <code class="code">&lt;script data-brewdown&gt;</code>, the TOC is rebuilt after those includes land, so their headings appear too.</p>
 
-    <hr>
+      <hr class="divider">
 
-    <h2>API</h2>
-    <p>The global <code>Brewdown</code> object exposes:</p>
-    <pre><code class="language-javascript">// Convert a markdown string to HTML
+      <h2 class="header" id="api">API</h2>
+      <p class="paragraph">The global <code class="code">Brewdown</code> object exposes:</p>
+      <pre class="code-block"><code class="language-javascript">// Convert a markdown string to HTML
 const html = Brewdown.brewdown(markdownText);
 
 // With options
@@ -182,7 +226,11 @@ Brewdown.processBrewdownDivs();
 // Rebuild any ::toc:: after late includes land
 Brewdown.rebuildToc();</code></pre>
 
-    <hr>
+      <hr class="divider">
+
+      <p class="paragraph"><em>Brewdown is a custom Markdown variant built for Coffee Byte Dev. It is not a standard and not compatible with CommonMark. The syntax above is what this site actually uses.</em></p>
+
+    </div>
 
     <button id="back-to-top">Back to Top</button>
   </main>

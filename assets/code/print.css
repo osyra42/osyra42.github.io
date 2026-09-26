@@ -7,6 +7,9 @@
     border-color: #999 !important;
     box-shadow: none !important;
     text-shadow: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   body {
@@ -14,12 +17,6 @@
     background: white !important;
     overflow: visible !important;
     filter: grayscale(100%) !important;
-  }
-
-  *, *::before, *::after {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
   }
 
   sidebar, .mobile-banner, .overlay,
@@ -53,7 +50,8 @@
     filter: none !important;
   }
 
-  main .brewdown-rendered::before { display: none !important; }
+  main .brewdown-rendered::before,
+  main .brewdown-rendered::after { display: none !important; }
 
   /* Keep code/quotes/tables legible with light borders instead of fills. */
   blockquote { border-left: 3px solid #999 !important; }
