@@ -1,4 +1,4 @@
-# 🔓 Become the Problem
+# 🔓 How to be the Problem
 ::toc::
 *A plain-language series on the security tools that quietly prove your locks don't work - and what to do about it.*
 
