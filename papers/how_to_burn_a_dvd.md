@@ -10,7 +10,7 @@ DVD Flick is a free, open-source Windows program that takes raw video files (AVI
 
 Think of it as the bridge between "I have a bunch of video files on my PC" and "I have a disc that works in my DVD player."
 
-Download the latest version from the official SourceForge page: [https://sourceforge.net/projects/dvdflick/](https://sourceforge.net/projects/dvdflick/)
+Download the latest version from the official SourceForge page: [https://dvdflick.net](https://dvdflick.net)
 
 **✅ Why use DVD Flick?**
 
