@@ -9,7 +9,7 @@
 # 🔨 Major projects I'm working on. 
 
 ### 📖 Operation Kaleidoscope
-I have started working on Rev4. 
+I have started working on Rev3. 
 This is the main writing project right now. It is a sci-fi noir series, and it follows Osyra throughout the Chimera incident. Rev3 is available with a wiki and a story page in PDF format. Check it out here. → [Operation Kaleidoscope](?paper=operation_kaleidoscope)
 
 ### 🤖 Vanity Bot
