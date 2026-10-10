@@ -8,7 +8,8 @@
 //    <details>, <hr>. A heading is never emitted as <p>.
 //
 // 2. Every block also carries a class describing its role: "header",
-//    "paragraph", "blank", "blockquote", "code", "collapsible", "media-gallery".
+//    "paragraph", "blank", "blockquote", "code", "collapsible", "media-gallery",
+//    "preserved".
 //    CSS targets classes first, tags second.
 //
 // 3. Every element with class="header" MUST have an id. The id is the slug
@@ -28,6 +29,15 @@
 //    lines, and indentation in the source are emitted as-is. The parser
 //    never trims, collapses, or normalizes whitespace. If the rendered
 //    output has odd spacing, the source has odd spacing.
+//
+// 8. Runs of lines whose leading or internal whitespace is load-bearing
+//    (ASCII art, box diagrams, aligned text, tab-indented blocks) are
+//    emitted inside <pre class="preserved"> so browsers never collapse
+//    them. Inline formatting still runs, so links and emphasis inside
+//    preserved blocks work normally. Auto-detection is conservative:
+//    a line is preservable if it starts with 2+ spaces, contains a tab,
+//    or contains a box-drawing character. ::raw:: and ::prose:: markers
+//    force the block on or off explicitly.
 // ============================================================================
 
 const Brewdown = (function () {
@@ -63,6 +73,20 @@ const Brewdown = (function () {
         }
         _usedSlugs.add(slug);
         return slug;
+    }
+
+    // Box-drawing block: U+2500–U+257F covers ─ │ ┌ ┐ └ ┘ ├ ┤ ┬ ┴ ┼
+    // ═ ║ ╔ ╗ ╚ ╝ ╠ ╣ ╦ ╩ ╬ and the dashed/double variants.
+    const BOX_DRAWING_RE = /[\u2500-\u257F]/;
+
+    // Conservative preservation test. A line is "whitespace significant"
+    // if its leading whitespace or content contains load-bearing spacing.
+    // Trailing double-spaces in normal prose are deliberately NOT matched.
+    function isPreservableLine(raw) {
+        if (BOX_DRAWING_RE.test(raw)) return true;   // box art
+        if (/^\s{2,}/.test(raw)) return true;         // indented line
+        if (/\t/.test(raw)) return true;              // tab
+        return false;
     }
 
     // ------------------------------------------------------------------------
@@ -172,10 +196,13 @@ const Brewdown = (function () {
         let tableRows = [];
         let inGallery = false;
         let detailsDepth = 0;
+        let inPreserved = false;
+        let preservedLines = [];
 
         function closeOpenBlocks() {
             if (inBlockquote) { htmlContent += '</blockquote>\n'; inBlockquote = false; }
             if (inGallery) { htmlContent += '</div>\n'; inGallery = false; }
+            if (inPreserved) { flushPreserved(); }
             if (inTable) { flushTable(); }
         }
 
@@ -202,17 +229,37 @@ const Brewdown = (function () {
             inTable = false;
         }
 
+        // A "preserved" block is a run of lines whose leading or internal
+        // whitespace is load-bearing. Contents are emitted inside a
+        // <pre class="preserved"> so browsers never collapse them.
+        // Inline formatting still runs so links and emphasis work.
+        function flushPreserved() {
+            if (preservedLines.length === 0) {
+                inPreserved = false;
+                return;
+            }
+            const joined = preservedLines.join('\n');
+            const rendered = parseInlineFormatting(joined);
+            htmlContent += `<pre class="preserved">${rendered}</pre>\n`;
+            preservedLines = [];
+            inPreserved = false;
+        }
+
         lines.forEach(rawLine => {
             const indent = inCodeBlock ? 0 : rawLine.match(/^(\s*)/)[1].length;
-            const line = inCodeBlock ? rawLine.replace(baseIndentRe, '') : rawLine.trimStart();
+            const line = inCodeBlock ? rawLine.replace(baseIndentRe, '') : rawLine;
 
             // ---- Fenced code blocks ----------------------------------------
-            if (line.startsWith('```')) {
+            // Fence detection tolerates leading whitespace so that
+            // tab-indented code samples still work.
+            const fenceProbe = line.trimStart();
+            if (fenceProbe.startsWith('```')) {
+                if (inPreserved) flushPreserved();
                 if (!inCodeBlock) {
                     closeOpenBlocks();
                     inCodeBlock = true;
                     codeBlockContent = '';
-                    codeBlockLang = line.trim().substring(3).trim();
+                    codeBlockLang = fenceProbe.substring(3).trim();
                     baseIndentRe = /^/;
                 } else {
                     const langClass = codeBlockLang ? ` class="language-${codeBlockLang}"` : '';
@@ -234,9 +281,13 @@ const Brewdown = (function () {
             }
 
             // ---- Tables -----------------------------------------------------
-            if (line.startsWith('|') && line.endsWith('|')) {
+            // Table detection uses the trimmed line so indented tables work,
+            // but the row is stored trimmed for cell splitting.
+            const tableProbe = line.trimStart();
+            if (tableProbe.startsWith('|') && tableProbe.endsWith('|')) {
+                if (inPreserved) flushPreserved();
                 if (!inTable) { closeOpenBlocks(); inTable = true; }
-                tableRows.push(line);
+                tableRows.push(tableProbe);
                 return;
             } else if (inTable) {
                 flushTable();
@@ -244,6 +295,7 @@ const Brewdown = (function () {
 
             // ---- Collapsibles ----------------------------------------------
             if (line.startsWith('>>>')) {
+                if (inPreserved) flushPreserved();
                 closeOpenBlocks();
                 const title = line.substring(3).trim() || 'Details';
                 const slug = uniqueSlug(slugify(title));
@@ -252,6 +304,7 @@ const Brewdown = (function () {
                 return;
             }
             if (line === '<<<') {
+                if (inPreserved) flushPreserved();
                 closeOpenBlocks();
                 if (detailsDepth > 0) {
                     htmlContent += '</details>\n';
@@ -260,8 +313,21 @@ const Brewdown = (function () {
                 return;
             }
 
+            // ---- Explicit preserved markers --------------------------------
+            if (line.trim() === '::raw::') {
+                closeOpenBlocks();
+                inPreserved = true;
+                preservedLines = [];
+                return;
+            }
+            if (line.trim() === '::prose::') {
+                if (inPreserved) flushPreserved();
+                return;
+            }
+
             // ---- TOC marker -------------------------------------------------
             if (line.trim() === '::toc::') {
+                if (inPreserved) flushPreserved();
                 closeOpenBlocks();
                 htmlContent += '\x00BREWDOWN_TOC\x00\n';
                 return;
@@ -270,6 +336,7 @@ const Brewdown = (function () {
             // ---- Headings ---------------------------------------------------
             const headerMatch = line.match(/^(#{1,6})\s+(.+)$/);
             if (headerMatch) {
+                if (inPreserved) flushPreserved();
                 closeOpenBlocks();
                 const level = headerMatch[1].length;
                 const headerText = headerMatch[2];
@@ -284,6 +351,7 @@ const Brewdown = (function () {
 
             // ---- Blockquotes ------------------------------------------------
             if (line.startsWith('> ') || line === '>') {
+                if (inPreserved) flushPreserved();
                 const content = line === '>' ? '' : line.substring(2);
                 if (!inBlockquote) {
                     htmlContent += '<blockquote class="blockquote">\n';
@@ -297,6 +365,7 @@ const Brewdown = (function () {
 
             // ---- Horizontal rule --------------------------------------------
             if (line.match(/^[-*]{3,}$/)) {
+                if (inPreserved) flushPreserved();
                 closeOpenBlocks();
                 htmlContent += '<hr class="divider">\n';
                 return;
@@ -307,9 +376,29 @@ const Brewdown = (function () {
                 if (inBlockquote) {
                     htmlContent += '</blockquote>\n';
                     inBlockquote = false;
+                } else if (inPreserved) {
+                    // Blank lines inside a preserved run are part of the block.
+                    preservedLines.push('');
                 } else {
                     htmlContent += '<p class="blank"></p>\n';
                 }
+                return;
+            }
+
+            // ---- Preserved block (whitespace-significant run) ---------------
+            if (inPreserved) {
+                if (isPreservableLine(rawLine)) {
+                    preservedLines.push(rawLine);
+                    return;
+                }
+                // Run ended. Flush and fall through to normal handling.
+                flushPreserved();
+            }
+
+            if (isPreservableLine(rawLine)) {
+                closeOpenBlocks();
+                inPreserved = true;
+                preservedLines.push(rawLine);
                 return;
             }
 
@@ -337,6 +426,7 @@ const Brewdown = (function () {
             htmlContent += `<pre class="code-block"><code${langClass}>${escapeHtml(codeBlockContent)}</code></pre>\n`;
         }
         if (inBlockquote) htmlContent += '</blockquote>\n';
+        if (inPreserved) flushPreserved();
         if (inTable) flushTable();
         while (detailsDepth > 0) { htmlContent += '</details>\n'; detailsDepth--; }
 

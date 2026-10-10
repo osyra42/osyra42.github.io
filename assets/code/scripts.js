@@ -170,13 +170,68 @@ function escapeHtml(value) {
 
 // ---------------------------------------------------------------------------
 // SIDEBAR DECORATION
-// Adds current-page marker, "new" sparkle, and hover metadata. Runs after
-// loadNavigation() has rendered the CSV rows into #sidebar-nav.
 // ---------------------------------------------------------------------------
 
-function initSidebarNavigation() {
-  const FRESH_DAYS = 14;
-  const cutoff = Date.now() - FRESH_DAYS * 86400000;
+const FRESH_STOPS = [
+  { label: 'Off',      days: 0        },
+  { label: '1 day',    days: 1        },
+  { label: '2 days',   days: 2        },
+  { label: '3 days',   days: 3        },
+  { label: '4 days',   days: 4        },
+  { label: '5 days',   days: 5        },
+  { label: '6 days',   days: 6        },
+  { label: '1 week',   days: 7        },
+  { label: '10 days',  days: 10       },
+  { label: '2 weeks',  days: 14       },
+  { label: '3 weeks',  days: 21       },
+  { label: '1 month',  days: 30       },
+  { label: '6 weeks',  days: 45       },
+  { label: '2 months', days: 60       },
+  { label: '3 months', days: 90       },
+  { label: '6 months', days: 180      },
+  { label: '1 year',   days: 365      },
+  { label: 'All',      days: Infinity },
+];
+
+const FRESH_KEY = 'sidebarFreshIndex';
+const DEFAULT_FRESH_LABEL = '2 weeks';
+
+function defaultFreshIndex() {
+  const i = FRESH_STOPS.findIndex(s => s.label === DEFAULT_FRESH_LABEL);
+  return i >= 0 ? i : 0;
+}
+
+function readStoredFreshIndex() {
+  try {
+    const raw = localStorage.getItem(FRESH_KEY);
+    if (raw == null) return null;
+    const n = Number(raw);
+    return Number.isInteger(n) && n >= 0 && n < FRESH_STOPS.length ? n : null;
+  } catch (_) {
+    return null;
+  }
+}
+
+function writeStoredFreshIndex(i) {
+  try {
+    localStorage.setItem(FRESH_KEY, String(i));
+  } catch (_) {
+    /* private mode / quota / sandbox — silently ignore */
+  }
+}
+
+function getFreshIndex() {
+  return readStoredFreshIndex() ?? defaultFreshIndex();
+}
+
+function getFreshDays() {
+  return FRESH_STOPS[getFreshIndex()].days;
+}
+
+// Apply the current-page marker, sparkle, and hover metadata.
+function decorateSidebarLinks() {
+  const days = getFreshDays();
+  const cutoff = days === Infinity ? -Infinity : Date.now() - days * 86400000;
 
   document.querySelectorAll('.sidebar-nav a').forEach(a => {
     const href = (a.getAttribute('href') || '').trim();
@@ -187,45 +242,37 @@ function initSidebarNavigation() {
       a.setAttribute('aria-current', 'page');
     }
 
+    // --- fresh sparkle: recompute every call ---
     const date = (a.dataset.date || '').trim();
+    const existingSparkle = a.querySelector('.sidebar-new');
 
-    if (date) {
+    if (date && days > 0) {
       const dt = Date.parse(date.replace(/\./g, '-'));
+      const isFresh = Number.isFinite(dt) && dt >= cutoff;
 
-      if (
-        Number.isFinite(dt)
-        && dt >= cutoff
-        && !a.querySelector('.sidebar-new')
-      ) {
-        a.insertAdjacentHTML(
-          'beforeend',
-          ' <span class="sidebar-new">✨</span>',
-        );
+      if (isFresh && !existingSparkle) {
+        a.insertAdjacentHTML('beforeend', ' <span class="sidebar-new">✨</span>');
+      } else if (!isFresh && existingSparkle) {
+        existingSparkle.remove();
       }
+    } else if (existingSparkle) {
+      existingSparkle.remove();
     }
 
+    // --- hover metadata (idempotent, only add once) ---
     const words = (a.dataset.words || '').trim();
     const minutes = (a.dataset.minutes || '').trim();
     const parts = [];
 
-    if (words) {
-      parts.push(`${Number(words).toLocaleString()} WORDS`);
-    }
-
-    if (minutes) {
-      parts.push(`${minutes} MIN`);
-    }
-
-    if (date) {
-      parts.push(`UPD ${date}`);
-    }
+    if (words) parts.push(`${Number(words).toLocaleString()} WORDS`);
+    if (minutes) parts.push(`${minutes} MIN`);
+    if (date) parts.push(`UPD ${date}`);
 
     if (parts.length) {
       const meta = parts.join(' · ');
       a.title = meta.replace(/·/g, '-');
 
       const li = a.closest('li');
-
       if (li && !li.querySelector('.nav-meta')) {
         li.insertAdjacentHTML(
           'beforeend',
@@ -234,6 +281,64 @@ function initSidebarNavigation() {
       }
     }
   });
+}
+
+// Build the slider once and wire it up.
+function initFreshSlider() {
+  const host = document.getElementById('sidebar-fresh-slider');
+  if (!host) return;
+
+  const idx = getFreshIndex();
+
+  host.innerHTML = `
+    <label class="fresh-slider-label" for="fresh-range">
+      <span>New badge:</span>
+      <span class="fresh-slider-value" data-value>${FRESH_STOPS[idx].label}</span>
+    </label>
+    <input
+      id="fresh-range"
+      type="range"
+      min="0"
+      max="${FRESH_STOPS.length - 1}"
+      step="1"
+      value="${idx}"
+      aria-valuetext="${FRESH_STOPS[idx].label}"
+    />
+    <div class="fresh-ticks" aria-hidden="true">
+      ${FRESH_STOPS.map(() => '<span></span>').join('')}
+    </div>
+  `;
+
+  const range = host.querySelector('#fresh-range');
+  const valueEl = host.querySelector('[data-value]');
+  const ticks = host.querySelectorAll('.fresh-ticks span');
+
+  const paintTicks = i => {
+    ticks.forEach((t, n) => t.classList.toggle('on', n <= i));
+  };
+
+  paintTicks(idx);
+
+  // Live feedback while dragging — updates UI and sparkles, no disk write.
+  range.addEventListener('input', () => {
+    const i = Number(range.value);
+    const stop = FRESH_STOPS[i];
+    valueEl.textContent = stop.label;
+    range.setAttribute('aria-valuetext', stop.label);
+    paintTicks(i);
+    decorateSidebarLinks();
+  });
+
+  // Persist once the user releases the slider.
+  range.addEventListener('change', () => {
+    writeStoredFreshIndex(Number(range.value));
+  });
+}
+
+// Call this after loadNavigation() has rendered the rows.
+function initSidebarNavigation() {
+  initFreshSlider();
+  decorateSidebarLinks();
 }
 
 // ---------------------------------------------------------------------------

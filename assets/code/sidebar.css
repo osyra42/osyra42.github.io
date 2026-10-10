@@ -1,33 +1,73 @@
-/* sidebar.css — styles for the <sidebar> column and its contents. */
+/* sidebar.css — styles for the <sidebar> column and its contents.
+   Layout model: the <sidebar> itself scrolls. The brand block is sticky
+   at the top. Nav, slider, and footer all flow naturally below it. */
+
+/* ---------------------------------------------------------------------------
+   Shell
+   --------------------------------------------------------------------------- */
 
 sidebar {
-  display: flex;
-  flex-direction: column;
+  display: block;                         /* not flex — plain scroll column */
+  height: 100vh;
+  height: 100dvh;                         /* mobile: excludes URL bar */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 12px;
   background-color: var(--dark-caramel);
   border-right: 2px solid var(--toasted-almond);
-  padding: 12px;
   background-image: repeating-linear-gradient(180deg,
     var(--tick-line) 0 1px, transparent 1px 13px);
   background-repeat: repeat-y;
   background-position: top right;
   background-size: 7px 100%;
-  background-attachment: local;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
   scrollbar-width: thin;
   scrollbar-color: var(--accent-light) var(--dark-chocolate);
-  -ms-overflow-style: none;
-  overflow-x: hidden;
-  overscroll-behavior-y: none;
-  overscroll-behavior-x: none;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-padding-top: 200px;              /* for anchor jumps under sticky brand */
 }
 
 /* ---------------------------------------------------------------------------
-   Brand block
+   Brand block — sticky at top
    --------------------------------------------------------------------------- */
+
+sidebar .sidebar-brand {
+  position: sticky;
+  top: -12px;                             /* cancel the sidebar padding */
+  z-index: 2;
+  margin: -12px -12px 0;                  /* bleed to sidebar edges */
+  padding: 12px 20px 14px;                /* re-apply inner padding */
+  background: var(--dark-caramel);        /* opaque so rows scroll under */
+  border-bottom: 1px solid var(--toasted-almond);
+  overflow: hidden;
+}
+
+/* The hatch, anchored to the brand block. */
+sidebar .sidebar-brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 72px;
+  background: repeating-linear-gradient(45deg,
+    var(--hatch-line) 0 2px, transparent 2px 7px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+  mask-image: linear-gradient(90deg, transparent, #000);
+  pointer-events: none;
+  z-index: 0;
+}
+
+sidebar .sidebar-brand > * {
+  position: relative;
+  z-index: 1;
+}
+
+sidebar .sidebar-brand > a {
+  display: block;
+  text-decoration: none;
+}
 
 sidebar .brand-id {
   font-family: var(--mono);
@@ -44,7 +84,7 @@ sidebar h1 {
   font-weight: 400;
   letter-spacing: -0.01em;
   color: var(--steamed-milk);
-  margin-top: 5px;
+  margin: 5px 0 0;
   line-height: 1.15;
 }
 
@@ -56,97 +96,21 @@ sidebar .brand-sub {
   margin-top: 4px;
 }
 
-sidebar hr {
-  border: 0;
-  height: 1px;
-  background-color: var(--toasted-almond);
-  margin: 8px 0;
-}
-
-sidebar p {
-  color: var(--half-and-half);
-}
-
-sidebar details summary {
-  cursor: pointer;
-  color: var(--accent);
-  font-weight: bold;
-  padding: 0.3em 0;
-  transition: color 0.3s;
-}
-
-sidebar details summary:hover {
-  color: var(--light-cream);
-}
-
-sidebar div {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 8px;
-}
-
-sidebar div a {
-  color: var(--half-and-half);
-  text-decoration: none;
-  transition: color 0.2s;
-  display: inline-block;
-  margin-bottom: 4px;
-  font-size: 0.92rem;
-}
-
-sidebar div a:hover {
-  color: var(--accent-light);
-}
-
-/* First child holds the brand block. The hatch and the border live here. */
-sidebar > div:first-child {
-  position: relative;
-  flex-shrink: 0;
-  text-align: left;
-  padding: 0 8px 14px;
-  border-bottom: 1px solid var(--toasted-almond);
-  overflow: hidden;
-}
-
-sidebar > div:first-child > a {
-  display: block;
-  text-decoration: none;
-}
-
-sidebar > div:first-child::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-  height: 72px;
-  background: repeating-linear-gradient(45deg,
-    var(--hatch-line) 0 2px, transparent 2px 7px);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
-  mask-image: linear-gradient(90deg, transparent, #000);
-  pointer-events: none;
-  z-index: 0;
-}
-
-sidebar > div:first-child > * {
-  position: relative;
-  z-index: 1;
-}
-
 /* ---------------------------------------------------------------------------
-   Nav — section headers, rows, hover and current states
+   Nav — natural flow, no internal scroll
    --------------------------------------------------------------------------- */
 
-sidebar nav {
+sidebar .sidebar-nav {
   color: var(--accent-dark);
+  counter-reset: paper-index;
+  margin: 0 -12px;                        /* bleed to sidebar edges */
+  padding: 0 12px;
 }
 
-sidebar nav ul {
+sidebar .sidebar-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -12px;
-  margin-right: -12px;
 }
 
 sidebar h3 {
@@ -160,11 +124,6 @@ sidebar h3 {
   text-transform: uppercase;
   color: var(--half-and-half);
   margin: 18px 0 6px;
-  flex-shrink: 0;
-}
-
-sidebar nav h3 {
-  padding-left: 0;
 }
 
 sidebar h3 .sec-rule {
@@ -183,31 +142,31 @@ sidebar h3 .sec-count {
   line-height: 1.4;
 }
 
+/* Row entrance animation */
 @keyframes nav-in {
   from { opacity: 0; transform: translateX(-8px); }
   to   { opacity: 1; transform: none; }
 }
 
-sidebar nav h3,
-sidebar nav li {
+sidebar .sidebar-nav h3,
+sidebar .sidebar-nav li {
   animation: nav-in 0.16s cubic-bezier(.22, .61, .36, 1) both;
 }
 
-sidebar nav li:nth-child(-n+2)  { animation-delay: 0.015s; }
-sidebar nav li:nth-child(n+3)   { animation-delay: 0.03s; }
-sidebar nav li:nth-child(n+5)   { animation-delay: 0.045s; }
-sidebar nav li:nth-child(n+7)   { animation-delay: 0.06s; }
-sidebar nav li:nth-child(n+9)   { animation-delay: 0.075s; }
-sidebar nav li:nth-child(n+11)  { animation-delay: 0.09s; }
+sidebar .sidebar-nav li:nth-child(-n+2) { animation-delay: 0.015s; }
+sidebar .sidebar-nav li:nth-child(n+3)  { animation-delay: 0.03s;  }
+sidebar .sidebar-nav li:nth-child(n+5)  { animation-delay: 0.045s; }
+sidebar .sidebar-nav li:nth-child(n+7)  { animation-delay: 0.06s;  }
+sidebar .sidebar-nav li:nth-child(n+9)  { animation-delay: 0.075s; }
+sidebar .sidebar-nav li:nth-child(n+11) { animation-delay: 0.09s;  }
 
 @media (prefers-reduced-motion: reduce) {
-  sidebar nav h3,
-  sidebar nav li {
-    animation: none;
-  }
+  sidebar .sidebar-nav h3,
+  sidebar .sidebar-nav li { animation: none; }
 }
 
-sidebar nav li {
+/* Rows */
+sidebar .sidebar-nav li {
   --nav-pad: 10px;
   display: flex;
   flex-direction: column;
@@ -215,22 +174,23 @@ sidebar nav li {
   border-left: 2px solid transparent;
   padding: 3px var(--nav-pad);
   transition: background 0.18s, border-color 0.18s, padding-left 0.18s;
+  counter-increment: paper-index;
 }
 
-sidebar nav li .row-top {
+sidebar .sidebar-nav li .row-top {
   display: flex;
   align-items: baseline;
   gap: 9px;
 }
 
-sidebar nav li:hover,
-sidebar nav li:focus-within {
+sidebar .sidebar-nav li:hover,
+sidebar .sidebar-nav li:focus-within {
   background: linear-gradient(90deg, var(--row-hover), transparent 92%);
   border-left-color: var(--accent-light);
   padding-left: calc(var(--nav-pad) + 6px);
 }
 
-sidebar nav a {
+sidebar .sidebar-nav a {
   color: var(--light-cream);
   text-decoration: none;
   transition: color 0.2s;
@@ -240,31 +200,28 @@ sidebar nav a {
   font-size: 0.92rem;
 }
 
-sidebar nav a:hover {
-  color: var(--accent-light);
-}
+sidebar .sidebar-nav a:hover { color: var(--accent-light); }
 
-/* Current page row */
-
-sidebar nav a[aria-current="page"] {
+/* Current page */
+sidebar .sidebar-nav a[aria-current="page"] {
   color: #fff;
   font-weight: 700;
 }
 
-sidebar nav li:has(a[aria-current="page"]) {
+sidebar .sidebar-nav li:has(a[aria-current="page"]) {
   background: linear-gradient(90deg, var(--row-active), transparent 96%);
   border-left-color: var(--accent);
 }
 
-sidebar nav li:has(a[aria-current="page"]) > .row-top > a {
-  color: #fff;
-}
-
-sidebar nav li:has(a[aria-current="page"]) > .row-top {
+sidebar .sidebar-nav li:has(a[aria-current="page"]) > .row-top {
   position: relative;
 }
 
-sidebar nav li:has(a[aria-current="page"]) > .row-top::after {
+sidebar .sidebar-nav li:has(a[aria-current="page"]) > .row-top > a {
+  color: #fff;
+}
+
+sidebar .sidebar-nav li:has(a[aria-current="page"]) > .row-top::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -277,9 +234,8 @@ sidebar nav li:has(a[aria-current="page"]) > .row-top::after {
   pointer-events: none;
 }
 
-/* Row metadata — hidden until hover, or always shown on the current row */
-
-sidebar nav li .nav-meta {
+/* Row metadata — revealed on hover / focus / current */
+sidebar .sidebar-nav li .nav-meta {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
@@ -287,7 +243,7 @@ sidebar nav li .nav-meta {
               opacity 0.18s ease;
 }
 
-sidebar nav li .nav-meta > span {
+sidebar .sidebar-nav li .nav-meta > span {
   overflow: hidden;
   font-family: var(--mono);
   font-size: 0.56rem;
@@ -297,51 +253,18 @@ sidebar nav li .nav-meta > span {
   padding-left: 30px;
 }
 
-sidebar nav li:hover .nav-meta,
-sidebar nav li:focus-within .nav-meta {
+sidebar .sidebar-nav li:hover .nav-meta,
+sidebar .sidebar-nav li:focus-within .nav-meta,
+sidebar .sidebar-nav li:has(a[aria-current="page"]) .nav-meta {
   grid-template-rows: 1fr;
   opacity: 1;
 }
 
-sidebar nav li:has(a[aria-current="page"]) .nav-meta {
-  grid-template-rows: 1fr;
-  opacity: 1;
-}
-
-sidebar nav li:has(a[aria-current="page"]) .nav-meta > span {
+sidebar .sidebar-nav li:has(a[aria-current="page"]) .nav-meta > span {
   color: #fff;
 }
 
-/* Row index */
-
-.nav-idx {
-  flex: none;
-  font-family: var(--mono);
-  font-variant-numeric: tabular-nums;
-  font-size: 0.61rem;
-  letter-spacing: 0.08em;
-  color: var(--toasted-almond);
-  transition: color 0.2s;
-}
-
-sidebar nav li:hover .nav-idx,
-sidebar nav li:focus-within .nav-idx {
-  color: var(--accent-light);
-}
-
-sidebar nav li:has(a[aria-current="page"]) .nav-idx {
-  color: var(--accent);
-}
-
-/* Sidebar document index: counts every paper continuously across sections. */
-.sidebar-nav {
-  counter-reset: paper-index;
-}
-
-.sidebar-nav li {
-  counter-increment: paper-index;
-}
-
+/* Continuous index number */
 .sidebar-nav li > a::before {
   content: counter(paper-index, decimal-leading-zero);
   display: inline-block;
@@ -353,17 +276,131 @@ sidebar nav li:has(a[aria-current="page"]) .nav-idx {
   opacity: 0.7;
 }
 
+/* Sparkle */
+.sidebar-new {
+  font-size: 0.7em;
+  vertical-align: baseline;
+  filter: drop-shadow(0 0 3px var(--accent-glow));
+}
+
+/* ---------------------------------------------------------------------------
+   Fresh-badge slider
+   --------------------------------------------------------------------------- */
+
+sidebar .sidebar-fresh-slider {
+  margin: 14px -12px 0;                   /* bleed edges, gap above */
+  padding: 10px 20px 8px;
+  border-top: 1px solid var(--toasted-almond);
+  border-bottom: 1px solid var(--toasted-almond);
+  font-family: var(--mono);
+  color: var(--half-and-half);
+}
+
+sidebar .sidebar-fresh-slider .fresh-slider-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.59rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+sidebar .sidebar-fresh-slider .fresh-slider-label::after {
+  content: "";
+  flex: 1;
+  order: 1;
+  height: 1px;
+  background: var(--toasted-almond);
+}
+
+sidebar .sidebar-fresh-slider .fresh-slider-value {
+  order: 2;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+sidebar .sidebar-fresh-slider input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2px;
+  background: var(--toasted-almond);
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+sidebar .sidebar-fresh-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 14px;
+  background: var(--accent);
+  border: 1px solid var(--dark-chocolate);
+  border-radius: 0;
+  box-shadow: 0 0 4px var(--accent-glow);
+  cursor: grab;
+}
+sidebar .sidebar-fresh-slider input[type="range"]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+
+sidebar .sidebar-fresh-slider input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 14px;
+  background: var(--accent);
+  border: 1px solid var(--dark-chocolate);
+  border-radius: 0;
+  box-shadow: 0 0 4px var(--accent-glow);
+  cursor: grab;
+}
+
+sidebar .sidebar-fresh-slider input[type="range"]:focus-visible {
+  outline: 1px solid var(--accent-light);
+  outline-offset: 4px;
+}
+
+sidebar .sidebar-fresh-slider .fresh-ticks {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3px 5px 0;
+  pointer-events: none;
+}
+
+sidebar .sidebar-fresh-slider .fresh-ticks span {
+  width: 1px;
+  height: 5px;
+  background: var(--toasted-almond);
+  opacity: 0.6;
+  transition: background 0.15s, opacity 0.15s;
+}
+
+sidebar .sidebar-fresh-slider .fresh-ticks span.on {
+  background: var(--accent);
+  opacity: 1;
+}
+
 /* ---------------------------------------------------------------------------
    Footer
    --------------------------------------------------------------------------- */
 
 sidebar .sidebar-footer {
   position: relative;
+  margin: 12px 0 0;
+  padding: 0 0 4px;
   font-size: 10px;
+  line-height: 1.4;
   color: var(--accent-light);
   text-align: left;
-  margin: 0;
-  padding: 0;
 }
 
 sidebar .sidebar-footer a {
@@ -448,9 +485,7 @@ sidebar .sidebar-footer img {
   line-height: 1;
 }
 
-.theme-swatch--reset span {
-  display: block;
-}
+.theme-swatch--reset span { display: block; }
 
 .theme-swatch:hover {
   transform: translateY(-2px);
@@ -478,4 +513,45 @@ sidebar .sidebar-footer img {
   border-width: 0 2px 2px 0;
   transform: translate(-50%, -50%) rotate(45deg);
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .8));
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile
+   --------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  sidebar {
+    padding: 10px;
+    scroll-padding-top: 170px;
+  }
+
+  sidebar .sidebar-brand {
+    top: -10px;
+    margin: -10px -10px 0;
+    padding: 10px 16px 12px;
+  }
+
+  sidebar h1 { font-size: 1.25rem; }
+  sidebar .brand-id { font-size: 0.56rem; }
+  sidebar .brand-sub { font-size: 0.56rem; }
+  sidebar .theme-menu { margin-top: 12px; }
+  .theme-menu { --sw-size: 22px; --sw-gap: 5px; }
+
+  sidebar .sidebar-nav { margin: 0 -10px; padding: 0 10px; }
+  sidebar .sidebar-nav li { padding: 2px 8px; }
+  sidebar .sidebar-nav a { font-size: 0.86rem; margin: 2px 0; }
+  sidebar h3 { margin: 14px 0 4px; font-size: 0.58rem; }
+
+  sidebar .sidebar-fresh-slider {
+    margin: 10px -10px 0;
+    padding: 8px 16px 6px;
+  }
+  sidebar .sidebar-fresh-slider .fresh-slider-label {
+    margin-bottom: 6px;
+    font-size: 0.55rem;
+  }
+
+  sidebar .sidebar-footer { font-size: 9px; margin-top: 10px; }
+  sidebar .sidebar-footer a { font-size: 11px; }
+  sidebar .sidebar-footer img { width: 16px; }
 }
