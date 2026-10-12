@@ -33,8 +33,6 @@ sidebar {
    --------------------------------------------------------------------------- */
 
 sidebar .sidebar-brand {
-  position: sticky;
-  top: -12px;                             /* cancel the sidebar padding */
   z-index: 2;
   margin: -12px -12px 0;                  /* bleed to sidebar edges */
   padding: 12px 20px 14px;                /* re-apply inner padding */
