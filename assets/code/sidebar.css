@@ -296,23 +296,15 @@ sidebar .sidebar-fresh-slider {
 
 sidebar .sidebar-fresh-slider .fresh-slider-label {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
   margin-bottom: 8px;
   font-size: 0.59rem;
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   line-height: 1.4;
-}
-
-sidebar .sidebar-fresh-slider .fresh-slider-label::after {
-  content: "";
-  flex: 1;
-  order: 1;
-  height: 1px;
-  background: var(--toasted-almond);
 }
 
 sidebar .sidebar-fresh-slider .fresh-slider-value {

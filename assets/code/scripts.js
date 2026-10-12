@@ -229,8 +229,9 @@ function getFreshDays() {
 }
 
 // Apply the current-page marker, sparkle, and hover metadata.
-function decorateSidebarLinks() {
-  const days = getFreshDays();
+function decorateSidebarLinks(explicitIndex) {
+  const idx = explicitIndex ?? getFreshIndex();
+  const days = FRESH_STOPS[idx].days;
   const cutoff = days === Infinity ? -Infinity : Date.now() - days * 86400000;
 
   document.querySelectorAll('.sidebar-nav a').forEach(a => {
@@ -326,10 +327,9 @@ function initFreshSlider() {
     valueEl.textContent = stop.label;
     range.setAttribute('aria-valuetext', stop.label);
     paintTicks(i);
-    decorateSidebarLinks();
+    decorateSidebarLinks(i);   // ← pass the live index
   });
 
-  // Persist once the user releases the slider.
   range.addEventListener('change', () => {
     writeStoredFreshIndex(Number(range.value));
   });
