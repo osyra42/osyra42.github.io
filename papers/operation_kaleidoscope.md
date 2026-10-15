@@ -35,8 +35,9 @@ across all revisions, including:
 
 # Rev3 - 1529 words
 This is the outline for the next version. 
-## Outline
-  - [Outline](?paper=../operation_kaleidoscope/rev3/notes/outline)
+## Origin Story
+ - [Chapter 01](?paper=../operation_kaleidoscope/rev3/origin_story/chapter_01)
+ - [Outline](?paper=../operation_kaleidoscope/rev3/origin_story/outline)
 
 >>>Rev2 - 40049 words
 # Rev2
