@@ -237,7 +237,7 @@ main .download-bar {
   font-family: var(--mono);
   font-size: 0.61rem;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 main .download-bar h1 {

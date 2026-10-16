@@ -265,9 +265,9 @@ function decorateSidebarLinks(explicitIndex) {
     const minutes = (a.dataset.minutes || '').trim();
     const parts = [];
 
-    if (words) parts.push(`${Number(words).toLocaleString()} WORDS`);
-    if (minutes) parts.push(`${minutes} MIN`);
-    if (date) parts.push(`UPD ${date}`);
+    if (words) parts.push(`${Number(words).toLocaleString()}`);
+    if (minutes) parts.push(formatReadingTime(minutes));
+    if (date) parts.push(`${date}`);
 
     if (parts.length) {
       const meta = parts.join(' · ');
@@ -556,7 +556,12 @@ window.currentPaper = function () {
 };
 
 window.currentRecord = function () {
-  const link = document.querySelector(`.sidebar-nav a[href="?paper=${window.currentPaper()}"]`);
+  const paper = window.currentPaper();
+  const link = [...document.querySelectorAll('.sidebar-nav a')]
+    .find(a => {
+      const q = (a.getAttribute('href') || '').split('?')[1] || '';
+      return new URLSearchParams(q).get('paper') === paper;
+    });
   if (!link) return null;
   const h3 = link.closest('ul')?.previousElementSibling;
   return {
@@ -568,6 +573,22 @@ window.currentRecord = function () {
     minutes: link.dataset.minutes || '',
   };
 };
+
+function formatReadingTime(minutes) {
+  const m = Number(minutes);
+  if (!Number.isFinite(m) || m <= 0) return '';
+
+  const totalMinutes = Math.round(m);
+  const days  = Math.floor(totalMinutes / (60 * 24));
+  const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
+  const mins  = totalMinutes % 60;
+
+  const parts = [];
+  if (days)  parts.push(`${days}d`);
+  if (hours) parts.push(`${hours}h`);
+  if (mins)  parts.push(`${mins}m`);
+  return parts.join('');
+}
 
 // ---------------------------------------------------------------------------
 // TOPBAR
@@ -582,9 +603,9 @@ const TOPBAR_PRINT_BUTTON =
 
 function topbarMeta(rec) {
   return [
-    rec.words ? `${(+rec.words).toLocaleString()} words` : '',
-    rec.minutes ? `${rec.minutes} min` : '',
-    rec.date ? `upd ${rec.date}` : '',
+    rec.words   ? `📝 ${(+rec.words).toLocaleString()} ` : '',
+    rec.minutes ? `⏱️ ${formatReadingTime(rec.minutes)}` : '',
+    rec.date    ? `📅 ${rec.date}` : '',
   ].filter(Boolean).join(' · ');
 }
 

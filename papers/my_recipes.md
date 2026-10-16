@@ -1,4 +1,4 @@
-# My Recipes
+# 🍗 My Recipes
 
 ## Chicken
 - [Chicken Salad](?paper=../recipes/chicken_salad) — **15 min**

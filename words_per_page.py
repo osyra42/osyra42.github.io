@@ -43,7 +43,7 @@ PAPERS_DIR = ROOT / "papers"
 SITE_NAVIGATION_CSV = ROOT / "site_navigation.csv"
 
 # Reading speed for the "minutes" estimate.
-WORDS_PER_MINUTE = 220
+WORDS_PER_MINUTE = 180
 
 # Papers that exist in papers/ but are intentionally not listed in the CSV.
 HIDDEN: set[str] = {"mcupdates", "vanitys_personality"}

@@ -33,13 +33,13 @@ across all revisions, including:
    to you, please skip this series.
 ```
 
-# Rev3 - 1529 words
+# Rev3 - 3480 words (19 minutes)
 This is the outline for the next version. 
 ## Origin Story
  - [Chapter 01](?paper=../operation_kaleidoscope/rev3/origin_story/chapter_01)
  - [Outline](?paper=../operation_kaleidoscope/rev3/origin_story/outline)
 
->>>Rev2 - 40049 words
+>>>Rev2 - 40050 words (222 minutes)
 # Rev2
 Here's a list of the chapters that are available for rev2. This will no longer be worked on, see [Rev3](#rev3).
 ## Part 1: Out of the Fray
@@ -71,7 +71,7 @@ Here's a list of the chapters that are available for rev2. This will no longer b
  - [Chapter 0: Notes](?paper=../operation_kaleidoscope/rev2/part5-redlight/ch0-notes)
 <<<
 
->>>Rev1 - 55797 words
+>>>Rev1 - 55797 words (310 minutes)
 # Rev1
 Here's a list of all the documents that were related to revision one. The roughest rough draft. 
 ## Part 0: Not Added
