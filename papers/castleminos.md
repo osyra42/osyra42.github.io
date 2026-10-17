@@ -1,4 +1,4 @@
-# 🏰 Castellomino
+# 🏰 Castleminos
 ::toc::
 A work-in-progress pentomino territory game I'm building in GameMaker Studio 2. Place pentominoes to wall off land, claim territory for your throne, and break walls to expand your reach - there's more to come.
 
