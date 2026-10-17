@@ -12,17 +12,6 @@
 
 ---
 
-## ⛏️ OWDP
-- [Otherworld: D&D Files](https://www.curseforge.com/minecraft/modpacks/otherworld-dnd/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
-- [Lootr](https://www.curseforge.com/minecraft/mc-mods/lootr/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
-- [Better Days](https://www.curseforge.com/minecraft/mc-mods/betterdays/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
-- [Aquaculture](https://www.curseforge.com/minecraft/mc-mods/aquaculture/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
-- [Aquaculture Delight](https://www.curseforge.com/minecraft/mc-mods/aquaculture-delight/files/all?page=1&pageSize=20&version=1.20.1&gameVersionTypeId=1&showAlphaFiles=show)
-- [Simple Backups](https://modrinth.com/mod/simple-backups/versions?l=forge&g=1.20.1) - backups
-- [DC Integration](https://modrinth.com/plugin/dcintegration/versions?l=forge&g=1.20.1) - discord
-
----
-
 ## 🔒 Security
 
 Backups, a Discord bridge, and block logging go on every server I host. Same job, different pick depending on the platform - grab the one that matches.

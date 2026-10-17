@@ -32,11 +32,11 @@ Build your own stuff. If you want to team up, both players need to agree. Don't 
 #### **7. 🔧 Hacks Allowed**
 **Only on servers that permit it** (check each server's Rules line). Client mods are fine - X-ray, minimaps, sorting tools, shaders, whatever helps you play. The only catch is don't use them to damage the server or ruin someone else's experience without consent. For example, if you use X-ray and another player doesn't want you sharing the materials with them, you have to respect that.
 
-#### **💤 Dormant Server Policy**
-If a server I host sees no activity for **2 months**, I'll turn it off. After that, there's a **4-month grace period** - within that window you can ask me to turn it back on, or request a copy of the world file to keep your save. If no one asks within those 4 months, the server and its data are deleted for good. This applies to every server I host.
+### **💤 Dormant Server Policy**
+If a server I host sees no activity for **2 weeks**, I'll turn it off. After that, there's a **3-month grace period** - within that window you can ask me to turn it back on, or request a copy of the world file to keep your save. If no one asks within those 3 months, the server and its data are deleted for good. This applies to every server I host.
 
 ---
->>> 🔒 Security Policy
+## 🔒 Security Policy
 
 These servers run on hardware sitting in my house, so the safety of the machine and the people on it comes before convenience. Here's exactly what that means.
 
@@ -53,7 +53,6 @@ Custom modpacks are reviewed **one mod at a time** before they go anywhere near 
 Anything I can't verify gets rejected. That includes unknown authors, reuploads, mods pulled from random sites instead of CurseForge or Modrinth, abandoned projects with no source, and anything obfuscated. No exceptions, and I won't explain past "I couldn't verify it."
 
 **✅ To avoid a rejection, request popular, well-known modpacks.** Established packs on CurseForge or Modrinth with a large user base and an active maintainer have already been through thousands of people's machines. A pack someone assembled last week has not.
-<<<
 
 >>> Suggested Client-Side Mods
 > These are optional mods you can install to enhance your experience. None are required to play.
@@ -123,30 +122,5 @@ java:   "Version 25 (bundled with the launcher)"
 > 6. Enter the IP: `play.coffeeblock.xyz`
 > 7. Join and play!
 <<<
-
----
-
-# ⛏️ OWDP
-
-| Server Info | |
-|---|---|
-| **Server Name** | Coffee Block (Otherworld) |
-| **IP and Port** | Private |
-| **Version** | 1.20.1 |
-| **Staff** | Trinkbell 👑, osyra42 🗝️ |
-| **Rules** | 1-6 apply (no hacks) |
-
-Private whitelisted server running a modded D&D-flavoured fantasy pack for an adult content creator's community. Rule 7 does not apply here - client hacks are not permitted.
-
->>> 🔌 How to Join
-> This one isn't open to the public. To get on the whitelist:
-> 1. Know Trinkbell or someone already on the server
-> 2. Join their Discord (18+)
-> 3. Do no distress the server staff
->
-> The modpack, IP, and setup steps are given out after you're approved.
-<<<
-
----
 
 [Check for updates?](?paper=mcupdates)

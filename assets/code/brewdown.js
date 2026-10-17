@@ -605,6 +605,7 @@ const Brewdown = (function () {
         scope.querySelectorAll('.header[id]').forEach(el => {
             if (toc.contains(el)) return;
             const level = parseInt(el.tagName[1]) || 1;
+            if (level < 1 || level > 3) return;
             entries.push({ level, text: el.textContent.trim(), slug: el.id });
         });
 

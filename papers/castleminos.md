@@ -4,7 +4,13 @@ A work-in-progress pentomino territory game I'm building in GameMaker Studio 2. 
 
 ╔═══════════════════════════════════╗
 ║                                   ║
-║        🎮 **[PLAY IN BROWSER](castellomino/index.html)**            ║
+║        🎮 **[PLAY GODOT VERSION](castleminos/index.html)**          ║
+║                                   ║
+╚═══════════════════════════════════╝
+
+╔═══════════════════════════════════╗
+║                                   ║
+║       🎮 **[PLAY GAMEMAKER VERSION](castellomino/index.html)**        ║
 ║                                   ║
 ╚═══════════════════════════════════╝
 > Press F11 for fullscreen, makes it a much better experience.
@@ -24,9 +30,15 @@ A work-in-progress pentomino territory game I'm building in GameMaker Studio 2. 
 **Assets**
  - No downloadable assets, you may request them in the [Discord](https://discord.gg/2USS2tgDgE).
 
+### 📦 2026.10.17 - Porting to Godot
+![Castleminos Godot](../assets/images/castleminos/image03.png)
+
+I'm trying to port everything from GameMaker to Godot. I have both versions up and available since the GameMaker one is slightly further ahead. This is a checkpoint for now for what I have done so far. 
+
+
 ### 📦 2026.10.10 - Even More Teams
 
-![Castellomino sixteen teams](../assets/images/castellomino/cm_16.png)
+![Castleminos sixteen teams](../assets/images/castleminos/image02.png)
 
 Seriously, we're all the way up to sixteen now. Thanks for all the feedback on the team colors. I added some of the ones that made sense.
 
@@ -38,7 +50,7 @@ Twelve hues spaced evenly around the color wheel, plus four earth tones filling 
 
 ### 📦 2026.10.05 - Basic mechanics. Sandbox.
 
-![Castellomino sandbox](../assets/images/castellomino/cm_1.png)
+![Castleminos sandbox](../assets/images/castleminos/image01.png)
 
 Place pentominoes to seal off regions of the map. Any enclosed empty space connected to your throne gets claimed for your team. Hold right-click on a wall your territory touches to break it, opening new paths to expand.
 
