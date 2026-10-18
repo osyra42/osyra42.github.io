@@ -56,8 +56,17 @@
     <a href="https://osyra42.goatcounter.com" target="_blank" rel="noopener noreferrer">
       <img src="https://static.zgo.at/logo.svg" referrerPolicy="unsafe-url" />
     </a>
+    <script>
+        var t = setInterval(function() {
+            if (window.goatcounter && window.goatcounter.visit_count) {
+                clearInterval(t)
+                window.goatcounter.visit_count({append: 'body'})
+            }
+        }, 100)
+    </script>
     <script data-goatcounter="https://osyra42.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
     <br>
     Coffee Byte Dev &copy; 2019 - 2026; All rights reserved.
   </p>
