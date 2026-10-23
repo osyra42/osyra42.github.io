@@ -288,4 +288,18 @@
   .theme-swatch:hover {
     transform: none !important;
   }
+
+
+    /* THE MINIMUM PATCH */
+  main {
+    margin-top: 60px !important; /* Pushes main exactly below the banner */
+    height: calc(100vh - 60px) !important; /* Fills exactly the remaining space */
+    padding-bottom: 400px !important; /* Massive bottom margin so you can always scroll */
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  main .download-bar {
+    flex-wrap: nowrap !important; /* Keep it single-line as you had it */
+  }
 }

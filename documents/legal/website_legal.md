@@ -1,5 +1,4 @@
 # ⚖️ Website Legal
-[Back](index.html)
 
 >>> Website Privacy Policy
 # **Website Privacy Policy**

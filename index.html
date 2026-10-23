@@ -31,7 +31,7 @@
 <body>
   <sidebar>
   <div class="sidebar-brand">
-    <a href="?paper=index">
+    <a href="?document=index">
       <div class="brand-id">CBD // ARCHIVE</div>
       <h1>Coffee Byte Dev</h1>
     </a>
@@ -85,14 +85,13 @@
     <button id="back-to-top">Back to Top</button>
   </main>
 
-  <script>
-    // Read ?paper= once. Everything below uses this.
-    const PAPER = new URLSearchParams(location.search).get('paper') || 'index';
+<script>
+  // 1) Define the global variable that scripts.js expects
+  const CURRENT_DOC = new URLSearchParams(location.search).get('document') || 'main/index';
 
-    // 1) Router: point the brewdown placeholder at the right markdown file.
-    //    Must happen BEFORE scripts.js runs processAll() on DOMContentLoaded.
-    document.querySelector('script[data-brewdown]')
-            .setAttribute('data-brewdown', `papers/${PAPER}.md`);
-  </script>
+  // 2) Point the brewdown placeholder at the right markdown file.
+  document.querySelector('script[data-brewdown]')
+          .setAttribute('data-brewdown', `documents/${CURRENT_DOC}.md`);
+</script>
 </body>
 </html>

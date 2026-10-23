@@ -1,40 +1,40 @@
-﻿category,icon,title,href,paper,date,words,minutes
-Main,🏠,Welcome,?paper=index,index,2026.09.12,433,3
-Main,👋,About Me,?paper=about_me,about_me,2026.08.11,591,4
-Main,⛏️,Minecraft Server,?paper=minecraft,minecraft,2026.10.17,988,6
-Main,⭐,Recommendations,?paper=recommendations,recommendations,2026.09.13,1023,6
+﻿category,icon,title,href,date,words
+Main,🏠,Welcome,?document=main/index,2026.09.12,433
+Main,👋,About Me,?document=main/about_me,2026.08.11,591
+Main,⛏️,Minecraft Server,?document=main/minecraft,2026.10.17,988
+Main,⭐,Recommendations,?document=main/recommendations,2026.09.13,1023
 
-Books,📖,Operation Kaleidoscope,?paper=operation_kaleidoscope,operation_kaleidoscope,2026.10.16,99327,480
-Books,🍗,My Recipes,?paper=my_recipes,my_recipes,2026.10.16,210,2
-Books,⚡,Glitched,?paper=glitched,glitched,2026.07.18,9574,54
-Books,⚔️,Infinite Devastation,?paper=infinite_devastation,infinite_devastation,2026.07.18,7166,40
-Books,💎,Ever Diamond,?paper=ever_diamond,ever_diamond,2026.07.18,12921,72
+Books,📖,Operation Kaleidoscope,?document=books/operation_kaleidoscope,2026.10.16,99327
+Books,🍉,My Recipes,?document=books/my_recipes,2026.10.16,210
+Books,⚡,Glitched,?document=books/glitched,2026.07.18,9574
+Books,⚔️,Infinite Devastation,?document=books/infinite_devastation,2026.07.18,7166
+Books,💎,Ever Diamond,?document=books/ever_diamond,2026.07.18,12921
 
-Games,🏰,Castleminos, ?paper=castleminos, castleminos, 2026.10.17,234,2
-Games,🕹️,A Sundered Gem,?paper=a_sundered_gem,a_sundered_gem,2026.10.10,1179,7
-Games,🧋,Sip Sip,?paper=sipsip,sipsip,2026.07.24,230,2
-Games,🍂,Clutter,?paper=clutter,clutter,2026.07.18,427,3
+Games,🏰,Castleminos,?document=games/castleminos,2026.10.17,234
+Games,🕹️,A Sundered Gem,?document=games/a_sundered_gem,2026.10.10,1179
+Games,🧋,Sip Sip,?document=games/sipsip,2026.07.24,230
+Games,🍂,Clutter,?document=games/clutter,2026.07.18,427
 
-Guides,🧲,How Magnets Work,?paper=how_magnets_work,how_magnets_work,2026.09.16,622,4
-Guides,🧪,How to Use Cheat Engine,?paper=how_to_use_cheat_engine,how_to_use_cheat_engine,2026.09.19,1203,7
-Guides,📀,How to Burn a DVD,?paper=how_to_burn_a_dvd,how_to_burn_a_dvd,2026.09.19,1310,8
-Guides,🔓,How to be the Problem,?paper=how_to_be_the_problem,how_to_be_the_problem,2026.07.24,2233,13
-Guides,🐍,How to Learn Programming,?paper=how_to_learn_programming,how_to_learn_programming,2026.09.26,1417,8
-Guides,🎭,How to Become a VTuber,?paper=how_to_become_a_vtuber,how_to_become_a_vtuber,2026.07.21,1092,7
-Guides,🎬,How to Edit Videos,?paper=how_to_edit_videos,how_to_edit_videos,2026.07.24,516,3
-Guides,🖨️,How to Use a 3D Printer,?paper=how_to_use_a_3d_printer,how_to_use_a_3d_printer,2026.07.24,748,5
-Guides,💡,How to Do It for Free,?paper=how_to_do_it_for_free,how_to_do_it_for_free,2026.07.18,2567,15
-Guides,🎨,How to Use ComfyUI,?paper=how_to_use_comfyui,how_to_use_comfyui,2026.07.18,955,6
-Guides,🏚️,How to Urbex Safely,?paper=how_to_urbex_safety,how_to_urbex_safety,2026.07.18,1054,6
+Guides,🧲,How Magnets Work,?document=guides/how_magnets_work,2026.09.16,622
+Guides,🧪,How to Use Cheat Engine,?document=guides/how_to_use_cheat_engine,2026.09.19,1203
+Guides,📀,How to Burn a DVD,?document=guides/how_to_burn_a_dvd,2026.09.19,1310
+Guides,🔓,How to be the Problem,?document=guides/how_to_be_the_problem,2026.07.24,2233
+Guides,🐍,How to Learn Programming,?document=guides/how_to_learn_programming,2026.09.26,1417
+Guides,🎭,How to Become a VTuber,?document=guides/how_to_become_a_vtuber,2026.07.21,1092
+Guides,🎬,How to Edit Videos,?document=guides/how_to_edit_videos,2026.07.24,516
+Guides,🖨️,How to Use a 3D Printer,?document=guides/how_to_use_a_3d_printer,2026.07.24,748
+Guides,💡,How to Do It for Free,?document=guides/how_to_do_it_for_free,2026.07.18,2567
+Guides,🎨,How to Use ComfyUI,?document=guides/how_to_use_comfyui,2026.07.18,955
+Guides,🏚️,How to Urbex Safely,?document=guides/how_to_urbex_safety,2026.07.18,1054
 
-DevTools,🤖,Vanity,?paper=vanity,vanity,2026.09.16,4133,23
-DevTools,🎬,yt-dlp Tool,?paper=yt_dlp_tool,yt_dlp_tool,2026.07.24,635,4
-DevTools,😴,Sleep Launcher,?paper=zzz_launcher,zzz_launcher,2026.09.16,1770,10
-DevTools,☕,Brewdown,?paper=brewdown,brewdown,2026.09.26,42,1
-DevTools,🧊,Blender Resources,?paper=blender_resources,blender_resources,2026.07.18,268,2
-DevTools,🎬,Media Mimic,?paper=media_mimic,media_mimic,2026.07.18,668,4
-DevTools,🔢,Casio Code,?paper=casio_code,casio_code,2026.09.09,543,4
+Tools,🤖,Vanity,?document=tools/vanity,2026.09.16,4133
+Tools,🎬,yt-dlp Tool,?document=tools/yt_dlp_tool,2026.07.24,635
+Tools,😴,Sleep Launcher,?document=tools/zzz_launcher,2026.09.16,1770
+Tools,☕,Brewdown,?document=tools/brewdown,2026.09.26,42
+Tools,🧊,Blender Resources,?document=tools/blender_resources,2026.07.18,268
+Tools,🎬,Media Mimic,?document=tools/media_mimic,2026.07.18,668
+Tools,🔢,Casio Code,?document=tools/casio_code,2026.09.09,543
 
-Legal,💜,Support Me,?paper=support_me,support_me,2026.07.18,286,2
-Legal,⚖️,Website Legal,?paper=website_legal,website_legal,2026.09.16,847,5
-Legal,⚖️,Vanity Legal,?paper=vanity_legal,vanity_legal,2026.09.16,1278,8
+Legal,💜,Support Me,?document=legal/support_me,2026.07.18,286
+Legal,⚖️,Website Legal,?document=legal/website_legal,2026.09.16,847
+Legal,⚖️,Vanity Legal,?document=legal/vanity_legal,2026.09.16,1278

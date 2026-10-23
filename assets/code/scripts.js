@@ -1,45 +1,10 @@
 // scripts.js
 
-// CHANGELOG
-// Register the `changelog` language for highlight.js and expose the prefix
-// palette. Colors are tuned for the paper sheet (light background), not the
-// dark shell, because changelog code blocks render inside .brewdown-rendered.
-if (typeof hljs !== 'undefined') {
-  const PREFIXES = {
-    timestamp: { re: /^#.*$/m, color: '#6b6b6b' },
-    project:   { re: /^@.*$/m, color: '#7a1fa0' },
-    add:       { re: /^\+.*$/m, color: '#1a7a1a' },
-    del:       { re: /^-.*$/m,  color: '#a01a1a' },
-    note:      { re: /^>.*$/m,  color: '#1a6aa0' },
-    fix:       { re: /^\$.*$/m, color: '#a06a1a' },
-  };
-
-  hljs.registerLanguage('changelog', function () {
-    return {
-      name: 'Changelog',
-      contains: Object.entries(PREFIXES).map(([name, p]) => ({
-        className: `chg-${name}`,
-        begin: p.re,
-      })),
-    };
-  });
-
-  const style = document.createElement('style');
-  style.textContent = Object.entries(PREFIXES)
-    .map(([name, p]) => `.hljs-chg-${name} { color: ${p.color}; }`)
-    .join('\n');
-  document.head.appendChild(style);
-}
+// Define your reading speed here (e.g., 200 words per minute)
+const WORDS_PER_MINUTE = 180;
 
 // ---------------------------------------------------------------------------
 // PAGE TITLE
-// Reads the first line of the current paper's markdown and stores the icon and
-// title on `window`, then updates `document.title` and the download bar.
-// This is page-level metadata, so it belongs here — not in brewdown.js, which
-// only renders the paper content.
-//
-// The leading token is only treated as an icon if it is actually an emoji.
-// Titles without an emoji keep their full text.
 // ---------------------------------------------------------------------------
 
 const EMOJI_RE = /\p{Extended_Pictographic}/u;
@@ -52,8 +17,8 @@ function splitIconAndTitle(text) {
   return { icon: '', title: text.trim() };
 }
 
-async function loadPaperTitle() {
-  const md = await (await fetch(`papers/${PAPER}.md`)).text();
+async function loadDocumentTitle() {
+  const md = await (await fetch(`documents/${CURRENT_DOC}.md`)).text();
   const firstLine = md.split('\n')[0];
   const match = firstLine.match(/^#\s+(.+?)\s*$/);
   if (!match) return;
@@ -82,8 +47,6 @@ async function loadNavigation() {
 
   const csv = await response.text();
 
-  // Ignore blank lines and whole-line comments beginning with #.
-  // Comments may appear before the header or between navigation sections.
   const lines = csv
     .split(/\r?\n/)
     .filter(line => {
@@ -91,27 +54,30 @@ async function loadNavigation() {
       return trimmed && !trimmed.startsWith('#');
     });
 
-  // First remaining non-comment line is the CSV header.
   const rows = lines.slice(1).map(parseCsvLine);
 
   const nav = document.getElementById("sidebar-nav");
   const categories = new Map();
 
   for (const row of rows) {
-    const [category, icon, title, href, paper, date, words, minutes] = row;
+    // Notice we removed 'minutes' from the destructuring
+    const [category, icon, title, href, date, words] = row;
 
     if (!categories.has(category)) {
       categories.set(category, []);
     }
 
+    // Extract the document ID from the href
+    const docMatch = href.match(/document=([^&]+)/);
+    const doc = docMatch ? docMatch[1] : '';
+
     categories.get(category).push({
       icon,
       title,
       href,
-      paper,
+      doc,
       date,
-      words,
-      minutes,
+      words
     });
   }
 
@@ -124,10 +90,9 @@ async function loadNavigation() {
     <ul>
       ${pages.map(page => `
         <li>
-          <a href="index.html?paper=${encodeURIComponent(page.paper)}"
+          <a href="index.html?document=${encodeURIComponent(page.doc)}"
             data-date="${escapeHtml(page.date)}"
-            data-words="${escapeHtml(page.words)}"
-            data-minutes="${escapeHtml(page.minutes)}">
+            data-words="${escapeHtml(page.words)}">
             ${escapeHtml(page.icon)} ${escapeHtml(page.title)}
           </a>
         </li>
@@ -163,7 +128,6 @@ function parseCsvLine(line) {
   return values;
 }
 
-// Uses the global escapeHtml assigned at the bottom of this file.
 function escapeHtml(value) {
   return window.escapeHtml(value);
 }
@@ -215,20 +179,13 @@ function readStoredFreshIndex() {
 function writeStoredFreshIndex(i) {
   try {
     localStorage.setItem(FRESH_KEY, String(i));
-  } catch (_) {
-    /* private mode / quota / sandbox — silently ignore */
-  }
+  } catch (_) {}
 }
 
 function getFreshIndex() {
   return readStoredFreshIndex() ?? defaultFreshIndex();
 }
 
-function getFreshDays() {
-  return FRESH_STOPS[getFreshIndex()].days;
-}
-
-// Apply the current-page marker, sparkle, and hover metadata.
 function decorateSidebarLinks(explicitIndex) {
   const idx = explicitIndex ?? getFreshIndex();
   const days = FRESH_STOPS[idx].days;
@@ -237,13 +194,12 @@ function decorateSidebarLinks(explicitIndex) {
   document.querySelectorAll('.sidebar-nav a').forEach(a => {
     const href = (a.getAttribute('href') || '').trim();
     const query = href.includes('?') ? href.split('?')[1] : '';
-    const linkPaper = new URLSearchParams(query).get('paper');
+    const linkDoc = new URLSearchParams(query).get('document');
 
-    if (linkPaper === PAPER) {
+    if (linkDoc === CURRENT_DOC) {
       a.setAttribute('aria-current', 'page');
     }
 
-    // --- fresh sparkle: recompute every call ---
     const date = (a.dataset.date || '').trim();
     const existingSparkle = a.querySelector('.sidebar-new');
 
@@ -260,13 +216,14 @@ function decorateSidebarLinks(explicitIndex) {
       existingSparkle.remove();
     }
 
-    // --- hover metadata (idempotent, only add once) ---
     const words = (a.dataset.words || '').trim();
-    const minutes = (a.dataset.minutes || '').trim();
     const parts = [];
 
     if (words) parts.push(`${Number(words).toLocaleString()}`);
-    if (minutes) parts.push(formatReadingTime(minutes));
+    
+    // Calculate reading time dynamically here!
+    if (words) parts.push(formatReadingTime(words)); 
+    
     if (date) parts.push(`${date}`);
 
     if (parts.length) {
@@ -320,14 +277,13 @@ function initFreshSlider() {
 
   paintTicks(idx);
 
-  // Live feedback while dragging — updates UI and sparkles, no disk write.
   range.addEventListener('input', () => {
     const i = Number(range.value);
     const stop = FRESH_STOPS[i];
     valueEl.textContent = stop.label;
     range.setAttribute('aria-valuetext', stop.label);
     paintTicks(i);
-    decorateSidebarLinks(i);   // ← pass the live index
+    decorateSidebarLinks(i);
   });
 
   range.addEventListener('change', () => {
@@ -335,7 +291,6 @@ function initFreshSlider() {
   });
 }
 
-// Call this after loadNavigation() has rendered the rows.
 function initSidebarNavigation() {
   initFreshSlider();
   decorateSidebarLinks();
@@ -343,10 +298,6 @@ function initSidebarNavigation() {
 
 // ---------------------------------------------------------------------------
 // HASH SCROLL
-// A ?paper= link with a #fragment arrives before brewdown.js has rendered the
-// target element, so the browser's native anchor scroll misses. Poll until the
-// element exists, then scroll to it. Uses scrollIntoView so scroll-padding-top
-// on <main> is respected.
 // ---------------------------------------------------------------------------
  
 function restoreHashScroll() {
@@ -358,9 +309,6 @@ function restoreHashScroll() {
   const tryScroll = () => {
     const target = document.getElementById(id);
     if (!target) return false;
-    // Direct property assignment bypasses CSS scroll-behavior: smooth, which
-    // was deferring (and then cancelling) the scroll during the sheet-in
-    // animation. scrollIntoView and scrollTo() both respect that property.
     const y = target.getBoundingClientRect().top + mainEl.scrollTop - 100;
     mainEl.scrollTop = y;
     return true;
@@ -376,12 +324,9 @@ function restoreHashScroll() {
 
 // ---------------------------------------------------------------------------
 // BOOTSTRAP
-// Title and navigation must both be loaded before the topbar can be built,
-// because the topbar reads window.title and queries the sidebar for the
-// current page's metadata. The two fetches run in parallel.
 // ---------------------------------------------------------------------------
 
-Promise.all([loadPaperTitle(), loadNavigation()])
+Promise.all([loadDocumentTitle(), loadNavigation()])
   .then(() => {
     initSidebarNavigation();
     initTopbar();
@@ -391,7 +336,6 @@ Promise.all([loadPaperTitle(), loadNavigation()])
 
 // ---------------------------------------------------------------------------
 // THEME PICKER
-// Populated on DOMContentLoaded so Themes (loaded with `defer`) exists.
 // ---------------------------------------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -429,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ---------------------------------------------------------------------------
-// PRINT — open all <details> before printing, restore afterward.
+// PRINT
 // ---------------------------------------------------------------------------
 
 const PRINT_OPENED = 'printOpened';
@@ -481,7 +425,7 @@ function initBackToTop() {
 document.addEventListener('DOMContentLoaded', initBackToTop);
 
 // ---------------------------------------------------------------------------
-// TOOLTIP — site chrome only (never inside <main>).
+// TOOLTIP
 // ---------------------------------------------------------------------------
 
 (function () {
@@ -551,28 +495,38 @@ window.escapeHtml = function (s) {
   ));
 };
 
-window.currentPaper = function () {
-  return new URLSearchParams(location.search).get('paper') || 'index';
+window.currentDocument = function () {
+  return new URLSearchParams(location.search).get('document') || 'main/index';
 };
 
 window.currentRecord = function () {
-  const paper = window.currentPaper();
+  const doc = window.currentDocument();
   const link = [...document.querySelectorAll('.sidebar-nav a')]
     .find(a => {
       const q = (a.getAttribute('href') || '').split('?')[1] || '';
-      return new URLSearchParams(q).get('paper') === paper;
+      return new URLSearchParams(q).get('document') === doc;
     });
   if (!link) return null;
   const h3 = link.closest('ul')?.previousElementSibling;
+  
+  const words = link.dataset.words || '';
+  
   return {
     title:   window.title || link.textContent.trim(),
     icon:    window.icon  || '',
     section: h3?.querySelector('.sec-name')?.textContent || 'Archive',
     date:    link.dataset.date    || '',
-    words:   link.dataset.words   || '',
-    minutes: link.dataset.minutes || '',
+    words:   words,
+    minutes: calculateMinutes(words) // Calculate dynamically here too!
   };
 };
+
+// This takes raw words and converts it to minutes
+function calculateMinutes(words) {
+  const w = Number(words);
+  if (!Number.isFinite(w) || w <= 0) return 0;
+  return w / WORDS_PER_MINUTE;
+}
 
 function formatReadingTime(minutes) {
   const m = Number(minutes);
@@ -592,9 +546,6 @@ function formatReadingTime(minutes) {
 
 // ---------------------------------------------------------------------------
 // TOPBAR
-// Rebuilds the download bar with a breadcrumb, metadata, and the print button.
-// Requires window.title (set by loadPaperTitle) and the sidebar DOM (set by
-// loadNavigation) to be ready; both are guaranteed by the Promise.all above.
 // ---------------------------------------------------------------------------
 
 const TOPBAR_FALLBACK_SECTION = 'Archive';

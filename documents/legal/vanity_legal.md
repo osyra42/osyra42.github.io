@@ -1,7 +1,5 @@
 # ⚖️ Vanity Legal
 
-[Back](?paper=index)
-
 >>> Privacy Policy for Vanity
 
 # **Privacy Policy for Vanity**
