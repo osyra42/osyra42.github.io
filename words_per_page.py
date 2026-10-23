@@ -1,5 +1,5 @@
 """
-inspect_paper.py - inspect papers, check CSV drift, rebuild CSV rows.
+inspect_documents.py - inspect documents, check CSV drift, rebuild CSV rows.
 
 This tool WRITES NOTHING. site_navigation.csv stays hand-maintained; this
 prints the things you'd otherwise compute by hand.
@@ -9,13 +9,13 @@ launch path: whatever SCAN_MODE says. The script always pauses at the end so
 the window stays open.
 
 SCAN_MODE options:
-    "full"  -> scan every paper; unchanged ones are greyed out
-    "drift" -> show only papers whose CSV entry is stale or missing
-    "all"   -> print one CSV row per paper
+    "full"  -> scan every document; unchanged ones are greyed out
+    "drift" -> show only documents whose CSV entry is stale or missing
+    "all"   -> print one CSV row per document
     "build" -> rebuild the whole CSV
 
 USAGE
-    py inspect_paper.py
+    py inspect_documents.py
 """
 
 from __future__ import annotations
@@ -39,14 +39,28 @@ SCAN_MODE = "full"
 
 # Where the script lives (the website root).
 ROOT = Path(__file__).resolve().parent
-PAPERS_DIR = ROOT / "papers"
+DOCUMENTS_DIR = ROOT / "documents"
 SITE_NAVIGATION_CSV = ROOT / "site_navigation.csv"
 
-# Reading speed for the "minutes" estimate.
+# Reading speed for the "minutes" estimate. Mirrors WORDS_PER_MINUTE in
+# scripts.js. Only used for drift comparison; the frontend recalculates.
 WORDS_PER_MINUTE = 180
 
-# Papers that exist in papers/ but are intentionally not listed in the CSV.
-HIDDEN: set[str] = {"mcupdates", "vanitys_personality"}
+# Folders to skip entirely (matched by prefix). 
+# Example: "books/operation_kaleidoscope/rev1" skips all chapters inside rev1.
+HIDDEN_FOLDERS: tuple[str, ...] = (
+    "books/operation_kaleidoscope/rev1",
+    "books/operation_kaleidoscope/rev2",
+    "books/operation_kaleidoscope/rev3",
+    "recipes",
+)
+
+# Specific files to skip (matched exactly, without the .md extension).
+HIDDEN_FILES: tuple[str, ...] = (
+    "main/mcupdates", 
+    "main/vanitys_personality",
+    "tools/vanitys_personality"
+)
 
 
 # ============================================================================
@@ -81,10 +95,9 @@ def pause() -> None:
 # CSV helpers
 # ============================================================================
 
-CSV_FIELDS = {
-    "category", "icon", "title", "href",
-    "paper", "date", "words", "minutes",
-}
+# The new CSV has these columns. `document` and `minutes` are gone;
+# the document ID lives inside `href`, and minutes are computed by JS.
+CSV_FIELDS = {"category", "icon", "title", "href", "date", "words"}
 
 
 def clean(value: str | None) -> str:
@@ -105,8 +118,14 @@ def csv_row(values: list[str]) -> str:
     return buffer.getvalue()
 
 
+def doc_id_from_href(href: str) -> str:
+    """Extract the document ID from an href like '?document=main/index'."""
+    m = re.search(r"document=([^&]+)", href)
+    return m.group(1) if m else ""
+
+
 def load_sidebar() -> dict[str, dict[str, str]]:
-    """Read site_navigation.csv and return {paper_slug: row_data}."""
+    """Read site_navigation.csv and return {document_id: row_data}."""
     if not SITE_NAVIGATION_CSV.is_file():
         return {}
 
@@ -135,44 +154,44 @@ def load_sidebar() -> dict[str, dict[str, str]]:
                 for key, value in raw_row.items()
                 if key is not None
             }
-            slug = row["paper"]
-            if not slug:
+            href = row.get("href", "")
+            doc_id = doc_id_from_href(href)
+            if not doc_id:
                 print(
                     f"{C.ORANGE}warning:{C.OFF} "
-                    f"{SITE_NAVIGATION_CSV.name}:{line_number} has no paper slug; skipping",
+                    f"{SITE_NAVIGATION_CSV.name}:{line_number} has no "
+                    f"document= in href; skipping",
                     file=sys.stderr,
                 )
                 continue
-            if slug in out:
+            if doc_id in out:
                 print(
-                    f"{C.ORANGE}warning:{C.OFF} duplicate paper slug "
-                    f"'{slug}' in {SITE_NAVIGATION_CSV.name}:{line_number}; "
+                    f"{C.ORANGE}warning:{C.OFF} duplicate document id "
+                    f"'{doc_id}' in {SITE_NAVIGATION_CSV.name}:{line_number}; "
                     f"using the later row",
                     file=sys.stderr,
                 )
-            out[slug] = {
+            out[doc_id] = {
                 "category": row["category"],
                 "icon":     row["icon"],
                 "title":    row["title"],
-                "href":     row["href"],
-                "paper":    slug,
+                "href":     href,
                 "date":     row["date"],
                 "words":    row["words"],
-                "minutes":  row["minutes"],
             }
 
     return out
 
 
 # ============================================================================
-# Paper parsing
+# Document parsing
 # ============================================================================
 
 FIRST_LINE_RE = re.compile(r"^#\s+(\S+)\s+(.+?)\s*$")
 
 
 def parse_first_line(md: str) -> tuple[str, str] | None:
-    """Return (icon, title) from the paper's first '# <emoji> <Title>' line."""
+    """Return (icon, title) from the document's first '# <emoji> <Title>' line."""
     first = md.split("\n", 1)[0]
     m = FIRST_LINE_RE.match(first)
     if not m:
@@ -222,6 +241,7 @@ def count_words(md: str, is_changelog: bool = False) -> int:
 
 
 def read_minutes(words: int) -> int:
+    """Kept for drift comparison only. Frontend recalculates from words."""
     return 0 if words <= 0 else max(1, round(words / WORDS_PER_MINUTE + 0.4999))
 
 
@@ -229,10 +249,10 @@ def _today() -> str:
     return _date.today().strftime("%Y.%m.%d")
 
 
-def git_date(slug: str) -> str | None:
+def git_date(doc_id: str) -> str | None:
     try:
         out = subprocess.run(
-            ["git", "log", "-1", "--format=%cs", "--", f"papers/{slug}.md"],
+            ["git", "log", "-1", "--format=%cs", "--", f"documents/{doc_id}.md"],
             cwd=ROOT,
             capture_output=True,
             text=True,
@@ -245,34 +265,33 @@ def git_date(slug: str) -> str | None:
 
 
 # ============================================================================
-# Per-paper status
+# Per-document status
 # ============================================================================
 
-def paper_status(slug: str, sidebar: dict[str, dict]) -> dict:
-    """Read one paper, compute everything the reports need."""
-    path = PAPERS_DIR / f"{slug}.md"
+def doc_status(doc_id: str, sidebar: dict[str, dict]) -> dict:
+    """Read one document, compute everything the reports need."""
+    path = DOCUMENTS_DIR / f"{doc_id}.md"
     md = path.read_text(encoding="utf-8", errors="replace")
 
     parsed = parse_first_line(md)
     icon, title = parsed if parsed else ("(no first line)", "(no title)")
 
-    entry = sidebar.get(slug)
-    words = count_words(md, is_changelog=(slug == "changelog"))
+    entry = sidebar.get(doc_id)
+    words = count_words(md, is_changelog=("changelog" in doc_id))
     mins = read_minutes(words)
-    gdate = git_date(slug)
+    gdate = git_date(doc_id)
 
-    paper_date = (entry or {}).get("date") or gdate or _today()
+    doc_date = (entry or {}).get("date") or gdate or _today()
     category = (entry or {}).get("category", "")
-    href = (entry or {}).get("href") or f"?paper={slug}"
+    href = (entry or {}).get("href") or f"?document={doc_id}"
 
     line = csv_row([
-        category, icon, title, href, slug, paper_date, str(words), str(mins),
+        category, icon, title, href, doc_date, str(words),
     ])
 
     deltas: list[str] = []
     if entry:
         entry_words = csv_int(entry.get("words"))
-        entry_minutes = csv_int(entry.get("minutes"))
         if entry.get("icon") and entry["icon"] != icon:
             deltas.append(f'icon     "{entry["icon"]}" -> "{icon}"')
         if entry.get("title") and entry["title"] != title:
@@ -281,17 +300,13 @@ def paper_status(slug: str, sidebar: dict[str, dict]) -> dict:
             deltas.append(f'words    "{entry.get("words") or "(blank)"}" -> {words}')
         elif entry_words != words:
             deltas.append(f"words    {entry_words} -> {words}")
-        if entry_minutes is None:
-            deltas.append(f'minutes  "{entry.get("minutes") or "(blank)"}" -> {mins}')
-        elif entry_minutes != mins:
-            deltas.append(f"minutes  {entry_minutes} -> {mins}")
     else:
         deltas.append("no CSV entry")
 
     return {
-        "slug": slug, "md": md, "icon": icon, "title": title,
+        "id": doc_id, "md": md, "icon": icon, "title": title,
         "words": words, "mins": mins, "gdate": gdate, "entry": entry,
-        "paper_date": paper_date, "category": category, "href": href,
+        "doc_date": doc_date, "category": category, "href": href,
         "line": line, "deltas": deltas,
     }
 
@@ -300,16 +315,16 @@ def paper_status(slug: str, sidebar: dict[str, dict]) -> dict:
 # Modes
 # ============================================================================
 
-def mode_full(slugs: list[str], sidebar: dict) -> int:
-    """Scan every paper. Grey out the ones that match the CSV."""
+def mode_full(ids: list[str], sidebar: dict) -> int:
+    """Scan every document. Grey out the ones that match the CSV."""
     print()
     print(rule("="))
-    print(f"{C.BOLD}FULL SCAN{C.OFF}  {C.DIM}{len(slugs)} papers{C.OFF}")
+    print(f"{C.BOLD}FULL SCAN{C.OFF}  {C.DIM}{len(ids)} documents{C.OFF}")
     print(rule("="))
 
     drifted = 0
-    for slug in slugs:
-        s = paper_status(slug, sidebar)
+    for doc_id in ids:
+        s = doc_status(doc_id, sidebar)
         dirty = bool(s["deltas"])
 
         if dirty:
@@ -323,7 +338,7 @@ def mode_full(slugs: list[str], sidebar: dict) -> int:
             meta_col = C.DIM
 
         print(
-            f"  {marker} {name_col}{slug:<34}{C.OFF} "
+            f"  {marker} {name_col}{doc_id:<38}{C.OFF} "
             f"{meta_col}{s['words']:>7,} words{C.OFF} "
             f"{meta_col}{s['mins']:>3} min{C.OFF}"
         )
@@ -334,25 +349,25 @@ def mode_full(slugs: list[str], sidebar: dict) -> int:
 
     print(rule())
     if drifted == 0:
-        print(f"{C.GREEN}all {len(slugs)} papers match the CSV{C.OFF}")
+        print(f"{C.GREEN}all {len(ids)} documents match the CSV{C.OFF}")
     else:
-        print(f"{C.ORANGE}{drifted} of {len(slugs)} papers drifted{C.OFF}")
+        print(f"{C.ORANGE}{drifted} of {len(ids)} documents drifted{C.OFF}")
     print(rule("="))
     return 0
 
 
-def mode_drift(slugs: list[str], sidebar: dict) -> int:
-    """Print only papers whose CSV entry is stale or missing."""
-    missing = sorted(set(slugs) - HIDDEN - set(sidebar.keys()))
-    extra = sorted(set(sidebar.keys()) - set(slugs))
+def mode_drift(ids: list[str], sidebar: dict) -> int:
+    """Print only documents whose CSV entry is stale or missing."""
+    missing = sorted(set(ids) - set(sidebar.keys()))
+    extra = sorted(set(sidebar.keys()) - set(ids))
     drift_count = 0
 
-    for slug in slugs:
-        s = paper_status(slug, sidebar)
+    for doc_id in ids:
+        s = doc_status(doc_id, sidebar)
         if not s["entry"]:
             continue
         if s["deltas"]:
-            print(f"\n{C.ORANGE}{slug}{C.OFF}")
+            print(f"\n{C.ORANGE}{doc_id}{C.OFF}")
             for delta in s["deltas"]:
                 print(f"  {delta}")
             drift_count += 1
@@ -360,13 +375,13 @@ def mode_drift(slugs: list[str], sidebar: dict) -> int:
     print()
     print(rule("="))
     if missing:
-        print(f"{C.RED}PAPERS WITHOUT A CSV ENTRY ({len(missing)}){C.OFF}")
-        for slug in missing:
-            print(f"  {slug}")
+        print(f"{C.RED}DOCUMENTS WITHOUT A CSV ENTRY ({len(missing)}){C.OFF}")
+        for doc_id in missing:
+            print(f"  {doc_id}")
     if extra:
-        print(f"{C.RED}CSV ROWS WITHOUT A PAPER ({len(extra)}){C.OFF}")
-        for slug in extra:
-            print(f"  {slug}")
+        print(f"{C.RED}CSV ROWS WITHOUT A DOCUMENT ({len(extra)}){C.OFF}")
+        for doc_id in extra:
+            print(f"  {doc_id}")
     if not (missing or extra or drift_count):
         print(f"{C.GREEN}clean: no drift, no orphans{C.OFF}")
     else:
@@ -378,17 +393,17 @@ def mode_drift(slugs: list[str], sidebar: dict) -> int:
     return 0
 
 
-def mode_all(slugs: list[str], sidebar: dict) -> int:
-    """Print one CSV row per paper. Machine-readable."""
-    print("category,icon,title,href,paper,date,words,minutes")
-    for slug in slugs:
-        s = paper_status(slug, sidebar)
+def mode_all(ids: list[str], sidebar: dict) -> int:
+    """Print one CSV row per document. Machine-readable."""
+    print("category,icon,title,href,date,words")
+    for doc_id in ids:
+        s = doc_status(doc_id, sidebar)
         print(s["line"])
     return 0
 
 
-def mode_build(slugs: list[str], sidebar: dict) -> int:
-    """Rebuild the whole CSV from paper markdown, preserving row order."""
+def mode_build(ids: list[str], sidebar: dict) -> int:
+    """Rebuild the whole CSV from document markdown, preserving row order."""
     if not SITE_NAVIGATION_CSV.is_file():
         print(f"{C.RED}could not find {SITE_NAVIGATION_CSV.name}{C.OFF}")
         return 1
@@ -405,38 +420,38 @@ def mode_build(slugs: list[str], sidebar: dict) -> int:
         ]
 
     lines = [csv_row([
-        "category", "icon", "title", "href", "paper", "date", "words", "minutes",
+        "category", "icon", "title", "href", "date", "words",
     ])]
 
     for row in rows:
-        slug = row.get("paper", "")
-        path = PAPERS_DIR / f"{slug}.md"
+        href = row.get("href", "")
+        doc_id = doc_id_from_href(href)
         category = row.get("category", "")
-        href = row.get("href") or f"?paper={slug}"
 
-        if not slug or not path.is_file():
+        if not doc_id:
+            continue
+
+        path = DOCUMENTS_DIR / f"{doc_id}.md"
+
+        if not path.is_file():
             lines.append(csv_row([
                 category,
                 row.get("icon", ""),
                 row.get("title", ""),
                 href,
-                slug,
                 row.get("date", "?"),
                 row.get("words", "0"),
-                row.get("minutes", "0"),
             ]))
             continue
 
-        s = paper_status(slug, sidebar)
+        s = doc_status(doc_id, sidebar)
         lines.append(csv_row([
             category,
             s["icon"],
             s["title"],
             href,
-            slug,
-            s["gdate"] or s["paper_date"],
+            s["gdate"] or s["doc_date"],
             str(s["words"]),
-            str(s["mins"]),
         ]))
 
     block = "\n".join(lines)
@@ -454,13 +469,29 @@ def mode_build(slugs: list[str], sidebar: dict) -> int:
 # Entry point
 # ============================================================================
 
-def all_slugs() -> list[str]:
-    """Every .md in papers/, sorted, hidden ones excluded."""
-    return sorted(
-        path.stem
-        for path in PAPERS_DIR.glob("*.md")
-        if path.stem not in HIDDEN
-    )
+def all_ids() -> list[str]:
+    """Every .md under documents/, as a relative path without extension.
+    Hidden files and folders are excluded. Sorted for stable output.
+    Only scans one folder deep (e.g., main/index.md, books/glitched.md).
+    Skips deeply nested folders like books/operation_kaleidoscope/rev1/..."""
+    ids: list[str] = []
+    
+    # */*.md grabs exactly one subfolder deep
+    for path in DOCUMENTS_DIR.glob("*/*.md"):
+        rel = path.relative_to(DOCUMENTS_DIR).with_suffix("")
+        doc_id = rel.as_posix()  # forward slashes on all platforms
+        
+        # Skip hidden folders
+        if any(doc_id.startswith(folder) for folder in HIDDEN_FOLDERS):
+            continue
+            
+        # Skip hidden files
+        if doc_id in HIDDEN_FILES:
+            continue
+            
+        ids.append(doc_id)
+        
+    return sorted(ids)
 
 
 def main() -> int:
@@ -468,14 +499,17 @@ def main() -> int:
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")
 
-    if not PAPERS_DIR.is_dir():
-        print(f"{C.RED}papers directory not found: {PAPERS_DIR}{C.OFF}", file=sys.stderr)
+    if not DOCUMENTS_DIR.is_dir():
+        print(
+            f"{C.RED}documents directory not found: {DOCUMENTS_DIR}{C.OFF}",
+            file=sys.stderr,
+        )
         pause()
         return 1
 
-    slugs = all_slugs()
-    if not slugs:
-        print(f"no .md papers found in {PAPERS_DIR}", file=sys.stderr)
+    ids = all_ids()
+    if not ids:
+        print(f"no .md documents found in {DOCUMENTS_DIR}", file=sys.stderr)
         pause()
         return 1
 
@@ -493,13 +527,13 @@ def main() -> int:
         )
 
     if SCAN_MODE == "full":
-        mode_full(slugs, sidebar)
+        mode_full(ids, sidebar)
     elif SCAN_MODE == "drift":
-        mode_drift(slugs, sidebar)
+        mode_drift(ids, sidebar)
     elif SCAN_MODE == "all":
-        mode_all(slugs, sidebar)
+        mode_all(ids, sidebar)
     elif SCAN_MODE == "build":
-        mode_build(slugs, sidebar)
+        mode_build(ids, sidebar)
     else:
         print(f"{C.RED}unknown SCAN_MODE: {SCAN_MODE!r}{C.OFF}", file=sys.stderr)
         print(f"{C.DIM}valid: full, drift, all, build{C.OFF}", file=sys.stderr)

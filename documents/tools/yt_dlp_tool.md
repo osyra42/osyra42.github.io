@@ -10,7 +10,7 @@ It's a friendly front end for [yt-dlp](https://github.com/yt-dlp/yt-dlp), the we
 
 ## How to Use It
 
-Double-click **`zzz_launcher.bat`** (it ships with the same [Sleep Launcher](?paper=zzz_launcher) pattern I put on everything). It checks the environment, warns about anything missing, and drops you at a prompt:
+Double-click **`zzz_launcher.bat`** (it ships with the same [Sleep Launcher](?document=tools/zzz_launcher) pattern I put on everything). It checks the environment, warns about anything missing, and drops you at a prompt:
 
 ```
 [mp3] URL or command:

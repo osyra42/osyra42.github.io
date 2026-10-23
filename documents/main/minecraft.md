@@ -123,4 +123,4 @@ java:   "Version 25 (bundled with the launcher)"
 > 7. Join and play!
 <<<
 
-[Check for updates?](?paper=mcupdates)
+[Check for updates?](?document=main/mcupdates)

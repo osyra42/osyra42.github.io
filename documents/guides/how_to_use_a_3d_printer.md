@@ -10,7 +10,7 @@ Everything starts with an **STL file** - that's the standard 3D model format you
 
 **Download one.** There are many sites that host printable models, free and paid. For free, [Thingiverse](https://www.thingiverse.com) is a solid starting point - huge library, no cost. Look for an STL, download it, and you're ready to slice. Paid marketplaces exist too if you want higher-detail or commercial-license models.
 
-**Make it yourself.** If you want something unique - or desirable in a way you can't find online - model it in Blender and export an STL. If you're new to Blender, my [Blender Resources](?paper=blender_resources) page is a good place to start.
+**Make it yourself.** If you want something unique - or desirable in a way you can't find online - model it in Blender and export an STL. If you're new to Blender, my [Blender Resources](?document=tools/blender_resources) page is a good place to start.
 
 ## 2. Check the mesh (for models you make)
 

@@ -61,7 +61,7 @@ Email **coffeebytedev@proton.me** for either.
 Anywhere Vanity operates - Minecraft servers, Discord, live streams, and any other platform I put her on.
 
 ### **8. Changes**
-I may update this as Vanity changes. The latest version always lives at **coffeebyte.dev/?paper=vanity_legal**.
+I may update this as Vanity changes. The latest version always lives at **coffeebyte.dev/?document=tools/vanity_legal**.
 
 <<<
 
@@ -128,6 +128,6 @@ I can change, pause, or shut down Vanity's presence in any space, anytime, witho
 These terms follow the laws of wherever I'm based.
 
 ### **11. Changes**
-I may update these terms anytime. Keep interacting with Vanity after a change and that means you're okay with the new version. The latest version always lives at **coffeebyte.dev/?paper=vanity_legal**.
+I may update these terms anytime. Keep interacting with Vanity after a change and that means you're okay with the new version. The latest version always lives at **coffeebyte.dev/?document=legal/vanity_legal**.
 
 <<<
