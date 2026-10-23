@@ -1,5 +1,9 @@
-# Chapter 01
-## Operation Kaleidoscope / Chapter 01 / Childhood
+# 📖 Chapter 01 - Childhood
+`Operation Kaleidoscope / Origins Story / Chapter 01 / Childhood`
+
+### Present 
+
+After the announcement, I knew the media would be after me. We were public now. Journalists could come and go as they pleased, free to investigate and interrogate. I don't want the situation to be out of control. I set up a small site where people can submit their resumes. I chose exactly one journalist. There would be only one telling of the story. And that would be the end of it.
 
 ### Present
 After the announcement, I knew the media would be after me. We were public now. Journalists could come and go as they pleased, free to investigate and interrogate. I don't want the situation to be out of control. I set up a small site where people can submit their resumes. I chose exactly one journalist. There would be only one telling of the story. And that would be the end of it.

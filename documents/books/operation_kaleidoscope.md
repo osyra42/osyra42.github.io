@@ -36,7 +36,7 @@ across all revisions, including:
 # Rev3 - 3480 words (19 minutes)
 This is the outline for the next version. 
 ## Origin Story
- - [Chapter 01](\?document=books/operation_kaleidoscope/rev3/origin_story/chapter_01)
+ - [Chapter 01 - Childhood](\?document=books/operation_kaleidoscope/rev3/origin_story/chapter_01 - childhood)
  - [Outline](\?document=books/operation_kaleidoscope/rev3/origin_story/outline)
 
 >>>Rev2 - 40050 words (222 minutes)
