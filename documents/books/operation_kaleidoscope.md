@@ -1,124 +1,119 @@
 # 📖 Operation Kaleidoscope
 ::toc::
 ## About Operation Kaleidoscope
-> If you have ever seen me do VTubing, my character model I use is based off of the main character of this book. 
 
-> **Operation Chimera** is an ongoing collection of sci-fi noir stories. Where Osyra getting pulled into the Chimera Project - a secret program that turns people into engineered hybrid operatives. It's dark, the choices aren't clean, and the conspiracy unwinds slowly.
- 
-When she was younger, she was sold to a facility by the family of a foster care program. This is where she was experimenting on Then after that, she was found by the agency trained into a weapon to hunt against cryptids, the unknown, and explore liminal spaces. 
+Imagine a girl who was genetically engineered in a lab to be sold to the highest bidder. Except the company that made her gets destroyed before anyone can actually buy her. So she's just left there. The other group decided she was a weapon.
 
-Because of her unique look. People do not like to approach her. This makes a lot of the missions more difficult than necessary when she's trying to save civilians. We'll also look at the introspective thoughts on the subject. 
+She can't sue them. She can't get revenge, because everyone who did this to her is already dead. So she does the only thing she knows how to do: she keeps hunting monsters. Now she runs the whole agency that trained her, taking out cryptids and eldritch horrors while trying to ignore the conspiracy theorists who are getting a little too close to the truth.
+
+It's a dark sci-fi noir story. Think John Wick meets The X-Files, but the main character is becomes the monster.
 
 ---
 
 
 ## ⚠️ Content Warning
-```txt
-Operation Chimera contains mature and potentially disturbing material
-across all revisions, including:
+**Operation Kaleidoscope** contains mature and potentially disturbing material across all revisions. Reader discretion is advised.
 
-🧠 Mental Health & Trauma - self-harm, suicidal ideation, childhood
-   neglect and abuse, psychological distress, identity crises, substance use
-🔞 Sexual Content - mature sexual themes and suggestive material
-🧬 Medical Experimentation & Bodily Autonomy - non-consensual modification,
-   experiments on minors, captivity, interrogation, torture
-🩸 Violence & Body Horror - graphic violence, mutilation, death,
-   references to human remains, harm to animals and animal-coded characters
-🐙 Cosmic & Eldritch Horror - existential dread, eldritch abominations,
-   anomalous phenomena, cult and occult elements
-⚖️ Noir Tone - morally gray protagonists, coercive institutions,
-   surveillance, corporate corruption, strong language
+This series includes:
+- **Mental Health & Trauma:** Self-harm, suicidal ideation, childhood abuse and neglect, psychological distress, identity crises, and substance use.
+- **Sexual Content:** Mature sexual themes and suggestive material.
+- **Medical Experimentation:** Non-consensual modification, experiments on minors, captivity, interrogation, and torture.
+- **Violence & Body Horror:** Graphic violence, mutilation, death, and harm to animals.
+- **Cosmic & Eldritch Horror:** Existential dread, anomalous phenomena, and occult elements.
+- **Noir Tone:** Morally gray protagonists, coercive institutions, surveillance, and strong language.
 
-🚸 Reader discretion is advised. If any of the above could be harmful
-   to you, please skip this series.
-```
+If any of the above could be harmful to you, please skip this series.
 
-# Rev3 - 3480 words (19 minutes)
-This is the outline for the next version. 
+
+# Rev3 - 3549 words (20 minutes)
+## Special Content
+- [Kaleidoscope Pattern](documents/books/operation_kaleidoscope/kaleidoscope_pattern.html)
+
+**The latest chapter is on top.**
 ## Origin Story
- - [Chapter 01 - Childhood](\?document=books/operation_kaleidoscope/rev3/origin_story/chapter_01 - childhood)
- - [Outline](\?document=books/operation_kaleidoscope/rev3/origin_story/outline)
+ - [Chapter 01 - Childhood](?document=books/operation_kaleidoscope/rev3/origin_story/chapter_01 - childhood)
+ - [Outline](?document=books/operation_kaleidoscope/rev3/origin_story/outline)
 
 >>>Rev2 - 40050 words (222 minutes)
 # Rev2
 Here's a list of the chapters that are available for rev2. This will no longer be worked on, see [Rev3](#rev3).
 ## Part 1: Out of the Fray
- - [Chapter 0: Notes](\?document=books/operation_kaleidoscope/rev2/part1-out_of_the_fray/ch0-notes)
+ - [Chapter 0: Notes](?document=books/operation_kaleidoscope/rev2/part1-out_of_the_fray/ch0-notes)
 ## Part 2: Borne Weapon
- - [Chapter 1: The Application](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch1-the_application)
- - [Chapter 2: The Verification](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch2-the_verification)
- - [Chapter 3: The Clinical](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch3-the_clinical)
- - [Chapter 4: The Rooftop](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch4-the_rooftop)
- - [Chapter 5: The Offer](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch5-the_offer)
- - [Chapter 6: The Combine](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch6-the_combine)
- - [Chapter 7: The Prototype](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch7-the_prototype)
- - [Chapter 8: Shark Attack](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch8-shark_attack)
- - [Chapter 9: Broken Down](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch9-broken_down)
- - [Chapter 10: The Trials](\?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch10-the_trials)
+ - [Chapter 1: The Application](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch1-the_application)
+ - [Chapter 2: The Verification](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch2-the_verification)
+ - [Chapter 3: The Clinical](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch3-the_clinical)
+ - [Chapter 4: The Rooftop](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch4-the_rooftop)
+ - [Chapter 5: The Offer](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch5-the_offer)
+ - [Chapter 6: The Combine](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch6-the_combine)
+ - [Chapter 7: The Prototype](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch7-the_prototype)
+ - [Chapter 8: Shark Attack](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch8-shark_attack)
+ - [Chapter 9: Broken Down](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch9-broken_down)
+ - [Chapter 10: The Trials](?document=books/operation_kaleidoscope/rev2/part2-bourne_weapon/ch10-the_trials)
 ## Part 3: Blood Relation
- - [Chapter 1: The Hunting Lodge](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch1-the_hunting_lodge)
- - [Chapter 2: The Address](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch2-the_address)
- - [Chapter 3: The Visit](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch3-the_visit)
- - [Chapter 4: The Reveal](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch4-the_reveal)
- - [Chapter 5: Letting Go](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch5-letting_go)
- - [Chapter 6: The Morning](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch6-the_morning)
- - [Chapter 7: The Letter](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch7-the_letter)
- - [Chapter 8: The Road North](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch8-the_road_north)
- - [Chapter 9: The People Up North](\?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch9-the_people_up_north)
+ - [Chapter 1: The Hunting Lodge](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch1-the_hunting_lodge)
+ - [Chapter 2: The Address](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch2-the_address)
+ - [Chapter 3: The Visit](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch3-the_visit)
+ - [Chapter 4: The Reveal](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch4-the_reveal)
+ - [Chapter 5: Letting Go](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch5-letting_go)
+ - [Chapter 6: The Morning](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch6-the_morning)
+ - [Chapter 7: The Letter](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch7-the_letter)
+ - [Chapter 8: The Road North](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch8-the_road_north)
+ - [Chapter 9: The People Up North](?document=books/operation_kaleidoscope/rev2/part3-blood_relation/ch9-the_people_up_north)
 ## Part 4: Mireheart
- - [Chapter 0: Notes](\?document=books/operation_kaleidoscope/rev2/part4-mireheart/ch0-notes)
+ - [Chapter 0: Notes](?document=books/operation_kaleidoscope/rev2/part4-mireheart/ch0-notes)
 ## Part 5: Red Light
- - [Chapter 0: Notes](\?document=books/operation_kaleidoscope/rev2/part5-redlight/ch0-notes)
+ - [Chapter 0: Notes](?document=books/operation_kaleidoscope/rev2/part5-redlight/ch0-notes)
 <<<
 
->>>Rev1 - 55797 words (310 minutes)
+>>>Rev1 - 55799 words (310 minutes)
 # Rev1
 Here's a list of all the documents that were related to revision one. The roughest rough draft. 
 ## Part 0: Not Added
- - [Chapter 0: In and Alley](\?document=books/operation_kaleidoscope/rev1/part0-not_added/ch00-in_an_alley)
+ - [Chapter 0: In and Alley](?document=books/operation_kaleidoscope/rev1/part0-not_added/ch00-in_an_alley)
 ## Part 1: Early Years
- - [Chapter 0: Transcript](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch00-transcript)
- - [Chapter 1: Declaration of Self](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch01-declaration_of_self)
- - [Chapter 2: The Gilded Cage](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch02-the_gilded_cage)
- - [Chapter 3: Burnt Toast and Solder](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch03-burnt_toast_and_solder)
- - [Chapter 4: The Awakening](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch04-the_awakening)
- - [Chapter 5: A Second Tragedy](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch05-a_second_tragedy)
- - [Chapter 6: A Promise](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch06-a_promise)
- - [Chapter 7: Who is Impressed](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch07-who_is_impressed)
- - [Chapter 8: Somehow Good News](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch08-somehow_good_news)
- - [Chapter 9: A Big Surprise](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch09-a_big_surprise)
- - [Chapter 10: Child Happiness](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch10-child_happiness)
- - [Chapter 11: First Handshake](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch11-first_handshake)
- - [Chapter 12: It's Mitosis](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch12-its_mitosis)
- - [Chapter 13: Cool Sunglasses](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch13-cool_sunglasses)
- - [Chapter 14: A New Opportunity](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch14-a_new_opportunity)
- - [Chapter 15: The Warehouse](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch15-the_warehouse)
- - [Chapter 16: New Turbines](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch16-new_turbines)
- - [Chapter 17: The Mighty Pen](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch17-the_mighty_pen)
- - [Chapter 18: Ship Shape](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch18-ship_shape)
- - [Chapter 19: Happy Lab](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch19-happy_lab)
- - [Chapter 20: Well Technically](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch20-well_technically)
- - [Chapter 21: Clinical Trials](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch21-clinical_trials)
- - [Chapter 22: The First Chimeran](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch22-the_first_chimeran)
- - [Chapter 23: Successful Mutation](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch23-successful_mutation)
- - [Chapter 24: Reassignment](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch24-reassignment)
- - [Chapter 25: Morbid Fixation](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch25-morbid_fixation)
- - [Chapter 26: It Burns Anything](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch26-it_burns_anything)
- - [Chapter 27: Pudding Brain](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch27-pudding_brain)
- - [Chapter 28: Mercenary](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch28-mercenary)
- - [Chapter 29: Boot Camp](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch29-boot_camp)
- - [Chapter 30: Chimera One](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch30-chimera_one)
- - [Chapter 31: The Unchained](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch31-the_unchained)
- - [Chapter 32: The Tunnels](\?document=books/operation_kaleidoscope/rev1/part1-early_years/ch32-the_tunnels)
+ - [Chapter 0: Transcript](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch00-transcript)
+ - [Chapter 1: Declaration of Self](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch01-declaration_of_self)
+ - [Chapter 2: The Gilded Cage](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch02-the_gilded_cage)
+ - [Chapter 3: Burnt Toast and Solder](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch03-burnt_toast_and_solder)
+ - [Chapter 4: The Awakening](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch04-the_awakening)
+ - [Chapter 5: A Second Tragedy](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch05-a_second_tragedy)
+ - [Chapter 6: A Promise](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch06-a_promise)
+ - [Chapter 7: Who is Impressed](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch07-who_is_impressed)
+ - [Chapter 8: Somehow Good News](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch08-somehow_good_news)
+ - [Chapter 9: A Big Surprise](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch09-a_big_surprise)
+ - [Chapter 10: Child Happiness](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch10-child_happiness)
+ - [Chapter 11: First Handshake](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch11-first_handshake)
+ - [Chapter 12: It's Mitosis](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch12-its_mitosis)
+ - [Chapter 13: Cool Sunglasses](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch13-cool_sunglasses)
+ - [Chapter 14: A New Opportunity](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch14-a_new_opportunity)
+ - [Chapter 15: The Warehouse](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch15-the_warehouse)
+ - [Chapter 16: New Turbines](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch16-new_turbines)
+ - [Chapter 17: The Mighty Pen](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch17-the_mighty_pen)
+ - [Chapter 18: Ship Shape](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch18-ship_shape)
+ - [Chapter 19: Happy Lab](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch19-happy_lab)
+ - [Chapter 20: Well Technically](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch20-well_technically)
+ - [Chapter 21: Clinical Trials](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch21-clinical_trials)
+ - [Chapter 22: The First Chimeran](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch22-the_first_chimeran)
+ - [Chapter 23: Successful Mutation](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch23-successful_mutation)
+ - [Chapter 24: Reassignment](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch24-reassignment)
+ - [Chapter 25: Morbid Fixation](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch25-morbid_fixation)
+ - [Chapter 26: It Burns Anything](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch26-it_burns_anything)
+ - [Chapter 27: Pudding Brain](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch27-pudding_brain)
+ - [Chapter 28: Mercenary](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch28-mercenary)
+ - [Chapter 29: Boot Camp](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch29-boot_camp)
+ - [Chapter 30: Chimera One](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch30-chimera_one)
+ - [Chapter 31: The Unchained](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch31-the_unchained)
+ - [Chapter 32: The Tunnels](?document=books/operation_kaleidoscope/rev1/part1-early_years/ch32-the_tunnels)
 ## Part 2: Chimera One
- - [Chapter 0: Intro](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch00-intro)
- - [Chapter 33: The Hollow Hound](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch33-the_hollow_hound)
- - [Chapter 34: Legalties and Legends](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch34-legalties_and_legends)
- - [Chapter 35: Unchained](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch35-unchained)
- - [Chapter 36: Echoes in the Dust](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch36-echoes_in_the_dust)
- - [Chapter 37: The Pack in the Dust](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch37-the_pack_in_the_dust)
- - [Chapter 38: Scars and Debriefs](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch38-scars_and_debriefs)
- - [Chapter 39: Ghosts in the Mansion](\?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch39-ghosts_in_the_mansion)
+ - [Chapter 0: Intro](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch00-intro)
+ - [Chapter 33: The Hollow Hound](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch33-the_hollow_hound)
+ - [Chapter 34: Legalties and Legends](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch34-legalties_and_legends)
+ - [Chapter 35: Unchained](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch35-unchained)
+ - [Chapter 36: Echoes in the Dust](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch36-echoes_in_the_dust)
+ - [Chapter 37: The Pack in the Dust](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch37-the_pack_in_the_dust)
+ - [Chapter 38: Scars and Debriefs](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch38-scars_and_debriefs)
+ - [Chapter 39: Ghosts in the Mansion](?document=books/operation_kaleidoscope/rev1/part2-chimera_one/ch39-ghosts_in_the_mansion)
 ## Part 3: Search and Rescue
- - [Chapter 0: Intro](\?document=books/operation_kaleidoscope/rev1/part3-search_and_rescue/ch00-intro)
+ - [Chapter 0: Intro](?document=books/operation_kaleidoscope/rev1/part3-search_and_rescue/ch00-intro)
  <<<

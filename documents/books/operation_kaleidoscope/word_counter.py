@@ -1,6 +1,7 @@
 """word_counter.py - recursive word count for a folder tree.
 
 Counts words in every .md file, rolls totals up through every parent folder.
+Now also displays estimated pages and reading time.
 
 USAGE
     py word_counter.py
@@ -33,6 +34,10 @@ EXTENSIONS = {".md"}
 
 # Skip these folder names anywhere in the tree.
 SKIP_DIRS = {".git", ".venv", "venv", "__pycache__", "node_modules"}
+
+# Reading metrics
+WORDS_PER_PAGE = 250
+READING_SPEED = 180  # Average adult reading speed (words per minute)
 
 
 # ============================================================================
@@ -79,6 +84,13 @@ def count_words(md: str, is_changelog: bool = False) -> int:
     return len(WORD_RE.findall(t))
 
 
+def format_metrics(words: int) -> str:
+    """Returns a string like '12,345 words | 49 pages | 52 min'"""
+    pages = round(words / WORDS_PER_PAGE)
+    minutes = round(words / READING_SPEED)
+    return f"{words:,} words | {pages:,} pages | {minutes:,} min"
+
+
 # ============================================================================
 # Colours (auto-off when piped)
 # ============================================================================
@@ -92,7 +104,7 @@ class C:
     OFF    = "\033[0m" if _on else ""
 
 
-def rule(char: str = "-", width: int = 74) -> str:
+def rule(char: str = "-", width: int = 90) -> str:
     return C.DIM + char * width + C.OFF
 
 
@@ -137,13 +149,16 @@ def print_tree(children, indent: int = 0, detail: bool = False,
     for kind, name, words, subtree in children:
         pad = "  " * indent
         if kind == "dir":
-            pct = f"  {words / root_total * 100:5.1f}%" if root_total else ""
-            print(f"{pad}{C.CYAN}{name}/{C.OFF}  "
-                  f"{C.BOLD}{words:,}{C.OFF}{C.DIM}{pct}{C.OFF}")
+            pct = f"{words / root_total * 100:5.1f}%" if root_total else "  0.0%"
+            metrics = format_metrics(words)
+            print(f"{pad}{C.CYAN}{name}/{C.OFF}")
+            print(f"{pad}  {C.DIM}{metrics} ({pct}){C.OFF}")
             print_tree(subtree, indent + 1, detail, root_total)
         else:
             if detail:
-                print(f"{pad}{name}  {C.DIM}{words:,}{C.OFF}")
+                metrics = format_metrics(words)
+                print(f"{pad}{C.DIM}-{C.OFF} {name}")
+                print(f"{pad}  {C.DIM}{metrics}{C.OFF}")
 
 
 # ============================================================================
@@ -194,7 +209,8 @@ def main() -> int:
     print(rule("="))
     print_tree(children, indent=0, detail=args.detail, root_total=total)
     print(rule())
-    print(f"{C.BOLD}TOTAL{C.OFF}  {total:,} words")
+    print(f"{C.BOLD}TOTAL OVERALL{C.OFF}")
+    print(f"  {format_metrics(total)}")
     print(rule("="))
 
     if not args.no_pause:

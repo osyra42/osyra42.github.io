@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope Pattern</title>
+    <style>
+        :root {
+            --bg-dark: #222;
+            --bg-panel: #1a1a1a;
+            --text-main: #f0f0f0;
+            --text-muted: #888;
+            --accent: #FF6BFF;
+            --accent-hover: #6BFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 350px;
+            background-color: var(--bg-panel);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .sidebar h1 {
+            font-size: 20px;
+            margin: 0;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input[type="range"] {
+            flex-grow: 1;
+            accent-color: var(--accent);
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            width: 70px;
+            background: #111;
+            border: 1px solid #333;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        input[type="number"]:focus {
+            outline: 1px solid var(--accent);
+        }
+
+        /* New styles for the text area */
+        textarea {
+            width: 100%;
+            height: 60px;
+            background: #111;
+            border: 1px solid #333;
+            color: #6BFFFF; /* Cyan text to stand out */
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            outline: 1px solid var(--accent);
+        }
+
+        button {
+            background-color: var(--accent);
+            color: #000;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: auto; 
+        }
+
+        button:hover {
+            background-color: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        .info-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .canvas-container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        canvas {
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h1>Kaleidoscope Pattern</h1>
+        <div class="info-text">Click canvas to re-roll the seed.</div>
+
+        <!-- Custom Colors Input -->
+        <div class="control-group">
+            <div class="control-header"><span>CUSTOM COLORS (Comma Separated)</span></div>
+            <textarea id="customColorsInput"></textarea>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>SEED</span></div>
+            <div class="input-row">
+                <input type="range" id="seedSlider" min="1" max="1000000" step="1">
+                <input type="number" id="seedInput" min="1" max="1000000" step="1">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>NUM SHARDS</span><span id="numShardsVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="numShards" min="10" max="100" step="1">
+                <input type="number" id="numShardsNum" min="10" max="100" step="1">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>MIN RADIUS</span><span id="minRadiusVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="minRadius" min="50" max="400" step="10">
+                <input type="number" id="minRadiusNum" min="50" max="400" step="10">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>MAX RADIUS</span><span id="maxRadiusVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="maxRadius" min="100" max="800" step="10">
+                <input type="number" id="maxRadiusNum" min="100" max="800" step="10">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>GLASS OPACITY</span><span id="glassOpacityVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="glassOpacity" min="0.1" max="1.0" step="0.05">
+                <input type="number" id="glassOpacityNum" min="0.1" max="1.0" step="0.05">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>FROST OPACITY</span><span id="frostOpacityVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="frostOpacity" min="0" max="1.0" step="0.05">
+                <input type="number" id="frostOpacityNum" min="0" max="1.0" step="0.05">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>VARIANCE MIN</span><span id="varMinVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="varMin" min="0.1" max="2.0" step="0.1">
+                <input type="number" id="varMinNum" min="0.1" max="2.0" step="0.1">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-header"><span>VARIANCE MAX</span><span id="varMaxVal"></span></div>
+            <div class="input-row">
+                <input type="range" id="varMax" min="0.1" max="2.0" step="0.1">
+                <input type="number" id="varMaxNum" min="0.1" max="2.0" step="0.1">
+            </div>
+        </div>
+
+        <button id="downloadBtn">Download Texture</button>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="glassCanvas"></canvas>
+    </div>
+
+<script>
+    // ==========================================
+    // ADJUSTABLE PARAMETERS
+    // ==========================================
+    const CONFIG = {
+        seed: new URLSearchParams(window.location.search).get('seed') || Math.floor(Math.random() * 1000000),
+        numShards: 45,          
+        minRadius: 120,         
+        maxRadius: 280,         
+        glassOpacity: 0.75,     
+        frostOpacity: 0.6,      
+        variance: [0.8, 1.2],   
+        canvasWidth: 800,       
+        canvasHeight: 600       
+    };
+
+    // Default palette (used to populate the textbox)
+    const DEFAULT_PALETTE = [
+        '#FF6BFF', '#6BFFFF', '#FF6BA8', '#B56BFF', '#6BFF9E', 
+        '#FFB56B', '#FFFF6B', '#6BB5FF', '#FF6B6B', '#FF6BE5', 
+        '#6BFFE5', '#D46BFF', '#FFFFFF'
+    ];
+
+    // The active palette that the script pulls from
+    let ACTIVE_PALETTE = [...DEFAULT_PALETTE];
+
+    // ==========================================
+    // SYSTEM LOGIC
+    // ==========================================
+    const canvas = document.getElementById('glassCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = CONFIG.canvasWidth;
+    canvas.height = CONFIG.canvasHeight;
+
+    let shards = [];
+    let masterFrostCanvas = null; 
+    
+    let currentSeed = CONFIG.seed;
+    function random() {
+        let x = Math.sin(currentSeed++) * 10000;
+        return x - Math.floor(x);
+    }
+    function randomRange(min, max) {
+        return random() * (max - min) + min;
+    }
+
+    function createFrostTexture() {
+        const cWidth = 2000;
+        const cHeight = 2000;
+        masterFrostCanvas = document.createElement('canvas');
+        masterFrostCanvas.width = cWidth;
+        masterFrostCanvas.height = cHeight;
+        const cCtx = masterFrostCanvas.getContext('2d');
+        
+        cCtx.clearRect(0, 0, cWidth, cHeight);
+
+        for (let i = 0; i < 300; i++) {
+            const x = randomRange(0, cWidth);
+            const y = randomRange(0, cHeight);
+            const r = randomRange(50, 200); 
+            
+            const grad = cCtx.createRadialGradient(x, y, 0, x, y, r);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 0.4)'); 
+            grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            
+            cCtx.fillStyle = grad;
+            cCtx.beginPath();
+            cCtx.arc(x, y, r, 0, Math.PI * 2);
+            cCtx.fill();
+        }
+    }
+
+    function generateShards() {
+        shards = [];
+        currentSeed = CONFIG.seed;
+
+        // If the user somehow deleted all colors, fallback to default
+        if (ACTIVE_PALETTE.length === 0) {
+            ACTIVE_PALETTE = [...DEFAULT_PALETTE];
+        }
+
+        for (let i = 0; i < CONFIG.numShards; i++) {
+            const centerX = randomRange(-100, canvas.width + 100);
+            const centerY = randomRange(-100, canvas.height + 100);
+
+            const numSides = Math.floor(randomRange(3, 6)); 
+            const vertices = [];
+            const shardRadius = randomRange(CONFIG.minRadius, CONFIG.maxRadius); 
+            const startAngle = randomRange(0, Math.PI * 2);
+
+            for (let j = 0; j < numSides; j++) {
+                const angle = startAngle + (j / numSides) * Math.PI * 2;
+                const varAmount = randomRange(CONFIG.variance[0], CONFIG.variance[1]); 
+                const radius = shardRadius * varAmount;
+                
+                vertices.push({
+                    x: centerX + Math.cos(angle) * radius,
+                    y: centerY + Math.sin(angle) * radius
+                });
+            }
+
+            // Pull from ACTIVE_PALETTE instead of hardcoded palette
+            const color = ACTIVE_PALETTE[Math.floor(randomRange(0, ACTIVE_PALETTE.length))];
+            const sampleX = randomRange(0, 1000);
+            const sampleY = randomRange(0, 1000);
+
+            shards.push({
+                vertices: vertices,
+                center: { x: centerX, y: centerY },
+                color: color,
+                sampleX: sampleX,
+                sampleY: sampleY
+            });
+        }
+    }
+
+    function drawShard(shard) {
+        ctx.save();
+        
+        ctx.beginPath();
+        ctx.moveTo(shard.vertices[0].x, shard.vertices[0].y);
+        for (let i = 1; i < shard.vertices.length; i++) {
+            ctx.lineTo(shard.vertices[i].x, shard.vertices[i].y);
+        }
+        ctx.closePath();
+
+        ctx.clip(); 
+
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.fillStyle = shard.color;
+        ctx.globalAlpha = CONFIG.glassOpacity; 
+        ctx.fill();
+
+        ctx.globalCompositeOperation = 'screen';
+        ctx.globalAlpha = CONFIG.frostOpacity; 
+        
+        ctx.drawImage(
+            masterFrostCanvas, 
+            shard.sampleX, shard.sampleY, 800, 800, 
+            shard.center.x - 400, shard.center.y - 400, 800, 800 
+        );
+        
+        ctx.restore();
+    }
+
+    function render() {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        shards.forEach(shard => drawShard(shard));
+    }
+
+    function init() {
+        createFrostTexture();
+        generateShards();
+        render();
+    }
+
+    // ==========================================
+    // UI LOGIC
+    // ==========================================
+    
+    // Initialize the text area with the default colors
+    const colorInput = document.getElementById('customColorsInput');
+    colorInput.value = DEFAULT_PALETTE.join(', ');
+
+    // Listen for changes in the color textbox
+    colorInput.addEventListener('input', (e) => {
+        const rawText = e.target.value;
+        
+        // Split by comma, trim whitespace, and filter out empty strings
+        const newColors = rawText.split(',')
+            .map(c => c.trim())
+            .filter(c => c.length > 0);
+
+        // Basic validation to ensure they are hex codes (starts with #)
+        // If they don't, we don't break the app, we just keep the last valid ones
+        const validColors = newColors.filter(c => c.startsWith('#') && (c.length === 4 || c.length === 7));
+        
+        if (validColors.length > 0) {
+            ACTIVE_PALETTE = validColors;
+            generateShards();
+            render();
+        }
+    });
+
+    function linkInputs(sliderId, numId, settingKey, displayId, formatFn = (val) => val, isVariance = false, varIndex = 0) {
+        const slider = document.getElementById(sliderId);
+        const num = document.getElementById(numId);
+        const display = displayId ? document.getElementById(displayId) : null;
+
+        const getVal = () => isVariance ? CONFIG.variance[varIndex] : CONFIG[settingKey];
+        const setVal = (val) => {
+            if (isVariance) CONFIG.variance[varIndex] = val;
+            else CONFIG[settingKey] = val;
+        };
+
+        slider.value = getVal();
+        num.value = getVal();
+        if(display) display.innerText = formatFn(getVal());
+
+        const update = (val) => {
+            val = parseFloat(val);
+            setVal(val);
+            slider.value = val;
+            num.value = val;
+            if(display) display.innerText = formatFn(val);
+            
+            if (settingKey === 'seed') {
+                init(); 
+            } else {
+                generateShards();
+                render();
+            }
+        };
+
+        slider.addEventListener('input', (e) => update(e.target.value));
+        num.addEventListener('change', (e) => update(e.target.value));
+    }
+
+    linkInputs('seedSlider', 'seedInput', 'seed');
+    linkInputs('numShards', 'numShardsNum', 'numShards', 'numShardsVal');
+    linkInputs('minRadius', 'minRadiusNum', 'minRadius', 'minRadiusVal');
+    linkInputs('maxRadius', 'maxRadiusNum', 'maxRadius', 'maxRadiusVal');
+    linkInputs('glassOpacity', 'glassOpacityNum', 'glassOpacity', 'glassOpacityVal', (v) => v.toFixed(2));
+    linkInputs('frostOpacity', 'frostOpacityNum', 'frostOpacity', 'frostOpacityVal', (v) => v.toFixed(2));
+    
+    linkInputs('varMin', 'varMinNum', 'variance', 'varMinVal', (v) => v.toFixed(1), true, 0);
+    linkInputs('varMax', 'varMaxNum', 'variance', 'varMaxVal', (v) => v.toFixed(1), true, 1);
+
+    canvas.addEventListener('click', () => {
+        CONFIG.seed = Math.floor(Math.random() * 1000000);
+        window.history.replaceState(null, null, `?seed=${CONFIG.seed}`);
+        
+        document.getElementById('seedSlider').value = CONFIG.seed;
+        document.getElementById('seedInput').value = CONFIG.seed;
+        
+        init();
+    });
+
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.download = `kaleidoscope_seed_${CONFIG.seed}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
+
+    init();
+</script>
+</body>
+</html>
