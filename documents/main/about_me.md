@@ -36,7 +36,7 @@ The site is the archive - the finished, catalogued version of the work. [Twitch]
 # 🤝 Hang Out
 
 ### Catch a Stream
-I stream on [Discord](https://discord.gg/Xc9TrxtuuE), [Twitch](https://twitch.tv/osyra42), and [YouTube](https://www.youtube.com/@osyra42) - come watch me build, write, or break things live. New videos land on YouTube between streams.
+I stream on [Discord](https://discord.gg/2USS2tgDgE), [Twitch](https://twitch.tv/osyra42), and [YouTube](https://www.youtube.com/@osyra42) - come watch me build, write, or break things live. New videos land on YouTube between streams.
 
 ### Support My Work
 If something here was worth your time and you want to throw some back, the [support page](?document=legal/support_me) lists the ways - none of them required. It keeps the lights on and the projects moving.

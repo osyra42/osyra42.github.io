@@ -36,7 +36,7 @@ Not everything costs money - engagement helps just as much, and most of it is fr
 
 ### 📺 Follow & Engage
 
-Follow on [Twitch](https://twitch.tv/osyra42), subscribe on [YouTube](https://www.youtube.com/@osyra42), and hang out on [Discord](https://discord.gg/Xc9TrxtuuE). Likes, comments, and just being in chat all boost visibility - and cost nothing.
+Follow on [Twitch](https://twitch.tv/osyra42), subscribe on [YouTube](https://www.youtube.com/@osyra42), and hang out on [Discord](https://discord.gg/2USS2tgDgE). Likes, comments, and just being in chat all boost visibility - and cost nothing.
 
 Passing a project along to someone who'd find it useful counts too. Word of mouth is real support.
 

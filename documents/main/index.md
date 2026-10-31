@@ -39,7 +39,7 @@ Coffee Byte Dev is two years old, but it's not the first thing I've built. A few
 
 # 📺 Watch It Happen
 
-The site is the archive - the finished, catalogued version. [Discord](https://discord.gg/Xc9TrxtuuE), [Twitch](https://twitch.tv/osyra42), and [YouTube](https://www.youtube.com/@osyra42) are where you see it in real time, mistakes and all. New videos land between streams.
+The site is the archive - the finished, catalogued version. [Discord](https://discord.gg/2USS2tgDgE), [Twitch](https://twitch.tv/osyra42), and [YouTube](https://www.youtube.com/@osyra42) are where you see it in real time, mistakes and all. New videos land between streams.
 
 Want to know when something changed? The [changelog](?document=main/changelog) logs every update, and anything touched in the last two weeks gets a ✨ in the sidebar.
 
