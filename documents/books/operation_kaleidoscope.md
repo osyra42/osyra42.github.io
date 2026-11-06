@@ -25,16 +25,23 @@ This series includes:
 If any of the above could be harmful to you, please skip this series.
 
 
-# Rev3 - 3549 words (20 minutes)
+# Rev3 - 4670 words (26 minutes)
+## Origin Story
+ - [Chapter 01 - Childhood](?document=books/operation_kaleidoscope/rev3/origin_story/chapter_01 - childhood) Sep'26
+
+## Notes
+- [Origin Outline](?document=books/operation_kaleidoscope/notes/origin_outline)
+- [World Building](?document=books/operation_kaleidoscope/notes/world_building)
+- [Osyra Renaya](?document=books/operation_kaleidoscope/notes/osyra_renaya)
+
 ## Special Content
 - [Kaleidoscope Pattern](documents/books/operation_kaleidoscope/kaleidoscope_pattern.html)
 
-**The latest chapter is on top.**
-## Origin Story
- - [Chapter 01 - Childhood](?document=books/operation_kaleidoscope/rev3/origin_story/chapter_01 - childhood)
- - [Outline](?document=books/operation_kaleidoscope/rev3/origin_story/outline)
 
->>>Rev2 - 40050 words (222 minutes)
+
+
+
+>>>~~Rev2 - 40050 words (222 minutes)~~
 # Rev2
 Here's a list of the chapters that are available for rev2. This will no longer be worked on, see [Rev3](#rev3).
 ## Part 1: Out of the Fray
@@ -66,7 +73,7 @@ Here's a list of the chapters that are available for rev2. This will no longer b
  - [Chapter 0: Notes](?document=books/operation_kaleidoscope/rev2/part5-redlight/ch0-notes)
 <<<
 
->>>Rev1 - 55799 words (310 minutes)
+>>>~~Rev1 - 55799 words (310 minutes)~~
 # Rev1
 Here's a list of all the documents that were related to revision one. The roughest rough draft. 
 ## Part 0: Not Added
