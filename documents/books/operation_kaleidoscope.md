@@ -2,11 +2,11 @@
 ::toc::
 ## About Operation Kaleidoscope
 
-Imagine a girl who was genetically engineered in a lab to be sold to the highest bidder. Except the company that made her gets destroyed before anyone can actually buy her. So she's just left there. The other group decided she was a weapon.
+### The Premise:
+Kaleidoscope is a paramilitary organization that hunts the things that go bump in the night. Skinwalkers, Eldritch abominations, and anomalous entities that slip through the cracks of reality. They operate with FBI/CIA-level authority, but they aren't a government agency. They are a private contractor. When something unnatural shows up in a city, the public knows to evacuate, and Kaleidoscope knows to step in. They don't hide, but they keep their heads down enough to avoid going viral.
 
-She can't sue them. She can't get revenge, because everyone who did this to her is already dead. So she does the only thing she knows how to do: she keeps hunting monsters. Now she runs the whole agency that trained her, taking out cryptids and eldritch horrors while trying to ignore the conspiracy theorists who are getting a little too close to the truth.
-
-It's a dark sci-fi noir story. Think John Wick meets The X-Files, but the main character is becomes the monster.
+### The Protagonist:
+Osyra Renaya is the owner and commander of Kaleidoscope. She is a 6'4" Chimeran—a wolf-human hybrid created in a lab, marked by red eyes and animal traits she has to hide in public. She is the sole survivor of the Chimera-9 program's first round. She was bred to be a weapon, abused into compliance, and forced to hunt. But when the corporation that made her collapsed, she didn't run. She read the paperwork, leaked their secrets, and took ownership of the wreckage. Now, she runs the organization. She doesn't do the paperwork—that's what Vanity, her android HR director, is for. Osyra is the one who goes into the field. Not for justice, not for revenge, but because she is extraordinary, and hunting is the only thing that has ever been hers.
 
 ---
 
