@@ -36,7 +36,7 @@ If any of the above could be harmful to you, please skip this series.
 
 ## Special Content
 - [Kaleidoscope Pattern](documents/books/operation_kaleidoscope/kaleidoscope_pattern.html)
-
+- [KOMS Layout](documents/books/operation_kaleidoscope/koms.html)
 
 
 
