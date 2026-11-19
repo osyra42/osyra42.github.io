@@ -4,13 +4,7 @@ A work-in-progress pentomino territory game I'm building in GameMaker Studio 2. 
 
 ╔═══════════════════════════════════╗
 ║                                   ║
-║        🎮 **[PLAY GODOT VERSION](castleminos/index.html)**          ║
-║                                   ║
-╚═══════════════════════════════════╝
-
-╔═══════════════════════════════════╗
-║                                   ║
-║       🎮 **[PLAY GAMEMAKER VERSION](castellomino/index.html)**        ║
+║         🎮 **[PLAY CASTLEMINOS](castleminos/index.html)**          ║
 ║                                   ║
 ╚═══════════════════════════════════╝
 > Press F11 for fullscreen, makes it a much better experience.
@@ -25,16 +19,10 @@ A work-in-progress pentomino territory game I'm building in GameMaker Studio 2. 
 -    **P** - Restart game
 -    **H** - Toggle help
 
-## 🔄 Uodates
+## 🔄 Updates
 
 **Assets**
  - No downloadable assets, you may request them in the [Discord](https://discord.gg/2USS2tgDgE).
-
-### 📦 2026.10.17 - Porting to Godot
-![Castleminos Godot](../assets/images/castleminos/image03.png)
-
-I'm trying to port everything from GameMaker to Godot. I have both versions up and available since the GameMaker one is slightly further ahead. This is a checkpoint for now for what I have done so far. 
-
 
 ### 📦 2026.10.10 - Even More Teams
 
