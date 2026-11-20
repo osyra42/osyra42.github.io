@@ -29,7 +29,7 @@ const Themes = (function () {
         { id: 'double_espresso', label: 'Double Espresso', hex: '#120a06' },
     ];
 
-    const DEFAULT_THEME = 'pumpkin';
+    const DEFAULT_THEME = 'mint';
 
     const TUNE = {
         lightStep: 0.09,

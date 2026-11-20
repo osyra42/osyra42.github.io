@@ -123,4 +123,37 @@ java:   "Version 25 (bundled with the launcher)"
 > 7. Join and play!
 <<<
 
+# 🛑 TBCC
+
+| Server Info | |
+|---|---|
+| **Server Name** | The Christmas Chronicles (Modded) |
+| **IP and Port** | Contact owner Trinkbell — not publicly listed |
+| **Version** | Forge 1.20.1 |
+| **Staff** | Trinkbell 👑, osyra42 🗝️ |
+| **Rules** | 1-6 apply |
+
+Welcome to a very merry scary Christmas. Enjoy your stay. 
+
+>>> ⚙️ Minimum Requirements
+```yaml
+CPU: "Intel Core i3-10100 / AMD Ryzen 3 3100 or better" 
+GPU: "Nvidia GTX 950 / AMD Radeon RX 460 (2GB VRAM) or better" 
+RAM: "8 GB+ allocated to the game (16 GB system total recommended)" 
+Disk: "~2 GB+ free (for modpack files and world)"
+Java: "Version 17 (bundled with most 1.20.1 modpack launchers)"
+```
+<<<
+
+>>> 🔌 How to Connect
+1. Purchase and install [Minecraft Java Edition](https://www.minecraft.net/en-us).
+2. Install a launcher that supports modpacks (e.g., **CurseForge** or **Prism Launcher**).
+3. Install the **The Christmas Chronicles** modpack (Forge **1.20.1**).
+4. Launch the modpack and wait for it to fully load to the main menu.
+5. From the main menu, click **Multiplayer**.
+6. Click **Add Server**.
+7. Contact the owner, **Trinkbell**, directly to request the IP.
+8. Once Trinkbell provides the IP, enter it in the **Server Address** field and join.
+<<<
+
 [Check for updates?](?document=main/mcupdates)
