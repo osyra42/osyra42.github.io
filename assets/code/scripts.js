@@ -221,8 +221,8 @@ function decorateSidebarLinks(explicitIndex) {
 
     if (words) parts.push(`${Number(words).toLocaleString()}`);
     
-    // Calculate reading time dynamically here!
-    if (words) parts.push(formatReadingTime(words)); 
+    // Change this line to calculate the minutes first:
+    if (words) parts.push(formatReadingTime(calculateMinutes(words))); 
     
     if (date) parts.push(`${date}`);
 
