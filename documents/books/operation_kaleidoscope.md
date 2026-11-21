@@ -1,12 +1,13 @@
 # 🪞 Operation Kaleidoscope
 ::toc::
-## About Operation Kaleidoscope
+*A Sci-Fi story.*
+*Written in 2026*
 
-#### The Premise:
-Kaleidoscope is a paramilitary organization that hunts the things that go bump in the night. Skinwalkers, Eldritch abominations, and anomalous entities that slip through the cracks of reality. They operate with FBI/CIA-level authority, but they aren't a government agency. They are a private contractor. When something unnatural shows up in a city, the public knows to evacuate, and Kaleidoscope knows to step in. They don't hide, but they keep their heads down enough to avoid going viral.
+---
 
-#### The Protagonist:
-Osyra Renaya is the owner and commander of Kaleidoscope. She is a 6'4" Chimeran—a wolf-human hybrid created in a lab, marked by red eyes and animal traits she has to hide in public. She is the sole survivor of the Chimera-9 program's first round. She was bred to be a weapon, abused into compliance, and forced to hunt. But when the corporation that made her collapsed, she didn't run. She read the paperwork, leaked their secrets, and took ownership of the wreckage. Now, she runs the organization. She doesn't do the paperwork—that's what Vanity, her android HR director, is for. Osyra is the one who goes into the field. Not for justice, not for revenge, but because she is extraordinary, and hunting is the only thing that has ever been hers.
+Kaleidoscope is a paramilitary organization that hunts the things that go bump in the night, skinwalkers, eldritch abominations, and anomalous entities that slip through the cracks of reality. They operate with FBI/CIA-level authority, but they aren't a government agency. They are a private contractor. When something unnatural shows up in a city, the public knows to evacuate, and Kaleidoscope knows to step in. They don't hide, but they keep their heads down enough to avoid going viral.
+
+Osyra Renaya is the owner and commander of Kaleidoscope, a private paramilitary contractor that handles anomalous threats. She is Chimeran herself, a result of the experiments - and the sole survivor of the Chimera-9 program's first round. She was bred to be a weapon, abused into compliance, and forced to hunt. But when the corporation that made her collapsed, she didn't run. She read the paperwork, leaked their secrets, and took ownership of the wreckage.
 
 ## Special Content
 - [Kaleidoscope Pattern](kaleidoscope_extras/kaleidoscope_pattern.html)
