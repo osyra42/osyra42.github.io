@@ -2,7 +2,7 @@
 ::toc::
 Hey - welcome to Coffee Block. It's my small collection of Minecraft servers - a few public, sometimes a private one too. They're free, Java Edition only, and run 24/7. Come and go as you like.
 
-[Join the Discord](https://discord.gg/2USS2tgDgE) - say hi, find players, or just hang out.
+[Join the Discord](https://discord.gg/FcvVJK7YmG) - say hi, find players, or just hang out.
 
 ## 🆕 New to Minecraft?
 New here? Good - it's one of the most creative games out there. Grab [Minecraft Java Edition](https://www.minecraft.net/en-us) for about $30, install it, and you're ready to go. Each server below has its own connect steps and minimum specs.

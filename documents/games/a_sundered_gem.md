@@ -14,7 +14,7 @@ A work-in-progress pixel art adventure I'm building in GameMaker Studio 2. Explo
 ## 🔄 Updates
 
 **Assets**
- - Downloadable assets have been removed from the website. You may request them in the [Discord](https://discord.gg/2USS2tgDgE).
+ - Downloadable assets have been removed from the website. You may request them in the [Discord](https://discord.gg/FcvVJK7YmG).
 
 ### 📦 2026.10.10 - A Sundered Gem
 ![A Sundered Gem](../assets/images/a_sundered_gem/asg_01.png)

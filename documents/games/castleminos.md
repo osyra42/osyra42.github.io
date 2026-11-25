@@ -22,7 +22,7 @@ A work-in-progress pentomino territory game I'm building in GameMaker Studio 2. 
 ## 🔄 Updates
 
 **Assets**
- - No downloadable assets, you may request them in the [Discord](https://discord.gg/2USS2tgDgE).
+ - No downloadable assets, you may request them in the [Discord](https://discord.gg/FcvVJK7YmG).
 
 ### 📦 2026.10.10 - Even More Teams
 
