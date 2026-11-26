@@ -1,4 +1,4 @@
-# 🐍 How to Learn Programming
+# 🐍 Learn Programming
 ::toc::
 🎯 Don't learn a language just to learn it — **have a purpose.** The fastest way to learn programming is to pick one small project and finish it. Everything else follows from there.
 

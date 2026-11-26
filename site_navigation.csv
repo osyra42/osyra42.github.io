@@ -1,8 +1,7 @@
 ﻿category,icon,title,href,date,words
-Main,🏠,Welcome,?document=main/index,2026.09.12,433
-Main,👋,About Me,?document=main/about_me,2026.08.11,591
-Main,⛏️,Minecraft Server,?document=main/minecraft,2026.11.20,1075
-Main,⭐,Recommendations,?document=main/recommendations,2026.09.13,1023
+Main,🏠,Welcome,?document=main/index,2026.11.26,318
+Main,⛏️,Minecraft Server,?document=main/minecraft,2026.11.26,252
+Main,⭐,Recommendations,?document=main/recommendations,2026.11.26,1088
 
 Books,🪞,Operation Kaleidoscope,?document=books/operation_kaleidoscope,2026.11.20,1283
 Books,🪖,Operation Chimera,?document=books/operation_chimera,2026.11.20,38083
@@ -17,23 +16,13 @@ Games,🕹️,A Sundered Gem,?document=games/a_sundered_gem,2026.10.10,1179
 Games,🧋,Sip Sip,?document=games/sipsip,2026.07.24,230
 Games,🍂,Clutter,?document=games/clutter,2026.07.18,427
 
-Guides,🧲,How Magnets Work,?document=guides/how_magnets_work,2026.09.16,622
-Guides,🧪,How to Use Cheat Engine,?document=guides/how_to_use_cheat_engine,2026.09.19,1203
-Guides,📀,How to Burn a DVD,?document=guides/how_to_burn_a_dvd,2026.09.19,1310
-Guides,🔓,How to be the Problem,?document=guides/how_to_be_the_problem,2026.07.24,2233
-Guides,🐍,How to Learn Programming,?document=guides/how_to_learn_programming,2026.09.26,1417
-Guides,🎭,How to Become a VTuber,?document=guides/how_to_become_a_vtuber,2026.07.21,1092
-Guides,🎬,How to Edit Videos,?document=guides/how_to_edit_videos,2026.07.24,516
-Guides,🖨️,How to Use a 3D Printer,?document=guides/how_to_use_a_3d_printer,2026.07.24,748
-Guides,💡,How to Do It for Free,?document=guides/how_to_do_it_for_free,2026.07.18,2567
-Guides,🎨,How to Use ComfyUI,?document=guides/how_to_use_comfyui,2026.07.18,955
-Guides,🏚️,How to Urbex Safely,?document=guides/how_to_urbex_safety,2026.07.18,1054
-
+Tools,🧲,How Magnets Work,?document=tools/how_magnets_work,2026.09.16,622
+Tools,🐍,Learn Programming,?document=tools/learn_programming,2026.09.26,1415
+Tools,🎭,Become a VTuber,?document=tools/become_a_vtuber,2026.07.21,1090
+Tools,⛓️‍💥,How to Do It for Free,?document=tools/how_to_do_it_for_free,2026.07.18,2567
 Tools,🤖,Vanity,?document=tools/vanity,2026.09.16,4133
 Tools,🎬,yt-dlp Tool,?document=tools/yt_dlp_tool,2026.07.24,635
 Tools,😴,Sleep Launcher,?document=tools/zzz_launcher,2026.09.16,1770
-Tools,☕,Brewdown,?document=tools/brewdown,2026.09.26,42
-Tools,🧊,Blender Resources,?document=tools/blender_resources,2026.07.18,268
 Tools,🎬,Media Mimic,?document=tools/media_mimic,2026.07.18,668
 Tools,🔢,Casio Code,?document=tools/casio_code,2026.09.09,543
 

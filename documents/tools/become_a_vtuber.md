@@ -1,4 +1,4 @@
-# 🎭 How to Become a VTuber
+# 🎭 Become a VTuber
 ::toc::
 ## 📖 Introduction
 
