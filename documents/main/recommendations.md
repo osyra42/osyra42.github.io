@@ -153,25 +153,20 @@
 | 7 | [Friday](https://www.imdb.com/title/tt0113118) | 1995 |
 | 8 | [Idiocracy](https://www.imdb.com/title/tt0387808) | 2006 |
 | 9 | [It](https://www.imdb.com/title/tt1396484) | 2017 |
-| 10 | [Little Nicky](https://www.imdb.com/title/tt0185431) | 2000 |
-| 11 | [M3GAN](https://www.imdb.com/title/tt8760708) | 2022 |
-| 12 | [Merlin](https://www.imdb.com/title/tt0130414) | 1998 |
-| 13 | [O Brother, Where Art Thou?](https://www.imdb.com/title/tt0190590) | 2000 |
-| 14 | [Office Space](https://www.imdb.com/title/tt0151804) | 1999 |
-| 15 | [Real Steel](https://www.imdb.com/title/tt0433035) | 2011 |
-| 16 | [Ride Along](https://www.imdb.com/title/tt1408253) | 2014 |
-| 17 | [Rose Red](https://www.imdb.com/title/tt0259153) | 2002 |
-| 18 | [Rubber](https://www.imdb.com/title/tt1612774) | 2010 |
-| 19 | [Saving Private Ryan](https://www.imdb.com/title/tt0120815) | 1998 |
-| 20 | [Smokey and the Bandit](https://www.imdb.com/title/tt0076729) | 1977 |
-| 21 | [Tenacious D in The Pick of Destiny](https://www.imdb.com/title/tt0365830) | 2006 |
-| 22 | [The Big Lebowski](https://www.imdb.com/title/tt0118715) | 1998 |
-| 23 | [The Breakfast Club](https://www.imdb.com/title/tt0088847) | 1985 |
-| 24 | [The Green Mile](https://www.imdb.com/title/tt0120689) | 1999 |
-| 25 | [The Wolf of Wall Street](https://www.imdb.com/title/tt0993846) | 2013 |
-| 26 | [V for Vendetta](https://www.imdb.com/title/tt0434409) | 2005 |
-| 27 | [Waterworld](https://www.imdb.com/title/tt0114898) | 1995 |
-| 28 | [We Are Legion: The Story of the Hacktivists](https://www.imdb.com/title/tt2177843) | 2012 |
+| 10 | [M3GAN](https://www.imdb.com/title/tt8760708) | 2022 |
+| 11 | [Merlin](https://www.imdb.com/title/tt0130414) | 1998 |
+| 12 | [O Brother, Where Art Thou?](https://www.imdb.com/title/tt0190590) | 2000 |
+| 13 | [Office Space](https://www.imdb.com/title/tt0151804) | 1999 |
+| 14 | [Ride Along](https://www.imdb.com/title/tt1408253) | 2014 |
+| 15 | [Rose Red](https://www.imdb.com/title/tt0259153) | 2002 |
+| 16 | [Rubber](https://www.imdb.com/title/tt1612774) | 2010 |
+| 17 | [Saving Private Ryan](https://www.imdb.com/title/tt0120815) | 1998 |
+| 18 | [Smokey and the Bandit](https://www.imdb.com/title/tt0076729) | 1977 |
+| 19 | [Tenacious D in The Pick of Destiny](https://www.imdb.com/title/tt0365830) | 2006 |
+| 20 | [The Green Mile](https://www.imdb.com/title/tt0120689) | 1999 |
+| 21 | [V for Vendetta](https://www.imdb.com/title/tt0434409) | 2005 |
+| 22 | [Waterworld](https://www.imdb.com/title/tt0114898) | 1995 |
+| 23 | [We Are Legion: The Story of the Hacktivists](https://www.imdb.com/title/tt2177843) | 2012 |
 
 ## 👻 Spooky Stories
 > I love Eldritch Horror and Abomination Scary Stories. Here are some audiobooks on youtube. 
@@ -205,7 +200,5 @@
 | 4 | [Strong Coffee, Muffiny](https://www.amazon.com/dp/B09ZPYSFL6) | $15 | Death Wish: Blue and Buried |
 | 5 | [Coffee Chocolate](https://www.amazon.com/dp/B07JYCPYQV) | $18 | SCHO-KA-KOLA Sampler |
 | 6 | [The Demo Tool](https://www.amazon.com/dp/B07DL1G86B) | $80 | Fiskars IsoCore Wrecking Bar |
-| 7 | [Redacted] | | |
-| 8 | [Sprocket Fidget](https://www.amazon.com/dp/B08R717M3S) | $22 | Sprocket Fidget Bike Chain |
-| 9 | [Redacted] | | |
-| 10 | [Magic Soap](https://www.amazon.com/dp/B00028EYJ8) | $17 | Dr. Bronner's Pure-Castile Magic Liquid Soap |
+| 7 | [Sprocket Fidget](https://www.amazon.com/dp/B08R717M3S) | $22 | Sprocket Fidget Bike Chain |
+| 8 | [Magic Soap](https://www.amazon.com/dp/B00028EYJ8) | $17 | Dr. Bronner's Pure-Castile Magic Liquid Soap |
